@@ -1,0 +1,11 @@
+{
+	"name" : "eelly/eelly-sdk-php",
+	"description" : "eelly sdk for php",
+	"type" : "library",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "eelly",
+			"email" : "eelly@eelly.com"
+		}
+	]
+}
