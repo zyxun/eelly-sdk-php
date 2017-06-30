@@ -21,7 +21,7 @@ class EellyClient
     private const URI = [
         'logger' => 'http://api.eelly.dev',
         'member' => 'http://api.eelly.dev',
-        'oauth' => 'http://api.eelly.dev',
+        'oauth'  => 'http://api.eelly.dev',
     ];
 
     /**
@@ -146,7 +146,7 @@ class EellyClient
             $p = null == $prefix ? $key : $prefix.'['.$key.']';
             if ($value instanceof UploadedFileInterface) {
                 $multipart[] = [
-                    'name' => $p,
+                    'name'     => $p,
                     'contents' => $value->getStream(),
                 ];
             } elseif (is_array($value)) {
@@ -156,7 +156,7 @@ class EellyClient
                 }
             } else {
                 $multipart[] = [
-                    'name' => $p,
+                    'name'     => $p,
                     'contents' => $value,
                 ];
             }
