@@ -33,11 +33,11 @@ class EellyClientTest extends TestCase
     {
         $this->testFile = __DIR__.'/resources/test.jpg';
         $options = [
-            'clientId' => 'myawesomeapp',
-            'clientSecret' => 'abc123',
-            'redirectUri' => '',
-            'urlAuthorize' => 'http://api.eelly.dev',
-            'urlAccessToken' => 'http://api.eelly.dev/oauth/authorizationServer/accessToken',
+            'clientId'                => 'myawesomeapp',
+            'clientSecret'            => 'abc123',
+            'redirectUri'             => '',
+            'urlAuthorize'            => 'http://api.eelly.dev',
+            'urlAccessToken'          => 'http://api.eelly.dev/oauth/authorizationServer/accessToken',
             'urlResourceOwnerDetails' => 'http://api.eelly.dev',
         ];
         $this->eellyClient = EellyClient::init($options);
