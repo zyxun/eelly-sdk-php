@@ -66,5 +66,14 @@ interface IndexInterface
      */
     public function returnfloat(): float;
 
+    /**
+     * @return null
+     */
     public function returnNull(): void;
+
+    /**
+     * @return bool
+     * @throws \Exception
+     */
+    public function throwException():bool;
 }
