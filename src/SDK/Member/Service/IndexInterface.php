@@ -73,6 +73,7 @@ interface IndexInterface
 
     /**
      * @throws \Member\Exception\LogicException
+     *
      * @return bool
      */
     public function throwException():bool;
