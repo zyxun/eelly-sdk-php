@@ -73,4 +73,10 @@ class IndexLoggerTest extends TestCase
         $return = $this->logger->returnNull();
         $this->assertNull($return);
     }
+
+    public function testThrowException():void
+    {
+        $return = $this->logger->throwException();
+        dd($return);
+    }
 }

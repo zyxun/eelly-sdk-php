@@ -99,4 +99,14 @@ class Index implements IndexInterface
     {
         EellyClient::request('member/index', __FUNCTION__);
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Eelly\SDK\Member\Service\IndexInterface::throwException()
+     */
+    public function throwException(): bool
+    {
+        EellyClient::request('member/index', __FUNCTION__);
+    }
 }
