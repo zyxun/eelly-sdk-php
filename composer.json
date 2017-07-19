@@ -11,7 +11,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"Eelly\\FastDFS\\":"src/SDK",
+			"Eelly\\SDK\\":"src/SDK",
 			"Eelly\\Exception\\":"src/Exception"
 		}
 	}
