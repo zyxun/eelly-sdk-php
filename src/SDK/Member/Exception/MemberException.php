@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /*
  * This file is part of eelly package.
  *
@@ -13,11 +15,8 @@ namespace Eelly\SDK\Member\Exception;
 use Eelly\Exception\LogicException;
 
 /**
- *
  * @author hehui<hehui@eelly.net>
- *
  */
 class MemberException extends LogicException
 {
-
 }

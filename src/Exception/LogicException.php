@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /*
  * This file is part of eelly package.
  *
@@ -14,12 +16,10 @@ namespace Eelly\Exception;
  * 逻辑异常.
  *
  * @author hehui<hehui@eelly.net>
- *
  */
 class LogicException extends \LogicException
 {
     /**
-     *
      * @var array
      */
     private $context;
@@ -30,7 +30,7 @@ class LogicException extends \LogicException
      * @param $code [optional]
      * @param $previous [optional]
      */
-    public function __construct ($message = null, array $context = null, $code = null, $previous = null)
+    public function __construct($message = null, array $context = null, $code = null, $previous = null)
     {
         parent::__construct($message, $code, $previous);
         // default context
@@ -45,7 +45,7 @@ class LogicException extends \LogicException
     }
 
     /**
-     * 获取上下文信息
+     * 获取上下文信息.
      *
      * @return array
      */
