@@ -32,7 +32,7 @@ class LogicException extends \LogicException
      */
     public function __construct($message = null, array $context = null, $code = null, $previous = null)
     {
-        parent::__construct($message, $code, $previous);
+        parent::__construct($message, (int)$code, $previous);
         // default context
         if (null === $context) {
             $context = [

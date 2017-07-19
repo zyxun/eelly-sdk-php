@@ -14,10 +14,11 @@ namespace Eelly\SDK\Member\Api;
 
 use Eelly\SDK\EellyClient;
 use PHPUnit\Framework\TestCase;
+use Eelly\SDK\Member\Exception\MemberException;
 
-class IndexLoggerTest extends TestCase
+class IndexLogicTest extends TestCase
 {
-    private $logger;
+    private $logic;
 
     /**
      * {@inheritdoc}
@@ -35,48 +36,48 @@ class IndexLoggerTest extends TestCase
             'urlResourceOwnerDetails' => 'http://api.eelly.dev',
         ];
         EellyClient::init($options);
-        $this->logger = new Index();
+        $this->logic = new Index();
     }
 
     public function testReturnInt(): void
     {
-        $return = $this->logger->returnInt();
+        $return = $this->logic->returnInt();
         $this->assertInternalType('int', $return);
     }
 
     public function testReturnString(): void
     {
-        $return = $this->logger->returnString();
+        $return = $this->logic->returnString();
         $this->assertInternalType('string', $return);
     }
 
     public function testReturnArray(): void
     {
-        $return = $this->logger->returnArray();
+        $return = $this->logic->returnArray();
         $this->assertInternalType('array', $return);
     }
 
     public function testReturnBool(): void
     {
-        $return = $this->logger->returnBool();
+        $return = $this->logic->returnBool();
         $this->assertInternalType('bool', $return);
     }
 
     public function testReturnfloat(): void
     {
-        $return = $this->logger->returnfloat();
+        $return = $this->logic->returnfloat();
         $this->assertInternalType('float', $return);
     }
 
     public function testReturnNull(): void
     {
-        $return = $this->logger->returnNull();
+        $return = $this->logic->returnNull();
         $this->assertNull($return);
     }
 
     public function testThrowException():void
     {
-        $return = $this->logger->throwException();
-        dd($return);
+        $this->expectException(MemberException::class);
+        $this->logic->throwException();
     }
 }
