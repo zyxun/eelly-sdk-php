@@ -72,8 +72,8 @@ interface IndexInterface
     public function returnNull(): void;
 
     /**
+     * @throws \Member\Exception\LogicException
      * @return bool
-     * @throws \Exception
      */
     public function throwException():bool;
 }
