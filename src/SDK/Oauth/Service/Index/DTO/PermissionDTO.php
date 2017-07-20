@@ -62,7 +62,4 @@ class PermissionDTO extends AbstractDTO
      * @var string 更新时间
      */
     public $update_time;
-
-
-
 }

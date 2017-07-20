@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Eelly\SDK\Member\Api;
 
 use Eelly\SDK\EellyClient;
-use PHPUnit\Framework\TestCase;
 use Eelly\SDK\Member\Exception\MemberException;
 use GuzzleHttp\Psr7\UploadedFile;
+use PHPUnit\Framework\TestCase;
 
 class IndexLogicTest extends TestCase
 {

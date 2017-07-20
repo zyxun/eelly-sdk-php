@@ -61,7 +61,7 @@ class ClientDTO extends AbstractDTO
     /**
      * @var int 认证类型(1：授权码模式，2：简化模式，3：密码模式，4：客户端模式)
      */
-    public  $auth_type;
+    public $auth_type;
 
     /**
      * @var int 添加时间
@@ -72,8 +72,4 @@ class ClientDTO extends AbstractDTO
      * @var string 修改时间
      */
     public $update_time;
-
-
-
-
 }
