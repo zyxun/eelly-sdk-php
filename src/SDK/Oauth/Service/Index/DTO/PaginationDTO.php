@@ -17,8 +17,6 @@ use Eelly\SDK\AbstractDTO;
 class PaginationDTO extends AbstractDTO
 {
     /**
-     *
-     *
      * @var int 第一页
      */
     public $first;
@@ -57,6 +55,4 @@ class PaginationDTO extends AbstractDTO
      * @var int 一页记录数
      */
     public $limit;
-
-
 }

@@ -17,9 +17,7 @@ use Eelly\SDK\Member\Service\Index\DTO\TimeDTO;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
- *
  * @author hehui<hehui@eelly.net>
- *
  */
 interface IndexInterface
 {
@@ -46,23 +44,21 @@ interface IndexInterface
      */
     public function uploadFileToFastDFS(string $name, UploadedFileInterface $file): ?FastDFSDTO;
 
-
     /**
      * 参数数组实例.
      *
      * 参数数组实例详细说明, 这是描述.
      *
-     * @param array $arr 公司
-     * @param string $arr['str'] 公司名
-     * @param int $arr['number'] 编号
-     * @param array $framework 框架
-     * @param string $framework[]['name'] 框架名
-     * @param bool $framework[]['status'] 状态
+     * @param array  $arr                   公司
+     * @param string $arr['str']            公司名
+     * @param int    $arr['number']         编号
+     * @param array  $framework             框架
+     * @param string $framework[]['name']   框架名
+     * @param bool   $framework[]['status'] 状态
      *
      * @requestExample([{"str":"衣联网","number":123},[{"name":"phalcon","status":true},{"name":"laravel","status":false}]])
      *
      * @returnExample(true)
-     *
      */
     public function paramArray(array $arr, array $bcc):bool;
 
