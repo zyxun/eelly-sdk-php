@@ -15,6 +15,7 @@ namespace Eelly\SDK\Member\Api;
 use Eelly\SDK\EellyClient;
 use PHPUnit\Framework\TestCase;
 use Eelly\SDK\Member\Exception\MemberException;
+use GuzzleHttp\Psr7\UploadedFile;
 
 class IndexLogicTest extends TestCase
 {
@@ -37,6 +38,13 @@ class IndexLogicTest extends TestCase
         ];
         EellyClient::init($options);
         $this->logic = new Index();
+    }
+
+    public function testUploadFileToFastDFS()
+    {
+        $file = new UploadedFile(dirname(__DIR__).'/../../../resources/test.jpg', 0, 0);
+        $return = Index::getInstance()->uploadFileToFastDFS('abc', $file);
+        $this->assertInstanceOf(\Eelly\SDK\Member\Service\Index\DTO\FastDFSDTO::class, $return);
     }
 
     public function testReturnInt(): void
