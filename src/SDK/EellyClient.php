@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Eelly\SDK;
 
+use Eelly\Exception\LogicException;
 use Eelly\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
 use Psr\Http\Message\UploadedFileInterface;
-use Eelly\Exception\LogicException;
 
 class EellyClient
 {

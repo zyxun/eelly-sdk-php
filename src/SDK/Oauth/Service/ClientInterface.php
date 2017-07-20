@@ -35,7 +35,7 @@ interface ClientInterface
      * @return array
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listClientPage(int $limit=10,int $currentPage=1):array;
+    public function listClientPage(int $limit = 10,int $currentPage = 1):array;
 
 
     /**

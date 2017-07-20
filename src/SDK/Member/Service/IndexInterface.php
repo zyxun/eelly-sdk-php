@@ -16,16 +16,21 @@ use Eelly\SDK\Member\Service\Index\DTO\FastDFSDTO;
 use Eelly\SDK\Member\Service\Index\DTO\TimeDTO;
 use Psr\Http\Message\UploadedFileInterface;
 
+/**
+ *
+ * @author hehui<hehui@eelly.net>
+ *
+ */
 interface IndexInterface
 {
     /**
-     * <h1>缓存注解示例.</h1>.
+     * 缓存注解示例..
      *
-     * <p>缓存注解缓存注解缓存注解缓存注解缓存注解
-     * 缓存注解缓存注解缓存注解缓存注解.</p>
+     * 缓存注解缓存注解缓存注解缓存注解缓存注解
+     * 缓存注解缓存注解缓存注解缓存注解.
      *
      * @param string $name 名称
-     * @returnExample({name: "eelly", time: "2017-06-01 10:10:10"})
+     * @returnExample({"name":"eelly","time":"2017-06-01 10:10:10"})
      *
      * @return TimeDTO
      */
@@ -40,6 +45,26 @@ interface IndexInterface
      * @return FastDFSDTO
      */
     public function uploadFileToFastDFS(string $name, UploadedFileInterface $file): ?FastDFSDTO;
+
+
+    /**
+     * 参数数组实例.
+     *
+     * 参数数组实例详细说明, 这是描述.
+     *
+     * @param array $arr 公司
+     * @param string $arr['str'] 公司名
+     * @param int $arr['number'] 编号
+     * @param array $framework 框架
+     * @param string $framework[]['name'] 框架名
+     * @param bool $framework[]['status'] 状态
+     *
+     * @requestExample([{"str":"衣联网","number":123},[{"name":"phalcon","status":true},{"name":"laravel","status":false}]])
+     *
+     * @returnExample(true)
+     *
+     */
+    public function paramArray(array $arr, array $bcc):bool;
 
     /**
      * @return int

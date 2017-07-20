@@ -37,7 +37,7 @@ interface ModuleInterface
      * @returnExample({"items":[{"module_id":"1","module_name":"user","status":"1","domain":"","created_time":"1498042082","update_time":"2017-06-21 10:51:02"}],"page":{"first":1,"before":1,"current":1,"last":11,"next":2,"total_pages":11,"total_items":11,"limit":1}})
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listModulePage(int $limit=10,int $currentPage=1):array ;
+    public function listModulePage(int $limit = 10,int $currentPage = 1):array ;
 
     /**
      * 返回模块服务列表.
@@ -55,7 +55,7 @@ interface ModuleInterface
      * @return array
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listModulServicePage(int $page=10,int $currentPage=1):array;
+    public function listModulServicePage(int $page = 10,int $currentPage = 1):array;
 
 
     /**
