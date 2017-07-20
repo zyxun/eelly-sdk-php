@@ -19,9 +19,7 @@ use Eelly\SDK\Member\Service\IndexInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
- *
  * @author hehui<hehui@eelly.net>
- *
  */
 class Index implements IndexInterface
 {
@@ -116,7 +114,6 @@ class Index implements IndexInterface
     }
 
     /**
-     *
      * @return self
      */
     public static function getInstance()
@@ -125,6 +122,7 @@ class Index implements IndexInterface
         if (null === $instance) {
             $instance = new self();
         }
+
         return $instance;
     }
 }

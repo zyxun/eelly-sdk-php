@@ -47,6 +47,4 @@ class ModuleDTO extends AbstractDTO
      * @var string 修改时间
      */
     public $update_time;
-
-
 }

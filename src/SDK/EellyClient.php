@@ -126,7 +126,7 @@ class EellyClient
             $returnType = $class[0];
             if (class_exists($returnType)) {
                 $array = json_decode((string) $response->getBody(), true);
-                if(is_subclass_of($returnType, LogicException::class)) {
+                if (is_subclass_of($returnType, LogicException::class)) {
                     throw new $returnType($array['error'], $array['context']);
                 } else {
                     $object = $returnType::hydractor($array);

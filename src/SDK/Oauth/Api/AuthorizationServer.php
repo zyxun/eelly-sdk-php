@@ -16,17 +16,12 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Oauth\Service\AuthorizationServerInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class AuthorizationServer implements AuthorizationServerInterface
 {
-
-    
     public function accessToken(): void
     {
         return EellyClient::request('oauth/authorizationserver', 'accessToken');
     }
-
-
 }
