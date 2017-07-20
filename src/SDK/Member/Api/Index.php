@@ -18,6 +18,11 @@ use Eelly\SDK\Member\Service\Index\DTO\TimeDTO;
 use Eelly\SDK\Member\Service\IndexInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
+/**
+ *
+ * @author hehui<hehui@eelly.net>
+ *
+ */
 class Index implements IndexInterface
 {
     /**
@@ -108,5 +113,18 @@ class Index implements IndexInterface
     public function throwException(): bool
     {
         EellyClient::request('member/index', __FUNCTION__);
+    }
+
+    /**
+     *
+     * @return self
+     */
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+        return $instance;
     }
 }

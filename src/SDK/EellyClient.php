@@ -15,6 +15,7 @@ namespace Eelly\SDK;
 use Eelly\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
 use Psr\Http\Message\UploadedFileInterface;
+use Eelly\Exception\LogicException;
 
 class EellyClient
 {
@@ -125,7 +126,11 @@ class EellyClient
             $returnType = $class[0];
             if (class_exists($returnType)) {
                 $array = json_decode((string) $response->getBody(), true);
-                $object = $returnType::hydractor($array);
+                if(is_subclass_of($returnType, LogicException::class)) {
+                    throw new $returnType($array['error'], $array['context']);
+                } else {
+                    $object = $returnType::hydractor($array);
+                }
             } elseif ('array' == $returnType) {
                 $object = json_decode((string) $response->getBody(), true);
             } else {
