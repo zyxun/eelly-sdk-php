@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -23,6 +24,26 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 class Index implements IndexInterface
 {
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Eelly\SDK\Member\Service\IndexInterface::paramsType()
+     */
+    public function paramsType(int $a, float $b, string $c, array $d, UploadedFileInterface $e):bool
+    {
+        return EellyClient::request('member/index', __FUNCTION__, $a, $b, $c, $d, $e);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Eelly\SDK\Member\Service\IndexInterface::paramArray()
+     */
+    public function paramArray(array $arr, array $framework):bool
+    {
+        return EellyClient::request('member/index', __FUNCTION__, $arr, $framework);
+    }
+
     /**
      * {@inheritdoc}
      *

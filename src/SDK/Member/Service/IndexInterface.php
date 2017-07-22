@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -21,6 +22,30 @@ use Psr\Http\Message\UploadedFileInterface;
  */
 interface IndexInterface
 {
+    /**
+     * 标题.
+     *
+     * 描述内容.
+     *
+     * @param int                   $a         参数说明
+     * @param float                 $b         参数说明
+     * @param string                $c         参数说明
+     * @param array                 $d         参数说明
+     * @param string                $d['akey'] key对应的说明
+     * @param int                   $d['bkey'] key对应的说明
+     * @param UploadedFileInterface $e         参数说明
+     *
+     * @throws \LogicException 异常说明
+     *
+     * @return bool 返回说明
+     *
+     *
+     * @requestExample([123, 1.234, "字符串", {"akey":"avalue", "bkey":123}, '文件内容'])
+     *
+     * @returnExample(true)
+     */
+    public function paramsType(int $a, float $b, string $c, array $d, UploadedFileInterface $e):bool;
+
     /**
      * 缓存注解示例..
      *
@@ -60,7 +85,7 @@ interface IndexInterface
      *
      * @returnExample(true)
      */
-    public function paramArray(array $arr, array $bcc):bool;
+    public function paramArray(array $arr, array $framework):bool;
 
     /**
      * @return int
@@ -93,7 +118,7 @@ interface IndexInterface
     public function returnNull(): void;
 
     /**
-     * @throws \Member\Exception\LogicException
+     * @throws \Eelly\SDK\Member\Exception\MemberException
      *
      * @return bool
      */
