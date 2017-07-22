@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -26,15 +27,16 @@ interface IndexInterface
      *
      * 描述内容.
      *
-     * @param int $a 参数说明
-     * @param float $b 参数说明
-     * @param string $c 参数说明
-     * @param array $d 参数说明
-     * @param string $d['akey'] key对应的说明
-     * @param int $d['bkey'] key对应的说明
-     * @param UploadedFileInterface $e 参数说明
+     * @param int                   $a         参数说明
+     * @param float                 $b         参数说明
+     * @param string                $c         参数说明
+     * @param array                 $d         参数说明
+     * @param string                $d['akey'] key对应的说明
+     * @param int                   $d['bkey'] key对应的说明
+     * @param UploadedFileInterface $e         参数说明
      *
      * @throws \LogicException 异常说明
+     *
      * @return bool 返回说明
      *
      *
