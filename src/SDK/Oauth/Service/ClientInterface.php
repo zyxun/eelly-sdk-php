@@ -32,14 +32,14 @@ interface ClientInterface
     /**
      * 分页获得客户端列表.
      *
-     * @param int $limit       每页页数
+     * @param string $clientKey 客户端key
+     * @param int $limit 每页页数
      * @param int $currentPage 当前页
-     *
      * @return array
-     *
+     * @returnExample({"items":[{"client_id":"1","client_key":"myawesomeapp","client_secret":"$2y$10$ZhlBMQNOUNSWt95LNMIfqePECBg85zwqjq7xS56uzQCllnQ4T9sgG","is_encrypt":"\u0001","user_id":"0","org_name":"eelly","app_name":"myapp","redirect_uri":"","auth_type":"4","created_time":"0","update_time":"2017-06-13 14:29:53"}],"page":{"first":1,"before":1,"current":1,"last":14,"next":2,"total_pages":14,"total_items":14,"limit":1}})
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listClientPage(int $limit = 10, int $currentPage = 1):array;
+    public function listClientPage(string $clientKey=null,int $limit = 10, int $currentPage = 1): array;
 
     /**
      * 获得客户端列表.
