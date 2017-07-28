@@ -69,7 +69,7 @@ interface RoleInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-25
      */
-    public function addRoleClient(int $roleId, array $clientIds): bool;
+    public function addRoleClientBatch(int $roleId, array $clientIds): bool;
 
     /**
      * 批量新增|更新角色权限.
