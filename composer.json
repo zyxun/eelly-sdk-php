@@ -1,11 +1,18 @@
 {
-	"name" : "eelly/eelly-sdk-php",
-	"description" : "eelly sdk for php",
-	"type" : "library",
-	"license" : "MIT",
-	"authors" : [{
-			"name" : "eelly",
-			"email" : "eelly@eelly.com"
+	"name": "eelly/eelly-sdk-php",
+	"description": "eelly sdk for php",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Eelly",
+			"homepage": "https://www.eelly.com"
 		}
-	]
+	],
+	"autoload": {
+		"psr-4": {
+			"Eelly\\SDK\\":"src/SDK",
+			"Eelly\\Exception\\":"src/Exception"
+		}
+	}
 }
