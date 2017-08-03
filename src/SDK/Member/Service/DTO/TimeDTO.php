@@ -13,9 +13,24 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Member\Service\Index\DTO;
 
-use Eelly\SDK\AbstractDTO;
+use Eelly\DTO\AbstractDTO;
 
-class FastDFSDTO extends AbstractDTO
+/**
+ * @author hehui<hehui@eelly.net>
+ */
+class TimeDTO extends AbstractDTO
 {
-    public $fastdfsFilePath;
+    /**
+     * 名称.
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * 时间.
+     *
+     * @var string
+     */
+    public $time;
 }

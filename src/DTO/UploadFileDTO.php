@@ -11,26 +11,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Member\Service\Index\DTO;
+namespace Eelly\DTO;
 
-use Eelly\SDK\AbstractDTO;
+use GuzzleHttp\Psr7\UploadedFile;
 
 /**
+ * 封装给客户端使用的上传文件DTO.
+ *
  * @author hehui<hehui@eelly.net>
  */
-class TimeDTO extends AbstractDTO
+class UploadFileDTO extends UploadedFile
 {
-    /**
-     * 名称.
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * 时间.
-     *
-     * @var string
-     */
-    public $time;
+    public function __construct($streamOrFile)
+    {
+        parent::__construct($streamOrFile, 0, UPLOAD_ERR_OK);
+    }
 }

@@ -11,42 +11,42 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Message\Service\Index\DTO;
+namespace Eelly\DTO;
 
-use Eelly\SDK\AbstractDTO;
+use Eelly\DTO\AbstractDTO;
 
-class TemplateDTO extends AbstractDTO
+class UserDTO extends AbstractDTO
 {
     /**
-     * 消息模板ID，自增主键
+     * 用户ID，自增主键
      *
      * @var int
      */
-    public $mt_id;
+    public $user_id;
 
     /**
-     * 消息模板类型：1 站内消息 2 邮件 4 手机短信
-     *
-     * @var int
-     */
-    public $type;
-
-    /**
-     * 消息模板名称
+     * 用户帐号
      *
      * @var string
      */
-    public $name;
+    public $username;
 
     /**
-     * 消息模板内容
+     * 绑定手机
      *
      * @var string
      */
-    public $content;
+    public $mobile;
 
     /**
-     * 状态：0 未启用 1 启用
+     * 头像
+     *
+     * @var string
+     */
+    public $avatar;
+
+    /**
+     * 用户状态：0 正常 1 风险帐户 2 禁止登陆 3 黑名单
      *
      * @var int
      */

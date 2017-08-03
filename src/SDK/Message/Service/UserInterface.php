@@ -10,6 +10,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Message\Service;
+use Eelly\DTO\UserDTO;
 
 
 /**
@@ -45,12 +46,12 @@ interface UserInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function updateMessageUserStatus(int $muId,int $isRead):bool ;
+    public function updateMessageUserStatus(int $muId,int $isRead,UserDTO $user):bool ;
 
     /**
      * 分页获取用户消息.
      *
-     * @param int|null $receiverId 当该参数不为空，返回该用户消息，参数为空，返回所有用户消息
+     * @param UserDTO|null $user 所有用户对象,当该参数不为空，返回该用户消息，参数为空，返回所有用户消息
      * @param int $limit 每页条数
      * @param int $currentPage 当前页
      * @return array
@@ -60,7 +61,7 @@ interface UserInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function listMessageUserPage(int $receiverId=null,int $limit=10,int $currentPage=1):array ;
+    public function listMessageUserPage(UserDTO $user=null,int $limit=10,int $currentPage=1):array ;
 
     /**
      * 获取用户消息.

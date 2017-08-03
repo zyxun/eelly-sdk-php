@@ -10,6 +10,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Message\Service;
+use Eelly\DTO\UserDTO;
 
 
 /**
@@ -31,7 +32,7 @@ interface ReplyInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function addMessageReply(int $messageId,int $userId,string $content):int;
+    public function addMessageReply(int $messageId,string $content,UserDTO $user):int;
 
     /**
      * 更新用户消息回复状态.
@@ -45,7 +46,7 @@ interface ReplyInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function updateMessageReplyStatus(int $mrId,int $isRead):bool ;
+    public function updateMessageReplyStatus(int $mrId,int $isRead,UserDTO $user):bool ;
 
     /**
      * 获取指定messageId的所有回复列表.

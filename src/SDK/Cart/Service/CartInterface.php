@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @license   衣联网版权所有
  */
 namespace Eelly\SDK\Cart\Service;
-use Eelly\SDK\Message\Service\Index\DTO\UserDTO;
+use Eelly\DTO\UserDTO;
 
 
 /**

@@ -10,7 +10,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Message\Service;
-use Eelly\SDK\Message\Service\Index\DTO\UserDTO;
+use Eelly\DTO\UserDTO;
 
 
 /**
