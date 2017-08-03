@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Service\Index\DTO;
 
-use Eelly\SDK\AbstractDTO;
+use Eelly\DTO\AbstractDTO;
 
 class ModuleDTO extends AbstractDTO
 {
