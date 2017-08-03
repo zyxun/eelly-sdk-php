@@ -12,8 +12,8 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Oauth\Service;
+use Eelly\SDK\Oauth\Service\DTO\PermissionDTO;
 
-use Eelly\SDK\Oauth\Service\Index\DTO\PermissionDTO;
 
 /**
  * @author liangxinyi<liangxinyi@eelly.net>

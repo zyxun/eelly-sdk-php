@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Oauth\Service\Index\DTO\PermissionDTO;
+use Eelly\SDK\Oauth\Service\DTO\PermissionDTO;
 use Eelly\SDK\Oauth\Service\PermissionInterface;
 
 /**
