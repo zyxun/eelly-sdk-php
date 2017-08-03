@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Service;
 
-use Eelly\SDK\Oauth\Service\Index\DTO\ClientDTO;
+use Eelly\SDK\Oauth\Service\DTO\ClientDTO;
 
 /**
  * @author liangxinyi<liangxinyi@eelly.net>

@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Member\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Member\Service\Index\DTO\FastDFSDTO;
-use Eelly\SDK\Member\Service\Index\DTO\TimeDTO;
+use Eelly\SDK\Member\Service\DTO\FastDFSDTO;
+use Eelly\SDK\Member\Service\DTO\TimeDTO;
 use Eelly\SDK\Member\Service\IndexInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
