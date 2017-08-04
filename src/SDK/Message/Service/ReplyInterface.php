@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 use Eelly\DTO\UserDTO;
+use Eelly\SDK\Message\Service\DTO\MessageReplyDTO;
 
 
 /**
@@ -23,7 +24,7 @@ interface ReplyInterface
      * 添加消息回复.
      *
      * @param int $messageId 消息ID
-     * @param int $userId 回复用户ID
+     * @param int $replay_receiver_id 回复接收者ID
      * @param string $content 回复内容
      * @return int
      * @requestExample([1,2,"测试消息回复"])
@@ -32,7 +33,7 @@ interface ReplyInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function addMessageReply(int $messageId,string $content,UserDTO $user):int;
+    public function addMessageReply(int $messageId,int $replay_receiver_id,string $content,UserDTO $user):int;
 
     /**
      * 更新用户消息回复状态.
@@ -70,18 +71,22 @@ interface ReplyInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function deleteMessageReply(int $mrId):bool ;
+    public function deleteMessageReply(int $mrId,UserDTO $user):bool;
 
     /**
+     * 获得指定id消息回复.
+     *
      * @param int $mrId 消息回复id
-     * @return bool
-     * @requestExample(1)
-     * @returnExample(true)
+     * @return MessageReplyDTO
+     * @requestExample()
+     * @returnExample()
      * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
-     * @since 2017-8-1
+     * @since 2017-8-4
      */
-    public function updateMessageReply(int $mrId):bool ;
+    public function getMessageReply(int $mrId):MessageReplyDTO;
+
+
 
 
 
