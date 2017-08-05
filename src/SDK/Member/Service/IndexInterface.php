@@ -35,6 +35,7 @@ interface IndexInterface
      * @param UploadedFileInterface $e 参数说明
      *
      * @throws \LogicException 异常说明
+     *
      * @return bool 返回说明
      *
      *

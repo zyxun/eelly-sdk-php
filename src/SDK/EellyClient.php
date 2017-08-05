@@ -119,7 +119,6 @@ class EellyClient
             ];
         }
         $request = $provider->getAuthenticatedRequest(EellyProvider::METHOD_POST, $uri, $accessToken->getToken(), $options);
-
         $response = $provider->getResponse($request);
         $class = $response->getHeader('ReturnType');
         if (!empty($class)) {
@@ -159,7 +158,7 @@ class EellyClient
                 foreach ($parentMultipart as $part) {
                     $multipart[] = $part;
                 }
-            } else {
+            } elseif (!is_null($value)) {
                 $multipart[] = [
                     'name'     => $p,
                     'contents' => $value,
