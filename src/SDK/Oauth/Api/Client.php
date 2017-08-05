@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -14,7 +15,7 @@ namespace Eelly\SDK\Oauth\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Oauth\Service\ClientInterface;
-use Eelly\SDK\Oauth\Service\Index\DTO\ClientDTO;
+use Eelly\SDK\Oauth\Service\DTO\ClientDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,8 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Member\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Member\Service\Index\DTO\FastDFSDTO;
-use Eelly\SDK\Member\Service\Index\DTO\TimeDTO;
+use Eelly\SDK\Member\Service\DTO\FastDFSDTO;
+use Eelly\SDK\Member\Service\DTO\TimeDTO;
 use Eelly\SDK\Member\Service\IndexInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
@@ -24,8 +25,8 @@ use Psr\Http\Message\UploadedFileInterface;
 class Index implements IndexInterface
 {
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Member\Service\IndexInterface::paramsType()
      */
     public function paramsType(int $a, float $b, string $c, array $d, UploadedFileInterface $e):bool
@@ -34,8 +35,8 @@ class Index implements IndexInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Member\Service\IndexInterface::paramArray()
      */
     public function paramArray(array $arr, array $framework):bool

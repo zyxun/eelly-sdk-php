@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Oauth\Service\Index\DTO\PermissionDTO;
+use Eelly\SDK\Oauth\Service\DTO\PermissionDTO;
 use Eelly\SDK\Oauth\Service\PermissionInterface;
 
 /**
