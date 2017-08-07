@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\UserDTO;
 
 /**
  *
@@ -18,6 +19,46 @@ namespace Eelly\SDK\User\Service;
  */
 interface UserInterface
 {
+
+    /**
+     * 检查用户密码.
+     *
+     * @param string $username 用户名(支持使用用户名和手机号)
+     * @param string $password 用户密码
+     * @return bool 该用户密码是否正确
+     */
+    public function checkPassword(string $username, string $password):bool;
+
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getUser(int $UserId): UserDTO;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addUser(array $data): bool;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateUser(int $UserId, array $data): bool;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteUser(int $UserId): bool;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listUserPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
 
 
 }

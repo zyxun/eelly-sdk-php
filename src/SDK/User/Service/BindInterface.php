@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\BindDTO;
 
 /**
  *
@@ -18,6 +19,36 @@ namespace Eelly\SDK\User\Service;
  */
 interface BindInterface
 {
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getBind(int $BindId): BindDTO;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addBind(array $data): bool;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateBind(int $BindId, array $data): bool;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteBind(int $BindId): bool;
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listBindPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
 
 
 }
