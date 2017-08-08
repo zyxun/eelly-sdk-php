@@ -10,14 +10,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Service\Service;
+namespace Eelly\SDK\Order\Service;
 
 
 /**
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface SellerInterface
+interface RefundLogInterface
 {
 
 

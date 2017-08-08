@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Message\Service;
@@ -28,10 +29,10 @@ interface SmsInterface
      * @param int $messageSms['status'] 发送状态：0 待发送 1 成功 2 已发送，状态未知 4 失败
      * @param string $messageSms['channel'] 发送通道：dsf东时方 yy优易 emay亿美 topen 拓鹏
      * @param string $messageSms['response'] 状态报告
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      * @return int
      * @requestExample([""])
      * @returnExample(1)
-     * @throws \Eelly\SDK\Message\Exception\MessageException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-3
      */

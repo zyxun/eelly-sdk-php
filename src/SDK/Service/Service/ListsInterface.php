@@ -17,7 +17,7 @@ namespace Eelly\SDK\Service\Service;
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface SellerInterface
+interface ListsInterface
 {
 
 
