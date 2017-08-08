@@ -26,9 +26,19 @@ interface UserInterface
      * @param string $username 用户名(支持使用用户名和手机号)
      * @param string $password 用户密码
      * @return bool 该用户密码是否正确
+     * @throws \Eelly\Exception\LogicException
      */
     public function checkPassword(string $username, string $password):bool;
 
+    /**
+     * 通过密码获取用户信息.
+     *
+     * @param string $username 用户名(支持使用用户名和手机号)
+     * @param string $password 用户密码
+     * @return UserDTO
+     * @throws \Eelly\Exception\LogicException
+     */
+    public function getUserByPassword(string $username, string $password):UserDTO;
 
     /**
      *
