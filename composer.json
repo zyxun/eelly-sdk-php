@@ -13,7 +13,7 @@
 		"psr-4": {
 			"Eelly\\SDK\\":"src/SDK",
 			"Eelly\\Exception\\":"src/Exception",
-			"Eelly\\DTO\\":"src/DTO",
+			"Eelly\\DTO\\":"src/DTO"
 		}
 	}
 }
