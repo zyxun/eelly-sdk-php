@@ -37,33 +37,4 @@ class UserDTO extends AbstractDTO
      * @var string
      */
     public $mobile;
-
-    /**
-     * 头像
-     *
-     * @var string
-     */
-    public $avatar;
-
-    /**
-     * 用户状态：0 正常 1 风险帐户 2 禁止登陆 3 黑名单
-     *
-     * @var int
-     */
-    public $status;
-
-    /**
-     * 添加时间
-     *
-     * @var int
-     */
-    public $created_time;
-
-    /**
-     * 修改时间
-     *
-     * @var unknown
-     */
-    public $update_time;
-
 }

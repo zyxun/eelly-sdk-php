@@ -159,7 +159,7 @@ class EellyClient
                 foreach ($parentMultipart as $part) {
                     $multipart[] = $part;
                 }
-            } elseif (!is_null($value)) {
+            } elseif (null !== $value) {
                 $multipart[] = [
                     'name'     => $p,
                     'contents' => $value,

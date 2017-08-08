@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
 namespace Eelly\SDK\Cart\Service;
 use Eelly\DTO\UserDTO;
 
@@ -27,10 +29,10 @@ interface CartInterface
      * @param int $quantity 商品数量
      * @param int $price 商品价格，单位为分
      * @param UserDTO $user 用户信息
+     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @return bool 返回bool值
      * @requestExample([1,2,1,2,10000,{"user_id":"1","username":"liangxinyi"}])
      * @returnExample(true)
-     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-31
      */
@@ -40,10 +42,10 @@ interface CartInterface
      * 清空购物车.
      *
      * @param UserDTO $user 用户信息
+     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @return bool
      * @requestExample({"user_id":"1","username":"liangxinyi"})
      * @returnExample(true)
-     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-31
      */
@@ -67,11 +69,11 @@ interface CartInterface
      * @param int string 指定购物车key值，数据格式$cartId='goods_1_2'
      * @param int $spId 商品规格id
      * @param UserDTO $user 用户信息
+     * @throws \InvalidArgumentException
+     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @return bool
      * @requestExample(['goods_1_2',{"user_id":"1","username":"liangxinyi"}])
      * @returnExample(true)
-     * @throws \InvalidArgumentException
-     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-31
      */
@@ -83,11 +85,11 @@ interface CartInterface
      * @param string $cartId 指定购物车key值，数据格式$cartId='goods_1_2'
      * @param int $quantity 商品数量
      * @param UserDTO $user 用户信息
+     * @throws \InvalidArgumentException
+     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @return bool
      * @requestExample(['goods_1_2,3',{"user_id":"1","username":"liangxinyi"}])
      * @returnExample(true)
-     * @throws \InvalidArgumentException
-     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-31
      */
@@ -99,11 +101,11 @@ interface CartInterface
      *
      * @param array $cartIds 购物车key值id数组,数据格式$cartIds=[0=>'goods_1_2']
      * @param UserDTO $user 用户信息
+     * @throws \InvalidArgumentException
+     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @return bool
      * @requestExample([[1,2,3],{"user_id":"1","username":"liangxinyi"}])
      * @returnExample(true)
-     * @throws \InvalidArgumentException
-     * @throws \Eelly\SDK\Cart\Exception\CartException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-31
      */

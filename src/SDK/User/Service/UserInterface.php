@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\User\Service;
@@ -25,8 +26,8 @@ interface UserInterface
      *
      * @param string $username 用户名(支持使用用户名和手机号)
      * @param string $password 用户密码
-     * @return bool 该用户密码是否正确
      * @throws \Eelly\Exception\LogicException
+     * @return bool 该用户密码是否正确
      */
     public function checkPassword(string $username, string $password):bool;
 
@@ -35,8 +36,8 @@ interface UserInterface
      *
      * @param string $username 用户名(支持使用用户名和手机号)
      * @param string $password 用户密码
-     * @return UserDTO
      * @throws \Eelly\Exception\LogicException
+     * @return UserDTO
      */
     public function getUserByPassword(string $username, string $password):UserDTO;
 
