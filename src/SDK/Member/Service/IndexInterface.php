@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Member\Service;
 
-use Eelly\SDK\Member\Service\DTO\FastDFSDTO;
+use Eelly\DTO\FastDFSDTO;
 use Eelly\SDK\Member\Service\DTO\TimeDTO;
 use Psr\Http\Message\UploadedFileInterface;
 
