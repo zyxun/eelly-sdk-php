@@ -88,7 +88,6 @@ class EellyClient
      */
     public function getAccessToken($grant, array $options = [])
     {
-        // TODO cache
         return $this->provider->getAccessToken($grant, $options);
     }
 
