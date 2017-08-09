@@ -5,3 +5,6 @@
 [![StyleCI](https://styleci.io/repos/95067206/shield?branch=master)](https://styleci.io/repos/95067206)
 
 ## About Eelly eelly-sdk-php
+
+## Install
+`composer require eelly/eelly-sdk-php`
