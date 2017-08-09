@@ -23,6 +23,16 @@ class Store implements StoreInterface
 {
 
     /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\StoreInterface::addStore()
+     */
+    public function addStore(array $storeData): bool
+    {
+        return EellyClient::request('store/addStore', __FUNCTION__, $storeData);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance() :self
