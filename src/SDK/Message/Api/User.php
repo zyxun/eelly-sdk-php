@@ -12,20 +12,17 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Message\Service\UserInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class User implements UserInterface
 {
-
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

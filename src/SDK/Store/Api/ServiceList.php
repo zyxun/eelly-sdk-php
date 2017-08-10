@@ -12,20 +12,17 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\ServiceListInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class ServiceList implements ServiceListInterface
 {
-
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

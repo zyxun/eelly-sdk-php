@@ -12,20 +12,17 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Service\Service\SellerInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Seller implements SellerInterface
 {
-
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

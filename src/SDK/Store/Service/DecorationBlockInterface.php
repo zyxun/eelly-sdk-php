@@ -12,13 +12,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Service;
 
-
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface DecorationBlockInterface
 {
-
-
 }

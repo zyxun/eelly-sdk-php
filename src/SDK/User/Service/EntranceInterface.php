@@ -15,41 +15,32 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\EntranceDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EntranceInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getEntrance(int $EntranceId): EntranceDTO;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addEntrance(array $data): bool;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateEntrance(int $EntranceId, array $data): bool;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteEntrance(int $EntranceId): bool;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listEntrancePage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
-
-
 }

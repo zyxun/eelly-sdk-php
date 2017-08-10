@@ -12,20 +12,17 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Goods\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Goods\Service\WeightItemInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class WeightItem implements WeightItemInterface
 {
-
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

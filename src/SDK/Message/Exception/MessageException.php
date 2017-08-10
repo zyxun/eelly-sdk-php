@@ -20,18 +20,17 @@ use Eelly\Exception\LogicException;
  */
 class MessageException extends LogicException
 {
-    const PARAMETER_ERROR = '参数有误';
+    public const PARAMETER_ERROR = '参数有误';
 
-    const DATA_NOT_EXIT = '记录不存在';
+    public const DATA_NOT_EXIT = '记录不存在';
 
-    const DATA_INSERT_FAIL = '插入失败';
+    public const DATA_INSERT_FAIL = '插入失败';
 
-    const DATA_UPDATE_FAIL = '更新失败';
+    public const DATA_UPDATE_FAIL = '更新失败';
 
-    const DATA_DELETE_FAIL = '删除失败';
+    public const DATA_DELETE_FAIL = '删除失败';
 
-    const DATA_ALREADER_EXIT = '该数据已经存在';
+    public const DATA_ALREADER_EXIT = '该数据已经存在';
 
-    const  NO_PERMISSIONS = '没有该权限操作';
-
+    public const  NO_PERMISSIONS = '没有该权限操作';
 }

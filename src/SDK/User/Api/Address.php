@@ -17,14 +17,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\AddressInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Address implements AddressInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getAddress(int $AddressId): AddressDTO
@@ -33,7 +30,6 @@ class Address implements AddressInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addAddress(array $data): bool
@@ -42,16 +38,14 @@ class Address implements AddressInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateAddress(int $AddressId,array $data): bool
+    public function updateAddress(int $AddressId, array $data): bool
     {
         return EellyClient::request('user/address', 'updateAddress', $AddressId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteAddress(int $AddressId): bool
@@ -60,10 +54,9 @@ class Address implements AddressInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listAddressPage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listAddressPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/address', 'listAddressPage', $condition, $limit, $currentPage);
     }

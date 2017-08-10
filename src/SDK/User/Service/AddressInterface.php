@@ -15,41 +15,32 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\AddressDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface AddressInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getAddress(int $AddressId): AddressDTO;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addAddress(array $data): bool;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateAddress(int $AddressId, array $data): bool;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteAddress(int $AddressId): bool;
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listAddressPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
-
-
 }

@@ -17,14 +17,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\ScoreInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Score implements ScoreInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getScore(int $ScoreId): ScoreDTO
@@ -33,7 +30,6 @@ class Score implements ScoreInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addScore(array $data): bool
@@ -42,16 +38,14 @@ class Score implements ScoreInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateScore(int $ScoreId,array $data): bool
+    public function updateScore(int $ScoreId, array $data): bool
     {
         return EellyClient::request('user/score', 'updateScore', $ScoreId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteScore(int $ScoreId): bool
@@ -60,10 +54,9 @@ class Score implements ScoreInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listScorePage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listScorePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/score', 'listScorePage', $condition, $limit, $currentPage);
     }

@@ -16,15 +16,13 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\StoreInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Store implements StoreInterface
 {
-
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\StoreInterface::addStore()
      */
     public function addStore(array $storeData): bool
@@ -35,7 +33,7 @@ class Store implements StoreInterface
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

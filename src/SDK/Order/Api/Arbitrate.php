@@ -12,20 +12,17 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\ArbitrateInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Arbitrate implements ArbitrateInterface
 {
-
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

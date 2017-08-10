@@ -12,20 +12,17 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\OfflineGoodsInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class OfflineGoods implements OfflineGoodsInterface
 {
-
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

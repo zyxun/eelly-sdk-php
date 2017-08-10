@@ -17,14 +17,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\ExtendInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Extend implements ExtendInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getExtend(int $ExtendId): ExtendDTO
@@ -33,7 +30,6 @@ class Extend implements ExtendInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addExtend(array $data): bool
@@ -42,16 +38,14 @@ class Extend implements ExtendInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateExtend(int $ExtendId,array $data): bool
+    public function updateExtend(int $ExtendId, array $data): bool
     {
         return EellyClient::request('user/extend', 'updateExtend', $ExtendId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteExtend(int $ExtendId): bool
@@ -60,10 +54,9 @@ class Extend implements ExtendInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listExtendPage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listExtendPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/extend', 'listExtendPage', $condition, $limit, $currentPage);
     }

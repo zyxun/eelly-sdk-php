@@ -17,14 +17,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\AuthInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Auth implements AuthInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getAuth(int $AuthId): AuthDTO
@@ -33,7 +30,6 @@ class Auth implements AuthInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addAuth(array $data): bool
@@ -42,16 +38,14 @@ class Auth implements AuthInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateAuth(int $AuthId,array $data): bool
+    public function updateAuth(int $AuthId, array $data): bool
     {
         return EellyClient::request('user/auth', 'updateAuth', $AuthId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteAuth(int $AuthId): bool
@@ -60,10 +54,9 @@ class Auth implements AuthInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listAuthPage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listAuthPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/auth', 'listAuthPage', $condition, $limit, $currentPage);
     }

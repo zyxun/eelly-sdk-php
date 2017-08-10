@@ -17,14 +17,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\EntranceInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Entrance implements EntranceInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getEntrance(int $EntranceId): EntranceDTO
@@ -33,7 +30,6 @@ class Entrance implements EntranceInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addEntrance(array $data): bool
@@ -42,16 +38,14 @@ class Entrance implements EntranceInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateEntrance(int $EntranceId,array $data): bool
+    public function updateEntrance(int $EntranceId, array $data): bool
     {
         return EellyClient::request('user/entrance', 'updateEntrance', $EntranceId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteEntrance(int $EntranceId): bool
@@ -60,10 +54,9 @@ class Entrance implements EntranceInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listEntrancePage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listEntrancePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/entrance', 'listEntrancePage', $condition, $limit, $currentPage);
     }
