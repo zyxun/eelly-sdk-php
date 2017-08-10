@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -11,11 +10,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Member\Service\DTO;
+namespace Eelly\SDK\Service\Service;
 
-use Eelly\DTO\AbstractDTO;
 
-class FastDFSDTO extends AbstractDTO
+/**
+ *
+ * @author eellytools<localhost.shell@gmail.com>
+ */
+interface ListsInterface
 {
-    public $fastdfsFilePath;
+
+
 }

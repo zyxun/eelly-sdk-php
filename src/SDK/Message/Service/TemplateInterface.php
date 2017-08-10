@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Message\Service;
@@ -44,10 +45,10 @@ interface TemplateInterface
      * @param string $name 消息模板名称
      * @param string $content 消息模板内容
      * @param int $status  状态：0 未启用 1 启用
+     * @throws \Eelly\SDK\Message\Exception\CartException
      * @return bool
      * @requestExample([1,1,"模板名称","模板内容"])
      * @returnExample(true)
-     * @throws \Eelly\SDK\Message\Exception\CartException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-28
      */
@@ -65,7 +66,7 @@ interface TemplateInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-28
      */
-    public function listTemplatePage(array $where=null,int $limit=10,int $currentPage=1):array ;
+    public function listTemplatePage(array $where = null,int $limit = 10,int $currentPage = 1):array ;
 
     /**
      * 更新指定消息模板id状态.
@@ -98,10 +99,10 @@ interface TemplateInterface
      *
      * @param int $mtId 消息模板id
      * @param array $content 消息内容,$content的key值必须要该模板{{key}}相同
+     * @throws \Eelly\Exception\LogicException
      * @return UserDTO
      * @requestExample([1,{'dddd','sss','ddddu'}])
      * @returnExample({"mt_id":"1","type":"1","name":"\u6d4b\u8bd5\u6a21\u677f\u6d88\u606f","content":"\u4f60\u597ddddd\uff0c\u6d4b\u8bd5sss\uff0c\u6b63\u786e\u4e48ddddu","status":"1","created_time":"0","update_time":"2017-08-02 11:35:55"})
-     * @throws \Eelly\Exception\LogicException
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-2
      */

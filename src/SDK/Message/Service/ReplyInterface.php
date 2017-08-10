@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Message\Service;
@@ -26,10 +27,10 @@ interface ReplyInterface
      * @param int $messageId 消息ID
      * @param int $replay_receiver_id 回复接收者ID
      * @param string $content 回复内容
+     * @throws \Eelly\SDK\
      * @return int
      * @requestExample([1,2,"测试消息回复"])
      * @returnExample(1)
-     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
@@ -40,10 +41,10 @@ interface ReplyInterface
      *
      * @param int $mrId 回复id
      * @param int $isRead 是否已读：0 否 1 是
+     * @throws \Eelly\SDK\
      * @return bool
      * @requestExample([1,1])
      * @returnExample(true)
-     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
@@ -53,10 +54,10 @@ interface ReplyInterface
      * 获取指定messageId的所有回复列表.
      *
      * @param int messageId 消息ID
+     * @throws \Eelly\SDK\
      * @return array
      * @requestExample(1)
      * @returnExample()
-     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
@@ -64,10 +65,10 @@ interface ReplyInterface
 
     /**
      * @param int $mrId 消息回复id
+     * @throws \Eelly\SDK\
      * @return bool
      * @requestExample(1)
      * @returnExample(true)
-     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
@@ -77,10 +78,10 @@ interface ReplyInterface
      * 获得指定id消息回复.
      *
      * @param int $mrId 消息回复id
+     * @throws \Eelly\SDK\
      * @return MessageReplyDTO
      * @requestExample()
      * @returnExample()
-     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-4
      */

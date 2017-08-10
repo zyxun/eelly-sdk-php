@@ -88,7 +88,6 @@ class EellyClient
      */
     public function getAccessToken($grant, array $options = [])
     {
-        // TODO cache
         return $this->provider->getAccessToken($grant, $options);
     }
 
@@ -120,7 +119,6 @@ class EellyClient
             ];
         }
         $request = $provider->getAuthenticatedRequest(EellyProvider::METHOD_POST, $uri, $accessToken->getToken(), $options);
-
         $response = $provider->getResponse($request);
         $class = $response->getHeader('ReturnType');
         if (!empty($class)) {
@@ -130,10 +128,11 @@ class EellyClient
                 if (is_subclass_of($returnType, LogicException::class)) {
                     throw new $returnType($array['error'], $array['context']);
                 } else {
-                    $object = $returnType::hydractor($array);
+                    $object = $returnType::hydractor($array['data']);
                 }
             } elseif ('array' == $returnType) {
                 $object = json_decode((string) $response->getBody(), true);
+                $object = $object['data'];
             } else {
                 $object = (string) $response->getBody();
                 settype($object, $returnType);
@@ -160,7 +159,7 @@ class EellyClient
                 foreach ($parentMultipart as $part) {
                     $multipart[] = $part;
                 }
-            } else {
+            } elseif (null !== $value) {
                 $multipart[] = [
                     'name'     => $p,
                     'contents' => $value,
