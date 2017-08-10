@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,20 +13,17 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\EvaluationGoodsInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class EvaluationGoods implements EvaluationGoodsInterface
 {
-
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

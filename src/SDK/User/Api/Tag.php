@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -17,14 +18,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\TagInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Tag implements TagInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getTag(int $TagId): TagDTO
@@ -33,7 +31,6 @@ class Tag implements TagInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addTag(array $data): bool
@@ -42,16 +39,14 @@ class Tag implements TagInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateTag(int $TagId,array $data): bool
+    public function updateTag(int $TagId, array $data): bool
     {
         return EellyClient::request('user/tag', 'updateTag', $TagId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteTag(int $TagId): bool
@@ -60,10 +55,9 @@ class Tag implements TagInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listTagPage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listTagPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/tag', 'listTagPage', $condition, $limit, $currentPage);
     }

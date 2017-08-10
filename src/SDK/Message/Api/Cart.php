@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,15 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Message\Service\CartInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Cart implements CartInterface
 {
-
-
 }

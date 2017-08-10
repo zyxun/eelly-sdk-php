@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,12 +13,10 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\AddressInterface;
 use Eelly\DTO\UserDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Address implements AddressInterface
@@ -54,7 +53,7 @@ class Address implements AddressInterface
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

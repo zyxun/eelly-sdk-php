@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,11 +13,10 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Service;
 
-
 use Eelly\DTO\UserDTO;
 
+
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface AddressInterface
@@ -84,3 +84,4 @@ interface AddressInterface
      */
     public function deleteStoreAddress(int $addrId, UserDTO $user = null): bool;
 }
+

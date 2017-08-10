@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -17,14 +18,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\GradeInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Grade implements GradeInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getGrade(int $GradeId): GradeDTO
@@ -33,7 +31,6 @@ class Grade implements GradeInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addGrade(array $data): bool
@@ -42,16 +39,14 @@ class Grade implements GradeInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateGrade(int $GradeId,array $data): bool
+    public function updateGrade(int $GradeId, array $data): bool
     {
         return EellyClient::request('user/grade', 'updateGrade', $GradeId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteGrade(int $GradeId): bool
@@ -60,10 +55,9 @@ class Grade implements GradeInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listGradePage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listGradePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/grade', 'listGradePage', $condition, $limit, $currentPage);
     }
