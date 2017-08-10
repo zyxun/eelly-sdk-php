@@ -43,6 +43,10 @@ class MessageDTO extends AbstractDTO
      * @var string 消息标题
      */
     public $title;
+    /**
+     * @var string 消息参数：JSON格式
+     */
+    public $parameter;
 
     /**
      * @var string 消息内容：JSON格式

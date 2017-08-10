@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Message\Service;
+use Eelly\DTO\UserDTO;
 use Eelly\SDK\Message\Service\DTO\MessageDTO;
 
 
@@ -25,10 +26,10 @@ interface MessageInterface
      * 获取指定id消息.
      *
      * @param int $messageId 消息id
-     * @throws \Eelly\SDK\
      * @return MessageDTO
      * @requestExample(1)
      * @returnExample()
+     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
@@ -42,10 +43,10 @@ interface MessageInterface
      * @param int $mtId 消息模板ID：0 自定义消息
      * @param string $title 消息标题
      * @param string $content 消息内容：JSON格式
-     * @throws \Eelly\SDK\
      * @return int 返回添加成功id
      * @requestExample([1])
      * @returnExample(1)
+     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
@@ -55,27 +56,27 @@ interface MessageInterface
      * 删除指定id消息.
      *
      * @param int $messageId 消息id
-     * @throws \Eelly\SDK\
      * @return bool
      * @requestExample(1)
      * @returnExample(true)
+     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function deleteMessage(int $messageId):bool ;
+    public function deleteMessage(int $messageId,UserDTO $user):bool ;
 
     /**
      * 批量删除消息.
      *
      * @param int $messageIds 消息id数组
-     * @throws \Eelly\SDK\
      * @return bool
      * @requestExample(1)
      * @returnExample(true)
+     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-8-1
      */
-    public function deleteMessageBatch(array $messageIds):bool ;
+    public function deleteMessageBatch(array $messageIds,UserDTO $user):bool ;
 
     /**
      * 获取消息列表（可条件检索）
@@ -84,14 +85,14 @@ interface MessageInterface
      * @param int|null $mtId 消息模板ID：0 自定义消息
      * @param string|null $title 消息标题
      * @param int|null $status 状态：0 未处理 1 处理完成 2 处理中，主要用于邮件、短信消息异步处理时标注处理状态
-     * @throws \Eelly\SDK\
      * @return array
      * @requestExample()
      * @returnExample()
+     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-
      */
-    public function listMessage(int $senderId = null,int $receiveType = null,int $mtId = null,string $title = null,int $status = null ):array ;
+    public function listMessage(int $senderId=null,int $receiveType=null,int $mtId=null,string $title=null,int $status=null ):array ;
 
     /**
      * 获取分页消息列表（可条件检索）
@@ -103,14 +104,14 @@ interface MessageInterface
      * @param int|null $data['status']  状态：0 未处理 1 处理完成 2 处理中，主要用于邮件、短信消息异步处理时标注处理状态
      * @param int $limit 每页条数
      * @param int $currentPage 当前页
-     * @throws \Eelly\SDK\
      * @return array
      * @requestExample()
      * @returnExample()
+     * @throws \Eelly\SDK\
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-
      */
-    public function listMessagePage(array $data = null,int $limit = 10,int $currentPage = 1):array ;
+    public function listMessagePage(array $data=null,int $limit=10,int $currentPage=1):array ;
 
 
 }
