@@ -17,8 +17,10 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__);
 
 $rules = [
+    '@Symfony'                                   => true,
     '@Symfony:risky'                             => true,
-    '@PHP70Migration:risky'                      => true,
+    '@PHP71Migration'                            => true,
+    '@PHP71Migration:risky'                      => true,
     'ordered_imports'                            => true,
     'array_syntax'                               => ['syntax' => 'short'],
     'header_comment'                             => ['header' => $fileHeaderComment, 'separate' => 'bottom'],
