@@ -7,6 +7,7 @@
  * Time: 11:54
  */
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
