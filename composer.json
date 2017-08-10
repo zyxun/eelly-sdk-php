@@ -15,9 +15,9 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Eelly\\SDK\\":"src/SDK",
+			"Eelly\\DTO\\":"src/DTO",
 			"Eelly\\Exception\\":"src/Exception",
-			"Eelly\\DTO\\":"src/DTO"
+			"Eelly\\SDK\\":"src/SDK"
 		}
 	}
 }
