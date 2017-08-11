@@ -37,15 +37,15 @@ interface StoreInterface
      * @param UserDTO $user                   登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
+     * @requestExample({"storeData":{"storeName":"店铺名称", "consignee":"联系人姓名","gdCode":"123","zipCode":"123","address":"详细地址","mobile":"123456789","gcId":1,"gpvIds":[1,2,3],"glId":1}})
      *
      * @return bool 新增结果
-     * @requestExample({"storeData":{"storeName":"店铺名称", "consignee":"联系人姓名","gdCode":"123","zipCode":"123","address":"详细地址",
-     "mobile":"123456789","gcId":1,"gpvIds":[1,2,3],"glId":1}})
      * @returnExample(true)
      *
      * @author wangjiang<wangjiang@eelly.net>
      *
      * @since 2017-08-08
      */
-    public function addStore(array $storeData): bool;
+    public function addStore(array $storeData, UserDTO $user = null): bool;
 }
+

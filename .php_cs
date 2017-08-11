@@ -17,13 +17,11 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__);
 
 $rules = [
-    '@Symfony'                                   => true,
     '@Symfony:risky'                             => true,
-    '@PHP71Migration'                            => true,
-    '@PHP71Migration:risky'                      => true,
+    '@PHP70Migration:risky'                      => true,
     'ordered_imports'                            => true,
     'array_syntax'                               => ['syntax' => 'short'],
-    'header_comment'                             => ['header' => $fileHeaderComment],
+    'header_comment'                             => ['header' => $fileHeaderComment, 'separate' => 'bottom'],
     'ordered_class_elements'                     => true,
     'no_multiline_whitespace_before_semicolons'  => true,
     'binary_operator_spaces'                     => ['align_double_arrow' => true],
