@@ -1,26 +1,29 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
 namespace Eelly\SDK\Store\Service\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
 /**
- * AddressDTO
+ * AddressDTO.
  *
  * @author wangjiang<wangjiang@eelly.net>
  */
 class AddressDTO extends AbstractDTO
 {
     /**
-     * 店铺地址id
+     * 店铺地址id.
      *
      * @var int
      */
@@ -36,12 +39,12 @@ class AddressDTO extends AbstractDTO
     /**
      * 地址类型 1店铺地址 2退货地址.
      *
-     * @var integer
+     * @var int
      */
     public $addressType;
 
     /**
-     * 联系人姓名
+     * 联系人姓名.
      *
      * @var string
      */
@@ -62,16 +65,16 @@ class AddressDTO extends AbstractDTO
     public $address;
 
     /**
-     * 手机号
+     * 手机号.
      *
      * @var string
      */
     public $mobile;
 
     /**
-     * 送货类型 1只工作日送货 2只双休日、假日送货 3工作日、双休日或假日均可送货
+     * 送货类型 1只工作日送货 2只双休日、假日送货 3工作日、双休日或假日均可送货.
      *
-     * @var integer
+     * @var int
      */
     public $deliveryType;
 }

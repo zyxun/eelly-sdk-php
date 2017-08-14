@@ -20,7 +20,7 @@ class UserDTO extends AbstractDTO
      *
      * @var int
      */
-    public $user_id;
+    public $userId;
 
     /**
      * 用户帐号.

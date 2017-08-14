@@ -53,8 +53,8 @@ class Address implements AddressInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\AddressInterface::getStoreAddress()
      */
     public function getStoreAddress(int $storeId, int $addressType, UserDTO $user = null): AddressDTO

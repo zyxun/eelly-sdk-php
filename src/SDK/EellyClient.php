@@ -16,6 +16,7 @@ namespace Eelly\SDK;
 use Eelly\Exception\LogicException;
 use Eelly\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
+use Phalcon\Di;
 use Psr\Http\Message\UploadedFileInterface;
 
 class EellyClient
@@ -34,6 +35,7 @@ class EellyClient
         'logger' => 'https://api.eelly.com',
         'member' => 'https://api.eelly.com',
         'oauth'  => 'https://api.eelly.com',
+        'user'   => 'https://api.eelly.com',
     ];
 
     private static $services = [];
@@ -113,7 +115,12 @@ class EellyClient
     public static function request(string $uri, string $method, ...$args)
     {
         if (null === self::$self) {
-            throw new \ErrorException('uninitial eelly client');
+            $di = Di::getDefault();
+            if ($di->has('eellyClient')) {
+                $di->getShared('eellyClient');
+            } else {
+                throw new \ErrorException('eelly client initial fail');
+            }
         }
         $client = self::$self;
         $accessToken = $client->getAccessToken('client_credentials');

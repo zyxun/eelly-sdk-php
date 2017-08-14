@@ -47,7 +47,7 @@ interface UserInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getUser(int $UserId): UserDTO;
+    public function getUser(int $userId): UserDTO;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
@@ -57,12 +57,12 @@ interface UserInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateUser(int $UserId, array $data): bool;
+    public function updateUser(int $userId, array $data): bool;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteUser(int $UserId): bool;
+    public function deleteUser(int $userId): bool;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>

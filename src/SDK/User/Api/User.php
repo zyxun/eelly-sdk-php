@@ -23,11 +23,27 @@ use Eelly\SDK\User\Service\UserInterface;
 class User implements UserInterface
 {
     /**
+     * {@inheritdoc}
+     */
+    public function checkPassword(string $username, string $password): bool
+    {
+        return EellyClient::request('user/user', 'checkPassword', $username, $password);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUserByPassword(string $username, string $password): UserDTO
+    {
+        return EellyClient::request('user/user', 'getUserByPassword', $username, $password);
+    }
+
+    /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getUser(int $UserId): UserDTO
+    public function getUser(int $userId): UserDTO
     {
-        return EellyClient::request('user/user', 'getUser', $UserId);
+        return EellyClient::request('user/user', 'getUser', $userId);
     }
 
     /**
@@ -41,17 +57,17 @@ class User implements UserInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateUser(int $UserId, array $data): bool
+    public function updateUser(int $userId, array $data): bool
     {
-        return EellyClient::request('user/user', 'updateUser', $UserId, $data);
+        return EellyClient::request('user/user', 'updateUser', $userId, $data);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteUser(int $UserId): bool
+    public function deleteUser(int $userId): bool
     {
-        return EellyClient::request('user/user', 'deleteUser', $UserId);
+        return EellyClient::request('user/user', 'deleteUser', $userId);
     }
 
     /**
