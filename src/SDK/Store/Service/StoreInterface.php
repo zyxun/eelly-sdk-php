@@ -28,7 +28,7 @@ interface StoreInterface
      * @param string  $storeData['storeName'] 店铺名称
      * @param string  $storeData['consignee'] 联系人姓名
      * @param string  $storeData['gbCode']    地区编码
-     * @param string  $storeData['zipCode']   邮政编码
+     * @param string  $storeData['zipcode']   邮政编码
      * @param string  $storeData['address']   详细地址
      * @param string  $storeData['mobile']    手机号
      * @param int     $storeData['gcId']      主营类型Id
@@ -37,7 +37,7 @@ interface StoreInterface
      * @param UserDTO $user                   登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
-     * @requestExample({"storeData":{"storeName":"店铺名称", "consignee":"联系人姓名","gdCode":"123","zipCode":"123","address":"详细地址","mobile":"123456789","gcId":1,"gpvIds":[1,2,3],"glId":1}})
+     * @requestExample({"storeData":{"storeName":"店铺名称", "consignee":"联系人姓名","gdCode":"123","zipcode":"123","address":"详细地址","mobile":"123456789","gcId":1,"gpvIds":[1,2,3],"glId":1}})
      *
      * @return bool 新增结果
      * @returnExample(true)
