@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
+use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\StoreInterface;
-use Eelly\DTO\UserDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
