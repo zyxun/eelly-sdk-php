@@ -60,7 +60,7 @@ class EellyClient
      *
      * @return self
      */
-    public static function init(array $options, array $collaborators =[]): self
+    public static function init(array $options, array $collaborators = []): self
     {
         if (null === self::$self) {
             self::$self = new self($options, $collaborators);
