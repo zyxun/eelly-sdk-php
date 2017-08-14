@@ -21,9 +21,9 @@ use Psr\Http\Message\UploadedFileInterface;
 class EellyClient
 {
     private const URI = [
-        'logger' => 'http://api.eelly.dev',
-        'member' => 'http://api.eelly.dev',
-        'oauth'  => 'http://api.eelly.dev',
+        'logger' => 'https://api.eelly.dev',
+        'member' => 'https://api.eelly.dev',
+        'oauth'  => 'https://api.eelly.dev',
     ];
 
     /**
@@ -44,22 +44,26 @@ class EellyClient
     private static $self;
 
     /**
+     * EellyClient constructor.
+     *
      * @param array $options
+     * @param array $collaborators
      */
-    final private function __construct(array $options)
+    final private function __construct(array $options, array $collaborators = [])
     {
-        $this->provider = new EellyProvider($options);
+        $this->provider = new EellyProvider($options, $collaborators);
     }
 
     /**
      * @param array $options
+     * @param array $collaborators
      *
      * @return self
      */
-    public static function init(array $options): self
+    public static function init(array $options, array $collaborators =[]): self
     {
         if (null === self::$self) {
-            self::$self = new self($options);
+            self::$self = new self($options, $collaborators);
         }
 
         return self::$self;
@@ -105,7 +109,6 @@ class EellyClient
         }
         $client = self::$self;
         $accessToken = $client->getAccessToken('client_credentials');
-
         list($serviceName) = explode('/', $uri);
         $uri = self::URI[$serviceName].'/'.$uri.'/'.$method;
         $stream = new MultipartStream($client->paramsToMultipart($args));
