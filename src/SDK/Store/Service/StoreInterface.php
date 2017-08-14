@@ -48,4 +48,3 @@ interface StoreInterface
      */
     public function addStore(array $storeData, UserDTO $user = null): bool;
 }
-

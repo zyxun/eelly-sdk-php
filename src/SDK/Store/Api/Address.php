@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\SDK\Store\Service\AddressInterface;
 use Eelly\DTO\UserDTO;
+use Eelly\SDK\Store\Service\AddressInterface;
 use Eelly\SDK\Store\Service\DTO\AddressDTO;
 
 /**
@@ -23,8 +23,8 @@ use Eelly\SDK\Store\Service\DTO\AddressDTO;
 class Address implements AddressInterface
 {
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\AddressInterface::addStoreAddress()
      */
     public function addStoreAddress(array $addrData, UserDTO $user = null): bool
@@ -33,8 +33,8 @@ class Address implements AddressInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\AddressInterface::updateStoreAddress()
      */
     public function updateStoreAddress(array $addrData, UserDTO $user = null): bool
@@ -43,8 +43,8 @@ class Address implements AddressInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\AddressInterface::deleteStoreAddress()
      */
     public function deleteStoreAddress(int $addrId, UserDTO $user = null): bool
