@@ -15,6 +15,7 @@ namespace Eelly\SDK\Store\Api;
 
 use Eelly\DTO\UserDTO;
 use Eelly\SDK\Store\Service\AddressInterface;
+use Eelly\SDK\Store\Service\DTO\AddressDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
@@ -49,6 +50,16 @@ class Address implements AddressInterface
     public function deleteStoreAddress(int $addrId, UserDTO $user = null): bool
     {
         return EellyClient::request('address/deleteStoreAddress', __FUNCTION__, $addrId);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\AddressInterface::getStoreAddress()
+     */
+    public function getStoreAddress(int $storeId, int $addressType, UserDTO $user = null): AddressDTO
+    {
+        return EellyClient::request('address/getStoreAddress', __FUNCTION__, $storeId, $addressType);
     }
 
     /**
