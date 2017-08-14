@@ -20,16 +20,21 @@ use Psr\Http\Message\UploadedFileInterface;
 
 class EellyClient
 {
-    private const URI = [
-        'logger' => 'https://api.eelly.dev',
-        'member' => 'https://api.eelly.dev',
-        'oauth'  => 'https://api.eelly.dev',
-    ];
-
     /**
      * @var string
      */
     public static $traceId;
+
+    /**
+     * 服务提供者默认地址
+     *
+     * @var array
+     */
+    private static $providerUri = [
+        'logger' => 'https://api.eelly.com',
+        'member' => 'https://api.eelly.com',
+        'oauth'  => 'https://api.eelly.com',
+    ];
 
     private static $services = [];
 
@@ -48,22 +53,25 @@ class EellyClient
      *
      * @param array $options
      * @param array $collaborators
+     * @param array $providerUri
      */
-    final private function __construct(array $options, array $collaborators = [])
+    final private function __construct(array $options, array $collaborators = [], array $providerUri = [])
     {
+        self::$providerUri = $providerUri + self::$providerUri;
         $this->provider = new EellyProvider($options, $collaborators);
     }
 
     /**
      * @param array $options
      * @param array $collaborators
+     * @param array $providerUri
      *
      * @return self
      */
-    public static function init(array $options, array $collaborators = []): self
+    public static function init(array $options, array $collaborators = [], array $providerUri = []): self
     {
         if (null === self::$self) {
-            self::$self = new self($options, $collaborators);
+            self::$self = new self($options, $collaborators, $providerUri);
         }
 
         return self::$self;
@@ -110,7 +118,7 @@ class EellyClient
         $client = self::$self;
         $accessToken = $client->getAccessToken('client_credentials');
         list($serviceName) = explode('/', $uri);
-        $uri = self::URI[$serviceName].'/'.$uri.'/'.$method;
+        $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
         $stream = new MultipartStream($client->paramsToMultipart($args));
         $provider = $client->getProvider();
         $options = [
