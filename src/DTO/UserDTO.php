@@ -13,24 +13,27 @@ declare(strict_types=1);
 
 namespace Eelly\DTO;
 
+/**
+ * Class UserDTO.
+ */
 class UserDTO extends AbstractDTO
 {
     /**
-     * 用户ID，自增主键.
+     * 用户id.
      *
      * @var int
      */
     public $userId;
 
     /**
-     * 用户帐号.
+     * 用户名.
      *
      * @var string
      */
     public $username;
 
     /**
-     * 绑定手机.
+     * 手机号.
      *
      * @var string
      */
