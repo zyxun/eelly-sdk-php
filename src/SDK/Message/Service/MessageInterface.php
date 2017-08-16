@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
+use Eelly\DTO\UserDTO;
 use Eelly\SDK\Message\Service\DTO\MessageDTO;
 
 /**
@@ -73,7 +74,7 @@ interface MessageInterface
      *
      * @since 2017-8-1
      */
-    public function deleteMessage(int $messageId): bool;
+    public function deleteMessage(int $messageId, UserDTO $user): bool;
 
     /**
      * 批量删除消息.
@@ -90,7 +91,7 @@ interface MessageInterface
      *
      * @since 2017-8-1
      */
-    public function deleteMessageBatch(array $messageIds): bool;
+    public function deleteMessageBatch(array $messageIds, UserDTO $user): bool;
 
     /**
      * 获取消息列表（可条件检索）.

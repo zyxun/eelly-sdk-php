@@ -33,4 +33,8 @@ class MessageException extends LogicException
     public const DATA_ALREADER_EXIT = '该数据已经存在';
 
     public const  NO_PERMISSIONS = '没有该权限操作';
+
+    public const TEMPLETE_NO_START = '模板还没启用，请先启用';
+
+    public const TEMPLETE_PARAMETER_INCORRECT = '模板匹配参数不正确,请按模板参数填写';
 }
