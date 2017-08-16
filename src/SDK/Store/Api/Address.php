@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\DTO\UserDTO;
 use Eelly\SDK\Store\Service\AddressInterface;
 use Eelly\SDK\Store\Service\DTO\AddressDTO;
 
@@ -27,9 +26,9 @@ class Address implements AddressInterface
      *
      * @see \Eelly\SDK\Store\Service\AddressInterface::addStoreAddress()
      */
-    public function addStoreAddress(array $addrData, UserDTO $user = null): bool
+    public function addStoreAddress(array $addrData, UidDTO $user = null): bool
     {
-        return EellyClient::request('address/addStoreAddress', __FUNCTION__, $addrData);
+        return EellyClient::request('address/addStoreAddress', __FUNCTION__, $addrData, $user);
     }
 
     /**
@@ -37,9 +36,9 @@ class Address implements AddressInterface
      *
      * @see \Eelly\SDK\Store\Service\AddressInterface::updateStoreAddress()
      */
-    public function updateStoreAddress(array $addrData, UserDTO $user = null): bool
+    public function updateStoreAddress(array $addrData, UidDTO $user = null): bool
     {
-        return EellyClient::request('address/updateStoreAddress', __FUNCTION__, $addrData);
+        return EellyClient::request('address/updateStoreAddress', __FUNCTION__, $addrData, $user);
     }
 
     /**
@@ -47,9 +46,9 @@ class Address implements AddressInterface
      *
      * @see \Eelly\SDK\Store\Service\AddressInterface::deleteStoreAddress()
      */
-    public function deleteStoreAddress(int $addrId, UserDTO $user = null): bool
+    public function deleteStoreAddress(int $addrId, UidDTO $user = null): bool
     {
-        return EellyClient::request('address/deleteStoreAddress', __FUNCTION__, $addrId);
+        return EellyClient::request('address/deleteStoreAddress', __FUNCTION__, $addrId, $user);
     }
 
     /**
@@ -57,9 +56,9 @@ class Address implements AddressInterface
      *
      * @see \Eelly\SDK\Store\Service\AddressInterface::getStoreAddress()
      */
-    public function getStoreAddress(int $storeId, int $addressType, UserDTO $user = null): AddressDTO
+    public function getStoreAddress(int $storeId, int $addressType, UidDTO $user = null): AddressDTO
     {
-        return EellyClient::request('address/getStoreAddress', __FUNCTION__, $storeId, $addressType);
+        return EellyClient::request('address/getStoreAddress', __FUNCTION__, $storeId, $addressType, $user);
     }
 
     /**

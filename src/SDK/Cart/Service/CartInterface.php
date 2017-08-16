@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Cart\Service;
 
-use Eelly\DTO\UserDTO;
+use Eelly\DTO\UidDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
@@ -23,11 +23,11 @@ interface CartInterface
     /**
      * 添加进购物车.
      *
-     * @param int     $goodsId  商品id
-     * @param int     $spId     商品规格id
-     * @param int     $quantity 商品数量
-     * @param int     $price    商品价格，单位为分
-     * @param UserDTO $user     用户信息
+     * @param int    $goodsId  商品id
+     * @param int    $spId     商品规格id
+     * @param int    $quantity 商品数量
+     * @param int    $price    商品价格，单位为分
+     * @param UidDTO $user     用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
@@ -39,12 +39,12 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function addCart(int $goodsId, int $spId, int $quantity, int $price, UserDTO $user): bool;
+    public function addCart(int $goodsId, int $spId, int $quantity, int $price, UidDTO $user = null): bool;
 
     /**
      * 清空购物车.
      *
-     * @param UserDTO $user 用户信息
+     * @param UidDTO $user 用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
@@ -56,12 +56,12 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function clearCart(UserDTO $user): bool;
+    public function clearCart(UidDTO $user = null): bool;
 
     /**
      * 获取购物车列表.
      *
-     * @param UserDTO $user 用户信息
+     * @param UidDTO $user 用户信息
      *
      * @return array
      * @requestExample({"user_id":"1","username":"liangxinyi"})
@@ -71,14 +71,14 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function listCart(UserDTO $user): array;
+    public function listCart(UidDTO $user): array;
 
     /**
      * 删除指定id购物车数据.
      *
      * @param int string 指定购物车key值，数据格式$cartId='goods_1_2'
-     * @param int     $spId 商品规格id
-     * @param UserDTO $user 用户信息
+     * @param int    $spId 商品规格id
+     * @param UidDTO $user 用户信息
      *
      * @throws \InvalidArgumentException
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -91,14 +91,14 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function deleteCart(string $cartId, UserDTO $user): bool;
+    public function deleteCart(string $cartId, UidDTO $user): bool;
 
     /**
      * 更新指定id购物车.
      *
-     * @param string  $cartId   指定购物车key值，数据格式$cartId='goods_1_2'
-     * @param int     $quantity 商品数量
-     * @param UserDTO $user     用户信息
+     * @param string $cartId   指定购物车key值，数据格式$cartId='goods_1_2'
+     * @param int    $quantity 商品数量
+     * @param UidDTO $user     用户信息
      *
      * @throws \InvalidArgumentException
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -111,13 +111,13 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function updateCart(string $cartId, int $quantity, UserDTO $user): bool;
+    public function updateCart(string $cartId, int $quantity, UidDTO $user): bool;
 
     /**
      * 批量移除购物车.
      *
-     * @param array   $cartIds 购物车key值id数组,数据格式$cartIds=[0=>'goods_1_2']
-     * @param UserDTO $user    用户信息
+     * @param array  $cartIds 购物车key值id数组,数据格式$cartIds=[0=>'goods_1_2']
+     * @param UidDTO $user    用户信息
      *
      * @throws \InvalidArgumentException
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -130,5 +130,5 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function deleteCartBatch(array $cartIds, UserDTO $user): bool;
+    public function deleteCartBatch(array $cartIds, UidDTO $user): bool;
 }

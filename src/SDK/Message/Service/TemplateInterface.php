@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-use Eelly\DTO\UserDTO;
+use Eelly\SDK\Message\Service\DTO\TemplateDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
@@ -115,7 +115,7 @@ interface TemplateInterface
      *
      * @throws \Eelly\Exception\LogicException
      *
-     * @return UserDTO
+     * @return TemplateDTO
      * @requestExample([1,{'dddd','sss','ddddu'}])
      * @returnExample({"mt_id":"1","type":"1","name":"\u6d4b\u8bd5\u6a21\u677f\u6d88\u606f","content":"\u4f60\u597ddddd\uff0c\u6d4b\u8bd5sss\uff0c\u6b63\u786e\u4e48ddddu","status":"1","created_time":"0","update_time":"2017-08-02 11:35:55"})
      *
@@ -123,5 +123,5 @@ interface TemplateInterface
      *
      * @since 2017-8-2
      */
-    public function getTemplate(int $mtId, array $content): UserDTO;
+    public function getTemplate(int $mtId, array $content): TemplateDTO;
 }

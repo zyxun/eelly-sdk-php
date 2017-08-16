@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-use Eelly\DTO\UserDTO;
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\Message\Service\DTO\SiteDTO;
 
 /**
@@ -55,7 +55,7 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function updateMessageSiteStatus(int $msiId, int $isRead, UserDTO $user): bool;
+    public function updateMessageSiteStatus(int $msiId, int $isRead, UidDTO $user = null): bool;
 
     /**
      * 批量更新用户消息状态.
@@ -73,14 +73,14 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function updateMessageSiteStatusBatch(int $msiIds, int $isRead, UserDTO $user): bool;
+    public function updateMessageSiteStatusBatch(int $msiIds, int $isRead, UidDTO $user): bool;
 
     /**
      * 分页获取用户消息.
      *
-     * @param UserDTO $user        用户对象
-     * @param int     $limit       每页条数
-     * @param int     $currentPage 当前页
+     * @param UidDTO $user        用户对象
+     * @param int    $limit       每页条数
+     * @param int    $currentPage 当前页
      *
      * @throws \Eelly\SDK\
      *
@@ -92,7 +92,7 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function listMessageSitePage(UserDTO $user, int $limit = 10, int $currentPage = 1): array;
+    public function listMessageSitePage(UidDTO $user, int $limit = 10, int $currentPage = 1): array;
 
     /**
      * 获取用户消息.
@@ -126,7 +126,7 @@ interface SiteInterface
      *
      * @since 2017-8-2
      */
-    public function deleteMessageSite(int $msiId, UserDTO $user): bool;
+    public function deleteMessageSite(int $msiId, UidDTO $user): bool;
 
     /**
      * 批量删除用户消息.
@@ -143,5 +143,5 @@ interface SiteInterface
      *
      * @since 2017-8-2
      */
-    public function deleteMessageSiteBatch(array $msiIds, UserDTO $user): bool;
+    public function deleteMessageSiteBatch(array $msiIds, UidDTO $user): bool;
 }
