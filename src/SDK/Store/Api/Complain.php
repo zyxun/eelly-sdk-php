@@ -21,6 +21,36 @@ use Eelly\SDK\Store\Service\ComplainInterface;
 class Complain implements ComplainInterface
 {
     /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\ComplainInterface::addStoreComplain()
+     */
+    public function addStoreComplain(array $complainData, UidDTO $user = null): bool
+    {
+        return EellyClient::request('complain/addStoreComplain', __FUNCTION__, $complainData, $user);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\ComplainInterface::deleteStoreComplain()
+     */
+    public function deleteStoreComplain(int $complainId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('complain/deleteStoreComplain', __FUNCTION__, $complainId, $user);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\ComplainInterface::listStoreComplainPage()
+     */
+    public function listStoreComplainPage(int $storeId, int $dimension, int $page = 1, UidDTO $user = null): array
+    {
+        return EellyClient::request('complain/listStoreComplainPage', __FUNCTION__, $storeId, $dimension, $page, $user);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
