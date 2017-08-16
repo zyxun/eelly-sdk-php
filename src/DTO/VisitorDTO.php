@@ -14,40 +14,40 @@ declare(strict_types=1);
 namespace Eelly\DTO;
 
 /**
- * Class UserDTO.
+ * Class VisitorDTO.
  */
-class UserDTO extends UidDTO
+class VisitorDTO extends UidDTO
 {
     /**
-     * 用户名.
+     * token id.
      *
      * @var string
      */
-    public $username;
+    public $tokenId;
 
     /**
-     * 手机号.
+     * client id.
      *
      * @var string
      */
-    public $mobile;
+    public $clientId;
 
     /**
      * @return string
      */
-    public function getUsername(): string
+    public function getTokenId(): string
     {
-        return $this->username;
+        return $this->tokenId;
     }
 
     /**
-     * @param string $username
+     * @param string $tokenId
      *
      * @return UserDTO
      */
-    public function setUsername(string $username): UserDTO
+    public function setTokenId(string $tokenId): UserDTO
     {
-        $this->username = $username;
+        $this->tokenId = $tokenId;
 
         return $this;
     }
@@ -55,19 +55,19 @@ class UserDTO extends UidDTO
     /**
      * @return string
      */
-    public function getMobile(): string
+    public function getClientId(): string
     {
-        return $this->mobile;
+        return $this->clientId;
     }
 
     /**
-     * @param string $mobile
+     * @param string $clientId
      *
      * @return UserDTO
      */
-    public function setMobile(string $mobile): UserDTO
+    public function setClientId(string $clientId): UserDTO
     {
-        $this->mobile = $mobile;
+        $this->clientId = $clientId;
 
         return $this;
     }
