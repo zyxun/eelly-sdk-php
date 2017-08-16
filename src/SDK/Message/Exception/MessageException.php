@@ -34,4 +34,8 @@ class MessageException extends LogicException
 
     const  NO_PERMISSIONS = '没有该权限操作';
 
+    const TEMPLETE_NO_START = '模板还没启用，请先启用';
+
+    const TEMPLETE_PARAMETER_INCORRECT = '模板匹配参数不正确,请按模板参数填写';
+
 }
