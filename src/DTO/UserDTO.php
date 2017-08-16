@@ -16,15 +16,8 @@ namespace Eelly\DTO;
 /**
  * Class UserDTO.
  */
-class UserDTO extends AbstractDTO
+class UserDTO extends UidDTO
 {
-    /**
-     * 用户id.
-     *
-     * @var int
-     */
-    public $userId;
-
     /**
      * 用户名.
      *
@@ -38,4 +31,44 @@ class UserDTO extends AbstractDTO
      * @var string
      */
     public $mobile;
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     *
+     * @return UserDTO
+     */
+    public function setUsername(string $username): UserDTO
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMobile(): string
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @param string $mobile
+     *
+     * @return UserDTO
+     */
+    public function setMobile(string $mobile): UserDTO
+    {
+        $this->mobile = $mobile;
+
+        return $this;
+    }
 }

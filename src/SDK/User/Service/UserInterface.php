@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\DTO\UserDTO;
 
 /**
@@ -43,6 +44,13 @@ interface UserInterface
      * @return UserDTO
      */
     public function getUserByPassword(string $username, string $password): UserDTO;
+
+    /**
+     * @param UidDTO $user
+     *
+     * @return UserDTO
+     */
+    public function info(UidDTO $user = null): UserDTO;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>

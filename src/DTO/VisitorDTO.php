@@ -16,7 +16,7 @@ namespace Eelly\DTO;
 /**
  * Class VisitorDTO.
  */
-class VisitorDTO extends AbstractDTO
+class VisitorDTO extends UidDTO
 {
     /**
      * token id.
@@ -31,13 +31,6 @@ class VisitorDTO extends AbstractDTO
      * @var string
      */
     public $clientId;
-
-    /**
-     * user id.
-     *
-     * @var int
-     */
-    public $userId;
 
     /**
      * @return string
@@ -75,26 +68,6 @@ class VisitorDTO extends AbstractDTO
     public function setClientId(string $clientId): UserDTO
     {
         $this->clientId = $clientId;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getUserId(): int
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @param int $userId
-     *
-     * @return UserDTO
-     */
-    public function setUserId(int $userId): UserDTO
-    {
-        $this->userId = $userId;
 
         return $this;
     }

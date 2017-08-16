@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInterface;
@@ -36,6 +37,14 @@ class User implements UserInterface
     public function getUserByPassword(string $username, string $password): UserDTO
     {
         return EellyClient::request('user/user', 'getUserByPassword', $username, $password);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function info(UidDTO $user = null): UserDTO
+    {
+        return EellyClient::request('user/user', 'info', $user);
     }
 
     /**
