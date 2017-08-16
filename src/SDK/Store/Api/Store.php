@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\DTO\UserDTO;
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\StoreInterface;
 
@@ -27,7 +27,7 @@ class Store implements StoreInterface
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::addStore()
      */
-    public function addStore(array $storeData, UserDTO $user = null): bool
+    public function addStore(array $storeData, UidDTO $user = null): bool
     {
         return EellyClient::request('store/addStore', __FUNCTION__, $storeData);
     }

@@ -22,15 +22,15 @@ use Eelly\SDK\Message\Service\DTO\SiteDTO;
 interface SiteInterface
 {
     /**
-     * 添加用户消息.
+     * 添加站内信消息.
      *
      * @param int $messageId  消息ID
      * @param int $receiverId 接收者ID
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return int
-     * @requestExample([1,2])
+     * @requestExample({"message":1,"receiverId":2,"content":"测试消息"})
      * @returnExample(1)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
@@ -40,40 +40,40 @@ interface SiteInterface
     public function addMessageSite(int $messageId, int $receiverId, string $content): int;
 
     /**
-     * 更新用户消息状态.
+     * 更新站内信成已读.
      *
-     * @param int $msiId  消息读取ID
-     * @param int $isRead 是否已读：0 否 1 是
+     * @param int     $msiId 消息读取ID
+     * @param UserDTO $user  用户对象
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample([1,1])
+     * @requestExample({"msiId":1,"user":{"user_id":1,"username":"lxy"})
      * @returnExample(true)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-8-1
      */
-    public function updateMessageSiteStatus(int $msiId, int $isRead, UserDTO $user): bool;
+    public function updateMessageSiteRead(int $msiId, UserDTO $user): bool;
 
     /**
-     * 批量更新用户消息状态.
+     * 批量更新站内信成已读状态.
      *
-     * @param int $msiIds 消息读取ID数组
-     * @param int $isRead 是否已读：0 否 1 是
+     * @param int     $msiIds 消息读取ID数组
+     * @param UserDTO $user   用户对象
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample([1,1])
+     * @requestExample({"msiIds":[1,2,3],"user":{"user_id":1,"username":"lxy"})
      * @returnExample(true)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-8-1
      */
-    public function updateMessageSiteStatusBatch(int $msiIds, int $isRead, UserDTO $user): bool;
+    public function updateMessageSiteReadBatch(int $msiIds, UserDTO $user): bool;
 
     /**
      * 分页获取用户消息.
@@ -82,10 +82,10 @@ interface SiteInterface
      * @param int     $limit       每页条数
      * @param int     $currentPage 当前页
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return array
-     * @requestExample([1,10,1])
+     * @requestExample({"user":{"user_id":1,"username":"lxy"},"limit":10,"currentPage":1})
      * @returnExample()
      *
      * @author liangxinyi<liangxinyi@eelly.net>
@@ -97,9 +97,9 @@ interface SiteInterface
     /**
      * 获取用户消息.
      *
-     * @param int $msiId 用户消息id
+     * @param int $msiId 站内信id
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return SiteDTO
      * @requestExample(1)
@@ -116,11 +116,11 @@ interface SiteInterface
      *
      * @param int $msiId 用户消息id
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
-     * @return bool
-     * @requestExample(1)
-     * @returnExample()
+     * @return mixed
+     * @requestExample({"msiId":1,"user":{"user_id":1,"username":"liangxinyi"}})
+     * @returnExample(true)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
@@ -133,11 +133,11 @@ interface SiteInterface
      *
      * @param int $msiIds 用户消息id数组
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample(1)
-     * @returnExample()
+     * @requestExample({"msiIds":[1,2,3,4],"user":{"user_id":1,"username":"liangxinyi"}})
+     * @returnExample(true)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *

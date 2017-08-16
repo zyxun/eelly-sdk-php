@@ -15,7 +15,7 @@ namespace Eelly\SDK\Message\Service\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
-class MessageReply extends AbstractDTO
+class ReplyDTO extends AbstractDTO
 {
     /**
      * 消息回复ID，自增主键.
