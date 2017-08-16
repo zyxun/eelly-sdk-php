@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-use Eelly\DTO\UidDTO;
+use Eelly\DTO\UserDTO;
 use Eelly\SDK\Message\Service\DTO\MessageReplyDTO;
 
 /**
@@ -24,46 +24,44 @@ interface ReplyInterface
     /**
      * 添加消息回复.
      *
-     * @param int    $messageId          消息ID
-     * @param int    $replay_receiver_id 回复接收者ID
-     * @param string $content            回复内容
+     * @param int    $messageId        用户消息ID
+     * @param int    $replayReceiverId 回复接收者ID
+     * @param string $content          回复内容
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return int
-     * @requestExample([1,2,"测试消息回复"])
+     * @requestExample({"msiId":1,"replayReceiverId":2,"content":"测试消息回复","user":{"user_id":1,"username":"lxy"}})
      * @returnExample(1)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-8-1
      */
-    public function addMessageReply(int $messageId, int $replay_receiver_id, string $content, UidDTO $user = null): int;
+    public function addMessageReply(int $msiId, int $replayReceiverId, string $content, UserDTO $user): int;
 
     /**
-     * 更新用户消息回复状态.
+     * 更新用户消息成已读.
      *
-     * @param int $mrId   回复id
-     * @param int $isRead 是否已读：0 否 1 是
+     * @param int     $mrId 回复id
+     * @param UserDTO $user 用户对象
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample([1,1])
+     * @requestExample({"mrId":1,"user":{"user_id":1,"username":"lxy"}})
      * @returnExample(true)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-8-1
      */
-    public function updateMessageReplyStatus(int $mrId, int $isRead, UidDTO $user = null): bool;
+    public function updateMessageReplyStatus(int $mrId, UserDTO $user): bool;
 
     /**
      * 获取指定messageId的所有回复列表.
      *
-     * @param int messageId 消息ID
-     *
-     * @throws \Eelly\SDK\
+     * @param int $msiId 消息ID
      *
      * @return array
      * @requestExample(1)
@@ -73,12 +71,12 @@ interface ReplyInterface
      *
      * @since 2017-8-1
      */
-    public function listMessageReplyById(int $messageId): array;
+    public function listMessageReplyById(int $msiId): array;
 
     /**
      * @param int $mrId 消息回复id
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
      * @requestExample(1)
@@ -88,17 +86,17 @@ interface ReplyInterface
      *
      * @since 2017-8-1
      */
-    public function deleteMessageReply(int $mrId, UidDTO $user = null): bool;
+    public function deleteMessageReply(int $mrId, UserDTO $user): bool;
 
     /**
      * 获得指定id消息回复.
      *
      * @param int $mrId 消息回复id
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return MessageReplyDTO
-     * @requestExample()
+     * @requestExample(1)
      * @returnExample()
      *
      * @author liangxinyi<liangxinyi@eelly.net>
