@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Service;
 
-
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EvaluationGoodsInterface
 {
-
-
 }

@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\DTO;
 
-use Eelly\DTO\AbstractDTO;
-
 class FastDFSDTO extends AbstractDTO
 {
     public $fastdfsFilePath;

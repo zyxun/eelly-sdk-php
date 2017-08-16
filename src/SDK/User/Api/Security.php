@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -17,14 +18,11 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\SecurityInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Security implements SecurityInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getSecurity(int $SecurityId): SecurityDTO
@@ -33,7 +31,6 @@ class Security implements SecurityInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addSecurity(array $data): bool
@@ -42,16 +39,14 @@ class Security implements SecurityInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateSecurity(int $SecurityId,array $data): bool
+    public function updateSecurity(int $SecurityId, array $data): bool
     {
         return EellyClient::request('user/security', 'updateSecurity', $SecurityId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteSecurity(int $SecurityId): bool
@@ -60,10 +55,9 @@ class Security implements SecurityInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listSecurityPage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listSecurityPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/security', 'listSecurityPage', $condition, $limit, $currentPage);
     }

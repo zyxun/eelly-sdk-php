@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Service;
 
 /**
- * @author hehui<hehui@eelly.net>
+ * Interface ResourceServerInterface.
  */
 interface ResourceServerInterface
 {
-    public function verify();
+    public function verify(): void;
 }

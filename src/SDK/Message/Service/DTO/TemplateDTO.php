@@ -18,7 +18,7 @@ use Eelly\DTO\AbstractDTO;
 class TemplateDTO extends AbstractDTO
 {
     /**
-     * 消息模板ID，自增主键
+     * 消息模板ID，自增主键.
      *
      * @var int
      */
@@ -32,38 +32,37 @@ class TemplateDTO extends AbstractDTO
     public $type;
 
     /**
-     * 消息模板名称
+     * 消息模板名称.
      *
      * @var string
      */
     public $name;
 
     /**
-     * 消息模板内容
+     * 消息模板内容.
      *
      * @var string
      */
     public $content;
 
     /**
-     * 状态：0 未启用 1 启用
+     * 状态：0 未启用 1 启用.
      *
      * @var int
      */
     public $status;
 
     /**
-     * 添加时间
+     * 添加时间.
      *
      * @var int
      */
     public $created_time;
 
     /**
-     * 修改时间
+     * 修改时间.
      *
      * @var unknown
      */
     public $update_time;
-
 }
