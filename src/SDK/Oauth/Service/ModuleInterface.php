@@ -21,7 +21,7 @@ interface ModuleInterface
     /**
      * 返回模块列表.
      *
-     * @throws Eelly\SDK\Oauth\Exception\OauthException
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array 返回模块列表
      * @requestExample()
@@ -39,7 +39,7 @@ interface ModuleInterface
      * @param int $limit       分页页数
      * @param int $currentPage 当前页
      *
-     * @throws Eelly\SDK\Oauth\Exception\OauthException
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array
      * @requestExample()
@@ -52,7 +52,7 @@ interface ModuleInterface
     /**
      * 返回模块服务列表.
      *
-     * @throws Eelly\SDK\Oauth\Exception\OauthException
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array 返回模块服务列表数组
      * @requestExample()
@@ -70,7 +70,7 @@ interface ModuleInterface
      * @param int $page        当前页
      * @param int $currentPage
      *
-     * @throws Eelly\SDK\Oauth\Exception\OauthException
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array
      * @returnExample({"items":[{"service_id":"1","service_name":"User\\Logic\\IndexLogic","module_id":"1","created_time":"1498042155","update_time":"2017-06-21 10:52:15","module_name":"user"}],
@@ -86,7 +86,7 @@ interface ModuleInterface
      *
      * @param int $serviceId 服务service_id
      *
-     * @throws Eelly\SDK\Oauth\Exception\OauthException
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return bool
      * @requestExample(1)
@@ -104,7 +104,7 @@ interface ModuleInterface
      * @param int $moduleId 模块id
      * @param int $status   是否启用/0:未启用,1:启用,2:关闭
      *
-     * @throws Eelly\SDK\Oauth\Exception\OauthException
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return bool 返回bool值
      * @requestExample([1,2])
@@ -122,7 +122,7 @@ interface ModuleInterface
      * @param array $moduleIds 模块id数组
      * @param int   $status    是否启用/0:未启用,1:启用,2:关闭
      *
-     * @throws Eelly\SDK\Oauth\Exception\OauthException
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return bool 返回bool值
      * @requestExample([{1,2,3},2])
