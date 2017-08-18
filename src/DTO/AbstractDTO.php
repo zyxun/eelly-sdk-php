@@ -32,6 +32,9 @@ class AbstractDTO implements \JsonSerializable
         $class = static::class;
         $object = new $class();
         foreach ($array as $key => $value) {
+            $key = preg_replace_callback('/(_)([a-z])/i', function ($matches) {
+                return ucfirst($matches[2]);
+            }, $key);
             $object->$key = $value;
         }
 

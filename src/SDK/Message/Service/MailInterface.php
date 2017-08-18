@@ -1,39 +1,47 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Message\Service;
 
-
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface MailInterface
 {
-
     /**
-     * @param array $messageMail 短信消息内容
-     * @param int $messageMail['message_id'] 消息ID
-     * @param int $messageMail['receiver_id'] 接收者ID
-     * @param string $messageMail['mail_to'] 邮箱地址
-     * @param string $messageMail['content'] 短信内容
-     * @param int $messageMail['status'] 发送状态：0 待发送 1 成功 2 已发送，状态未知 4 失败
-     * @return int
-     * @requestExample([""])
-     * @returnExample(1)
+     * 发送邮件函数.
+     *
+     * @Validation(
+     *     @Email(0,{message : 'to字段不是一个有效邮箱格式'})
+     * )
+     *
+     * @param array  $messageMail 短信消息内容
+     * @param int    $messageInfo ['message_id'] 消息ID
+     * @param int    $messageInfo ['receiver_id'] 接收者ID
+     * @param string $to          收件人
+     * @param string $subject     邮件标题
+     * @param string $message     邮件内容
+     * @param array  $attachments 附件数组，存地址
+     *
      * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
+     * @return bool
+     * @requestExample({{"message_id":1,"receiver_id":2},"to":"liangxinyi@eelly.net","subject":"消息标题"})
+     * @returnExample(true)
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
-     * @since 2017-8-3
+     *
+     * @since 2017-8-5
      */
-    public function addMail(array $messageMail):int ;
-
-
+    public function sendMail(array $messageMail, string $to, string $subject, string $message, array $attachments = []): bool;
 }

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Logger\Service;
 
 /**
- * @author hehui<hehui@eelly.net>
+ * Interface ApiLoggerInterface.
  */
 interface ApiLoggerInterface
 {
@@ -23,6 +23,8 @@ interface ApiLoggerInterface
      * @param array  $request  请求信息
      * @param array  $response 返回信息
      * @param array  $extras   扩展的信息
+     *
+     * @return bool
      */
-    public function log(string $traceId, array $request = [], array $response = [], array $extras = []): void;
+    public function log(string $traceId, array $request = [], array $response = [], array $extras = []): bool;
 }

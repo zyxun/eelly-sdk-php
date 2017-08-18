@@ -1,41 +1,50 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Message\Service;
 
-
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SmsInterface
 {
-
     /**
-     * @param array $messageSms 短信消息内容
-     * @param int $messageSms['message_id'] 消息ID
-     * @param int $messageSms['receiver_id'] 接收者ID
-     * @param string $messageSms['mobile'] 手机
-     * @param string $messageSms['content'] 短信内容
-     * @param int $messageSms['status'] 发送状态：0 待发送 1 成功 2 已发送，状态未知 4 失败
-     * @param string $messageSms['channel'] 发送通道：dsf东时方 yy优易 emay亿美 topen 拓鹏
-     * @param string $messageSms['response'] 状态报告
-     * @return int
-     * @requestExample([""])
-     * @returnExample(1)
-     * @throws \Eelly\SDK\Message\Exception\MessageException
+     * 发送短信.
+     *
+     * @Async(route=sms)
+     *
+     * @Validation(
+     *     @Regex(1,{pattern:" /^1[34578]\d{9}$/",message : 'phoneNumber字段不是不符合手机号码格式'})
+     * )
+     *
+     * @param int         $messageInfo                消息信息数组
+     * @param int         $messageInfo['message_id']  消息ID
+     * @param int         $messageInfo['receiver_id'] 接收者ID
+     * @param string      $messageInfo['content']     完整短信内容
+     * @param string      $phoneNumber                电话号码
+     * @param array       $message                    消息数组，具体平台参数查看短信配置文件
+     * @param string      $message['content']         文字内容，使用在像云片类似的以文字内容发送的平台
+     * @param string|null $message['template']        模板ID，使用在以模板ID来发送短信的平台
+     * @param array|null  $message['data']            模板变量，使用在以模板ID来发送短信的平台
+     * @param array|null  $gateways                   网关，这里的网关配置将会覆盖全局默认值
+     *
+     * @return bool
+     * @requestExample({"messageInfo":{"message_id":1,"receiver_id":1,"content":"测试消息"},"phoneNumber":"13751352647","message":{"content":"测试消息"}})
+     * @returnExample(true)
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
-     * @since 2017-8-3
+     *
+     * @since 2017-8-5
      */
-    public function addSms(array $messageSms):int ;
-
-
+    public function sendSms(array $messageInfo, string $phoneNumber, array $message, array $gateways = []): bool;
 }

@@ -13,57 +13,62 @@ declare(strict_types=1);
 
 namespace Eelly\DTO;
 
-use Eelly\DTO\AbstractDTO;
-
-class UserDTO extends AbstractDTO
+/**
+ * Class UserDTO.
+ */
+class UserDTO extends UidDTO
 {
     /**
-     * 用户ID，自增主键
-     *
-     * @var int
-     */
-    public $user_id;
-
-    /**
-     * 用户帐号
+     * 用户名.
      *
      * @var string
      */
     public $username;
 
     /**
-     * 绑定手机
+     * 手机号.
      *
      * @var string
      */
     public $mobile;
 
     /**
-     * 头像
-     *
-     * @var string
+     * @return string
      */
-    public $avatar;
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
 
     /**
-     * 用户状态：0 正常 1 风险帐户 2 禁止登陆 3 黑名单
+     * @param string $username
      *
-     * @var int
+     * @return UserDTO
      */
-    public $status;
+    public function setUsername(string $username): UserDTO
+    {
+        $this->username = $username;
+
+        return $this;
+    }
 
     /**
-     * 添加时间
-     *
-     * @var int
+     * @return string
      */
-    public $created_time;
+    public function getMobile(): string
+    {
+        return $this->mobile;
+    }
 
     /**
-     * 修改时间
+     * @param string $mobile
      *
-     * @var unknown
+     * @return UserDTO
      */
-    public $update_time;
+    public function setMobile(string $mobile): UserDTO
+    {
+        $this->mobile = $mobile;
 
+        return $this;
+    }
 }

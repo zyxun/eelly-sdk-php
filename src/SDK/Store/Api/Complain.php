@@ -1,30 +1,59 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\ComplainInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Complain implements ComplainInterface
 {
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\ComplainInterface::addStoreComplain()
+     */
+    public function addStoreComplain(array $complainData, UidDTO $user = null): bool
+    {
+        return EellyClient::request('complain/addStoreComplain', __FUNCTION__, $complainData, $user);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\ComplainInterface::deleteStoreComplain()
+     */
+    public function deleteStoreComplain(int $complainId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('complain/deleteStoreComplain', __FUNCTION__, $complainId, $user);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\ComplainInterface::listStoreComplainPage()
+     */
+    public function listStoreComplainPage(int $storeId, int $dimension, int $page = 1, UidDTO $user = null): array
+    {
+        return EellyClient::request('complain/listStoreComplainPage', __FUNCTION__, $storeId, $dimension, $page, $user);
+    }
 
     /**
      * @return self
      */
-    public static function getInstance() :self
+    public static function getInstance(): self
     {
         static $instance;
         if (null === $instance) {

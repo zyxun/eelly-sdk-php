@@ -1,38 +1,61 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\User\Api;
 
+use Eelly\DTO\UidDTO;
+use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInterface;
-use Eelly\DTO\UserDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class User implements UserInterface
 {
-
     /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
+     * {@inheritdoc}
      */
-    public function getUser(int $UserId): UserDTO
+    public function checkPassword(string $username, string $password): bool
     {
-        return EellyClient::request('user/user', 'getUser', $UserId);
+        return EellyClient::request('user/user', 'checkPassword', $username, $password);
     }
 
     /**
-     *
+     * {@inheritdoc}
+     */
+    public function getUserByPassword(string $username, string $password): UserDTO
+    {
+        return EellyClient::request('user/user', 'getUserByPassword', $username, $password);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function info(UidDTO $user = null): UserDTO
+    {
+        return EellyClient::request('user/user', 'info', $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getUser(int $userId): UserDTO
+    {
+        return EellyClient::request('user/user', 'getUser', $userId);
+    }
+
+    /**
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addUser(array $data): bool
@@ -41,28 +64,25 @@ class User implements UserInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateUser(int $UserId,array $data): bool
+    public function updateUser(int $userId, array $data): bool
     {
-        return EellyClient::request('user/user', 'updateUser', $UserId, $data);
+        return EellyClient::request('user/user', 'updateUser', $userId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteUser(int $UserId): bool
+    public function deleteUser(int $userId): bool
     {
-        return EellyClient::request('user/user', 'deleteUser', $UserId);
+        return EellyClient::request('user/user', 'deleteUser', $userId);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listUserPage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listUserPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/user', 'listUserPage', $condition, $limit, $currentPage);
     }

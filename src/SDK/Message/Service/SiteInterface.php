@@ -1,128 +1,147 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Message\Service;
+
 use Eelly\DTO\UserDTO;
 use Eelly\SDK\Message\Service\DTO\SiteDTO;
 
-
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SiteInterface
 {
     /**
-     * 添加用户消息.
+     * 添加站内信消息.
      *
-     * @param int $messageId 消息ID
+     * @param int $messageId  消息ID
      * @param int $receiverId 接收者ID
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
      * @return int
-     * @requestExample([1,2])
+     * @requestExample({"message":1,"receiverId":2,"content":"测试消息"})
      * @returnExample(1)
-     * @throws \Eelly\SDK\
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-8-1
      */
-    public function addMessageSite(int $messageId,int $receiverId,string $content):int;
-
+    public function addMessageSite(int $messageId, int $receiverId, string $content): int;
 
     /**
-     * 更新用户消息状态.
+     * 更新站内信成已读.
      *
-     * @param int $msiId 消息读取ID
-     * @param int $isRead 是否已读：0 否 1 是
+     * @param int     $msiId 消息读取ID
+     * @param UserDTO $user  用户对象
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
      * @return bool
-     * @requestExample([1,1])
+     * @requestExample({"msiId":1,"user":{"user_id":1,"username":"lxy"})
      * @returnExample(true)
-     * @throws \Eelly\SDK\
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-8-1
      */
-    public function updateMessageSiteStatus(int $msiId,int $isRead,UserDTO $user):bool ;
+    public function updateMessageSiteRead(int $msiId, UserDTO $user): bool;
 
     /**
-     * 批量更新用户消息状态.
+     * 批量更新站内信成已读状态.
      *
-     * @param int $msiIds 消息读取ID数组
-     * @param int $isRead 是否已读：0 否 1 是
+     * @param int     $msiIds 消息读取ID数组
+     * @param UserDTO $user   用户对象
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
      * @return bool
-     * @requestExample([1,1])
+     * @requestExample({"msiIds":[1,2,3],"user":{"user_id":1,"username":"lxy"})
      * @returnExample(true)
-     * @throws \Eelly\SDK\
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-8-1
      */
-    public function updateMessageSiteStatusBatch(int $msiIds,int $isRead,UserDTO $user):bool ;
-
-
+    public function updateMessageSiteReadBatch(int $msiIds, UserDTO $user): bool;
 
     /**
      * 分页获取用户消息.
      *
-     * @param UserDTO $user 用户对象
-     * @param int $limit 每页条数
-     * @param int $currentPage 当前页
+     * @param UserDTO $user        用户对象
+     * @param int     $limit       每页条数
+     * @param int     $currentPage 当前页
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
      * @return array
-     * @requestExample([1,10,1])
+     * @requestExample({"user":{"user_id":1,"username":"lxy"},"limit":10,"currentPage":1})
      * @returnExample()
-     * @throws \Eelly\SDK\
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-8-1
      */
-    public function listMessageSitePage(UserDTO $user,int $limit=10,int $currentPage=1):array ;
+    public function listMessageSitePage(UserDTO $user, int $limit = 10, int $currentPage = 1): array;
 
     /**
      * 获取用户消息.
      *
-     * @param int $msiId 用户消息id
+     * @param int $msiId 站内信id
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
      * @return SiteDTO
      * @requestExample(1)
      * @returnExample()
-     * @throws \Eelly\SDK\
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-8-2
      */
-    public function getMessageSite(int $msiId):SiteDTO;
+    public function getMessageSite(int $msiId): SiteDTO;
 
     /**
      * 删除用户消息.
      *
      * @param int $msiId 用户消息id
-     * @return bool
-     * @requestExample(1)
-     * @returnExample()
-     * @throws \Eelly\SDK\
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
+     * @return mixed
+     * @requestExample({"msiId":1,"user":{"user_id":1,"username":"liangxinyi"}})
+     * @returnExample(true)
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-8-2
      */
-    public function deleteMessageSite(int $msiId,UserDTO $user):bool ;
+    public function deleteMessageSite(int $msiId, UserDTO $user): bool;
 
     /**
      * 批量删除用户消息.
      *
      * @param int $msiIds 用户消息id数组
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
      * @return bool
-     * @requestExample(1)
-     * @returnExample()
-     * @throws \Eelly\SDK\
+     * @requestExample({"msiIds":[1,2,3,4],"user":{"user_id":1,"username":"liangxinyi"}})
+     * @returnExample(true)
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-8-2
      */
-    public function deleteMessageSiteBatch(array $msiIds,UserDTO $user):bool ;
-
-
-
-
-
-
-
+    public function deleteMessageSiteBatch(array $msiIds, UserDTO $user): bool;
 }

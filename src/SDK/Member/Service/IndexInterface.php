@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Member\Service;
 
-use Eelly\SDK\Member\Service\DTO\FastDFSDTO;
+use Eelly\DTO\FastDFSDTO;
 use Eelly\SDK\Member\Service\DTO\TimeDTO;
 use Psr\Http\Message\UploadedFileInterface;
 
@@ -44,7 +44,7 @@ interface IndexInterface
      *
      * @returnExample(true)
      */
-    public function paramsType(int $a, float $b, string $c, array $d, UploadedFileInterface $e):bool;
+    public function paramsType(int $a, float $b, string $c, array $d, UploadedFileInterface $e): bool;
 
     /**
      * 缓存注解示例..
@@ -85,7 +85,7 @@ interface IndexInterface
      *
      * @returnExample(true)
      */
-    public function paramArray(array $arr, array $framework):bool;
+    public function paramArray(array $arr, array $framework): bool;
 
     /**
      * @return int
@@ -112,9 +112,6 @@ interface IndexInterface
      */
     public function returnfloat(): float;
 
-    /**
-     * @return null
-     */
     public function returnNull(): void;
 
     /**
@@ -122,5 +119,5 @@ interface IndexInterface
      *
      * @return bool
      */
-    public function throwException():bool;
+    public function throwException(): bool;
 }

@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\User\Api;
 
+use Eelly\DTO\GradeDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\GradeInterface;
-use Eelly\DTO\GradeDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Grade implements GradeInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getGrade(int $GradeId): GradeDTO
@@ -32,7 +31,6 @@ class Grade implements GradeInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addGrade(array $data): bool
@@ -41,16 +39,14 @@ class Grade implements GradeInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateGrade(int $GradeId,array $data): bool
+    public function updateGrade(int $GradeId, array $data): bool
     {
         return EellyClient::request('user/grade', 'updateGrade', $GradeId, $data);
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteGrade(int $GradeId): bool
@@ -59,10 +55,9 @@ class Grade implements GradeInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listGradePage(array $condition = [],int $limit = 10,int $currentPage = 1): array
+    public function listGradePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
         return EellyClient::request('user/grade', 'listGradePage', $condition, $limit, $currentPage);
     }

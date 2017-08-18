@@ -9,11 +9,15 @@
 			"homepage": "https://www.eelly.com"
 		}
 	],
+	"require": {
+		"php": "^7.1.3",
+		"eelly/oauth2-client": "dev-master"
+	},
 	"autoload": {
 		"psr-4": {
 			"Eelly\\SDK\\":"src/SDK",
 			"Eelly\\Exception\\":"src/Exception",
-			"Eelly\\DTO\\":"src/DTO",
+			"Eelly\\DTO\\":"src/DTO"
 		}
 	}
 }

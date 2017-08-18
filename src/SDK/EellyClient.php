@@ -16,20 +16,27 @@ namespace Eelly\SDK;
 use Eelly\Exception\LogicException;
 use Eelly\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
+use Phalcon\Di;
 use Psr\Http\Message\UploadedFileInterface;
 
 class EellyClient
 {
-    private const URI = [
-        'logger' => 'http://api.eelly.dev',
-        'member' => 'http://api.eelly.dev',
-        'oauth'  => 'http://api.eelly.dev',
-    ];
-
     /**
      * @var string
      */
     public static $traceId;
+
+    /**
+     * 服务提供者默认地址
+     *
+     * @var array
+     */
+    private static $providerUri = [
+        'logger' => 'https://api.eelly.com',
+        'member' => 'https://api.eelly.com',
+        'oauth'  => 'https://api.eelly.com',
+        'user'   => 'https://api.eelly.com',
+    ];
 
     private static $services = [];
 
@@ -44,22 +51,29 @@ class EellyClient
     private static $self;
 
     /**
+     * EellyClient constructor.
+     *
      * @param array $options
+     * @param array $collaborators
+     * @param array $providerUri
      */
-    final private function __construct(array $options)
+    final private function __construct(array $options, array $collaborators = [], array $providerUri = [])
     {
-        $this->provider = new EellyProvider($options);
+        self::$providerUri = $providerUri + self::$providerUri;
+        $this->provider = new EellyProvider($options, $collaborators);
     }
 
     /**
      * @param array $options
+     * @param array $collaborators
+     * @param array $providerUri
      *
      * @return self
      */
-    public static function init(array $options): self
+    public static function init(array $options, array $collaborators = [], array $providerUri = []): self
     {
         if (null === self::$self) {
-            self::$self = new self($options);
+            self::$self = new self($options, $collaborators, $providerUri);
         }
 
         return self::$self;
@@ -88,7 +102,6 @@ class EellyClient
      */
     public function getAccessToken($grant, array $options = [])
     {
-        // TODO cache
         return $this->provider->getAccessToken($grant, $options);
     }
 
@@ -102,13 +115,17 @@ class EellyClient
     public static function request(string $uri, string $method, ...$args)
     {
         if (null === self::$self) {
-            throw new \ErrorException('uninitial eelly client');
+            $di = Di::getDefault();
+            if ($di->has('eellyClient')) {
+                $di->getShared('eellyClient');
+            } else {
+                throw new \ErrorException('eelly client initial fail');
+            }
         }
         $client = self::$self;
         $accessToken = $client->getAccessToken('client_credentials');
-
         list($serviceName) = explode('/', $uri);
-        $uri = self::URI[$serviceName].'/'.$uri.'/'.$method;
+        $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
         $stream = new MultipartStream($client->paramsToMultipart($args));
         $provider = $client->getProvider();
         $options = [
@@ -129,10 +146,11 @@ class EellyClient
                 if (is_subclass_of($returnType, LogicException::class)) {
                     throw new $returnType($array['error'], $array['context']);
                 } else {
-                    $object = $returnType::hydractor($array);
+                    $object = $returnType::hydractor($array['data']);
                 }
             } elseif ('array' == $returnType) {
                 $object = json_decode((string) $response->getBody(), true);
+                $object = $object['data'];
             } else {
                 $object = (string) $response->getBody();
                 settype($object, $returnType);
@@ -159,7 +177,7 @@ class EellyClient
                 foreach ($parentMultipart as $part) {
                     $multipart[] = $part;
                 }
-            } elseif (!is_null($value)) {
+            } elseif (null !== $value) {
                 $multipart[] = [
                     'name'     => $p,
                     'contents' => $value,
