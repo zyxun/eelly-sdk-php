@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Eelly\SDK\Store\Service;
 
 use Eelly\DTO\UidDTO;
-use Eelly\SDK\Store\Service\DTO\ComplainDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
