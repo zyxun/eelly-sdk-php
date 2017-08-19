@@ -21,8 +21,8 @@ use Eelly\SDK\Store\Service\ComplainInterface;
 class Complain implements ComplainInterface
 {
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\ComplainInterface::addStoreComplain()
      */
     public function addStoreComplain(array $complainData, UidDTO $user = null): bool
@@ -31,8 +31,8 @@ class Complain implements ComplainInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\ComplainInterface::deleteStoreComplain()
      */
     public function deleteStoreComplain(int $complainId, UidDTO $user = null): bool
@@ -41,8 +41,8 @@ class Complain implements ComplainInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\ComplainInterface::listStoreComplainPage()
      */
     public function listStoreComplainPage(int $storeId, int $dimension, int $page = 1, UidDTO $user = null): array
