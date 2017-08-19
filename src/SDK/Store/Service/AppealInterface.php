@@ -41,6 +41,7 @@ interface AppealInterface
      * 撤销店铺申诉
      * 卖家撤销店铺的投诉举报申诉
      *
+     * @param int $storeId 店铺id
      * @param int $appealId 申诉id
      * @param UidDTO $user 登录用户信息
      * @throws \Eelly\SDK\Store\Exception\StoreException
@@ -50,7 +51,7 @@ interface AppealInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2017-08-17
      */
-    public function deleteStoreAppeal(int $appealId, UidDTO $user = null): bool;
+    public function deleteStoreAppeal(int $storeId, int $appealId, UidDTO $user = null): bool;
 
     /**
      * 获取店铺的申诉信息
