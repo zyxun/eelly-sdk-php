@@ -17,7 +17,11 @@ use Eelly\DTO\UidDTO;
 use Eelly\DTO\UserDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * Interface UserInterface.
+ *
+ * 用户基础服务接口
+ *
+ * @author hehui <hehui@eelly.net>
  */
 interface UserInterface
 {
@@ -30,6 +34,10 @@ interface UserInterface
      * @throws \Eelly\Exception\LogicException
      *
      * @return bool 该用户密码是否正确
+     *
+     * @requestExample(["molimoq", "123456"])
+     *
+     * @returnExample(true)
      */
     public function checkPassword(string $username, string $password): bool;
 
@@ -42,13 +50,23 @@ interface UserInterface
      * @throws \Eelly\Exception\LogicException
      *
      * @return UserDTO
+     *
+     * @requestExample(["molimoq", "123456"])
+     *
+     * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      */
     public function getUserByPassword(string $username, string $password): UserDTO;
 
     /**
+     * 获取用户信息.
+     *
      * @param UidDTO $user
      *
      * @return UserDTO
+     *
+     * @requestExample()
+     *
+     * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      */
     public function info(UidDTO $user = null): UserDTO;
 

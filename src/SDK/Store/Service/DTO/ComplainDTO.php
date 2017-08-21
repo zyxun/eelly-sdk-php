@@ -16,15 +16,14 @@ namespace Eelly\SDK\Store\Service\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * ComplainDTO
+ * ComplainDTO.
  *
  * @author wangjiang<wangjiang@eelly.net>
  */
 class ComplainDTO extends AbstractDTO
 {
-
     /**
-     * 投诉举报id
+     * 投诉举报id.
      *
      * @var int
      */
@@ -38,35 +37,35 @@ class ComplainDTO extends AbstractDTO
     public $dimension;
 
     /**
-     * 投诉举报内容
+     * 投诉举报内容.
      *
      * @var string
      */
     public $content;
 
     /**
-     * 投诉举报证据
+     * 投诉举报证据.
      *
      * @var string
      */
     public $evidence;
 
     /**
-     * 投诉举报状态 0待跟进1已跟进2买家撤销3成立4不成立
+     * 投诉举报状态 0待跟进1已跟进2买家撤销3成立4不成立.
      *
      * @var int
      */
     public $status;
 
     /**
-     * 申诉标识 0未申诉1已申诉
+     * 申诉标识 0未申诉1已申诉.
      *
      * @var int
      */
     public $appealFlag;
 
     /**
-     * 投诉举报时间
+     * 投诉举报时间.
      *
      * @var string
      */
