@@ -20,7 +20,7 @@ namespace Eelly\SDK\Service\Exception;
 use Eelly\Exception\LogicException;
 
 class EntityException extends LogicException {
-//
+
     public function __construct(string $message, int $code, \Exception $previous = null)
     {
         parent::__construct($message, $context = null, $code, $previous = null);

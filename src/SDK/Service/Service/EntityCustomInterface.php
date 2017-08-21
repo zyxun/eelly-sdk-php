@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Service;
 
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -25,7 +26,7 @@ interface EntityCustomInterface
      * @param string $data['custom_market']
      * @param string $data['custom_floor']
      * @param UidDTO $user   登录用户对象
-     * @return array 
+     * @return bool 
      * @requestExample({"data":{"custom_market":"\u767d\u767d\u5417\u6279\u53d1\u5e02\u573a","custom_floor":"18\u697c"}})
      * @returnExample(true)
      * @throws Eelly\SDK\Service\Exception\EntityCustomException 701001 参数错误

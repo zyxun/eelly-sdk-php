@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Service;
 
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -22,20 +23,20 @@ interface BuyInterface
      * 新增一条服务购买记录.
      *
      * @param array $data 购买增值服务数据
-     * @param array $data['user_id']用户ID
-     * @param array $data['store_id']店铺ID
-     * @param array $data['sl_id']服务清单ID
+     * @param int $data['user_id']用户ID
+     * @param int $data['store_id']店铺ID
+     * @param int $data['sl_id']服务清单ID
      * @param array $data['name']服务名称
-     * @param array $data['number']数量设置：对应计数模式的数量；0为无限制
-     * @param array $data['money']收费金额：单位为分
-     * @param array $data['discount']0<=X<=1，0和1都表示无折扣
-     * @param array $data['time_limit']服务期限：表示N个月，大于0
-     * @param array $data['model']数模式：1 服务期内 2 每月 4 每日，全部模式：1+2+4=7
-     * @param array $data['from_type']来源类型：1 购买合同版本 2 购买服务 3 赠送服务
-     * @param array $data['pay_source']付款来源：1 在线付款 2 线下付款 3 免费赠送
-     * @param array $data['pr_id']pay_record表主键
-     * @param array $data['salesperson_id']销售员工ID
-     * @param array $data['expire_time']服务到期时间
+     * @param int $data['number']数量设置：对应计数模式的数量；0为无限制
+     * @param int $data['money']收费金额：单位为分
+     * @param int $data['discount']0<=X<=1，0和1都表示无折扣
+     * @param int $data['time_limit']服务期限：表示N个月，大于0
+     * @param int $data['model']数模式：1 服务期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int $data['from_type']来源类型：1 购买合同版本 2 购买服务 3 赠送服务
+     * @param int $data['pay_source']付款来源：1 在线付款 2 线下付款 3 免费赠送
+     * @param int $data['pr_id']pay_record表主键
+     * @param int $data['salesperson_id']销售员工ID
+     * @param int $data['expire_time']服务到期时间
      * @param array $data['remark']备注
      * @param UidDTO $user   登录用户对象
      * @return bool 

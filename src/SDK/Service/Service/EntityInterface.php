@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Service;
 
+use Eelly\DTO\UidDTO;
 
 /**
  *
