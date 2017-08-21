@@ -54,6 +54,7 @@ interface AddressInterface
      * 修改店铺的店铺地址和退货地址
      *
      * @param array  $addrData                 地址数据
+     * @param int    $addrData['storeId']      店铺id
      * @param int    $addrData['addrId']       地址id
      * @param string $addrData['consignee']    联系人姓名
      * @param string $addrData['gbCode']       地区编码
@@ -67,7 +68,7 @@ interface AddressInterface
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
      * @return bool 修改结果
-     * @requestExample({"addrData":{"addrId":1, "consignee":"联系人姓名","gdCode":"123","zipcode":"123","address":"详细地址","mobile":"123456789","deliveryType":1,"isDefault":1}})
+     * @requestExample({"addrData":{"storeId":1,"addrId":1,"consignee":"联系人姓名","gdCode":"123","zipcode":"123","address":"详细地址","mobile":"123456789","deliveryType":1,"isDefault":1}})
      * @returnExample(true)
      *
      * @author wangjiang<wangjiang@eelly.net>
@@ -80,6 +81,7 @@ interface AddressInterface
      * 删除店铺地址
      * 删除店铺的店铺地址和退货地址
      *
+     * @param int    $storeId 店铺id
      * @param int    $addrId 店铺地址
      * @param UidDTO $user   登录用户信息
      *
@@ -93,7 +95,7 @@ interface AddressInterface
      *
      * @since 2017-08-10
      */
-    public function deleteStoreAddress(int $addrId, UidDTO $user = null): bool;
+    public function deleteStoreAddress(int $storeId, int $addrId, UidDTO $user = null): bool;
 
     /**
      * 获取店铺地址
