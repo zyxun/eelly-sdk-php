@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\AddressDTO;
 
 /**
+ * 用户地址信息.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface AddressInterface

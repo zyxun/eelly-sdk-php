@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\SecurityDTO;
 
 /**
+ * 用户密保信息.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SecurityInterface

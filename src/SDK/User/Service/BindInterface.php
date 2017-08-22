@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\BindDTO;
 
 /**
+ *  用户第三方绑定.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface BindInterface

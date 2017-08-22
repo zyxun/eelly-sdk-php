@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\AuthDTO;
 
 /**
+ * 实名认证
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface AuthInterface
