@@ -29,7 +29,27 @@ class Store implements StoreInterface
      */
     public function addStore(array $storeData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/addStore', __FUNCTION__, $storeData);
+        return EellyClient::request('store/addStore', __FUNCTION__, $storeData, $user);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\StoreInterface::addStoreOperator()
+     */
+    public function addStoreOperator(int $userId, int $storeId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('store/addStoreOperator', __FUNCTION__, $userId, $storeId, $user);
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \Eelly\SDK\Store\Service\StoreInterface::deleteStoreOperator()
+     */
+    public function deleteStoreOperator(int $operatorId, int $userId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('store/deleteStoreOperator', __FUNCTION__, $operatorId, $userId, $user);
     }
 
     /**

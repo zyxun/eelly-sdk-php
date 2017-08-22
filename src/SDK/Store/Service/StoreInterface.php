@@ -47,4 +47,37 @@ interface StoreInterface
      * @since 2017-08-08
      */
     public function addStore(array $storeData, UidDTO $user = null): bool;
+
+    /**
+     * 添加店铺运营
+     * 添加店铺的运营管理人员
+     *
+     * @param int $userId 运营管理人员的userId
+     * @param int $storeId 店铺id
+     * @param UidDTO $user 登录用户信息
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     * @requestExample({"userId":1,"storeId":2})
+     * @return bool 新增结果
+     * @returnExample(true)
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017-08-21
+     */
+    public function addStoreOperator(int $userId, int $storeId, UidDTO $user = null): bool;
+
+    /**
+     * 撤销店铺运营
+     * 禁用或删除店铺运营
+     *
+     * @param int $operatorId 店铺运营id
+     * @param int $storeId 店铺id
+     * @param int $type 操作类型 1禁用2删除
+     * @param UidDTO $user 登录用户信息
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     * @requestExample({"operatorId":1,"storeId":2,"type":1})
+     * @return bool 撤销结果
+     * @returnExample(true)
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017-08-21
+     */
+    public function deleteStoreOperator(int $operatorId, int $storeId, int $type, UidDTO $user = null): bool;
 }
