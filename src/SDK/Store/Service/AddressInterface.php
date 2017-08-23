@@ -82,8 +82,8 @@ interface AddressInterface
      * 删除店铺的店铺地址和退货地址
      *
      * @param int    $storeId 店铺id
-     * @param int    $addrId 店铺地址
-     * @param UidDTO $user   登录用户信息
+     * @param int    $addrId  店铺地址
+     * @param UidDTO $user    登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
@@ -107,7 +107,7 @@ interface AddressInterface
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
-     * @return \Eelly\SDK\Store\Service\DTO\AddressDTO
+     * @return \Eelly\SDK\Store\DTO\AddressDTO
      * @requestExample({"storeId":1, "addressType":1})
      * @returnExample({"storeName":"店铺名称","addressType":1,"consignee":"联系人姓名","zipcode":"邮政编码","address":"详细地址","mobile":"13333333","deliveryType":1})
      *
