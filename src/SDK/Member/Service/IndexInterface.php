@@ -120,4 +120,14 @@ interface IndexInterface
      * @return bool
      */
     public function throwException(): bool;
+
+
+    /**
+     * index
+     *
+     * @return string
+     * @auth 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年08月22日
+     */
+    public function index(): string;
 }
