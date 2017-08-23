@@ -11,23 +11,23 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Store\Service\DTO;
+namespace Eelly\SDK\Store\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
 /**
- * AppealDTO.
+ * ComplainDTO.
  *
  * @author wangjiang<wangjiang@eelly.net>
  */
-class AppealDTO extends AbstractDTO
+class ComplainDTO extends AbstractDTO
 {
     /**
-     * 申诉id
+     * 投诉举报id.
      *
      * @var int
      */
-    public $appealId;
+    public $complainId;
 
     /**
      * 投诉举报维度 1店铺2交易3商品
@@ -37,42 +37,35 @@ class AppealDTO extends AbstractDTO
     public $dimension;
 
     /**
-     * 投诉举报内容
+     * 投诉举报内容.
      *
      * @var string
      */
-    public $complainContent;
+    public $content;
 
     /**
-     * 投诉举报证据
+     * 投诉举报证据.
      *
      * @var string
      */
-    public $complainEvidence;
+    public $evidence;
 
     /**
-     * 申诉内容
-     *
-     * @var string
-     */
-    public $appealContent;
-
-    /**
-     * 申诉证据
-     *
-     * @var string
-     */
-    public $appealEvidence;
-
-    /**
-     * 申诉状态 0待处理1申诉撤销2申诉成功3申诉失败
+     * 投诉举报状态 0待跟进1已跟进2买家撤销3成立4不成立.
      *
      * @var int
      */
     public $status;
 
     /**
-     * 投诉举报时间
+     * 申诉标识 0未申诉1已申诉.
+     *
+     * @var int
+     */
+    public $appealFlag;
+
+    /**
+     * 投诉举报时间.
      *
      * @var string
      */

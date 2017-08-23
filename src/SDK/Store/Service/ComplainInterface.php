@@ -16,6 +16,8 @@ namespace Eelly\SDK\Store\Service;
 use Eelly\DTO\UidDTO;
 
 /**
+ * 店铺投诉举报.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ComplainInterface
@@ -68,20 +70,45 @@ interface ComplainInterface
     public function deleteStoreComplain(int $complainId, UidDTO $user = null): bool;
 
     /**
-     * 获取店铺的投诉举报信息
+     * 获取店铺的投诉举报信息.
+     *
      * 分页获取店铺的投诉举报信息列表.
      *
-     * @param int $storeId   店铺id
-     * @param int $dimension 投诉举报维度1店铺2交易3商品
-     * @param int $page      页数
+     * ### 返回数据说明
+     *
+     *  字段         |说明
+     *  ------------|----
+     *  complainId  |店铺投诉举报ID
+     *  dimension   |投诉举报的维度：1 店铺 2 交易 3 商品
+     *  content     |投诉举报内容
+     *  evidence    |投诉举报证据
+     *  status      |投诉举报的状态：0 待跟进1 已跟进 2 买家撤销 3 成立 4 不成立
+     *  appealFlag  |申诉标识：0 未申诉 1 已申诉
+     *  createdTime |建立时间
+     *
+     * @param int    $storeId   店铺id
+     * @param int    $dimension 投诉举报维度1店铺2交易3商品
+     * @param int    $page      页数
+     * @param UidDTO $user      登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
-     * @return array
-     * @requestExample({"storeId":123,"dimension":1,"page":1})
-     * @returnExample([{"complainId":1,"dimension":1,"content":"投诉举报内容","evidence":"投诉举报证据","status":1,"appealFlag":1,"createdTime":"2017-01-01 12:12:12"}])
+     * @return array 投诉举报信息列表
      *
-     * @author wangjiang<wangjiang@eelly.net>
+     * @requestExample({"storeId":123,"dimension":1,"page":1})
+     *
+     * @returnExample([{
+     *     "complainId":1,
+     *     "dimension":1,
+     *     "content":"投诉举报内容",
+     *     "evidence":"投诉举报证据",
+     *     "status":1,
+     *     "appealFlag":1,
+     *     "createdTime":"2017-01-01 12:12:12"
+     * }])
+     *
+     * @author wang jiang<wangjiang@eelly.net>
+     * @author laravel jun<laraveljun@eelly.net>
      *
      * @since 2017-08-16
      */
