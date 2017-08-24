@@ -19,7 +19,7 @@ use Eelly\DTO\UserDTO;
 /**
  * 用户基础信息.
  *
- * @author hehui <hehui@eelly.net>
+ * @author hehui<hehui@eelly.net>
  */
 interface UserInterface
 {

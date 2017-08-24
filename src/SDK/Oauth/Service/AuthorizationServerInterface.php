@@ -14,9 +14,16 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Service;
 
 /**
+ * 授权服务接口.
+ * 
  * @author hehui<hehui@eelly.net>
  */
 interface AuthorizationServerInterface
 {
+    /**
+     * @return mixed
+     *
+     * @author hehui<hehui@eelly.net>
+     */
     public function accessToken();
 }
