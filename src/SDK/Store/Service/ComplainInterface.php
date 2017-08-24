@@ -76,15 +76,15 @@ interface ComplainInterface
      *
      * ### 返回数据说明
      *
-     *  字段         |说明
-     *  ------------|----
-     *  complainId  |店铺投诉举报ID
-     *  dimension   |投诉举报的维度：1 店铺 2 交易 3 商品
-     *  content     |投诉举报内容
-     *  evidence    |投诉举报证据
-     *  status      |投诉举报的状态：0 待跟进1 已跟进 2 买家撤销 3 成立 4 不成立
-     *  appealFlag  |申诉标识：0 未申诉 1 已申诉
-     *  createdTime |建立时间
+     *  字段         |类型   |说明
+     *  ------------|-------|--------------------------------------------------
+     *  complainId  |int    |店铺投诉举报ID
+     *  dimension   |int    |投诉举报的维度：1 店铺 2 交易 3 商品
+     *  content     |string |投诉举报内容
+     *  evidence    |string |投诉举报证据
+     *  status      |int    |投诉举报的状态：0 待跟进1 已跟进 2 买家撤销 3 成立 4 不成立
+     *  appealFlag  |int    |申诉标识：0 未申诉 1 已申诉
+     *  createdTime |string |建立时间
      *
      * @param int    $storeId   店铺id
      * @param int    $dimension 投诉举报维度1店铺2交易3商品
