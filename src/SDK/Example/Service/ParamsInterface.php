@@ -11,16 +11,18 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Member\Service;
+namespace Eelly\SDK\Example\Service;
 
 use Eelly\DTO\FastDFSDTO;
-use Eelly\SDK\Member\Service\DTO\TimeDTO;
+use Eelly\SDK\Example\Service\DTO\TimeDTO;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
+ * 接口参数测试.
+ *
  * @author hehui<hehui@eelly.net>
  */
-interface IndexInterface
+interface ParamsInterface
 {
     /**
      * 标题.
@@ -43,6 +45,8 @@ interface IndexInterface
      * @requestExample([123, 1.234, "字符串", {"akey":"avalue", "bkey":123}, '文件内容'])
      *
      * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function paramsType(int $a, float $b, string $c, array $d, UploadedFileInterface $e): bool;
 
@@ -56,6 +60,8 @@ interface IndexInterface
      * @returnExample({"name":"eelly","time":"2017-06-01 10:10:10"})
      *
      * @return TimeDTO
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function cacheTime(string $name): TimeDTO;
 
@@ -66,6 +72,8 @@ interface IndexInterface
      * @param UploadedFileInterface $file
      *
      * @return FastDFSDTO
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function uploadFileToFastDFS(string $name, UploadedFileInterface $file): ?FastDFSDTO;
 
@@ -84,40 +92,71 @@ interface IndexInterface
      * @requestExample([{"str":"衣联网","number":123},[{"name":"phalcon","status":true},{"name":"laravel","status":false}]])
      *
      * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function paramArray(array $arr, array $framework): bool;
 
     /**
+     * 返回int.
+     *
      * @return int
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function returnInt(): int;
 
     /**
+     * 返回string.
+     *
      * @return string
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function returnString(): string;
 
     /**
+     * 返回array.
+     *
      * @return array
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function returnArray(): array;
 
     /**
+     * 返回bool.
+     *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function returnBool(): bool;
 
     /**
+     * 返回float.
+     *
      * @return float
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function returnfloat(): float;
 
+    /**
+     * 返回null.
+     *
+     * @author hehui<hehui@eelly.net>
+     */
     public function returnNull(): void;
 
     /**
-     * @throws \Eelly\SDK\Member\Exception\MemberException
+     * 返回异常.
+     *
+     * @throws \Eelly\SDK\Example\Exception\ExampleException
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function throwException(): bool;
 }
