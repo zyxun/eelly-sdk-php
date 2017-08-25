@@ -33,7 +33,7 @@ class EellyClient
      */
     private static $providerUri = [
         'logger' => 'https://api.eelly.com',
-        'member' => 'https://api.eelly.com',
+        'example' => 'https://api.eelly.com',
         'oauth'  => 'https://api.eelly.com',
         'user'   => 'https://api.eelly.com',
     ];
