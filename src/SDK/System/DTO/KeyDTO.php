@@ -11,26 +11,27 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Member\Service\DTO;
-
+namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * @author hehui<hehui@eelly.net>
+ * Class KeyDTO.
  */
-class TimeDTO extends AbstractDTO
+class KeyDTO extends AbstractDTO
 {
     /**
-     * 名称.
+     * 字典编码
      *
      * @var string
      */
-    public $name;
+    public $code;
 
     /**
-     * 时间.
-     *
-     * @var string
+     * @return string
      */
-    public $time;
+    public function getCodeName(): string
+    {
+        return $this->code;
+    }
+
 }

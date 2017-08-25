@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\GradeDTO;
 
 /**
+ * 用户等级.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface GradeInterface

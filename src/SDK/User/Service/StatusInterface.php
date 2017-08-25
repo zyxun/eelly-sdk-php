@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\StatusDTO;
 
 /**
+ * 用户最近操作状态信息.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface StatusInterface

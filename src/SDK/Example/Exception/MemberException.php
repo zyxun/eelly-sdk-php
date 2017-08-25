@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Member\Exception;
+namespace Eelly\SDK\Example\Exception;
 
 use Eelly\Exception\LogicException;
 

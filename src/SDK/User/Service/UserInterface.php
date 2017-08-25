@@ -17,11 +17,9 @@ use Eelly\DTO\UidDTO;
 use Eelly\DTO\UserDTO;
 
 /**
- * Interface UserInterface.
+ * 用户基础信息.
  *
- * 用户基础服务接口
- *
- * @author hehui <hehui@eelly.net>
+ * @author hehui<hehui@eelly.net>
  */
 interface UserInterface
 {
@@ -35,7 +33,7 @@ interface UserInterface
      *
      * @return bool 该用户密码是否正确
      *
-     * @requestExample(["molimoq", "123456"])
+     * @requestExample({"username":"molimoq", "password":"123456"})
      *
      * @returnExample(true)
      */
@@ -44,6 +42,8 @@ interface UserInterface
     /**
      * 通过密码获取用户信息.
      *
+     * 支持使用用户名加密码和用户名加手机获取
+     *
      * @param string $username 用户名(支持使用用户名和手机号)
      * @param string $password 用户密码
      *
@@ -51,7 +51,7 @@ interface UserInterface
      *
      * @return UserDTO
      *
-     * @requestExample(["molimoq", "123456"])
+     * @requestExample({"username":"molimoq", "password":"123456"})
      *
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      */

@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\EntranceDTO;
 
 /**
+ * 用户后台快速入口设置.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EntranceInterface

@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\TagDTO;
 
 /**
+ * 用户标签信息.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface TagInterface

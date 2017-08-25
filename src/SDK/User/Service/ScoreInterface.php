@@ -16,6 +16,8 @@ namespace Eelly\SDK\User\Service;
 use Eelly\DTO\ScoreDTO;
 
 /**
+ * 用户积分.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ScoreInterface
