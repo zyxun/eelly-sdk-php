@@ -32,7 +32,7 @@ interface ApiLoggerInterface
      *
      * @return bool
      *
-     * @requestExample({"straceId":"58363e7a6d22e5c34e8b4567"})
+     * @requestExample({"traceId":"58363e7a6d22e5c34e8b4567"})
      *
      * @returnExample(true)
      *
