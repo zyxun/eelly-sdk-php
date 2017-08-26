@@ -24,7 +24,7 @@ interface GoodsHandleInterface
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getGoodsHandle(int $GoodsHandleId): GoodsHandleDTO;
+    public function getGoodsHandle(int $goodsHandleId, int $id): GoodsHandleDTO;
 
     /**
      *
