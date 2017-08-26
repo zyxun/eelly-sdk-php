@@ -11,26 +11,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Example\Service\DTO;
+namespace Eelly\SDK\Example\Exception;
 
-use Eelly\DTO\AbstractDTO;
+use Eelly\Exception\LogicException;
 
 /**
  * @author hehui<hehui@eelly.net>
  */
-class TimeDTO extends AbstractDTO
+class ExampleException extends LogicException
 {
-    /**
-     * 名称.
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * 时间.
-     *
-     * @var string
-     */
-    public $time;
 }
