@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- *
- * @author liangxinyi<liangxinyi@eelly.net>
- * Date: 2017/7/15
- * Time: 11:54
- */
+
 declare(strict_types=1);
 
 /*
