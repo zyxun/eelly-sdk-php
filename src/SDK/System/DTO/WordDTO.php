@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\System\DTO;
+
 use Eelly\DTO\AbstractDTO;
 
 /**

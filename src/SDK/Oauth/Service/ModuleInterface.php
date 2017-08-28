@@ -44,7 +44,8 @@ interface ModuleInterface
      * @return array
      * @requestExample()
      * @returnExample({"items":[{"module_id":"1","module_name":"user","status":"1","domain":"","created_time":"1498042082","update_time":"2017-06-21 10:51:02"}],
-     "page":{"first":1,"before":1,"current":1,"last":2,"next":2,"total_pages":2,"total_items":2,"limit":1}})
+     * "page":{"first":1,"before":1,"current":1,"last":2,"next":2,"total_pages":2,"total_items":2,"limit":1}})
+     *
      * @since 2017-7-24
      */
     public function listModulePage(int $limit = 10, int $currentPage = 1): array;
@@ -74,7 +75,8 @@ interface ModuleInterface
      *
      * @return array
      * @returnExample({"items":[{"service_id":"1","service_name":"User\\Logic\\IndexLogic","module_id":"1","created_time":"1498042155","update_time":"2017-06-21 10:52:15","module_name":"user"}],
-     "page":{"first":1,"before":1,"current":1,"last":23,"next":2,"total_pages":23,"total_items":23,"limit":1}})
+     * "page":{"first":1,"before":1,"current":1,"last":23,"next":2,"total_pages":23,"total_items":23,"limit":1}})
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-7-24

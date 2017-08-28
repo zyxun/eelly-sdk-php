@@ -36,7 +36,8 @@ interface PermissionInterface
      *
      * @return array 返回接口列表结果
      * @returnExample([
-     ])
+     * ])
+     *
      * @since   2017-7-22
      */
     public function listPermission(): array;
@@ -74,7 +75,8 @@ interface PermissionInterface
      * @return PermissionDTO 返回接口PermissionDTO类型
      * @requestExample(1)
      * @returnExample({"permission_id":"1","service_id":"1","hash_name":"user\/index\/cacheTime","perm_name":"\u7f13\u5b58\u6ce8\u89e3\u793a\u4f8b","status":"0",
-     "created_time":"1498042155","update_time":"2017-06-21 10:52:15"})
+     * "created_time":"1498042155","update_time":"2017-06-21 10:52:15"})
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-7-22

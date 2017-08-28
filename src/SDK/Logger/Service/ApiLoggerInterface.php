@@ -24,7 +24,7 @@ interface ApiLoggerInterface
 {
     /**
      * 记录接口请求日志.
-     * 
+     *
      * @param string $traceId  跟踪id
      * @param array  $request  请求信息
      * @param array  $response 返回信息
