@@ -33,8 +33,8 @@ class Store implements StoreInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\StoreInterface::addStoreOperator()
      */
     public function addStoreOperator(int $userId, int $storeId, UidDTO $user = null): bool
@@ -43,8 +43,8 @@ class Store implements StoreInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\StoreInterface::deleteStoreOperator()
      */
     public function deleteStoreOperator(int $operatorId, int $userId, UidDTO $user = null): bool

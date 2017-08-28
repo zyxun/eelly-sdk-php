@@ -21,8 +21,8 @@ use Eelly\SDK\Store\Service\AppealInterface;
 class Appeal implements AppealInterface
 {
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\AppealInterface::addStoreAppeal()
      */
     public function addStoreAppeal(int $complainId, string $content, string $evidence, UidDTO $user = null): bool
@@ -31,8 +31,8 @@ class Appeal implements AppealInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\AppealInterface::deleteStoreAppeal()
      */
     public function deleteStoreAppeal(int $appealId, UidDTO $user = null): bool
@@ -41,8 +41,8 @@ class Appeal implements AppealInterface
     }
 
     /**
+     * {@inheritdoc}
      *
-     * {@inheritDoc}
      * @see \Eelly\SDK\Store\Service\AppealInterface::listStoreAppealPage()
      */
     public function listStoreAppealPage(int $storeId, int $dimension, int $status = -1, int $page = 1, UidDTO $user = null): array
