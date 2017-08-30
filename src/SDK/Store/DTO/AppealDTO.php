@@ -23,7 +23,7 @@ use Eelly\DTO\AbstractDTO;
 class AppealDTO extends AbstractDTO
 {
     /**
-     * 申诉id
+     * 申诉id.
      *
      * @var int
      */
@@ -37,42 +37,42 @@ class AppealDTO extends AbstractDTO
     public $dimension;
 
     /**
-     * 投诉举报内容
+     * 投诉举报内容.
      *
      * @var string
      */
     public $complainContent;
 
     /**
-     * 投诉举报证据
+     * 投诉举报证据.
      *
      * @var string
      */
     public $complainEvidence;
 
     /**
-     * 申诉内容
+     * 申诉内容.
      *
      * @var string
      */
     public $appealContent;
 
     /**
-     * 申诉证据
+     * 申诉证据.
      *
      * @var string
      */
     public $appealEvidence;
 
     /**
-     * 申诉状态 0待处理1申诉撤销2申诉成功3申诉失败
+     * 申诉状态 0待处理1申诉撤销2申诉成功3申诉失败.
      *
      * @var int
      */
     public $status;
 
     /**
-     * 投诉举报时间
+     * 投诉举报时间.
      *
      * @var string
      */

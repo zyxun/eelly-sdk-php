@@ -16,22 +16,34 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class KeyDTO.
+ * Class UidDTO.
  */
-class KeyDTO extends AbstractDTO
+class WordDTO extends AbstractDTO
 {
     /**
-     * 字典编码
+     * 敏感词.
      *
      * @var string
      */
-    public $code;
+    public $word;
 
     /**
      * @return string
      */
-    public function getCodeName(): string
+    public function getWord(): string
     {
-        return $this->code;
+        return $this->word;
+    }
+
+    /**
+     * @param string $word
+     *
+     * @return WordDTO
+     */
+    public function setWord(string $word): WordDTO
+    {
+        $this->word = $word;
+
+        return $this;
     }
 }
