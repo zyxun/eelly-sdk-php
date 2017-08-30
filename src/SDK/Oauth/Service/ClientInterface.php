@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Service;
 
-use Eelly\SDK\Oauth\Service\DTO\ClientDTO;
+use Eelly\SDK\Oauth\DTO\ClientDTO;
 
 /**
+ * 客户端接口
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface ClientInterface
@@ -33,15 +34,15 @@ interface ClientInterface
      * 分页获得客户端列表.
      *
      * @param string $clientKey   客户端key
-     * @param int    $limit       每页页数
      * @param int    $currentPage 当前页
+     * @param int    $limit       每页页数
      *
      * @return array
      * @returnExample({"items":[{"client_id":"1","client_key":"myawesomeapp","client_secret":"$2y$10$ZhlBMQNOUNSWt95LNMIfqePECBg85zwqjq7xS56uzQCllnQ4T9sgG","is_encrypt":"\u0001","user_id":"0","org_name":"eelly","app_name":"myapp","redirect_uri":"","auth_type":"4","created_time":"0","update_time":"2017-06-13 14:29:53"}],"page":{"first":1,"before":1,"current":1,"last":14,"next":2,"total_pages":14,"total_items":14,"limit":1}})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listClientPage(string $clientKey = null, int $limit = 10, int $currentPage = 1): array;
+    public function listClientPage(string $clientKey = null, int $currentPage = 1,int $limit = 10): array;
 
     /**
      * 获得客户端列表.

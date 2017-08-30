@@ -62,7 +62,7 @@ class District implements DistrictInterface
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listDistrictPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listDistrictPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('system/district', 'listDistrictPage', $condition, $limit, $currentPage);
     }

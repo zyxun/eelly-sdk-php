@@ -62,7 +62,7 @@ class Comment implements CommentInterface
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listCommentPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listCommentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('system/comment', 'listCommentPage', $condition, $limit, $currentPage);
     }

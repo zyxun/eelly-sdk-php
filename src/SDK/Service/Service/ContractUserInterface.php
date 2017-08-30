@@ -81,7 +81,7 @@ interface ContractUserInterface
      * @author fenghaikun<fenghaikun@eelly.net>
      * @since 2017-8-02
      */
-    public function listContractUserPage(array $condition = [],int $limit = 10, int $currentPage = 1,UidDTO $user=null):array;
+    public function listContractUserPage(array $condition = [],int $currentPage = 1, int $limit = 10,UidDTO $user=null):array;
     
 
 

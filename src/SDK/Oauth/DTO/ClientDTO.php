@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Oauth\Service\DTO;
+namespace Eelly\SDK\Oauth\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
@@ -22,55 +22,52 @@ class ClientDTO extends AbstractDTO
      *
      * @var int
      */
-    public $client_id;
+    public $clientId;
 
     /**
      * @var string 客户端key
      */
-    public $client_key;
+    public $clientKey;
 
     /**
      * @var string 秘钥
      */
-    public $client_secret;
+    public $clientSecret;
 
     /**
      * @var int 是否加密
      */
-    public $is_encrypt;
+    public $isEncrypt;
 
     /**
      * @var int 用户ID
      */
-    public $user_id;
+    public $userId;
 
     /**
      * @var string 组织名字
      */
-    public $org_name;
+    public $orgName;
 
     /**
      * @var string 应用名字
      */
-    public $app_name;
+    public $appName;
 
     /**
      * @var string 回调地址
      */
-    public $redirect_uri;
+    public $redirectUri;
 
     /**
      * @var int 认证类型(1：授权码模式，2：简化模式，3：密码模式，4：客户端模式)
      */
-    public $auth_type;
+    public $authType;
 
     /**
      * @var int 添加时间
      */
-    public $created_time;
+    public $createdTime;
 
-    /**
-     * @var string 修改时间
-     */
-    public $update_time;
+
 }

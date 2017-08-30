@@ -73,7 +73,7 @@ class Client implements ClientInterface
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listClientPage(int $limit = 10, int $currentPage = 1): array
+    public function listClientPage(int $currentPage = 1, int $limit = 10): array
     {
         // TODO: Implement listClientPage() method.
         return EellyClient::request('oauth/clientserver', 'listClientPage', $limit, $currentPage);
