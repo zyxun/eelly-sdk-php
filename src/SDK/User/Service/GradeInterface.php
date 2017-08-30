@@ -45,5 +45,5 @@ interface GradeInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listGradePage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
+    public function listGradePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

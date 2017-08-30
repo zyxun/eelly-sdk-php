@@ -43,5 +43,7 @@ interface FeedbackInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listFeedbackPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
+    public function listFeedbackPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+
 }

@@ -51,7 +51,7 @@ interface AuthorizationServerInterface
      *          "refresh_token": "def5020041ba02f6dd83def8906e0ff6d30b31ab318a696bb07dcc8852045aaa0791df3191653496e0785bcfac0e3e2ba53f056bc3b56b4d09107387b3e8d89da6e4d0634a41fe569f298f694ac1aaf98cd43cdaaf1ae16617fdd6330f61754267265d885e228d62e86fb64c5d4bbf01a9032809e80adec186ea69d95b2f014720d8cd2b41e1be51f746ac71a5a7288a00b5d177a895f1cea8d76e7a3d4f2990438171561b2fce828c496c74966c0aadb4a5cddb2a7b05f3a715e858006ed1aec179265f2917692a48dcad98e20b84a1e64fa6752a8765dd478c0329f58cec72d4aa880eac5ee0f3be7347824c244167bf6603c0db1635af87f1aac43860b9a26e89e2f9c973eec4817c7cb5b525623f2df39d5237cce6b65dac76f7479473c1b18f2ffbaef2eacb0d85b33929a2a075c135d93fa24c0ed340995d1f7ea4c3894246978287eba2447c4e1e2e5f24c350b2042f1183f18a71bef146e26e52bd56b0229830156186f97264bb9bdf6000c4ba"
      *     }
      * ```
-     *
+     * 
      * ### 请求参数
      *
      * 参数名         |类型     |是否可选  |默认值   | 说明
@@ -94,13 +94,7 @@ interface AuthorizationServerInterface
      * - [阮一峰的理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
      * - [oauth2.0](https://oauth.net/2/)
      *
-     * @throws \Exception
-     *
      * @return array
-     *
-     * @requestExample()
-     *
-     * @returnExample()
      *
      * @author hehui<hehui@eelly.net>
      */

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Oauth\Service\DTO;
+namespace Eelly\SDK\Oauth\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
@@ -22,22 +22,22 @@ class PermissionDTO extends AbstractDTO
      *
      * @var int
      */
-    public $permission_id;
+    public $permissionId;
 
     /**
      * @var int 服务ID
      */
-    public $service_id;
+    public $serviceId;
 
     /**
      * @var string 用于查询的唯一hash值
      */
-    public $hash_name;
+    public $hashName;
 
     /**
      * @var string 接口名
      */
-    public $perm_name;
+    public $permName;
 
     /**
      * @var int 审核状态/0:未审核,1:审核通过，4:已删除
@@ -47,20 +47,16 @@ class PermissionDTO extends AbstractDTO
     /**
      * @var string 模块名(namespace)
      */
-    public $service_name;
+    public $serviceName;
 
     /**
      * @var string 服务名(classname)
      */
-    public $module_name;
+    public $moduleName;
 
     /**
      * @var int 创建时间
      */
-    public $created_time;
+    public $createdTime;
 
-    /**
-     * @var string 更新时间
-     */
-    public $update_time;
 }
