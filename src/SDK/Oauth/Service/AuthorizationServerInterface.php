@@ -95,13 +95,13 @@ interface AuthorizationServerInterface
      * - [oauth2.0](https://oauth.net/2/)
      *
      * @throws \Exception
-     * 
+     *
      * @return array
      *
      * @requestExample()
-     * 
+     *
      * @returnExample()
-     * 
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function accessToken();
