@@ -32,10 +32,10 @@ class EellyClient
      * @var array
      */
     private static $providerUri = [
-        'logger'  => 'https://api.eelly.com',
+        'logger' => 'https://api.eelly.com',
         'example' => 'https://api.eelly.com',
-        'oauth'   => 'https://api.eelly.com',
-        'user'    => 'https://api.eelly.com',
+        'oauth'  => 'https://api.eelly.com',
+        'user'   => 'https://api.eelly.com',
     ];
 
     private static $services = [];

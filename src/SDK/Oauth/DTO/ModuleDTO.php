@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Oauth\Service\DTO;
+namespace Eelly\SDK\Oauth\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
@@ -22,12 +22,12 @@ class ModuleDTO extends AbstractDTO
      *
      * @var int
      */
-    public $module_id;
+    public $moduleId;
 
     /**
      * @var string 模块名(namespace)
      */
-    public $module_name;
+    public $moduleName;
 
     /**
      * @var int 是否启用/0:未启用,1:启用,2:关闭
@@ -42,10 +42,6 @@ class ModuleDTO extends AbstractDTO
     /**
      * @var int 添加时间
      */
-    public $created_time;
+    public $createdTime;
 
-    /**
-     * @var string 修改时间
-     */
-    public $update_time;
 }

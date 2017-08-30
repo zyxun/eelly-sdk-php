@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Message\Service\DTO;
+namespace Eelly\SDK\Message\DTO;
 
 use Eelly\DTO\AbstractDTO;
 

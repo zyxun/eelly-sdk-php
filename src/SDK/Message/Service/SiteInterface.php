@@ -92,7 +92,7 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function listMessageSitePage(UserDTO $user, int $limit = 10, int $currentPage = 1): array;
+    public function listMessageSitePage(UserDTO $user, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 获取用户消息.

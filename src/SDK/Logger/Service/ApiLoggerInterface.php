@@ -24,7 +24,7 @@ interface ApiLoggerInterface
 {
     /**
      * 记录接口请求日志.
-     *
+     * 
      * @param string $traceId  跟踪id
      * @param array  $request  请求信息
      * @param array  $response 返回信息
@@ -32,7 +32,7 @@ interface ApiLoggerInterface
      *
      * @return bool
      *
-     * @requestExample({"traceId":"58363e7a6d22e5c34e8b4567"})
+     * @requestExample({"straceId":"58363e7a6d22e5c34e8b4567"})
      *
      * @returnExample(true)
      *
