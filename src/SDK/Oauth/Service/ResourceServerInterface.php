@@ -25,6 +25,7 @@ interface ResourceServerInterface
      *
      * @throws \Exception
      *
+     * @return array
      *
      * @requestExample()
      * @returnExample()
