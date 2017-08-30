@@ -36,6 +36,8 @@ interface UserInterface
      * @requestExample({"username":"molimoq", "password":"123456"})
      *
      * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function checkPassword(string $username, string $password): bool;
 
@@ -54,19 +56,21 @@ interface UserInterface
      * @requestExample({"username":"molimoq", "password":"123456"})
      *
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function getUserByPassword(string $username, string $password): UserDTO;
 
     /**
      * 获取用户信息.
      *
-     * @param UidDTO $user
+     * @param UidDTO $user 登录用户
      *
      * @return UserDTO
      *
-     * @requestExample()
-     *
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function info(UidDTO $user = null): UserDTO;
 

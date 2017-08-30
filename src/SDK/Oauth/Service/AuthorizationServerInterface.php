@@ -94,8 +94,14 @@ interface AuthorizationServerInterface
      * - [阮一峰的理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
      * - [oauth2.0](https://oauth.net/2/)
      *
+     * @throws \Exception
+     * 
      * @return array
      *
+     * @requestExample()
+     * 
+     * @returnExample()
+     * 
      * @author hehui<hehui@eelly.net>
      */
     public function accessToken();
