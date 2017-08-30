@@ -21,6 +21,14 @@ namespace Eelly\SDK\Oauth\Service;
 interface ResourceServerInterface
 {
     /**
+     * 校验认证的令牌.
+     *
+     * @throws \Exception
+     *
+     *
+     * @requestExample()
+     * @returnExample()
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function verify(): void;

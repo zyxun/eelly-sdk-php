@@ -66,36 +66,15 @@ interface UserInterface
      *
      * @param UidDTO $user 登录用户
      *
+     * @throws \Exception
+     *
      * @return UserDTO
+     *
+     * @requestExample()
      *
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      *
      * @author hehui<hehui@eelly.net>
      */
     public function info(UidDTO $user = null): UserDTO;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getUser(int $userId): UserDTO;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function addUser(array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateUser(int $userId, array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteUser(int $userId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listUserPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }
