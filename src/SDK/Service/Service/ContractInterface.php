@@ -92,5 +92,8 @@ interface ContractInterface
      *
      * @since 2017-8-02
      */
-    public function listContractPage(array $condition = [], int $limit = 10, int $currentPage = 1, UidDTO $user = null): array;
+
+    public function listContractPage(array $condition = [],int $currentPage = 1, int $limit = 10,UidDTO $user=null):array;
+    
 }
+

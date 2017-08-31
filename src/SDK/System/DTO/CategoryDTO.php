@@ -69,5 +69,5 @@ class CategoryDTO extends AbstractDTO
      * @var string
      */
     public $remark;
-    
+
 }

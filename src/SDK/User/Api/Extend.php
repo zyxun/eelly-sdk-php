@@ -57,7 +57,7 @@ class Extend implements ExtendInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listExtendPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listExtendPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/extend', 'listExtendPage', $condition, $limit, $currentPage);
     }

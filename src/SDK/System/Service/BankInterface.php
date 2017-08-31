@@ -43,5 +43,9 @@ interface BankInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listBankPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
+
+    public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+
 }
+

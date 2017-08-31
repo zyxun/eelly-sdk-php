@@ -111,5 +111,5 @@ interface CategoryInterface
      */
     public function listCategoryPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
-
 }
+

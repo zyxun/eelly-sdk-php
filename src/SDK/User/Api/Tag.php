@@ -57,7 +57,7 @@ class Tag implements TagInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listTagPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listTagPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/tag', 'listTagPage', $condition, $limit, $currentPage);
     }

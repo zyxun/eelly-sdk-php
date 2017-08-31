@@ -81,7 +81,7 @@ interface TemplateInterface
      *
      * @since 2017-7-28
      */
-    public function listTemplatePage(array $where = null, int $limit = 10, int $currentPage = 1): array;
+    public function listTemplatePage(array $where = null, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 更新指定消息模板id状态.
