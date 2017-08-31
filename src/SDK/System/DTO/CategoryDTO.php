@@ -1,0 +1,73 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of eelly package.
+ *
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Eelly\SDK\System\DTO;
+
+use Eelly\DTO\AbstractDTO;
+
+/**
+ * Class CategoryDTO.
+ */
+class CategoryDTO extends AbstractDTO
+{
+
+    /**
+     * 分类id
+     *
+     * @var int
+     */
+    public $categoryId;
+
+    /**
+     * 分类名称
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * 分类编码
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
+     * 排序
+     *
+     * @var int
+     */
+    public $sort;
+
+    /**
+     * 状态
+     *
+     * @var int
+     */
+    public $staus;
+
+    /**
+     * 分类文章审核标志
+     *
+     * @var string
+     */
+    public $checkFlag;
+
+    /**
+     * 分类备注
+     *
+     * @var string
+     */
+    public $remark;
+    
+}

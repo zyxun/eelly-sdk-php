@@ -1,36 +1,38 @@
 <?php
 
 declare(strict_types=1);
-
 /*
- * This file is part of eelly package.
+ * PHP version 7.1
  *
- * (c) eelly.com
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
+ * @link      https://api.eelly.com
+ * @license   衣联网版权所有
  */
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\DTO\CategoryDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\Service\CategoryInterface;
+use Eelly\SDK\System\DTO\CategoryDTO;
 
 /**
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Category implements CategoryInterface
 {
+
     /**
+     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getCategory(int $CategoryId): CategoryDTO
+    public function getCategory(int $categoryId): CategoryDTO
     {
-        return EellyClient::request('system/category', 'getCategory', $CategoryId);
+        return EellyClient::request('system/category', 'getCategory', $categoryId);
     }
 
     /**
+     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addCategory(array $data): bool
@@ -39,27 +41,30 @@ class Category implements CategoryInterface
     }
 
     /**
+     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateCategory(int $CategoryId, array $data): bool
+    public function updateCategory(int $categoryId, array $data): bool
     {
-        return EellyClient::request('system/category', 'updateCategory', $CategoryId, $data);
+        return EellyClient::request('system/category', 'updateCategory', $categoryId, $data);
     }
 
     /**
+     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteCategory(int $CategoryId): bool
+    public function deleteCategory(int $categoryId): bool
     {
-        return EellyClient::request('system/category', 'deleteCategory', $CategoryId);
+        return EellyClient::request('system/category', 'deleteCategory', $categoryId);
     }
 
     /**
+     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listCategoryPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listCategoryPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('system/category', 'listCategoryPage', $condition, $limit, $currentPage);
+        return EellyClient::request('system/category', 'listCategoryPage', $condition, $currentPage, $limit);
     }
 
     /**
