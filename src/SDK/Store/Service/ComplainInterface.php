@@ -71,33 +71,38 @@ interface ComplainInterface
 
     /**
      * 获取店铺的投诉举报信息.
-     *
      * 分页获取店铺的投诉举报信息列表.
      *
      * ### 返回数据说明
      *
-     *  字段         |类型   |说明
-     *  ------------|-------|--------------------------------------------------
-     *  complainId  |int    |店铺投诉举报ID
-     *  dimension   |int    |投诉举报的维度：1 店铺 2 交易 3 商品
-     *  content     |string |投诉举报内容
-     *  evidence    |string |投诉举报证据
-     *  status      |int    |投诉举报的状态：0 待跟进1 已跟进 2 买家撤销 3 成立 4 不成立
-     *  appealFlag  |int    |申诉标识：0 未申诉 1 已申诉
-     *  createdTime |string |建立时间
+     * 字段|类型|说明
+     * -------------------|-------|--------------
+     * items              |array  |投诉举报信息列表
+     * items[complainId]  |int    |店铺投诉举报ID
+     * items[dimension]   |int    |投诉举报的维度：1 店铺 2 交易 3 商品
+     * items[content]     |string |投诉举报内容
+     * items[evidence]    |string |投诉举报证据
+     * items[status]      |int    |投诉举报的状态：0 待跟进1 已跟进 2 买家撤销 3 成立 4 不成立
+     * items[appealFlag]  |int    |申诉标识：0 未申诉 1 已申诉
+     * items[createdTime] |string |建立时间
+     * currentPage        |int    |当前页数
+     * totalPage          |int    |总页数
+     * totalItems         |int    |总数据数
      *
      * @param int    $storeId   店铺id
      * @param int    $dimension 投诉举报维度1店铺2交易3商品
      * @param int    $page      页数
+     * @param int    $limit     每页数据返回的数量
      * @param UidDTO $user      登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
      * @return array 投诉举报信息列表
      *
-     * @requestExample({"storeId":123,"dimension":1,"page":1})
+     * @requestExample({"storeId":123,"dimension":1,"page":1,"limit":10})
      *
-     * @returnExample([{
+     * @returnExample({
+     * "items":[{
      *     "complainId":1,
      *     "dimension":1,
      *     "content":"投诉举报内容",
@@ -105,12 +110,14 @@ interface ComplainInterface
      *     "status":1,
      *     "appealFlag":1,
      *     "createdTime":"2017-01-01 12:12:12"
-     * }])
-     *
-     * @author wang jiang<wangjiang@eelly.net>
-     * @author laravel jun<laraveljun@eelly.net>
+     *     }],
+     * "currentPage":1,
+     * "totalPage":2,
+     * "totalItems":2
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
      *
      * @since 2017-08-16
      */
-    public function listStoreComplainPage(int $storeId, int $dimension, int $page = 1, UidDTO $user = null): array;
+    public function listStoreComplainPage(int $storeId, int $dimension, int $page = 1, int $limit = 10, UidDTO $user = null): array;
 }
