@@ -9,62 +9,62 @@ declare(strict_types=1);
  * @license   衣联网版权所有
  */
 
-namespace Eelly\SDK\System\Api;
+namespace Eelly\SDK\Log\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\CategoryInterface;
-use Eelly\SDK\System\DTO\CategoryDTO;
+use Eelly\SDK\Log\Service\UserScoreInterface;
+use Eelly\DTO\UserScoreDTO;
 
 /**
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-class Category implements CategoryInterface
+class UserScore implements UserScoreInterface
 {
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getCategory(int $categoryId): CategoryDTO
+    public function getUserScore(int $UserScoreId): UserScoreDTO
     {
-        return EellyClient::request('system/category', 'getCategory', $categoryId);
+        return EellyClient::request('log/userscore', 'getUserScore', $UserScoreId);
     }
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addCategory(array $data): bool
+    public function addUserScore(array $data): bool
     {
-        return EellyClient::request('system/category', 'addCategory', $data);
+        return EellyClient::request('log/userscore', 'addUserScore', $data);
     }
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateCategory(int $categoryId, array $data): bool
+    public function updateUserScore(int $UserScoreId, array $data): bool
     {
-        return EellyClient::request('system/category', 'updateCategory', $categoryId, $data);
+        return EellyClient::request('log/userscore', 'updateUserScore', $UserScoreId, $data);
     }
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteCategory(int $categoryId): bool
+    public function deleteUserScore(int $UserScoreId): bool
     {
-        return EellyClient::request('system/category', 'deleteCategory', $categoryId);
+        return EellyClient::request('log/userscore', 'deleteUserScore', $UserScoreId);
     }
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listCategoryPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function listUserScorePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('system/category', 'listCategoryPage', $condition, $currentPage, $limit);
+        return EellyClient::request('log/userscore', 'listUserScorePage', $condition, $limit, $currentPage);
     }
 
     /**
