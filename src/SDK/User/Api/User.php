@@ -82,7 +82,7 @@ class User implements UserInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listUserPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listUserPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/user', 'listUserPage', $condition, $limit, $currentPage);
     }

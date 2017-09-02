@@ -57,7 +57,7 @@ class Score implements ScoreInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listScorePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listScorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/score', 'listScorePage', $condition, $limit, $currentPage);
     }

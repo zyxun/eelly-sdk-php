@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Example\Service;
 
 use Eelly\DTO\FastDFSDTO;
-use Eelly\SDK\Example\Service\DTO\TimeDTO;
+use Eelly\SDK\Example\DTO\TimeDTO;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**

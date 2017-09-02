@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\System\Api;
 
+use Eelly\DTO\ArticleDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\Service\ArticleInterface;
-use Eelly\DTO\ArticleDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Article implements ArticleInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getArticle(int $ArticleId): ArticleDTO
@@ -32,7 +31,6 @@ class Article implements ArticleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addArticle(array $data): bool
@@ -41,7 +39,6 @@ class Article implements ArticleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateArticle(int $ArticleId, array $data): bool
@@ -50,7 +47,6 @@ class Article implements ArticleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteArticle(int $ArticleId): bool
@@ -59,10 +55,9 @@ class Article implements ArticleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listArticlePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listArticlePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('system/article', 'listArticlePage', $condition, $limit, $currentPage);
     }

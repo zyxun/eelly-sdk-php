@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\System\Api;
 
+use Eelly\DTO\ImageDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\Service\ImageInterface;
-use Eelly\DTO\ImageDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Image implements ImageInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getImage(int $ImageId): ImageDTO
@@ -32,7 +31,6 @@ class Image implements ImageInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addImage(array $data): bool
@@ -41,7 +39,6 @@ class Image implements ImageInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateImage(int $ImageId, array $data): bool
@@ -50,7 +47,6 @@ class Image implements ImageInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteImage(int $ImageId): bool
@@ -59,10 +55,9 @@ class Image implements ImageInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listImagePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listImagePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('system/image', 'listImagePage', $condition, $limit, $currentPage);
     }

@@ -57,7 +57,7 @@ class Entrance implements EntranceInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listEntrancePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listEntrancePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/entrance', 'listEntrancePage', $condition, $limit, $currentPage);
     }

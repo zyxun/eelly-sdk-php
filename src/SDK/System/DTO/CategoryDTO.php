@@ -11,58 +11,63 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Message\Service\DTO;
+namespace Eelly\SDK\System\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
-class TemplateDTO extends AbstractDTO
+/**
+ * Class CategoryDTO.
+ */
+class CategoryDTO extends AbstractDTO
 {
+
     /**
-     * 消息模板ID，自增主键.
+     * 分类id
      *
      * @var int
      */
-    public $mt_id;
+    public $categoryId;
 
     /**
-     * 消息模板类型：1 站内消息 2 邮件 4 手机短信
-     *
-     * @var int
-     */
-    public $type;
-
-    /**
-     * 消息模板名称.
+     * 分类名称
      *
      * @var string
      */
     public $name;
 
     /**
-     * 消息模板内容.
+     * 分类编码
      *
      * @var string
      */
-    public $content;
+    public $code;
 
     /**
-     * 状态：0 未启用 1 启用.
+     * 排序
      *
      * @var int
      */
-    public $status;
+    public $sort;
 
     /**
-     * 添加时间.
+     * 状态
      *
      * @var int
      */
-    public $created_time;
+    public $staus;
 
     /**
-     * 修改时间.
+     * 分类文章审核标志
      *
-     * @var unknown
+     * @var string
      */
-    public $update_time;
+    public $checkFlag;
+
+    /**
+     * 分类备注
+     *
+     * @var string
+     */
+    public $remark;
+
 }

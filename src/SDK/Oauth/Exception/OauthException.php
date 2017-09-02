@@ -23,48 +23,18 @@ use Eelly\Exception\LogicException;
 
 class OauthException extends LogicException
 {
-    public const PARAMETER_ERROR = [
-         'STATUS_CODE'=> 701,
-         'ERR_CODE'   => 701001,
-         'FRIEND_MSG' => '您输入的信息有误，请重新输入',
-         'ERR_MSG'    => '参数错误',
-     ];
+    public const PARAMETER_ERROR = '参数错误';
 
-    public const DATA_NOT_EXIT = [
-         'STATUS_CODE'=> 702,
-         'ERR_CODE'   => 702001,
-         'FRIEND_MSG' => '小衣无能为力，找不到该数据',
-         'ERR_MSG'    => '数据不存在',
-     ];
+    public const DATA_NOT_EXIT =  '数据不存在';
 
-    public const DATA_INSERT_FAIL = [
-         'STATUS_CODE'=> 703,
-         'ERR_CODE'   => 703001,
-         'FRIEND_MSG' => '服务器开小差了，请稍后再试',
-         'ERR_MSG'    => '插入数据失败',
-     ];
+    public const DATA_INSERT_FAIL =  '插入数据失败';
 
-    public const DATA_UPDATE_FAIL = [
-        'STATUS_CODE'=> 704,
-        'ERR_CODE'   => 704001,
-        'FRIEND_MSG' => '服务器开小差了，请稍后再试',
-        'ERR_MSG'    => '更新数据失败',
-    ];
+    public const DATA_UPDATE_FAIL = '更新数据失败';
 
-    public const DATA_DELETE_FAIL = [
-        'STATUS_CODE'=> 705,
+    public const DATA_DELETE_FAIL = '删除数据失败';
 
-        'ERR_CODE'  => 705001,
-        'FRIEND_MSG'=> '服务器开小差了，请稍后再试',
-        'ERR_MSG'   => '删除数据失败',
-    ];
 
-    public const DATA_ALREADER_EXIT = [
-        'STATUS_CODE'=> 706,
-        'ERR_CODE'   => 706001,
-        'FRIEND_MSG' => '您好，你提交的数据已经存在',
-        'ERR_MSG'    => '数据已经存在',
-    ];
+    public const DATA_ALREADER_EXIT = '数据已经存在';
 
     /**
      * 逻辑开发错误代码提示数据.
@@ -78,9 +48,9 @@ class OauthException extends LogicException
          706001=> '数据已经存在',
      ];
 
-    public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)
-    {
-        $message = $message."[$errCode]";
-        parent::__construct($message, $context = null, $code, $previous = null);
-    }
+//    public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)
+//    {
+//        $message = $message."[$errCode]";
+//        parent::__construct($message, $context = null, $code, $previous = null);
+//    }
 }

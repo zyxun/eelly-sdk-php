@@ -57,7 +57,7 @@ class Status implements StatusInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listStatusPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function listStatusPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/status', 'listStatusPage', $condition, $limit, $currentPage);
     }
