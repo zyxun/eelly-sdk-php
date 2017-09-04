@@ -27,7 +27,7 @@ interface KeyInterface
      * 
      * @return array
      * @requestExample({"keyId":1})
-     * @returnExample({"keyId":1,"code":"test", "name":"测试编码","desc":"这个编码是测试数据","status":1,"createdTime":1503560249})
+     * @returnExample({"keyId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
      * @throws \Eelly\SDK\System\Exception\SystemException
      * 
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -42,7 +42,7 @@ interface KeyInterface
      * 
      * @return array 
      * @requestExample({"code":"test"})
-     * @returnExample({"keyId":1,"code":"test", "name":"测试编码","desc":"这个编码是测试数据","status":1,"createdTime":1503560249})
+     * @returnExample({"keyId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -55,15 +55,15 @@ interface KeyInterface
      *
      * @param array   $data                  字典参数数据
      * @param string  $data['code']          参数编码
-     * @param string  $data['name']          参数名称
-     * @param string  $data['desc']          参数描述
+     * @param string  $data['paramName']     参数名称
+     * @param string  $data['paramDesc']     参数描述
      * @param int     $data['status']        参数状态：(0 无效 1 有效)
      * @param int     $data['createdTime']   创建时间
      *
      * @throws \Eelly\SDK\System\Exception\KeyException
      *
      * @return bool
-     * @requestExample({"data":{"code":"test", "name":"测试编码","desc":"这个编码是测试数据","status":1,"createdTime":1503560249}})
+     * @requestExample({"data":{"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -77,14 +77,14 @@ interface KeyInterface
      * @param int     $keyId                 字典参数主键id
      * @param array   $data                  字典参数数据
      * @param string  $data['code']          参数编码
-     * @param string  $data['name']          参数名称
-     * @param string  $data['desc']          参数描述
+     * @param string  $data['paramName']     参数名称
+     * @param string  $data['paramDesc']     参数描述
      * @param int     $data['status']        参数状态：(0 无效 1 有效)
      *
      * @throws \Eelly\SDK\System\Exception\KeyException
      *
      * @return bool
-     * @requestExample({"keyId":10,"data":{"code":"test", "name":"测试编码","desc":"这个编码是测试数据","status":1}})
+     * @requestExample({"keyId":10,"data":{"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -92,11 +92,23 @@ interface KeyInterface
      */
     public function updateKey(int $keyId, array $data): bool;
 
-    /*
+    /**
+     * 分页获取参数值列表
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param array  $condition           查询条件
+     * @param int    $currentPage         页码
+     * @param int    $limit               分页条数
+     *
+     * @throws \Eelly\SDK\System\Exception\KeyException
+     *
+     * @return array 返回分页结果
+     * @requestExample(["condition": [],"currentPage": "1","limit": "20"])
+     * @returnExample(["items": [{"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
+     *
+     * @author zhangyingdi<zhangyingdi@gmail.com>
+     * @since  2017-9-2
      */
-    //public function listKeyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listKeyPage(array $condition = [], int $currentPage = 1, int $limit = 20): array;
 
 
 }

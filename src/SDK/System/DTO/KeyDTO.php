@@ -39,14 +39,14 @@ class KeyDTO extends AbstractDTO
      *
      * @var string
      */
-    public $name;
+    public $paramName;
     
     /**
      * 参数描述
      *
      * @var string
      */
-    public $desc;
+    public $paramDesc;
     
     /**
      * 参数值状态：0 无效 1 有效
