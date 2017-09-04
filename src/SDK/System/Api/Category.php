@@ -62,9 +62,9 @@ class Category implements CategoryInterface
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listCategoryPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function listCategory(): array
     {
-        return EellyClient::request('system/category', 'listCategoryPage', $condition, $currentPage, $limit);
+        return EellyClient::request('system/category', 'listCategoryPage');
     }
 
     /**
