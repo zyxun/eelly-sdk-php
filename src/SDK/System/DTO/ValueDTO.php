@@ -16,37 +16,44 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class KeyDTO.
+ * Class ValueDTO.
  */
-class KeyDTO extends AbstractDTO
+class ValueDTO extends AbstractDTO
 {
     /**
-     * 参数字典id
+     * 参数值主键id
+     *
+     * @var int
+     */
+    public $pvId;
+    
+    /**
+     * 参数主键id
      *
      * @var int
      */
     public $pkId;
     
     /**
-     * 参数字典编码
+     * 参数值
      *
      * @var string
      */
-    public $code;
+    public $paramValue;
     
     /**
-     * 参数名称
-     *
-     * @var string
-     */
-    public $paramName;
-    
-    /**
-     * 参数描述
+     * 参数值描述
      *
      * @var string
      */
     public $paramDesc;
+    
+    /**
+     * 参数值描述的解释
+     *
+     * @var string
+     */
+    public $remark;
     
     /**
      * 参数值状态：0 无效 1 有效
@@ -55,11 +62,4 @@ class KeyDTO extends AbstractDTO
      */
     public $status;
     
-    /**
-     * @return string
-     */
-    public function getCodeName(): string
-    {
-        return $this->code;
-    }
 }

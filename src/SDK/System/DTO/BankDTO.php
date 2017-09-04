@@ -16,50 +16,57 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class KeyDTO.
+ * Class BankDTO.
  */
-class KeyDTO extends AbstractDTO
+class BankDTO extends AbstractDTO
 {
     /**
-     * 参数字典id
+     * 银行信息表主键id
      *
      * @var int
      */
-    public $pkId;
+    public $bankId;
     
     /**
-     * 参数字典编码
+     * 银行名称
+     *
+     * @var string
+     */
+    public $name;
+    
+    /**
+     * 银行编码
      *
      * @var string
      */
     public $code;
     
     /**
-     * 参数名称
+     * 银行logo
      *
      * @var string
      */
-    public $paramName;
+    public $logo;
     
     /**
-     * 参数描述
+     * 银行使用标志
      *
-     * @var string
+     * @var int
      */
-    public $paramDesc;
+    public $useFlag;
     
     /**
-     * 参数值状态：0 无效 1 有效
+     * 排序
+     *
+     * @var int
+     */
+    public $sort;
+    
+    /**
+     * 状态：0 禁用 1 正常
      *
      * @var int
      */
     public $status;
     
-    /**
-     * @return string
-     */
-    public function getCodeName(): string
-    {
-        return $this->code;
-    }
 }
