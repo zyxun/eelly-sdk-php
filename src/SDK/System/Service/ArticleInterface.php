@@ -13,39 +13,98 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
-use Eelly\DTO\ArticleDTO;
+use Eelly\SDK\System\DTO\ArticleDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleInterface
 {
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getArticle(int $ArticleId): ArticleDTO;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取指定id文章
+     *
+     * @param int $articleId 文章id
+     *
+     * @return \Eelly\SDK\System\DTO\ArticleDTO
+     * @requestExample({"articleId":1})
+     * @returnExample({"articleId":1,"categoryId":1,"title":"标题","content":"内容","belongId":0,"username":"发布者用户名","copyFrom":"文章来源","status":0})
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017-08-31
+     */
+    public function getArticle(int $articleId): ArticleDTO;
+
+    /**
+     * 新增文章
+     *
+     * @param array  $data               文章数据
+     * @param int    $data['categoryId'] 文章分类id
+     * @param string $data['title']      文章标题
+     * @param string $data['content']    文章内容
+     * @param int    $data['belongId']   文章归属id 0:系统
+     * @param string $data['copyFrom']   文章来源 系统发布的来源为【衣联网】
+     *
+     * @return bool 新增结果
+     * @requestExample({"data":{"categoryId":1,"title":"文章标题","content":"文章内容","belongId":0,"copyFrom":"文章来源"}})
+     * @returnExample(true)
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017-08-31
      */
     public function addArticle(array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 修改文章
+     *
+     * @param int    $articleId          文章id
+     * @param array  $data               文章数据
+     * @param int    $data['categoryId'] 文章分类id
+     * @param string $data['title']      文章标题
+     * @param string $data['content']    文章内容
+     * @param int    $data['belongId']   文章归属id 0:系统
+     * @param string $data['copyFrom']   文章来源 系统发布的来源为【衣联网】
+     *
+     * @return bool 修改结果
+     * @requestExample({"articleId":1,"data":{"categoryId":1,"title":"文章标题","content":"文章内容","belongId":0,"copyFrom":"文章来源"}})
+     * @returnExample(true)
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017-08-31
      */
-    public function updateArticle(int $ArticleId, array $data): bool;
+    public function updateArticle(int $articleId, array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 删除文章
+     *
+     * @param int $articleId 文章id
+     *
+     * @return bool 删除结果
+     * @requestExample({"articleId":1})
+     * @returnExample(true)
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017-08-31
      */
-    public function deleteArticle(int $ArticleId): bool;
+    public function deleteArticle(int $articleId): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 分页获取文章
+     *
+     * @param array  $condition               文章的查询条件
+     * @param string $condition['title']      文章标题
+     * @param string $condition['categoryId'] 文章分类id
+     * @param int    $currentPage             当前页码
+     * @param int    $limit                   每页条数
+     *
+     * @return array 文章列表
+     * @requestExample({"condition":{"title":"文章标题","categoryId":1})
+     * @returnExample({"item":[{"articleId":"1","title":"文章标题","username":"","status":"0","createdTime":"1504321656","updateTime":"2017-09-02 08:52:35","categoryName":"分类名"}],"page":{"current":1,"total_pages":1,"total_items":"1","limit":10}})
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017-08-31
      */
-
     public function listArticlePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
 
 }
 

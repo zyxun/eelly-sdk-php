@@ -27,10 +27,10 @@ interface CategoryInterface
      *
      * @return \Eelly\SDK\System\DTO\CategoryDTO
      * @requestExample({"categoryId":1})
-     * @returnExample({"categoryId":1,"name":"分类名称","code":"分类编码","parentId":2,"sort":1,"staus":1,"checkFlag":1,"remark":"分类备注"})
+     * @returnExample({"categoryId":1,"name":"分类名称","code":"分类编码","parentId":2,"sort":1,"status":1,"checkFlag":1,"remark":"分类备注"})
      * @throws \Eelly\SDK\System\Exception\SystemException
      * @author wujunhua<wujunhua@eelly.net>
-     * @since 2017-08-30
+     * @since 2017-08-31
      */
     public function getCategory(int $categoryId): CategoryDTO;
 
@@ -51,7 +51,7 @@ interface CategoryInterface
      * @returnExample(true)
      * @throws \Eelly\SDK\System\Exception\SystemException
      * @author wujunhua<wujunhua@eelly.net>
-     * @since 2017-08-30
+     * @since 2017-08-31
      */
     public function addCategory(array $data): bool;
 
@@ -73,7 +73,7 @@ interface CategoryInterface
      * @returnExample(true)
      * @throws \Eelly\SDK\System\Exception\SystemException
      * @author wujunhua<wujunhua@eelly.net>
-     * @since 2017-08-30
+     * @since 2017-08-31
      */
     public function updateCategory(int $categoryId, array $data): bool;
 
@@ -87,29 +87,21 @@ interface CategoryInterface
      * @returnExample(true)
      * @throws \Eelly\SDK\System\Exception\SystemException
      * @author wujunhua<wujunhua@eelly.net>
-     * @since 2017-08-30
+     * @since 2017-08-31
      */
     public function deleteCategory(int $categoryId): bool;
 
     /**
-     * 分页获取文章分类
-     *
-     * @param array  $condition              文章分类的查询条件
-     * @param string $condition['name']      分类名称
-     * @param string $condition['parentId']  文章分类id
-     * @param string $condition['status']    状态 0:无效 1:有效
-     * @param string $condition['checkFlag'] 分类文章审核标志：0:需审核 1:不需审核
-     * @param int    $currentPage            当前页码
-     * @param int    $limit                  每页条数
+     * 获取文章分类列表
      *
      * @return array 分类列表
-     * @requestExample({"condition":{"name":"分类名称","parentId":1,"status":1,"checkFlag":1},"currentPage":1,"limit":10})
-     * @returnExample()
+     * @requestExample()
+     * @returnExample({"categoryId":"1","name":"分类1","parentId":"0","status":"1","checkFlag":"1","son":[{"categoryId":"3","name":"分类3","parentId":"1","status":"1","checkFlag":"1"},{"categoryId":"4","name":"分类4","parentId":"1","status":"1","checkFlag":"1"}]})
      * @throws \Eelly\SDK\System\Exception\SystemException
      * @author wujunhua<wujunhua@eelly.net>
-     * @since 2017-08-30
+     * @since 2017-08-31
      */
-    public function listCategoryPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listCategory(): array;
 
 }
 
