@@ -89,7 +89,7 @@ interface ArticleInterface
     public function deleteArticle(int $articleId): bool;
 
     /**
-     * 分页获取文章
+     * 分页获取文章列表
      *
      * @param array  $condition               文章的查询条件
      * @param string $condition['title']      文章标题
@@ -98,8 +98,8 @@ interface ArticleInterface
      * @param int    $limit                   每页条数
      *
      * @return array 文章列表
-     * @requestExample({"condition":{"title":"文章标题","categoryId":1})
-     * @returnExample({"item":[{"articleId":"1","title":"文章标题","username":"","status":"0","createdTime":"1504321656","updateTime":"2017-09-02 08:52:35","categoryName":"分类名"}],"page":{"current":1,"total_pages":1,"total_items":"1","limit":10}})
+     * @requestExample({"condition":{"title":"文章标题","categoryId":1}})
+     * @returnExample({"item":[{"articleId":"1","title":"文章标题","username":"","status":"0","createdTime":"1504321656","updateTime":"2017-09-02 08:52:35","categoryName":"分类名"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":1,"limit":1}})
      * @throws \Eelly\SDK\System\Exception\SystemException
      * @author wujunhua<wujunhua@eelly.net>
      * @since 2017-08-31
