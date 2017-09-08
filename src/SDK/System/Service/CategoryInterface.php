@@ -25,12 +25,18 @@ interface CategoryInterface
      *
      * @param int $categoryId 文章id
      *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return \Eelly\SDK\System\DTO\CategoryDTO
      * @requestExample({"categoryId":1})
-     * @returnExample({"categoryId":1,"name":"分类名称","code":"分类编码","parentId":2,"sort":1,"status":1,"checkFlag":1,"remark":"分类备注"})
-     * @throws \Eelly\SDK\System\Exception\SystemException
+     * @returnExample({"parentId":0,"name":"分类名称","code":"分类编码","categoryId":1,"sort":1,"status":1,"checkFlag":1,"remark":"分类备注"})
+     *
      * @author wujunhua<wujunhua@eelly.net>
+     *
      * @since 2017-08-31
+     * @Validation(
+     *   @OperatorValidator(0,{message:"非法的文章分类id",operator:["gt",0]})
+     * )
      */
     public function getCategory(int $categoryId): CategoryDTO;
 
@@ -46,11 +52,14 @@ interface CategoryInterface
      * @param int    $data['checkFlag'] 分类文章审核标志：0:需审核 1:不需审核
      * @param int    $data['remark']    分类备注
      *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool 新增结果
      * @requestExample({"data":{"name":"分类名称","code":"分类编码","parentId":1,"sort":1,"status":1,"checkFlag":1,"remark":"分类备注"}})
      * @returnExample(true)
-     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @author wujunhua<wujunhua@eelly.net>
+     *
      * @since 2017-08-31
      */
     public function addCategory(array $data): bool;
@@ -68,12 +77,18 @@ interface CategoryInterface
      * @param int    $data['checkFlag'] 分类文章审核标志：0:需审核 1:不需审核
      * @param int    $data['remark']    分类备注
      *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool 修改结果
      * @requestExample({"categoryId":1,"data":{"name":"分类名称","code":"分类编码","parentId":1,"sort":1,"status":1,"checkFlag":1,"remark":"分类备注"}})
      * @returnExample(true)
-     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @author wujunhua<wujunhua@eelly.net>
+     *
      * @since 2017-08-31
+     * @Validation(
+     *   @OperatorValidator(0,{message:"非法的文章分类id",operator:["gt",0]})
+     * )
      */
     public function updateCategory(int $categoryId, array $data): bool;
 
@@ -82,23 +97,31 @@ interface CategoryInterface
      *
      * @param int $categoryId 文章分类id
      *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool 删除结果
      * @requestExample({"categoryId":1})
      * @returnExample(true)
-     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @author wujunhua<wujunhua@eelly.net>
+     *
      * @since 2017-08-31
+     * @Validation(
+     *   @OperatorValidator(0,{message:"非法的文章分类id",operator:["gt",0]})
+     * )
      */
     public function deleteCategory(int $categoryId): bool;
 
     /**
      * 获取文章分类列表
      *
-     * @return array 分类列表
+     * @return array 文章分类列表
      * @requestExample()
      * @returnExample({"categoryId":"1","name":"分类1","parentId":"0","status":"1","checkFlag":"1","son":[{"categoryId":"3","name":"分类3","parentId":"1","status":"1","checkFlag":"1"},{"categoryId":"4","name":"分类4","parentId":"1","status":"1","checkFlag":"1"}]})
      * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @author wujunhua<wujunhua@eelly.net>
+     *
      * @since 2017-08-31
      */
     public function listCategory(): array;
