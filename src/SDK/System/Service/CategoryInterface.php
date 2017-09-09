@@ -34,9 +34,6 @@ interface CategoryInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-08-31
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的文章分类id",operator:["gt",0]})
-     * )
      */
     public function getCategory(int $categoryId): CategoryDTO;
 
@@ -86,9 +83,6 @@ interface CategoryInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-08-31
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的文章分类id",operator:["gt",0]})
-     * )
      */
     public function updateCategory(int $categoryId, array $data): bool;
 
@@ -106,9 +100,6 @@ interface CategoryInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-08-31
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的文章分类id",operator:["gt",0]})
-     * )
      */
     public function deleteCategory(int $categoryId): bool;
 

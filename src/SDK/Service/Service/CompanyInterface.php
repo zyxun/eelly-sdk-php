@@ -36,9 +36,6 @@ interface CompanyInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-05
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的店铺id",operator:["gt",0]})
-     * )
      */
     public function getCompany(int $storeId): CompanyDTO;
 
@@ -112,9 +109,6 @@ interface CompanyInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-05
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的店铺id",operator:["gt",0]})
-     * )
      */
     public function checkCompany(int $storeId, UidDTO $user = null): bool;
 

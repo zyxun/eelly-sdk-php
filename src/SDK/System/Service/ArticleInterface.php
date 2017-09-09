@@ -35,9 +35,6 @@ interface ArticleInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-01
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的文章id",operator:["gt",0]})
-     * )
      */
     public function getArticle(int $articleId): ArticleDTO;
 
@@ -83,9 +80,6 @@ interface ArticleInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-01
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的文章id",operator:["gt",0]})
-     * )
      */
     public function updateArticle(int $articleId, array $data): bool;
 
@@ -103,9 +97,6 @@ interface ArticleInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-01
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的文章id",operator:["gt",0]})
-     * )
      */
     public function deleteArticle(int $articleId): bool;
 
@@ -131,10 +122,6 @@ interface ArticleInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-01
-     * @Validation(
-     *   @OperatorValidator(1,{message:"非法的页码",operator:["gt",0]}),
-     *   @OperatorValidator(2,{message:"非法的条数",operator:["gt",0]})
-     * )
      */
     public function listArticlePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
