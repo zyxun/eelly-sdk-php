@@ -17,7 +17,9 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Store\DTO\ServiceTeamDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 店铺客服组.
+ *
+ * @author wangjiang<wangjiang@eelly.net>
  */
 interface ServiceInterface
 {
