@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Api;
 
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\Service\Service\ContractNumberInterface;
 
 /**
@@ -20,6 +22,34 @@ use Eelly\SDK\Service\Service\ContractNumberInterface;
  */
 class ContractNumber implements ContractNumberInterface
 {
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addContractNumber(int $scId, int $number, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/ContractNumber', 'addContractNumber', $scId, $number, $user);
+    }
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array
+    {
+        return EellyClient::request('service/ContractNumber', 'listContractNumberPage', $condition, $currentPage, $limit);
+    }
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function unbindContractNumber(int $scnId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/ContractNumber', 'updateContractNumber', $scnId, $user);
+    }
+
     /**
      * @return self
      */

@@ -14,10 +14,11 @@ declare(strict_types=1);
 namespace Eelly\SDK\Store\Service;
 
 use Eelly\DTO\UidDTO;
-use Eelly\SDK\Store\DTO\ServiceListDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 店铺客服号.
+ *
+ * @author wangjiang<wangjiang@eelly.net>
  */
 interface ServiceListInterface
 {
