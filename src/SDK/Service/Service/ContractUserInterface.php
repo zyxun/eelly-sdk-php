@@ -21,9 +21,8 @@ use Eelly\SDK\Service\DTO\ContractUserDTO;
  */
 interface ContractUserInterface
 {
-
     /**
-     * 获取指定ID的用户合同签订记录
+     * 获取指定ID的用户合同签订记录.
      *
      * @param int    $scuId 用户合同签订记录ID
      * @param UidDTO $user  登录用户对象
@@ -44,7 +43,7 @@ interface ContractUserInterface
     public function getContractUser(int $scuId, UidDTO $user = null): ContractUserDTO;
 
     /**
-     * 新增用户合同签订记录
+     * 新增用户合同签订记录.
      *
      * @param array  $data                  新增数据
      * @param string $data['partyBName']    乙方名称，默认取用户姓名、帐号
@@ -53,7 +52,7 @@ interface ContractUserInterface
      * @param int    $data['scnId']         合同编号ID
      * @param int    $data['startTime']     合同开始时间
      * @param int    $data['endTime']       合同结束时间
-     * @param UidDTO $user 登录用户对象
+     * @param UidDTO $user                  登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\ContractUserException
      *
@@ -68,7 +67,7 @@ interface ContractUserInterface
     public function addContractUser(array $data, UidDTO $user = null): bool;
 
     /**
-     * 修改用户合同签订记录
+     * 修改用户合同签订记录.
      *
      * @param int    $scuId                 用户合同签订记录ID
      * @param array  $data                  修改数据
@@ -78,7 +77,7 @@ interface ContractUserInterface
      * @param int    $data['scnId']         合同编号ID
      * @param int    $data['startTime']     合同开始时间
      * @param int    $data['endTime']       合同结束时间
-     * @param UidDTO $user 登录用户对象
+     * @param UidDTO $user                  登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\ContractUserException
      *
@@ -93,7 +92,7 @@ interface ContractUserInterface
     public function updateContractUser(int $scuId, array $data, UidDTO $user = null): bool;
 
     /**
-     * 分页获取用户合同签订记录列表
+     * 分页获取用户合同签订记录列表.
      *
      * @param array  $condition   查询条件
      * @param int    $currentPage 当前页码
@@ -114,6 +113,4 @@ interface ContractUserInterface
      * @since 2017-09-09
      */
     public function listContractUserPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
-
 }
-

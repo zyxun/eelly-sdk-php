@@ -44,7 +44,4 @@ interface ReplyInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listReplyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
 }
-

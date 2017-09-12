@@ -21,107 +21,116 @@ use Eelly\SDK\System\DTO\MarketDTO;
 interface MarketInterface
 {
     /**
-     * 根据市场id,获取对应的市场信息
-     * 
+     * 根据市场id,获取对应的市场信息.
+     *
      * @param int $marketId 市场id
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return array
      * @requestExample({"marketId":1})
      * @returnExample({"marketId":3,"districtId":2,"marketName":"十三行新中国大厦","shortName":"新中国","startTime":"7:00","endTime":"14:00",
      *  "floorTotal":23,"latitude":"23.1166","longitude":"113.259499","gbCode":440103,"address":"荔湾区十三行路1号",
      *  "image":"XA283.jpg","isOpen":1,"sort":65535,"remark":"","createdTime":1505109590})
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     * 
+     *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-9-11
      */
     public function getMarket(int $marketId): MarketDTO;
 
     /**
-     * 添加一条市场记录
+     * 添加一条市场记录.
      *
-     * @param array $data
-     * @param int $data["districtId"]  商圈ID
-     * @param string $data["marketName"]  市场名称
+     * @param array  $data
+     * @param int    $data["districtId"] 商圈ID
+     * @param string $data["marketName"] 市场名称
      * @param string $data["shortName"]  自定义简称
      * @param string $data["startTime"]  营业开始时间
-     * @param string $data["endTime"]  营业结束时间
-     * @param int $data["floorTotal"]  楼层总数
-     * @param string $data["latitude"]  纬度
+     * @param string $data["endTime"]    营业结束时间
+     * @param int    $data["floorTotal"] 楼层总数
+     * @param string $data["latitude"]   纬度
      * @param string $data["longitude"]  经度
-     * @param int $data["gb_code"]  区域ID
-     * @param string $data["address"]  详细地址
-     * @param string $data["image"]  图片路径
-     * @param int $data["isOpen"]  是否开通批发市场网页：0、未开通 1、开通
-     * @param int $data["sort"]  显示排序
-     * @param string $data["remark"]  市场备注
-     * 
+     * @param int    $data["gb_code"]    区域ID
+     * @param string $data["address"]    详细地址
+     * @param string $data["image"]      图片路径
+     * @param int    $data["isOpen"]     是否开通批发市场网页：0、未开通 1、开通
+     * @param int    $data["sort"]       显示排序
+     * @param string $data["remark"]     市场备注
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool
      * @requestExample({"data":{"districtId":2,"marketName":"十三行新中国大厦","shortName":"新中国","startTime":"7:00","endTime":"14:00",
      *  "floorTotal":23,"latitude":"23.1166","longitude":"113.259499","gbCode":440103,"address":"荔湾区十三行路1号",
      *  "image":"XA283.jpg","isOpen":1,"sort":65535,"remark":""}})
      * @returnExample(true)
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     * 
+     *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-9-11
      */
     public function addMarket(array $data): bool;
 
     /**
-     * 更新市场信息
-     * 
-     * @param int $marketId  市场id
-     * @param array $data
-     * @param int $data["districtId"]  商圈ID
-     * @param string $data["marketName"]  市场名称
+     * 更新市场信息.
+     *
+     * @param int    $marketId           市场id
+     * @param array  $data
+     * @param int    $data["districtId"] 商圈ID
+     * @param string $data["marketName"] 市场名称
      * @param string $data["shortName"]  自定义简称
      * @param string $data["startTime"]  营业开始时间
-     * @param string $data["endTime"]  营业结束时间
-     * @param int $data["floorTotal"]  楼层总数
-     * @param string $data["latitude"]  纬度
+     * @param string $data["endTime"]    营业结束时间
+     * @param int    $data["floorTotal"] 楼层总数
+     * @param string $data["latitude"]   纬度
      * @param string $data["longitude"]  经度
-     * @param int $data["gbCode"]  区域ID
-     * @param string $data["address"]  详细地址
-     * @param string $data["image"]  图片路径
-     * @param int $data["isOpen"]  是否开通批发市场网页：0、未开通 1、开通
-     * @param int $data["sort"]  显示排序
-     * @param string $data["remark"]  市场备注
-     * 
+     * @param int    $data["gbCode"]     区域ID
+     * @param string $data["address"]    详细地址
+     * @param string $data["image"]      图片路径
+     * @param int    $data["isOpen"]     是否开通批发市场网页：0、未开通 1、开通
+     * @param int    $data["sort"]       显示排序
+     * @param string $data["remark"]     市场备注
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool
      * @requestExample({"marketId":3,"data":{"districtId":2,"marketName":"十三行新中国大厦","shortName":"新中国","startTime":"7:00",
      *  "endTime":"14:00","floorTotal":23,"latitude":"23.1166","longitude":"113.259499","gbCode":440103,"address":"荔湾区十三行路1号",
      *  "image":"XA283.jpg","isOpen":1,"sort":65535,"remark":""}})
      * @returnExample(true)
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     * 
+     *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-9-11
      */
     public function updateMarket(int $marketId, array $data): bool;
 
     /**
-     * 删除市场信息
-     * 
-     * @param int $marketId  市场id
-     * 
+     * 删除市场信息.
+     *
+     * @param int $marketId 市场id
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool
      * @requestExample({"marketId":3})
      * @returnExample(true)
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     * 
+     *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-9-11
      */
     public function deleteMarket(int $marketId): bool;
 
     /**
-     * 分页获取商圈数据列表
-     * 
-     * @param array $condition                查询条件
-     * @param int   $condition['districtId']  商圈id
-     * @param int   $currentPage              页码
-     * @param int   $limit                    分页条数
-     * 
+     * 分页获取商圈数据列表.
+     *
+     * @param array $condition               查询条件
+     * @param int   $condition['districtId'] 商圈id
+     * @param int   $currentPage             页码
+     * @param int   $limit                   分页条数
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -151,20 +160,19 @@ interface MarketInterface
      * page[total_pages]   |int    | 总页数
      * page[total_items]   |int    | 总数
      * page[limit]         |int    | 每页显示的数量
-     * 
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return array
      * @requestExample({"condition":{"districtId":2},"currentPage":1,"limit":10})
      * @returnExample(["items": [{"districtId":2,"marketName":"十三行新中国大厦","shortName":"新中国","startTime":"7:00","endTime":"14:00",
      *  "floorTotal":23,"latitude":"23.1166","longitude":"113.259499","gbCode":440103,"address":"荔湾区十三行路1号",
      *  "image":"XA283.jpg","isOpen":1,"sort":65535,"remark":"","createdTime":1505109590}],
      *  "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     * 
+     *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-9-11
      */
     public function listMarketPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
 }
-

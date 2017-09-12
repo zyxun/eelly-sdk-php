@@ -17,58 +17,57 @@ use Eelly\DTO\AbstractDTO;
 
 class ContractDTO extends AbstractDTO
 {
-
     /**
-     * 合同id
+     * 合同id.
      *
      * @var int
      */
     public $scId;
 
     /**
-     * 服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * 服务对象：1 店+(下游买家) 2 厂+(上游卖家).
      *
      * @var int
      */
     public $type;
 
     /**
-     * 版本名称
+     * 版本名称.
      *
      * @var string
      */
     public $name;
 
     /**
-     * 合同期限：表示N个月，大于0
+     * 合同期限：表示N个月，大于0.
      *
      * @var int
      */
     public $timeLimit;
 
     /**
-     * 收费金额，单位为分
+     * 收费金额，单位为分.
      *
      * @var int
      */
     public $money;
 
     /**
-     * 折扣：0<=X<=1，0和1都表示无折扣
+     * 折扣：0<=X<=1，0和1都表示无折扣.
      *
      * @var int
      */
     public $discount;
 
     /**
-     * 服务集合：格式 sl_id,sl_id
+     * 服务集合：格式 sl_id,sl_id.
      *
      * @var string
      */
     public $serviceIds;
 
     /**
-     * 状态：0 未启用 1 前后台启用显示 2 只后台启用显示
+     * 状态：0 未启用 1 前后台启用显示 2 只后台启用显示.
      *
      * @var int
      */
@@ -80,5 +79,4 @@ class ContractDTO extends AbstractDTO
      * @var string
      */
     public $versionNo;
-
 }

@@ -18,35 +18,35 @@ use Eelly\DTO\AbstractDTO;
 class ServiceListDTO extends AbstractDTO
 {
     /**
-     * 客服组id
+     * 客服组id.
      *
      * @var int
      */
     public $teamId;
 
     /**
-     * 分组名称
+     * 分组名称.
      *
      * @var string
      */
     public $teamName;
 
     /**
-     * 客服号id
+     * 客服号id.
      *
      * @var int
      */
     public $listId;
 
     /**
-     * 客服名称
+     * 客服名称.
      *
      * @var string
      */
     public $listName;
 
     /**
-     * 号码类型 0/QQ号 1/旺旺 2/企业QQ
+     * 号码类型 0/QQ号 1/旺旺 2/企业QQ.
      *
      * @var int
      */
@@ -60,7 +60,7 @@ class ServiceListDTO extends AbstractDTO
     public $listNumber;
 
     /**
-     * 添加时间
+     * 添加时间.
      *
      * @var string
      */

@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Activity\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\Activity\Service\CouponInterface;
 use Eelly\DTO\CouponDTO;
+use Eelly\SDK\Activity\Service\CouponInterface;
+use Eelly\SDK\EellyClient;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Coupon implements CouponInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getCoupon(int $couponId): CouponDTO
@@ -32,7 +31,6 @@ class Coupon implements CouponInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addCoupon(array $data): bool
@@ -41,7 +39,6 @@ class Coupon implements CouponInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateCoupon(int $couponId, array $data): bool
@@ -50,7 +47,6 @@ class Coupon implements CouponInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteCoupon(int $couponId): bool
@@ -59,7 +55,6 @@ class Coupon implements CouponInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listCouponPage(array $condition = [], int $limit = 10, int $currentPage = 1): array

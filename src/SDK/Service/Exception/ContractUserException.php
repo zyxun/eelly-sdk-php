@@ -34,5 +34,4 @@ class ContractUserException extends LogicException
     public const PARAMETER_EMPTY = '参数不能为空';
 
     public const DATA_CONTRACT_NUMBER_NOT_EXIT = '合同编号不存在';
-
 }

@@ -38,8 +38,7 @@ interface ListsInterface
      *
      * @since 2017-8-02
      */
-    public function listServiceList(array $condition = [],int $currentPage = 1, int $limit = 10,UidDTO $user=null):array;
-    
+    public function listServiceList(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null):array;
 
     /**
      * 新增增值服务清单.

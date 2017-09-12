@@ -1,12 +1,14 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\System\Service;
@@ -14,14 +16,12 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\CategoryDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CategoryInterface
 {
-
     /**
-     * 获取指定id文章分类
+     * 获取指定id文章分类.
      *
      * @param int $categoryId 文章id
      *
@@ -38,7 +38,7 @@ interface CategoryInterface
     public function getCategory(int $categoryId): CategoryDTO;
 
     /**
-     * 新增文章分类
+     * 新增文章分类.
      *
      * @param array  $data              文章分类数据
      * @param int    $data['name']      分类名称
@@ -62,7 +62,7 @@ interface CategoryInterface
     public function addCategory(array $data): bool;
 
     /**
-     * 修改文章分类
+     * 修改文章分类.
      *
      * @param int    $categoryId        文章分类id
      * @param array  $data              文章分类数据
@@ -87,7 +87,7 @@ interface CategoryInterface
     public function updateCategory(int $categoryId, array $data): bool;
 
     /**
-     * 删除文章分类
+     * 删除文章分类.
      *
      * @param int $categoryId 文章分类id
      *
@@ -104,18 +104,17 @@ interface CategoryInterface
     public function deleteCategory(int $categoryId): bool;
 
     /**
-     * 获取文章分类列表
+     * 获取文章分类列表.
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array 文章分类列表
      * @requestExample()
      * @returnExample({"categoryId":"1","name":"分类1","parentId":"0","status":"1","checkFlag":"1","son":[{"categoryId":"3","name":"分类3","parentId":"1","status":"1","checkFlag":"1"},{"categoryId":"4","name":"分类4","parentId":"1","status":"1","checkFlag":"1"}]})
-     * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-08-31
      */
     public function listCategory(): array;
-
 }
-
