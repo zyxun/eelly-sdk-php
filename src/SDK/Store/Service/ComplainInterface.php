@@ -18,7 +18,7 @@ use Eelly\DTO\UidDTO;
 /**
  * 店铺投诉举报.
  *
- * @author eellytools<localhost.shell@gmail.com>
+ * @author wangjiang<wangjiang@eelly.net>
  */
 interface ComplainInterface
 {

@@ -33,8 +33,4 @@ class ContractException extends LogicException
 
     public const PARAMETER_EMPTY = '参数不能为空';
 
-//    public function __construct(string $message, int $code, \Exception $previous = null)
-//    {
-//        parent::__construct($message, $context = null, $code, $previous = null);
-//    }
 }

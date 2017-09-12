@@ -16,7 +16,9 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Store\DTO\LinkDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 店铺友链.
+ *
+ * @author zhoujiansheng<zhoujiansheng@eelly.net>
  */
 interface LinkInterface
 {
@@ -32,7 +34,7 @@ interface LinkInterface
      * @param UidDTO $user                登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
-     * 
+     *
      * @return bool 新增结果
      * @requestExample({"store_id":"1","title":"友链标题","url":"友链地址","logo":"友链图标","status":"1","sort":"0"})
      * @returnExample(true)
@@ -50,7 +52,7 @@ interface LinkInterface
      * @param UidDTO $user         登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
-     * 
+     *
      * @return LinkDTO
      * @requestExample(1)
      * @returnExample({"store_id":"1","title":"友链标题","url":"友链地址","logo":"友链图标","status":"1","sort":"0"})
@@ -71,7 +73,7 @@ interface LinkInterface
      * @param UidDTO $user         登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
-     * 
+     *
      * @return bool  删除结果
      * @requestExample(1)
      * @returnExample(true)
@@ -98,7 +100,7 @@ interface LinkInterface
      * @param UidDTO $user                登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
-     * 
+     *
      * @return bool  更新结果
      * @requestExample({"store_id":"1","title":"友链标题","url":"友链地址","logo":"友链图标","status":"1","sort":"0"})
      * @returnExample(true)
@@ -122,11 +124,11 @@ interface LinkInterface
      * @param UidDTO $user                 登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
-     * 
+     *
      * @return array  分页结果
      * @requestExample([1,1,1,10])
      * @returnExample({"data": {"items": [{"title": "友链标题","url": "友链地址","logo": "友链图标","sort": "0","status": "1","sliId": "2","storeId": "1","createdTime": "1504172537","updateTime": "2017-08-31 09:42:17"}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"limit": 10,"totalPages": 1,"totalItems": 1}},"returnType": "array"})
-     * 
+     *
      * @author zhoujiansheng<zhoujiansheng@eelly.net>
      *
      * @since 2017-08-29

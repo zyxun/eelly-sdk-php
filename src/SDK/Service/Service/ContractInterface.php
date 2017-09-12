@@ -37,9 +37,6 @@ interface ContractInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-08
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的合同版本id",operator:["gt",0]})
-     * )
      */
     public function getContract(int $scId, UidDTO $user = null): ContractDTO;
 
@@ -94,9 +91,6 @@ interface ContractInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-08
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的合同版本id",operator:["gt",0]})
-     * )
      */
     public function updateContract(int $scId, array $data, UidDTO $user = null): bool;
 
@@ -117,10 +111,6 @@ interface ContractInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-08
-     * @Validation(
-     *   @OperatorValidator(1,{message:"非法的页码",operator:["gt",0]}),
-     *   @OperatorValidator(2,{message:"非法的条数",operator:["gt",0]})
-     * )
      */
     public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
 
@@ -140,10 +130,6 @@ interface ContractInterface
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-08
-     * @Validation(
-     *   @OperatorValidator(0,{message:"非法的合同版本id",operator:["gt",0]}),
-     *   @InclusionIn(1,{message : "非法的状态码",domain:[0, 1, 2]})
-     * )
      */
     public function changeContractStatus(int $scId, int $status, UidDTO $user = null): bool;
 
