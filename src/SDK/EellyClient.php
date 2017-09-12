@@ -148,11 +148,9 @@ class EellyClient
                 } else {
                     $object = $returnType::hydractor($array['data']);
                 }
-            } elseif ('array' == $returnType) {
+            } else {
                 $object = json_decode((string) $response->getBody(), true);
                 $object = $object['data'];
-            } else {
-                $object = (string) $response->getBody();
                 settype($object, $returnType);
             }
         } else {
