@@ -35,14 +35,14 @@ interface AddressInterface
      *
      * @throws SystemException
      *
-     * @return  UserAddressDTO
-     * @requestExample(1)
-     * @returnExample()
+     * @return  array
+     * @requestExample({"data":[{"data[ua_id]":"1"}]})
+     * @returnExample({"data":[{"ua_id":"1","user_id":"148086","consignee":"haha","gb_code":"1","zipcode":"1","address":"\u6c5f\u5357\u5927\u9053\u4e2d112","mobile":"13711221122","phone":"111","delivery_type":"3","status":"1","created_time":"0","update_time":"2017-09-09 09:03:44"}],"returnType":"array"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/8
      */
-    public function getAddress(array $data): UserAddressDTO;
+    public function getAddress(array $data): array;
 
     /**
      * 添加用户地址.
@@ -90,8 +90,9 @@ interface AddressInterface
      * @throws SystemException
      *
      * @return bool
-     * @requestExample()
-     * @returnExample()
+     * @requestExample(1, {'data':{'consignee':'heihei','gb_code':'1','zipcode':'1','address':'江南大道中','mobile':'13711221122','phone':'',
+     *     'delivery_type':'3','status':'1'}})
+     * @returnExample({"data":true,"returnType":"boolean"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/9
@@ -108,7 +109,7 @@ interface AddressInterface
      *
      * @return bool
      * @requestExample(1)
-     * @returnExample(1)
+     * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/9
@@ -117,7 +118,7 @@ interface AddressInterface
      *     @digit(0, {'message': '地址id类型不正确'})
      * )
      */
-    public function deleteAddress(int $AddressId, UidDTO $user): bool;
+    public function deleteAddress(int $AddressId, UidDTO $user = null): bool;
 
     /**
      * 获取用户的地址列表.
@@ -134,10 +135,10 @@ interface AddressInterface
      *
      * @return array
      * @requestExample()
-     * @returnExample()
+     * @returnExample({"data":{"items":[{"uaId":"1","userId":"148086","consignee":"heiheisss","gbCode":"1","zipcode":"1","address":"\u6c5f\u5357\u5927\u9053\u4e2d112","mobile":"13711221122","phone":"111","deliveryType":"3","status":"4","createdTime":"0","updateTime":"2017-09-11 07:23:52"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":1,"limit":10}},"returnType":"array"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/9
      */
-    public function listAddressPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user): array;
+    public function listAddressPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
 }
