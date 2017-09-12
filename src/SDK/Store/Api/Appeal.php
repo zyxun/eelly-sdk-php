@@ -27,7 +27,7 @@ class Appeal implements AppealInterface
      */
     public function addStoreAppeal(int $complainId, string $content, string $evidence, UidDTO $user = null): bool
     {
-        return EellyClient::request('appeal/addStoreAppeal', __FUNCTION__, $complainId, $content, $evidence, $user);
+        return EellyClient::request('store/appeal', __FUNCTION__, $complainId, $content, $evidence, $user);
     }
 
     /**
@@ -37,7 +37,7 @@ class Appeal implements AppealInterface
      */
     public function deleteStoreAppeal(int $appealId, UidDTO $user = null): bool
     {
-        return EellyClient::request('appeal/deleteStoreAppeal', __FUNCTION__, $appealId, $user);
+        return EellyClient::request('store/appeal', __FUNCTION__, $appealId, $user);
     }
 
     /**
@@ -47,7 +47,7 @@ class Appeal implements AppealInterface
      */
     public function listStoreAppealPage(int $storeId, int $dimension, int $status = -1, int $page = 1, UidDTO $user = null): array
     {
-        return EellyClient::request('appeal/listStoreAppealPage', __FUNCTION__, $storeId, $dimension, $status, $page, $user);
+        return EellyClient::request('store/appeal', __FUNCTION__, $storeId, $dimension, $status, $page, $user);
     }
 
     /**
