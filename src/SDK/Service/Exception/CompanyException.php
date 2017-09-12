@@ -38,8 +38,4 @@ class CompanyException extends LogicException
 
     public const OVER_COMPANY_PHOTO = '企业实拍图片不能超过5张';
 
-//    public function __construct(string $message, int $code, \Exception $previous = null)
-//    {
-//        parent::__construct($message, $context = null, $code, $previous = null);
-//    }
 }

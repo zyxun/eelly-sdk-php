@@ -17,7 +17,9 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Store\Service\DTO\AddressDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 店铺地址.
+ *
+ * @author wangjiang<wangjiang@eelly.net>
  */
 interface AddressInterface
 {

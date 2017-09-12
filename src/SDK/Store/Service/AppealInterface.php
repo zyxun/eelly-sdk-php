@@ -16,7 +16,9 @@ namespace Eelly\SDK\Store\Service;
 use Eelly\DTO\UidDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 店铺申诉.
+ *
+ * @author wangjiang<wangjiang@eelly.net>
  */
 interface AppealInterface
 {
