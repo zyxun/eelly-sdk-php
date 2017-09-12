@@ -36,6 +36,7 @@ class EellyClient
         'example' => 'https://api.eelly.com',
         'oauth'   => 'https://api.eelly.com',
         'user'    => 'https://api.eelly.com',
+        'store'   => 'https://api.eelly.dev',
     ];
 
     private static $services = [];
@@ -124,7 +125,7 @@ class EellyClient
         }
         $client = self::$self;
         $accessToken = $client->getAccessToken('client_credentials');
-        list($serviceName) = explode('/', $uri);
+        list($serviceName) = explode('/', $uri); 
         $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
         $stream = new MultipartStream($client->paramsToMultipart($args));
         $provider = $client->getProvider();
@@ -148,11 +149,9 @@ class EellyClient
                 } else {
                     $object = $returnType::hydractor($array['data']);
                 }
-            } elseif ('array' == $returnType) {
+            } else {
                 $object = json_decode((string) $response->getBody(), true);
                 $object = $object['data'];
-            } else {
-                $object = (string) $response->getBody();
                 settype($object, $returnType);
             }
         } else {
