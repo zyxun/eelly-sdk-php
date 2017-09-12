@@ -107,7 +107,7 @@ interface FeedbackInterface
      * @throws SystemException
      *
      * @return array
-     * @requestExample()
+     * @requestExample([{'flag':0, 'status':0, 'paltform_type':1}], 1 , 1)
      * @returnExample({"items":[{"feedbackId":"1","feedbackSn":"170001","status":"0","flag":"1","followStatus":"0","platformType":"1","businessType":"0","userId":"1","username":"haha","phone":"","appVersion":"","firmwareVersion":"","phoneModel":"","networkType":"","content":"hahah","imageUrl":"[\"www.baidu.com\",\"www.youku.com\",\"www.sina.com\"]","fromPage":"","ip":"","useScore":"0","homeScore":"0","createdTime":"0","updateTime":"2017-09-04 08:32:58","flId":"1","type":"1","adminId":"1","adminName":"\u7ba1\u7406\u8005","remark":"\u597d\u7684 "}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":1,"limit":1}})
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since 2017-9-2
@@ -126,12 +126,32 @@ interface FeedbackInterface
      * @throws SystemException
      *
      * @return bool
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({1, 'flag', 1})
+     * @returnExample(true)
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/5
      *
      */
     public function changeStatus(int $feedbackId, string $operateStyle, int $status, UserDTO $user): bool;
 
+    /**
+     * 回复用户反馈.
+     *
+     * @param int $FeedbackId 反馈id
+     * @param array  $operateData
+     * @param int    $operateData['type']  操作类型 3,5
+     * @param string $operateData['val'] 内容
+     * @param UserDTO $user     用户信息
+     *
+     * @throws SystemException
+     *
+     * @return bool
+     * @requestExample({1, [{type:3, val: '已修复'}]})
+     * @returnExample(true)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since 2017-9-2
+     *
+     */
+    public function ReplyFeedback(int $FeedbackId, array $operateData, UserDTO $user): bool;
 }
