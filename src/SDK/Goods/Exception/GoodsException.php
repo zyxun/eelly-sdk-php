@@ -11,13 +11,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Service\Exception;
+namespace Eelly\SDK\Goods\Exception;
 
 use Eelly\Exception\LogicException;
 
-class CompanyException extends LogicException
+/**
+ * Goods模块异常类.
+ *
+ * @author wangjiang<wangjiang@eelly.net>
+ *
+ * @since 2017-08-08
+ */
+class GoodsException extends LogicException
 {
-
     public const PARAMETER_ERROR = '参数有误';
 
     public const DATA_NOT_EXIT = '记录不存在';
@@ -33,9 +39,4 @@ class CompanyException extends LogicException
     public const NO_PERMISSIONS = '没有该权限操作';
 
     public const PARAMETER_EMPTY = '参数不能为空';
-
-    public const OVER_BUSINESS_LICENSE = '营业执照图片不能超过5张';
-
-    public const OVER_COMPANY_PHOTO = '企业实拍图片不能超过5张';
-
 }
