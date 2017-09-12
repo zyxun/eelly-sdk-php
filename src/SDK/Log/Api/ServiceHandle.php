@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Log\Api;
 
+use Eelly\DTO\ServiceHandleDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Log\Service\ServiceHandleInterface;
-use Eelly\DTO\ServiceHandleDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class ServiceHandle implements ServiceHandleInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getServiceHandle(int $ServiceHandleId): ServiceHandleDTO
@@ -32,7 +31,6 @@ class ServiceHandle implements ServiceHandleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addServiceHandle(array $data): bool
@@ -41,7 +39,6 @@ class ServiceHandle implements ServiceHandleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateServiceHandle(int $ServiceHandleId, array $data): bool
@@ -50,7 +47,6 @@ class ServiceHandle implements ServiceHandleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteServiceHandle(int $ServiceHandleId): bool
@@ -59,7 +55,6 @@ class ServiceHandle implements ServiceHandleInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listServiceHandlePage(array $condition = [], int $limit = 10, int $currentPage = 1): array

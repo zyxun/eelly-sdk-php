@@ -20,9 +20,8 @@ use Eelly\DTO\UidDTO;
  */
 interface ContractNumberInterface
 {
-
     /**
-     * 新增合同编号
+     * 新增合同编号.
      *
      * @param int    $scId   合同版本ID
      * @param int    $number 新增合同编号数量
@@ -41,7 +40,7 @@ interface ContractNumberInterface
     public function addContractNumber(int $scId, int $number, UidDTO $user = null): bool;
 
     /**
-     * 获取合同编号列表
+     * 获取合同编号列表.
      *
      * @param array  $condition              查询条件
      * @param string $condition['number']    合同编号
@@ -64,7 +63,7 @@ interface ContractNumberInterface
     public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
 
     /**
-     * 解绑合同编号
+     * 解绑合同编号.
      *
      * @param int    $scnId 合同编号id
      * @param UidDTO $user  登录用户对象
@@ -80,6 +79,4 @@ interface ContractNumberInterface
      * @since 2017-09-08
      */
     public function unbindContractNumber(int $scnId, UidDTO $user = null): bool;
-
 }
-

@@ -32,5 +32,4 @@ class ContractException extends LogicException
     public const NO_PERMISSIONS = '没有该权限操作';
 
     public const PARAMETER_EMPTY = '参数不能为空';
-
 }

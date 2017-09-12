@@ -23,66 +23,65 @@ use Eelly\DTO\AbstractDTO;
 class CategoryCustomDTO extends AbstractDTO
 {
     /**
-     * 自定义分类ID，自增主键
+     * 自定义分类ID，自增主键.
      *
      * @var int
      */
-    public $gccId; 
-    
-    /**
-     * 店铺ID
-     *
-     * @var int
-     */
-    public $storeId; 
+    public $gccId;
 
     /**
-     * 分类名称
+     * 店铺ID.
+     *
+     * @var int
+     */
+    public $storeId;
+
+    /**
+     * 分类名称.
      *
      * @var string
      */
-    public $name; 
+    public $name;
 
     /**
-     * 父分类ID
+     * 父分类ID.
      *
      * @var int
      */
-    public $parentId; 
+    public $parentId;
 
     /**
-     * 店铺分类排序，倒序
+     * 店铺分类排序，倒序.
      *
      * @var int
      */
-    public $sort; 
+    public $sort;
 
     /**
-     * 显示状态：0 不显示 1 显示
+     * 显示状态：0 不显示 1 显示.
      *
      * @var int
      */
-    public $status; 
+    public $status;
 
     /**
-     * 是否展开子分类：0 否 1 是
+     * 是否展开子分类：0 否 1 是.
      *
      * @var int
      */
-    public $isOpen; 
+    public $isOpen;
 
     /**
-     * 创建时间
+     * 创建时间.
      *
      * @var int
      */
-    public $createdTime; 
+    public $createdTime;
 
     /**
-     * 最后更新时间
+     * 最后更新时间.
      *
      * @var unknown
      */
-    public $updateTime; 
-
+    public $updateTime;
 }

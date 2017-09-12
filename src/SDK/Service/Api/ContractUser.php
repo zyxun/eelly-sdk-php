@@ -23,9 +23,7 @@ use Eelly\SDK\Service\Service\ContractUserInterface;
  */
 class ContractUser implements ContractUserInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getContractUser(int $scId, UidDTO $user = null): ContractUserDTO
@@ -34,7 +32,6 @@ class ContractUser implements ContractUserInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addContractUser(array $data, UidDTO $user = null): bool
@@ -43,7 +40,6 @@ class ContractUser implements ContractUserInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateContractUser(int $scId, array $data, UidDTO $user = null): bool
@@ -52,14 +48,13 @@ class ContractUser implements ContractUserInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listContractUserPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array
     {
         return EellyClient::request('service/ContractUser', 'listContractUserPage', $condition, $currentPage, $limit);
     }
-    
+
     /**
      * @return self
      */

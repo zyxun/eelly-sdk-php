@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Store\Service;
+
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\Store\DTO\LinkDTO;
 
@@ -48,8 +49,8 @@ interface LinkInterface
     /**
      * 获取单条友链.
      *
-     * @param int    $linkId       友链id
-     * @param UidDTO $user         登录用户信息
+     * @param int    $linkId 友链id
+     * @param UidDTO $user   登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
      *
@@ -69,12 +70,12 @@ interface LinkInterface
     /**
      * 删除单条友链.
      *
-     * @param int    $linkId       友链id
-     * @param UidDTO $user         登录用户信息
+     * @param int    $linkId 友链id
+     * @param UidDTO $user   登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
      *
-     * @return bool  删除结果
+     * @return bool 删除结果
      * @requestExample(1)
      * @returnExample(true)
      *
@@ -101,7 +102,7 @@ interface LinkInterface
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
      *
-     * @return bool  更新结果
+     * @return bool 更新结果
      * @requestExample({"store_id":"1","title":"友链标题","url":"友链地址","logo":"友链图标","status":"1","sort":"0"})
      * @returnExample(true)
      *
@@ -117,15 +118,15 @@ interface LinkInterface
     /**
      * 获取友链分页列表.
      *
-     * @param int    $storeId              店铺id
-     * @param int    $status               友链状态
-     * @param int    $currentPage          页码
-     * @param int    $limit                分页条数
-     * @param UidDTO $user                 登录用户信息
+     * @param int    $storeId     店铺id
+     * @param int    $status      友链状态
+     * @param int    $currentPage 页码
+     * @param int    $limit       分页条数
+     * @param UidDTO $user        登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreLinkException
      *
-     * @return array  分页结果
+     * @return array 分页结果
      * @requestExample([1,1,1,10])
      * @returnExample({"data": {"items": [{"title": "友链标题","url": "友链地址","logo": "友链图标","sort": "0","status": "1","sliId": "2","storeId": "1","createdTime": "1504172537","updateTime": "2017-08-31 09:42:17"}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"limit": 10,"totalPages": 1,"totalItems": 1}},"returnType": "array"})
      *
@@ -141,5 +142,4 @@ interface LinkInterface
      * )
      */
     public function listLinkPage(int $storeId, int $status, int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
-
 }

@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Activity\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\Activity\Service\StoreInterface;
 use Eelly\DTO\StoreDTO;
+use Eelly\SDK\Activity\Service\StoreInterface;
+use Eelly\SDK\EellyClient;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Store implements StoreInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getStore(int $storeId): StoreDTO
@@ -32,7 +31,6 @@ class Store implements StoreInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addStore(array $data): bool
@@ -41,7 +39,6 @@ class Store implements StoreInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateStore(int $storeId, array $data): bool
@@ -50,7 +47,6 @@ class Store implements StoreInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteStore(int $storeId): bool
@@ -59,7 +55,6 @@ class Store implements StoreInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listStorePage(array $condition = [], int $limit = 10, int $currentPage = 1): array

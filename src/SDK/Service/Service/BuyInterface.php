@@ -97,7 +97,5 @@ interface BuyInterface
      *
      * @since 2017-8-02
      */
-    public function listBuyPage(int $storeId = null, int $userId =null,int $currentPage = 1, int $limit = 10):array;
-
+    public function listBuyPage(int $storeId = null, int $userId = null, int $currentPage = 1, int $limit = 10):array;
 }
-

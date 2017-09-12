@@ -125,7 +125,7 @@ class EellyClient
         }
         $client = self::$self;
         $accessToken = $client->getAccessToken('client_credentials');
-        list($serviceName) = explode('/', $uri); 
+        list($serviceName) = explode('/', $uri);
         $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
         $stream = new MultipartStream($client->paramsToMultipart($args));
         $provider = $client->getProvider();
