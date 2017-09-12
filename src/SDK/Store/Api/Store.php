@@ -29,7 +29,7 @@ class Store implements StoreInterface
      */
     public function addStore(array $storeData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/addStore', __FUNCTION__, $storeData, $user);
+        return EellyClient::request('store/store', __FUNCTION__, $storeData, $user);
     }
 
     /**
@@ -39,7 +39,7 @@ class Store implements StoreInterface
      */
     public function addStoreOperator(int $userId, int $storeId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/addStoreOperator', __FUNCTION__, $userId, $storeId, $user);
+        return EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $user);
     }
 
     /**
@@ -47,9 +47,9 @@ class Store implements StoreInterface
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::deleteStoreOperator()
      */
-    public function deleteStoreOperator(int $operatorId, int $userId, int $type, UidDTO $user = null): bool
+    public function deleteStoreOperator(int $operatorId, int $storeId, int $type, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/deleteStoreOperator', __FUNCTION__, $operatorId, $userId, $user);
+        return EellyClient::request('store/store', __FUNCTION__, $operatorId, $storeId, $type, $user);
     }
 
     /**
@@ -79,8 +79,16 @@ class Store implements StoreInterface
      */
     public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool
     {
-        $dd = EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $onlyCheckOwner);
-        dd($dd);
         return EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $onlyCheckOwner);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Eelly\SDK\Store\Service\StoreInterface::updateStoreOwner()
+     */
+    public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('store/store', __FUNCTION__, $newOwner, $storeId, $user);
     }
 }
