@@ -27,7 +27,7 @@ interface KeyInterface
      * 
      * @return array
      * @requestExample({"keyId":1})
-     * @returnExample({"keyId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
+     * @returnExample({"pkId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
      * @throws \Eelly\SDK\System\Exception\SystemException
      * 
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -42,7 +42,7 @@ interface KeyInterface
      * 
      * @return array 
      * @requestExample({"code":"test"})
-     * @returnExample({"keyId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
+     * @returnExample({"pkId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -103,7 +103,7 @@ interface KeyInterface
      *
      * @return array 返回分页结果
      * @requestExample(["condition": [],"currentPage": "1","limit": "20"])
-     * @returnExample(["items": [{"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
+     * @returnExample(["items": [{"pk_id":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      * @since  2017-9-2
