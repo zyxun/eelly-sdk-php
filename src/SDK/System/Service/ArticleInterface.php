@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ArticleDTO;
 
 /**
@@ -47,6 +48,7 @@ interface ArticleInterface
      * @param string $data['content']    文章内容
      * @param int    $data['belongId']   文章归属id 0:系统
      * @param string $data['copyFrom']   文章来源 系统发布的来源为【衣联网】
+     * @param UidDTO $user 登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -58,7 +60,7 @@ interface ArticleInterface
      *
      * @since 2017-09-01
      */
-    public function addArticle(array $data): bool;
+    public function addArticle(array $data, UidDTO $user = null): bool;
 
     /**
      * 修改文章
