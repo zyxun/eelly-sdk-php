@@ -21,66 +21,65 @@ use Eelly\DTO\AbstractDTO;
 class DistrictDTO extends AbstractDTO
 {
     /**
-     * 商圈ID
+     * 商圈ID.
      *
      * @var int
      */
     public $districtId;
-    
+
     /**
-     * 区域ID
+     * 区域ID.
      *
      * @var int
      */
     public $gbCode;
-    
+
     /**
-     * 商圈名称
+     * 商圈名称.
      *
      * @var string
      */
     public $districtName;
-    
+
     /**
-     * 商圈logo
+     * 商圈logo.
      *
      * @var string
      */
     public $logo;
-    
+
     /**
-     * 商圈描述
+     * 商圈描述.
      *
      * @var string
      */
     public $remark;
-    
+
     /**
-     * 管理员ID
+     * 管理员ID.
      *
      * @var int
      */
     public $adminId;
-    
+
     /**
-     * 管理员名字
+     * 管理员名字.
      *
      * @var string
      */
     public $adminName;
-    
+
     /**
-     * 排序
+     * 排序.
      *
      * @var int
      */
     public $sort;
-    
+
     /**
-     * 创建时间
+     * 创建时间.
      *
      * @var int
      */
     public $createdTime;
-    
 }

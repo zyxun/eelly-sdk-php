@@ -84,12 +84,12 @@ interface AppealInterface
      * totalPage               |int    |总页数
      * totalItems              |int    |总数据数
      *
-     * @param int $storeId   店铺id
-     * @param int $dimension 投诉举报维度1店铺2交易3商品
-     * @param int $status    申诉状态 -1全部0待申诉1申请申诉2申诉成功3申诉失败
-     * @param int $page      页数
-     * @param int $limit     每页数据返回的数量
-     * @param UidDTO $user     登录用户信息
+     * @param int    $storeId   店铺id
+     * @param int    $dimension 投诉举报维度1店铺2交易3商品
+     * @param int    $status    申诉状态 -1全部0待申诉1申请申诉2申诉成功3申诉失败
+     * @param int    $page      页数
+     * @param int    $limit     每页数据返回的数量
+     * @param UidDTO $user      登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *

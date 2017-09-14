@@ -43,5 +43,4 @@ class ModuleDTO extends AbstractDTO
      * @var int 添加时间
      */
     public $createdTime;
-
 }

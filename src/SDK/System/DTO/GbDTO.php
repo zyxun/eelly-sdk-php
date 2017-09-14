@@ -26,47 +26,46 @@ class GbDTO extends AbstractDTO
      * @var int
      */
     public $gbCode;
-    
+
     /**
-     * 区域名称
+     * 区域名称.
      *
      * @var string
      */
     public $areaName;
-    
+
     /**
-     * 区域简称
+     * 区域简称.
      *
      * @var string
      */
     public $shortName;
-    
+
     /**
      * 上级编码
      *
      * @var int
      */
     public $parentCode;
-    
+
     /**
-     * 电话区号
+     * 电话区号.
      *
      * @var string
      */
     public $telCode;
-    
+
     /**
      * 邮政编码
      *
      * @var int
      */
     public $zipCode;
-    
+
     /**
-     * 区域所属片区
+     * 区域所属片区.
      *
      * @var int
      */
     public $regionCode;
-    
 }

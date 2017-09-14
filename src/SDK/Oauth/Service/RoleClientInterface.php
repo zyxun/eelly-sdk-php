@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Service;
 
 /**
- * 角色客户端关系接口
+ * 角色客户端关系接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface RoleClientInterface
@@ -57,7 +58,7 @@ interface RoleClientInterface
 
     /**
      * 角色客户端分页列表.
-     * 可根据角色id筛选角色客户端关系，没有指定角色id，默认返回全部
+     * 可根据角色id筛选角色客户端关系，没有指定角色id，默认返回全部.
      *
      * @param int $roleId      角色id
      * @param int $clientId    客户端id
@@ -72,7 +73,7 @@ interface RoleClientInterface
      *
      * @since 2017-7-24
      */
-    public function listRoleClientPage(int $roleId = null, int $currentPage = 1,int $limit = 10): array;
+    public function listRoleClientPage(int $roleId = null, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 删除角色、客户端关系.

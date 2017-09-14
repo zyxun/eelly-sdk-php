@@ -25,14 +25,13 @@ class OauthException extends LogicException
 {
     public const PARAMETER_ERROR = '参数错误';
 
-    public const DATA_NOT_EXIT =  '数据不存在';
+    public const DATA_NOT_EXIT = '数据不存在';
 
-    public const DATA_INSERT_FAIL =  '插入数据失败';
+    public const DATA_INSERT_FAIL = '插入数据失败';
 
     public const DATA_UPDATE_FAIL = '更新数据失败';
 
     public const DATA_DELETE_FAIL = '删除数据失败';
-
 
     public const DATA_ALREADER_EXIT = '数据已经存在';
 

@@ -17,7 +17,6 @@ use Eelly\Exception\LogicException;
 
 class CompanyException extends LogicException
 {
-
     public const PARAMETER_ERROR = '参数有误';
 
     public const DATA_NOT_EXIT = '记录不存在';
@@ -37,5 +36,4 @@ class CompanyException extends LogicException
     public const OVER_BUSINESS_LICENSE = '营业执照图片不能超过5张';
 
     public const OVER_COMPANY_PHOTO = '企业实拍图片不能超过5张';
-
 }
