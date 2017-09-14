@@ -70,6 +70,7 @@ interface OrderStatusInterface
      * @param int $toOsId 新状态ID [关联，losIds] 1
      * @param int $currentPage 第几页
      * @param int $limit 每页数量
+     * @throws \Eelly\SDK\Log\Exception\GoodsHandleException
      * @return array
      * @requestExample({"losId": [1,2], "orderIds": [1,2], "fromOsId": 2, "toOsId": "2", "currentPage": 1, "limit": 10})
      * @returnExample({"orderId": 1,"fromOsId": 0, "toOsId": 1, "handleId": 1, "handleName": "admin", "userIp": "192.168.0.3", "createdTime": "2017-09-12 16:58:16"})
