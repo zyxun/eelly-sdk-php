@@ -49,5 +49,4 @@ class LinkDTO extends AbstractDTO
      * @var string
      */
     public $logo;
-
 }

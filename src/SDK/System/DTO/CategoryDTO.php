@@ -20,16 +20,15 @@ use Eelly\DTO\AbstractDTO;
  */
 class CategoryDTO extends AbstractDTO
 {
-
     /**
-     * 分类id
+     * 分类id.
      *
      * @var int
      */
     public $categoryId;
 
     /**
-     * 分类名称
+     * 分类名称.
      *
      * @var string
      */
@@ -43,38 +42,37 @@ class CategoryDTO extends AbstractDTO
     public $code;
 
     /**
-     * 分类父id
+     * 分类父id.
      *
      * @var int
      */
     public $parentId;
 
     /**
-     * 排序
+     * 排序.
      *
      * @var int
      */
     public $sort;
 
     /**
-     * 状态 0:无效 1:有效
+     * 状态 0:无效 1:有效.
      *
      * @var int
      */
     public $status;
 
     /**
-     * 分类文章审核标志：0:需审核 1:不需审核
+     * 分类文章审核标志：0:需审核 1:不需审核.
      *
      * @var int
      */
     public $checkFlag;
 
     /**
-     * 分类备注
+     * 分类备注.
      *
      * @var string
      */
     public $remark;
-
 }

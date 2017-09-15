@@ -64,17 +64,22 @@ class Store implements StoreInterface
 
         return $instance;
     }
+
     /**
      * 校验用户是否能操作管理店铺.
      *
-     * @param int $userId 用户id
-     * @param int $storeId 店铺id
+     * @param int  $userId         用户id
+     * @param int  $storeId        店铺id
      * @param bool $onlyCheckOwner 是否只校验用户是否为店主 true是 false否
+     *
      * @throws StoreException
+     *
      * @return bool true 允许操作 false 不允许操作
      * @requestExample({"userId":1,"storeId":1,"onlyCheckOwner":false})
      * @returnExample(true)
+     *
      * @author zhoujiansheng<zhoujiansheng@eelly.net>
+     *
      * @since 2017-09-11
      */
     public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool

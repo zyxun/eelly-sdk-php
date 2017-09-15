@@ -16,58 +16,51 @@ namespace Eelly\SDK\Store\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * ServiceTeamDTO.
+ * WeightItemDTO.
  *
  * @author wangjiang<wangjiang@eelly.net>
  */
-class ServiceTeamDTO extends AbstractDTO
+class WeightItemDTO extends AbstractDTO
 {
     /**
-     * 客服组id.
+     * 权重项id
      *
      * @var int
      */
-    public $teamId;
+    public $itemId;
 
     /**
-     * 分组名称.
+     * 权重项名称
      *
      * @var string
      */
-    public $teamName;
+    public $itemName;
 
     /**
-     * 上班时间.
-     *
-     * @var string
-     */
-    public $workTime;
-
-    /**
-     * 下班时间.
-     *
-     * @var string
-     */
-    public $closeTime;
-
-    /**
-     * 电话号码
-     *
-     * @var string
-     */
-    public $phone;
-
-    /**
-     * 电话号码状态 0不显示 1显示.
+     * 权重项基数分(正为加分项,负为扣分项)
      *
      * @var int
      */
-    public $phoneStatus;
+    public $itemScore;
 
     /**
-     * 创建时间.
+     * 排序
+     *
+     * @var int
+     */
+    public $sort;
+
+    /**
+     * 状态 0 禁用 1 正常 4 删除
+     *
+     * @var int
+     */
+    public $status;
+
+    /**
+     * 备注
      *
      * @var string
      */
-    public $createdTime;
+    public $remark;
 }

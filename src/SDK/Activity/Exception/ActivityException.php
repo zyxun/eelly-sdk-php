@@ -23,5 +23,4 @@ use Eelly\Exception\LogicException;
 
 class ActivityException extends LogicException
 {
-    
 }

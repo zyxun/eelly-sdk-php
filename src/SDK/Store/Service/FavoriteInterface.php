@@ -69,13 +69,13 @@ interface FavoriteInterface
     /**
      * 获取用户所有店铺收藏分页列表.
      *
-     * @param UidDTO $user                 登录用户信息
-     * @param int    $currentPage          页码
-     * @param int    $limit                分页条数
+     * @param UidDTO $user        登录用户信息
+     * @param int    $currentPage 页码
+     * @param int    $limit       分页条数
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
-     * @return array  店铺分页结果
+     * @return array 店铺分页结果
      * @requestExample(["currentPage":1,"limit":10])
      * @returnExample({"data": {"items": [{"sfId": "5","userId": "148086","storeId": "1","createdTime": "1504254588","updateTime": "2017-09-01 08:29:48"}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"limit": 1,"totalPages": 1,"totalItems": 1}},"returnType": "array"})
      *
@@ -93,13 +93,13 @@ interface FavoriteInterface
     /**
      * 获取收藏店铺所有用户分页列表.
      *
-     * @param int    $storeId              店铺id
-     * @param int    $currentPage          页码
-     * @param int    $limit                分页条数
+     * @param int $storeId     店铺id
+     * @param int $currentPage 页码
+     * @param int $limit       分页条数
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
-     * @return array  用户分页结果
+     * @return array 用户分页结果
      * @requestExample([1,1,10])
      * @returnExample({"data": {"items": [{"sfId": "5","userId": "148086","storeId": "1","createdTime": "1504254588","updateTime": "2017-09-01 08:29:48"}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"limit": 1,"totalPages": 1,"totalItems": 1}},"returnType": "array"})
      *

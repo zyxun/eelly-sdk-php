@@ -22,9 +22,7 @@ use Eelly\SDK\Service\Service\ContractNumberInterface;
  */
 class ContractNumber implements ContractNumberInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addContractNumber(int $scId, int $number, UidDTO $user = null): bool
@@ -33,7 +31,6 @@ class ContractNumber implements ContractNumberInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array
@@ -42,7 +39,6 @@ class ContractNumber implements ContractNumberInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function unbindContractNumber(int $scnId, UidDTO $user = null): bool

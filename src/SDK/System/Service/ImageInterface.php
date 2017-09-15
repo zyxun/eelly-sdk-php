@@ -44,7 +44,4 @@ interface ImageInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listImagePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
 }
-

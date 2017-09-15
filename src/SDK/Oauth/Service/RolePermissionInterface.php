@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Service;
 
-
 /**
- * 角色接口
+ * 角色接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface RolePermissionInterface
@@ -105,5 +105,5 @@ interface RolePermissionInterface
      *
      * @since 2017-7-24
      */
-    public function listRolePermissionPage(int $roleId = null,int $currentPage = 1, int $limit = 10): array;
+    public function listRolePermissionPage(int $roleId = null, int $currentPage = 1, int $limit = 10): array;
 }

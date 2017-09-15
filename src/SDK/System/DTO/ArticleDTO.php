@@ -20,30 +20,29 @@ use Eelly\DTO\AbstractDTO;
  */
 class ArticleDTO extends AbstractDTO
 {
-
     /**
-     * 文章id
+     * 文章id.
      *
      * @var int
      */
     public $articleId;
 
     /**
-     * 文章分类id
+     * 文章分类id.
      *
      * @var int
      */
     public $categoryId;
 
     /**
-     * 文章标题
+     * 文章标题.
      *
      * @var string
      */
     public $title;
 
     /**
-     * 文章内容
+     * 文章内容.
      *
      * @var string
      */
@@ -57,24 +56,23 @@ class ArticleDTO extends AbstractDTO
     public $belongId;
 
     /**
-     * 发布者用户名
+     * 发布者用户名.
      *
      * @var string
      */
     public $username;
 
     /**
-     * 文章来源：系统发布的来源为【衣联网】
+     * 文章来源：系统发布的来源为【衣联网】.
      *
      * @var int
      */
     public $copyFrom;
 
     /**
-     * 状态 0:未审核 1:审核通过 2:审核不通过 4:删除，默认值由分类决定
+     * 状态 0:未审核 1:审核通过 2:审核不通过 4:删除，默认值由分类决定.
      *
      * @var int
      */
     public $status;
-
 }
