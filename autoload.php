@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 
 $sourceDir = __DIR__.'/../../../../eelly-sdk-php/src';
-if (file_exists($customDir)) {
+if (file_exists($sourceDir)) {
     require __DIR__.'/src/Psr4Autoloader.php';
     $loader = new \Eelly\Psr4Autoloader();
     $namespaceMap = [
