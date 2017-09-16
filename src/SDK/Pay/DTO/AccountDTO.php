@@ -45,6 +45,13 @@ class AccountDTO extends AbstractDTO
     public $money;
 
     /**
+     * 申请提现冻结金额
+     *
+     * @var float
+     */
+    public $frozenMoney;
+
+    /**
      * 提现手续费率
      *
      * @var float
