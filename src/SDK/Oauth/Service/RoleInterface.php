@@ -15,7 +15,8 @@ namespace Eelly\SDK\Oauth\Service;
 use Eelly\SDK\Oauth\DTO\RoleDTO;
 
 /**
- * 角色接口
+ * 角色接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface RoleInterface
@@ -82,5 +83,4 @@ interface RoleInterface
      * @since 2017-7-25
      */
     public function addRole(string $roleName, string $defaultPermission):RoleDTO;
-
 }

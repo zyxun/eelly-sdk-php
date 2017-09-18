@@ -74,33 +74,41 @@ interface StoreInterface
     /**
      * 校验用户是否能操作管理店铺.
      *
-     * @param int $userId 用户id
-     * @param int $storeId 店铺id
+     * @param int  $userId         用户id
+     * @param int  $storeId        店铺id
      * @param bool $onlyCheckOwner 是否只校验用户是否为店主 true是 false否
+     *
      * @throws StoreException
+     *
      * @return bool true 允许操作 false 不允许操作
      * @requestExample({"userId":1,"storeId":1,"onlyCheckOwner":false})
      * @returnExample(true)
+     *
      * @author zhoujiansheng<zhoujiansheng@eelly.net>
+     *
      * @since 2017-09-11
      */
     public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool;
-    
-    /** 
+
+    /**
      * 店铺店主变更
-     * 对店铺的店主进行变更
+     * 对店铺的店主进行变更.
      *
-     * @param int $newOwner 新店主id
-     * @param int $storeId 店铺id
-     * @param UidDTO $user 登录用户信息
+     * @param int    $newOwner 新店主id
+     * @param int    $storeId  店铺id
+     * @param UidDTO $user     登录用户信息
+     *
      * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
      * @return bool 变更结果
      * @requestExample({
      *     "newOwner":123,
      *     "storeId":1
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年9月9日
      */
     public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool;

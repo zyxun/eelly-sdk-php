@@ -16,7 +16,8 @@ namespace Eelly\SDK\Oauth\Service;
 use Eelly\SDK\Oauth\DTO\PermissionDTO;
 
 /**
- * 权限接口
+ * 权限接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface PermissionInterface

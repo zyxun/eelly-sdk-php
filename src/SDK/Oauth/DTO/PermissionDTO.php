@@ -58,5 +58,4 @@ class PermissionDTO extends AbstractDTO
      * @var int 创建时间
      */
     public $createdTime;
-
 }

@@ -23,28 +23,28 @@ use Eelly\DTO\AbstractDTO;
 class ServiceTeamDTO extends AbstractDTO
 {
     /**
-     * 客服组id
+     * 客服组id.
      *
      * @var int
      */
     public $teamId;
 
     /**
-     * 分组名称
+     * 分组名称.
      *
      * @var string
      */
     public $teamName;
 
     /**
-     * 上班时间
+     * 上班时间.
      *
      * @var string
      */
     public $workTime;
 
     /**
-     * 下班时间
+     * 下班时间.
      *
      * @var string
      */
@@ -58,14 +58,14 @@ class ServiceTeamDTO extends AbstractDTO
     public $phone;
 
     /**
-     * 电话号码状态 0不显示 1显示
+     * 电话号码状态 0不显示 1显示.
      *
      * @var int
      */
     public $phoneStatus;
 
     /**
-     * 创建时间
+     * 创建时间.
      *
      * @var string
      */

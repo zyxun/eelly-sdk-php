@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Service;
 
 /**
- * 模块接口
+ * 模块接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface ModuleInterface
@@ -49,7 +50,7 @@ interface ModuleInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-7-24
      */
-    public function listModulePage(int $currentPage = 1,int $limit = 10): array;
+    public function listModulePage(int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 更新指定id模块状态.

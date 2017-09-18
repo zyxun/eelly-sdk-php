@@ -16,7 +16,8 @@ namespace Eelly\SDK\Oauth\Service;
 use Eelly\SDK\Oauth\DTO\ClientDTO;
 
 /**
- * 客户端接口
+ * 客户端接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface ClientInterface
@@ -60,7 +61,7 @@ interface ClientInterface
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listClientPage(string $clientKey = null, int $currentPage = 1,int $limit = 10): array;
+    public function listClientPage(string $clientKey = null, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 获得客户端列表.

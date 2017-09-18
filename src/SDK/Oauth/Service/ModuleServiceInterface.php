@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Service;
 
 /**
- * 模块服务接口
+ * 模块服务接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface ModuleServiceInterface

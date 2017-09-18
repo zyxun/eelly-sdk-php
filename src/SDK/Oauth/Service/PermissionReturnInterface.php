@@ -13,12 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Service;
 
-
 /**
- * 权限(接口)响应接口
+ * 权限(接口)响应接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface PermissionReturnInterface
 {
-
 }

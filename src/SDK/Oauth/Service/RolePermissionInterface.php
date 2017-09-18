@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Service;
 
-
 /**
  * 角色权限关系接口
  * @author liangxinyi<liangxinyi@eelly.net>

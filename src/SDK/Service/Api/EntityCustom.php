@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Api;
 
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\Service\DTO\EntityCustomDTO;
 use Eelly\SDK\Service\Service\EntityCustomInterface;
 
 /**
@@ -20,6 +23,35 @@ use Eelly\SDK\Service\Service\EntityCustomInterface;
  */
 class EntityCustom implements EntityCustomInterface
 {
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getEntityCustom(int $secId, UidDTO $user = null): EntityCustomDTO
+    {
+        return EellyClient::request('service/EntityCustom', 'getEntityCustom', $secId, $user);
+    }
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addEntityCustom(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/EntityCustom', 'addEntityCustom', $data, $user);
+    }
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateEntityCustom(int $secId, array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/EntityCustom', 'updateEntityCustom', $secId, $data, $user);
+    }
+
+
     /**
      * @return self
      */
