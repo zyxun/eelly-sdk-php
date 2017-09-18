@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Api;
 
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\Service\DTO\EntityDTO;
 use Eelly\SDK\Service\Service\EntityInterface;
 
 /**
@@ -20,6 +23,43 @@ use Eelly\SDK\Service\Service\EntityInterface;
  */
 class Entity implements EntityInterface
 {
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getEntity(int $storeId, UidDTO $user = null): EntityDTO
+    {
+        return EellyClient::request('service/Entity', 'getEntity', $storeId, $user);
+    }
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addEntity(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Entity', 'addEntity', $data, $user);
+    }
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateEntity(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Entity', 'updateEntity', $data, $user);
+    }
+
+    /**
+     *
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function checkEntity(int $storeId, int $status, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Entity', 'checkEntity', $storeId, $status, $user);
+    }
+
     /**
      * @return self
      */
@@ -32,4 +72,5 @@ class Entity implements EntityInterface
 
         return $instance;
     }
+
 }

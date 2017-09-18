@@ -33,16 +33,16 @@ class EntityCustomDTO extends AbstractDTO
     public $customMarket;
 
     /**
-     * 身份证号码
+     * 自定义楼层
      *
      * @var string
      */
     public $customFloor;
 
     /**
-     * 手机号
+     * 处理状态：0 未处理 1 已处理
      *
-     * @var string
+     * @var int
      */
     public $status;
 
