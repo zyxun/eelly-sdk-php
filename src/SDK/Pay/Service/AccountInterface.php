@@ -26,7 +26,7 @@ interface AccountInterface
      * @throws \Eelly\SDK\Pay\Exception\PayException
      * @return AccountDTO
      * @requestExample({'userId':1})
-     * @returnExample({"lgpId": 1, "goodsId": 1, "quantity": 2, "price": "2", "type": 3, "createdTime": "2017-09-04 16:07:05"})
+     * @returnExample({"paId": 1, "userId": 1, "storeId": 2, "money": "2", "commissionRatio": 3,"status":1,"alipayAccount":'',"wechatPurseOpenId":'' ,"createdTime": "2017-09-04 16:07:05"})
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2017年09月15日
      * @Validation(

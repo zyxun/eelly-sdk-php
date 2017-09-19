@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Oauth\Service;
+use Eelly\SDK\Oauth\DTO\RoleDTO;
 
 /**
  * 角色接口.
@@ -21,8 +22,21 @@ namespace Eelly\SDK\Oauth\Service;
 interface RoleInterface
 {
     /**
+     * 获得指定角色.
+     *
+     * @return RoleDTO 角色DTO
+     * @requestExample({"roleId":1})
+     * @returnExample({"roleId": "1","roleName": "系统管理员","defaultPermission": "**"})
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-9-18
+     */
+    public function getRole(int $roleId): RoleDTO;
+    /**
      * 获得角色列表.
      *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      * @return array 返回角色列表
      * @requestExample()
      * @returnExample([{"roleId": "1","roleName": "系统管理员","defaultPermission": "**","createdTime": "0","updateTime": "2017-06-21 17:36:49"}])
@@ -60,13 +74,13 @@ interface RoleInterface
      *
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
-     * @return int 新增角色id
+     * @return RoleDTO 新增角色信息
      * @requestExample({"roleName":"goods","defaultPermission":"*"})
-     * @returnExample(1)
+     * @returnExample({"roleId":"16","roleName":"ffff","defaultPermission":"***","createdTime":"1504779860","updateTime":"2017-09-07 10:20:07"})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-7-25
      */
-    public function addRole(string $roleName, string $defaultPermission): int;
+    public function addRole(string $roleName, string $defaultPermission):RoleDTO;
 }

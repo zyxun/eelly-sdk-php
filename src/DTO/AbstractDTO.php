@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\DTO;
+use Eelly\Mvc\Model;
 
 /**
  * @author hehui<hehui@eelly.net>
@@ -31,13 +32,14 @@ class AbstractDTO implements \JsonSerializable
     {
         $class = static::class;
         $object = new $class();
+
         foreach ($array as $key => $value) {
             $key = preg_replace_callback('/(_)([a-z])/i', function ($matches) {
                 return ucfirst($matches[2]);
             }, $key);
+            is_array($value) and $value = Model::arrayToHump($value);
             $object->$key = $value;
         }
-
         return $object;
     }
 
