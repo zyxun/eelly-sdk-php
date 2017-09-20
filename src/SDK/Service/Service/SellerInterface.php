@@ -94,7 +94,7 @@ interface SellerInterface
      * @throws \Eelly\SDK\Service\Exception\SellerException
      *
      * @return bool
-     * @requestExample({"storeId":1})
+     * @requestExample({"storeId":1,"status":1})
      * @returnExample(true)
      *
      * @author wujunhua<wujunhua@eelly.net>

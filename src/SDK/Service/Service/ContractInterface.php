@@ -123,7 +123,7 @@ interface ContractInterface
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
      * @return bool 更改结果
-     * @requestExample({"scId":1})
+     * @requestExample({"scId":1,"status":1})
      * @returnExample(true)
      *
      * @author wujunhua<wujunhua@eelly.net>
