@@ -17,8 +17,23 @@ use Eelly\Exception\LogicException;
 
 class BrandException extends LogicException
 {
-    public function __construct(string $message, int $code, \Exception $previous = null)
-    {
-        parent::__construct($message, $context = null, $code, $previous = null);
-    }
+    public const PARAMETER_ERROR = '参数有误';
+
+    public const DATA_NOT_EXIT = '记录不存在';
+
+    public const DATA_INSERT_FAIL = '插入失败';
+
+    public const DATA_UPDATE_FAIL = '更新失败';
+
+    public const DATA_DELETE_FAIL = '删除失败';
+
+    public const DATA_ALREADER_EXIT = '该数据已经存在';
+
+    public const NO_PERMISSIONS = '没有该权限操作';
+
+    public const PARAMETER_EMPTY = '参数不能为空';
+
+    public const OVER_TRADEMARK = '商标图片不能超过5张';
+
+    public const OVER_CERTIFICATE = '商标证书或使用权证明图片不能超过5张';
 }
