@@ -23,9 +23,7 @@ use Eelly\SDK\Service\Service\EntityCustomInterface;
  */
 class EntityCustom implements EntityCustomInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getEntityCustom(int $secId, UidDTO $user = null): EntityCustomDTO
@@ -34,7 +32,6 @@ class EntityCustom implements EntityCustomInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addEntityCustom(array $data, UidDTO $user = null): bool
@@ -43,14 +40,12 @@ class EntityCustom implements EntityCustomInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateEntityCustom(int $secId, array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('service/EntityCustom', 'updateEntityCustom', $secId, $data, $user);
     }
-
 
     /**
      * @return self

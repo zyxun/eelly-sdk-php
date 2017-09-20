@@ -1,13 +1,15 @@
 <?php
-declare(strict_types=1);
-/**
- * PHP version 7.1
- *
- * @copyright  Copyright (c) 2012-2015 EELLY Inc. (http://www.eelly.com)
- * @link       http://www.eelly.com
- * @license    衣联网版权所有
- */
 
+declare(strict_types=1);
+
+/*
+ * This file is part of eelly package.
+ *
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Eelly\SDK\Log\DTO;
 
@@ -16,21 +18,21 @@ use Eelly\DTO\AbstractDTO;
 class ServiceAuditDTO extends AbstractDTO
 {
     /**
-     * 服务审核ID，自增主键
+     * 服务审核ID，自增主键.
      *
      * @var int
      */
     public $lsaId;
 
     /**
-     * 服务ID
+     * 服务ID.
      *
      * @var int
      */
     public $serviceId;
 
     /**
-     * 店铺ID
+     * 店铺ID.
      *
      * @var int
      */
@@ -44,28 +46,28 @@ class ServiceAuditDTO extends AbstractDTO
     public $action;
 
     /**
-     * 管理员ID
+     * 管理员ID.
      *
      * @var int
      */
     public $adminId;
 
     /**
-     * 管理员名称
+     * 管理员名称.
      *
      * @var string
      */
     public $adminName;
 
     /**
-     * 备注：具体操作内容
+     * 备注：具体操作内容.
      *
      * @var string
      */
     public $remark;
 
     /**
-     * 添加时间
+     * 添加时间.
      *
      * @var int
      */
