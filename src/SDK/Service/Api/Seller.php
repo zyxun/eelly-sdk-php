@@ -23,9 +23,7 @@ use Eelly\SDK\Service\Service\SellerInterface;
  */
 class Seller implements SellerInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getSeller(int $storeId, UidDTO $user = null): SellerDTO
@@ -34,7 +32,6 @@ class Seller implements SellerInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addSeller(array $data, UidDTO $user = null): bool
@@ -43,7 +40,6 @@ class Seller implements SellerInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateSeller(array $data, UidDTO $user = null): bool
@@ -52,7 +48,6 @@ class Seller implements SellerInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function checkSeller(int $storeId, int $status, UidDTO $user = null): bool

@@ -17,16 +17,15 @@ use Eelly\DTO\AbstractDTO;
 
 class EntityCustomDTO extends AbstractDTO
 {
-
     /**
-     * 店铺实体自定义id
+     * 店铺实体自定义id.
      *
      * @var int
      */
     public $secId;
 
     /**
-     * 自定义商圈市场
+     * 自定义商圈市场.
      *
      * @var string
      */
@@ -40,10 +39,9 @@ class EntityCustomDTO extends AbstractDTO
     public $customFloor;
 
     /**
-     * 处理状态：0 未处理 1 已处理
+     * 处理状态：0 未处理 1 已处理.
      *
      * @var int
      */
     public $status;
-
 }

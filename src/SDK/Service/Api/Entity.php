@@ -23,9 +23,7 @@ use Eelly\SDK\Service\Service\EntityInterface;
  */
 class Entity implements EntityInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getEntity(int $storeId, UidDTO $user = null): EntityDTO
@@ -34,7 +32,6 @@ class Entity implements EntityInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addEntity(array $data, UidDTO $user = null): bool
@@ -43,7 +40,6 @@ class Entity implements EntityInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateEntity(array $data, UidDTO $user = null): bool
@@ -52,7 +48,6 @@ class Entity implements EntityInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function checkEntity(int $storeId, int $status, UidDTO $user = null): bool
@@ -72,5 +67,4 @@ class Entity implements EntityInterface
 
         return $instance;
     }
-
 }

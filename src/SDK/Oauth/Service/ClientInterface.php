@@ -22,17 +22,16 @@ use Eelly\SDK\Oauth\DTO\ClientDTO;
  */
 interface ClientInterface
 {
-
     /**
      * 添加客户端.
      *
-     * @param array  $data                  客户端数组
-     * @param string $data['clientKey']    客户端key
-     * @param string $data['clientSecret'] 秘钥
+     * @param array       $data                 客户端数组
+     * @param string      $data['clientKey']    客户端key
+     * @param string      $data['clientSecret'] 秘钥
      * @param int|null    $data['userId']       用户ID
      * @param int|null    $data['isEncrypt']    是否加密
-     * @param string $data['orgName']      组织名字
-     * @param string $data['appName']      应用名字
+     * @param string      $data['orgName']      组织名字
+     * @param string      $data['appName']      应用名字
      * @param string|null $data['redirectUri']  回调地址
      * @param int|null    $data['authType']     认证类型(1：授权码模式，2：简化模式，3：密码模式，4：客户端模式)
      *
@@ -50,8 +49,8 @@ interface ClientInterface
      * 分页获得客户端列表.
      *
      * @param string $clientKey   客户端key
-     * @param int         $currentPage 当前页
-     * @param int         $limit       每页页数
+     * @param int    $currentPage 当前页
+     * @param int    $limit       每页页数
      *
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
@@ -74,6 +73,7 @@ interface ClientInterface
      * @requestExample()
      * @returnExample([{"clientId":"1","clientKey":"myawesomeapp","clientSecret":"$2y$10$ZhlBMQNOUNSWt95LNMIfqePECBg85zwqjq7xS56uzQCllnQ4T9sgG","isEncrypt":"\u0001","userId":"0","orgName":"eelly","appName":"myapp","redirectUri":"","authType":"4","createdTime":"0","updateTime":"2017-06-13 14:29:53"}])
      * @badSql
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
      */
     public function listClient(string $clientKey = null): array;
@@ -82,9 +82,8 @@ interface ClientInterface
      * 编辑客户端.
      * 编辑并保存指定客户端id信息.
      *
-     * @param int    $clientId              客户端id
-     * @param array  $data                  更新信息
-
+     * @param int    $clientId             客户端id
+     * @param array  $data                 更新信息
      * @param string $data['clientKey']    客户端key
      * @param string $data['clientSecret'] 秘钥
      * @param int    $data['userId']       用户ID
