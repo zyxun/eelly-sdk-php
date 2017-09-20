@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * PHP version 7.1
  *
@@ -9,7 +10,6 @@
 
 
 namespace Eelly\SDK\Pay\DTO;
-
 
 use Eelly\DTO\AbstractDTO;
 
@@ -74,14 +74,14 @@ class RecordDTO extends AbstractDTO
     /**
      * 变动金额
      *
-     * @var float
+     * @var int
      */
     public $money;
 
     /**
      * 变动后余额
      *
-     * @var float
+     * @var int
      */
     public $moneyAfter;
 
@@ -99,18 +99,5 @@ class RecordDTO extends AbstractDTO
      */
     public $createdTime;
 
-    /**
-     * 修改时间
-     *
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * 主键
-     *
-     * @var int
-     */
-    protected $pk = 'prId';
 
 }

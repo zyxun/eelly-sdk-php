@@ -23,7 +23,7 @@ interface AccountInterface
      * 获取一条价格记录.
      *
      * @param int $userId 历史记录ID
-     * @throws \Eelly\SDK\Pay\Exception\PayException
+     * @throws \Eelly\SDK\Pay\Exception\BankException
      * @return AccountDTO
      * @requestExample({'userId':1})
      * @returnExample({"paId": 1, "userId": 1, "storeId": 2, "money": "2", "commissionRatio": 3,"status":1,"alipayAccount":'',"wechatPurseOpenId":'' ,"createdTime": "2017-09-04 16:07:05"})
