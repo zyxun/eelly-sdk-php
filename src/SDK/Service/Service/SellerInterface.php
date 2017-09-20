@@ -21,7 +21,6 @@ use Eelly\SDK\Service\DTO\SellerDTO;
  */
 interface SellerInterface
 {
-
     /**
      * 获取一条店铺卖家认证记录.
      *
@@ -103,5 +102,4 @@ interface SellerInterface
      * @since 2017-09-18
      */
     public function checkSeller(int $storeId, int $status, UidDTO $user = null): bool;
-
 }

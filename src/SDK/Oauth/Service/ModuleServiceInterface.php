@@ -23,8 +23,10 @@ interface ModuleServiceInterface
     /**
      * 返回指定id模块服务列表.
      *
-     * @param int $moduleId      模块ID
+     * @param int $moduleId 模块ID
+     *
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
      * @return array 返回模块服务列表数组
      * @requestExample({"moduleId":1})
      * @returnExample([{"serviceId":"96","serviceName":"Activity\\Logic\\StoreLogic","moduleId":"12","moduleName":"activity"}])
@@ -38,11 +40,12 @@ interface ModuleServiceInterface
     /**
      * 返回指定id模块服务分页列表.
      *
-     * @param int $moduleId      模块ID
-     * @param int $currentPage        当前页
-     * @param int $limit              每页条数
+     * @param int $moduleId    模块ID
+     * @param int $currentPage 当前页
+     * @param int $limit       每页条数
      *
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
      * @return array 分页结果集
      * @requestExample({"moduleId":1,"currentPage":1,"limit":1})
      * @returnExample({"items":[{"serviceId":"96","serviceName":"Activity\\Logic\\StoreLogic","moduleId":"12","moduleName":"activity"}],"page":{"totalPages":13,"totalItems":13,"limit":1}})
@@ -51,7 +54,7 @@ interface ModuleServiceInterface
      *
      * @since 2017-7-24
      */
-    public function listModuleServicePage(int $moduleId,int $currentPage = 1,int $limit = 10): array;
+    public function listModuleServicePage(int $moduleId, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 根据id删除模型服务.

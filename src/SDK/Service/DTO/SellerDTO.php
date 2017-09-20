@@ -17,16 +17,15 @@ use Eelly\DTO\AbstractDTO;
 
 class SellerDTO extends AbstractDTO
 {
-
     /**
-     * 店铺ID
+     * 店铺ID.
      *
      * @var int
      */
     public $storeId;
 
     /**
-     * 真实姓名
+     * 真实姓名.
      *
      * @var string
      */
@@ -45,5 +44,4 @@ class SellerDTO extends AbstractDTO
      * @var int
      */
     public $status;
-
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Oauth\Service;
+
 use Eelly\SDK\Oauth\DTO\RoleDTO;
 
 /**
@@ -24,19 +25,23 @@ interface RoleInterface
     /**
      * 获得指定角色.
      *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
      * @return RoleDTO 角色DTO
      * @requestExample({"roleId":1})
      * @returnExample({"roleId": "1","roleName": "系统管理员","defaultPermission": "**"})
-     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-9-18
      */
     public function getRole(int $roleId): RoleDTO;
+
     /**
      * 获得角色列表.
      *
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
      * @return array 返回角色列表
      * @requestExample()
      * @returnExample([{"roleId": "1","roleName": "系统管理员","defaultPermission": "**","createdTime": "0","updateTime": "2017-06-21 17:36:49"}])
