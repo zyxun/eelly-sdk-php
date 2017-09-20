@@ -11,17 +11,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$sourceDir = __DIR__.'/../../../../eelly-sdk-php/src';
-if (file_exists($sourceDir)) {
+if (!class_exists('Eelly\Psr4Autoloader')) {
     require __DIR__.'/src/Psr4Autoloader.php';
     $loader = new \Eelly\Psr4Autoloader();
     $namespaceMap = [
-        'Eelly\SDK'      => $sourceDir.'/src/SDK',
-        'Eelly\Exception'=> $sourceDir.'/src/Exception',
-        'Eelly\DTO'      => $sourceDir.'/src/DTO',
+        'Eelly\SDK'      => __DIR__.'/src/SDK',
+        'Eelly\Exception'=> __DIR__.'/src/Exception',
+        'Eelly\DTO'      => __DIR__.'/src/DTO',
     ];
     foreach ($namespaceMap as $key => $value) {
         $loader->addNamespace($key, $value);
     }
     $loader->register();
+    unset($namespaceMap, $loader);
 }
