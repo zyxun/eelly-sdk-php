@@ -129,5 +129,5 @@ interface RolePermissionInterface
      *
      * @since 2017-9-13
      */
-    public function listNotRelationPermissionPage(int $roleId, array $where = null, int $currentPage = 1, int $limit = 10):array;
+    public function listNotRelationPermissionPage(int $roleId, array $where = null, int $currentPage = 1, int $limit = 10): array;
 }

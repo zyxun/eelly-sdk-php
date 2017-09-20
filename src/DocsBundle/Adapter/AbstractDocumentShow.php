@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\DocsBundlesBundle\Adapter;
+namespace Eelly\DocsBundle\Adapter;
 
 use Eelly\Di\Injectable;
 use phpDocumentor\Reflection\DocBlockFactory;
