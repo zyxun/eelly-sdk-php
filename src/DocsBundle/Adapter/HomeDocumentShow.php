@@ -20,7 +20,9 @@ class HomeDocumentShow extends AbstractDocumentShow implements DocumentShowInter
 {
     public function renderBody(): void
     {
-        $this->view->markup = function ($markdown) {return $this->parserMarkdown($markdown); };
+        $this->view->markup = function ($markdown) {
+            return $this->parserMarkdown($markdown);
+        };
         $this->view->render('apidoc', 'home');
     }
 }
