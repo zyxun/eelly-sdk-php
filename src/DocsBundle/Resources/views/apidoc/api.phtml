@@ -13,24 +13,6 @@
         </div>
         <div class="col-12 col-md-9">
             <article class="markdown-body"><?=$markup?></article>
-            <div id="gitment"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-                var clientId = '72b7cd398b8a3ab08035'
-                var clientSecret = 'eda388b0b15ec652b4e2b6193dd25768bc1eb0bc'
-                var gitment = new Gitment({
-                    id: '<?=$issueId?>',
-                    owner: 'runphp',
-                    repo: 'eelly-sdk-php',
-                    oauth: {
-                        client_id: clientId,
-                        client_secret: clientSecret,
-                    },
-                });
-
-                gitment.render('gitment');
-            </script>
         </div>
     </div>
 </div>
