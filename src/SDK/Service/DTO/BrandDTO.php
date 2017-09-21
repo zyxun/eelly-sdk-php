@@ -17,16 +17,15 @@ use Eelly\DTO\AbstractDTO;
 
 class BrandDTO extends AbstractDTO
 {
-
     /**
-     * 店铺ID
+     * 店铺ID.
      *
      * @var int
      */
     public $storeId;
 
     /**
-     * 真实姓名
+     * 真实姓名.
      *
      * @var string
      */
@@ -40,29 +39,28 @@ class BrandDTO extends AbstractDTO
     public $license;
 
     /**
-     * 手机号
+     * 手机号.
      *
      * @var string
      */
     public $mobile;
 
-
     /**
-     * 品牌名称
+     * 品牌名称.
      *
      * @var string
      */
     public $brand;
 
     /**
-     * 商标图片地址：JSON格式，最多5张
+     * 商标图片地址：JSON格式，最多5张.
      *
      * @var string
      */
     public $trademark;
 
     /**
-     * 商标证书或使用权证明图片地址：JSON格式，最多5张
+     * 商标证书或使用权证明图片地址：JSON格式，最多5张.
      *
      * @var string
      */
@@ -74,5 +72,4 @@ class BrandDTO extends AbstractDTO
      * @var int
      */
     public $status;
-
 }

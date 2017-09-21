@@ -23,9 +23,7 @@ use Eelly\SDK\Service\Service\BrandInterface;
  */
 class Brand implements BrandInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getBrand(int $storeId, UidDTO $user = null): BrandDTO
@@ -34,7 +32,6 @@ class Brand implements BrandInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addBrand(array $data, UidDTO $user = null): bool
@@ -43,7 +40,6 @@ class Brand implements BrandInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateBrand(array $data, UidDTO $user = null): bool
@@ -52,7 +48,6 @@ class Brand implements BrandInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function checkBrand(int $storeId, int $status, UidDTO $user = null): bool

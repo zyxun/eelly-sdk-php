@@ -21,7 +21,6 @@ use Eelly\SDK\Service\DTO\BrandDTO;
  */
 interface BrandInterface
 {
-
     /**
      * 获取一条品牌认证数据记录.
      *
@@ -109,5 +108,4 @@ interface BrandInterface
      * @since 2017-09-19
      */
     public function checkBrand(int $storeId, int $status, UidDTO $user = null): bool;
-
 }
