@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle\Adapter;
 
+use Eelly\Exception\RequestException;
 use Phalcon\Annotations\Adapter\Memory as MemoryAdapter;
 use ReflectionClass;
 
@@ -41,6 +42,9 @@ class ApiDocumentShow extends AbstractDocumentShow implements DocumentShowInterf
 
     public function renderBody(): void
     {
+        if (!interface_exists($this->class) || !method_exists($this->class, $this->method)) {
+            throw new RequestException(404, null, $this->request, $this->response);
+        }
         $interface = new ReflectionClass($this->class);
         $reflectionMethod = $interface->getMethod($this->method);
 
