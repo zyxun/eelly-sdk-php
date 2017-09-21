@@ -50,10 +50,9 @@ class CartException extends LogicException
 
     public const DATA_DELETE_FAIL = [
         'STATUS_CODE'=> 705,
-
-        'ERR_CODE'  => 705001,
-        'FRIEND_MSG'=> '服务器开小差了，请稍后再试',
-        'ERR_MSG'   => '删除数据失败',
+        'ERR_CODE'   => 705001,
+        'FRIEND_MSG' => '服务器开小差了，请稍后再试',
+        'ERR_MSG'    => '删除数据失败',
     ];
 
     public const DATA_ALREADER_EXIT = [
