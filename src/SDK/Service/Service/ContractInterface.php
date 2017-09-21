@@ -99,7 +99,6 @@ interface ContractInterface
      * @param array  $condition   查询条件
      * @param int    $currentPage 当前页码
      * @param int    $limit       每页条数
-     * @param UidDTO $user        登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
@@ -111,7 +110,7 @@ interface ContractInterface
      *
      * @since 2017-09-08
      */
-    public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
+    public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 改变合同版本状态
