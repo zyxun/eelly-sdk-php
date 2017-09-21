@@ -49,6 +49,6 @@ class ServiceDocumentShow extends AbstractDocumentShow implements DocumentShowIn
 $methodList
 EOF;
         $this->view->markup = $this->parserMarkdown($markdown);
-        $this->view->render('apidoc', 'home');
+        $this->view->render('apidoc', 'service');
     }
 }
