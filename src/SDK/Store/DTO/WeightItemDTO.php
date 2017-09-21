@@ -23,42 +23,42 @@ use Eelly\DTO\AbstractDTO;
 class WeightItemDTO extends AbstractDTO
 {
     /**
-     * 权重项id
+     * 权重项id.
      *
      * @var int
      */
     public $itemId;
 
     /**
-     * 权重项名称
+     * 权重项名称.
      *
      * @var string
      */
     public $itemName;
 
     /**
-     * 权重项基数分(正为加分项,负为扣分项)
+     * 权重项基数分(正为加分项,负为扣分项).
      *
      * @var int
      */
     public $itemScore;
 
     /**
-     * 排序
+     * 排序.
      *
      * @var int
      */
     public $sort;
 
     /**
-     * 状态 0 禁用 1 正常 4 删除
+     * 状态 0 禁用 1 正常 4 删除.
      *
      * @var int
      */
     public $status;
 
     /**
-     * 备注
+     * 备注.
      *
      * @var string
      */

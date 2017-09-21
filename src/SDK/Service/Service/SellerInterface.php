@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Service\Service;
 
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\Service\DTO\SellerDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
@@ -21,26 +22,41 @@ use Eelly\DTO\UidDTO;
 interface SellerInterface
 {
     /**
+     * 获取一条店铺卖家认证记录.
+     *
+     * @param int $storeId 店铺ID
+     *
+     * @throws \Eelly\SDK\Service\Exception\SellerException
+     *
+     * @return SellerDTO
+     * @requestExample({"storeId":1})
+     * @returnExample({"storeId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","status":1,"created_time":1458093605})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-18
+     */
+    public function getSeller(int $storeId): SellerDTO;
+
+    /**
      * 新增店铺卖家认证数据.
      *
-     * @param array  $data             认证数据
-     * @param int    $data['store_id']
-     * @param string $data['name']
-     * @param string $data['license']
-     * @param string $data['mobile']
-     * @param UidDTO $user             登录用户对象
+     * @param array  $data            添加数据
+     * @param int    $data['storeId'] 店铺ID
+     * @param string $data['name']    真实姓名
+     * @param string $data['license'] 身份证号码
+     * @param string $data['mobile']  手机号
+     * @param UidDTO $user            登录用户对象
      *
-     * @throws Eelly\SDK\Service\Exception\SellerException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\SellerException 700001 用户未登录
-     * @throws Eelly\SDK\Service\Exception\SellerException 703001 插入数据失败
+     * @throws \Eelly\SDK\Service\Exception\SellerException
      *
-     * @return array
-     * @requestExample({"data":{"store_id":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735"}})
+     * @return bool
+     * @requestExample({"data":{"storeId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735"}})
      * @returnExample(true)
      *
-     * @author fenghaikun<fenghaikun@eelly.net>
+     * @author wujunhua<wujunhua@eelly.net>
      *
-     * @since 2017-8-02
+     * @since 2017-09-18
      */
     public function addSeller(array $data, UidDTO $user = null): bool;
 
@@ -48,26 +64,22 @@ interface SellerInterface
      * 修改店铺卖家认证数据.
      * 用于用户修改认证信息.
      *
-     * @param array  $data                 认证数据
-     * @param int    $data['store_id']
-     * @param string $data['name']
-     * @param string $data['license']
-     * @param string $data['mobile']
-     * @param string $data['status']
-     * @param int    $data['created_time']
-     * @param UidDTO $user                 登录用户对象
+     * @param array  $data            修改数据
+     * @param int    $data['storeId'] 店铺ID
+     * @param string $data['name']    真实姓名
+     * @param string $data['license'] 身份证号码
+     * @param string $data['mobile']  手机号
+     * @param UidDTO $user            登录用户对象
      *
-     * @throws Eelly\SDK\Service\Exception\SellerException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\SellerException 700001 用户未登录
-     * @throws Eelly\SDK\Service\Exception\SellerException 704001 更新数据失败
+     * @throws \Eelly\SDK\Service\Exception\SellerException
      *
-     * @return array
-     * @requestExample({"store_id":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","status":1})
+     * @return bool
+     * @requestExample({"storeId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735"})
      * @returnExample(true)
      *
-     * @author fenghaikun<fenghaikun@eelly.net>
+     * @author wujunhua<wujunhua@eelly.net>
      *
-     * @since 2017-8-02
+     * @since 2017-09-18
      */
     public function updateSeller(array $data, UidDTO $user = null): bool;
 
@@ -76,39 +88,18 @@ interface SellerInterface
      * 用于管理员审核认证信息.
      *
      * @param int    $storeId 店铺ID
+     * @param int    $status  处理状态：0 未处理 1 审核通过 2 审核失败 3 认证过期
      * @param UidDTO $user    登录用户对象
      *
-     * @throws Eelly\SDK\Service\Exception\SellerException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\SellerException 700001 用户未登录
-     * @throws Eelly\SDK\Service\Exception\SellerException 700002 无权限操作
-     * @throws Eelly\SDK\Service\Exception\SellerException 702001 数据不存在
-     * @throws Eelly\SDK\Service\Exception\SellerException 704001 更新数据失败
+     * @throws \Eelly\SDK\Service\Exception\SellerException
      *
-     * @return array
-     * @requestExample({"storeId":1})
+     * @return bool
+     * @requestExample({"storeId":1,"status":1})
      * @returnExample(true)
      *
-     * @author fenghaikun<fenghaikun@eelly.net>
+     * @author wujunhua<wujunhua@eelly.net>
      *
-     * @since 2017-8-02
+     * @since 2017-09-18
      */
-    public function checkSeller(int $storeId, UidDTO $user = null): bool;
-
-    /**
-     * 获取一条店铺卖家认证记录.
-     *
-     * @param int $storeId 店铺ID
-     *
-     * @throws Eelly\SDK\Service\Exception\SellerException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\SellerException 702001 数据不存在
-     *
-     * @return array
-     * @requestExample({"storeId":1})
-     * @returnExample({"store_id":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","status":1,"created_time":1458093605})
-     *
-     * @author fenghaikun<fenghaikun@eelly.net>
-     *
-     * @since 2017-8-02
-     */
-    public function getSeller(int $storeId): array;
+    public function checkSeller(int $storeId, int $status, UidDTO $user = null): bool;
 }

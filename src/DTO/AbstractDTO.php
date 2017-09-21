@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\DTO;
+
 use Eelly\Mvc\Model;
 
 /**
@@ -40,6 +41,7 @@ class AbstractDTO implements \JsonSerializable
             is_array($value) and $value = Model::arrayToHump($value);
             $object->$key = $value;
         }
+
         return $object;
     }
 

@@ -37,8 +37,4 @@ class RoleDTO extends AbstractDTO
      * @var string
      */
     public $defaultPermission;
-
-
-
-
 }

@@ -21,7 +21,6 @@ use Eelly\SDK\Service\DTO\EntityDTO;
  */
 interface EntityInterface
 {
-
     /**
      * 获取一条店铺实体认证记录.
      *
@@ -113,7 +112,7 @@ interface EntityInterface
      * @throws \Eelly\SDK\Service\Exception\EntityException
      *
      * @return bool
-     * @requestExample({"storeId":1})
+     * @requestExample({"storeId":1,"status":1})
      * @returnExample(true)
      *
      * @author wujunhua<wujunhua@eelly.net>
@@ -121,5 +120,4 @@ interface EntityInterface
      * @since 2017-09-16
      */
     public function checkEntity(int $storeId, int $status, UidDTO $user = null): bool;
-
 }

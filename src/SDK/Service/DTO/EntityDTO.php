@@ -17,16 +17,15 @@ use Eelly\DTO\AbstractDTO;
 
 class EntityDTO extends AbstractDTO
 {
-
     /**
-     * 店铺ID
+     * 店铺ID.
      *
      * @var int
      */
     public $storeId;
 
     /**
-     * 真实姓名
+     * 真实姓名.
      *
      * @var string
      */
@@ -40,7 +39,7 @@ class EntityDTO extends AbstractDTO
     public $license;
 
     /**
-     * 手机号
+     * 手机号.
      *
      * @var string
      */
@@ -54,49 +53,49 @@ class EntityDTO extends AbstractDTO
     public $gbCode;
 
     /**
-     * 商圈ID
+     * 商圈ID.
      *
      * @var string
      */
     public $districtId;
 
     /**
-     * 市场ID
+     * 市场ID.
      *
      * @var string
      */
     public $marketId;
 
     /**
-     * 楼层ID
+     * 楼层ID.
      *
      * @var string
      */
     public $floorId;
 
     /**
-     * 档口名称
+     * 档口名称.
      *
      * @var string
      */
     public $stallName;
 
     /**
-     * 档口号：如 301、301A、301-A
+     * 档口号：如 301、301A、301-A.
      *
      * @var string
      */
     public $stallNumber;
 
     /**
-     * 租赁合同或使用权凭证照片：JSON格式
+     * 租赁合同或使用权凭证照片：JSON格式.
      *
      * @var string
      */
     public $images;
 
     /**
-     * 店铺实体自定义ID：0 非自定义
+     * 店铺实体自定义ID：0 非自定义.
      *
      * @var int
      */
@@ -115,5 +114,4 @@ class EntityDTO extends AbstractDTO
      * @var int
      */
     public $status;
-
 }

@@ -49,7 +49,7 @@ class OauthException extends LogicException
          706001=> '数据已经存在',
      ];
 
-//    public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)
+    //    public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)
 //    {
 //        $message = $message."[$errCode]";
 //        parent::__construct($message, $context = null, $code, $previous = null);
