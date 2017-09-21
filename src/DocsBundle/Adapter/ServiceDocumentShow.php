@@ -25,16 +25,15 @@ class ServiceDocumentShow extends AbstractDocumentShow implements DocumentShowIn
      */
     private $class;
 
-    public function __construct(string $class)
+    public function __construct(string $module, string $class)
     {
+        $class = sprintf('Eelly\SDK\%s\Service\%sInterface', ucfirst($module), ucfirst($class));
         $this->class = $class;
     }
 
     public function renderBody(): void
     {
-        $reflectionClass = new ReflectionClass($this->class);
-        $interfaces = $reflectionClass->getInterfaces();
-        $interface = array_pop($interfaces);
+        $interface = new ReflectionClass($this->class);
         $interfaceName = $interface->getName();
         $docComment = $this->getDocComment($interface->getDocComment());
         $methodList = '';

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle\Adapter;
 
-use Eelly\Annotations\Adapter\AdapterInterface;
+use Phalcon\Annotations\Adapter\Memory as MemoryAdapter;
 use ReflectionClass;
 
 /**
@@ -31,17 +31,16 @@ class ApiDocumentShow extends AbstractDocumentShow implements DocumentShowInterf
      */
     private $method;
 
-    public function __construct(string $class, string $method)
+    public function __construct(string $module, string $class, string $method)
     {
+        $class = sprintf('Eelly\SDK\%s\Service\%sInterface', ucfirst($module), ucfirst($class));
         $this->class = $class;
         $this->method = $method;
     }
 
     public function renderBody(): void
     {
-        $reflectionClass = new ReflectionClass($this->class);
-        $interfaces = $reflectionClass->getInterfaces();
-        $interface = array_pop($interfaces);
+        $interface = new ReflectionClass($this->class);
         $reflectionMethod = $interface->getMethod($this->method);
 
         $docComment = $this->getDocComment($reflectionMethod->getDocComment());
@@ -104,17 +103,15 @@ EOF;
         }
         $methodMarkdown = $this->getFileContent($interface->getFileName(), $reflectionMethod->getStartLine(), 1);
         $methodMarkdown = trim($methodMarkdown);
-        if ($this->annotations instanceof AdapterInterface) {
-            $this->annotations->delete($reflectionMethod->class);
-        }
-        $annotations = $this->annotations->getMethod(
+        $annotations = new MemoryAdapter();
+        $collection = $annotations->getMethod(
             $reflectionMethod->class,
             $reflectionMethod->name
         );
 
         $requestExample = '';
-        if ($annotations->has('requestExample')) {
-            $arguments = $annotations->get('requestExample')->getArgument(0);
+        if ($collection->has('requestExample')) {
+            $arguments = $collection->get('requestExample')->getArgument(0);
             if (is_array($arguments)) {
                 $requestExample = <<<EOF
 ### 请求示例
@@ -125,8 +122,8 @@ EOF;
             }
         }
         $returnExample = '';
-        if ($annotations->has('returnExample')) {
-            $arguments = $annotations->get('returnExample')->getArgument(0);
+        if ($collection->has('returnExample')) {
+            $arguments = $collection->get('returnExample')->getArgument(0);
             if ($arguments) {
                 $returnExample .= "### 返回示例\n```\n";
                 $returnExample .= json_encode(

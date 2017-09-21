@@ -74,12 +74,12 @@ interface FeedbackInterface
      */
     public function addFeedback(array $data): bool;
 
-//
-//    /**
-//     * @author eellytools<localhost.shell@gmail.com>
-//     */
-//    public function updateFeedback(int $FeedbackId, array $data): bool;
-//
+    //
+    //    /**
+    //     * @author eellytools<localhost.shell@gmail.com>
+    //     */
+    //    public function updateFeedback(int $FeedbackId, array $data): bool;
+    //
 
     /**
      * 删除反馈记录.

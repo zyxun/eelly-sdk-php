@@ -119,7 +119,7 @@ interface ServiceInterface
      *
      * @since 2017-8-02
      */
-    public function listServicePage(array $condition = [], int $currentPage = 1, int $limit = 10):array;
+    public function listServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 获取买家增值服务列表.
@@ -146,7 +146,7 @@ interface ServiceInterface
      *
      * @since 2017-8-02
      */
-    public function listBuyerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10):array;
+    public function listBuyerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 获取卖家增值服务列表.
@@ -173,5 +173,5 @@ interface ServiceInterface
      *
      * @since 2017-8-02
      */
-    public function listSellerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10):array;
+    public function listSellerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

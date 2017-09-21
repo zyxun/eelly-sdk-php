@@ -11,11 +11,18 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Service\Exception;
+namespace Eelly\SDK\Order\Exception;
 
 use Eelly\Exception\LogicException;
 
-class BrandException extends LogicException
+/**
+ * Order模块异常类.
+ *
+ * @author wangjiang<wangjiang@eelly.net>
+ *
+ * @since 2017-09-19
+ */
+class OrderException extends LogicException
 {
     public const PARAMETER_ERROR = '参数有误';
 
@@ -32,8 +39,4 @@ class BrandException extends LogicException
     public const NO_PERMISSIONS = '没有该权限操作';
 
     public const PARAMETER_EMPTY = '参数不能为空';
-
-    public const OVER_TRADEMARK = '商标图片不能超过5张';
-
-    public const OVER_CERTIFICATE = '商标证书或使用权证明图片不能超过5张';
 }

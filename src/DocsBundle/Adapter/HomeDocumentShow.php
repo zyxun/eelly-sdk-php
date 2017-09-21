@@ -29,7 +29,7 @@ class HomeDocumentShow extends AbstractDocumentShow implements DocumentShowInter
 EOF;
 
         foreach ($this->config->modules as $module => $value) {
-            require_once $value->path;
+            require $value->path;
             $reflectionClass = new ReflectionClass($value->className);
             $docComment = $reflectionClass->getDocComment();
             $factory = \phpDocumentor\Reflection\DocBlockFactory::createInstance();

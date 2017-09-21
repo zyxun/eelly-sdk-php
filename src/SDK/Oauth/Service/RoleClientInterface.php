@@ -96,7 +96,7 @@ interface RoleClientInterface
      *
      * @since 2017-9-7
      */
-    public function listNotRelationClientPage(int $roleId, string $clientKey = null, int $currentPage = 1, int $limit = 10):array;
+    public function listNotRelationClientPage(int $roleId, string $clientKey = null, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 删除角色、客户端关系.

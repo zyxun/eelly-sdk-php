@@ -28,7 +28,9 @@ class ModuleDocumentShow extends AbstractDocumentShow implements DocumentShowInt
 
     public function __construct(string $class)
     {
-        $this->class = $class;
+        $module = $this->config->modules->{$class};
+        require $module->path;
+        $this->class = $module->className;
     }
 
     public function renderBody(): void

@@ -87,5 +87,5 @@ interface RoleInterface
      *
      * @since 2017-7-25
      */
-    public function addRole(string $roleName, string $defaultPermission):RoleDTO;
+    public function addRole(string $roleName, string $defaultPermission): RoleDTO;
 }

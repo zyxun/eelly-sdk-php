@@ -88,5 +88,5 @@ interface GoodsPriceInterface
      *
      * @since 2017年09月04日
      */
-    public function listGoodsPricePage(int $goodsId, int $currentPage = 1, int $limit = 10):array;
+    public function listGoodsPricePage(int $goodsId, int $currentPage = 1, int $limit = 10): array;
 }
