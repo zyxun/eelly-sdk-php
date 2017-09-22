@@ -16,6 +16,8 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\CouponSnDTO;
 
 /**
+ * 优惠券.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CouponSnInterface

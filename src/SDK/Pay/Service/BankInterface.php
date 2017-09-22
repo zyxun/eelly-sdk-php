@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Pay\DTO\BankDTO;
 
 /**
+ * 用户银行信息.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface BankInterface

@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\EntityCustomDTO;
 
 /**
+ * 实体认证自定义商圈市场楼层.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EntityCustomInterface

@@ -16,6 +16,8 @@ namespace Eelly\SDK\Pay\Service;
 use Eelly\SDK\Pay\DTO\AccountDTO;
 
 /**
+ * 用户账号.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface AccountInterface

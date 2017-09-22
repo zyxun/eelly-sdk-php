@@ -16,6 +16,8 @@ namespace Eelly\SDK\Pay\Service;
 use Eelly\DTO\ApplyDTO;
 
 /**
+ * 发起交易申请.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ApplyInterface

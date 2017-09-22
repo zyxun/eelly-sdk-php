@@ -17,6 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\ContractDTO;
 
 /**
+ * 增值服务合同版本.
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ContractInterface
