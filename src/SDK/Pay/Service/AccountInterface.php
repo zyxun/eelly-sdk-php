@@ -25,7 +25,7 @@ interface AccountInterface
      *
      * @param int $userId 历史记录ID
      *
-     * @throws \Eelly\SDK\Pay\Exception\PayException
+     * @throws \Eelly\SDK\Pay\Exception\BankException
      *
      * @return AccountDTO
      * @requestExample({'userId':1})

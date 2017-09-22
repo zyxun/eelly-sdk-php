@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\Exception;
 
+use Throwable;
+
 /**
  * 逻辑异常.
  *
@@ -61,12 +63,12 @@ class LogicException extends \LogicException
     private $context;
 
     /**
-     * @param $message [optional]
-     * @param $context [optional]
-     * @param $code [optional]
-     * @param $previous [optional]
+     * @param string    $message  错误信息
+     * @param array     $context  上下文细信息
+     * @param int       $code     错误编号
+     * @param Throwable $previous 上级异常
      */
-    public function __construct($message = null, array $context = null, $code = null, $previous = null)
+    public function __construct(string $message = '', array $context = null, $code = null, Throwable $previous = null)
     {
         parent::__construct($message, (int) $code, $previous);
         // default context

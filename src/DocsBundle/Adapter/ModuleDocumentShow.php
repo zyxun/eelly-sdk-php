@@ -29,7 +29,6 @@ class ModuleDocumentShow extends AbstractDocumentShow implements DocumentShowInt
     public function __construct(string $class)
     {
         $module = $this->config->modules->{$class};
-        require $module->path;
         $this->class = $module->className;
     }
 
@@ -65,6 +64,6 @@ $interfaceList
 $authorsStr
 EOF;
         $this->view->markup = $this->parserMarkdown($markdown);
-        $this->view->render('apidoc', 'home');
+        $this->view->render('apidoc', 'module');
     }
 }

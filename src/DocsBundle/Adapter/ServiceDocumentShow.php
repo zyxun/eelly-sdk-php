@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle\Adapter;
 
+use Eelly\Exception\RequestException;
 use ReflectionClass;
 
 /**
@@ -33,6 +34,9 @@ class ServiceDocumentShow extends AbstractDocumentShow implements DocumentShowIn
 
     public function renderBody(): void
     {
+        if (!interface_exists($this->class)) {
+            throw new RequestException(404, null, $this->request, $this->response);
+        }
         $interface = new ReflectionClass($this->class);
         $interfaceName = $interface->getName();
         $docComment = $this->getDocComment($interface->getDocComment());
@@ -49,6 +53,6 @@ class ServiceDocumentShow extends AbstractDocumentShow implements DocumentShowIn
 $methodList
 EOF;
         $this->view->markup = $this->parserMarkdown($markdown);
-        $this->view->render('apidoc', 'home');
+        $this->view->render('apidoc', 'service');
     }
 }
