@@ -144,11 +144,11 @@ $methodMarkdown
 ```
 {$docComment['description']}
 
-$returnExample
-
 $paramsMarkdown
 
 $requestExample
+        
+$returnExample
 
 ### 代码贡献
 $authorsMarkdown
