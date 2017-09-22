@@ -50,7 +50,7 @@ class Contract implements ContractInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array
+    public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('service/Contract', 'listContractPage', $condition, $currentPage, $limit);
     }

@@ -17,8 +17,9 @@ use Eelly\DTO\AbstractDTO;
 
 class ServiceDTO extends AbstractDTO
 {
+
     /**
-     * id.
+     * 服务ID
      *
      * @var int
      */
@@ -54,8 +55,4 @@ class ServiceDTO extends AbstractDTO
      */
     public $status;
 
-    /**
-     * @var int 创建时间
-     */
-    public $createdTime;
 }
