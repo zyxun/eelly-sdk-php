@@ -23,6 +23,8 @@ use Eelly\DTO\CouponThemeDTO;
 interface CouponThemeInterface
 {
     /**
+     * 获取生意圈主题信息
+     * 
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getCouponTheme(int $couponThemeId): CouponThemeDTO;
