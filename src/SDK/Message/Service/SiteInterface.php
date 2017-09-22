@@ -17,6 +17,8 @@ use Eelly\DTO\UserDTO;
 use Eelly\SDK\Message\Service\DTO\SiteDTO;
 
 /**
+ * 站内信消息.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SiteInterface

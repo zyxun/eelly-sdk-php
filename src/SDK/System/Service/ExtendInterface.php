@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\DTO\ExtendDTO;
 
 /**
+ * 评论扩展.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ExtendInterface

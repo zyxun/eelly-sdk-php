@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\DTO\ImageDTO;
 
 /**
+ * 文章图片处理.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ImageInterface

@@ -16,6 +16,8 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\GoodsDTO;
 
 /**
+ * 参加活动商品.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface GoodsInterface

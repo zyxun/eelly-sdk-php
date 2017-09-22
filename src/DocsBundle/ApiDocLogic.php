@@ -50,7 +50,7 @@ class ApiDocLogic extends Controller
      */
     public function home(): void
     {
-        $this->di->get(HomeDocumentShow::class)->renderBody();
+        $this->rendBody(HomeDocumentShow::class);
     }
 
     /**
@@ -60,7 +60,7 @@ class ApiDocLogic extends Controller
      */
     public function module(string $module): void
     {
-        $this->di->get(ModuleDocumentShow::class, [$module])->renderBody();
+        $this->rendBody(ModuleDocumentShow::class, [$module]);
     }
 
     /**
@@ -71,7 +71,7 @@ class ApiDocLogic extends Controller
     public function service(string $module): void
     {
         $class = $this->dispatcher->getParam('class');
-        $this->di->get(ServiceDocumentShow::class, [$module, $class])->renderBody();
+        $this->rendBody(ServiceDocumentShow::class, [$module, $class]);
     }
 
     /**
@@ -83,6 +83,19 @@ class ApiDocLogic extends Controller
     {
         $class = $this->dispatcher->getParam('class');
         $method = $this->dispatcher->getParam('method');
-        $this->di->get(ApiDocumentShow::class, [$module, $class, $method])->renderBody();
+        $this->rendBody(ApiDocumentShow::class, [$module, $class, $method]);
+    }
+
+    /**
+     * @param string $class
+     * @param array  $params
+     */
+    private function rendBody(string $class, array $params = []): void
+    {
+        $documentShow = $this->di->get($class, $params);
+        if (method_exists($documentShow, 'initialize')) {
+            $documentShow->initialize();
+        }
+        $documentShow->renderBody();
     }
 }

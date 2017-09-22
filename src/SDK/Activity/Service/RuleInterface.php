@@ -16,6 +16,8 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\RuleDTO;
 
 /**
+ * 营销活动优惠规则.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface RuleInterface

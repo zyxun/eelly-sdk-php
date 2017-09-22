@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Message\Service;
 
 /**
+ * 邮件.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface MailInterface
