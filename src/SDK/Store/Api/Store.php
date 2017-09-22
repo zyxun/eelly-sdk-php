@@ -79,8 +79,28 @@ class Store implements StoreInterface
      */
     public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool
     {
-        $dd = EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $onlyCheckOwner);
-        dd($dd);
         return EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $onlyCheckOwner);
+    }
+
+    /** 
+     * 店铺店主变更
+     * 对店铺的店主进行变更
+     *
+     * @param int $newOwner 新店主id
+     * @param int $storeId 店铺id
+     * @param UidDTO $user 登录用户信息
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     * @return bool 变更结果
+     * @requestExample({
+     *     "newOwner":123,
+     *     "storeId":1
+     * })
+     * @returnExample(true)
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017年9月9日
+     */
+    public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool
+    {
+        return true;
     }
 }
