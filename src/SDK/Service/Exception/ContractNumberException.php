@@ -17,7 +17,6 @@ use Eelly\Exception\LogicException;
 
 class ContractNumberException extends LogicException
 {
-
     public const DATA_UNBIND_FAIL = '解绑失败';
 
     public const CONTRACT_NOT_EXIT = '合同版本不存在';

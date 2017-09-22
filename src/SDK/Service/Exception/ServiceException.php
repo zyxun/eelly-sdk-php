@@ -17,5 +17,4 @@ use Eelly\Exception\LogicException;
 
 class ServiceException extends LogicException
 {
-
 }

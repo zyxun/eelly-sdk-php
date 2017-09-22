@@ -17,5 +17,4 @@ use Eelly\Exception\LogicException;
 
 class ContractException extends LogicException
 {
-
 }

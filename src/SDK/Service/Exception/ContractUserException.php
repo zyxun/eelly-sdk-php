@@ -17,6 +17,5 @@ use Eelly\Exception\LogicException;
 
 class ContractUserException extends LogicException
 {
-
     public const DATA_CONTRACT_NUMBER_NOT_EXIT = '合同编号不存在';
 }

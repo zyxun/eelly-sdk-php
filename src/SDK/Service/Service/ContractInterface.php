@@ -96,9 +96,9 @@ interface ContractInterface
     /**
      * 获取合同版本列表.
      *
-     * @param array  $condition   查询条件
-     * @param int    $currentPage 当前页码
-     * @param int    $limit       每页条数
+     * @param array $condition   查询条件
+     * @param int   $currentPage 当前页码
+     * @param int   $limit       每页条数
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
