@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\SellerDTO;
 
 /**
+ * 卖家认证.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SellerInterface

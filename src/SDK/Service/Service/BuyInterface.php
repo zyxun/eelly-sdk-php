@@ -16,6 +16,8 @@ namespace Eelly\SDK\Service\Service;
 use Eelly\DTO\UidDTO;
 
 /**
+ * 增值服务购买记录.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface BuyInterface

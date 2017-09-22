@@ -16,6 +16,8 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\CouponUserDTO;
 
 /**
+ * 优惠券发放领取.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CouponUserInterface
