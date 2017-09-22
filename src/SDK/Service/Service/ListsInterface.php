@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\ListsDTO;
 
 /**
+ * 增值服务清单.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ListsInterface

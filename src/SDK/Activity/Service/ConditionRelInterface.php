@@ -16,6 +16,8 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\ConditionRelDTO;
 
 /**
+ * 买家参与营销活动条件.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ConditionRelInterface

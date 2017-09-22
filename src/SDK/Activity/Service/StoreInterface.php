@@ -16,6 +16,8 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\StoreDTO;
 
 /**
+ * 店铺及商品级活动参加申请.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface StoreInterface

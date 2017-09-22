@@ -17,7 +17,9 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\BrandDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 品牌认证.
+ * 
+ * @author wujunhua<wujunhua@eelly.net>
  */
 interface BrandInterface
 {

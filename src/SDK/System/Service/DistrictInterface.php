@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\DistrictDTO;
 
 /**
+ * 商圈.
+ * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface DistrictInterface
