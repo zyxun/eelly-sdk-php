@@ -17,5 +17,4 @@ use Eelly\Exception\LogicException;
 
 class SellerException extends LogicException
 {
-
 }

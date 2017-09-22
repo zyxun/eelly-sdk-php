@@ -23,7 +23,6 @@ use Eelly\SDK\Service\Service\ListsInterface;
  */
 class Lists implements ListsInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */

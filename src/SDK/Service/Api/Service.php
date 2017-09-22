@@ -23,7 +23,6 @@ use Eelly\SDK\Service\Service\ServiceInterface;
  */
 class Service implements ServiceInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */

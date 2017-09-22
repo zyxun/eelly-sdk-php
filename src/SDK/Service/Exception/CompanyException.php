@@ -17,9 +17,7 @@ use Eelly\Exception\LogicException;
 
 class CompanyException extends LogicException
 {
-
     public const OVER_BUSINESS_LICENSE = '营业执照图片不能超过5张';
 
     public const OVER_COMPANY_PHOTO = '企业实拍图片不能超过5张';
-
 }
