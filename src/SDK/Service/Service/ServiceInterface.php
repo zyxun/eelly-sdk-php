@@ -53,7 +53,7 @@ interface ServiceInterface
      *
      * @throws \Eelly\SDK\Service\Exception\ServiceException
      *
-     * @return bool
+     * @return bool 新增结果
      *
      * @requestExample({"data":{"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1}})
      * @returnExample(true)
@@ -66,7 +66,6 @@ interface ServiceInterface
 
     /**
      * 修改增值服务.
-     * 用于增值服务信息.
      *
      * @param int    $serviceId      服务ID
      * @param array  $data           认证数据
@@ -80,7 +79,7 @@ interface ServiceInterface
      *
      * @throws \Eelly\SDK\Service\Exception\ServiceException
      *
-     * @return bool
+     * @return bool 修改结果
      *
      * @requestExample({"serviceId":1,"data":{"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1}})
      * @returnExample(true)
@@ -90,6 +89,25 @@ interface ServiceInterface
      * @since 2017-09-21
      */
     public function updateService(int $serviceId, array $data, UidDTO $user = null): bool;
+
+    /**
+     * 删除增值服务.
+     *
+     * @param int    $serviceId 服务ID
+     * @param UidDTO $user      登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return bool 删除结果
+     *
+     * @requestExample({"serviceId":1})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function deleteService(int $serviceId, UidDTO $user = null): bool;
 
     /**
      * 获取买家和卖家增值服务列表.
@@ -109,7 +127,7 @@ interface ServiceInterface
      * @return array
      *
      * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
-     * @returnExample()
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
@@ -135,7 +153,7 @@ interface ServiceInterface
      * @return array
      *
      * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
-     * @returnExample()
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
@@ -161,7 +179,7 @@ interface ServiceInterface
      * @return array
      *
      * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
-     * @returnExample()
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
