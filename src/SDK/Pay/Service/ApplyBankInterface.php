@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\ApplyBankDTO;
+use Eelly\SDK\Pay\DTO\ApplyBankDTO;
+
 
 /**
  * 发起交易申请银行信息.
