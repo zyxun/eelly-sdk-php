@@ -18,17 +18,43 @@ use Eelly\DTO\ConditionDTO;
 /**
  * 买家参与营销活动条件参数.
  * 
- * @author eellytools<localhost.shell@gmail.com>
+ * 
+ * @author wechan<liweiquan@eelly.net>
  */
 interface ConditionInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取参加活动店铺信息
+     * 
+     * @param int $acId 营销活动id
+     *
+     * @return array 活动条件参数结果集
+     * 
+     * @requestExample({"acId": 1})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年09月12日
      */
-    public function getCondition(int $conditionId): ConditionDTO;
+    public function getCondition(int $acId): ConditionDTO;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 
+     * 获取参加活动店铺信息
+     * 
+     * @reqArgs
+     *
+     * @return array 活动商品结果集
+     * 
+     * @requestExample({"acId": 1})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年09月12日
      */
     public function addCondition(array $data): bool;
 
@@ -46,4 +72,21 @@ interface ConditionInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listConditionPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
+    
+    /**
+     * 删除参加活动店铺信息
+     * 
+     * @param int $acId 营销活动id
+     *
+     * @return array 活动条件参数结果集
+     * 
+     * @requestExample({"acId": 1})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年09月12日
+     */
+    public function deleteCondition(int $acId): bool;
 }
