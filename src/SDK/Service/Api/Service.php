@@ -51,6 +51,14 @@ class Service implements ServiceInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
+    public function deleteService(int $serviceId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Service', 'deleteService', $serviceId, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
     public function listServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('service/Service', 'listServicePage', $condition, $currentPage, $limit);
