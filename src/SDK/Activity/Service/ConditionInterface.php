@@ -62,12 +62,7 @@ interface ConditionInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateCondition(int $conditionId, array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteCondition(int $conditionId): bool;
-
+    
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
