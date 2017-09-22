@@ -36,6 +36,8 @@ interface UserInterface
      * @requestExample({"username":"molimoq", "password":"123456"})
      *
      * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function checkPassword(string $username, string $password): bool;
 
@@ -54,44 +56,25 @@ interface UserInterface
      * @requestExample({"username":"molimoq", "password":"123456"})
      *
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function getUserByPassword(string $username, string $password): UserDTO;
 
     /**
      * 获取用户信息.
      *
-     * @param UidDTO $user
+     * @param UidDTO $user 登录用户
+     *
+     * @throws \Exception
      *
      * @return UserDTO
      *
      * @requestExample()
      *
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function info(UidDTO $user = null): UserDTO;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getUser(int $userId): UserDTO;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function addUser(array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateUser(int $userId, array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteUser(int $userId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listUserPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
 }

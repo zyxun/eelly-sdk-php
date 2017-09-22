@@ -21,11 +21,39 @@ use Eelly\DTO\AbstractDTO;
 class KeyDTO extends AbstractDTO
 {
     /**
-     * 字典编码
+     * 参数字典id.
+     *
+     * @var int
+     */
+    public $pkId;
+
+    /**
+     * 参数字典编码
      *
      * @var string
      */
     public $code;
+
+    /**
+     * 参数名称.
+     *
+     * @var string
+     */
+    public $paramName;
+
+    /**
+     * 参数描述.
+     *
+     * @var string
+     */
+    public $paramDesc;
+
+    /**
+     * 参数值状态：0 无效 1 有效.
+     *
+     * @var int
+     */
+    public $status;
 
     /**
      * @return string

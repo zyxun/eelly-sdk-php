@@ -136,5 +136,5 @@ interface MessageInterface
      *
      * @since 2017-
      */
-    public function listMessagePage(array $data = null, int $limit = 10, int $currentPage = 1): array;
+    public function listMessagePage(array $data = null, int $currentPage = 1, int $limit = 10): array;
 }

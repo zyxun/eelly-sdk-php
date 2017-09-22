@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\Exception;
 
+use Throwable;
+
 /**
  * 逻辑异常.
  *
@@ -20,6 +22,26 @@ namespace Eelly\Exception;
  */
 class LogicException extends \LogicException
 {
+
+    public const PARAMETER_ERROR    = '参数有误';
+
+    public const PARAMETER_EMPTY    = '参数不能为空';
+
+    public const DATA_NOT_EXIT      = '记录不存在';
+
+    public const DATA_ALREADER_EXIT = '该数据已经存在';
+
+    public const DATA_INSERT_FAIL   = '插入失败';
+
+    public const DATA_UPDATE_FAIL   = '更新失败';
+
+    public const DATA_DELETE_FAIL   = '删除失败';
+
+    public const NO_PERMISSIONS     = '没有该权限操作';
+
+    public const NO_LOGIN           = '用户未登录';
+
+
     /**
      * 逻辑开发错误代码提示数据.
      */
@@ -34,18 +56,19 @@ class LogicException extends \LogicException
          705001=> '删除数据失败',
          706001=> '数据已经存在',
      ];
+
     /**
      * @var array
      */
     private $context;
 
     /**
-     * @param $message [optional]
-     * @param $context [optional]
-     * @param $code [optional]
-     * @param $previous [optional]
+     * @param string    $message  错误信息
+     * @param array     $context  上下文细信息
+     * @param int       $code     错误编号
+     * @param Throwable $previous 上级异常
      */
-    public function __construct($message = null, array $context = null, $code = null, $previous = null)
+    public function __construct(string $message = '', array $context = null, $code = null, Throwable $previous = null)
     {
         parent::__construct($message, (int) $code, $previous);
         // default context

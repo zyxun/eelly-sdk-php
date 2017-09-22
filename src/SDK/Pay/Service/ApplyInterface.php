@@ -13,9 +13,35 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
+use Eelly\DTO\ApplyDTO;
+
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ApplyInterface
 {
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getApply(int $applyId): ApplyDTO;
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addApply(array $data): bool;
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateApply(int $applyId, array $data): bool;
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteApply(int $applyId): bool;
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listApplyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

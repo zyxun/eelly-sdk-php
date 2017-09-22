@@ -13,25 +13,15 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Example\Api;
 
-use Eelly\DTO\FastDFSDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Example\DTO\TimeDTO;
 use Eelly\SDK\Example\Service\ParamsInterface;
-use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @author hehui<hehui@eelly.net>
  */
 class Params implements ParamsInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function paramsType(int $a, float $b, string $c, array $d, UploadedFileInterface $e): bool
-    {
-        return EellyClient::request('example/params', __FUNCTION__, $a, $b, $c, $d, $e);
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -46,14 +36,6 @@ class Params implements ParamsInterface
     public function cacheTime(string $name): TimeDTO
     {
         return EellyClient::request('example/params', __FUNCTION__, $name);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function uploadFileToFastDFS(string $name, UploadedFileInterface $file): ?FastDFSDTO
-    {
-        return EellyClient::request('example/params', __FUNCTION__, $name, $file);
     }
 
     /**

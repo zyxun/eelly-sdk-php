@@ -17,8 +17,8 @@ use Eelly\Exception\LogicException;
 
 class ContractNumberException extends LogicException
 {
-    public function __construct(string $message, int $code, \Exception $previous = null)
-    {
-        parent::__construct($message, $context = null, $code, $previous = null);
-    }
+
+    public const DATA_UNBIND_FAIL = '解绑失败';
+
+    public const CONTRACT_NOT_EXIT = '合同版本不存在';
 }

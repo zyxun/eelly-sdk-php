@@ -75,7 +75,7 @@ class Module implements ModuleInterface
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      */
-    public function listModulePage(int $limit = 10, int $currentPage = 1): array
+    public function listModulePage(int $currentPage = 1, int $limit = 10): array
     {
         // TODO: Implement listModulePage() method.
         return EellyClient::request('oauth/moduleserver', 'listModulePage', $limit, $currentPage);

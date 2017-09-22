@@ -16,7 +16,9 @@ namespace Eelly\SDK\Store\Service;
 use Eelly\DTO\UidDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 店铺操作.
+ *
+ * @author wangjiang<wangjiang@eelly.net>
  */
 interface StoreInterface
 {
@@ -49,26 +51,6 @@ interface StoreInterface
     public function addStore(array $storeData, UidDTO $user = null): bool;
 
     /**
-     * 添加店铺运营
-     * 添加店铺的运营管理人员.
-     *
-     * @param int    $userId  运营管理人员的userId
-     * @param int    $storeId 店铺id
-     * @param UidDTO $user    登录用户信息
-     *
-     * @throws \Eelly\SDK\Store\Exception\StoreException
-     * @requestExample({"userId":1,"storeId":2})
-     *
-     * @return bool 新增结果
-     * @returnExample(true)
-     *
-     * @author wangjiang<wangjiang@eelly.net>
-     *
-     * @since 2017-08-21
-     */
-    public function addStoreOperator(int $userId, int $storeId, UidDTO $user = null): bool;
-
-    /**
      * 撤销店铺运营
      * 禁用或删除店铺运营.
      *
@@ -88,4 +70,46 @@ interface StoreInterface
      * @since 2017-08-21
      */
     public function deleteStoreOperator(int $operatorId, int $storeId, int $type, UidDTO $user = null): bool;
+
+    /**
+     * 校验用户是否能操作管理店铺.
+     *
+     * @param int  $userId         用户id
+     * @param int  $storeId        店铺id
+     * @param bool $onlyCheckOwner 是否只校验用户是否为店主 true是 false否
+     *
+     * @throws StoreException
+     *
+     * @return bool true 允许操作 false 不允许操作
+     * @requestExample({"userId":1,"storeId":1,"onlyCheckOwner":false})
+     * @returnExample(true)
+     *
+     * @author zhoujiansheng<zhoujiansheng@eelly.net>
+     *
+     * @since 2017-09-11
+     */
+    public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool;
+
+    /**
+     * 店铺店主变更
+     * 对店铺的店主进行变更.
+     *
+     * @param int    $newOwner 新店主id
+     * @param int    $storeId  店铺id
+     * @param UidDTO $user     登录用户信息
+     *
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return bool 变更结果
+     * @requestExample({
+     *     "newOwner":123,
+     *     "storeId":1
+     * })
+     * @returnExample(true)
+     *
+     * @author wangjiang<wangjiang@eelly.net>
+     *
+     * @since 2017年9月9日
+     */
+    public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool;
 }

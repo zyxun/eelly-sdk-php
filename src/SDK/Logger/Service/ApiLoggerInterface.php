@@ -30,9 +30,11 @@ interface ApiLoggerInterface
      * @param array  $response 返回信息
      * @param array  $extras   扩展的信息
      *
+     * @throws \Exception
+     *
      * @return bool
      *
-     * @requestExample({"traceId":"58363e7a6d22e5c34e8b4567"})
+     * @requestExample({"straceId":"58363e7a6d22e5c34e8b4567"})
      *
      * @returnExample(true)
      *

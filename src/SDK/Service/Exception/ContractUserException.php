@@ -17,8 +17,6 @@ use Eelly\Exception\LogicException;
 
 class ContractUserException extends LogicException
 {
-    public function __construct(string $message, int $code, \Exception $previous = null)
-    {
-        parent::__construct($message, $context = null, $code, $previous = null);
-    }
+
+    public const DATA_CONTRACT_NUMBER_NOT_EXIT = '合同编号不存在';
 }

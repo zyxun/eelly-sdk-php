@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Service\Service;
 
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\Service\DTO\EntityCustomDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
@@ -21,67 +22,63 @@ use Eelly\DTO\UidDTO;
 interface EntityCustomInterface
 {
     /**
+     * 获取指定id的单条店铺实体认证自定义商圈市场楼层信息.
+     *
+     * @param int    $secId 自定义商圈市场楼层信息id
+     * @param UidDTO $user  登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\EntityCustomException
+     *
+     * @return EntityCustomDTO
+     * @requestExample({"secId":1})
+     * @returnExample({"secId":1,"customMarket":"\u767d\u767d\u5417\u6279\u53d1\u5e02\u573a","customFloor":"18\u697c","status":1})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-15
+     */
+    public function getEntityCustom(int $secId, UidDTO $user = null): EntityCustomDTO;
+
+    /**
      * 新增店铺实体认证自定义商圈市场楼层信息.
      *
-     * @param array  $data                  新增数据
-     * @param string $data['custom_market']
-     * @param string $data['custom_floor']
-     * @param UidDTO $user                  登录用户对象
+     * @param array  $data                 新增数据
+     * @param string $data['customMarket'] 自定义商圈市场
+     * @param string $data['customFloor']  自定义楼层
+     * @param UidDTO $user                 登录用户对象
      *
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 700001 用户未登录
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 703001 插入数据失败
+     * @throws \Eelly\SDK\Service\Exception\EntityCustomException
      *
      * @return bool
-     * @requestExample({"data":{"custom_market":"\u767d\u767d\u5417\u6279\u53d1\u5e02\u573a","custom_floor":"18\u697c"}})
+     * @requestExample({"data":{"customMarket":"\u767d\u767d\u5417\u6279\u53d1\u5e02\u573a","customFloor":"18\u697c"}})
      * @returnExample(true)
      *
-     * @author fenghaikun<fenghaikun@eelly.net>
+     * @author wujunhua<wujunhua@eelly.net>
      *
-     * @since 2017-8-02
+     * @since 2017-09-15
      */
     public function addEntityCustom(array $data, UidDTO $user = null): bool;
 
     /**
-     * 获取指定ID的单条增值服务清单.
-     *
-     * @param int $secId 自定义信息ID
-     *
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 702001 数据不存在
-     *
-     * @return array
-     * @requestExample({"secId":1})
-     * @returnExample({"service_id":1,"custom_market":"\u767d\u767d\u5417\u6279\u53d1\u5e02\u573a","custom_floor":"18\u697c","status":1,"created_time":1458093605})
-     *
-     * @author fenghaikun<fenghaikun@eelly.net>
-     *
-     * @since 2017-8-02
-     */
-    public function getEntityCustom(int $secId): array;
-
-    /**
-     * 修改自定义信息.
+     * 修改店铺实体认证自定义商圈市场楼层信息.
      * 修改自定义信息，包括处理状态
      *
-     * @param array  $data                  list的数据
-     * @param string $data['custom_market']
-     * @param string $data['custom_floor']
-     * @param int    $data['status']
-     * @param int    $data['created_time']
-     * @param UidDTO $user                  登录用户对象
+     * @param int    $secId                自定义商圈市场楼层信息ID
+     * @param array  $data                 修改数据
+     * @param string $data['customMarket'] 自定义商圈市场
+     * @param string $data['customFloor']  自定义楼层
+     * @param int    $data['status']       处理状态：0 未处理 1 已处理
+     * @param UidDTO $user                 登录用户对象
      *
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 700001 用户未登录
-     * @throws Eelly\SDK\Service\Exception\EntityCustomException 704001 更新数据失败
+     * @throws \Eelly\SDK\Service\Exception\EntityCustomException
      *
-     * @return array
-     * @requestExample({"data":{"service_id":1,"custom_market":"\u767d\u767d\u5417\u6279\u53d1\u5e02\u573a","custom_floor":"18\u697c","status":1}})
+     * @return bool
+     * @requestExample({"secId":1,"data":{"customMarket":"\u767d\u767d\u5417\u6279\u53d1\u5e02\u573a","customFloor":"18\u697c","status":1}})
      * @returnExample(true)
      *
-     * @author fenghaikun<fenghaikun@eelly.net>
+     * @author wujunhua<wujunhua@eelly.net>
      *
-     * @since 2017-8-02
+     * @since 2017-09-15
      */
-    public function updateEntityCustom(array $data, UidDTO $user = null): bool;
+    public function updateEntityCustom(int $secId, array $data, UidDTO $user = null): bool;
 }
