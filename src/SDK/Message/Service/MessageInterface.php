@@ -17,6 +17,8 @@ use Eelly\DTO\UserDTO;
 use Eelly\SDK\Message\Service\DTO\MessageDTO;
 
 /**
+ * 消息.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface MessageInterface
@@ -136,5 +138,5 @@ interface MessageInterface
      *
      * @since 2017-
      */
-    public function listMessagePage(array $data = null,int $currentPage = 1, int $limit = 10): array;
+    public function listMessagePage(array $data = null, int $currentPage = 1, int $limit = 10): array;
 }

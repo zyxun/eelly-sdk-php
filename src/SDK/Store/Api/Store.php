@@ -29,7 +29,7 @@ class Store implements StoreInterface
      */
     public function addStore(array $storeData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/addStore', __FUNCTION__, $storeData, $user);
+        return EellyClient::request('store/store', __FUNCTION__, $storeData, $user);
     }
 
     /**
@@ -39,7 +39,7 @@ class Store implements StoreInterface
      */
     public function addStoreOperator(int $userId, int $storeId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/addStoreOperator', __FUNCTION__, $userId, $storeId, $user);
+        return EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $user);
     }
 
     /**
@@ -47,9 +47,9 @@ class Store implements StoreInterface
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::deleteStoreOperator()
      */
-    public function deleteStoreOperator(int $operatorId, int $userId, int $type, UidDTO $user = null): bool
+    public function deleteStoreOperator(int $operatorId, int $storeId, int $type, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/deleteStoreOperator', __FUNCTION__, $operatorId, $userId, $user);
+        return EellyClient::request('store/store', __FUNCTION__, $operatorId, $storeId, $type, $user);
     }
 
     /**
@@ -64,17 +64,22 @@ class Store implements StoreInterface
 
         return $instance;
     }
+
     /**
      * 校验用户是否能操作管理店铺.
      *
-     * @param int $userId 用户id
-     * @param int $storeId 店铺id
+     * @param int  $userId         用户id
+     * @param int  $storeId        店铺id
      * @param bool $onlyCheckOwner 是否只校验用户是否为店主 true是 false否
+     *
      * @throws StoreException
+     *
      * @return bool true 允许操作 false 不允许操作
      * @requestExample({"userId":1,"storeId":1,"onlyCheckOwner":false})
      * @returnExample(true)
+     *
      * @author zhoujiansheng<zhoujiansheng@eelly.net>
+     *
      * @since 2017-09-11
      */
     public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool
@@ -82,25 +87,13 @@ class Store implements StoreInterface
         return EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $onlyCheckOwner);
     }
 
-    /** 
-     * 店铺店主变更
-     * 对店铺的店主进行变更
+    /**
+     * {@inheritdoc}
      *
-     * @param int $newOwner 新店主id
-     * @param int $storeId 店铺id
-     * @param UidDTO $user 登录用户信息
-     * @throws \Eelly\SDK\Store\Exception\StoreException
-     * @return bool 变更结果
-     * @requestExample({
-     *     "newOwner":123,
-     *     "storeId":1
-     * })
-     * @returnExample(true)
-     * @author wangjiang<wangjiang@eelly.net>
-     * @since 2017年9月9日
+     * @see \Eelly\SDK\Store\Service\StoreInterface::updateStoreOwner()
      */
     public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool
     {
-        return true;
+        return EellyClient::request('store/store', __FUNCTION__, $newOwner, $storeId, $user);
     }
 }

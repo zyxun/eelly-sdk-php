@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Service;
 
-
 /**
- * 角色接口
+ * 角色权限关系接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface RolePermissionInterface
@@ -97,13 +97,37 @@ interface RolePermissionInterface
      * @param int $limit       每页限制条数
      * @param int $currentPage 当前页
      *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
      * @return array 返回分页列表
-     * @requestExample({"roleId":1,"limit":10,"currentPage":1])
+     * @requestExample({"roleId":1,"limit":10,"currentPage":1})
      * @returnExample({"items":[{"rpId":"23","roleId":"1","permissionId":"1","createdTime":"1500996810","updateTime":"0000-00-00 00:00:00","hashName":"user\/index\/cacheTime","permName":"\u7f13\u5b58\u6ce8\u89e3\u793a\u4f8b","isLogin":"0","status":"0","roleName":"\u7cfb\u7edf\u7ba1\u7406\u5458","defaultPermission":"*\/*\/*"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":2,"totalPages":3,"totalItems":3,"limit":1}})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-7-24
      */
-    public function listRolePermissionPage(int $roleId = null,int $currentPage = 1, int $limit = 10): array;
+    public function listRolePermissionPage(int $roleId, int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 获取角色没有关联的接口列表.
+     * 可根据角色id获取角色没有关联的接口列表.
+     *
+     * @param int $roleId      角色id
+     * @param int $limit       每页限制条数
+     * @param int $currentPage 当前页
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return array 返回角色客户端分页列表数组
+     * @requestExample({"roleId":1,"currentPage":1,"limit":1})
+     * @returnExample({"items":[{"permissionId":"778","hashName":"store\/operate\/addStoreOperator","permName":"\u6dfb\u52a0\u5e97\u94fa\u8fd0\u8425","status":"0"}],"page":{"totalPages":267,"totalItems":267,"limit":1}})
+     * @badSql
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @badSql
+     *
+     * @since 2017-9-13
+     */
+    public function listNotRelationPermissionPage(int $roleId, array $where = null, int $currentPage = 1, int $limit = 10): array;
 }

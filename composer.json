@@ -2,7 +2,7 @@
 	"name": "eelly/eelly-sdk-php",
 	"description": "eelly sdk for php",
 	"type": "library",
-	"license": "MIT",
+	"license": "MPL2.0",
 	"authors": [
 		{
 			"name": "Eelly",
@@ -15,9 +15,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Eelly\\SDK\\":"src/SDK",
+			"Eelly\\DocsBundle\\":"src/DocsBundle",
+			"Eelly\\DTO\\":"src/DTO",
 			"Eelly\\Exception\\":"src/Exception",
-			"Eelly\\DTO\\":"src/DTO"
+			"Eelly\\SDK\\":"src/SDK"
 		}
+	},
+	"config": {
+		"sort-packages": true
 	}
 }

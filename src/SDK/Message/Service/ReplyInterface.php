@@ -17,6 +17,8 @@ use Eelly\DTO\UserDTO;
 use Eelly\SDK\Message\Service\DTO\MessageReplyDTO;
 
 /**
+ * 消息回复.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ReplyInterface

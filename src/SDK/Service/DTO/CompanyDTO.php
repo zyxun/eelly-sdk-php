@@ -17,16 +17,15 @@ use Eelly\DTO\AbstractDTO;
 
 class CompanyDTO extends AbstractDTO
 {
-
     /**
-     * 店铺id
+     * 店铺id.
      *
      * @var int
      */
     public $storeId;
 
     /**
-     * 真实姓名
+     * 真实姓名.
      *
      * @var string
      */
@@ -40,35 +39,35 @@ class CompanyDTO extends AbstractDTO
     public $license;
 
     /**
-     * 手机号
+     * 手机号.
      *
      * @var string
      */
     public $mobile;
 
     /**
-     * 企业名称
+     * 企业名称.
      *
      * @var string
      */
     public $company;
 
     /**
-     * 工商注册号
+     * 工商注册号.
      *
      * @var string
      */
     public $number;
 
     /**
-     * 营业执照图片地址，最多5张
+     * 营业执照图片地址，最多5张.
      *
      * @var string
      */
     public $businessLicense;
 
     /**
-     * 企业实拍图片地址，最多5张
+     * 企业实拍图片地址，最多5张.
      *
      * @var string
      */
@@ -82,10 +81,9 @@ class CompanyDTO extends AbstractDTO
     public $status;
 
     /**
-     * 创建时间
+     * 创建时间.
      *
      * @var int
      */
     public $createdTime;
-
 }

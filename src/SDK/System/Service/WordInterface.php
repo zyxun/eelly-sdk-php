@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\WordDTO;
 
 /**
+ * 敏感词.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface WordInterface
@@ -112,9 +114,5 @@ interface WordInterface
      *
      * @since 2017-08-26
      */
-
     public function listWordPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
 }
-

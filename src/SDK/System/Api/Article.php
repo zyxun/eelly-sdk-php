@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\ArticleInterface;
 use Eelly\SDK\System\DTO\ArticleDTO;
+use Eelly\SDK\System\Service\ArticleInterface;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
@@ -33,9 +34,9 @@ class Article implements ArticleInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addArticle(array $data): bool
+    public function addArticle(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/article', 'addArticle', $data);
+        return EellyClient::request('system/article', 'addArticle', $data, $user);
     }
 
     /**

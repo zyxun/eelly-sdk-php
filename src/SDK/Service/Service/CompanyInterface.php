@@ -17,11 +17,11 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\CompanyDTO;
 
 /**
+ * 企业认证.
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CompanyInterface
 {
-
     /**
      * 获取一条店铺企业认证记录.
      *
@@ -67,7 +67,7 @@ interface CompanyInterface
 
     /**
      * 修改店铺企业认证数据.
-     * 用于用户修改认证信息
+     * 用于用户修改认证信息.
      *
      * @param array  $data                    认证数据
      * @param int    $data['storeId']         店铺id
@@ -95,10 +95,10 @@ interface CompanyInterface
 
     /**
      * 审核品店铺企业认证.
-     * 用于管理员审核认证信息
+     * 用于管理员审核认证信息.
      *
-     * @param int $storeId 店铺ID
-     * @param UidDTO $user 登录用户对象
+     * @param int    $storeId 店铺ID
+     * @param UidDTO $user    登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\CompanyException
      *
@@ -111,5 +111,4 @@ interface CompanyInterface
      * @since 2017-09-05
      */
     public function checkCompany(int $storeId, UidDTO $user = null): bool;
-
 }

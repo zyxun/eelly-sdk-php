@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\DTO\ReplyDTO;
 
 /**
+ * 评论回复.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ReplyInterface
@@ -44,7 +46,4 @@ interface ReplyInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listReplyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
 }
-

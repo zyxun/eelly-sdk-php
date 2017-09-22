@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Api;
 
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\Service\DTO\BrandDTO;
 use Eelly\SDK\Service\Service\BrandInterface;
 
 /**
@@ -20,6 +23,38 @@ use Eelly\SDK\Service\Service\BrandInterface;
  */
 class Brand implements BrandInterface
 {
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getBrand(int $storeId, UidDTO $user = null): BrandDTO
+    {
+        return EellyClient::request('service/Brand', 'getBrand', $storeId, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addBrand(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Brand', 'addBrand', $data, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateBrand(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Brand', 'updateBrand', $data, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function checkBrand(int $storeId, int $status, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Brand', 'checkBrand', $storeId, $status, $user);
+    }
+
     /**
      * @return self
      */

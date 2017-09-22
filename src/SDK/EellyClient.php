@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace Eelly\SDK;
 
-use Eelly\Exception\LogicException;
 use Eelly\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
+use League\OAuth2\Client\Token\AccessToken;
+use LogicException;
 use Phalcon\Di;
 use Psr\Http\Message\UploadedFileInterface;
 
@@ -37,6 +38,7 @@ class EellyClient
         'oauth'   => 'https://api.eelly.com',
         'user'    => 'https://api.eelly.com',
         'store'   => 'https://api.eelly.dev',
+        'pay'     => 'https://api.eelly.dev',
     ];
 
     private static $services = [];
@@ -50,6 +52,11 @@ class EellyClient
      * @var EellyClient
      */
     private static $self;
+
+    /**
+     * @var \League\OAuth2\Client\Token\AccessToken
+     */
+    private static $accessToken;
 
     /**
      * EellyClient constructor.
@@ -107,6 +114,16 @@ class EellyClient
     }
 
     /**
+     * @param AccessToken $accessToken
+     *
+     * @return AccessToken
+     */
+    public function setAccessToken(AccessToken $accessToken)
+    {
+        return self::$accessToken = $accessToken;
+    }
+
+    /**
      * @param string $uri
      * @param string $method
      * @param mixed  ...$args
@@ -124,8 +141,11 @@ class EellyClient
             }
         }
         $client = self::$self;
-        $accessToken = $client->getAccessToken('client_credentials');
-        list($serviceName) = explode('/', $uri); 
+        $accessToken = self::$accessToken;
+        if (null === $accessToken) {
+            $accessToken = $client->getAccessToken('client_credentials');
+        }
+        list($serviceName) = explode('/', $uri);
         $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
         $stream = new MultipartStream($client->paramsToMultipart($args));
         $provider = $client->getProvider();

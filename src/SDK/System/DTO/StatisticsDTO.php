@@ -21,59 +21,58 @@ use Eelly\DTO\AbstractDTO;
 class StatisticsDTO extends AbstractDTO
 {
     /**
-     * 商圈ID
+     * 商圈ID.
      *
      * @var int
      */
     public $districtId;
-    
+
     /**
-     * 商圈店铺数
+     * 商圈店铺数.
      *
      * @var int
      */
     public $storeNum;
-    
+
     /**
-     * 商圈商品数
+     * 商圈商品数.
      *
      * @var int
      */
     public $goodsNum;
-    
+
     /**
-     * 商圈生意圈动态数
+     * 商圈生意圈动态数.
      *
      * @var int
      */
     public $wechatDynamicNum;
-    
+
     /**
-     * 商圈最近7天商品数
+     * 商圈最近7天商品数.
      *
      * @var int
      */
     public $weekGoodsNum;
-    
+
     /**
-     * 商圈最近7天生意圈动态数
+     * 商圈最近7天生意圈动态数.
      *
      * @var int
      */
     public $weekWechatDynamicNum;
-    
+
     /**
-     * 商圈店铺最近30天动态PV数
+     * 商圈店铺最近30天动态PV数.
      *
      * @var int
      */
     public $monthStorePv;
-    
+
     /**
-     * 商圈店铺最近30天访客头像
+     * 商圈店铺最近30天访客头像.
      *
      * @var int
      */
     public $monthStorePvAvatars;
-    
 }

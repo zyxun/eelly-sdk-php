@@ -13,16 +13,18 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ArticleDTO;
 
 /**
+ * 文章表.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleInterface
 {
-
     /**
-     * 获取指定id文章
+     * 获取指定id文章.
      *
      * @param int $articleId 文章id
      *
@@ -39,7 +41,7 @@ interface ArticleInterface
     public function getArticle(int $articleId): ArticleDTO;
 
     /**
-     * 新增文章
+     * 新增文章.
      *
      * @param array  $data               文章数据
      * @param int    $data['categoryId'] 文章分类id
@@ -47,6 +49,7 @@ interface ArticleInterface
      * @param string $data['content']    文章内容
      * @param int    $data['belongId']   文章归属id 0:系统
      * @param string $data['copyFrom']   文章来源 系统发布的来源为【衣联网】
+     * @param UidDTO $user               登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -58,10 +61,10 @@ interface ArticleInterface
      *
      * @since 2017-09-01
      */
-    public function addArticle(array $data): bool;
+    public function addArticle(array $data, UidDTO $user = null): bool;
 
     /**
-     * 修改文章
+     * 修改文章.
      *
      * @param int    $articleId          文章id
      * @param array  $data               文章数据
@@ -84,7 +87,7 @@ interface ArticleInterface
     public function updateArticle(int $articleId, array $data): bool;
 
     /**
-     * 删除文章
+     * 删除文章.
      *
      * @param int $articleId 文章id
      *
@@ -101,7 +104,7 @@ interface ArticleInterface
     public function deleteArticle(int $articleId): bool;
 
     /**
-     * 分页获取文章列表
+     * 分页获取文章列表.
      *
      * @param array  $condition               文章的查询条件
      * @param string $condition['fieldName']  基础查询类型 [title:文章标题 username:发布者用户名]
@@ -124,6 +127,4 @@ interface ArticleInterface
      * @since 2017-09-01
      */
     public function listArticlePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
 }
-

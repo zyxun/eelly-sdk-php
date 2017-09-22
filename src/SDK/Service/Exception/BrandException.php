@@ -17,8 +17,7 @@ use Eelly\Exception\LogicException;
 
 class BrandException extends LogicException
 {
-    public function __construct(string $message, int $code, \Exception $previous = null)
-    {
-        parent::__construct($message, $context = null, $code, $previous = null);
-    }
+    public const OVER_TRADEMARK = '商标图片不能超过5张';
+
+    public const OVER_CERTIFICATE = '商标证书或使用权证明图片不能超过5张';
 }

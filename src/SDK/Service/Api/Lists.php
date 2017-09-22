@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Api;
 
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\Service\DTO\ListsDTO;
 use Eelly\SDK\Service\Service\ListsInterface;
 
 /**
@@ -20,6 +23,46 @@ use Eelly\SDK\Service\Service\ListsInterface;
  */
 class Lists implements ListsInterface
 {
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getLists(int $slId): ListsDTO
+    {
+        return EellyClient::request('service/Lists', 'getLists', $slId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addLists(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Lists', 'addLists', $data, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateLists(int $slId, array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Lists', 'updateLists', $slId, $data, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteLists(int $slId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Lists', 'deleteLists', $slId, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listListsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    {
+        return EellyClient::request('service/Lists', 'listListsPage', $condition, $currentPage, $limit);
+    }
+
     /**
      * @return self
      */

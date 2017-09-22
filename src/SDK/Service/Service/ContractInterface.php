@@ -17,13 +17,13 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\ContractDTO;
 
 /**
+ * 增值服务合同版本.
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ContractInterface
 {
-
     /**
-     * 获取指定ID的合同版本
+     * 获取指定ID的合同版本.
      *
      * @param int    $scId 合同版本ID
      * @param UidDTO $user 登录用户对象
@@ -41,18 +41,18 @@ interface ContractInterface
     public function getContract(int $scId, UidDTO $user = null): ContractDTO;
 
     /**
-     * 新增合同版本
+     * 新增合同版本.
      *
-     * @param array  $data 新增数据
+     * @param array  $data               新增数据
      * @param int    $data['type']       服务对象：1 店+(下游买家) 2 厂+(上游卖家)
      * @param string $data['name']       版本名称
      * @param int    $data['timeLimit']  合同期限：表示N个月，大于0
      * @param int    $data['money']      收费金额，单位为分
-     * @param double $data['discount']   折扣：0<=X<=1，0和1都表示无折扣
+     * @param float  $data['discount']   折扣：0<=X<=1，0和1都表示无折扣
      * @param string $data['serviceIds'] 服务集合：格式 sl_id,sl_id
      * @param int    $data['status']     状态：0 未启用 1 前后台启用显示 2 只后台启用显示
      * @param string $data['versionNo']  合同编号前缀
-     * @param UidDTO $user 登录用户对象
+     * @param UidDTO $user               登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
@@ -76,11 +76,11 @@ interface ContractInterface
      * @param string $data['name']       版本名称
      * @param int    $data['timeLimit']  合同期限：表示N个月，大于0
      * @param int    $data['money']      收费金额，单位为分
-     * @param double $data['discount']   折扣：0<=X<=1，0和1都表示无折扣
+     * @param float  $data['discount']   折扣：0<=X<=1，0和1都表示无折扣
      * @param string $data['serviceIds'] 服务集合：格式 sl_id,sl_id
      * @param int    $data['status']     状态：0 未启用 1 前后台启用显示 2 只后台启用显示
      * @param string $data['versionNo']  合同编号前缀
-     * @param UidDTO $user 登录用户对象
+     * @param UidDTO $user               登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
@@ -95,12 +95,11 @@ interface ContractInterface
     public function updateContract(int $scId, array $data, UidDTO $user = null): bool;
 
     /**
-     * 获取合同版本列表
+     * 获取合同版本列表.
      *
-     * @param array  $condition   查询条件
-     * @param int    $currentPage 当前页码
-     * @param int    $limit       每页条数
-     * @param UidDTO $user        登录用户对象
+     * @param array $condition   查询条件
+     * @param int   $currentPage 当前页码
+     * @param int   $limit       每页条数
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
@@ -112,7 +111,7 @@ interface ContractInterface
      *
      * @since 2017-09-08
      */
-    public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
+    public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 改变合同版本状态
@@ -124,7 +123,7 @@ interface ContractInterface
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
      * @return bool 更改结果
-     * @requestExample({"scId":1})
+     * @requestExample({"scId":1,"status":1})
      * @returnExample(true)
      *
      * @author wujunhua<wujunhua@eelly.net>
@@ -132,6 +131,4 @@ interface ContractInterface
      * @since 2017-09-08
      */
     public function changeContractStatus(int $scId, int $status, UidDTO $user = null): bool;
-
 }
-

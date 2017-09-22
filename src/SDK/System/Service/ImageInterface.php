@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\DTO\ImageDTO;
 
 /**
+ * 文章图片处理.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ImageInterface
@@ -44,7 +46,4 @@ interface ImageInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listImagePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
 }
-

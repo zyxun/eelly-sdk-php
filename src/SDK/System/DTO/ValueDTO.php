@@ -21,45 +21,44 @@ use Eelly\DTO\AbstractDTO;
 class ValueDTO extends AbstractDTO
 {
     /**
-     * 参数值主键id
+     * 参数值主键id.
      *
      * @var int
      */
     public $pvId;
-    
+
     /**
-     * 参数主键id
+     * 参数主键id.
      *
      * @var int
      */
     public $pkId;
-    
+
     /**
      * 参数值
      *
      * @var string
      */
     public $paramValue;
-    
+
     /**
-     * 参数值描述
+     * 参数值描述.
      *
      * @var string
      */
     public $paramDesc;
-    
+
     /**
-     * 参数值描述的解释
+     * 参数值描述的解释.
      *
      * @var string
      */
     public $remark;
-    
+
     /**
-     * 参数值状态：0 无效 1 有效
+     * 参数值状态：0 无效 1 有效.
      *
      * @var int
      */
     public $status;
-    
 }

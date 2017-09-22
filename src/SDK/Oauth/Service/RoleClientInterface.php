@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Service;
 
 /**
- * 角色客户端关系接口
+ * 角色客户端关系接口.
+ *
  * @author liangxinyi<liangxinyi@eelly.net>
  */
 interface RoleClientInterface
@@ -57,12 +58,13 @@ interface RoleClientInterface
 
     /**
      * 角色客户端分页列表.
-     * 可根据角色id筛选角色客户端关系，没有指定角色id，默认返回全部
+     * 可根据角色id筛选角色客户端关系.
      *
      * @param int $roleId      角色id
-     * @param int $clientId    客户端id
      * @param int $limit       每页限制条数
      * @param int $currentPage 当前页
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array 返回角色客户端分页列表数组
      * @requestExample({"roleId":1,"limit":10,"currentPage":1})
@@ -72,7 +74,29 @@ interface RoleClientInterface
      *
      * @since 2017-7-24
      */
-    public function listRoleClientPage(int $roleId = null, int $currentPage = 1,int $limit = 10): array;
+    public function listRoleClientPage(int $roleId = null, int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 获取角色没有关联的客户端列表.
+     * 可根据角色id获取角色没有关联的客户端列表.
+     *
+     * @param int    $roleId      角色id
+     * @param string $clientKey   客户端key
+     * @param int    $limit       每页限制条数
+     * @param int    $currentPage 当前页
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return array 返回角色客户端分页列表数组
+     * @requestExample({"roleId":1,"clientKey":"","currentPage":1,"limit":10})
+     * @returnExample({"items":[{"clientId":"3","clientKey":"usermodule","clientSecret":"$2y$10$MRwHcrISlPJh7XwhZfZ3dunK01Zau1wGXLAB97COFZQKnXXx23p.q","isEncrypt":"1","userId":"0","orgName":"eellyapi","appName":"user","redirectUri":"","authType":"4","createdTime":"1497633249","updateTime":"2017-06-16 17:14:48"}],"page":{"first":1,"before":1,"current":1,"last":3,"next":2,"totalPages":3,"totalItems":3,"limit":1}})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @badSql
+     *
+     * @since 2017-9-7
+     */
+    public function listNotRelationClientPage(int $roleId, string $clientKey = null, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 删除角色、客户端关系.

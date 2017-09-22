@@ -23,5 +23,7 @@ use Eelly\Exception\LogicException;
 
 class ActivityException extends LogicException
 {
+    public const PARAMETER_EMPTY = '参数有误';
     
+    public const CLASS_NO_EXIST = '类不存在';
 }

@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Goods\DTO\CategoryCustomDTO;
 
 /**
+ * 店铺自定义商品分类.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CategoryCustomInterface
@@ -24,17 +26,17 @@ interface CategoryCustomInterface
     /**
      * 新增店铺自定义商品分类.
      *
-     * @param array     $data               商品分类数据
-     * @param int       $data['storeId']    店铺id
-     * @param string    $data['name']       分类名称
-     * @param int       $data['parentId']   父分类ID
-     * @param int       $data['status']     显示状态：0 不显示 1 显示
-     * @param int       $data['isOpen']     是否展开子分类：0 否 1 是
-     * @param int       $data['sort']       排序
-     * @param UidDTO    $user               登录用户信息
+     * @param array  $data             商品分类数据
+     * @param int    $data['storeId']  店铺id
+     * @param string $data['name']     分类名称
+     * @param int    $data['parentId'] 父分类ID
+     * @param int    $data['status']   显示状态：0 不显示 1 显示
+     * @param int    $data['isOpen']   是否展开子分类：0 否 1 是
+     * @param int    $data['sort']     排序
+     * @param UidDTO $user             登录用户信息
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
-     * 
+     *
      * @return bool 新增结果
      * @requestExample({"data":{"storeId":1,"name":"分类名称","parentId":0,"status":1,"isOpen":1,"sort":0}})
      * @returnExample(true)
@@ -44,15 +46,15 @@ interface CategoryCustomInterface
      * @since 2017-09-02
      */
     public function addCategory(array $data, UidDTO $user = null): bool;
-    
+
     /**
      * 获取店铺自定义商品分类.
      *
-     * @param int    $categoryId   分类id
-     * @param UidDTO $user         登录用户信息
+     * @param int    $categoryId 分类id
+     * @param UidDTO $user       登录用户信息
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
-     * 
+     *
      * @return CategoryCustomDTO
      * @requestExample(1)
      * @returnExample({"gcc_id":1,"storeId":1,"name":"分类名称","parentId":0,"status":1,"isOpen":1,"sort":0})
@@ -69,12 +71,12 @@ interface CategoryCustomInterface
     /**
      * 删除店铺自定义商品分类.
      *
-     * @param int    $categoryId   分类id
-     * @param UidDTO $user         登录用户信息
+     * @param int    $categoryId 分类id
+     * @param UidDTO $user       登录用户信息
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
-     * 
-     * @return bool  删除结果
+     *
+     * @return bool 删除结果
      * @requestExample(1)
      * @returnExample(true)
      *
@@ -90,19 +92,19 @@ interface CategoryCustomInterface
     /**
      * 更新店铺自定义商品分类.
      *
-     * @param int       $categoryId         分类id
-     * @param array     $data               商品分类数据
-     * @param int       $data['storeId']    店铺id
-     * @param string    $data['name']       分类名称
-     * @param int       $data['parentId']   父分类ID
-     * @param int       $data['status']     显示状态：0 不显示 1 显示
-     * @param int       $data['isOpen']     是否展开子分类：0 否 1 是
-     * @param int       $data['sort']       排序
-     * @param UidDTO    $user               登录用户信息
+     * @param int    $categoryId       分类id
+     * @param array  $data             商品分类数据
+     * @param int    $data['storeId']  店铺id
+     * @param string $data['name']     分类名称
+     * @param int    $data['parentId'] 父分类ID
+     * @param int    $data['status']   显示状态：0 不显示 1 显示
+     * @param int    $data['isOpen']   是否展开子分类：0 否 1 是
+     * @param int    $data['sort']     排序
+     * @param UidDTO $user             登录用户信息
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
-     * 
-     * @return bool  更新结果
+     *
+     * @return bool 更新结果
      * @requestExample({"categoryId":1,"data":{"storeId":1,"name":"分类名称","parentId":0,"status":1,"isOpen":1,"sort":0}})
      * @returnExample(true)
      *
@@ -118,17 +120,17 @@ interface CategoryCustomInterface
     /**
      * 获取店铺自定义商品分类分页列表.
      *
-     * @param int    $storeId              店铺id
-     * @param int    $currentPage          页码
-     * @param int    $limit                分页条数
-     * @param UidDTO $user                 登录用户信息
+     * @param int    $storeId     店铺id
+     * @param int    $currentPage 页码
+     * @param int    $limit       分页条数
+     * @param UidDTO $user        登录用户信息
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
-     * 
-     * @return array  分页结果
+     *
+     * @return array 分页结果
      * @requestExample([1,1,10])
      * @returnExample({"data": {"items": [{"gcc_id":1,"storeId":1,"name":"分类名称","parentId":0,"status":1,"isOpen":1,"sort":0,"createdTime": "1504172537","updateTime": "2017-08-31 09:42:17"}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"limit": 10,"totalPages": 1,"totalItems": 1}},"returnType": "array"})
-     * 
+     *
      * @author zhoujiansheng<zhoujiansheng@eelly.net>
      *
      * @since 2017-08-29
