@@ -16,7 +16,6 @@ namespace Eelly\SDK\Logger\Service;
 /**
  * 接口日志.
  *
- * 用于记录接口请求日志
  *
  * @author hehui<hehui@eelly.net>
  */
