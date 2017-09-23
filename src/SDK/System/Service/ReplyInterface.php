@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\DTO\ReplyDTO;
 
 /**
+ * 评论回复.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ReplyInterface

@@ -21,33 +21,40 @@ namespace Eelly\SDK\Oauth\Service;
 interface ModuleServiceInterface
 {
     /**
-     * 返回模块服务列表.
+     * 返回指定id模块服务列表.
+     *
+     * @param int $moduleId 模块ID
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array 返回模块服务列表数组
-     * @requestExample()
-     * @returnExample([{"service_id":"1","service_name":"User\\Logic\\IndexLogic","module_id":"1","created_time":"1498042155","update_time":"2017-06-21 10:52:15","module_name":"user"}])
+     * @requestExample({"moduleId":1})
+     * @returnExample([{"serviceId":"96","serviceName":"Activity\\Logic\\StoreLogic","moduleId":"12","moduleName":"activity"}])
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-7-24
      */
-    public function listModuleService(): array;
+    public function listModuleService(int $moduleId): array;
 
     /**
-     * 返回模块服务列表.
+     * 返回指定id模块服务分页列表.
      *
-     * @param int $page        当前页
-     * @param int $currentPage
+     * @param int $moduleId    模块ID
+     * @param int $currentPage 当前页
+     * @param int $limit       每页条数
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array 分页结果集
-     * @requestExample({"limit":10,"currentPage":1})
-     * @returnExample({"items":[{"service_id":"1","service_name":"User\\Logic\\IndexLogic","module_id":"1","created_time":"1498042155","update_time":"2017-06-21 10:52:15","module_name":"user"}],"page":{"first":1,"before":1,"current":1,"last":23,"next":2,"total_pages":23,"total_items":23,"limit":1}})
+     * @requestExample({"moduleId":1,"currentPage":1,"limit":1})
+     * @returnExample({"items":[{"serviceId":"96","serviceName":"Activity\\Logic\\StoreLogic","moduleId":"12","moduleName":"activity"}],"page":{"totalPages":13,"totalItems":13,"limit":1}})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-7-24
      */
-    public function listModuleServicePage(int $page = 10, int $currentPage = 1): array;
+    public function listModuleServicePage(int $moduleId, int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 根据id删除模型服务.

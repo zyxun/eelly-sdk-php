@@ -16,6 +16,7 @@ namespace Eelly\SDK\Service\Service;
 use Eelly\DTO\UidDTO;
 
 /**
+ * 合同编号.
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ContractNumberInterface

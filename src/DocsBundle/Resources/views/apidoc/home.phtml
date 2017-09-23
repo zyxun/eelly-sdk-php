@@ -1,0 +1,36 @@
+<?php
+$markdown = <<<EOF
+# 衣联网api开放文档
+
+> 本文档由接口代码文档生成，接口文档使用[github markdown](https://guides.github.com/features/mastering-markdown/)风格
+
+> 贡献接口的phper请完善好接口文档
+
+> 特殊注解说明(`@requestExample`表示请求示例，`@returnExample`表示返回数据示例)
+
+### 接口定义示例
+
+> 源文件: [UserInterface.php](https://raw.githubusercontent.com/EellyDev/eelly-sdk-php/master/src/SDK/User/Service/UserInterface.php)
+
+> 生成的文档: [user service doc](/user/user)
+
+更详细的说明将在[sdk-php-wiki](https://github.com/EellyDev/eelly-sdk-php/wiki)进行说明
+EOF;
+?>
+<!-- home.phtml -->
+<div class="container container-fluid">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+            <ul class="list-group">
+                <?php foreach ($moduleList as $item): ?>
+                <li class="list-group-item">
+                    <a href="<?=$item['url']?>"><?=$item['moduleName']?></a>
+                    <small class="text-muted"><?=$item['summary']?></small>
+                </li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+        <div class="col-12 col-md-9"><article class="markdown-body"><?=$markup($markdown)?></article></div>
+    </div>
+</div>
+<!-- ./home.phtml -->

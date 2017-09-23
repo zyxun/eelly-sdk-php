@@ -25,6 +25,13 @@ class CompanyDTO extends AbstractDTO
     public $storeId;
 
     /**
+     * 服务购买记录ID.
+     *
+     * @var int
+     */
+    public $sbId;
+
+    /**
      * 真实姓名.
      *
      * @var string

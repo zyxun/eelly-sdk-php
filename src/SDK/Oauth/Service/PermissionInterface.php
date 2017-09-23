@@ -27,19 +27,21 @@ interface PermissionInterface
      *
      * 返回分页接口列表.
      *
-     * @param array  $where               接口检索条件
-     * @param string $where['permName']   接口名
-     * @param int    $where['status']     接口状态
-     * @param string $where['moduleName'] 接口所属模块
-     * @param int    $where['isLogin']    是否要登录：0 否 1 是
-     * @param int    $currentPage         当前页数
-     * @param int    $limit               分页条数
+     * @param array       $where               接口检索条件
+     * @param string|null $where['permName']   接口名
+     * @param int|null    $where['status']     接口状态
+     * @param string|null $where['moduleName'] 接口所属模块
+     * @param int|null    $where['isLogin']    是否要登录：0 否 1 是
+     * @param int         $currentPage         当前页数
+     * @param int         $limit               分页条数
      * @requestExample({"where":{"status":"1","isLogin","0"},"currentPage":1,"limit":10})
      *
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array 返回分页接口列表结果
      * @returnExample({"items":[{"moduleName":"user","serviceName":"User\\Logic\\IndexLogic","permissionId":"1","serviceId":"1","hashName":"user\/index\/cacheTime","permName":"\u7f13\u5b58\u6ce8\u89e3\u793a\u4f8b","isLogin":"0","requestExample":"","remark":"","status":"0","createdTime":"1498042155","updateTime":"2017-06-21 10:52:15"}],"page":{"first":1,"before":1,"current":0,"last":1,"next":1,"totalPages":3,"totalItems":3,"limit":1}})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since   2017-7-22
      */
@@ -50,17 +52,19 @@ interface PermissionInterface
      *
      * 返回全部接口列表，不分页.
      *
-     * @param array|null $where               接口检索条件
-     * @param string     $where['permName']   接口名
-     * @param int        $where['status']     接口状态
-     * @param string     $where['moduleName'] 接口所属模块
-     * @param int        $where['isLogin']    是否要登录：0 否 1 是
+     * @param array       $where               接口检索条件
+     * @param string|null $where['permName']   接口名
+     * @param int|null    $where['status']     接口状态
+     * @param string|null $where['moduleName'] 接口所属模块
+     * @param int|null    $where['isLogin']    是否要登录：0 否 1 是
      * @requestExample({"where":{"status":"1","isLogin","0"}})
      *
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return array 返回接口列表结果
-     * @returnExample([{"module_name": "user","service_name": "User\\Logic\\IndexLogic","permission_id": "1","service_id": "1","hash_name": "user/index/cacheTime","perm_name": "缓存注解示例","is_login": "0","request_example": "","remark": "","status": "0","created_time": "1498042155","update_time": "2017-06-21 10:52:15"}])
+     * @returnExample([{"moduleName": "user","serviceName": "User\\Logic\\IndexLogic","permissionId": "1","serviceId": "1","hashName": "user/index/cacheTime","permName": "缓存注解示例","isLogin": "0","requestExample": "","remark": "","status": "0","createdTime": "1498042155","updateTime": "2017-06-21 10:52:15"}])
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since   2017-7-22
      */
@@ -147,8 +151,7 @@ interface PermissionInterface
      *
      * @return PermissionDTO 返回接口PermissionDTO类型
      * @requestExample({"permissionId":1})
-     * @returnExample({"permissionId":"1","serviceId":"1","hashName":"user\/index\/cacheTime","permName":"\u7f13\u5b58\u6ce8\u89e3\u793a\u4f8b","status":"0",
-     * "created_time":"1498042155","update_time":"2017-06-21 10:52:15"})
+     * @returnExample({"permissionId":"1","serviceId":"1","hashName":"user\/index\/cacheTime","permName":"\u7f13\u5b58\u6ce8\u89e3\u793a\u4f8b","status":"0","created_time":"1498042155","update_time":"2017-06-21 10:52:15"})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *

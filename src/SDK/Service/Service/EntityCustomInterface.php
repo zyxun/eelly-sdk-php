@@ -17,11 +17,12 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\EntityCustomDTO;
 
 /**
+ * 实体认证自定义商圈市场楼层.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EntityCustomInterface
 {
-
     /**
      * 获取指定id的单条店铺实体认证自定义商圈市场楼层信息.
      *
@@ -82,5 +83,4 @@ interface EntityCustomInterface
      * @since 2017-09-15
      */
     public function updateEntityCustom(int $secId, array $data, UidDTO $user = null): bool;
-
 }

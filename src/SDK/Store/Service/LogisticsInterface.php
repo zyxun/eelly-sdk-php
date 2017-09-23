@@ -50,7 +50,7 @@ interface LogisticsInterface
      *
      * @since 2017年9月9日
      */
-    public function addLogisticsTemplate(array $templateData, UidDTO $user = null):bool;
+    public function addLogisticsTemplate(array $templateData, UidDTO $user = null): bool;
 
     /**
      * 修改物流模板

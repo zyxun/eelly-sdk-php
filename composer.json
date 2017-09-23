@@ -15,12 +15,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Eelly\\SDK\\":"src/SDK",
+			"Eelly\\DocsBundle\\":"src/DocsBundle",
+			"Eelly\\DTO\\":"src/DTO",
 			"Eelly\\Exception\\":"src/Exception",
-			"Eelly\\DTO\\":"src/DTO"
-		},
-		"files": [
-			"autoload.php"
-		]
+			"Eelly\\SDK\\":"src/SDK"
+		}
+	},
+	"config": {
+		"sort-packages": true
 	}
 }

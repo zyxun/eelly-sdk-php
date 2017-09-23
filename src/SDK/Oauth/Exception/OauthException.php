@@ -35,6 +35,8 @@ class OauthException extends LogicException
 
     public const DATA_ALREADER_EXIT = '数据已经存在';
 
+    public const NOT_ALLOE_PARAMETER = '存在不被允许参数';
+
     /**
      * 逻辑开发错误代码提示数据.
      */
@@ -47,7 +49,7 @@ class OauthException extends LogicException
          706001=> '数据已经存在',
      ];
 
-//    public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)
+    //    public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)
 //    {
 //        $message = $message."[$errCode]";
 //        parent::__construct($message, $context = null, $code, $previous = null);
