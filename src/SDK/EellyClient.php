@@ -37,9 +37,9 @@ class EellyClient
         'example' => 'https://api.eelly.com',
         'oauth'   => 'https://api.eelly.com',
         'user'    => 'https://api.eelly.com',
-        'store'   => 'https://api.eelly.dev',
-        'pay'     => 'https://api.eelly.dev',
-        'service' => 'https://api.eelly.dev',
+        'store'   => 'https://api.eelly.com',
+        'pay'     => 'https://api.eelly.com',
+        'service' => 'https://api.eelly.com',
     ];
 
     private static $services = [];
