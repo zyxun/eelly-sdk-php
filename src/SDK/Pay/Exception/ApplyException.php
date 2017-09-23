@@ -30,4 +30,14 @@ class ApplyException extends LogicException
      *无权限
      */
     public const REQUEST_FORBIDDEN = '未登录';
+
+    /**
+     *无权限
+     */
+    public const REQUEST_FORBIDDEN_ERROR = '无权操作';
+
+    /**
+     *数据未找到
+     */
+    public const DATA_NOT_FOUND = '数据未找到';
 }

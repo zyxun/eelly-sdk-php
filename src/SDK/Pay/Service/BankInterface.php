@@ -47,6 +47,7 @@ interface BankInterface
      * 获取一条价用户银行信息,并且判断是否是自己的.
      *
      * @param int $pbId 用户银行信息ID
+     * @param UidDTO|null $user
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *
