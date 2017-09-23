@@ -16,6 +16,8 @@ namespace Eelly\SDK\Message\Service;
 use Eelly\SDK\Message\Service\DTO\TemplateDTO;
 
 /**
+ * 信息模板.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface TemplateInterface

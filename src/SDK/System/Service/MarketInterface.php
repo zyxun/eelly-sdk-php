@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\MarketDTO;
 
 /**
+ * 市场信息.
+ * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface MarketInterface

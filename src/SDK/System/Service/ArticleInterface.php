@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ArticleDTO;
 
 /**
+ * 文章表.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleInterface

@@ -17,8 +17,4 @@ use Eelly\Exception\LogicException;
 
 class ListsException extends LogicException
 {
-    public function __construct(string $message, int $code, \Exception $previous = null)
-    {
-        parent::__construct($message, $context = null, $code, $previous = null);
-    }
 }

@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\ValueDTO;
 
 /**
+ * 参数值信息.
+ * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface ValueInterface

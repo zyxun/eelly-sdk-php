@@ -23,7 +23,6 @@ use Eelly\SDK\Service\Service\ServiceInterface;
  */
 class Service implements ServiceInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
@@ -46,6 +45,14 @@ class Service implements ServiceInterface
     public function updateService(int $serviceId, array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('service/Service', 'updateService', $serviceId, $data, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteService(int $serviceId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/Service', 'deleteService', $serviceId, $user);
     }
 
     /**
