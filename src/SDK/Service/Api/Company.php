@@ -50,9 +50,9 @@ class Company implements CompanyInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function checkCompany(int $storeId, UidDTO $user = null): bool
+    public function checkCompany(int $storeId, int $status, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Company', 'checkCompany', $storeId);
+        return EellyClient::request('service/Company', 'checkCompany', $storeId, $status, $user);
     }
 
     /**

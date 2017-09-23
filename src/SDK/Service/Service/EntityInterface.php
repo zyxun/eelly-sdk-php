@@ -30,7 +30,7 @@ interface EntityInterface
      *
      * @return EntityDTO
      * @requestExample({"storeId":1})
-     * @returnExample({"storeId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","gbCode":"44020","districtId":"1","marketId":1,"floorId":3,"stallName":"\u7f8e\u7f8e\u5e97","stallNumber":"301-A","images":"[\"https:\\\/\\\/img03.eelly.com\\\/G04\\\/M00\\\/00\\\/98\\\/small_118_poYBAFjWXYaIWdWkAAJU9MtwDJgAAA7dgEx54sAAlUM236.jpg\",\"https:\\\/\\\/img03.eelly.com\\\/G02\\\/M00\\\/00\\\/BD\\\/small_118_ooYBAFjWXYqICR1yAAJWitxTD2AAABXRwMJp64AAlai106.jpg\"]","secId":1,"address":"\u6d4b\u8bd5\u5730\u5740,\u8857\u9053\u5730\u5740","status":1,"created_time":1458093605})
+     * @returnExample({"storeId":1,"sbId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","gbCode":"44020","districtId":"1","marketId":1,"floorId":3,"stallName":"\u7f8e\u7f8e\u5e97","stallNumber":"301-A","images":"[\"https:\\\/\\\/img03.eelly.com\\\/G04\\\/M00\\\/00\\\/98\\\/small_118_poYBAFjWXYaIWdWkAAJU9MtwDJgAAA7dgEx54sAAlUM236.jpg\",\"https:\\\/\\\/img03.eelly.com\\\/G02\\\/M00\\\/00\\\/BD\\\/small_118_ooYBAFjWXYqICR1yAAJWitxTD2AAABXRwMJp64AAlai106.jpg\"]","secId":1,"address":"\u6d4b\u8bd5\u5730\u5740,\u8857\u9053\u5730\u5740","status":1,"created_time":1458093605})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
@@ -43,6 +43,7 @@ interface EntityInterface
      *
      * @param array  $data                新增数据
      * @param int    $data['storeId']     店铺ID
+     * @param int    $data['sbId']        服务购买记录ID
      * @param string $data['name']        真实姓名
      * @param string $data['license']     身份证号码
      * @param string $data['mobile']      手机号

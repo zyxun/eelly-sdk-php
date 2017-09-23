@@ -14,68 +14,67 @@ declare(strict_types=1);
 namespace Eelly\SDK\Service\Service;
 
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\Service\DTO\BuyDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface BuyInterface
 {
-    /**
-     * 新增一条服务购买记录.
-     *
-     * @param array  $data                                                                     购买增值服务数据
-     * @param int    $data['user_id']用户ID
-     * @param int    $data['store_id']店铺ID
-     * @param int    $data['sl_id']服务清单ID
-     * @param array  $data['name']服务名称
-     * @param int    $data['number']数量设置：对应计数模式的数量；0为无限制
-     * @param int    $data['money']收费金额：单位为分
-     * @param int    $data['discount']0<=X<=1，0和1都表示无折扣
-     * @param int    $data['time_limit']服务期限：表示N个月，大于0
-     * @param int    $data['model']数模式：1                                               服务期内 2 每月 4 每日，全部模式：1+2+4=7
-     * @param int    $data['from_type']来源类型：1                                        购买合同版本 2 购买服务 3 赠送服务
-     * @param int    $data['pay_source']付款来源：1                                       在线付款 2 线下付款 3 免费赠送
-     * @param int    $data['pr_id']pay_record表主键
-     * @param int    $data['salesperson_id']销售员工ID
-     * @param int    $data['expire_time']服务到期时间
-     * @param array  $data['remark']备注
-     * @param UidDTO $user                                                                     登录用户对象
-     *
-     * @throws Eelly\SDK\Service\Exception\BuyException 700001 用户未登录
-     * @throws Eelly\SDK\Service\Exception\BuyException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\BuyException 703001 插入数据失败
-     *
-     * @return bool
-     *
-     * @requestExample({"data":{"user_id":1,"store_id":"\u5b9e\u4f53\u8ba4\u8bc1","sl_id":0,"name":1,"number":7,"money":"service_entity","discount":1,"time_limit":1,"model":"\u5b9e\u4f53\u8ba4\u8bc1","used_number":0,"from_type":1,"pay_source":7,"pr_id":"service_entity","pay_type":1,"salesperson_id":1,"expire_time":7,"remark":"service_entity"}})
-     * @returnExample(true)
-     *
-     * @author fenghaikun<fenghaikun@eelly.net>
-     *
-     * @since 2017-8-02
-     */
-    public function addBuy(array $data, UidDTO $user = null): bool;
 
     /**
      * 获取一条服务购买记录.
      *
-     * @param int $sbId    购买的店铺ID
-     * @param int $storeId 购买的店铺ID
-     * @param int $userId  购买的用户ID
+     * @param int $sbId 服务购买记录id
      *
-     * @throws Eelly\SDK\Service\Exception\BuyException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\BuyException 702001 数据不存在
+     * @throws \Eelly\SDK\Service\Exception\BuyException
      *
-     * @return array
+     * @return BuyDTO
      *
-     * @requestExample({"sbId":1,"storeId":10086,"userId":1})
-     * @returnExample()
+     * @requestExample({"sbId":1})
+     * @returnExample(true)
      *
-     * @author fenghaikun<fenghaikun@eelly.net>
+     * @author wujunhua<wujunhua@eelly.net>
      *
-     * @since 2017-8-02
+     * @since 2017-09-23
      */
-    public function getBuy(int $sbId, int $storeId = null, int $userId = null): array;
+    public function getBuy(int $sbId): BuyDTO;
+
+    /**
+     * 新增一条服务购买记录.
+     *
+     * @param array  $data                  新增数据
+     * @param int    $data['userId']        用户ID
+     * @param int    $data['storeId']       店铺ID
+     * @param int    $data['slId']          服务清单ID
+     * @param string $data['name']          服务名称
+     * @param int    $data['number']        数量设置：对应计数模式的数量；0为无限制
+     * @param int    $data['money']         收费金额：单位为分
+     * @param double $data['discount']      折扣：0<=X<=1，0和1都表示无折扣
+     * @param int    $data['timeLimit']     服务期限：表示N个月，大于0
+     * @param int    $data['model']         计数模式：1 服务期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int    $data['usedNumber']    总使用过的数量（次数）
+     * @param int    $data['fromType']      来源类型：1 购买合同版本 2 购买服务 3 赠送服务
+     * @param int    $data['paySource']     付款来源：1 在线付款 2 线下付款 3 免费赠送
+     * @param int    $data['prId']          ecm_pay_record表主键（待定）
+     * @param int    $data['payType']       支付类型：1 储蓄卡 2 信用卡 3 支付宝余额 4 微信 5 银联 6 微信扫一扫 7 现金
+     * @param int    $data['salespersonId'] 销售员工ID
+     * @param int    $data['expireTime']    服务到期时间
+     * @param string $data['remark']        备注
+     * @param UidDTO $user                  登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\BuyException
+     *
+     * @return bool 新增结果
+     *
+     * @requestExample({"data":{"userId":1,"storeId":"\u5b9e\u4f53\u8ba4\u8bc1","slId":0,"name":1,"number":7,"money":1,"discount":1,"timeLimit":1,"model":"service_entity","usedNumber":0,"fromType":1,"paySource":7,"prId":1,"payType":1,"salespersonId":1,"expireTime":7,"remark":"备注"}})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-23
+     */
+    public function addBuy(array $data, UidDTO $user = null): bool;
 
     /**
      * 获取服务购买记录列表.
@@ -85,17 +84,36 @@ interface BuyInterface
      * @param int $limit       每页页数
      * @param int $currentPage 当前页
      *
-     * @throws Eelly\SDK\Service\Exception\BuyException 701001 参数错误
-     * @throws Eelly\SDK\Service\Exception\BuyException 702001 数据不存在
+     * @throws \Eelly\SDK\Service\Exception\BuyException
      *
      * @return array
      *
      * @requestExample({"storeId":1,"userId":1,"limit":10,"currentPage":1})
-     * @returnExample()
+     * @returnExample({"items":[{"sbId":"1","userId":"1","storeId":"1","slId":"1","name":"dasdas","number":"1","money":1,"discount":5,"timeLimit":"2","model":"1","usedNumber":"0","fromType":"1","paySource":"0","prId":"0","payType":"0","salespersonId":"0","expireTime":"1511417414","remark":"","createdTime":"1506139016"}],"page":{"totalPages":1,"totalItems":1,"limit":10}})
      *
-     * @author fenghaikun<fenghaikun@eelly.net>
+     * @author wujunhua<wujunhua@eelly.net>
      *
-     * @since 2017-8-02
+     * @since 2017-09-23
      */
     public function listBuyPage(int $storeId = null, int $userId = null, int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 更新服务到期时间.
+     *
+     * @param int    $sbId 服务购买记录id
+     * @param UidDTO $user 登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\BuyException
+     *
+     * @return bool 更新结果
+     *
+     * @requestExample({"sbId":1})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-23
+     */
+    public function updateExpireTime(int $sbId, UidDTO $user = null): bool;
+
 }
