@@ -16,8 +16,6 @@ namespace Eelly\SDK\Logger\Service;
 /**
  * 接口日志.
  *
- * 用于记录接口请求日志
- *
  * @author hehui<hehui@eelly.net>
  */
 interface ApiLoggerInterface
@@ -25,7 +23,7 @@ interface ApiLoggerInterface
     /**
      * 记录接口请求日志.
      *
-     * @param string $traceId  跟踪id
+     * @param string $traceId  跟踪id(同ObjectId)
      * @param array  $request  请求信息
      * @param array  $response 返回信息
      * @param array  $extras   扩展的信息
