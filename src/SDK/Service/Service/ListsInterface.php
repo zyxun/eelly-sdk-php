@@ -17,11 +17,12 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\ListsDTO;
 
 /**
+ * 增值服务清单.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ListsInterface
 {
-
     /**
      * 获取指定ID的单条增值服务清单.
      *
@@ -47,7 +48,7 @@ interface ListsInterface
      * @param int    $data['money']     收费金额，单位为分
      * @param int    $data['number']    数量设置：对应计数模式的数量，0为无限制
      * @param int    $data['timeLimit'] 服务期限：表示N个月，大于0，合同是服务打包购买，服务期限以合同版本主表为准
-     * @param double $data['discount']  折扣：0<=X<=1，0和1都表示无折扣
+     * @param float  $data['discount']  折扣：0<=X<=1，0和1都表示无折扣
      * @param int    $data['status']    服务项状态：1 启用 2 停用 4 删除
      * @param int    $data['isBestow']  赠送状态：1 启用 2 停用
      * @param string $data['extField']  服务扩展字段：JSON格式，用于存放特殊数据
@@ -75,7 +76,7 @@ interface ListsInterface
      * @param int    $data['money']     收费金额，单位为分
      * @param int    $data['number']    数量设置：对应计数模式的数量，0为无限制
      * @param int    $data['timeLimit'] 服务期限：表示N个月，大于0，合同是服务打包购买，服务期限以合同版本主表为准
-     * @param double $data['discount']  折扣：0<=X<=1，0和1都表示无折扣
+     * @param float  $data['discount']  折扣：0<=X<=1，0和1都表示无折扣
      * @param int    $data['status']    服务项状态：1 启用 2 停用 4 删除
      * @param int    $data['isBestow']  赠送状态：1 启用 2 停用
      * @param string $data['extField']  服务扩展字段：JSON格式，用于存放特殊数据
@@ -114,7 +115,7 @@ interface ListsInterface
     public function deleteLists(int $slId, UidDTO $user = null): bool;
 
     /**
-     * 获取增值服务清单列表
+     * 获取增值服务清单列表.
      *
      * @param array $condition              查询条件
      * @param int   $condition['slId']      服务清单ID
@@ -139,5 +140,4 @@ interface ListsInterface
      * @since 2017-09-22
      */
     public function listListsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
 }

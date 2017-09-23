@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\CategoryDTO;
 
 /**
+ * 文章分类.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CategoryInterface

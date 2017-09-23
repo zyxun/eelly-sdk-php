@@ -17,11 +17,12 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\ServiceDTO;
 
 /**
+ * 增值服务.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ServiceInterface
 {
-
     /**
      * 获取一条增值服务.
      *
@@ -186,5 +187,4 @@ interface ServiceInterface
      * @since 2017-09-21
      */
     public function listSellerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
 }

@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\KeyDTO;
 
 /**
+ * 字典编码.
+ * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface KeyInterface

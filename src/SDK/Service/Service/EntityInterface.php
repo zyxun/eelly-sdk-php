@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\EntityDTO;
 
 /**
+ * 实体认证.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EntityInterface

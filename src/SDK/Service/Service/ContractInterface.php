@@ -17,6 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\ContractDTO;
 
 /**
+ * 增值服务合同版本.
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ContractInterface
@@ -96,9 +97,9 @@ interface ContractInterface
     /**
      * 获取合同版本列表.
      *
-     * @param array  $condition   查询条件
-     * @param int    $currentPage 当前页码
-     * @param int    $limit       每页条数
+     * @param array $condition   查询条件
+     * @param int   $currentPage 当前页码
+     * @param int   $limit       每页条数
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *

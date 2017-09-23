@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\BuyDTO;
 
 /**
+ * 增值服务购买记录.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface BuyInterface

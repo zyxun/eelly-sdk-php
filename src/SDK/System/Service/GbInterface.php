@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\SYSTEM\DTO\GbDTO;
 
 /**
+ * 区域国标编码.
+ * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface GbInterface
