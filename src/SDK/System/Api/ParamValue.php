@@ -13,53 +13,45 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\DTO\KeyDTO;
+use Eelly\SDK\System\DTO\ParamValueDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\KeyInterface;
+use Eelly\SDK\System\Service\ParamValueInterface;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
-class Key implements KeyInterface
+class ParamValue implements ParamValueInterface
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getKey(int $KeyId): KeyDTO
+    public function getParamValue(int $spvId): ParamValueDTO
     {
-        return EellyClient::request('system/key', 'getKey', $KeyId);
+        return EellyClient::request('system/paramValue', 'getParamValue', $spvId);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addKey(array $data): bool
+    public function addParamValue(array $data): bool
     {
-        return EellyClient::request('system/key', 'addKey', $data);
+        return EellyClient::request('system/paramValue', 'addParamValue', $data);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateKey(int $KeyId, array $data): bool
+    public function updateParamValue(int $spvId, array $data): bool
     {
-        return EellyClient::request('system/key', 'updateKey', $KeyId, $data);
+        return EellyClient::request('system/paramValue', 'updateParamValue', $spvId, $data);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteKey(int $KeyId): bool
+    public function listParamValuePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('system/key', 'deleteKey', $KeyId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listKeyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('system/key', 'listKeyPage', $condition, $limit, $currentPage);
+        return EellyClient::request('system/paramValue', 'listParamValuePage', $condition, $currentPage, $limit);
     }
 
     /**

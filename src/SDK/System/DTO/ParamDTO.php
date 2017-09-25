@@ -16,16 +16,16 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class KeyDTO.
+ * Class ParamDTO.
  */
-class KeyDTO extends AbstractDTO
+class ParamDTO extends AbstractDTO
 {
     /**
      * 参数字典id.
      *
      * @var int
      */
-    public $pkId;
+    public $paramId;
 
     /**
      * 参数字典编码
