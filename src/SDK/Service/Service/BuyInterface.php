@@ -99,23 +99,4 @@ interface BuyInterface
      */
     public function listBuyPage(int $storeId = null, int $userId = null, int $currentPage = 1, int $limit = 10): array;
 
-    /**
-     * 更新服务到期时间.
-     *
-     * @param int    $sbId 服务购买记录id
-     * @param UidDTO $user 登录用户对象
-     *
-     * @throws \Eelly\SDK\Service\Exception\BuyException
-     *
-     * @return bool 更新结果
-     *
-     * @requestExample({"sbId":1})
-     * @returnExample(true)
-     *
-     * @author wujunhua<wujunhua@eelly.net>
-     *
-     * @since 2017-09-23
-     */
-    public function updateExpireTime(int $sbId, UidDTO $user = null): bool;
-
 }

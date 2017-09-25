@@ -49,14 +49,6 @@ class Buy implements BuyInterface
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateExpireTime(int $sbId, UidDTO $user = null): bool
-    {
-        return EellyClient::request('service/Buy', 'updateExpireTime', $sbId, $user);
-    }
-
-    /**
      * @return self
      */
     public static function getInstance(): self
