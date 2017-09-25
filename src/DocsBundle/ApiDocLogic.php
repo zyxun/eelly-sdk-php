@@ -34,7 +34,7 @@ class ApiDocLogic extends Controller
             $view->setLayoutsDir(__DIR__.'/Resources/views/');
             $view->setLayout('apidoc/layout');
             $view->setRenderLevel(
-                View::LEVEL_AFTER_TEMPLATE
+                View::LEVEL_LAYOUT
             );
             $view->registerEngines([
                 '.phtml'  => View\Engine\Php::class,
