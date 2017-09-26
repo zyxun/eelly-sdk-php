@@ -25,6 +25,7 @@ abstract class AbstractDocumentShow extends Injectable
 {
     public function initialize(): void
     {
+        $this->view = $this->di->get('view');
         $this->assignModuleList();
     }
 

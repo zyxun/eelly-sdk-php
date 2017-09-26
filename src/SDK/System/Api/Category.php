@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\DTO\CategoryDTO;
 use Eelly\SDK\System\Service\CategoryInterface;
@@ -33,25 +34,25 @@ class Category implements CategoryInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addCategory(array $data): bool
+    public function addCategory(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/category', 'addCategory', $data);
+        return EellyClient::request('system/category', 'addCategory', $data, $user);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateCategory(int $categoryId, array $data): bool
+    public function updateCategory(int $categoryId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/category', 'updateCategory', $categoryId, $data);
+        return EellyClient::request('system/category', 'updateCategory', $categoryId, $data, $user);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteCategory(int $categoryId): bool
+    public function deleteCategory(int $categoryId, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/category', 'deleteCategory', $categoryId);
+        return EellyClient::request('system/category', 'deleteCategory', $categoryId, $user);
     }
 
     /**

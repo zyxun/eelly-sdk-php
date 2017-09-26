@@ -37,7 +37,6 @@ class ApiDocumentShow extends AbstractDocumentShow implements DocumentShowInterf
         $class = sprintf('Eelly\SDK\%s\Service\%sInterface', ucfirst($module), ucfirst($class));
         $this->class = $class;
         $this->method = $method;
-        $this->view->setVar('issueId', $class.'::'.$method);
     }
 
     public function renderBody(): void
