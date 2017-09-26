@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ArticleDTO;
 
 /**
- * 文章表.
+ * 文章.
  * 
  * @author eellytools<localhost.shell@gmail.com>
  */
@@ -32,7 +32,7 @@ interface ArticleInterface
      *
      * @return \Eelly\SDK\System\DTO\ArticleDTO
      * @requestExample({"articleId":1})
-     * @returnExample({"articleId":1,"categoryId":1,"title":"标题","content":"内容","belongId":0,"username":"发布者用户名","copyFrom":"文章来源","status":0})
+     * @returnExample({"articleId":1,"categoryId":1,"title":"标题","content":"内容","simpleContent":"导读内容","image":"配图","keywords":"关键词","belongId":0,"userId":1,"username":"发布者用户名","copyFrom":"文章来源","status":0})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
@@ -129,4 +129,5 @@ interface ArticleInterface
      * @since 2017-09-01
      */
     public function listArticlePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
 }
