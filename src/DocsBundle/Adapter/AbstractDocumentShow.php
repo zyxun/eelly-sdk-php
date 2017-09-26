@@ -25,6 +25,7 @@ abstract class AbstractDocumentShow extends Injectable
 {
     public function initialize(): void
     {
+        $this->view = $this->di->get('view');
         $this->assignModuleList();
     }
 
@@ -107,7 +108,9 @@ abstract class AbstractDocumentShow extends Injectable
     {
         $moduleList = [];
         foreach ($this->config->modules as $module => $value) {
-            require $value->path;
+            if (!class_exists($value->className)) {
+                require $value->path;
+            }
             $reflectionClass = new ReflectionClass($value->className);
             $docComment = $reflectionClass->getDocComment();
             $factory = \phpDocumentor\Reflection\DocBlockFactory::createInstance();

@@ -49,11 +49,39 @@ class ArticleDTO extends AbstractDTO
     public $content;
 
     /**
+     * 导读内容.
+     *
+     * @var string
+     */
+    public $simpleContent;
+
+    /**
+     * 配图.
+     *
+     * @var string
+     */
+    public $image;
+
+    /**
+     * 关键字.
+     *
+     * @var string
+     */
+    public $keywords;
+
+    /**
      * 文章归属ID 0:系统
      *
      * @var int
      */
     public $belongId;
+
+    /**
+     * 发布者用户ID
+     *
+     * @var int
+     */
+    public $userId;
 
     /**
      * 发布者用户名.
@@ -75,4 +103,5 @@ class ArticleDTO extends AbstractDTO
      * @var int
      */
     public $status;
+
 }

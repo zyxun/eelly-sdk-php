@@ -42,17 +42,17 @@ class Article implements ArticleInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateArticle(int $articleId, array $data): bool
+    public function updateArticle(int $articleId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/article', 'updateArticle', $articleId, $data);
+        return EellyClient::request('system/article', 'updateArticle', $articleId, $data, $user);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteArticle(int $articleId): bool
+    public function deleteArticle(int $articleId, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/article', 'deleteArticle', $articleId);
+        return EellyClient::request('system/article', 'deleteArticle', $articleId, $user);
     }
 
     /**

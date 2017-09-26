@@ -11,44 +11,49 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Service\DTO;
+namespace Eelly\SDK\System\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
-class SellerDTO extends AbstractDTO
+/**
+ * Class CategoryDTO.
+ */
+class ImageDTO extends AbstractDTO
 {
+
     /**
-     * 店铺ID.
+     * 文章图片主键id.
      *
      * @var int
      */
-    public $storeId;
+    public $saiId;
 
     /**
-     * 服务购买记录ID.
+     * 文章id.
      *
      * @var int
      */
-    public $sbId;
+    public $articleId;
 
     /**
-     * 真实姓名.
+     * 来源图片地址.
      *
      * @var string
      */
-    public $name;
+    public $fromImage;
 
     /**
-     * 身份证号码
+     * 下载到本地图片地址.
      *
      * @var string
      */
-    public $license;
+    public $toImage;
 
     /**
-     * 处理状态：0 未处理 1 审核通过 2 审核失败 3 认证过期
+     * 添加时间
      *
      * @var int
      */
-    public $status;
+    public $createdTime;
+
 }

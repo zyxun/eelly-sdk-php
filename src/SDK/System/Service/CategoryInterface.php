@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\CategoryDTO;
 
 /**
@@ -50,6 +51,7 @@ interface CategoryInterface
      * @param int    $data['status']    状态 0:无效 1:有效
      * @param int    $data['checkFlag'] 分类文章审核标志：0:需审核 1:不需审核
      * @param int    $data['remark']    分类备注
+     * @param UidDTO $user              登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -61,7 +63,7 @@ interface CategoryInterface
      *
      * @since 2017-08-31
      */
-    public function addCategory(array $data): bool;
+    public function addCategory(array $data, UidDTO $user = null): bool;
 
     /**
      * 修改文章分类.
@@ -75,6 +77,7 @@ interface CategoryInterface
      * @param int    $data['status']    状态 0:无效 1:有效
      * @param int    $data['checkFlag'] 分类文章审核标志：0:需审核 1:不需审核
      * @param int    $data['remark']    分类备注
+     * @param UidDTO $user              登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -86,12 +89,13 @@ interface CategoryInterface
      *
      * @since 2017-08-31
      */
-    public function updateCategory(int $categoryId, array $data): bool;
+    public function updateCategory(int $categoryId, array $data, UidDTO $user = null): bool;
 
     /**
      * 删除文章分类.
      *
-     * @param int $categoryId 文章分类id
+     * @param int    $categoryId 文章分类id
+     * @param UidDTO $user       登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -103,7 +107,7 @@ interface CategoryInterface
      *
      * @since 2017-08-31
      */
-    public function deleteCategory(int $categoryId): bool;
+    public function deleteCategory(int $categoryId, UidDTO $user = null): bool;
 
     /**
      * 获取文章分类列表.
@@ -112,7 +116,7 @@ interface CategoryInterface
      *
      * @return array 文章分类列表
      * @requestExample()
-     * @returnExample({"categoryId":"1","name":"分类1","parentId":"0","status":"1","checkFlag":"1","son":[{"categoryId":"3","name":"分类3","parentId":"1","status":"1","checkFlag":"1"},{"categoryId":"4","name":"分类4","parentId":"1","status":"1","checkFlag":"1"}]})
+     * @returnExample({"item":[{"categoryId":"1","name":"分类1","parentId":"0","status":"1","checkFlag":"1","son":[{"categoryId":"3","name":"分类3","parentId":"1","status":"1","checkFlag":"1"},{"categoryId":"4","name":"分类4","parentId":"1","status":"1","checkFlag":"1"}]}]})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
