@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\DTO\ContentDTO;
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\System\DTO\ContentDTO;
 use Eelly\SDK\System\Service\ContentInterface;
 
 /**
@@ -25,41 +26,25 @@ class Content implements ContentInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getContent(int $ContentId): ContentDTO
+    public function getContent(int $articleId): ContentDTO
     {
-        return EellyClient::request('system/content', 'getContent', $ContentId);
+        return EellyClient::request('system/content', 'getContent', $articleId);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addContent(array $data): bool
+    public function addContent(int $articleId, string $content, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/content', 'addContent', $data);
+        return EellyClient::request('system/content', 'addContent', $articleId, $content, $user);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateContent(int $ContentId, array $data): bool
+    public function updateContent(int $articleId, string $content, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/content', 'updateContent', $ContentId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteContent(int $ContentId): bool
-    {
-        return EellyClient::request('system/content', 'deleteContent', $ContentId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listContentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('system/content', 'listContentPage', $condition, $limit, $currentPage);
+        return EellyClient::request('system/content', 'updateContent', $articleId, $content, $user);
     }
 
     /**
