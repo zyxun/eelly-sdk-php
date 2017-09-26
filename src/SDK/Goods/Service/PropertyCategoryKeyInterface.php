@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Goods\Service;
 
 /**
- * 属性名分类关系.
+ * 商品分类属性名关系.
  *
  * @author wangjiang<wangjiang@eelly.net>
  */
@@ -119,14 +119,16 @@ interface PropertyCategoryKeyInterface
      * 获取商品分类的属性名关系信息
      *
      * @param int $categoryId 商品分类id
+     * @param int $isHidden 是否隐藏属性 0 否 1 是
      * @return array 分类属性名关系信息
      * @requestExample({
-     *     "categoryId":1
+     *     "cateId":1,
+     *     "isHidden":0
      * })
      * @returnExample([
      *     {
+     *         "categoryKeyId":1,
      *         "name":"属性名",
-     *         "keyId":1,
      *         "sort":1,
      *         "status":0,
      *         "style":1,
@@ -138,5 +140,5 @@ interface PropertyCategoryKeyInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2017年9月25日
      */
-    public function getCategoryKey(int $categoryId): array;
+    public function getCategoryKey(int $cateId, int $isHidden =  0): array;
 }
