@@ -16,6 +16,8 @@ namespace Eelly\SDK\System\Service;
 use Eelly\SDK\System\DTO\StatisticsDTO;
 
 /**
+ * 商圈数据统计.
+ * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface StatisticsInterface

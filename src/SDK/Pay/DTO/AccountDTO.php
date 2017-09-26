@@ -86,11 +86,4 @@ class AccountDTO extends AbstractDTO
      * @var int
      */
     public $createdTime;
-
-    /**
-     * 表名.
-     *
-     * @var string
-     */
-    protected $tableName = 'pay_account';
 }

@@ -17,6 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\CompanyDTO;
 
 /**
+ * 企业认证.
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CompanyInterface
@@ -30,7 +31,7 @@ interface CompanyInterface
      *
      * @return CompanyDTO
      * @requestExample({"storeId":1})
-     * @returnExample({"storeId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","company":"sixdec","number":"12345678899999","businessLicense":"[\"https:\\\/\\\/img03.eelly.com\\\/G04\\\/M00\\\/00\\\/98\\\/small_118_poYBAFjWXYaIWdWkAAJU9MtwDJgAAA7dgEx54sAAlUM236.jpg\",\"https:\\\/\\\/img03.eelly.com\\\/G02\\\/M00\\\/00\\\/BD\\\/small_118_ooYBAFjWXYqICR1yAAJWitxTD2AAABXRwMJp64AAlai106.jpg\"]","companyPhoto":"[\"https:\\\/\\\/img03.eelly.com\\\/G04\\\/M00\\\/00\\\/98\\\/small_118_poYBAFjWXYaIWdWkAAJU9MtwDJgAAA7dgEx54sAAlUM236.jpg\",\"https:\\\/\\\/img03.eelly.com\\\/G02\\\/M00\\\/00\\\/BD\\\/small_118_ooYBAFjWXYqICR1yAAJWitxTD2AAABXRwMJp64AAlai106.jpg\"]","status":1,"created_time":1458093605})
+     * @returnExample({"storeId":1,"sbId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","company":"sixdec","number":"12345678899999","businessLicense":"[\"https:\\\/\\\/img03.eelly.com\\\/G04\\\/M00\\\/00\\\/98\\\/small_118_poYBAFjWXYaIWdWkAAJU9MtwDJgAAA7dgEx54sAAlUM236.jpg\",\"https:\\\/\\\/img03.eelly.com\\\/G02\\\/M00\\\/00\\\/BD\\\/small_118_ooYBAFjWXYqICR1yAAJWitxTD2AAABXRwMJp64AAlai106.jpg\"]","companyPhoto":"[\"https:\\\/\\\/img03.eelly.com\\\/G04\\\/M00\\\/00\\\/98\\\/small_118_poYBAFjWXYaIWdWkAAJU9MtwDJgAAA7dgEx54sAAlUM236.jpg\",\"https:\\\/\\\/img03.eelly.com\\\/G02\\\/M00\\\/00\\\/BD\\\/small_118_ooYBAFjWXYqICR1yAAJWitxTD2AAABXRwMJp64AAlai106.jpg\"]","status":1,"created_time":1458093605})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
@@ -43,6 +44,7 @@ interface CompanyInterface
      *
      * @param array  $data                    认证数据
      * @param int    $data['storeId']         店铺id
+     * @param int    $data['sbId']            服务购买记录ID
      * @param string $data['name']            真实姓名
      * @param string $data['license']         身份证号码
      * @param string $data['mobile']          手机号
@@ -97,6 +99,7 @@ interface CompanyInterface
      * 用于管理员审核认证信息.
      *
      * @param int    $storeId 店铺ID
+     * @param int    $status  处理状态：0 未处理 1 审核通过 2 审核失败 3 认证过期
      * @param UidDTO $user    登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\CompanyException
@@ -109,5 +112,5 @@ interface CompanyInterface
      *
      * @since 2017-09-05
      */
-    public function checkCompany(int $storeId, UidDTO $user = null): bool;
+    public function checkCompany(int $storeId, int $status, UidDTO $user = null): bool;
 }

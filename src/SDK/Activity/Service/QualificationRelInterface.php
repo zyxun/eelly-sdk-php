@@ -16,6 +16,8 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\QualificationRelDTO;
 
 /**
+ * 店铺申请参加营销活动资格.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface QualificationRelInterface

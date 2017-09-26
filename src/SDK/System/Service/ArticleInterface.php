@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ArticleDTO;
 
 /**
+ * 文章.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleInterface
@@ -30,7 +32,7 @@ interface ArticleInterface
      *
      * @return \Eelly\SDK\System\DTO\ArticleDTO
      * @requestExample({"articleId":1})
-     * @returnExample({"articleId":1,"categoryId":1,"title":"标题","content":"内容","belongId":0,"username":"发布者用户名","copyFrom":"文章来源","status":0})
+     * @returnExample({"articleId":1,"categoryId":1,"title":"标题","content":"内容","simpleContent":"导读内容","image":"配图","keywords":"关键词","belongId":0,"userId":1,"username":"发布者用户名","copyFrom":"文章来源","status":0})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
@@ -71,6 +73,7 @@ interface ArticleInterface
      * @param string $data['content']    文章内容
      * @param int    $data['belongId']   文章归属id 0:系统
      * @param string $data['copyFrom']   文章来源 系统发布的来源为【衣联网】
+     * @param UidDTO $user               登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -82,12 +85,13 @@ interface ArticleInterface
      *
      * @since 2017-09-01
      */
-    public function updateArticle(int $articleId, array $data): bool;
+    public function updateArticle(int $articleId, array $data, UidDTO $user = null): bool;
 
     /**
      * 删除文章.
      *
-     * @param int $articleId 文章id
+     * @param int    $articleId 文章id
+     * @param UidDTO $user      登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -99,7 +103,7 @@ interface ArticleInterface
      *
      * @since 2017-09-01
      */
-    public function deleteArticle(int $articleId): bool;
+    public function deleteArticle(int $articleId, UidDTO $user = null): bool;
 
     /**
      * 分页获取文章列表.
@@ -118,11 +122,12 @@ interface ArticleInterface
      *
      * @return array 文章列表
      * @requestExample({"condition":{"title":"文章标题","categoryId":1}})
-     * @returnExample({"item":[{"articleId":"1","title":"文章标题","username":"","status":"0","createdTime":"1504321656","updateTime":"2017-09-02 08:52:35","categoryName":"分类名"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":1,"limit":1}})
+     * @returnExample({"item":[{"articleId":"1","title":"文章标题","username":"","status":"0","createdTime":"1504321656","updateTime":"2017-09-02 08:52:35","categoryName":"分类名"}],"page":{"totalPages":1,"totalItems":1,"limit":1}})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-01
      */
     public function listArticlePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
 }

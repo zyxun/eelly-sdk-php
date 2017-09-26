@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Pay\DTO\BankDTO;
 
 /**
+ * 用户银行信息.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface BankInterface
@@ -45,6 +47,7 @@ interface BankInterface
      * 获取一条价用户银行信息,并且判断是否是自己的.
      *
      * @param int $pbId 用户银行信息ID
+     * @param UidDTO|null $user
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *

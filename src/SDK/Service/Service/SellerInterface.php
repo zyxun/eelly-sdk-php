@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\Service\DTO\SellerDTO;
 
 /**
+ * 卖家认证.
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SellerInterface
@@ -30,7 +32,7 @@ interface SellerInterface
      *
      * @return SellerDTO
      * @requestExample({"storeId":1})
-     * @returnExample({"storeId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","status":1,"created_time":1458093605})
+     * @returnExample({"storeId":1,"sbId":1,"name":"\u5e97\u94fa1","license":"440981198806232871","mobile":"13427587735","status":1,"created_time":1458093605})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
@@ -43,6 +45,7 @@ interface SellerInterface
      *
      * @param array  $data            添加数据
      * @param int    $data['storeId'] 店铺ID
+     * @param int    $data['sbId']    服务购买记录ID
      * @param string $data['name']    真实姓名
      * @param string $data['license'] 身份证号码
      * @param string $data['mobile']  手机号

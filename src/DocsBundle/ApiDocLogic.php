@@ -28,13 +28,13 @@ class ApiDocLogic extends Controller
     public function onConstruct(): void
     {
         $this->application->useImplicitView(true);
-        $this->getDI()->setShared('view', function () {
+        $this->getDI()->set('view', function () {
             $view = new View();
             $view->setViewsDir(__DIR__.'/Resources/views/');
             $view->setLayoutsDir(__DIR__.'/Resources/views/');
             $view->setLayout('apidoc/layout');
             $view->setRenderLevel(
-                View::LEVEL_AFTER_TEMPLATE
+                View::LEVEL_LAYOUT
             );
             $view->registerEngines([
                 '.phtml'  => View\Engine\Php::class,

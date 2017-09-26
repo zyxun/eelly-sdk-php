@@ -17,6 +17,8 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\CommentDTO;
 
 /**
+ * 评论信息.
+ * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface CommentInterface
