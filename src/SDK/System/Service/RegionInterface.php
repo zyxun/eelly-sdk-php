@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
-use Eelly\SDK\SYSTEM\DTO\GbDTO;
+use Eelly\SDK\SYSTEM\DTO\RegionDTO;
 
 /**
  * 区域国标编码.
  * 
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
-interface GbInterface
+interface RegionInterface
 {
     /**
      * 根据传过来的主键id，返回对应的网格化区域信息.
@@ -35,9 +35,9 @@ interface GbInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-5
+     * @since  2017-09-26
      */
-    public function getGb(int $gbCode): GbDTO;
+    public function getRegion(int $gbCode): RegionDTO;
 
     /**
      * 新增网格化区域信息记录.
@@ -59,9 +59,9 @@ interface GbInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-5
+     * @since  2017-09-26
      */
-    public function addGb(array $data): bool;
+    public function addRegion(array $data): bool;
 
     /**
      * 更新网格化区域信息记录.
@@ -83,9 +83,9 @@ interface GbInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-5
+     * @since  2017-09-26
      */
-    public function updateGb(int $gbCode, array $data): bool;
+    public function updateRegion(int $gbCode, array $data): bool;
 
     /**
      * 分页获取网格化区域信息列表.
@@ -97,15 +97,39 @@ interface GbInterface
      * @param int   $currentPage             页码
      * @param int   $limit                   分页条数
      *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * -----------------------|-------|--------------
+     * items                  |array  |
+     * items["gbCode"]        |int    | 区域国标编码
+     * items["areaName"]      |string | 区域名称
+     * items["shortName"]     |string | 区域简称
+     * items["parentCode"]    |string | 上级编码
+     * items["telCode"]       |int    | 电话区号
+     * items["zipCode"]       |int    | 邮政编码
+     * items["regionCode"]    |string | 区域所属片区
+     * page                   |array  |
+     * page[first]            |int    | 第一页
+     * page[before]           |int    | 上一页
+     * page[current]          |int    | 当前页
+     * page[last]             |int    | 最后一页
+     * page[next]             |int    | 下一页
+     * page[total_pages]      |int    | 总页数
+     * page[total_items]      |int    | 总数
+     * page[limit]            |int    | 每页显示的数量
+     *
+     *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array 返回分页结果
      * @requestExample(["condition": [{"parentCode": 1,"telCode":"00852","zipCode":100000}],"currentPage": "1","limit": "20"])
-     * @returnExample(["items": [{"gbCode":110000,"areaName":"北京", "shortName":"北京","parentCode":"上级编码","telCode":00852,"zipCode":100000,"regionCode":""}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
+     * @returnExample(["items": [{"gbCode":110000,"areaName":"北京", "shortName":"北京","parentCode":"上级编码","telCode":00852,"zipCode":100000,
+     *     "regionCode":""}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-5
+     * @since  2017-09-26
      */
-    public function listGbPage(array $condition = [], int $currentPage = 1, int $limit = 20): array;
+    public function listRegionPage(array $condition = [], int $currentPage = 1, int $limit = 20): array;
 }

@@ -18,7 +18,7 @@ use Eelly\DTO\AbstractDTO;
 /**
  * Class GbDTO.
  */
-class GbDTO extends AbstractDTO
+class RegionDTO extends AbstractDTO
 {
     /**
      * 区域国标编码
