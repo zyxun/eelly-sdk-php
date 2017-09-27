@@ -74,7 +74,7 @@ class Store implements StoreInterface
      *
      * @throws StoreException
      *
-     * @return bool true 允许操作 false 不允许操作
+     * @return bool true 校验结果 允许操作 false 不允许操作
      * @requestExample({"userId":1,"storeId":1,"onlyCheckOwner":false})
      * @returnExample(true)
      *
