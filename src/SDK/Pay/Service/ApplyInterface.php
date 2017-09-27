@@ -42,7 +42,7 @@ interface ApplyInterface
     public function getApply(int $paId): ApplyDTO;
 
     /**
-     * 添加用户银行信息.
+     * 添加交易申请表.
      *
      * @param array $data
      * @param int $data ['gbCode'] 开户银行所在地区ID

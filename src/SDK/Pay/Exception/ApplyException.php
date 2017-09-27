@@ -40,4 +40,9 @@ class ApplyException extends LogicException
      *数据未找到
      */
     public const DATA_NOT_FOUND = '数据未找到';
+
+    /**
+     * 类不存在
+     */
+    public const CLASS_NOT_FOUND = '类不存在';
 }
