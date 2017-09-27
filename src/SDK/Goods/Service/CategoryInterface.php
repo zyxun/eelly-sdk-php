@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Goods\Service;
 
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\Goods\DTO\CategoryDTO;
+
 /**
  * 商品分类.
  *
