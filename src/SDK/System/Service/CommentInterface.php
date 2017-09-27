@@ -33,11 +33,11 @@ interface CommentInterface
      * @return array
      * @requestExample({"commentId":1})
      * @returnExample({"commentId":1,"type":2,"itemId":123,"content":"新中国","userId":148086,"username":"莫琼小店",
-     *  "user_ip":"","status":0,"createdTime":1505109590})
+     *  "userIp":"","status":0,"createdTime":1505109590})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-12
+     * @since  2017-09-27
      */
     public function getComment(int $commentId): CommentDTO;
 
@@ -64,7 +64,7 @@ interface CommentInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-12
+     * @since  2017-09-27
      */
     public function addComment(array $data, UidDTO $user = null): bool;
 
@@ -81,7 +81,7 @@ interface CommentInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-12
+     * @since  2017-09-27
      */
     public function deleteComment(int $commentId): bool;
 
@@ -133,7 +133,7 @@ interface CommentInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-12
+     * @since  2017-09-27
      */
     public function listCommentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }
