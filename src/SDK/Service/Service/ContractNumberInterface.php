@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Service\Service;
 
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\Service\DTO\ContractNumberDTO;
 
 /**
  * 合同编号.
@@ -21,6 +22,24 @@ use Eelly\DTO\UidDTO;
  */
 interface ContractNumberInterface
 {
+
+    /**
+     * 获取指定ID的合同编号.
+     *
+     * @param int $scnId 合同编号ID
+     *
+     * @throws \Eelly\SDK\Service\Exception\ContractNumberException
+     *
+     * @return ContractNumberDTO
+     * @requestExample({"scId":1})
+     * @returnExample({"scnId":1,"scId":1,"number":"合同编号","status":1})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-27
+     */
+    public function getContractNumber(int $scnId): ContractNumberDTO;
+
     /**
      * 新增合同编号.
      *
@@ -49,19 +68,18 @@ interface ContractNumberInterface
      * @param int    $condition['status']    编号状态
      * @param int    $currentPage            当前页码
      * @param int    $limit                  每页条数
-     * @param UidDTO $user                   登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\ContractNumberException
      *
      * @return array 列表信息
      * @requestExample({"condition":{"number":"合同编号","versionNo":"版本号","status":0}})
-     * @returnExample({"item":[{"scnId":1,"number":"合同编号","status":0,"versionNo":1}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":1,"limit":1}})
+     * @returnExample({"item":[{"scnId":1,"number":"合同编号","status":0,"versionNo":1}],"page":{"totalPages":1,"totalItems":1,"limit":1}})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-08
      */
-    public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
+    public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
      * 解绑合同编号.

@@ -69,6 +69,7 @@ interface SellerInterface
      *
      * @param array  $data            修改数据
      * @param int    $data['storeId'] 店铺ID
+     * @param int    $data['sbId']    服务购买记录ID
      * @param string $data['name']    真实姓名
      * @param string $data['license'] 身份证号码
      * @param string $data['mobile']  手机号

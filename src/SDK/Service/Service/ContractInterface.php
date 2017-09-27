@@ -26,7 +26,6 @@ interface ContractInterface
      * 获取指定ID的合同版本.
      *
      * @param int    $scId 合同版本ID
-     * @param UidDTO $user 登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *
@@ -38,7 +37,7 @@ interface ContractInterface
      *
      * @since 2017-09-08
      */
-    public function getContract(int $scId, UidDTO $user = null): ContractDTO;
+    public function getContract(int $scId): ContractDTO;
 
     /**
      * 新增合同版本.
