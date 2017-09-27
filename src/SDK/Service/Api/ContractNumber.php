@@ -15,6 +15,7 @@ namespace Eelly\SDK\Service\Api;
 
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Service\DTO\ContractNumberDTO;
 use Eelly\SDK\Service\Service\ContractNumberInterface;
 
 /**
@@ -22,6 +23,15 @@ use Eelly\SDK\Service\Service\ContractNumberInterface;
  */
 class ContractNumber implements ContractNumberInterface
 {
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getContractNumber(int $scnId): ContractNumberDTO
+    {
+        return EellyClient::request('service/ContractNumber', 'getContractNumber', $scnId);
+    }
+
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
@@ -33,7 +43,7 @@ class ContractNumber implements ContractNumberInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array
+    public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('service/ContractNumber', 'listContractNumberPage', $condition, $currentPage, $limit);
     }

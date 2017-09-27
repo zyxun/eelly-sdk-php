@@ -27,7 +27,6 @@ interface EntityCustomInterface
      * 获取指定id的单条店铺实体认证自定义商圈市场楼层信息.
      *
      * @param int    $secId 自定义商圈市场楼层信息id
-     * @param UidDTO $user  登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\EntityCustomException
      *
@@ -39,7 +38,7 @@ interface EntityCustomInterface
      *
      * @since 2017-09-15
      */
-    public function getEntityCustom(int $secId, UidDTO $user = null): EntityCustomDTO;
+    public function getEntityCustom(int $secId): EntityCustomDTO;
 
     /**
      * 新增店铺实体认证自定义商圈市场楼层信息.
@@ -83,4 +82,30 @@ interface EntityCustomInterface
      * @since 2017-09-15
      */
     public function updateEntityCustom(int $secId, array $data, UidDTO $user = null): bool;
+
+    /**
+     * 分页获取店铺实体认证自定义商圈市场楼层信息列表
+     *
+     * @param array  $condition                 查询条件
+     * @param string $condition['customMarket'] 自定义商圈市场
+     * @param string $condition['customFloor']  自定义楼层
+     * @param int    $condition['status']       处理状态：0 未处理 1 已处理
+     * @param int    $currentPage               当前页码
+     * @param int    $limit                     每页条数
+     *
+     * @throws \Eelly\SDK\Service\Exception\EntityCustomException
+     *
+     * @return array
+     * @requestExample({"condition":{"customMarket":"自定义商圈市场","customFloor":"自定义楼层","status":0}})
+     * @returnExample({"items":[{"secId":"1","customMarket":"fsdfdsf","customFloor":"123","status":"1","createdTime":"1505462704"}],"page":{"totalPages":1,"totalItems":1,"limit":10}})
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-27
+     * @Validation(
+     *   @OperatorValidator(1,{message:"非法的页码",operator:["gt",0]}),
+     *   @OperatorValidator(2,{message:"非法的条数",operator:["gt",0]})
+     * )
+     */
+    public function listEntityCustomPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
 }
