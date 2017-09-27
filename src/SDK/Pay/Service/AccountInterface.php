@@ -25,20 +25,21 @@ use Eelly\SDK\Pay\DTO\AccountDTO;
 interface AccountInterface
 {
     /**
-     * 获取一条价格记录.
+     * 获取一条会员资金账户记录.
      *
-     * @param int $userId 账户ID，自增主键
+     * @param UidDTO|null $user  用户信息
+     *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
+     *
      * @return AccountDTO
-     * @requestExample({'userId':1})
+     * @requestExample(false)
      * @returnExample({"paId": 1, "userId": 1, "storeId": 2, "money": "2", "commissionRatio": 3,"status":1,"alipayAccount":'',"wechatPurseOpenId":'' ,"createdTime": "2017-09-04 16:07:05"})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年09月15日
-     * @Validation(
-     *      @OperatorValidator(0,{message : "账户ID",operator:["gt",0]})
-     * )
      */
-    public function getAccount(int $userId): AccountDTO;
+    public function getAccount(UidDTO $user = null): AccountDTO;
 
     /**
      * 添加会员资金账户.
@@ -53,6 +54,7 @@ interface AccountInterface
      * @param string $data['wechatPurseOpenId']  微信钱包绑定的微信账户open_id
      * @param string $data['passwordKey']  密码钥匙
      * @param string $data['passwordPay']  支付密码
+     * @param UidDTO $user  用户信息
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      * @return bool
      * @requestExample({'data':{"userId": 1, "storeId": 2, "money": "2", "commissionRatio": 3,"status":1,"alipayAccount":'',"wechatPurseOpenId":''}})
@@ -60,7 +62,7 @@ interface AccountInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2017年09月21日
      */
-    public function addAccount(array $data): bool;
+    public function addAccount(array $data, UidDTO $user = null): bool;
 
     /**
      * 更新自己的会员资金账户信息.
@@ -82,11 +84,6 @@ interface AccountInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2017年09月21日
      */
-    public function updateSelfAccount(int $paId, array $data, UidDTO $user = null): bool;
+    public function updateAccount(int $paId, array $data, UidDTO $user = null): bool;
 
-    /*
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function listAccountPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }
