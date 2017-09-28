@@ -37,7 +37,7 @@ interface MarketInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-11
+     * @since  2017-09-26
      */
     public function getMarket(int $marketId): MarketDTO;
 
@@ -70,7 +70,7 @@ interface MarketInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-11
+     * @since  2017-09-26
      */
     public function addMarket(array $data): bool;
 
@@ -104,7 +104,7 @@ interface MarketInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-11
+     * @since  2017-09-26
      */
     public function updateMarket(int $marketId, array $data): bool;
 
@@ -121,7 +121,7 @@ interface MarketInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-11
+     * @since  2017-09-26
      */
     public function deleteMarket(int $marketId): bool;
 
@@ -174,7 +174,7 @@ interface MarketInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since 2017-9-11
+     * @since 2017-09-26
      */
     public function listMarketPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

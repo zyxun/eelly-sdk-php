@@ -16,23 +16,23 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class ValueDTO.
+ * Class ParamValueDTO.
  */
-class ValueDTO extends AbstractDTO
+class ParamValueDTO extends AbstractDTO
 {
     /**
      * 参数值主键id.
      *
      * @var int
      */
-    public $pvId;
+    public $spvId;
 
     /**
      * 参数主键id.
      *
      * @var int
      */
-    public $pkId;
+    public $paramId;
 
     /**
      * 参数值

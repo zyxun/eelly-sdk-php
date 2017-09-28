@@ -16,9 +16,9 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class StatisticDTO.
+ * Class DistrictStatisticsDTO.
  */
-class StatisticsDTO extends AbstractDTO
+class DistrictStatisticsDTO extends AbstractDTO
 {
     /**
      * 商圈ID.
