@@ -24,23 +24,23 @@ interface PropertyCategoryKeyInterface
      * 新增分类属性名关系
      * 新增商品分类的属性名关系
      *
-     * @param array $categoryKeyDaya 商品分类属性名数据
-     * @param int $categoryKeyDaya["cateId"] 分类id
-     * @param int $categoryKeyDaya["keyId"] 属性名id
-     * @param int $categoryKeyDaya["sort"] 排序
-     * @param int $categoryKeyDaya["status"] 状态 0 未启用 1 启用
-     * @param int $categoryKeyDaya["style"] 风格 0 单选 1 多选
-     * @param int $categoryKeyDaya["isRequired"] 是否必选 0 否 1 是
-     * @param int $categoryKeyDaya["isHidden"] 是否隐藏属性 0 否 1 是
-     * @param int $categoryKeyDaya["showFlag"] 显示标志 1 全局显示控制 2 商品发布(可选属性) 4 搜索页
-     * @param array $categoryKeyDaya["taobaoIds"] 淘宝属性数据
-     * @param int $categoryKeyDaya["taobaoIds"]["0"] 淘宝属性id
-     * @param int $categoryKeyDaya["taobaoIds"]["1"] 淘宝属性id
-     * @param int $categoryKeyDaya["taobaoIds"]["2"] 淘宝属性id
+     * @param array $categoryKeyData 商品分类属性名数据
+     * @param int $categoryKeyData["cateId"] 分类id
+     * @param int $categoryKeyData["keyId"] 属性名id
+     * @param int $categoryKeyData["sort"] 排序
+     * @param int $categoryKeyData["status"] 状态 0 未启用 1 启用
+     * @param int $categoryKeyData["style"] 风格 0 单选 1 多选
+     * @param int $categoryKeyData["isRequired"] 是否必选 0 否 1 是
+     * @param int $categoryKeyData["isHidden"] 是否隐藏属性 0 否 1 是
+     * @param int $categoryKeyData["showFlag"] 显示标志 1 全局显示控制 2 商品发布(可选属性) 4 搜索页
+     * @param array $categoryKeyData["taobaoIds"] 淘宝属性数据
+     * @param int $categoryKeyData["taobaoIds"]["0"] 淘宝属性id
+     * @param int $categoryKeyData["taobaoIds"]["1"] 淘宝属性id
+     * @param int $categoryKeyData["taobaoIds"]["2"] 淘宝属性id
      * @return bool 新增结果
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
      * @requestExample({
-     *     "categoryKeyDaya":{
+     *     "categoryKeyData":{
      *         "cateId":1,
      *         "keyId":2,
      *         "sort":1,
@@ -62,24 +62,24 @@ interface PropertyCategoryKeyInterface
      * 修改分类属性名关系
      * 修改商品分类的属性名关系
      *
-     * @param array $categoryKeyDaya 商品分类属性名数据
-     * @param int $categoryKeyDaya["categoryKeyId"] 分类属性名id
-     * @param int $categoryKeyDaya["cateId"] 分类id
-     * @param int $categoryKeyDaya["keyId"] 属性名id
-     * @param int $categoryKeyDaya["sort"] 排序
-     * @param int $categoryKeyDaya["status"] 状态 0 未启用 1 启用
-     * @param int $categoryKeyDaya["style"] 风格 0 单选 1 多选
-     * @param int $categoryKeyDaya["isRequired"] 是否必选 0 否 1 是
-     * @param int $categoryKeyDaya["isHidden"] 是否隐藏属性 0 否 1 是
-     * @param int $categoryKeyDaya["showFlag"] 显示标志 1 全局显示控制 2 商品发布(可选属性) 4 搜索页
-     * @param array $categoryKeyDaya["taobaoIds"] 淘宝属性数据
-     * @param int $categoryKeyDaya["taobaoIds"]["0"] 淘宝属性id
-     * @param int $categoryKeyDaya["taobaoIds"]["1"] 淘宝属性id
-     * @param int $categoryKeyDaya["taobaoIds"]["2"] 淘宝属性id
+     * @param array $categoryKeyData 商品分类属性名数据
+     * @param int $categoryKeyData["categoryKeyId"] 分类属性名id
+     * @param int $categoryKeyData["cateId"] 分类id
+     * @param int $categoryKeyData["keyId"] 属性名id
+     * @param int $categoryKeyData["sort"] 排序
+     * @param int $categoryKeyData["status"] 状态 0 未启用 1 启用
+     * @param int $categoryKeyData["style"] 风格 0 单选 1 多选
+     * @param int $categoryKeyData["isRequired"] 是否必选 0 否 1 是
+     * @param int $categoryKeyData["isHidden"] 是否隐藏属性 0 否 1 是
+     * @param int $categoryKeyData["showFlag"] 显示标志 1 全局显示控制 2 商品发布(可选属性) 4 搜索页
+     * @param array $categoryKeyData["taobaoIds"] 淘宝属性数据
+     * @param int $categoryKeyData["taobaoIds"]["0"] 淘宝属性id
+     * @param int $categoryKeyData["taobaoIds"]["1"] 淘宝属性id
+     * @param int $categoryKeyData["taobaoIds"]["2"] 淘宝属性id
      * @return bool 修改结果
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
      * @requestExample({
-     *     "categoryKeyDaya":{
+     *     "categoryKeyData":{
      *         "categoryKeyId":3,
      *         "cateId":1,
      *         "keyId":2,
@@ -118,7 +118,7 @@ interface PropertyCategoryKeyInterface
      * 获取分类属性名关系信息
      * 获取商品分类的属性名关系信息
      *
-     * @param int $categoryId 商品分类id
+     * @param int $cateId 商品分类id
      * @param int $isHidden 是否隐藏属性 0 否 1 是
      * @return array 分类属性名关系信息
      * @requestExample({

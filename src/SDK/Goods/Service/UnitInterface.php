@@ -96,7 +96,7 @@ interface UnitInterface
      * @return array 计量单位信息
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
      * @requestExample({
-     *     "type":1,
+     *     "type":1
      * })
      * @returnExample([
      *     {
