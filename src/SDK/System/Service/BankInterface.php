@@ -33,11 +33,12 @@ interface BankInterface
      * @return array
      *
      * @requestExample({"bankId":1})
-     * @returnExample({"bankId":1,"name":"中行上海分行", "code":"银行编码","logo":"bank_logo_shbank.gif","use_flag":1,"sort":255,"status":1,"createdTime":1503560249})
+     * @returnExample({"bankId":1,"name":"中行上海分行", "code":"银行编码","logo":"bank_logo_shbank.gif","use_flag":1,"sort":255,
+     *     "status":1,"createdTime":1503560249})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-1
+     * @since  2017-09-27
      */
     public function getBank(int $bankId): BankDTO;
 
@@ -52,7 +53,6 @@ interface BankInterface
      * @param int    $data['sort']        排序
      * @param int    $data['status']      状态：0 禁用 1 正常
      * @param int    $data['createdTime'] 创建时间
-     * @param UidDTO $user                登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -62,9 +62,9 @@ interface BankInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-1
+     * @since  2017-09-27
      */
-    public function addBank(array $data, UidDTO $user = null): bool;
+    public function addBank(array $data): bool;
 
     /**
      * 更新一条银行记录.
@@ -87,7 +87,7 @@ interface BankInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-1
+     * @since  2017-09-27
      */
     public function updateBank(int $bankId, array $data, UidDTO $user = null): bool;
 
@@ -104,11 +104,13 @@ interface BankInterface
      *
      * @return array 返回分页结果
      * @requestExample(["condition": [{"useFlag":1,"status":1}],"limit": "10","currentPage": "1"])
-     * @returnExample(["items": [{"bankId":1,"name":"测试银行", "code":"testcode","logo":"bank_logo_shbank.gif","use_flag":1,"sort":255,"status":1,"createdTime":1503560249},"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
+     * @returnExample(["items": [{"bankId":1,"name":"测试银行", "code":"testcode","logo":"bank_logo_shbank.gif",
+     *     "use_flag":1,"sort":255,"status":1,"createdTime":1503560249},
+     *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since  2017-9-1
+     * @since  2017-09-27
      */
     public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 20): array;
 }

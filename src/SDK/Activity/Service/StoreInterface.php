@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Eelly\SDK\Activity\Service;
 
 /**
-<<<<<<< Updated upstream
  * 店铺及商品级活动参加申请.
  * 
  * 

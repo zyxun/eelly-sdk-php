@@ -1,27 +1,27 @@
 <?php
 
 declare(strict_types=1);
-
 /*
- * This file is part of eelly package.
+ * PHP version 7.1
  *
- * (c) eelly.com
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
+ * @link      https://api.eelly.com
+ * @license   衣联网版权所有
  */
 
-namespace Eelly\SDK\System\Service;
+namespace Eelly\SDK\System\Api;
 
-use Eelly\SDK\System\DTO\StatisticsDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\System\Service\DistrictStatisticsInterface;
+use Eelly\SDK\System\DTO\DistrictStatisticsDTO;
 
 /**
- * 商圈数据统计.
- * 
- * @author zhangyingdi<zhangyingdi@gmail.com>
+ *
+ * @author eellytools<localhost.shell@gmail.com>
  */
-interface StatisticsInterface
+class DistrictStatistics implements DistrictStatisticsInterface
 {
+
     /**
      * 根据传过来的商圈id，返回对应商圈的统计数据.
      *
@@ -31,13 +31,17 @@ interface StatisticsInterface
      *
      * @return array
      * @requestExample({"districtId":1})
-     * @returnExample({"districtId":1,"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,"weekWechatDynamicNum":1552,"monthStorePv":15975,"monthStorePvAvatars":""})
+     * @returnExample({"districtId":1,"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,"weekWechatDynamicNum":1552,
+     *     "monthStorePv":15975,"monthStorePvAvatars":""})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since 2017-9-9
+     * @since 2017-09-26
      */
-    public function getStatistics(int $districtId): StatisticsDTO;
+    public function getDistrictStatistics(int $districtId): DistrictStatisticsDTO
+    {
+        return EellyClient::request('system/districtstatistics', 'getDistrictStatistics', $districtId);
+    }
 
     /**
      * 添加一条商圈统计数据.
@@ -55,14 +59,18 @@ interface StatisticsInterface
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return bool
-     * @requestExample({"data":{"districtId":1,"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,"weekWechatDynamicNum":1552,"monthStorePv":15975,"monthStorePvAvatars":""}})
+     * @requestExample({"data":{"districtId":1,"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,
+     *     "weekWechatDynamicNum":1552,"monthStorePv":15975,"monthStorePvAvatars":""}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since 2017-9-9
+     * @since 2017-09-26
      */
-    public function addStatistics(array $data): bool;
+    public function addDistrictStatistics(array $data): bool
+    {
+        return EellyClient::request('system/districtstatistics', 'addDistrictStatistics', $data);
+    }
 
     /**
      * 更新一条商圈统计数据.
@@ -80,14 +88,18 @@ interface StatisticsInterface
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return bool
-     * @requestExample({"districtId":1,"data":{"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,"weekWechatDynamicNum":1552,"monthStorePv":15975,"monthStorePvAvatars":""}})
+     * @requestExample({"districtId":1,"data":{"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,
+     *     "weekWechatDynamicNum":1552,"monthStorePv":15975,"monthStorePvAvatars":""}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since 2017-9-9
+     * @since 2017-09-26
      */
-    public function updateStatistics(int $districtId, array $data): bool;
+    public function updateDistrictStatistics(int $districtId, array $data): bool
+    {
+        return EellyClient::request('system/districtstatistics', 'updateDistrictStatistics', $districtId, $data);
+    }
 
     /**
      * 删除一条商圈统计数据.
@@ -102,9 +114,12 @@ interface StatisticsInterface
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since 2017-9-9
+     * @since 2017-09-26
      */
-    public function deleteStatistics(int $districtId): bool;
+    public function deleteDistrictStatistics(int $districtId): bool
+    {
+        return EellyClient::request('system/districtstatistics', 'deleteDistrictStatistics', $districtId);
+    }
 
     /**
      * 分页获取商圈数据列表.
@@ -127,24 +142,42 @@ interface StatisticsInterface
      * items[monthStorePv]         |int    | 商圈店铺最近30天动态PV数
      * items[monthStorePvAvatars]  |string | 商圈店铺最近30天访客头像
      * page                        |array  |
-     * page[first]         |int    | 第一页
-     * page[before]        |int    | 上一页
-     * page[current]       |int    | 当前页
-     * page[last]          |int    | 最后一页
-     * page[next]          |int    | 下一页
-     * page[total_pages]   |int    | 总页数
-     * page[total_items]   |int    | 总数
-     * page[limit]         |int    | 每页显示的数量
+     * page[first]                 |int    | 第一页
+     * page[before]                |int    | 上一页
+     * page[current]               |int    | 当前页
+     * page[last]                  |int    | 最后一页
+     * page[next]                  |int    | 下一页
+     * page[total_pages]           |int    | 总页数
+     * page[total_items]           |int    | 总数
+     * page[limit]                 |int    | 每页显示的数量
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array
      * @requestExample({"condition":{},"currentPage":1,"limit":10})
-     * @returnExample(["items": [{"districtId":1,"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,"weekWechatDynamicNum":1552,"monthStorePv":15975,"monthStorePvAvatars":""}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
+     * @returnExample(["items": [{"districtId":1,"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,
+     *     "weekWechatDynamicNum":1552,"monthStorePv":15975,"monthStorePvAvatars":""}],
+     *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *
-     * @since 2017-9-9
+     * @since 2017-09-26
      */
-    public function listStatisticsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listDistrictStatisticsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    {
+        return EellyClient::request('system/districtstatistics', 'listDistrictStatisticsPage', $condition, $currentPage, $limit);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
+    }
 }

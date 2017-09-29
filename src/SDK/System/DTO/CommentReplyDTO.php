@@ -18,61 +18,68 @@ use Eelly\DTO\AbstractDTO;
 /**
  * Class StatisticDTO.
  */
-class StatisticsDTO extends AbstractDTO
+class CommentReplyDTO extends AbstractDTO
 {
     /**
-     * 商圈ID.
+     * 评论回复ID.
      *
      * @var int
      */
-    public $districtId;
+    public $scrId;
 
     /**
-     * 商圈店铺数.
+     * 主评论ID.
      *
      * @var int
      */
-    public $storeNum;
+    public $commentId;
 
     /**
-     * 商圈商品数.
+     * 父回复id
      *
      * @var int
      */
-    public $goodsNum;
+    public $parentId;
 
     /**
-     * 商圈生意圈动态数.
+     * 评论回复内容
      *
      * @var int
      */
-    public $wechatDynamicNum;
+    public $content;
 
     /**
-     * 商圈最近7天商品数.
+     * 评论回复人id
      *
-     * @var int
+     * @var string
      */
-    public $weekGoodsNum;
+    public $userId;
 
     /**
-     * 商圈最近7天生意圈动态数.
+     * 评论回复人用户名.
      *
-     * @var int
+     * @var string
      */
-    public $weekWechatDynamicNum;
+    public $username;
 
     /**
-     * 商圈店铺最近30天动态PV数.
+     * 评论回复人IP.
      *
-     * @var int
+     * @var string
      */
-    public $monthStorePv;
+    public $userIp;
 
     /**
-     * 商圈店铺最近30天访客头像.
+     * 被回复者id
      *
      * @var int
      */
-    public $monthStorePvAvatars;
+    public $receiverId;
+
+    /**
+     * 添加时间.
+     *
+     * @var int
+     */
+    public $createdTime;
 }
