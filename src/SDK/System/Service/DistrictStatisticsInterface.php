@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\DistrictStatisticsDTO;
 
 /**
@@ -29,13 +30,12 @@ interface DistrictStatisticsInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return DistrictStatisticsDTO
      * @requestExample({"districtId":1})
      * @returnExample({"districtId":1,"storeNum":123, "goodsNum":1234,"wechatDynamicNum":1314,"weekGoodsNum":222,"weekWechatDynamicNum":1552,
      *     "monthStorePv":15975,"monthStorePvAvatars":""})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
     public function getDistrictStatistics(int $districtId): DistrictStatisticsDTO;
@@ -52,6 +52,7 @@ interface DistrictStatisticsInterface
      * @param int    $data["weekWechatDynamicNum"] 商圈最近7天生意圈动态数
      * @param int    $data["monthStorePv"]         商圈店铺最近30天动态PV数
      * @param string $data["monthStorePvAvatars"]  商圈店铺最近30天访客头像
+     * @param UidDTO $user                         用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -61,10 +62,9 @@ interface DistrictStatisticsInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
-    public function addDistrictStatistics(array $data): bool;
+    public function addDistrictStatistics(array $data, UidDTO $user = null): bool;
 
     /**
      * 更新一条商圈统计数据.
@@ -78,6 +78,7 @@ interface DistrictStatisticsInterface
      * @param int    $data["weekWechatDynamicNum"] 商圈最近7天生意圈动态数
      * @param int    $data["monthStorePv"]         商圈店铺最近30天动态PV数
      * @param string $data["monthStorePvAvatars"]  商圈店铺最近30天访客头像
+     * @param UidDTO $user                         用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -87,15 +88,15 @@ interface DistrictStatisticsInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
-    public function updateDistrictStatistics(int $districtId, array $data): bool;
+    public function updateDistrictStatistics(int $districtId, array $data, UidDTO $user = null): bool;
 
     /**
      * 删除一条商圈统计数据.
      *
      * @param int $districtId 商圈id
+     * @param UidDTO $user    用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -104,10 +105,9 @@ interface DistrictStatisticsInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
-    public function deleteDistrictStatistics(int $districtId): bool;
+    public function deleteDistrictStatistics(int $districtId, UidDTO $user = null): bool;
 
     /**
      * 分页获取商圈数据列表.
@@ -148,7 +148,6 @@ interface DistrictStatisticsInterface
      *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
     public function listDistrictStatisticsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

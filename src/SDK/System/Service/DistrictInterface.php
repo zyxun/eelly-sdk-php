@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\DistrictDTO;
 
 /**
@@ -29,13 +30,12 @@ interface DistrictInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return DistrictDTO
      * @requestExample({"districtId":1})
      * @returnExample({"districtId":1,"gbCode":440103, "districtName":"十三行商圈","logo":"G03/M00/00/36/p4YBAFjHhZGIXnxpAAH182nOB-kAABddwBaXXQAAfYL542.jpg",
      *     "remark":"潮流时尚","adminId":155231,"adminName":"test","sort":10,"createdTime":1489631647})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
     public function getDistrict(int $districtId): DistrictDTO;
@@ -52,6 +52,7 @@ interface DistrictInterface
      * @param string $data["adminName"]    管理员名称
      * @param int    $data["sort"]         显示排序
      * @param int    $data["createdTime"]  创建时间
+     * @param UidDTO $user                 用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -61,10 +62,9 @@ interface DistrictInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
-    public function addDistrict(array $data): bool;
+    public function addDistrict(array $data, UidDTO $user = null): bool;
 
     /**
      * 更新商圈信息.
@@ -78,6 +78,7 @@ interface DistrictInterface
      * @param int    $data["adminId"]      管理员ID
      * @param string $data["adminName"]    管理员名称
      * @param int    $data["sort"]         显示排序
+     * @param UidDTO $user                 用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -87,10 +88,9 @@ interface DistrictInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
-    public function updateDistrict(int $districtId, array $data): bool;
+    public function updateDistrict(int $districtId, array $data, UidDTO $user = null): bool;
 
     /**
      * 分页获取商圈数据列表.
@@ -134,7 +134,6 @@ interface DistrictInterface
      *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
     public function listDistrictPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

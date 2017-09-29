@@ -72,7 +72,7 @@ class DistrictStatisticsDTO extends AbstractDTO
     /**
      * 商圈店铺最近30天访客头像.
      *
-     * @var int
+     * @var string
      */
     public $monthStorePvAvatars;
 }

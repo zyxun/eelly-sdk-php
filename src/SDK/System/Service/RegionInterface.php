@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\SYSTEM\DTO\RegionDTO;
 
 /**
@@ -29,7 +30,7 @@ interface RegionInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return RegionDTO
      * @requestExample({"gbCode":1})
      * @returnExample({"gbCode":110000,"areaName":"北京", "shortName":"北京","parentCode":"上级编码","telCode":00852,"zipCode":100000,"regionCode":""})
      *
@@ -50,6 +51,7 @@ interface RegionInterface
      * @param string $data['telCode']    电话区号
      * @param int    $data['zipCode']    邮政编码
      * @param int    $data['regionCode'] 区域所属片区
+     * @param UidDTO $user               登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -61,7 +63,7 @@ interface RegionInterface
      *
      * @since  2017-09-26
      */
-    public function addRegion(array $data): bool;
+    public function addRegion(array $data, UidDTO $user = null): bool;
 
     /**
      * 更新网格化区域信息记录.
@@ -74,6 +76,7 @@ interface RegionInterface
      * @param string $data['telCode']    电话区号
      * @param int    $data['zipCode']    邮政编码
      * @param int    $data['regionCode'] 区域所属片区
+     * @param UidDTO $user               登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -85,7 +88,7 @@ interface RegionInterface
      *
      * @since  2017-09-26
      */
-    public function updateRegion(int $gbCode, array $data): bool;
+    public function updateRegion(int $gbCode, array $data, UidDTO $user = null): bool;
 
     /**
      * 分页获取网格化区域信息列表.

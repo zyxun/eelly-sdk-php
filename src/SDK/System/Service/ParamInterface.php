@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ParamDTO;
 
 /**
@@ -29,7 +30,7 @@ interface ParamInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return ParamDTO
      * @requestExample({"paramId":1})
      * @returnExample({"paramId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
      *
@@ -46,7 +47,7 @@ interface ParamInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return ParamDTO
      * @requestExample({"code":"test"})
      * @returnExample({"paramId":1,"code":"test", "paramName":"测试编码","paramDesc":"这个编码是测试数据","status":1,"createdTime":1503560249})
      *
@@ -65,6 +66,7 @@ interface ParamInterface
      * @param string $data['paramDesc']   参数描述
      * @param int    $data['status']      参数状态：(0 无效 1 有效)
      * @param int    $data['createdTime'] 创建时间
+     * @param UidDTO $user                登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -76,7 +78,7 @@ interface ParamInterface
      *
      * @since  2017-09-25
      */
-    public function addParam(array $data): bool;
+    public function addParam(array $data, UidDTO $user = null): bool;
 
     /**
      * 更新系统字典参数名记录.
@@ -87,6 +89,7 @@ interface ParamInterface
      * @param string $data['paramName'] 参数名称
      * @param string $data['paramDesc'] 参数描述
      * @param int    $data['status']    参数状态：(0 无效 1 有效)
+     * @param UidDTO $user                登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -98,14 +101,15 @@ interface ParamInterface
      *
      * @since  2017-09-25
      */
-    public function updateParam(int $paramId, array $data): bool;
+    public function updateParam(int $paramId, array $data, UidDTO $user = null): bool;
 
     /**
      * 分页获取参数值列表.
      *
-     * @param array $condition   查询条件
-     * @param int   $currentPage 页码
-     * @param int   $limit       分页条数
+     * @param array $condition           查询条件
+     * @param int   $condition['status'] 参数状态：0 无效 1 有效
+     * @param int   $currentPage         页码
+     * @param int   $limit               分页条数
      *
      * ### 返回数据说明
      *
@@ -131,7 +135,7 @@ interface ParamInterface
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array 返回分页结果
-     * @requestExample(["condition": [],"currentPage": "1","limit": "20"])
+     * @requestExample(["condition": ['status' => 1],"currentPage": "1","limit": "20"])
      * @returnExample(["items": [{"paramId":1, "code":"test", "paramName":"测试编码", "paramDesc":"这个编码是测试数据", "status":1, "createdTime":1503560249}],
      *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
