@@ -29,6 +29,7 @@ interface ApplyInterface
      * 获取一条交易申请信息.
      *
      * @param int $paId 交易申请ID
+     * @param UidDTO $user  用户信息
      * @throws \Eelly\SDK\Pay\Exception\ApplyException
      * @return ApplyDTO
      * @requestExample({"paId":1})
@@ -39,10 +40,10 @@ interface ApplyInterface
      *   @OperatorValidator(0,{message : "交易申请I",operator:["gt",0]})
      *  )
      */
-    public function getApply(int $paId): ApplyDTO;
+    public function getApply(int $paId, UidDTO $user = null): ApplyDTO;
 
     /**
-     * 添加用户银行信息.
+     * 添加交易申请表.
      *
      * @param array $data
      * @param int $data ['gbCode'] 开户银行所在地区ID
@@ -82,7 +83,7 @@ interface ApplyInterface
      * 自己删除自己的申请信息.
      *
      * @param int $paId 交易申请ID
-     * @param UidDTO|null $uidDTO
+     * @param UidDTO|null $uidDTO 用户信息
      * @throws \Eelly\SDK\Pay\Exception\ApplyException
      * @return bool
      * @requestExample({"paId":1})
@@ -93,26 +94,22 @@ interface ApplyInterface
      * @OperatorValidator(0,{message : "交易申请I",operator:["gt",0]})
      * )
      */
-    public function deleteSelfApply(int $paId, UidDTO $uidDTO = null): bool;
+    public function deleteApply(int $paId, UidDTO $uidDTO = null): bool;
+
 
     /**
-     * 删除申请信息.
+     * 分页获取操作信息plyPage.
      *
-     * @param int $paId 交易申请ID
+     * @param UidDTO|null $uidDTO 用户信息
+     * @param array $condition 查询条件数组
+     * @param int $currentPage 页数
+     * @param int $limit 每页条数
      * @throws \Eelly\SDK\Pay\Exception\ApplyException
-     * @return bool
-     * @requestExample({"paId":1})
+     * @return array
+     * @requestExample({'condition':{'startTime':0,'endTime':0},'currentPage':1,'limit':1})
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
-     * @since 2017年09月23日
-     * @Validation(
-     * @OperatorValidator(0,{message : "交易申请I",operator:["gt",0]})
-     * )
+     * @since 2017年09月27日
      */
-    public function deleteApply(int $paId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function listApplyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listApplyPage(UidDTO $uidDTO = null, array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

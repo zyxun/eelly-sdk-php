@@ -16,50 +16,44 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class KeyDTO.
+ * Class CategoryDTO.
  */
-class KeyDTO extends AbstractDTO
+class ImageDTO extends AbstractDTO
 {
+
     /**
-     * 参数字典id.
+     * 文章图片主键id.
      *
      * @var int
      */
-    public $pkId;
+    public $saiId;
 
     /**
-     * 参数字典编码
-     *
-     * @var string
-     */
-    public $code;
-
-    /**
-     * 参数名称.
-     *
-     * @var string
-     */
-    public $paramName;
-
-    /**
-     * 参数描述.
-     *
-     * @var string
-     */
-    public $paramDesc;
-
-    /**
-     * 参数值状态：0 无效 1 有效.
+     * 文章id.
      *
      * @var int
      */
-    public $status;
+    public $articleId;
 
     /**
-     * @return string
+     * 来源图片地址.
+     *
+     * @var string
      */
-    public function getCodeName(): string
-    {
-        return $this->code;
-    }
+    public $fromImage;
+
+    /**
+     * 下载到本地图片地址.
+     *
+     * @var string
+     */
+    public $toImage;
+
+    /**
+     * 添加时间
+     *
+     * @var int
+     */
+    public $createdTime;
+
 }

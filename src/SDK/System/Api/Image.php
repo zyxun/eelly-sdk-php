@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\DTO\ImageDTO;
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\System\DTO\ImageDTO;
 use Eelly\SDK\System\Service\ImageInterface;
 
 /**
@@ -25,41 +26,41 @@ class Image implements ImageInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getImage(int $ImageId): ImageDTO
+    public function getImage(int $saiId): ImageDTO
     {
-        return EellyClient::request('system/image', 'getImage', $ImageId);
+        return EellyClient::request('system/image', 'getImage', $saiId);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addImage(array $data): bool
+    public function addImage(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/image', 'addImage', $data);
+        return EellyClient::request('system/image', 'addImage', $data, $user);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateImage(int $ImageId, array $data): bool
+    public function updateImage(int $saiId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/image', 'updateImage', $ImageId, $data);
+        return EellyClient::request('system/image', 'updateImage', $saiId, $data, $user);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteImage(int $ImageId): bool
+    public function deleteImage(int $saiId = null, int $articleId = null, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/image', 'deleteImage', $ImageId);
+        return EellyClient::request('system/image', 'deleteImage', $saiId, $articleId, $user);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listImagePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function listImage(int $saiId = null, int $articleId = null): array
     {
-        return EellyClient::request('system/image', 'listImagePage', $condition, $limit, $currentPage);
+        return EellyClient::request('system/image', 'listImage', $saiId, $articleId);
     }
 
     /**

@@ -44,13 +44,13 @@ interface CategoryInterface
      * 新增文章分类.
      *
      * @param array  $data              文章分类数据
-     * @param int    $data['name']      分类名称
+     * @param string $data['name']      分类名称
      * @param string $data['code']      分类编码
-     * @param string $data['parentId']  父分类ID
+     * @param int    $data['parentId']  父分类ID
      * @param int    $data['sort']      排序
      * @param int    $data['status']    状态 0:无效 1:有效
      * @param int    $data['checkFlag'] 分类文章审核标志：0:需审核 1:不需审核
-     * @param int    $data['remark']    分类备注
+     * @param string $data['remark']    分类备注
      * @param UidDTO $user              登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
@@ -70,13 +70,13 @@ interface CategoryInterface
      *
      * @param int    $categoryId        文章分类id
      * @param array  $data              文章分类数据
-     * @param int    $data['name']      分类名称
+     * @param string $data['name']      分类名称
      * @param string $data['code']      分类编码
-     * @param string $data['parentId']  父分类ID
+     * @param int    $data['parentId']  父分类ID
      * @param int    $data['sort']      排序
      * @param int    $data['status']    状态 0:无效 1:有效
      * @param int    $data['checkFlag'] 分类文章审核标志：0:需审核 1:不需审核
-     * @param int    $data['remark']    分类备注
+     * @param string $data['remark']    分类备注
      * @param UidDTO $user              登录用户对象
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
@@ -116,7 +116,7 @@ interface CategoryInterface
      *
      * @return array 文章分类列表
      * @requestExample()
-     * @returnExample({"categoryId":"1","name":"分类1","parentId":"0","status":"1","checkFlag":"1","son":[{"categoryId":"3","name":"分类3","parentId":"1","status":"1","checkFlag":"1"},{"categoryId":"4","name":"分类4","parentId":"1","status":"1","checkFlag":"1"}]})
+     * @returnExample({"item":[{"categoryId":"1","name":"分类1","parentId":"0","status":"1","checkFlag":"1","son":[{"categoryId":"3","name":"分类3","parentId":"1","status":"1","checkFlag":"1"},{"categoryId":"4","name":"分类4","parentId":"1","status":"1","checkFlag":"1"}]}]})
      *
      * @author wujunhua<wujunhua@eelly.net>
      *

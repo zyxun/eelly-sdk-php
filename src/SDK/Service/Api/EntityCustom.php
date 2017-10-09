@@ -26,9 +26,9 @@ class EntityCustom implements EntityCustomInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getEntityCustom(int $secId, UidDTO $user = null): EntityCustomDTO
+    public function getEntityCustom(int $secId): EntityCustomDTO
     {
-        return EellyClient::request('service/EntityCustom', 'getEntityCustom', $secId, $user);
+        return EellyClient::request('service/EntityCustom', 'getEntityCustom', $secId);
     }
 
     /**
@@ -45,6 +45,14 @@ class EntityCustom implements EntityCustomInterface
     public function updateEntityCustom(int $secId, array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('service/EntityCustom', 'updateEntityCustom', $secId, $data, $user);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listEntityCustomPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    {
+        return EellyClient::request('service/EntityCustom', 'listEntityCustomPage', $condition, $currentPage, $limit);
     }
 
     /**

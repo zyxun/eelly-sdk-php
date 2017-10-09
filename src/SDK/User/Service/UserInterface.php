@@ -15,6 +15,7 @@ namespace Eelly\SDK\User\Service;
 
 use Eelly\DTO\UidDTO;
 use Eelly\DTO\UserDTO;
+use Eelly\SDK\User\Exception\UserException;
 
 /**
  * 用户基础信息.
@@ -77,4 +78,26 @@ interface UserInterface
      * @author hehui<hehui@eelly.net>
      */
     public function getInfo(UidDTO $user = null): UserDTO;
+
+    /**
+     * 添加用户.
+     *
+     * @param array $data
+     * @param string $data["username"]
+     * @param string $data["password"]["old"]
+     * @param string $data["password"]
+     * @param int $data["mobile"]
+     * @param string $data["avatar"]
+     * @param int $data["status"]
+     *
+     * @throws UserException
+     *
+     * @return bool
+     * @requestExample({"data":{"username":"xxx","password_old":"xxx","password":"xxx","mobile":13711223344,"avatar":"xxx","status":0}})
+     * @returnExample(true)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/9/29
+     */
+    public function addUser(array $data): bool;
 }

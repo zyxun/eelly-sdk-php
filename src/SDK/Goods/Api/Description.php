@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Goods\Api;
 
-use Eelly\SDK\Goods\Service\Description1Interface;
+use Eelly\SDK\Goods\Service\DescriptionInterface;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
-class Description1 implements Description1Interface
+class Description implements DescriptionInterface
 {
     /**
      * @return self
