@@ -76,5 +76,5 @@ interface UserInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function info(UidDTO $user = null): UserDTO;
+    public function getInfo(UidDTO $user = null): UserDTO;
 }
