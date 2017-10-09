@@ -16,56 +16,50 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class GbDTO.
+ * Class ParamDTO.
  */
-class GbDTO extends AbstractDTO
+class ParamDTO extends AbstractDTO
 {
     /**
-     * 区域国标编码
+     * 参数字典id.
      *
      * @var int
      */
-    public $gbCode;
+    public $paramId;
 
     /**
-     * 区域名称.
+     * 参数字典编码
      *
      * @var string
      */
-    public $areaName;
+    public $code;
 
     /**
-     * 区域简称.
+     * 参数名称.
      *
      * @var string
      */
-    public $shortName;
+    public $paramName;
 
     /**
-     * 上级编码
-     *
-     * @var int
-     */
-    public $parentCode;
-
-    /**
-     * 电话区号.
+     * 参数描述.
      *
      * @var string
      */
-    public $telCode;
+    public $paramDesc;
 
     /**
-     * 邮政编码
+     * 参数值状态：0 无效 1 有效.
      *
      * @var int
      */
-    public $zipCode;
+    public $status;
 
     /**
-     * 区域所属片区.
-     *
-     * @var int
+     * @return string
      */
-    public $regionCode;
+    public function getCodeName(): string
+    {
+        return $this->code;
+    }
 }

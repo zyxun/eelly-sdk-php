@@ -26,9 +26,9 @@ class Contract implements ContractInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getContract(int $scId, UidDTO $user = null): ContractDTO
+    public function getContract(int $scId): ContractDTO
     {
-        return EellyClient::request('service/Contract', 'getContract', $scId, $user);
+        return EellyClient::request('service/Contract', 'getContract', $scId);
     }
 
     /**

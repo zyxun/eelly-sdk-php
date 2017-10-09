@@ -42,7 +42,7 @@ class User implements UserInterface
     /**
      * {@inheritdoc}
      */
-    public function info(UidDTO $user = null): UserDTO
+    public function getInfo(UidDTO $user = null): UserDTO
     {
         return EellyClient::request('user/user', 'info', $user);
     }

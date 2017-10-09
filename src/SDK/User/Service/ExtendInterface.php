@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
-use Eelly\DTO\ExtendDTO;
+use Eelly\SDK\User\DTO\ExtendDTO;
+use Eelly\SDK\User\Exception\ExtendException;
 
 /**
  * 用户扩展信息.
@@ -22,28 +23,147 @@ use Eelly\DTO\ExtendDTO;
  */
 interface ExtendInterface
 {
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getExtend(int $ExtendId): ExtendDTO;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取用户的扩展信息.
+     *
+     * @param int $extendId
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --------------|-------|--------------
+     * userId        |int    | 用户id
+     * realname      |string | 真实姓名
+     * gender        |string | 性别：0 未知 1 男 2 女
+     * birthday      |int    | 出生日期
+     * gbCode        |int    | 地区编码
+     * address       |string | 详细地址
+     * email         |string | 绑定邮箱
+     * regTime       |int    | 注册时间
+     * regIp         |string | 注册IP
+     * regChannel    |int    | 注册渠道
+     * regType       |int    | 注册方式
+     * regFromUserId |int    | 推荐的用户ID
+     * flag          |string | 用户标识
+     * createdTime   |int    | 添加时间
+     * updateTime    |string | 修改时间
+     *
+     * @throws ExtendException
+     *
+     * @return ExtendDTO
+     * @requestExample({"extendId":1})
+     * @returnExample({"userId":148086,"realname":"xx","gender":"1","birthday":1506500037,"gbCode":4401,"address":"xxx",
+     *     "email":"xxx","regTime":1506500037,"regIp":"127.0.0.1","regChannel":0,"regType":0,"regFromUserId":0,
+     *     "flag":"1","createdTime":1506500037,"updateTime":"2017/9/27 16:13:55"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/9/27
+     */
+    public function getExtend(int $extendId): ExtendDTO;
+
+    /**
+     * 添加用户的扩展信息.
+     *
+     * @param array  $data
+     * @param int    $data["userId"]        用户id
+     * @param string $data["realname"]      真实姓名
+     * @param string $data["gender"]        性别：0 未知 1 男 2 女
+     * @param int    $data["birthday"]      出生日期
+     * @param int    $data["gbCode"]        地区编码
+     * @param string $data["address"]       详细地址
+     * @param string $data["email"]         绑定邮箱
+     * @param int    $data["regTime"]       注册时间
+     * @param string $data["regIp"]         注册IP
+     * @param int    $data["regChannel"]    注册渠道 0 商城注册 1 APP注册 2 WAP注册
+     * @param int    $data["regType"]       注册方式 0 未知 1 手机 2 邮箱 3 QQ绑定 4 微信 可增加
+     * @param int    $data["regFromUserId"] 推荐的用户ID
+     * @param string $data["flag"]          用户标识 1 绑定手机 2 绑定邮箱 4 设置密保 8 实名认证 16 用户身份 32 刷单用户
+     *
+     * @throws ExtendException
+     *
+     * @return bool
+     * @requestExample({"data":{"userId":148086,"realname":"xx","gender":"1","birthday":1506500037,"gbCode":4401,"address":"xxx",
+     *     "email":"xxx","regTime":1506500037,"regIp":"127.0.0.1","regChannel":0,"regType":0,"regFromUserId":0,"flag":"1"}})
+     * @returnExample(true)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/9/27
      */
     public function addExtend(array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新用户扩展信息.
+     *
+     * @param int $extendId                 扩展id
+     * @param array  $data
+     * @param int    $data["userId"]        用户id
+     * @param string $data["realname"]      真实姓名
+     * @param string $data["gender"]        性别：0 未知 1 男 2 女
+     * @param int    $data["birthday"]      出生日期
+     * @param int    $data["gbCode"]        地区编码
+     * @param string $data["address"]       详细地址
+     * @param string $data["email"]         绑定邮箱
+     * @param int    $data["regTime"]       注册时间
+     * @param string $data["regIp"]         注册IP
+     * @param int    $data["regChannel"]    注册渠道 0 商城注册 1 APP注册 2 WAP注册
+     * @param int    $data["regType"]       注册方式 0 未知 1 手机 2 邮箱 3 QQ绑定 4 微信 可增加
+     * @param int    $data["regFromUserId"] 推荐的用户ID
+     * @param string $data["flag"]          用户标识 1 绑定手机 2 绑定邮箱 4 设置密保 8 实名认证 16 用户身份 32 刷单用户
+     *
+     * @throws ExtendException
+     *
+     * @return bool
+     * @requestExample({"extendId":1, "data":{"userId":148086,"realname":"xx","gender":"1","birthday":1506500037,"gbCode":4401,"address":"xxx",
+     *     "email":"xxx","regTime":1506500037,"regIp":"127.0.0.1","regChannel":0,"regType":0,"regFromUserId":0,"flag":"1"}})
+     * @returnExample(true)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/9/27
      */
-    public function updateExtend(int $ExtendId, array $data): bool;
+    public function updateExtend(int $extendId, array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteExtend(int $ExtendId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 分页获取用户扩展信息.
+     *
+     * @param array $condition
+     * @param int $condition["userId"]                      用户id
+     * @param string $condition["gender"]           性别：0 未知 1 男 2 女
+     * @param int $condition["gbCode"]              地区编码
+     * @param int $condition["regChannel"]          注册渠道 0 商城注册 1 APP注册 2 WAP注册
+     * @param int $condition["regType"]             注册方式 0 未知 1 手机 2 邮箱 3 QQ绑定 4 微信 可增加
+     * @param int $condition["regFromUserId"]       推荐的用户ID
+     * @param string $condition["flag"]             用户标识 1 绑定手机 2 绑定邮箱 4 设置密保 8 实名认证 16 用户身份 32 刷单用户
+     * @param int $currentPage
+     * @param int $limit
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --------------|-------|--------------
+     * userId        |int    |
+     * realname      |string |
+     * gender        |string |
+     * birthday      |int    |
+     * gbCode        |int    |
+     * address       |string |
+     * email         |string |
+     * regTime       |int    |
+     * regIp         |string |
+     * regChannel    |int    |
+     * regType       |int    |
+     * regFromUserId |int    |
+     * flag          |string |
+     *
+     * @throws ExtendException
+     *
+     * @return array
+     * @requestExample({"condition":{"userId":148086,"gender":"1","gbCode":4401,
+     *     "regChannel":0,"regType":0,"regFromUserId":0,"flag":"1"}, "currentPage":1,"limit":10})
+     * @returnExample([{"userId":148086,"realname":"xx","gender":"1","birthday":1506500037,"gbCode":4401,"address":"xxx",
+     *     "email":"xxx","regTime":1506500037,"regIp":"127.0.0.1","regChannel":0,"regType":0,"regFromUserId":0,"flag":"1"}])
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/9/27
      */
     public function listExtendPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }
