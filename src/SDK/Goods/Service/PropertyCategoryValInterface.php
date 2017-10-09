@@ -123,6 +123,7 @@ interface PropertyCategoryValInterface
      * 获取商品分类的属性值关系信息
      *
      * @param int $cateId 商品分类id
+     * @param int $isHidden 是否隐藏属性 0 否 1 是
      * @return array 分类属性值关系信息
      * @requestExample({
      *     "cateId":1,

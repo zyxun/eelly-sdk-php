@@ -16,6 +16,6 @@ namespace Eelly\SDK\Goods\Service;
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface Description1Interface
+interface DescriptionInterface
 {
 }
