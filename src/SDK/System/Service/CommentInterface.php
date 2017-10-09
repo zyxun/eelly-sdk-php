@@ -30,13 +30,12 @@ interface CommentInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return CommentDTO
      * @requestExample({"commentId":1})
      * @returnExample({"commentId":1,"type":2,"itemId":123,"content":"新中国","userId":148086,"username":"莫琼小店",
      *  "userIp":"","status":0,"createdTime":1505109590})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-27
      */
     public function getComment(int $commentId): CommentDTO;
@@ -63,7 +62,6 @@ interface CommentInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-27
      */
     public function addComment(array $data, UidDTO $user = null): bool;
@@ -72,6 +70,7 @@ interface CommentInterface
      * 删除评论.
      *
      * @param int $commentId 评论id
+     * @param UidDTO $user   登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -80,10 +79,9 @@ interface CommentInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-27
      */
-    public function deleteComment(int $commentId): bool;
+    public function deleteComment(int $commentId, UidDTO $user = null): bool;
 
     /**
      * 分页获取评论数据.
@@ -132,7 +130,6 @@ interface CommentInterface
      *  "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-27
      */
     public function listCommentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

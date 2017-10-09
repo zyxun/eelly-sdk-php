@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\MarketDTO;
 
 /**
@@ -29,14 +30,13 @@ interface MarketInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return MarketDTO
      * @requestExample({"marketId":1})
      * @returnExample({"marketId":3,"districtId":2,"marketName":"十三行新中国大厦","shortName":"新中国","startTime":"7:00","endTime":"14:00",
      *  "floorTotal":23,"latitude":"23.1166","longitude":"113.259499","gbCode":440103,"address":"荔湾区十三行路1号",
      *  "image":"XA283.jpg","isOpen":1,"sort":65535,"remark":"","createdTime":1505109590})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-26
      */
     public function getMarket(int $marketId): MarketDTO;
@@ -59,6 +59,7 @@ interface MarketInterface
      * @param int    $data["isOpen"]     是否开通批发市场网页：0、未开通 1、开通
      * @param int    $data["sort"]       显示排序
      * @param string $data["remark"]     市场备注
+     * @param UidDTO $user               用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -69,10 +70,9 @@ interface MarketInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-26
      */
-    public function addMarket(array $data): bool;
+    public function addMarket(array $data, UidDTO $user = null): bool;
 
     /**
      * 更新市场信息.
@@ -93,6 +93,7 @@ interface MarketInterface
      * @param int    $data["isOpen"]     是否开通批发市场网页：0、未开通 1、开通
      * @param int    $data["sort"]       显示排序
      * @param string $data["remark"]     市场备注
+     * @param UidDTO $user               用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -103,15 +104,15 @@ interface MarketInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-26
      */
-    public function updateMarket(int $marketId, array $data): bool;
+    public function updateMarket(int $marketId, array $data, UidDTO $user = null): bool;
 
     /**
      * 删除市场信息.
      *
      * @param int $marketId 市场id
+     * @param UidDTO $user               用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -120,10 +121,9 @@ interface MarketInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-26
      */
-    public function deleteMarket(int $marketId): bool;
+    public function deleteMarket(int $marketId, UidDTO $user = null): bool;
 
     /**
      * 分页获取商圈数据列表.
@@ -173,7 +173,6 @@ interface MarketInterface
      *  "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since 2017-09-26
      */
     public function listMarketPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

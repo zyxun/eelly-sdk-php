@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ParamValueDTO;
 
 /**
@@ -29,13 +30,12 @@ interface ParamValueInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return array
+     * @return ParamValueDTO
      *
      * @requestExample({"spvId":1})
      * @returnExample({"spvId":1,"paramId":1, "paramValue":"测试编码","paramDesc":"这个编码是测试数据","status":1,"remark":"测试数据","createdTime":1503560249})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-25
      */
     public function getParamValue(int $spvId): ParamValueDTO;
@@ -50,6 +50,7 @@ interface ParamValueInterface
      * @param int    $data['status']      参数状态：(0 无效 1 有效)
      * @param string $data['remark']      字典值描述的解释
      * @param int    $data['createdTime'] 创建时间
+     * @param UidDTO $user                用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -58,10 +59,9 @@ interface ParamValueInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-25
      */
-    public function addParamValue(array $data): bool;
+    public function addParamValue(array $data, UidDTO $user = null): bool;
 
     /**
      * 更新系统字典参数值的数据.
@@ -73,6 +73,7 @@ interface ParamValueInterface
      * @param string $data['paramDesc']  参数值描述
      * @param int    $data['status']     参数状态：(0 无效 1 有效)
      * @param string $data['remark']     字典值描述的解释
+     * @param UidDTO $user               用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -81,10 +82,9 @@ interface ParamValueInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-25
      */
-    public function updateParamValue(int $spvId, array $data): bool;
+    public function updateParamValue(int $spvId, array $data, UidDTO $user = null): bool;
 
     /**
      * 分页获取参数值列表.
@@ -126,7 +126,6 @@ interface ParamValueInterface
      *     "createdTime":1503560249}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     *
      * @since  2017-09-25
      */
     public function listParamValuePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
