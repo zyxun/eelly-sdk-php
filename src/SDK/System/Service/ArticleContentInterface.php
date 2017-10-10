@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\System\Service;
 
 use Eelly\DTO\UidDTO;
-use Eelly\SDK\System\DTO\ContentDTO;
+use Eelly\SDK\System\DTO\ArticleContentDTO;
 
 
 /**
@@ -22,7 +22,7 @@ use Eelly\SDK\System\DTO\ContentDTO;
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface ContentInterface
+interface ArticleContentInterface
 {
 
     /**
@@ -32,7 +32,7 @@ interface ContentInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return ContentDTO
+     * @return ArticleContentDTO
      * @requestExample({"articleId":1})
      * @returnExample({"articleId":1,"content":"内容","createdTime":0})
      *
@@ -40,7 +40,7 @@ interface ContentInterface
      *
      * @since 2017-09-26
      */
-    public function getContent(int $articleId): ContentDTO;
+    public function getContent(int $articleId): ArticleContentDTO;
 
     /**
      * 新增文章内容.

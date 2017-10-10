@@ -12,15 +12,15 @@ declare(strict_types=1);
 namespace Eelly\SDK\System\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\CategoryInterface;
-use Eelly\SDK\System\DTO\CategoryDTO;
+use Eelly\SDK\System\Service\ArticleCategoryInterface;
+use Eelly\SDK\System\DTO\ArticleCategoryDTO;
 use Eelly\DTO\UidDTO;
 
 /**
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-class Category implements CategoryInterface
+class ArticleCategory implements ArticleCategoryInterface
 {
 
     /**
@@ -30,7 +30,7 @@ class Category implements CategoryInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return \Eelly\SDK\System\DTO\CategoryDTO
+     * @return \Eelly\SDK\System\DTO\ArticleCategoryDTO
      * @requestExample({"categoryId":1})
      * @returnExample({"parentId":0,"name":"分类名称","code":"分类编码","categoryId":1,"sort":1,"status":1,"checkFlag":1,"remark":"分类备注"})
      *
@@ -38,7 +38,7 @@ class Category implements CategoryInterface
      *
      * @since 2017-08-31
      */
-    public function getCategory(int $categoryId): CategoryDTO
+    public function getCategory(int $categoryId): ArticleCategoryDTO
     {
         return EellyClient::request('system/category', 'getCategory', $categoryId);
     }
