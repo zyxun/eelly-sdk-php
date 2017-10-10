@@ -14,14 +14,14 @@ declare(strict_types=1);
 namespace Eelly\SDK\System\Service;
 
 use Eelly\DTO\UidDTO;
-use Eelly\SDK\System\DTO\ImageDTO;
+use Eelly\SDK\System\DTO\ArticleImageDTO;
 
 /**
  * 文章图片.
  * 
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface ImageInterface
+interface ArticleImageInterface
 {
 
     /**
@@ -31,7 +31,7 @@ interface ImageInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return ImageDTO
+     * @return ArticleImageDTO
      * @requestExample({"saiId":1})
      * @returnExample({"saiId":1,"articleId":1,"fromImage":"来源图片地址","toImage":"下载到本地图片地址","createdTime":1504321656})
      *
@@ -39,7 +39,7 @@ interface ImageInterface
      *
      * @since 2017-09-26
      */
-    public function getImage(int $saiId): ImageDTO;
+    public function getImage(int $saiId): ArticleImageDTO;
 
     /**
      * 新增文章图片.
