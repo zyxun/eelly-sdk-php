@@ -21,5 +21,5 @@ use Eelly\Exception\LogicException;
  */
 class ContactException extends LogicException
 {
-
+    public const DUPLICATE_EVENT = '标签已存在';
 }

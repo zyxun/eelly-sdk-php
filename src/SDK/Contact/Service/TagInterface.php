@@ -11,11 +11,15 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Contact\Service;
 
-use Eelly\DTO\TagDTO;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\Contact\DTO\TagDTO;
+
 
 /**
+ * 联系人标签.
  *
- * @author eellytools<localhost.shell@gmail.com>
+ * @author  肖俊明<xiaojunming@eelly.net>
+ * @since 2017年10月09日
  */
 interface TagInterface
 {
@@ -24,31 +28,52 @@ interface TagInterface
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getTag(int $tagId): TagDTO;
+    //public function getTag(UidDTO $user = null): TagDTO;
+
+    /**
+     * 新增标签(APP专用).
+     *
+     * @param array $data 标签数据
+     * @param int $data ['ctId'] 标签数据
+     * @param int $data ['userId'] 用户数据
+     * @param string $data ['name'] 标签名称
+     * @param array $data ['contactIds'] 联系人ID数组
+     * @param UidDTO|null $user 用户登录信息
+     * @return bool
+     * @requestExample({"data":{"ctId":1,"userId":148086,"name":"eelly","contactIds":{1,2,3,4}}})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月09日
+     */
+    public function addTag(array $data, UidDTO $user = null): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addTag(array $data): bool;
+    //public function updateTag(int $tagId, array $data): bool;
+
+    /**
+     * 删除标签.
+     *
+     * @param int $ctId 标签ID
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     * @return bool
+     * @requestExample({'ctId':1})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月09日
+     * @Validation(
+     * @OperatorValidator(0,{message : "标签ID",operator:["gt",0]})
+     * )
+     */
+    public function deleteTag(int $ctId): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateTag(int $tagId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteTag(int $tagId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listTagPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    //public function listTagPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
 
 }

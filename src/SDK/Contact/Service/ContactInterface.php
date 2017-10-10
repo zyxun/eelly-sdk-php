@@ -50,6 +50,59 @@ interface ContactInterface
      * @since 2017年09月30日
      */
     public function getConcernCount(int $startTime = 0, int $endTime = 0, UidDTO $user = null):array;
+
+    /**
+     * 获取联系人列表.
+     *
+     * @param int         $day  最后聊天天数
+     * @param UidDTO|null $user 用户登录信息
+     *
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     *
+     * @return array
+     * @requestExample({"day":0})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月10日
+     */
+    public function getContactsList(int $day = 0, UidDTO $user = null): array;
+
+    /**
+     * 获取粉丝列表.
+     *
+     * @param int $lastTime 最后新增粉丝的时间： 0.全部  >0.新增
+     * @param int $page     分页页数
+     * @param UidDTO|null $user 用户登录信息
+     *
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     *
+     * @return array
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     *
+     * @since  2016年09月10日
+     */
+    public function getFansList($lastTime = 0, $page = 1, UidDTO $user = null):array;
+
+    /**
+     * 根据手机列表获取在衣联注册且未关注的用户.
+     *
+     * @param array  $mobileList 手机联系人列表
+     * @param UidDTO $user       用户登录信息
+     *
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     *
+     * @return array
+     * @requestExample({'mobileList':{'phone_mob':1}})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月10日
+     */
+    public function newFriendMobileList(array $mobileList, UidDTO $user): array;
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
