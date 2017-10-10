@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\StatusDTO;
+use Eelly\SDK\User\DTO\StatusDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\StatusInterface;
 
@@ -60,6 +60,11 @@ class Status implements StatusInterface
     public function listStatusPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/status', 'listStatusPage', $condition, $limit, $currentPage);
+    }
+
+    public function addUcLogin(array $data): bool
+    {
+        return EellyClient::request('user/status', 'addUcLogin', $data);
     }
 
     /**
