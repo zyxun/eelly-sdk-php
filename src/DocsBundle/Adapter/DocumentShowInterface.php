@@ -21,9 +21,7 @@ use Phalcon\Di\InjectionAwareInterface;
 interface DocumentShowInterface extends InjectionAwareInterface
 {
     /**
-     * 文档展示.
-     *
-     * @return mixed
+     * set view variables.
      */
-    public function renderBody();
+    public function setViewVars(): void;
 }

@@ -18,11 +18,10 @@ namespace Eelly\DocsBundle\Adapter;
  */
 class HomeDocumentShow extends AbstractDocumentShow implements DocumentShowInterface
 {
-    public function renderBody(): void
+    public function setViewVars(): void
     {
         $this->view->markup = function ($markdown) {
             return $this->parserMarkdown($markdown);
         };
-        $this->view->render('apidoc', 'home');
     }
 }

@@ -32,7 +32,7 @@ class ServiceDocumentShow extends AbstractDocumentShow implements DocumentShowIn
         $this->class = $class;
     }
 
-    public function renderBody(): void
+    public function setViewVars(): void
     {
         if (!interface_exists($this->class)) {
             throw new RequestException(404, null, $this->request, $this->response);
@@ -53,6 +53,5 @@ class ServiceDocumentShow extends AbstractDocumentShow implements DocumentShowIn
 $methodList
 EOF;
         $this->view->markup = $this->parserMarkdown($markdown);
-        $this->view->render('apidoc', 'service');
     }
 }
