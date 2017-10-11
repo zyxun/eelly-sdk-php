@@ -15,18 +15,18 @@ namespace Eelly\SDK\System\Api;
 
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\DTO\ImageDTO;
-use Eelly\SDK\System\Service\ImageInterface;
+use Eelly\SDK\System\DTO\ArticleImageDTO;
+use Eelly\SDK\System\Service\ArticleImageInterface;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
-class Image implements ImageInterface
+class ArticleImage implements ArticleImageInterface
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getImage(int $saiId): ImageDTO
+    public function getImage(int $saiId): ArticleImageDTO
     {
         return EellyClient::request('system/image', 'getImage', $saiId);
     }

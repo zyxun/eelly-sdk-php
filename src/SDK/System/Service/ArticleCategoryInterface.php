@@ -14,14 +14,14 @@ declare(strict_types=1);
 namespace Eelly\SDK\System\Service;
 
 use Eelly\DTO\UidDTO;
-use Eelly\SDK\System\DTO\CategoryDTO;
+use Eelly\SDK\System\DTO\ArticleCategoryDTO;
 
 /**
  * 文章分类.
  * 
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface CategoryInterface
+interface ArticleCategoryInterface
 {
     /**
      * 获取指定id文章分类.
@@ -30,7 +30,7 @@ interface CategoryInterface
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
-     * @return \Eelly\SDK\System\DTO\CategoryDTO
+     * @return \Eelly\SDK\System\DTO\ArticleCategoryDTO
      * @requestExample({"categoryId":1})
      * @returnExample({"parentId":0,"name":"分类名称","code":"分类编码","categoryId":1,"sort":1,"status":1,"checkFlag":1,"remark":"分类备注"})
      *
@@ -38,7 +38,7 @@ interface CategoryInterface
      *
      * @since 2017-08-31
      */
-    public function getCategory(int $categoryId): CategoryDTO;
+    public function getCategory(int $categoryId): ArticleCategoryDTO;
 
     /**
      * 新增文章分类.
