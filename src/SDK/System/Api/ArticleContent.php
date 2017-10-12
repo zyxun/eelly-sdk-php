@@ -15,18 +15,18 @@ namespace Eelly\SDK\System\Api;
 
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\DTO\ContentDTO;
-use Eelly\SDK\System\Service\ContentInterface;
+use Eelly\SDK\System\DTO\ArticleContentDTO;
+use Eelly\SDK\System\Service\ArticleContentInterface;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
-class Content implements ContentInterface
+class ArticleContent implements ArticleContentInterface
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getContent(int $articleId): ContentDTO
+    public function getContent(int $articleId): ArticleContentDTO
     {
         return EellyClient::request('system/content', 'getContent', $articleId);
     }

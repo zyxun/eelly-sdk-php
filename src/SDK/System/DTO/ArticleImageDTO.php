@@ -18,7 +18,7 @@ use Eelly\DTO\AbstractDTO;
 /**
  * Class CategoryDTO.
  */
-class ImageDTO extends AbstractDTO
+class ArticleImageDTO extends AbstractDTO
 {
 
     /**

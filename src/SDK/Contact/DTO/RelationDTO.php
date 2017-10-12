@@ -14,7 +14,7 @@ namespace Eelly\SDK\Contact\DTO;
 
 use Eelly\DTO\AbstractDTO;
 
-class ContactDTO extends AbstractDTO
+class RelationDTO extends AbstractDTO
 {
 
 }

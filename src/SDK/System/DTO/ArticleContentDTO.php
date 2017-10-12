@@ -16,9 +16,9 @@ namespace Eelly\SDK\System\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * Class CategoryDTO.
+ * Class ArticleCategoryDTO.
  */
-class ContentDTO extends AbstractDTO
+class ArticleContentDTO extends AbstractDTO
 {
     /**
      * 文章id.

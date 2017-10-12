@@ -28,7 +28,7 @@ class ApiDocLogic extends Controller
     public function onConstruct(): void
     {
         $this->application->useImplicitView(true);
-        $this->getDI()->set('view', function () {
+        $this->getDI()->setShared('view', function () {
             $view = new View();
             $view->setViewsDir(__DIR__.'/Resources/views/');
             $view->setLayoutsDir(__DIR__.'/Resources/views/');
@@ -39,7 +39,6 @@ class ApiDocLogic extends Controller
             $view->registerEngines([
                 '.phtml'  => View\Engine\Php::class,
             ]);
-            $view->start();
 
             return $view;
         });
@@ -50,7 +49,7 @@ class ApiDocLogic extends Controller
      */
     public function home(): void
     {
-        $this->rendBody(HomeDocumentShow::class);
+        $this->rendBody(HomeDocumentShow::class, __FUNCTION__);
     }
 
     /**
@@ -60,7 +59,7 @@ class ApiDocLogic extends Controller
      */
     public function module(string $module): void
     {
-        $this->rendBody(ModuleDocumentShow::class, [$module]);
+        $this->rendBody(ModuleDocumentShow::class, __FUNCTION__, [$module]);
     }
 
     /**
@@ -71,7 +70,7 @@ class ApiDocLogic extends Controller
     public function service(string $module): void
     {
         $class = $this->dispatcher->getParam('class');
-        $this->rendBody(ServiceDocumentShow::class, [$module, $class]);
+        $this->rendBody(ServiceDocumentShow::class, __FUNCTION__, [$module, $class]);
     }
 
     /**
@@ -83,19 +82,21 @@ class ApiDocLogic extends Controller
     {
         $class = $this->dispatcher->getParam('class');
         $method = $this->dispatcher->getParam('method');
-        $this->rendBody(ApiDocumentShow::class, [$module, $class, $method]);
+        $this->rendBody(ApiDocumentShow::class, __FUNCTION__, [$module, $class, $method]);
     }
 
     /**
      * @param string $class
+     * @param string $method
      * @param array  $params
      */
-    private function rendBody(string $class, array $params = []): void
+    private function rendBody(string $class, string $method, array $params = []): void
     {
         $documentShow = $this->di->get($class, $params);
         if (method_exists($documentShow, 'initialize')) {
             $documentShow->initialize();
         }
-        $documentShow->renderBody();
+        $documentShow->setViewVars();
+        $this->view->start()->render('apidoc', $method);
     }
 }
