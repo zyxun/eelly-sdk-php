@@ -141,12 +141,12 @@ EOF;
 ```php
 $methodMarkdown
 ```
-{$docComment['description']}
-
 $paramsMarkdown
 
 $requestExample
         
+{$docComment['description']}
+
 $returnExample
 
 ### 代码贡献
