@@ -82,13 +82,13 @@ interface UserInterface
     /**
      * 添加用户.
      *
-     * @param array $data
+     * @param array  $data
      * @param string $data["username"]
      * @param string $data["password"]["old"]
      * @param string $data["password"]
-     * @param int $data["mobile"]
+     * @param int    $data["mobile"]
      * @param string $data["avatar"]
-     * @param int $data["status"]
+     * @param int    $data["status"]
      *
      * @throws UserException
      *
@@ -97,6 +97,7 @@ interface UserInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/29
      */
     public function addUser(array $data): bool;

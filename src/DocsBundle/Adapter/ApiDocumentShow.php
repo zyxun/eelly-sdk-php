@@ -39,7 +39,7 @@ class ApiDocumentShow extends AbstractDocumentShow implements DocumentShowInterf
         $this->method = $method;
     }
 
-    public function renderBody(): void
+    public function setViewVars(): void
     {
         if (!interface_exists($this->class) || !method_exists($this->class, $this->method)) {
             throw new RequestException(404, null, $this->request, $this->response);
@@ -153,6 +153,5 @@ $returnExample
 $authorsMarkdown
 EOF;
         $this->view->markup = $this->parserMarkdown($markdown);
-        $this->view->render('apidoc', 'api');
     }
 }
