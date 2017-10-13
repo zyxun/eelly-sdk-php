@@ -107,6 +107,11 @@ class User implements UserInterface
         return EellyClient::request('user/user', 'getUcUserByUid', $uid, $fields);
     }
 
+    public function getUcAvatarByIds(string $uids): array
+    {
+        return EellyClient::request('user/user', 'getUcAvatarByIds', $uids);
+    }
+
     public function getUcUserByEmail(string $email): array
     {
         return EellyClient::request('user/user', 'getUcUserByEmail', $email);
