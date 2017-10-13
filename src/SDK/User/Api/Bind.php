@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\User\DTO\UserBindDTO;
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\BindInterface;
 
@@ -34,9 +33,9 @@ class Bind implements BindInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addBind(array $data, UidDTO $uidDTO): bool
+    public function addBind(array $data): bool
     {
-        return EellyClient::request('user/bind', 'addBind', $data, $uidDTO);
+        return EellyClient::request('user/bind', 'addBind', $data);
     }
 
     /**
@@ -68,9 +67,9 @@ class Bind implements BindInterface
         return EellyClient::request('user/bind', 'getBindByUserId', $uid, $type);
     }
 
-    public function updateByUserId(int $userId, int $type, string $key): bool
+    public function updateByUserId(int $userId, int $type, string $key, int $isBind = 1): bool
     {
-        return EellyClient::request('user/bind', 'updateByUserId', $userId, $type, $key);
+        return EellyClient::request('user/bind', 'updateByUserId', $userId, $type, $key, $isBind);
     }
 
     public function checkContact(string $contactId, int $type, string $fields): int
