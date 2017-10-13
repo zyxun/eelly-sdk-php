@@ -87,6 +87,51 @@ class User implements UserInterface
         return EellyClient::request('user/user', 'listUserPage', $condition, $limit, $currentPage);
     }
 
+    public function getByUserName(string $username): array
+    {
+        return EellyClient::request('user/user', 'getByUserName', $username);
+    }
+
+    public function addUcUser(string $username, string $password, string $email, int $uid = 0, string $regip = ''): int
+    {
+        return EellyClient::request('user/user', 'addUcUser', $username, $password, $email, $uid, $regip);
+    }
+
+    public function editUcUser(string $username, string $oldpw, string $newpw, string $email, int $ignoreoldpw = 0): int
+    {
+        return EellyClient::request('user/user', 'editUcUser', $username, $oldpw, $newpw, $email, $ignoreoldpw);
+    }
+
+    public function getUcUserByUid(int $uid, string $fields = ''): array
+    {
+        return EellyClient::request('user/user', 'getUcUserByUid', $uid, $fields);
+    }
+
+    public function getUcAvatarByIds(string $uids): array
+    {
+        return EellyClient::request('user/user', 'getUcAvatarByIds', $uids);
+    }
+
+    public function getUcUserByEmail(string $email): array
+    {
+        return EellyClient::request('user/user', 'getUcUserByEmail', $email);
+    }
+
+    public function getUcUserByUsername(string $username): array
+    {
+        return EellyClient::request('user/user', 'getUcUserByUsername', $username);
+    }
+
+    public function checkThirdKey(int $type, string $key): int
+    {
+        return EellyClient::request('user/user', 'checkThirdKey', $type, $key);
+    }
+
+    public function updateUserAvatar(int $uid, string $avatar): bool
+    {
+        return EellyClient::request('user/user', 'updateUserAvatar', $uid, $avatar);
+    }
+
     /**
      * @return self
      */

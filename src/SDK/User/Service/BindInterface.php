@@ -56,22 +56,21 @@ interface BindInterface
      * 添加绑定.
      *
      * @param array $data
+     * @param int       $data['userId'] 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
      * @param int       $data['type'] 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string    $data['union_id'] 第三方平台union_id
-     * @param string    $data['open_id']  第三方平台open_id
-     * @param string    $data['app_id']   微信公众平台ID,对应mobile.mobile_wechat表appid字段
+     * @param string    $data['unionId'] 第三方平台union_id
+     * @param string    $data['openId']  第三方平台open_id
+     * @param string    $data['appId']   微信公众平台ID,对应mobile.mobile_wechat表appid字段
      * @param int       $data['status']   绑定状态：1 绑定状态 2 解绑状态
-     * @param UidDTO    $uidDTO
-     * @throws BindException
      *
      * @return bool
-     * @requestExample({"type":"1","unionId":"xxxx","openId":"xxxx","appId":"xxxx","status":"1"})
+     * @requestExample({"type":"1","union_id":"xxxx","open_id":"xxxx","app_id":"xxxx","status":"1"})
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/27
      */
-    public function addBind(array $data, UidDTO $uidDTO): bool;
+    public function addBind(array $data): bool;
 
     /**
      * 更新绑定信息.
