@@ -27,7 +27,7 @@ interface ExtendInterface
     /**
      * 获取用户的扩展信息.
      *
-     * @param int $extendId
+     * @param int $userId
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -59,7 +59,7 @@ interface ExtendInterface
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/27
      */
-    public function getExtend(int $extendId): ExtendDTO;
+    public function getExtend(int $userId): ExtendDTO;
 
     /**
      * 添加用户的扩展信息.
@@ -94,7 +94,7 @@ interface ExtendInterface
     /**
      * 更新用户扩展信息.
      *
-     * @param int $extendId                 扩展id
+     * @param int $userId                   用户id
      * @param array  $data
      * @param int    $data["userId"]        用户id
      * @param string $data["realname"]      真实姓名
@@ -120,7 +120,7 @@ interface ExtendInterface
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/9/27
      */
-    public function updateExtend(int $extendId, array $data): bool;
+    public function updateExtend(int $userId, array $data): bool;
 
     /**
      * 分页获取用户扩展信息.

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\ExtendDTO;
+use Eelly\SDK\User\DTO\ExtendDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\ExtendInterface;
 
@@ -60,6 +60,14 @@ class Extend implements ExtendInterface
     public function listExtendPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('user/extend', 'listExtendPage', $condition, $limit, $currentPage);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function checkEmailExists(string $email, string $username = ''): bool
+    {
+        return EellyClient::request('user/extend', 'checkEmailExists', $email, $username);
     }
 
     /**

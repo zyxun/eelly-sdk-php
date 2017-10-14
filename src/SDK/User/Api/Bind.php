@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\BindDTO;
+use Eelly\SDK\User\DTO\UserBindDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\BindInterface;
 
@@ -25,7 +25,7 @@ class Bind implements BindInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getBind(int $BindId): BindDTO
+    public function getBind(int $BindId): UserBindDTO
     {
         return EellyClient::request('user/bind', 'getBind', $BindId);
     }
@@ -61,6 +61,29 @@ class Bind implements BindInterface
     {
         return EellyClient::request('user/bind', 'listBindPage', $condition, $limit, $currentPage);
     }
+
+    public function getBindByUserId(int $uid, int $type = 0): array
+    {
+        return EellyClient::request('user/bind', 'getBindByUserId', $uid, $type);
+    }
+
+    public function updateByUserId(int $userId, int $type, string $key, int $isBind = 1): bool
+    {
+        return EellyClient::request('user/bind', 'updateByUserId', $userId, $type, $key, $isBind);
+    }
+
+    public function checkContact(string $contactId, int $type, string $fields): int
+    {
+        return EellyClient::request('user/bind', 'checkContact', $contactId, $type, $fields);
+    }
+
+    public function getByContact(int $type, string $unionId): array
+    {
+        return EellyClient::request('user/bind', 'getByContact', $type, $unionId);
+    }
+
+
+
 
     /**
      * @return self
