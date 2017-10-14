@@ -15,6 +15,9 @@ namespace Eelly\DocsBundle;
 
 use Phalcon\Di\Injectable;
 use Phalcon\Di\Service;
+use Phalcon\Events\Event;
+use Phalcon\Mvc\Router;
+use Phalcon\Mvc\View;
 
 class DocsBundle extends Injectable
 {
@@ -25,25 +28,25 @@ class DocsBundle extends Injectable
             $value = $value->toArray();
             $namespace = str_replace('Module', 'Logic', $value['className']);
             $router->addGet('/', [
-                'namespace'      => 'Eelly\DocsBundle',
+                'namespace'      => __NAMESPACE__,
                 'controller'     => 'apiDoc',
                 'action'         => 'home',
             ]);
             $router->addGet('/'.$moduleName, [
-                'namespace'      => 'Eelly\DocsBundle',
+                'namespace'      => __NAMESPACE__,
                 'controller'     => 'apiDoc',
                 'action'         => 'module',
                 'params'         => $moduleName,
             ]);
             $router->addGet('/'.$moduleName.'/:controller', [
-                'namespace'      => 'Eelly\DocsBundle',
+                'namespace'      => __NAMESPACE__,
                 'controller'     => 'apiDoc',
                 'action'         => 'service',
                 'params'         => $moduleName,
                 'class'          => 1,
             ]);
             $router->addGet('/'.$moduleName.'/:controller/:action', [
-                'namespace'      => 'Eelly\DocsBundle',
+                'namespace'      => __NAMESPACE__,
                 'controller'     => 'apiDoc',
                 'action'         => 'api',
                 'params'         => $moduleName,
@@ -51,5 +54,24 @@ class DocsBundle extends Injectable
                 'method'         => 2,
             ])->setName($moduleName);
         }
+        $this->getEventsManager()->attach('router:matchedRoute', function (Event $event, Router $router, Router\Route $route): void {
+            if (__NAMESPACE__ == $route->getPaths()['namespace']) {
+                $this->getDI()->get('application')->useImplicitView(true);
+                $this->getDI()->setShared('view', function () {
+                    $view = new View();
+                    $view->setViewsDir(__DIR__.'/Resources/views/');
+                    $view->setLayoutsDir(__DIR__.'/Resources/views/');
+                    $view->setLayout('api_doc/layout');
+                    $view->setRenderLevel(
+                        View::LEVEL_LAYOUT
+                    );
+                    $view->registerEngines([
+                        '.phtml'  => View\Engine\Php::class,
+                    ]);
+
+                    return $view;
+                });
+            }
+        });
     }
 }

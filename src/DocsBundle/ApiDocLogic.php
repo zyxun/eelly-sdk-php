@@ -25,25 +25,6 @@ use Phalcon\Mvc\View;
  */
 class ApiDocLogic extends Controller
 {
-    public function onConstruct(): void
-    {
-        $this->application->useImplicitView(true);
-        $this->getDI()->setShared('view', function () {
-            $view = new View();
-            $view->setViewsDir(__DIR__.'/Resources/views/');
-            $view->setLayoutsDir(__DIR__.'/Resources/views/');
-            $view->setLayout('apidoc/layout');
-            $view->setRenderLevel(
-                View::LEVEL_LAYOUT
-            );
-            $view->registerEngines([
-                '.phtml'  => View\Engine\Php::class,
-            ]);
-
-            return $view;
-        });
-    }
-
     /**
      * 首页.
      */
@@ -97,6 +78,5 @@ class ApiDocLogic extends Controller
             $documentShow->initialize();
         }
         $documentShow->setViewVars();
-        $this->view->start()->render('apidoc', $method);
     }
 }
