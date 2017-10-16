@@ -61,7 +61,7 @@ interface ContactInterface
      *
      * @return array
      * @requestExample({"day":0})
-     * @returnExample(true)
+     * @returnExample({"specialConcernList": {"userId": "eelly_service_001","contactId": 0,"userName": "衣联网客服","portraitUrl": "","tagName": "官方","creditIcon": "","userType": 3,"isSpecialConcern": 1,"message": "您的专属客服，工作时间9点-18点（周一至周五）","addressName": "","isConcern": 1,"role": 5,"concernTime": 1,"source": 0},"concernList": {"userId": "148086","contactId": "3","userName": "","portraitUrl": "","creditIcon": "","addressName": "","concernTime": "0","source": "1","nickName": "","phoneMob": "","realName": "","tagName": "同行","userType": 2,"storeAge": "","theNewCount": 0,"role": 2}})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -96,42 +96,24 @@ interface ContactInterface
      *
      * @return array
      * @requestExample({'mobileList':{'phone_mob':1}})
-     * @returnExample(true)
+     * @returnExample({"joinList": {{"contactName": "xxxxxxxx","mobile": "13611111111","message": "发消息"}},"unJoinList": {{"contactName": "xxxxxxxx","mobile": "13611111111","message": "发消息"}},"unconcernCount": 0})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2017年10月10日
      */
     public function newFriendMobileList(array $mobileList, UidDTO $user): array;
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function getContact(int $contactId): ContactDTO;
 
     /**
+     * 获取折扣.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param int $userId 联系人用户ID
+     * @param array $ownerIds 系人所有者用户ID 多个所属
+     * @return array
+     * @requestExample({"userId":148086,"ownerId":{148086,148085}})
+     * @returnExample({"userId": 148086,"ownerId": 148086,"discount": 0.2,"degree": 2})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月12日
      */
-    //public function addContact(array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function updateContact(int $contactId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function deleteContact(int $contactId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function listContactPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
+    public function getDiscount(int $userId, array $ownerIds): array;
 }
