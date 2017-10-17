@@ -1,19 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: heui
- * Date: 2017/10/9
- * Time: 10:29
+
+declare(strict_types=1);
+
+/*
+ * This file is part of eelly package.
+ *
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Example\Service;
 
-
 /**
- * Interface BenchmarkInterface
- * @package Eelly\SDK\Example\Service
+ * Interface BenchmarkInterface.
  */
 interface BenchmarkInterface
 {
-    public function helloWorld():string;
+    /**
+     * Hello world.
+     *
+     * @return string
+     */
+    public function helloWorld(): string;
 }
