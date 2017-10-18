@@ -38,36 +38,4 @@ interface ImportInterface
      */
     public function isAddressList(array $userIds, UidDTO $user = null): array;
 
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function getImport(int $importId): ImportDTO;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function addImport(array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function updateImport(int $importId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function deleteImport(int $importId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function listImportPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
 }
