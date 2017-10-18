@@ -40,33 +40,4 @@ interface RelationInterface
      *  )
      */
     public function getRelationSetting(array $contactIds): array;
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function getRelation(int $relationId): RelationDTO;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function addRelation(array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function updateRelation(int $relationId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function deleteRelation(int $relationId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function listRelationPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }
