@@ -26,4 +26,6 @@ class ActivityException extends LogicException
     public const PARAMETER_EMPTY = '参数有误';
     
     public const CLASS_NO_EXIST = '类不存在';
+    
+    public const DATA_NOT_EXIST = '数据不存在';
 }

@@ -16,7 +16,7 @@ namespace Eelly\SDK\Activity\Service;
 use Eelly\DTO\ConditionDTO;
 
 /**
- * 买家参与营销活动条件参数.
+ * 营销活动优惠规则.
  * 
  * 
  * @author wechan<liweiquan@eelly.net>
@@ -44,11 +44,15 @@ interface ConditionInterface
      * 
      * 获取参加活动店铺信息
      * 
-     * @reqArgs
+     *
+     * @param array $data 参与条件数据集
+     * @param string $data["name"] 参数名称
+     * @param string $data["service"] 验证服务接口
+     *
      *
      * @return array 活动商品结果集
      * 
-     * @requestExample({"acId": 1})
+     * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
      * @returnExample()
      * 
      * @throws Eelly\SDK\Activity\Exception\ActivityException
@@ -59,14 +63,27 @@ interface ConditionInterface
     public function addCondition(array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 
+     * 获取参加活动店铺信息
+     * 
+     *
+     * @param int $acId 参与条件ID
+     * @param array $data 参与条件数据集
+     * @param string $data["name"] 参数名称
+     * @param string $data["service"]
+     *
+     *
+     * @return array 活动商品结果集
+     * 
+     * @requestExample({"acId":1,"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年09月12日
      */
-    public function updateCondition(int $conditionId, array $data): bool;
-    
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listConditionPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
+    public function updateCondition(int $acId, array $data): bool;
     
     /**
      * 删除参加活动店铺信息

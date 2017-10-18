@@ -84,7 +84,8 @@ interface ConditionRelInterface
      */
     public function updateConditionRel(int $acrId, array $data): bool;
     
-    /** 删除买家营销活动参加条件信息
+    /** 
+     * 删除买家营销活动参加条件信息
      * 
      * @param int acrId 参与条件关系ID
      *

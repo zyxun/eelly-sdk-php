@@ -13,37 +13,89 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Service;
 
-use Eelly\DTO\RuleDTO;
-
 /**
  * 营销活动优惠规则.
  * 
- * @author eellytools<localhost.shell@gmail.com>
+ * @author wechan<liweiquan@eelly.net>
  */
 interface RuleInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取营销活动优惠规则信息
+     * 
+     * @param int $arId 营销活动id
+     *
+     * @return array 活动条件参数结果集
+     * 
+     * @requestExample({"arId": 1})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
-    public function getRule(int $ruleId): RuleDTO;
+    public function getRule(int $arId): array;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 
+     * 新增营销活动优惠规则信息
+     * 
+     *
+     * @param array $data 参与条件数据集
+     * @param string $data["name"] 参数名称
+     * @param string $data["service"] 验证服务接口
+     *
+     *
+     * @return array 活动商品结果集
+     * 
+     * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
     public function addRule(array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 
+     * 更新营销活动优惠规则信息
+     * 
+     *
+     * @param int $arId 参与条件ID
+     * @param array $data 参与条件数据集
+     * @param string $data["name"] 参数名称
+     * @param string $data["service"]
+     *
+     *
+     * @return array 活动商品结果集
+     * 
+     * @requestExample({"arId":1,"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
-    public function updateRule(int $ruleId, array $data): bool;
+    public function updateRule(int $arId, array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 删除参加活动店铺信息
+     * 
+     * @param int $arId 营销活动id
+     *
+     * @return array 活动条件参数结果集
+     * 
+     * @requestExample({"arId": 1})
+     * @returnExample()
+     * 
+     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
-    public function deleteRule(int $ruleId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listRulePage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
+    public function deleteRule(int $arId): bool;
 }
