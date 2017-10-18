@@ -52,11 +52,6 @@ interface TagInterface
      */
     public function addTag(array $data, UidDTO $user = null): bool;
 
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function updateTag(int $tagId, array $data): bool;
 
     /**
      * 删除标签.

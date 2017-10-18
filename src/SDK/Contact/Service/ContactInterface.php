@@ -116,4 +116,22 @@ interface ContactInterface
      * @since 2017年10月12日
      */
     public function getDiscount(int $userId, array $ownerIds): array;
+
+    /**
+     * 添加新客户.
+     *
+     * @param array $data
+     * @param int $userType 用户类型：1 厂+ 2 店+ 3 云店卖家 4 云店买家
+     * @param int $fromType 来源类型：1 厂+ 2 店+ 3 CRM 4 云店卖家 5 云店买家
+     * @param int $cgId 联系人等级ID
+     * @param int $source 联系人来源
+     * @param UidDTO|null $user
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     * @return bool
+     * @requestExample({data:{'userType':1,'fromType':1,'cgId':1,'source':1}})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月17日
+     */
+    public function addContact(array $data, UidDTO $user = null):bool;
 }
