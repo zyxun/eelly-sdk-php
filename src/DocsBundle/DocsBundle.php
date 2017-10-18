@@ -54,23 +54,23 @@ class DocsBundle extends Injectable
                 'method'         => 2,
             ])->setName($moduleName);
         }
+        $this->getDI()->setShared('view', function () {
+            $view = new View();
+            $view->setViewsDir(__DIR__.'/Resources/views/');
+            $view->setLayoutsDir(__DIR__.'/Resources/views/');
+            $view->setLayout('api_doc/layout');
+            $view->setRenderLevel(
+                View::LEVEL_LAYOUT
+            );
+            $view->registerEngines([
+                '.phtml'  => View\Engine\Php::class,
+            ]);
+
+            return $view;
+        });
         $this->getEventsManager()->attach('router:matchedRoute', function (Event $event, Router $router, Router\Route $route): void {
             if (__NAMESPACE__ == $route->getPaths()['namespace']) {
-                $this->getDI()->get('application')->useImplicitView(true);
-                $this->getDI()->setShared('view', function () {
-                    $view = new View();
-                    $view->setViewsDir(__DIR__.'/Resources/views/');
-                    $view->setLayoutsDir(__DIR__.'/Resources/views/');
-                    $view->setLayout('api_doc/layout');
-                    $view->setRenderLevel(
-                        View::LEVEL_LAYOUT
-                    );
-                    $view->registerEngines([
-                        '.phtml'  => View\Engine\Php::class,
-                    ]);
-
-                    return $view;
-                });
+                $this->getDI()->getShared('application')->useImplicitView(true);
             }
         });
     }
