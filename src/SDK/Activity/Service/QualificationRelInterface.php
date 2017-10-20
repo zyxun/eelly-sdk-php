@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Service;
 
-use Eelly\DTO\QualificationRelDTO;
 
 /**
  * 店铺申请参加营销活动资格.
@@ -27,12 +26,12 @@ interface QualificationRelInterface
      * 
      * @param int $activityId 营销活动id
      *
-     * @return 买家营销活动条件结果集
+     * @return array 买家营销活动条件结果集
      * 
      * @requestExample({"activityId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月09日
@@ -52,7 +51,7 @@ interface QualificationRelInterface
      * @requestExample({"data":{"activityId":1,"aqId":1,"mode":1,"value":"true"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月09日
@@ -70,12 +69,12 @@ interface QualificationRelInterface
      * @param string $data["value"] 验证返回值
      *
      *
-     * @return 买家营销活动条件结果集
+     * @return bool 买家营销活动条件结果集
      * 
      * @requestExample({"arId":1,"data":{"activityId":1,"aqId":1,"mode":1,"value":"true"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月09日
@@ -85,14 +84,14 @@ interface QualificationRelInterface
     /** 
      * 删除买家营销活动参加条件信息
      * 
-     * @param int arId 参与条件关系ID
+     * @param int $arId 参与条件关系ID
      *
-     * @return 买家营销活动条件结果集
+     * @return bool 买家营销活动条件结果集
      * 
      * @requestExample({"arId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月09日

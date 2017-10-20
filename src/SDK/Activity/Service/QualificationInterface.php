@@ -30,7 +30,7 @@ interface QualificationInterface
      * @requestExample({"aqId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月12日
@@ -52,7 +52,7 @@ interface QualificationInterface
      * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月12日
@@ -75,7 +75,7 @@ interface QualificationInterface
      * @requestExample({"aqId":1,"data":{"name":"21313","service":"hahahaha"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月12日
@@ -92,7 +92,7 @@ interface QualificationInterface
      * @requestExample({"aqId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月12日
