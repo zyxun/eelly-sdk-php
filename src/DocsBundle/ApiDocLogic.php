@@ -17,6 +17,7 @@ use Eelly\DocsBundle\Adapter\ApiDocumentShow;
 use Eelly\DocsBundle\Adapter\HomeDocumentShow;
 use Eelly\DocsBundle\Adapter\ModuleDocumentShow;
 use Eelly\DocsBundle\Adapter\ServiceDocumentShow;
+use Eelly\Events\Listener\ValidateAccessTokenListener;
 use Eelly\Mvc\Controller;
 use Phalcon\Mvc\View;
 
@@ -25,6 +26,17 @@ use Phalcon\Mvc\View;
  */
 class ApiDocLogic extends Controller
 {
+    public function onConstruct(): void
+    {
+        /* @var ValidateAccessTokenListener $validateAccessTokenListener */
+        $validateAccessTokenListener = $this->di->getShared(ValidateAccessTokenListener::class);
+        $validateAccessTokenListener->pushWhiteName(__CLASS__.'::home');
+        $validateAccessTokenListener->pushWhiteName(__CLASS__.'::home');
+        $validateAccessTokenListener->pushWhiteName(__CLASS__.'::module');
+        $validateAccessTokenListener->pushWhiteName(__CLASS__.'::service');
+        $validateAccessTokenListener->pushWhiteName(__CLASS__.'::api');
+    }
+
     /**
      * 首页.
      */
