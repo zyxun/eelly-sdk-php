@@ -26,12 +26,12 @@ interface ConditionRelInterface
      * 
      * @param int $activityId 营销活动id
      *
-     * @return 买家营销活动条件结果集
+     * @return array 买家营销活动条件结果集
      * 
      * @requestExample({"activityId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日
@@ -49,12 +49,12 @@ interface ConditionRelInterface
      * @param string $data["value"] 验证返回值
      *
      *
-     * @return 买家营销活动条件结果集
+     * @return bool 买家营销活动条件结果集
      * 
      * @requestExample({"data":{"activityId":1,"acId":1,"mode":1,"value":"true"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日
@@ -72,12 +72,12 @@ interface ConditionRelInterface
      * @param string $data["value"] 验证返回值
      *
      *
-     * @return 买家营销活动条件结果集
+     * @return bool 买家营销活动条件结果集
      * 
      * @requestExample({"acrId":1,"data":{"activityId":1,"acId":1,"mode":1,"value":"true"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日
@@ -87,14 +87,14 @@ interface ConditionRelInterface
     /** 
      * 删除买家营销活动参加条件信息
      * 
-     * @param int acrId 参与条件关系ID
+     * @param int $acrId 参与条件关系ID
      *
-     * @return 买家营销活动条件结果集
+     * @return bool 买家营销活动条件结果集
      * 
      * @requestExample({"acrId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Service;
 
-use Eelly\DTO\GoodsDTO;
 
 /**
  * 参加活动商品.
@@ -34,7 +33,7 @@ interface GoodsInterface
      * @requestExample({"activityId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月09日
@@ -58,7 +57,7 @@ interface GoodsInterface
      * @requestExample({"data":{"activityId":1,"storeId":148086,"goodsId":1,"adminId":1,"adminName":"管理员名称","remark":"活动商品备注"}})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月09日
@@ -78,7 +77,7 @@ interface GoodsInterface
      * @requestExample({"agId":1,"data":{"status":1}})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月09日
@@ -96,7 +95,7 @@ interface GoodsInterface
      * @requestExample({"agId": 1})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月09日

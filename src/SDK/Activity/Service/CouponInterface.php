@@ -34,7 +34,7 @@ interface CouponInterface
      * @requestExample({"couponId": 1})
      * @returnExample({"data":{"couponId":2,"storeId":148086,"name":"优惠券名称","amount":"100","limitAmount":1000,"limitTimes":1,"issued_quantity":"1","startTime":1444444444,"endTime":1555555555,"actId":1,"status":"1","issueFlag":1},"returnType":"Eelly\\SDK\\Activity\\DTO\\CouponDTO"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月05日
@@ -64,7 +64,7 @@ interface CouponInterface
      * @requestExample({"storeId":"148086","name":"优惠券名称","amount":100,"limitAmount":"1000","limitTimes":1,"issuedQuantity":1,"startTime":1444444444,"endTime":1555555555,"actId":1,"status":1,"issueFlag":1})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月05日
@@ -94,7 +94,7 @@ interface CouponInterface
      * @requestExample({"couponId":1,"data":{"storeId":"148086","name":"优惠券名称","amount":100,"limitAmount":"1000","limitTimes":1,"issuedQuantity":1,"startTime":1444444444,"endTime":1555555555,"actId":1,"status":1,"issueFlag":1}})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月05日
@@ -111,7 +111,7 @@ interface CouponInterface
      * @requestExample({"couponId": 1})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月05日

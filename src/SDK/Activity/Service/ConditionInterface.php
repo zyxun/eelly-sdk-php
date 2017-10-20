@@ -33,12 +33,12 @@ interface ConditionInterface
      * @requestExample({"acId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日
      */
-    public function getCondition(int $acId): ConditionDTO;
+    public function getCondition(int $acId): array ;
 
     /**
      * 
@@ -55,7 +55,7 @@ interface ConditionInterface
      * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日
@@ -78,7 +78,7 @@ interface ConditionInterface
      * @requestExample({"acId":1,"data":{"name":"21313","service":"hahahaha"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日
@@ -95,7 +95,7 @@ interface ConditionInterface
      * @requestExample({"acId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月12日

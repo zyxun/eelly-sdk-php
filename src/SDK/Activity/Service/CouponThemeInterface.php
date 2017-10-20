@@ -30,7 +30,7 @@ interface CouponThemeInterface
      * @requestExample({"couponThemeId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月17日
@@ -53,7 +53,7 @@ interface CouponThemeInterface
      * @requestExample({"data":{"name":"21313","image":"hahahaha","css":"{\"hahahah\"}"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月17日
@@ -77,7 +77,7 @@ interface CouponThemeInterface
      * @requestExample({"couponThemeId":1,"data":{"name":"21313","image":"hahahaha","css":"{\"hahahah\"}"}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月17日
@@ -94,7 +94,7 @@ interface CouponThemeInterface
      * @requestExample({"couponThemeId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年10月17日
