@@ -142,9 +142,8 @@ class EellyClient
             }
         }
         $client = self::$self;
-        $accessToken = self::$accessToken;
-        if (null === $accessToken) {
-            $accessToken = $client->getAccessToken('client_credentials');
+        if (null === self::$accessToken || self::$accessToken->hasExpired()) {
+            self::$accessToken = $client->getAccessToken('client_credentials');
         }
         list($serviceName) = explode('/', $uri);
         $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
@@ -158,7 +157,7 @@ class EellyClient
                 'traceId' => self::$traceId,
             ];
         }
-        $request = $provider->getAuthenticatedRequest(EellyProvider::METHOD_POST, $uri, $accessToken->getToken(), $options);
+        $request = $provider->getAuthenticatedRequest(EellyProvider::METHOD_POST, $uri, self::$accessToken->getToken(), $options);
         $response = $provider->getResponse($request);
         $class = $response->getHeader('ReturnType');
         if (!empty($class)) {
