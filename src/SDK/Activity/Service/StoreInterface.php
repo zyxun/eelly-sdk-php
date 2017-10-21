@@ -31,7 +31,7 @@ interface StoreInterface
      * @requestExample({"activityId": 1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月10日
@@ -54,7 +54,7 @@ interface StoreInterface
      * @requestExample({"data":{"activityId":1,"storeId":148086,"adminId":1,"adminName":"管理员名称","remark":"活动商品备注"}})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月10日
@@ -74,7 +74,7 @@ interface StoreInterface
      * @requestExample({"$asId":1,"data":{"status":1}})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月10日
@@ -92,7 +92,7 @@ interface StoreInterface
      * @requestExample({"asId": 1})
      * @returnExample({"data":true,"returnType":"boolean"})
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月09日

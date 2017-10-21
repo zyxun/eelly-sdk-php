@@ -134,4 +134,21 @@ interface ContactInterface
      * @since 2017年10月17日
      */
     public function addContact(array $data, UidDTO $user = null):bool;
+
+    /**
+     * 添加手机联系人到mongodb中.
+     *
+     * @param array $data 手机联系人数据
+     * @param array $data ['mobile']  多个手机号码
+     * @param string $data ['userName'] 手机联系人数据
+     * @param string $data ['cardImg'] 手机名片
+     * @param UidDTO|null $user 登陆用户信息
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     * @return bool
+     * @requestExample({'data':{'mobile':[13519787632,13519787631],'userName':'王江','cardImg':'img.eelly.com'}})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月19日
+     */
+    public function addMobileContact(array $data, UidDTO $user = null): bool;
 }

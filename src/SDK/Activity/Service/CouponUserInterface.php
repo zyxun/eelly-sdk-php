@@ -35,7 +35,7 @@ interface CouponUserInterface
      * @requestExample({"userId":1})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月08日
@@ -55,7 +55,7 @@ interface CouponUserInterface
      * @requestExample({"data":{"userId":1,"couponSn":123456,"issue_flag":1}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月08日
@@ -76,7 +76,7 @@ interface CouponUserInterface
      * @requestExample({"couponUserId":1,"data":{"status":1}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年09月08日

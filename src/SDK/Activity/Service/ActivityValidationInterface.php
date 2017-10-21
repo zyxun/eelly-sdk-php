@@ -18,14 +18,14 @@ namespace Eelly\SDK\Activity\Service;
  * 
  * @author wechan<liweiquan@eelly.net>
  */
-interface ActivityInterface
+interface ActivityValidationInterface
 {
     /**
      * 校验是否卖家.
      *
      * @param int $userId 买家id
      *
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      *
      * @return bool 
      * @requestExample({"userId": 1})
