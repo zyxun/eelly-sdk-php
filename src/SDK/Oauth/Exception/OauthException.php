@@ -37,6 +37,8 @@ class OauthException extends LogicException
 
     public const NOT_ALLOE_PARAMETER = '存在不被允许参数';
 
+    public const DATA_EXPIRE_TIME = '验证码已经过期';
+
     /**
      * 逻辑开发错误代码提示数据.
      */
