@@ -83,8 +83,8 @@ interface BuyInterface
      *
      * @param int $storeId     购买的店铺ID
      * @param int $userId      购买的用户ID
-     * @param int $limit       每页页数
      * @param int $currentPage 当前页
+     * @param int $limit       每页页数
      *
      * @throws \Eelly\SDK\Service\Exception\BuyException
      *

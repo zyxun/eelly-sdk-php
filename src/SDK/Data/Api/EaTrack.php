@@ -52,9 +52,9 @@ class EaTrack implements EaTrackInterface
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function logPageView(array $data): array
+    public function logUserPageView(array $data): array
     {
-        return EellyClient::request('data/eaTrack', 'logPageView', $data);
+        return EellyClient::request('data/eaTrack', 'logUserPageView', $data);
     }
 
     /**
