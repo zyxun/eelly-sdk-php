@@ -130,4 +130,18 @@ interface UserInterface
      * @since  2017/9/29
      */
     public function addUser(array $data): int;
+	
+	  /**
+     * 获取会员搜索引擎所需数据.
+     *
+     * @param int $currentPage  当前页
+     * @param int $limit    限制数
+     * @return array
+     * @requestExample({"currentPage":1,"limit":100})
+     * @returnExample()
+     * @throws \Eelly\SDK\
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @since 2017-10-23
+     */
+    public function listUserElasticData(int $currentPage = 1,int $limit = 100):array;
 }
