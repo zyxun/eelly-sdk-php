@@ -58,7 +58,7 @@ class User implements UserInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addUser(array $data): bool
+    public function addUser(array $data): int
     {
         return EellyClient::request('user/user', 'addUser', $data);
     }
@@ -133,6 +133,22 @@ class User implements UserInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function checkIsExistUserMobile(string $mobile): int
+    {
+        return EellyClient::request('user/user', 'checkIsExistUserMobile', $mobile);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function registerUser(array $data): int
+    {
+        return EellyClient::request('user/user', 'registerUser', $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
@@ -144,4 +160,6 @@ class User implements UserInterface
 
         return $instance;
     }
+
+
 }

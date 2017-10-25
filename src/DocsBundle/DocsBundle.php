@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle;
 
+use Eelly\Events\Listener\ApiLoggerListener;
 use Phalcon\Di\Injectable;
 use Phalcon\Di\Service;
 use Phalcon\Events\Event;
@@ -73,5 +74,12 @@ class DocsBundle extends Injectable
                 $this->getDI()->getShared('application')->useImplicitView(true);
             }
         });
+        /* @var ApiLoggerListener $apiLoggerListener */
+        $apiLoggerListener = $this->di->getShared(ApiLoggerListener::class);
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::home');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::home');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::module');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::service');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::api');
     }
 }
