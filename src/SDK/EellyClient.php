@@ -185,7 +185,7 @@ class EellyClient
     {
         $multipart = [];
         foreach ($params as $key => $value) {
-            $p = null == $prefix ? $key : $prefix.'['.$key.']';
+            $p = null === $prefix ? $key : $prefix.'['.$key.']';
             if ($value instanceof UploadedFileInterface) {
                 $multipart[] = [
                     'name'     => $p,
