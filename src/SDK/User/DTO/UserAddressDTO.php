@@ -98,11 +98,4 @@ class UserAddressDTO extends AbstractDTO
      * @var int
      */
     public $createdTime;
-
-    /**
-     * 修改时间.
-     *
-     * @var datetime
-     */
-    public $updateTime;
 }
