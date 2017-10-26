@@ -25,7 +25,7 @@ class Params implements ParamsInterface
     /**
      * {@inheritdoc}
      */
-    public function paramArray(array $arr, array $framework): bool
+    public function paramArray(array $arr, array $framework): array
     {
         return EellyClient::request('example/params', __FUNCTION__, $arr, $framework);
     }
