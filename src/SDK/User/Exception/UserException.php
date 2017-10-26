@@ -24,5 +24,5 @@ use Eelly\Exception\LogicException;
  */
 class UserException extends LogicException
 {
-
+    public const OVERTAKE_ERROR = '收货地址不能超过10';
 }
