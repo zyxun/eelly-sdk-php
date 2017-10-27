@@ -149,6 +149,14 @@ class User implements UserInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getListByUserIds(array $userIds): array
+    {
+        return EellyClient::request('user/user', 'getListByUserIds', $userIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
@@ -160,6 +168,7 @@ class User implements UserInterface
 
         return $instance;
     }
+
 
 
 }

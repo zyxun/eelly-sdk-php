@@ -108,6 +108,22 @@ interface UserInterface
      */
     public function getInfo(UidDTO $user = null): UserDTO;
 
+
+    /**
+     * 批量获取用户基本信息.
+     *
+     * @param array $userIds 用户一维数据user_id: [148086,148087,148088]
+     * @return array
+     * @requestExample({'userIds':{148086,148087,148088}})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月25日
+     * @Validation(
+     *     @PresenceOf(0,{message : "用户id不能为空"})
+     * )
+     */
+    public function getListByUserIds(array $userIds):array;
+
     /**
      * 添加用户.
      *
