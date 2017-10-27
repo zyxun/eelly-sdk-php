@@ -58,7 +58,7 @@ class User implements UserInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addUser(array $data): bool
+    public function addUser(array $data): int
     {
         return EellyClient::request('user/user', 'addUser', $data);
     }
@@ -130,6 +130,47 @@ class User implements UserInterface
     public function updateUserAvatar(int $uid, string $avatar): bool
     {
         return EellyClient::request('user/user', 'updateUserAvatar', $uid, $avatar);
+    }
+	
+	  /**
+     * 获取会员搜索引擎所需数据.
+     *
+     * @param int $currentPage  当前页
+     * @param int $limit    限制数
+     * @return array
+     * @requestExample({"currentPage":1,"limit":100})
+     * @returnExample()
+     * @throws \Eelly\SDK\
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @since 2017-10-23
+     */
+    public function listUserElasticData(int $currentPage = 1,int $limit = 100):array
+	{
+		return EellyClient::request('user/user', 'listUserElasticData', $currentPage, $limit);
+	}
+
+ 	/**
+     * {@inheritdoc}
+     */
+    public function checkIsExistUserMobile(string $mobile): int
+    {
+        return EellyClient::request('user/user', 'checkIsExistUserMobile', $mobile);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function registerUser(array $data): int
+    {
+        return EellyClient::request('user/user', 'registerUser', $data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getListByUserIds(array $userIds): array
+    {
+        return EellyClient::request('user/user', 'getListByUserIds', $userIds);
     }
 
     /**

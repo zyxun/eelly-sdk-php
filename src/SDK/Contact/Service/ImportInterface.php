@@ -11,44 +11,31 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Contact\Service;
 
-use Eelly\DTO\ImportDTO;
+use Eelly\DTO\UidDTO;
+
 
 /**
+ * 联系人导入通信录记录.
  *
- * @author eellytools<localhost.shell@gmail.com>
+ * @author  肖俊明<xiaojunming@eelly.net>
+ * @since 2017年10月12日
  */
 interface ImportInterface
 {
 
     /**
+     * 检测用户多个id是否已经被卖家导入通讯录.
      *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getImport(int $importId): ImportDTO;
-
-    /**
+     * @param array $userIds 用户ID
+     * @param UidDTO|null $user
      *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function addImport(array $data): bool;
-
-    /**
+     * @return array
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @requestExample()
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月12日
      */
-    public function updateImport(int $importId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteImport(int $importId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listImportPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
+    public function isAddressList(array $userIds, UidDTO $user = null): array;
 
 }

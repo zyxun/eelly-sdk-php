@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle;
 
+use Eelly\Events\Listener\ApiLoggerListener;
 use Phalcon\Di\Injectable;
 use Phalcon\Di\Service;
 use Phalcon\Events\Event;
@@ -54,24 +55,31 @@ class DocsBundle extends Injectable
                 'method'         => 2,
             ])->setName($moduleName);
         }
+        $this->getDI()->setShared('view', function () {
+            $view = new View();
+            $view->setViewsDir(__DIR__.'/Resources/views/');
+            $view->setLayoutsDir(__DIR__.'/Resources/views/');
+            $view->setLayout('api_doc/layout');
+            $view->setRenderLevel(
+                View::LEVEL_LAYOUT
+            );
+            $view->registerEngines([
+                '.phtml'  => View\Engine\Php::class,
+            ]);
+
+            return $view;
+        });
         $this->getEventsManager()->attach('router:matchedRoute', function (Event $event, Router $router, Router\Route $route): void {
             if (__NAMESPACE__ == $route->getPaths()['namespace']) {
-                $this->getDI()->get('application')->useImplicitView(true);
-                $this->getDI()->setShared('view', function () {
-                    $view = new View();
-                    $view->setViewsDir(__DIR__.'/Resources/views/');
-                    $view->setLayoutsDir(__DIR__.'/Resources/views/');
-                    $view->setLayout('api_doc/layout');
-                    $view->setRenderLevel(
-                        View::LEVEL_LAYOUT
-                    );
-                    $view->registerEngines([
-                        '.phtml'  => View\Engine\Php::class,
-                    ]);
-
-                    return $view;
-                });
+                $this->getDI()->getShared('application')->useImplicitView(true);
             }
         });
+        /* @var ApiLoggerListener $apiLoggerListener */
+        $apiLoggerListener = $this->di->getShared(ApiLoggerListener::class);
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::home');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::home');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::module');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::service');
+        $apiLoggerListener->pushWhiteName(ApiDocLogic::class.'::api');
     }
 }

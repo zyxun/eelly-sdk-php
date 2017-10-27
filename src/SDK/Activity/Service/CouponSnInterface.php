@@ -34,7 +34,7 @@ interface CouponSnInterface
      * @requestExample({"couponId":2})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月06日
@@ -57,7 +57,7 @@ interface CouponSnInterface
      * @requestExample({"data":{"acoId":1,"couponSn":123456,"status":0}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月06日
@@ -80,7 +80,7 @@ interface CouponSnInterface
      * @requestExample({"data":{"acoId":1,"couponSn":123456,"status":0}})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月06日
@@ -98,7 +98,7 @@ interface CouponSnInterface
      * @requestExample({"couponSnId":2})
      * @returnExample()
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      * 
      * @author wechan<liweiquan@eelly.com>
      * @since 2017年09月06日

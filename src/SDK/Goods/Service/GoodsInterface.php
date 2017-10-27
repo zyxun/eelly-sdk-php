@@ -363,4 +363,20 @@ interface GoodsInterface
      * @since 2017年9月29日
      */
     public function getGoodsBaseInfo(int $goodsId): array;
+
+    /**
+     * 获取商品搜索引擎所需数据
+     *
+     * @param int $currentPage 当前页
+     * @param int $limit       每页页数
+     *
+     * @return array 商品信息
+     * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     * @requestExample({"currentPage":1,"limit":100})
+     * @returnExample()
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017年10月26日
+     */
+    public function listGoodsElasticData(int $currentPage = 1, int $limit = 100): array;
+
 }

@@ -13,37 +13,91 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Service;
 
-use Eelly\DTO\RuleRelDTO;
 
 /**
  * 营销活动优惠规则关系.
  * 
- * @author eellytools<localhost.shell@gmail.com>
+ * @author wechan<liweiquan@eelly.net>
  */
 interface RuleRelInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据活动id获取营销活动优惠规则关系信息
+     * 
+     * @param int $activityId 营销活动id
+     *
+     * @return array 买家营销活动条件结果集
+     * 
+     * @requestExample({"activityId": 1})
+     * @returnExample()
+     * 
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
-    public function getRuleRel(int $ruleRelId): RuleRelDTO;
+    public function getRuleRel(int $activityId): array;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 新增营销活动优惠规则关系信息
+     * 
+     *
+     * @param array $data 买家营销活动条件数据
+     * @param int $data["activityId"] 活动ID
+     * @param int $data["arId"] 参与条件ID
+     * @param int $data["mode"] 匹配模式：0 不匹配 1 等于 2 大于 3 小于 4大于等于 5小于等于
+     * @param string $data["value"] 验证返回值
+     *
+     *
+     * @return bool 买家营销活动条件结果集
+     * 
+     * @requestExample({"data":{"activityId":1,"arId":1,"mode":1,"value":"true"}})
+     * @returnExample()
+     * 
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
     public function addRuleRel(array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新营销活动优惠规则关系信息
+     * 
+     *
+     * @param int $arrId 参与条件关系ID
+     * @param array $data 买家营销活动条件数据
+     * @param int $data["activityId"] 营销活动ID
+     * @param int $data["mode"] 匹配模式：0 不匹配 1 等于 2 大于 3 小于 4大于等于 5小于等于
+     * @param string $data["value"] 验证返回值
+     *
+     *
+     * @return bool 买家营销活动条件结果集
+     * 
+     * @requestExample({"arrId":1,"data":{"activityId":1,"arId":1,"mode":1,"value":"true"}})
+     * @returnExample()
+     * 
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
-    public function updateRuleRel(int $ruleRelId, array $data): bool;
+    public function updateRuleRel(int $arrId, array $data): bool;
 
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
+    /** 
+     * 删除买家营销活动参加条件信息
+     * 
+     * @param int $arrId 参与条件关系ID
+     *
+     * @return bool 买家营销活动条件结果集
+     * 
+     * @requestExample({"arrId": 1})
+     * @returnExample()
+     * 
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年10月16日
      */
-    public function deleteRuleRel(int $ruleRelId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listRuleRelPage(array $condition = [], int $limit = 10, int $currentPage = 1): array;
+    public function deleteRuleRel(int $arrId): bool;
 }

@@ -23,12 +23,17 @@ use Eelly\SDK\Contact\DTO\TagDTO;
  */
 interface TagInterface
 {
-
     /**
+     * 获取标签信息.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param UidDTO|null $user  用户登录信息
+     * @return array
+     * @requestExample()
+     * @returnExample({"ctId": 2,"userId": 148086,"name": "1"})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月12日
      */
-    //public function getTag(UidDTO $user = null): TagDTO;
+    public function getTag(UidDTO $user = null): array;
 
     /**
      * 新增标签(APP专用).
@@ -47,33 +52,28 @@ interface TagInterface
      */
     public function addTag(array $data, UidDTO $user = null): bool;
 
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function updateTag(int $tagId, array $data): bool;
 
     /**
      * 删除标签.
      *
      * @param int $ctId 标签ID
+     * @param UidDTO|null $user 用户登录信息
+     *
      * @throws \Eelly\SDK\Contact\Exception\ContactException
+     *
      * @return bool
      * @requestExample({'ctId':1})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年10月09日
      * @Validation(
      * @OperatorValidator(0,{message : "标签ID",operator:["gt",0]})
      * )
      */
-    public function deleteTag(int $ctId): bool;
+    public function deleteTag(int $ctId, UidDTO $user = null): bool;
 
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function listTagPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
 
 }

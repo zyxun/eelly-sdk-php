@@ -61,7 +61,7 @@ interface ContactInterface
      *
      * @return array
      * @requestExample({"day":0})
-     * @returnExample(true)
+     * @returnExample({"specialConcernList": {"userId": "eelly_service_001","contactId": 0,"userName": "衣联网客服","portraitUrl": "","tagName": "官方","creditIcon": "","userType": 3,"isSpecialConcern": 1,"message": "您的专属客服，工作时间9点-18点（周一至周五）","addressName": "","isConcern": 1,"role": 5,"concernTime": 1,"source": 0},"concernList": {"userId": "148086","contactId": "3","userName": "","portraitUrl": "","creditIcon": "","addressName": "","concernTime": "0","source": "1","nickName": "","phoneMob": "","realName": "","tagName": "同行","userType": 2,"storeAge": "","theNewCount": 0,"role": 2}})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -96,42 +96,59 @@ interface ContactInterface
      *
      * @return array
      * @requestExample({'mobileList':{'phone_mob':1}})
-     * @returnExample(true)
+     * @returnExample({"joinList": {{"contactName": "xxxxxxxx","mobile": "13611111111","message": "发消息"}},"unJoinList": {{"contactName": "xxxxxxxx","mobile": "13611111111","message": "发消息"}},"unconcernCount": 0})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2017年10月10日
      */
     public function newFriendMobileList(array $mobileList, UidDTO $user): array;
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function getContact(int $contactId): ContactDTO;
 
     /**
+     * 获取折扣.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param int $userId 联系人用户ID
+     * @param array $ownerIds 系人所有者用户ID 多个所属
+     * @return array
+     * @requestExample({"userId":148086,"ownerId":{148086,148085}})
+     * @returnExample({"userId": 148086,"ownerId": 148086,"discount": 0.2,"degree": 2})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月12日
      */
-    //public function addContact(array $data): bool;
+    public function getDiscount(int $userId, array $ownerIds): array;
 
     /**
+     * 添加新客户.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param array $data
+     * @param int $userType 用户类型：1 厂+ 2 店+ 3 云店卖家 4 云店买家
+     * @param int $fromType 来源类型：1 厂+ 2 店+ 3 CRM 4 云店卖家 5 云店买家
+     * @param int $cgId 联系人等级ID
+     * @param int $source 联系人来源
+     * @param UidDTO|null $user
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     * @return bool
+     * @requestExample({data:{'userType':1,'fromType':1,'cgId':1,'source':1}})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月17日
      */
-    //public function updateContact(int $contactId, array $data): bool;
+    public function addContact(array $data, UidDTO $user = null):bool;
 
     /**
+     * 添加手机联系人到mongodb中.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param array $data 手机联系人数据
+     * @param array $data ['mobile']  多个手机号码
+     * @param string $data ['userName'] 手机联系人数据
+     * @param string $data ['cardImg'] 手机名片
+     * @param UidDTO|null $user 登陆用户信息
+     * @throws \Eelly\SDK\Contact\Exception\ContactException
+     * @return bool
+     * @requestExample({'data':{'mobile':[13519787632,13519787631],'userName':'王江','cardImg':'img.eelly.com'}})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月19日
      */
-    //public function deleteContact(int $contactId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    //public function listContactPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
+    public function addMobileContact(array $data, UidDTO $user = null): bool;
 }

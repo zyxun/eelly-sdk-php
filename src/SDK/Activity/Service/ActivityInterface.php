@@ -27,7 +27,7 @@ interface ActivityInterface
      *
      * @param array $activityId 活动id
      *
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      *
      * @return ActivityDTO 单条活动结果
      * @requestExample({"activityId": 1})
@@ -37,7 +37,7 @@ interface ActivityInterface
      *
      * @since 2017年9月2日
      */
-    public function getActivity(): ActivityDTO;
+    public function getActivity(int $activityId): ActivityDTO;
 
     /**
      * 根据活动id获取活动信息.
@@ -60,7 +60,7 @@ interface ActivityInterface
      * @param string $data['remark']            活动备注
      * @param string $data['createdTime']       添加时间
      *
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      *
      * @return bool sql操作结果
      * @requestExample({"data":{"title":"\u6d3b\u52a8","image":"\/G0\/G4\/xxxxxxxx","content":"\u6d3b\u52a8","applyStartTime":1504317208,"applyEndTime":1504317208,"activityStartTime":1504317208,"activityEndTime":1504317208,"dayStartTime":1504317208,"dayEndTime":1504317208,"status":0,"sort":1,"range":0,"adminId":1,"adminName":"molimoq","remark":"\u6d3b\u52a8","createdTime":1504317208}})
@@ -94,7 +94,7 @@ interface ActivityInterface
      * @param string    $data['remark']                     活动备注
      * 
      * 
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      *
      * @return bool sql操作结果
      * @requestExample({"activityId":1,"data":{"title":"\u6d3b\u52a8","image":"\/G0\/G4\/xxxxxxxx","content":"\u6d3b\u52a8","applyStartTime":1504317208,"applyEndTime":1504317208,"activityStartTime":1504317208,"activityEndTime":1504317208,"dayStartTime":1504317208,"dayEndTime":1504317208,"status":0,"sort":1,"range":0,"adminId":1,"adminName":"molimoq","remark":"\u6d3b\u52a8"}})
@@ -111,7 +111,7 @@ interface ActivityInterface
      *
      * @param array $activityId 活动id
      *
-     * @throws Eelly\SDK\Activity\Exception\ActivityException
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
      *
      * @return array 单条活动结果
      * @requestExample({"activityId": 1})

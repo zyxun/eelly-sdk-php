@@ -11,44 +11,28 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Contact\Service;
 
-use Eelly\DTO\TagRelDTO;
 
 /**
+ * 联系人标签关系.
  *
- * @author eellytools<localhost.shell@gmail.com>
+ * @author  肖俊明<xiaojunming@eelly.net>
+ * @since 2017年10月12日
  */
 interface TagRelInterface
 {
-
     /**
+     * 根据客户id批量获取标签名称.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param array $contactIds 联系人ID，自增主键
+     * @throws \Eelly\Exception\LogicException
+     * @return array
+     * @requestExample({contactIds:{148086,1,2}})
+     * @returnExample({"contactId": 1,"name": "呵呵李伟权"})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月12日
+     * @Validation(
+     *   @OperatorValidator(0,{message : "联系人标签关系ID"})
+     *  )
      */
-    public function getTagRel(int $tagRelId): TagRelDTO;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function addTagRel(array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateTagRel(int $tagRelId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteTagRel(int $tagRelId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listTagRelPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
+    public function getTagNameByContactIds(array $contactIds):array;
 }
