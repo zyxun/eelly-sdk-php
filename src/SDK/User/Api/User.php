@@ -131,8 +131,25 @@ class User implements UserInterface
     {
         return EellyClient::request('user/user', 'updateUserAvatar', $uid, $avatar);
     }
+	
+	  /**
+     * 获取会员搜索引擎所需数据.
+     *
+     * @param int $currentPage  当前页
+     * @param int $limit    限制数
+     * @return array
+     * @requestExample({"currentPage":1,"limit":100})
+     * @returnExample()
+     * @throws \Eelly\SDK\
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @since 2017-10-23
+     */
+    public function listUserElasticData(int $currentPage = 1,int $limit = 100):array
+	{
+		return EellyClient::request('user/user', 'listUserElasticData', $currentPage, $limit);
+	}
 
-    /**
+ 	/**
      * {@inheritdoc}
      */
     public function checkIsExistUserMobile(string $mobile): int
@@ -168,7 +185,4 @@ class User implements UserInterface
 
         return $instance;
     }
-
-
-
 }
