@@ -126,4 +126,27 @@ interface StoreInterface
      * @since 2017-10-23
      */
     public function listStoreElasticData(int $currentPage = 1,int $limit = 100):array;
+
+    /**
+     * 分页获取店铺列表
+     *
+     * @param array      $condition              店铺的查询条件
+     * @param int|string $condition['storeId']   店铺id,多个以逗号隔开
+     * @param int|string $condition['userId']    店主id,多个以逗号隔开
+     * @param string     $condition['storeName'] 店铺名称：默认name-店铺ID
+     * @param int        $condition['status']    状态：0 未开启 1 开启 2 关闭(到期或违规) 3 挂起(违规) 4 卖家暂停营业
+     * @param int        $currentPage            当前页码
+     * @param int        $limit                  每页条数
+     *
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return array 店铺列表
+     * @requestExample({"condition":{"userId":1,"storeName":"店铺名称","status":1}})
+     * @returnExample({"items":[{"storeId":"1","userId":"148086","storeName":"\u5e97\u94fa\u540d\u79f0","domain":"domain-1","status":"1","logo":"","weight":"0","creditMark":"0"}],"page":{"totalPages":1,"totalItems":1,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017-10-27
+     */
+    public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
 }

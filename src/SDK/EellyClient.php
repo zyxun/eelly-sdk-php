@@ -184,17 +184,25 @@ class EellyClient
     protected function paramsToMultipart($params, $prefix = null)
     {
         $multipart = [];
+
         foreach ($params as $key => $value) {
-            $p = null == $prefix ? $key : $prefix.'['.$key.']';
+            $p = null === $prefix ? $key : $prefix.'['.$key.']';
             if ($value instanceof UploadedFileInterface) {
                 $multipart[] = [
                     'name'     => $p,
                     'contents' => $value->getStream(),
                 ];
             } elseif (is_array($value)) {
-                $parentMultipart = $this->paramsToMultipart($value, $p);
-                foreach ($parentMultipart as $part) {
-                    $multipart[] = $part;
+                if (empty($value)) {
+                    $multipart[] = [
+                        'name'     => $p,
+                        'contents' => '/*_EMPTY_ARRAY_*/',
+                    ];
+                } else {
+                    $parentMultipart = $this->paramsToMultipart($value, $p);
+                    foreach ($parentMultipart as $part) {
+                        $multipart[] = $part;
+                    }
                 }
             } elseif (null !== $value) {
                 $multipart[] = [

@@ -44,7 +44,7 @@ interface ParamsInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function paramArray(array $arr, array $framework): bool;
+    public function paramArray(array $arr, array $framework): array;
 
     /**
      * 返回int.

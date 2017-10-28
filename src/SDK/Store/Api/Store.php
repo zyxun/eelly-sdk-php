@@ -53,6 +53,16 @@ class Store implements StoreInterface
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @see \Eelly\SDK\Store\Service\StoreInterface::deleteStoreOperator()
+     */
+    public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    {
+        return EellyClient::request('store/store', __FUNCTION__, $condition, $currentPage, $limit);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
