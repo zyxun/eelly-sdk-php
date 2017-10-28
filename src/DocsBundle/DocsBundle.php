@@ -70,9 +70,7 @@ class DocsBundle extends Injectable
             return $view;
         });
         $this->getEventsManager()->attach('router:matchedRoute', function (Event $event, Router $router, Router\Route $route): void {
-            if (__NAMESPACE__ == $route->getPaths()['namespace']) {
-                $this->getDI()->getShared('application')->useImplicitView(true);
-            }
+            $this->getDI()->getShared('application')->useImplicitView(__NAMESPACE__ == $route->getPaths()['namespace']);
         });
         /* @var ApiLoggerListener $apiLoggerListener */
         $apiLoggerListener = $this->di->getShared(ApiLoggerListener::class);
