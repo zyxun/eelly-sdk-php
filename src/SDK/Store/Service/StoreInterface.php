@@ -112,6 +112,20 @@ interface StoreInterface
      * @since 2017年9月9日
      */
     public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool;
+	
+	/**
+     * 获取店铺搜索引擎所需数据.
+     *
+     * @param int $currentPage  当前页
+     * @param int $limit    限制数
+     * @return array 返回入库会员搜索引擎所需数据
+     * @requestExample({"currentPage":1,"limit":100})
+     * @returnExample({"items":[{"storeId":"3","storeName":"LiWeiQuan123456","domain":"domain-3","creditValue":null,"addedCredit":null,"isMix":null,"mixNum":null,"mixMoney":null,"limitActivityExpireTime":null,"introduction":null,"storeWeight":0,"favorityNum":0,"isEntity":0,"isEnterprise":0,"isReturnedExchange":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isTryOn":0,"isRealGoods":0,"isMobiePay":0,"isSelfLift":0,"isHot":0}],"page":{"totalPages":3,"totalItems":3,"limit":1}})
+     * @throws StoreException
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @since 2017-10-23
+     */
+    public function listStoreElasticData(int $currentPage = 1,int $limit = 100):array;
 
     /**
      * 分页获取店铺列表
