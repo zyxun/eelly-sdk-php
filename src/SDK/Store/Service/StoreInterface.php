@@ -125,4 +125,41 @@ interface StoreInterface
      * @since 2017年10月27日
      */
     public function getStoreInfoByUserIds(array $userIds): array;
+	
+	/**
+     * 获取店铺搜索引擎所需数据.
+     *
+     * @param int $currentPage  当前页
+     * @param int $limit    限制数
+     * @return array 返回入库会员搜索引擎所需数据
+     * @requestExample({"currentPage":1,"limit":100})
+     * @returnExample({"items":[{"storeId":"3","storeName":"LiWeiQuan123456","domain":"domain-3","creditValue":null,"addedCredit":null,"isMix":null,"mixNum":null,"mixMoney":null,"limitActivityExpireTime":null,"introduction":null,"storeWeight":0,"favorityNum":0,"isEntity":0,"isEnterprise":0,"isReturnedExchange":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isTryOn":0,"isRealGoods":0,"isMobiePay":0,"isSelfLift":0,"isHot":0}],"page":{"totalPages":3,"totalItems":3,"limit":1}})
+     * @throws StoreException
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @since 2017-10-23
+     */
+    public function listStoreElasticData(int $currentPage = 1,int $limit = 100):array;
+
+    /**
+     * 分页获取店铺列表
+     *
+     * @param array      $condition              店铺的查询条件
+     * @param int|string $condition['storeId']   店铺id,多个以逗号隔开
+     * @param int|string $condition['userId']    店主id,多个以逗号隔开
+     * @param string     $condition['storeName'] 店铺名称：默认name-店铺ID
+     * @param int        $condition['status']    状态：0 未开启 1 开启 2 关闭(到期或违规) 3 挂起(违规) 4 卖家暂停营业
+     * @param int        $currentPage            当前页码
+     * @param int        $limit                  每页条数
+     *
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return array 店铺列表
+     * @requestExample({"condition":{"userId":1,"storeName":"店铺名称","status":1}})
+     * @returnExample({"items":[{"storeId":"1","userId":"148086","storeName":"\u5e97\u94fa\u540d\u79f0","domain":"domain-1","status":"1","logo":"","weight":"0","creditMark":"0"}],"page":{"totalPages":1,"totalItems":1,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     * @since 2017-10-27
+     */
+    public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
 }
