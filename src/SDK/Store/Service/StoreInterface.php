@@ -112,4 +112,17 @@ interface StoreInterface
      * @since 2017年9月9日
      */
     public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool;
+
+    /**
+     * 通过用户ID批量获取店铺信息.
+     *
+     * @param array $userIds 多个用户的ID
+     * @return array
+     * @requestExample({'userIds':{148086,148087}})
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     * @returnExample({"storeId": 2,"userId": 148086,"storeName":"店铺名称22","domain":"domain-2","status": 1,"logo":"","weight":0,"creditMark":0,"createdTime":1502278521})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月27日
+     */
+    public function getStoreInfoByUserIds(array $userIds): array;
 }

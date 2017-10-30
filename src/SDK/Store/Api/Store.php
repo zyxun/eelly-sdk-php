@@ -96,4 +96,14 @@ class Store implements StoreInterface
     {
         return EellyClient::request('store/store', __FUNCTION__, $newOwner, $storeId, $user);
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Eelly\SDK\Store\Service\StoreInterface
+     */
+    public function getStoreInfoByUserIds(array $userIds): array
+    {
+        return EellyClient::request('store/store', 'getStoreInfoByUserIds', $userIds);
+    }
 }
