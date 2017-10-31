@@ -43,6 +43,13 @@ class BlackDTO extends AbstractDTO
      */
     public $fromType;
 
+    /**
+     * 用户类型：1 厂+ 2 店+ 3 云店卖家 4 云店买家.
+     *
+     * @var int
+     */
+    public $userType;
+
 
     /**
      * 添加时间.
