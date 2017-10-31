@@ -379,4 +379,49 @@ interface GoodsInterface
      */
     public function listGoodsElasticData(int $currentPage = 1, int $limit = 100): array;
 
+    /**
+     * 校验订单商品信息
+     * 校验订单商品信息
+     *
+     * @return array 校验后的商品信息
+     * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     * @requestExample({
+     *     "goodsInfo":[
+     *         {
+     *             "goodsId":1,
+     *             "specInfo":[
+     *                 {
+     *                     "specId":2,
+     *                     "color":"颜色",
+     *                     "size":"尺码",
+     *                     "price":100,
+     *                     "quantity":2
+     *                 }
+     *             ]
+     *         }
+     *     ]
+     * })
+     * @returnExample({
+     *     "1":{
+     *         "goodsId":1,
+     *         "goodsName":"商品名称",
+     *         "goodsImage":"http://image.eelly.test/abc.jpg",
+     *         "goodsNumber":"123456789",
+     *         "totalWeight":1,
+     *         "totalPrice":400,
+     *         "specInfo":[
+     *             {
+     *                 "specId":2,
+     *                 "color":"颜色",
+     *                 "size":"尺码",
+     *                 "price":100,
+     *                 "quantity":2
+     *             }
+     *         ]
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017年10月28日
+     */
+    public function checkOrderGoodsInfo(array $goodsInfo): array;
 }
