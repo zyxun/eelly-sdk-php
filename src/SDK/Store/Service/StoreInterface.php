@@ -125,7 +125,7 @@ interface StoreInterface
      * @since 2017年10月27日
      */
     public function getStoreInfoByUserIds(array $userIds): array;
-	
+
 	/**
      * 获取店铺搜索引擎所需数据.
      *
@@ -162,4 +162,42 @@ interface StoreInterface
      */
     public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
+    /**
+     * 获取店铺认证服务
+     * 获取店铺认证服务信息
+     *
+     * @param array $storeIds 店铺id
+     * @param array $types 服务类型(默认为空获取全部) 0:实体认证 1:企业认证 2:48小时包退货 3:商品实拍 4:准时发货 5:诚信保障 6:卖家认证 7:品牌认证 8:全店包邮
+     * @return array 店铺认证服务信息
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     * @requestExample({
+     *     "storeIds":[
+     *         1,
+     *         2,
+     *         3
+     *     ],
+     *     "types":[
+     *         0,
+     *         1,
+     *         2
+     *     ]
+     * })
+     * @returnExample({
+     *     "1":{
+     *         "entityCertification":1,
+     *         "enterpriseCertification":0,
+     *         "returnedCertification":1,
+     *         "realShotCertification":1,
+     *         "timeShippingCertification":1,
+     *         "integrityCertification":1,
+     *         "sellerCertification":1,
+     *         "brandCertification":1,
+     *         "freeShippingCertification":1,
+     *         "hotCertification":1
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017年10月31日
+     */
+    public function getCertificationServices(array $storeIds, array $types = []): array;
 }

@@ -136,4 +136,33 @@ interface LogisticsModeInterface
      * @since 2017年9月11日
      */
     public function getLogisticsMode(int $storeId): array;
+
+    /**
+     * 获取物流配送信息
+     * 获取物流配送信息
+     *
+     * @param array $styleIds 配送方式id
+     * @return array 物流配送信息
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     * @requestExample({
+     *     "styleIds":[1,2,3]
+     * })
+     * @returnExample({
+     *     "1":{
+     *         "baseweight":1,
+     *         "overweight":2,
+     *         "isCod":0,
+     *         "regionInfo":[
+     *             {
+     *                 "baseweight":1,
+     *                 "overweight":2,
+     *                 "gbCodes":["110011","110012"]
+     *             }
+     *         ]
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017年10月31日
+     */
+    public function getLogisticsInfoByStyle(array $styleIds): array;
 }
