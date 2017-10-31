@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\Service\RegionInterface;
 use Eelly\SDK\SYSTEM\DTO\RegionDTO;
@@ -53,6 +54,7 @@ class Region implements RegionInterface
      * @param string $data['telCode']    电话区号
      * @param int    $data['zipCode']    邮政编码
      * @param int    $data['regionCode'] 区域所属片区
+     * @param UidDTO $user               登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -64,7 +66,7 @@ class Region implements RegionInterface
      *
      * @since  2017-09-26
      */
-    public function addRegion(array $data): bool
+    public function addRegion(array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('system/region', 'addRegion', $data);
     }
@@ -80,6 +82,7 @@ class Region implements RegionInterface
      * @param string $data['telCode']    电话区号
      * @param int    $data['zipCode']    邮政编码
      * @param int    $data['regionCode'] 区域所属片区
+     * @param UidDTO $user               登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -91,7 +94,7 @@ class Region implements RegionInterface
      *
      * @since  2017-09-26
      */
-    public function updateRegion(int $gbCode, array $data): bool
+    public function updateRegion(int $gbCode, array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('system/region', 'updateRegion', $gbCode, $data);
     }
@@ -143,6 +146,24 @@ class Region implements RegionInterface
     public function listRegionPage(array $condition = [], int $currentPage = 1, int $limit = 20): array
     {
         return EellyClient::request('system/region', 'listRegionPage', $condition, $currentPage, $limit);
+    }
+    
+    /**
+     * 根据传过来的gbCode，返回对应的地址信息
+     *
+     * @param int $gbCode  区域国标编码
+     *
+     * @return array
+     * @requestExample({"gbCode":1})
+     * @returnExample({"gbCode":"4401","areaName":"广东省.广州市","shortName":"广东.广州"})
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2017-10-31
+     */
+    public function getUserAddressByGbCode(int $gbCode): array
+    {
+        return EellyClient::request('system/region', __FUNCTION__, $gbCode);
     }
 
     /**
