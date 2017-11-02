@@ -135,4 +135,19 @@ interface RegionInterface
      * @since  2017-09-26
      */
     public function listRegionPage(array $condition = [], int $currentPage = 1, int $limit = 20): array;
+    
+    /**
+     * 根据传过来的gbCode，返回对应的地址信息
+     *
+     * @param int $gbCode  区域国标编码
+     *
+     * @return array
+     * @requestExample({"gbCode":1})
+     * @returnExample({"gbCode":"4401","areaName":"广东省.广州市","shortName":"广东.广州"})
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2017-10-31
+     */
+    public function getUserAddressByGbCode(int $gbCode): array;
 }

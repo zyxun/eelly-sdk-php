@@ -38,6 +38,36 @@ interface UserInterface
      * )
      */
     public function checkIsExistUserMobile(string $mobile): int;
+
+    /**
+     * 校验密码强度.
+     *
+     * @param string $password 密码
+     * @return int -1:密码不符合规则;<2:密码过于简单
+     * @requestExample({'password':123456})
+     * @returnExample({-1})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月28日
+     */
+    public function checkPasswordPowerRule(string $password): int;
+
+    /**
+     * 更新用户数据.
+     *
+     * @param int $userId 用户登录ID
+     * @param array $data 需要更新的用户数据
+     * @return bool
+     * @requestExample({'username':'username','passwordOld':'password_old','password':'password','mobile':'mobile','avatar':'avatar','status':'status'})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月28日
+     * @Validation(
+     *  @OperatorValidator(0,{message : "非法用户ID",operator:["gt",0]}),
+     *  @PresenceOf(1,{message : "数据不能为空"})
+     * )
+     */
+    public function updateUser(int $userId, array $data): bool;
+
     /**
      * 注册用户.
      *
@@ -53,6 +83,7 @@ interface UserInterface
      * @since 2017年10月24日
      */
     public function registerUser(array $data): int;
+
     /**
      * 检查用户密码.
      *
@@ -122,18 +153,18 @@ interface UserInterface
      *     @PresenceOf(0,{message : "用户id不能为空"})
      * )
      */
-    public function getListByUserIds(array $userIds):array;
+    public function getListByUserIds(array $userIds): array;
 
     /**
      * 添加用户.
      *
-     * @param array  $data
-     * @param string $data["username"]
-     * @param string $data["password"]["old"]
-     * @param string $data["password"]
-     * @param int    $data["mobile"]
-     * @param string $data["avatar"]
-     * @param int    $data["status"]
+     * @param array $data
+     * @param string $data ["username"]
+     * @param string $data ["password"]["old"]
+     * @param string $data ["password"]
+     * @param int $data ["mobile"]
+     * @param string $data ["avatar"]
+     * @param int $data ["status"]
      *
      * @throws UserException
      *
@@ -146,12 +177,12 @@ interface UserInterface
      * @since  2017/9/29
      */
     public function addUser(array $data): int;
-	
-	  /**
+
+    /**
      * 获取会员搜索引擎所需数据.
      *
-     * @param int $currentPage  当前页
-     * @param int $limit    限制数
+     * @param int $currentPage 当前页
+     * @param int $limit 限制数
      * @return array
      * @requestExample({"currentPage":1,"limit":100})
      * @returnExample()
@@ -159,5 +190,5 @@ interface UserInterface
      * @author liangxinyi<liangxinyi@eelly.net>
      * @since 2017-10-23
      */
-    public function listUserElasticData(int $currentPage = 1,int $limit = 100):array;
+    public function listUserElasticData(int $currentPage = 1, int $limit = 100): array;
 }

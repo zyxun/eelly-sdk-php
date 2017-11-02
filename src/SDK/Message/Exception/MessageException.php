@@ -37,4 +37,8 @@ class MessageException extends LogicException
     public const TEMPLETE_NO_START = '模板还没启用，请先启用';
 
     public const TEMPLETE_PARAMETER_INCORRECT = '模板匹配参数不正确,请按模板参数填写';
+
+    public const  UNKNOW_ERROR = '验证码已经失效';
+
+    public const  CODE_NOT_EXIT = '验证码不存在';
 }

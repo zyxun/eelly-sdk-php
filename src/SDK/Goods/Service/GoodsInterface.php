@@ -379,4 +379,98 @@ interface GoodsInterface
      */
     public function listGoodsElasticData(int $currentPage = 1, int $limit = 100): array;
 
+    /**
+     * 校验订单商品信息
+     * 校验订单商品信息
+     *
+     * @param array $goodsInfo 商品信息
+     * @param int $goodsInfo["0"]["goodsId"] 商品id
+     * @param array $goodsInfo["0"]["specInfo"] 商品规格信息
+     * @param int $goodsInfo["0"]["specInfo"]["0"]["specId"] 商品规格id
+     * @param string $goodsInfo["0"]["specInfo"]["0"]["color"] 商品颜色
+     * @param string $goodsInfo["0"]["specInfo"]["0"]["size"] 商品尺码
+     * @param int $goodsInfo["0"]["specInfo"]["0"]["price"] 商品价格
+     * @param int $goodsInfo["0"]["specInfo"]["0"]["quantity"] 商品数量
+     * @return array 校验后的商品信息
+     * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     * @requestExample({
+     *     "goodsInfo":[
+     *         {
+     *             "goodsId":1,
+     *             "specInfo":[
+     *                 {
+     *                     "specId":2,
+     *                     "color":"颜色",
+     *                     "size":"尺码",
+     *                     "price":100,
+     *                     "quantity":2
+     *                 }
+     *             ]
+     *         }
+     *     ],
+     *     "returnCheckInfo":true
+     * })
+     * @returnExample({
+     *     "orderGoodsInfo":{
+     *         "1":{
+     *             "goodsId":1,
+     *             "goodsName":"商品名称",
+     *             "goodsImage":"http://image.eelly.test/abc.jpg",
+     *             "goodsNumber":"123456789",
+     *             "goodsQuantity":5,
+     *             "totalWeight":1,
+     *             "totalPrice":400,
+     *             "specInfo":[
+     *                 {
+     *                     "specId":2,
+     *                     "color":"颜色",
+     *                     "size":"尺码",
+     *                     "price":100,
+     *                     "quantity":2
+     *                 }
+     *             ]
+     *         }
+     *     },
+     *     "checkInfo":[
+     *         {
+     *             "error":2,
+     *             "message":"商品颜色发生变动"
+     *         }
+     *     ]
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017年10月28日
+     */
+    public function checkOrderGoodsInfo(array $goodsInfo): array;
+
+    /**
+     * 计算订单商品邮费
+     * 计算订单商品邮费信息
+     *
+     * @param array $goodsInfo 商品信息
+     * @param int $goodsInfo["0"]["storeId"] 店铺id
+     * @param int $goodsInfo["0"]["logisticsStyleId"] 物流配送方式id
+     * @param int $goodsInfo["0"]["gbCode"] 区域国际编码
+     * @param int $goodsInfo["0"]["goodsWeight"] 商品重量
+     * @return array 商品邮费信息
+     * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     * @requestExample({
+     *     "goodsInfo":[
+     *         {
+     *             "storeId":123,
+     *             "logisticsStyleId":1,
+     *             "gbCode":"110011",
+     *             "goodsWeight":100
+     *         }
+     *     ]
+     * })
+     * @returnExample({
+     *     "1":{
+     *         "freight":100
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017年10月30日
+     */
+    public function calculateThePostage(array $goodsInfo): array;
 }

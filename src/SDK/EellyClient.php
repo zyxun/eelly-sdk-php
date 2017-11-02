@@ -40,6 +40,7 @@ class EellyClient
         'store'   => 'https://api.eelly.com',
         'pay'     => 'https://api.eelly.com',
         'service' => 'https://api.eelly.com',
+        'message' => 'https://api.eelly.com',
     ];
 
     private static $services = [];
@@ -184,7 +185,6 @@ class EellyClient
     protected function paramsToMultipart($params, $prefix = null)
     {
         $multipart = [];
-
         foreach ($params as $key => $value) {
             $p = null === $prefix ? $key : $prefix.'['.$key.']';
             if ($value instanceof UploadedFileInterface) {
@@ -193,16 +193,9 @@ class EellyClient
                     'contents' => $value->getStream(),
                 ];
             } elseif (is_array($value)) {
-                if (empty($value)) {
-                    $multipart[] = [
-                        'name'     => $p,
-                        'contents' => '/*_EMPTY_ARRAY_*/',
-                    ];
-                } else {
-                    $parentMultipart = $this->paramsToMultipart($value, $p);
-                    foreach ($parentMultipart as $part) {
-                        $multipart[] = $part;
-                    }
+                $parentMultipart = $this->paramsToMultipart($value, $p);
+                foreach ($parentMultipart as $part) {
+                    $multipart[] = $part;
                 }
             } elseif (null !== $value) {
                 $multipart[] = [

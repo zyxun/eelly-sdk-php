@@ -50,4 +50,38 @@ interface BlackInterface
      * )
      */
     public function getBlack(int $source, UidDTO $user = null): array;
+
+    /**
+     * 添加黑名单.
+     *
+     * @param array       $data 黑名单数据
+     * @param int         $data ['userId'] 黑名单用户ID
+     * @param int         $data ['fromType'] 来源类型：1 厂+ 2 店+ 3 CRM 4 云店卖家 5 云店买家
+     * @param int         $data ['userType'] 用户类型：1 厂+ 2 店+ 3 云店卖家 4 云店买家
+     * @param UidDTO|null $user 登录用户信息
+     * @throws \Eelly\SDK\Contact\Exception\BlackException
+     *
+     * @return bool
+     * @requestExample({'userId':148086,'fromType':1,'userType':2})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月28日
+     */
+    public function addBlack(array $data, UidDTO $user = null): bool;
+
+
+    /**
+     * 批量删除黑名单
+     *
+     * @param array $cbIds
+     * @param UidDTO|null $user 登录用户信息
+     * @return bool
+     * @requestExample({'cbIds':[1,2,3]})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年10月30日
+     */
+    public function delete(array $cbIds, UidDTO $user = null): bool;
 }
