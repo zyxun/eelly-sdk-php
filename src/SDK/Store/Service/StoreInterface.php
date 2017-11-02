@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Store\Service;
 
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\Store\DTO\StoreDTO;
 
 /**
  * 店铺操作.
@@ -148,5 +149,21 @@ interface StoreInterface
      * @since 2017-10-27
      */
     public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+	
+	 /**
+     * 获取店铺基本信息.
+     *
+     * @param int      $storeId              店铺Id
+     *
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return array 店铺列表
+     * @requestExample({"storeId": 1})
+     * @returnExample({"storeId":"1","userId":"148086","storeName":"\u5e97\u94fa\u540d\u79f0","domain":"domain-1","status":"1","logo":"","weight":"0","creditMark":"0"})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @since 2017-10-27
+     */
+    public function getStore(int $storeId):StoreDTO;
 
 }

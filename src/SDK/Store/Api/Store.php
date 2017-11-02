@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Store\Api;
 
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\Store\DTO\StoreDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\StoreInterface;
 
@@ -123,4 +124,25 @@ class Store implements StoreInterface
 	{
 		 return EellyClient::request('store/store', __FUNCTION__, $currentPage, $limit);
 	}
+
+    /**
+     * 获取店铺基本信息.
+     *
+     * @param int      $storeId              店铺Id
+     *
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return StoreDTO 店铺列表
+     * @requestExample({"storeId": 1})
+     * @returnExample({"storeId":"1","userId":"148086","storeName":"\u5e97\u94fa\u540d\u79f0","domain":"domain-1","status":"1","logo":"","weight":"0","creditMark":"0"})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     * @since 2017-10-27
+     */
+    public function getStore(int $storeId): StoreDTO
+    {
+        return EellyClient::request('store/store', __FUNCTION__, $storeId);
+    }
+
+
 }
