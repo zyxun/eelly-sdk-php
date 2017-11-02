@@ -40,6 +40,7 @@ class EellyClient
         'store'   => 'https://api.eelly.com',
         'pay'     => 'https://api.eelly.com',
         'service' => 'https://api.eelly.com',
+        'message' => 'https://api.eelly.com',
     ];
 
     private static $services = [];
