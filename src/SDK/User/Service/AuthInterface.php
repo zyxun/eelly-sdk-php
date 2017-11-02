@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
-use Eelly\DTO\AuthDTO;
+
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\User\DTO\AuthDTO;
 
 /**
  * 实名认证
@@ -30,24 +31,42 @@ interface AuthInterface
      * @param   int $data ['type']           认证类型：0 个人实名认证 1 企业实名认证,
      * @param   string $data ['name']           真实姓名/企业名称,
      * @param   string $data ['license']        身份证号码/营业执照号,
-     * @param   int $data ['id_type']        证件有效期：0 有期限 1 长期,
-     * @param   int $data ['expiry_date']    证件到期时间,
-     * @param   int $data ['bank_id']        开户银行ID：el_config->bank->bank_id,
-     * @param   int $data ['gb_code']        开户银行所在地：：el_config->region_gb->gb_code,
-     * @param   string $data ['bank_subbranch'] 支行名称,
-     * @param   string $data ['bank_account']   银行账号,
-     * @param   string $data ['cart_pic']       身份证正面照片/营业执照图片路径,
-     * @param   string $data ['cart_reversed_pic']  身份证反面照片,
+     * @param   int $data ['idType']        证件有效期：0 有期限 1 长期,
+     * @param   int $data ['expiryDate']    证件到期时间,
+     * @param   int $data ['bankId']        开户银行ID：el_config->bank->bank_id,
+     * @param   int $data ['gbCode']        开户银行所在地：：el_config->region_gb->gb_code,
+     * @param   string $data ['bankSubbranch'] 支行名称,
+     * @param   string $data ['bankAccount']   银行账号,
+     * @param   string $data ['cartPic']       身份证正面照片/营业执照图片路径,
+     * @param   string $data ['cartReversedPic']  身份证反面照片,
      * @param   int $data ['remark']          备注,
      * @param UidDTO|null $user 登录用户
      * @throws \Eelly\SDK\User\Exception\AuthException
      * @return bool
-     * @requestExample()
+     * @requestExample({'type':1,'name':'小王','license':444444,'idType':0,'expiryDate':1509592537,
+     *     'bankId':222,'gbCode':'SKKUUE','bankSubbranch':'支行名称','bankAccount':'银行账号','cartPic':'/SKKSKS/SSJJS/KSKKS.png','cartReversedPic':'/SKKSKS/SSJJS/KSKKS.png','remark':'备注'})
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2017年10月26日
      */
     public function addUserAuth(array $data, UidDTO $user = null): bool;
+
+    /**
+     * 获取企业认证或者个人实名认证的结果.
+     *
+     * @param int $type   认证类型：0 个人实名认证 1 企业实名认证
+     * @param UidDTO|null $user  登录用户
+     * @return array
+     * @requestExample({'type':0})
+     * @returnExample({"userId":148086,"type":1,"name":"张小龙","license":"我是一个3","idType":0,"expiryDate":12222223,"bankId":2,"gbCode":33,"bankSubbranch":"1","bankAccount":"44322","cartPic":"jsjjss.png","cartReversedPic":"","auditTime":0,"status":0,"remark":"","createdTime":1509009346,"updateTime":null,"mobile":"13430248648"})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年11月02日
+     * @Validation(
+     * @InclusionIn(0,{message:"非法的认证类型",domain:[0,1]})
+     * )
+     */
+    public function getUserAuth(int $type, UidDTO $user = null): AuthDTO;
+
     /**
      * 获取用户/店铺认证信息.
      *
