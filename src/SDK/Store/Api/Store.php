@@ -1,6 +1,5 @@
 <?php
-
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /*
  * This file is part of eelly package.
@@ -10,7 +9,6 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Eelly\SDK\Store\Api;
 
 use Eelly\DTO\UidDTO;
@@ -18,11 +16,14 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\StoreInterface;
 
 /**
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Store implements StoreInterface
 {
+
     /**
+     *
      * {@inheritdoc}
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::addStore()
@@ -33,6 +34,7 @@ class Store implements StoreInterface
     }
 
     /**
+     *
      * {@inheritdoc}
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::addStoreOperator()
@@ -43,6 +45,7 @@ class Store implements StoreInterface
     }
 
     /**
+     *
      * {@inheritdoc}
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::deleteStoreOperator()
@@ -53,6 +56,7 @@ class Store implements StoreInterface
     }
 
     /**
+     *
      * {@inheritdoc}
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::deleteStoreOperator()
@@ -63,6 +67,7 @@ class Store implements StoreInterface
     }
 
     /**
+     *
      * @return self
      */
     public static function getInstance(): self
@@ -108,6 +113,7 @@ class Store implements StoreInterface
     }
 
     /**
+     *
      * {@inheritdoc}
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface
@@ -133,4 +139,15 @@ class Store implements StoreInterface
 	{
 		 return EellyClient::request('store/store', __FUNCTION__, $currentPage, $limit);
 	}
+
+    /**
+     *
+     * {@inheritdoc}
+     *
+     * @see \Eelly\SDK\Store\Service\StoreInterface::getCertificationServices()
+     */
+    public function getCertificationServices(array $storeIds, array $types = []): array
+    {
+        return EellyClient::request('store/store', __FUNCTION__, $storeIds, $types);
+    }
 }
