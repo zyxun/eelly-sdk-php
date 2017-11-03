@@ -70,5 +70,4 @@ class GradeDTO extends AbstractDTO
      * @var unknown
      */
     public $updateTime;
-
 }

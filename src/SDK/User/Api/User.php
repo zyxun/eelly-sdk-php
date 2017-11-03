@@ -131,25 +131,29 @@ class User implements UserInterface
     {
         return EellyClient::request('user/user', 'updateUserAvatar', $uid, $avatar);
     }
-	
-	  /**
+
+    /**
      * 获取会员搜索引擎所需数据.
      *
-     * @param int $currentPage  当前页
-     * @param int $limit    限制数
+     * @param int $currentPage 当前页
+     * @param int $limit       限制数
+     *
+     * @throws \Eelly\SDK\
+     *
      * @return array
      * @requestExample({"currentPage":1,"limit":100})
      * @returnExample()
-     * @throws \Eelly\SDK\
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-10-23
      */
-    public function listUserElasticData(int $currentPage = 1,int $limit = 100):array
-	{
-		return EellyClient::request('user/user', 'listUserElasticData', $currentPage, $limit);
-	}
+    public function listUserElasticData(int $currentPage = 1, int $limit = 100):array
+    {
+        return EellyClient::request('user/user', 'listUserElasticData', $currentPage, $limit);
+    }
 
- 	/**
+    /**
      * {@inheritdoc}
      */
     public function checkIsExistUserMobile(string $mobile): int
@@ -177,10 +181,13 @@ class User implements UserInterface
      * 校验密码强度.
      *
      * @param string $password 密码
+     *
      * @return int -1:密码不符合规则;<2:密码过于简单
      * @requestExample({'password':123456})
      * @returnExample({-1})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年10月28日
      */
     public function checkPasswordPowerRule(string $password): int
@@ -200,6 +207,4 @@ class User implements UserInterface
 
         return $instance;
     }
-
-
 }

@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\BankDTO;
 
 /**
  * 银行信息.
- * 
+ *
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface BankInterface
@@ -37,6 +37,7 @@ interface BankInterface
      *     "status":1,"createdTime":1503560249})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function getBank(int $bankId): BankDTO;
@@ -61,6 +62,7 @@ interface BankInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function addBank(array $data, UidDTO $user = null): bool;
@@ -85,6 +87,7 @@ interface BankInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function updateBank(int $bankId, array $data, UidDTO $user = null): bool;
@@ -107,6 +110,7 @@ interface BankInterface
      *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 20): array;

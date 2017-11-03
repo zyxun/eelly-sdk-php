@@ -18,12 +18,11 @@ use Eelly\SDK\Service\DTO\BuyDTO;
 
 /**
  * 增值服务购买记录.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface BuyInterface
 {
-
     /**
      * 获取一条服务购买记录.
      *
@@ -52,7 +51,7 @@ interface BuyInterface
      * @param string $data['name']          服务名称
      * @param int    $data['number']        数量设置：对应计数模式的数量；0为无限制
      * @param int    $data['money']         收费金额：单位为分
-     * @param double $data['discount']      折扣：0<=X<=1，0和1都表示无折扣
+     * @param float  $data['discount']      折扣：0<=X<=1，0和1都表示无折扣
      * @param int    $data['timeLimit']     服务期限：表示N个月，大于0
      * @param int    $data['model']         计数模式：1 服务期内 2 每月 4 每日，全部模式：1+2+4=7
      * @param int    $data['usedNumber']    总使用过的数量（次数）
@@ -98,5 +97,4 @@ interface BuyInterface
      * @since 2017-09-23
      */
     public function listBuyPage(int $storeId = null, int $userId = null, int $currentPage = 1, int $limit = 10): array;
-
 }

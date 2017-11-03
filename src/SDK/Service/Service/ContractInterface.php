@@ -18,6 +18,7 @@ use Eelly\SDK\Service\DTO\ContractDTO;
 
 /**
  * 增值服务合同版本.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ContractInterface
@@ -25,7 +26,7 @@ interface ContractInterface
     /**
      * 获取指定ID的合同版本.
      *
-     * @param int    $scId 合同版本ID
+     * @param int $scId 合同版本ID
      *
      * @throws \Eelly\SDK\Service\Exception\ContractException
      *

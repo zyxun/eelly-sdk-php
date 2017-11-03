@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\ParamValueDTO;
 
 /**
  * 参数值信息.
- * 
+ *
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface ParamValueInterface
@@ -36,6 +36,7 @@ interface ParamValueInterface
      * @returnExample({"spvId":1,"paramId":1, "paramValue":"测试编码","paramDesc":"这个编码是测试数据","status":1,"remark":"测试数据","createdTime":1503560249})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-25
      */
     public function getParamValue(int $spvId): ParamValueDTO;
@@ -59,6 +60,7 @@ interface ParamValueInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-25
      */
     public function addParamValue(array $data, UidDTO $user = null): bool;
@@ -82,6 +84,7 @@ interface ParamValueInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-25
      */
     public function updateParamValue(int $spvId, array $data, UidDTO $user = null): bool;
@@ -89,11 +92,11 @@ interface ParamValueInterface
     /**
      * 分页获取参数值列表.
      *
-     * @param array $condition             查询条件
-     * @param int   $condition['paramId']  参数名id
-     * @param int   $condition['status']   参数值状态：(0 无效 1 有效)
-     * @param int   $currentPage           页码
-     * @param int   $limit                 分页条数
+     * @param array $condition            查询条件
+     * @param int   $condition['paramId'] 参数名id
+     * @param int   $condition['status']  参数值状态：(0 无效 1 有效)
+     * @param int   $currentPage          页码
+     * @param int   $limit                分页条数
      *
      * ### 返回数据说明
      *
@@ -117,7 +120,6 @@ interface ParamValueInterface
      * page[total_items]      |int    | 总数
      * page[limit]            |int    | 每页显示的数量
      *
-     *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array 返回分页结果
@@ -126,6 +128,7 @@ interface ParamValueInterface
      *     "createdTime":1503560249}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-25
      */
     public function listParamValuePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

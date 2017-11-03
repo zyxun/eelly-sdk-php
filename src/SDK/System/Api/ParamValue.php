@@ -1,27 +1,27 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\System\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\ParamValueInterface;
 use Eelly\SDK\System\DTO\ParamValueDTO;
+use Eelly\SDK\System\Service\ParamValueInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class ParamValue implements ParamValueInterface
 {
-
     /**
      * 根据传过来的参数值主键id，返回对应的参数值信息.
      *
@@ -98,11 +98,11 @@ class ParamValue implements ParamValueInterface
     /**
      * 分页获取参数值列表.
      *
-     * @param array $condition             查询条件
-     * @param int   $condition['paramId']  参数名id
-     * @param int   $condition['status']   参数值状态：(0 无效 1 有效)
-     * @param int   $currentPage           页码
-     * @param int   $limit                 分页条数
+     * @param array $condition            查询条件
+     * @param int   $condition['paramId'] 参数名id
+     * @param int   $condition['status']  参数值状态：(0 无效 1 有效)
+     * @param int   $currentPage          页码
+     * @param int   $limit                分页条数
      *
      * ### 返回数据说明
      *
@@ -125,7 +125,6 @@ class ParamValue implements ParamValueInterface
      * page[total_pages]      |int    | 总页数
      * page[total_items]      |int    | 总数
      * page[limit]            |int    | 每页显示的数量
-     *
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *

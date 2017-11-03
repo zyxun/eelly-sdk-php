@@ -24,15 +24,17 @@ interface OrderInterface
 {
     /**
      * 新增订单
-     * 新增订单信息
+     * 新增订单信息.
      *
-     * @param array $orderData 订单数据
-     * @param int $orderData["0"]["storeId"] 店铺id
-     * @param array $orderData["0"]["goodsIds"] 商品数据
-     * @param int $addrId 用户地址id
-     * @param \Eelly\DTO\UidDTO $user 登录用户信息
-     * @return bool 新增结果
+     * @param array             $orderData                  订单数据
+     * @param int               $orderData["0"]["storeId"]  店铺id
+     * @param array             $orderData["0"]["goodsIds"] 商品数据
+     * @param int               $addrId                     用户地址id
+     * @param \Eelly\DTO\UidDTO $user                       登录用户信息
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return bool 新增结果
      * @requestExample({
      *     "orderData":[
      *         {
@@ -43,22 +45,26 @@ interface OrderInterface
      *     "addrId":3
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年10月25日
      */
     public function addOrder(array $orderData, int $addrId, UidDTO $user = null): bool;
 
     /**
      * 修改订单
-     * 修改订单信息
+     * 修改订单信息.
      *
-     * @param array $orderData 订单数据
-     * @param int $orderData["orderId"] 订单id
-     * @param int $orderData["updateType"] 修改类型 1修改订单金额 2修改订单运费
-     * @param int $orderData["updateValue"] 修改的值
-     * @param \Eelly\DTO\UidDTO $user 登录用户信息
-     * @return bool 修改结果
+     * @param array             $orderData                订单数据
+     * @param int               $orderData["orderId"]     订单id
+     * @param int               $orderData["updateType"]  修改类型 1修改订单金额 2修改订单运费
+     * @param int               $orderData["updateValue"] 修改的值
+     * @param \Eelly\DTO\UidDTO $user                     登录用户信息
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return bool 修改结果
      * @requestExample({
      *     "orderData":{
      *         "orderId":1,
@@ -67,35 +73,43 @@ interface OrderInterface
      *     }
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年10月25日
      */
     public function updateOrder(array $orderData, UidDTO $user = null): bool;
 
     /**
      * 删除订单
-     * 删除订单
+     * 删除订单.
      *
-     * @param int $orderId 订单id
-     * @param \Eelly\DTO\UidDTO $user 登录用户信息
-     * @return bool 删除结果
+     * @param int               $orderId 订单id
+     * @param \Eelly\DTO\UidDTO $user    登录用户信息
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return bool 删除结果
      * @requestExample({
      *     "orderId":1
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年10月25日
      */
     public function deleteOrder(int $orderId, UidDTO $user = null): bool;
 
     /**
      * 获取订单信息
-     * 获取订单信息
+     * 获取订单信息.
      *
      * @param int $orderId 订单id
-     * @return array 订单信息
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array 订单信息
      * @requestExample({
      *     "orderId":1
      * })
@@ -139,7 +153,9 @@ interface OrderInterface
      *         }
      *     ]
      * })
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年10月25日
      */
     public function getOrderInfo(int $orderId): array;

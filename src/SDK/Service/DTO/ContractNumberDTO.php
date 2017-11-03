@@ -17,7 +17,6 @@ use Eelly\DTO\AbstractDTO;
 
 class ContractNumberDTO extends AbstractDTO
 {
-
     /**
      * 合同编号ID.
      *
@@ -33,17 +32,16 @@ class ContractNumberDTO extends AbstractDTO
     public $scId;
 
     /**
-     * 合同编号
+     * 合同编号.
      *
      * @var int
      */
     public $number;
 
     /**
-     * 编号状态：0 未使用 1 已使用 2 临时占用，当线下占用合同时状态变更为临时占用，签订合同时变更状态为已使用
+     * 编号状态：0 未使用 1 已使用 2 临时占用，当线下占用合同时状态变更为临时占用，签订合同时变更状态为已使用.
      *
      * @var int
      */
     public $status;
-
 }

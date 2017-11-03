@@ -23,11 +23,10 @@ use Eelly\SDK\Pay\DTO\BankDTO;
  */
 interface BankInterface
 {
-
     /**
      * 获取一条价用户银行信息,并且判断是否是自己的.
      *
-     * @param int $pbId 用户银行信息ID
+     * @param int         $pbId 用户银行信息ID
      * @param UidDTO|null $user
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
@@ -48,20 +47,24 @@ interface BankInterface
     /**
      * 添加用户银行信息.
      *
-     * @param array $data
-     * @param int $data ['gbCode'] 开户银行所在地区ID
-     * @param int $data ['bankId'] 开户银行ID
-     * @param string $data ['bankSubbranch'] 支行名称
-     * @param string $data ['bankAccount'] 银行账号
-     * @param string $data ['realName'] 银行账号
-     * @param string $data ['phone'] 手机号
-     * @param int $data ['isDefault'] 是否默认使用此卡：0 否 1 是
+     * @param array       $data
+     * @param int         $data ['gbCode'] 开户银行所在地区ID
+     * @param int         $data ['bankId'] 开户银行ID
+     * @param string      $data ['bankSubbranch'] 支行名称
+     * @param string      $data ['bankAccount'] 银行账号
+     * @param string      $data ['realName'] 银行账号
+     * @param string      $data ['phone'] 手机号
+     * @param int         $data ['isDefault'] 是否默认使用此卡：0 否 1 是
      * @param UidDTO|null $user 用户信息
+     *
      * @throws \Eelly\SDK\Pay\Exception\BankException
+     *
      * @return bool
      * @requestExample({"data":{"pbId": 1,"userId": 148086,"gbCode": 0,"bankId": 0,"bankSubbranch": "4541512","bankAccount": "62283625841236512354","realName": "molimoq","phone": "","isDefault": 0,"createdTime": "2015-04-02 15:18:53"}})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年09月20日
      * @badSql
      */
@@ -70,15 +73,15 @@ interface BankInterface
     /**
      * 更新用户银行信息,并且判断是否是自己的.
      *
-     * @param int $pbId 用户银行信息ID
-     * @param array $data 银行账户信息
-     * @param int $data ['gbCode'] 开户银行所在地区ID
-     * @param int $data ['bankId'] 开户银行ID
-     * @param string $data ['bankSubbranch'] 支行名称
-     * @param string $data ['bankAccount'] 银行账号
-     * @param string $data ['realName'] 银行账号
-     * @param string $data ['phone'] 手机号
-     * @param int $data ['isDefault'] 是否默认使用此卡：0 否 1 是
+     * @param int         $pbId 用户银行信息ID
+     * @param array       $data 银行账户信息
+     * @param int         $data ['gbCode'] 开户银行所在地区ID
+     * @param int         $data ['bankId'] 开户银行ID
+     * @param string      $data ['bankSubbranch'] 支行名称
+     * @param string      $data ['bankAccount'] 银行账号
+     * @param string      $data ['realName'] 银行账号
+     * @param string      $data ['phone'] 手机号
+     * @param int         $data ['isDefault'] 是否默认使用此卡：0 否 1 是
      * @param UidDTO|null $user 用户信息
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
@@ -93,11 +96,10 @@ interface BankInterface
      */
     public function updateBank(int $pbId, array $data, UidDTO $user = null): bool;
 
-
     /**
      * 删除用户银行信息，自己删自己的银行卡信息.
      *
-     * @param int $pbId 用户银行信息ID
+     * @param int         $pbId 用户银行信息ID
      * @param UidDTO|null $user 用户信息
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
@@ -118,10 +120,10 @@ interface BankInterface
     /**
      * 分页获取操作信息.
      *
-     * @param array $condition 条件
-     * @param int $condition ['userId'] 用户ID
-     * @param int $currentPage 第几页
-     * @param int $limit 每页条数
+     * @param array $condition   条件
+     * @param int   $condition   ['userId'] 用户ID
+     * @param int   $currentPage 第几页
+     * @param int   $limit       每页条数
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *

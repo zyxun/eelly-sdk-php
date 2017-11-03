@@ -1,28 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\System\Api;
 
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\RegionInterface;
 use Eelly\SDK\SYSTEM\DTO\RegionDTO;
+use Eelly\SDK\System\Service\RegionInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Region implements RegionInterface
 {
-
     /**
      * 根据传过来的主键id，返回对应的网格化区域信息.
      *
@@ -131,7 +131,6 @@ class Region implements RegionInterface
      * page[total_items]      |int    | 总数
      * page[limit]            |int    | 每页显示的数量
      *
-     *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array 返回分页结果
@@ -147,18 +146,20 @@ class Region implements RegionInterface
     {
         return EellyClient::request('system/region', 'listRegionPage', $condition, $currentPage, $limit);
     }
-    
+
     /**
-     * 根据传过来的gbCode，返回对应的地址信息
+     * 根据传过来的gbCode，返回对应的地址信息.
      *
-     * @param int $gbCode  区域国标编码
+     * @param int $gbCode 区域国标编码
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array
      * @requestExample({"gbCode":1})
      * @returnExample({"gbCode":"4401","areaName":"广东省.广州市","shortName":"广东.广州"})
-     * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2017-10-31
      */
     public function getUserAddressByGbCode(int $gbCode): array

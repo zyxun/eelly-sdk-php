@@ -17,7 +17,5 @@ use Eelly\Exception\LogicException;
 
 class EaTrackException extends LogicException
 {
-
     public const FIELD_EMPTY = '字段名不能为空';
-
 }

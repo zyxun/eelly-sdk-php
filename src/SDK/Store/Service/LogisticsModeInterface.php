@@ -139,11 +139,13 @@ interface LogisticsModeInterface
 
     /**
      * 获取物流配送信息
-     * 获取物流配送信息
+     * 获取物流配送信息.
      *
      * @param array $styleIds 配送方式id
-     * @return array 物流配送信息
+     *
      * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return array 物流配送信息
      * @requestExample({
      *     "styleIds":[1,2,3]
      * })
@@ -161,7 +163,9 @@ interface LogisticsModeInterface
      *         ]
      *     }
      * })
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年10月31日
      */
     public function getLogisticsInfoByStyle(array $styleIds): array;

@@ -13,13 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
-
 /**
  * 评论扩展.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CommentExtendInterface
 {
-
 }

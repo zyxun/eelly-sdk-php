@@ -16,15 +16,13 @@ namespace Eelly\SDK\System\Service;
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\System\DTO\ArticleContentDTO;
 
-
 /**
- * 文章内容
+ * 文章内容.
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleContentInterface
 {
-
     /**
      * 获取指定id文章内容.
      *
@@ -79,5 +77,4 @@ interface ArticleContentInterface
      * @since 2017-09-26
      */
     public function updateContent(int $articleId, string $content, UidDTO $user = null): bool;
-
 }

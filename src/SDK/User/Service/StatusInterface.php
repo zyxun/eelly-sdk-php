@@ -26,8 +26,8 @@ interface StatusInterface
     /**
      * 获取用户状态.
      *
-     * @param int $userId      用户id
-     * ### 返回数据说明
+     * @param int $userId 用户id
+     *                    ### 返回数据说明
      *
      * 字段|类型|说明
      * -------------|-------|--------------
@@ -48,6 +48,7 @@ interface StatusInterface
      *     "lastForGoods":1506653850,"lastComment":1506653850,"createdTime":1506653850,"updateTime":"2017-09-29 10:58:32"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/29
      */
     public function getStatus(int $userId): StatusDTO;
@@ -55,15 +56,15 @@ interface StatusInterface
     /**
      * 添加状态.
      *
-     * @param array $data
-     * @param int $data["userId"]
-     * @param int $data["lastLogin"]        上次登录时间
-     * @param string $data["lastIp"]        上次登录IP
-     * @param int $data["lastCharge"]       上次充值时间
-     * @param int $data["lastDraw"]         上次提现时间
-     * @param int $data["lastOrder"]        上次下单时间
-     * @param int $data["lastForGoods"]     上次求货时间
-     * @param int $data["lastComment"]      上次评论时间
+     * @param array  $data
+     * @param int    $data["userId"]
+     * @param int    $data["lastLogin"]    上次登录时间
+     * @param string $data["lastIp"]       上次登录IP
+     * @param int    $data["lastCharge"]   上次充值时间
+     * @param int    $data["lastDraw"]     上次提现时间
+     * @param int    $data["lastOrder"]    上次下单时间
+     * @param int    $data["lastForGoods"] 上次求货时间
+     * @param int    $data["lastComment"]  上次评论时间
      *
      * @throws StatusException
      *
@@ -73,6 +74,7 @@ interface StatusInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/29
      */
     public function addStatus(array $data): bool;
@@ -80,15 +82,15 @@ interface StatusInterface
     /**
      * 更新用户状态.
      *
-     * @param int $userId                   用户id
-     * @param array $data
-     * @param int $data["lastLogin"]        上次登录时间
-     * @param string $data["lastIp"]        上次登录IP
-     * @param int $data["lastCharge"]       上次充值时间
-     * @param int $data["lastDraw"]         上次提现时间
-     * @param int $data["lastOrder"]        上次下单时间
-     * @param int $data["lastForGoods"]     上次求货时间
-     * @param int $data["lastComment"]      上次评论时间
+     * @param int    $userId               用户id
+     * @param array  $data
+     * @param int    $data["lastLogin"]    上次登录时间
+     * @param string $data["lastIp"]       上次登录IP
+     * @param int    $data["lastCharge"]   上次充值时间
+     * @param int    $data["lastDraw"]     上次提现时间
+     * @param int    $data["lastOrder"]    上次下单时间
+     * @param int    $data["lastForGoods"] 上次求货时间
+     * @param int    $data["lastComment"]  上次评论时间
      *
      * @throws StatusException
      *
@@ -98,6 +100,7 @@ interface StatusInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/29
      */
     public function updateStatus(int $userId, array $data): bool;
@@ -114,6 +117,7 @@ interface StatusInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/29
      */
     public function deleteStatus(int $userId): bool;
@@ -122,12 +126,12 @@ interface StatusInterface
      * 用户状态列表.
      *
      * @param array $condition
-     * @param int $condition["lastLogin"]   上次登录时间
-     * @param int $condition["lastCharge"]  上次充值时间
-     * @param int $condition["lastOrder"]   上次下单时间
-     * @param int $condition["lastForGoods"]    上次求货时间
-     * @param int $currentPage
-     * @param int $limit
+     * @param int   $condition["lastLogin"]    上次登录时间
+     * @param int   $condition["lastCharge"]   上次充值时间
+     * @param int   $condition["lastOrder"]    上次下单时间
+     * @param int   $condition["lastForGoods"] 上次求货时间
+     * @param int   $currentPage
+     * @param int   $limit
      *
      * ### 返回数据说明
      *
@@ -152,6 +156,7 @@ interface StatusInterface
      *     "lastForGoods":1506653850,"lastComment":1506653850,"createdTime":1506653850,"updateTime":"2017-09-29 10:58:32"}])
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/29
      */
     public function listStatusPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

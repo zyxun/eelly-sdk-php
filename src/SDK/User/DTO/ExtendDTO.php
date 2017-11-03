@@ -126,5 +126,4 @@ class ExtendDTO extends AbstractDTO
      * @var unknown
      */
     public $updateTime;
-
 }

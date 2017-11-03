@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\MarketDTO;
 
 /**
  * 市场信息.
- * 
+ *
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface MarketInterface
@@ -37,6 +37,7 @@ interface MarketInterface
      *  "image":"XA283.jpg","isOpen":1,"sort":65535,"remark":"","createdTime":1505109590})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-26
      */
     public function getMarket(int $marketId): MarketDTO;
@@ -70,6 +71,7 @@ interface MarketInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-26
      */
     public function addMarket(array $data, UidDTO $user = null): bool;
@@ -104,6 +106,7 @@ interface MarketInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-26
      */
     public function updateMarket(int $marketId, array $data, UidDTO $user = null): bool;
@@ -111,8 +114,8 @@ interface MarketInterface
     /**
      * 删除市场信息.
      *
-     * @param int $marketId 市场id
-     * @param UidDTO $user               用户登录信息
+     * @param int    $marketId 市场id
+     * @param UidDTO $user     用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -121,6 +124,7 @@ interface MarketInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-26
      */
     public function deleteMarket(int $marketId, UidDTO $user = null): bool;
@@ -173,6 +177,7 @@ interface MarketInterface
      *  "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-26
      */
     public function listMarketPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

@@ -24,5 +24,4 @@ use Eelly\Exception\LogicException;
  */
 class TagException extends LogicException
 {
-
 }

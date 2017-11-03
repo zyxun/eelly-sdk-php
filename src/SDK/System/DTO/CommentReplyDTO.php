@@ -35,21 +35,21 @@ class CommentReplyDTO extends AbstractDTO
     public $commentId;
 
     /**
-     * 父回复id
+     * 父回复id.
      *
      * @var int
      */
     public $parentId;
 
     /**
-     * 评论回复内容
+     * 评论回复内容.
      *
      * @var int
      */
     public $content;
 
     /**
-     * 评论回复人id
+     * 评论回复人id.
      *
      * @var string
      */
@@ -70,7 +70,7 @@ class CommentReplyDTO extends AbstractDTO
     public $userIp;
 
     /**
-     * 被回复者id
+     * 被回复者id.
      *
      * @var int
      */

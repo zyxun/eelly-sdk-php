@@ -18,12 +18,11 @@ use Eelly\SDK\System\DTO\ArticleImageDTO;
 
 /**
  * 文章图片.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleImageInterface
 {
-
     /**
      * 获取指定id文章图片.
      *
@@ -118,5 +117,4 @@ interface ArticleImageInterface
      * @since 2017-09-26
      */
     public function listImage(int $saiId = null, int $articleId = null): array;
-
 }

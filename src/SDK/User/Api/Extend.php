@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\User\DTO\ExtendDTO;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\User\DTO\ExtendDTO;
 use Eelly\SDK\User\Service\ExtendInterface;
 
 /**
