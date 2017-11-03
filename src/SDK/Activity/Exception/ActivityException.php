@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- *
- * @author wechan<liweiquan@eelly.net>
- * Date: 2017年9月1日
- * Time: 11:54
- */
+
 declare(strict_types=1);
 
 /*
