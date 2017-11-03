@@ -161,7 +161,7 @@ class Store implements StoreInterface
     }
 
 
-     *
+    /**
      * {@inheritdoc}
      *
      * @see \Eelly\SDK\Store\Service\StoreInterface::getCertificationServices()
