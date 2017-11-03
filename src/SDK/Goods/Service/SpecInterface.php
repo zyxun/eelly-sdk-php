@@ -157,4 +157,29 @@ interface SpecInterface
      * @since 2017年10月21日
      */
     public function getSpec(int $goodsId): array;
+
+    /**
+     * 修改商品库存
+     * 修改商品库存信息
+     *
+     * @param array $goodsData 商品数据
+     * @param int $goodsData["0"]["goodsId"] 商品id
+     * @param int $goodsData["0"]["specId"] 商品规格id
+     * @param int $goodsData["0"]["quantity"] 商品数量
+     * @return bool 修改结果
+     * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     * @requestExample({
+     *     "goodsData":[
+     *         {
+     *             "goodsId":1,
+     *             "specId":2,
+     *             "quantity":3
+     *         }
+     *     ]
+     * })
+     * @returnExample(true)
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2017年11月3日
+     */
+    public function updateStock(array $goodsData): bool;
 }
