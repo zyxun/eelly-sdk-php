@@ -74,10 +74,10 @@ interface ApplyInterface
     /**
      * 交易更新.
      *
-     * @param int $paId 交易申请ID
+     * @param int   $paId 交易申请ID
      * @param array $data 交易申请数据
-     * @param int $data ['payStatus'] 开户银行所在地区ID
-     * @param int $data ['adminRemark'] 开户银行ID
+     * @param int   $data ['payStatus'] 开户银行所在地区ID
+     * @param int   $data ['adminRemark'] 开户银行ID
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *

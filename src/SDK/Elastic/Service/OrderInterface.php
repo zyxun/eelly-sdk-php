@@ -35,7 +35,7 @@ interface OrderInterface
      *
      * @since 2017-10-10
      */
-    public function searchOrder(array $param = null):array;
+    public function searchOrder(array $param = null): array;
 
     /**
      * 添加订单索引信息.
@@ -52,7 +52,7 @@ interface OrderInterface
      *
      * @since 2017-10-10
      */
-    public function putOrder(array $orders):bool;
+    public function putOrder(array $orders): bool;
 
     /**
      * 创建订单索引类型mapping映射.
@@ -67,7 +67,7 @@ interface OrderInterface
      *
      * @since 2017-10-09
      */
-    public function createOrderType():bool;
+    public function createOrderType(): bool;
 
     /**
      * 根据orderId删除订单索引信息.
@@ -84,7 +84,7 @@ interface OrderInterface
      *
      * @since 2017-10-10
      */
-    public function deleteOrder(array $orderIds):bool;
+    public function deleteOrder(array $orderIds): bool;
 
     /**
      * 清空订单索引的所有数据.
@@ -99,7 +99,7 @@ interface OrderInterface
      *
      * @since 2017-10-10
      */
-    public function clearOrder():bool;
+    public function clearOrder(): bool;
 
     /**
      * 更新订单索引信息--可局部更新.
@@ -117,7 +117,7 @@ interface OrderInterface
      *
      * @since 2017-10-10
      */
-    public function updateOrder(array $docs):bool;
+    public function updateOrder(array $docs): bool;
 
     /**
      * 初始化订单索引--加载数据存储.

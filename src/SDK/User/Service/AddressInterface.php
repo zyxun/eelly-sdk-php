@@ -165,7 +165,7 @@ interface AddressInterface
      *
      * @since  2017-10-24
      */
-    public function listAddress(array $condtion = [], UidDTO $user = null) : array;
+    public function listAddress(array $condtion = [], UidDTO $user = null): array;
 
     /**
      * 获取用户的地址列表.

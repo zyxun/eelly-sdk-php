@@ -35,7 +35,7 @@ interface SearchInterface
      *
      * @since 2017-10-12
      */
-    public function search(array $searchParam):array;
+    public function search(array $searchParam): array;
 
     /**
      * 返回分词结果.
@@ -54,5 +54,5 @@ interface SearchInterface
      *
      * @since 2017-10-12
      */
-    public function getSpWord(array $words):array;
+    public function getSpWord(array $words): array;
 }

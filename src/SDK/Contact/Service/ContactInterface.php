@@ -56,7 +56,7 @@ interface ContactInterface
      *
      * @since 2017年09月30日
      */
-    public function getConcernCount(int $startTime = 0, int $endTime = 0, UidDTO $user = null):array;
+    public function getConcernCount(int $startTime = 0, int $endTime = 0, UidDTO $user = null): array;
 
     /**
      * 获取联系人列表.
@@ -91,7 +91,7 @@ interface ContactInterface
      *
      * @since  2016年09月10日
      */
-    public function getFansList($lastTime = 0, $page = 1, UidDTO $user = null):array;
+    public function getFansList($lastTime = 0, $page = 1, UidDTO $user = null): array;
 
     /**
      * 根据手机列表获取在衣联注册且未关注的用户.
@@ -147,7 +147,7 @@ interface ContactInterface
      *
      * @since 2017年10月17日
      */
-    public function addContact(array $data, UidDTO $user = null):bool;
+    public function addContact(array $data, UidDTO $user = null): bool;
 
     /**
      * 添加手机联系人到mongodb中.

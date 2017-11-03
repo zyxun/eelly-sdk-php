@@ -148,7 +148,7 @@ class User implements UserInterface
      *
      * @since 2017-10-23
      */
-    public function listUserElasticData(int $currentPage = 1, int $limit = 100):array
+    public function listUserElasticData(int $currentPage = 1, int $limit = 100): array
     {
         return EellyClient::request('user/user', 'listUserElasticData', $currentPage, $limit);
     }

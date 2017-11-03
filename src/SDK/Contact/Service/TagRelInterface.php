@@ -40,5 +40,5 @@ interface TagRelInterface
      *   @OperatorValidator(0,{message : "联系人标签关系ID"})
      *  )
      */
-    public function getTagNameByContactIds(array $contactIds):array;
+    public function getTagNameByContactIds(array $contactIds): array;
 }

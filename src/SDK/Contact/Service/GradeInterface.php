@@ -35,7 +35,7 @@ interface GradeInterface
      *
      * @since 2017年10月12日
      */
-    public function getGradeNameByIds(array $cgIds):array;
+    public function getGradeNameByIds(array $cgIds): array;
 
     /**
      * 获取等级信息.
@@ -50,5 +50,5 @@ interface GradeInterface
      *
      * @since 2017年10月12日
      */
-    public function getGrade(int $storeId):array;
+    public function getGrade(int $storeId): array;
 }

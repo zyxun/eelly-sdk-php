@@ -147,7 +147,7 @@ interface StoreInterface
      *
      * @since 2017-10-23
      */
-    public function listStoreElasticData(int $currentPage = 1, int $limit = 100):array;
+    public function listStoreElasticData(int $currentPage = 1, int $limit = 100): array;
 
     /**
      * 分页获取店铺列表.
@@ -187,7 +187,7 @@ interface StoreInterface
      *
      * @since 2017-10-27
      */
-    public function getStore(int $storeId):StoreDTO;
+    public function getStore(int $storeId): StoreDTO;
 
     /**
      * 获取店铺认证服务

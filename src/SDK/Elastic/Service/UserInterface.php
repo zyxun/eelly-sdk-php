@@ -35,7 +35,7 @@ interface UserInterface
      *
      * @since 2017-10-10
      */
-    public function searchUser(array $param):array;
+    public function searchUser(array $param): array;
 
     /**
      * 添加用户索引信息.
@@ -53,7 +53,7 @@ interface UserInterface
      *
      * @since 2017-10-10
      */
-    public function putUser(array $users):bool;
+    public function putUser(array $users): bool;
 
     /**
      * 创建用户索引类型mapping映射.
@@ -68,7 +68,7 @@ interface UserInterface
      *
      * @since 2017-10-09
      */
-    public function createUserType():bool;
+    public function createUserType(): bool;
 
     /**
      * 根据userId删除用户索引信息.
@@ -85,7 +85,7 @@ interface UserInterface
      *
      * @since 2017-10-10
      */
-    public function deleteUser(array $userIds):bool;
+    public function deleteUser(array $userIds): bool;
 
     /**
      * 清空会员索引的所有数据.
@@ -100,7 +100,7 @@ interface UserInterface
      *
      * @since 2017-10-10
      */
-    public function clearUser():bool;
+    public function clearUser(): bool;
 
     /**
      * 更新会员索引信息--可局部更新.
@@ -119,7 +119,7 @@ interface UserInterface
      *
      * @since 2017-10-10
      */
-    public function updateUser(array $docs):bool;
+    public function updateUser(array $docs): bool;
 
     /**
      * 初始化会员索引--加载数据存储.

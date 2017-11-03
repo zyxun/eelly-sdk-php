@@ -35,7 +35,7 @@ interface GoodsInterface
      *
      * @since 2017-10-10
      */
-    public function searchGoods(array $param = null):array;
+    public function searchGoods(array $param = null): array;
 
     /**
      * 添加商品索引信息.
@@ -52,7 +52,7 @@ interface GoodsInterface
      *
      * @since 2017-10-10
      */
-    public function putGoods(array $docs):bool;
+    public function putGoods(array $docs): bool;
 
     /**
      * 创建商品索引类型mapping映射.
@@ -67,7 +67,7 @@ interface GoodsInterface
      *
      * @since 2017-10-09
      */
-    public function createGoodsType():bool;
+    public function createGoodsType(): bool;
 
     /**
      * 根据goodsId删除商品索引信息.
@@ -84,7 +84,7 @@ interface GoodsInterface
      *
      * @since 2017-10-10
      */
-    public function deleteGoods(array $goodsIds):bool;
+    public function deleteGoods(array $goodsIds): bool;
 
     /**
      * 清空商品索引的所有数据.
@@ -99,7 +99,7 @@ interface GoodsInterface
      *
      * @since 2017-10-10
      */
-    public function clearGoods():bool;
+    public function clearGoods(): bool;
 
     /**
      * 更新商品索引信息--可局部更新.
@@ -117,7 +117,7 @@ interface GoodsInterface
      *
      * @since 2017-10-10
      */
-    public function updateGoods(array $docs):bool;
+    public function updateGoods(array $docs): bool;
 
     /**
      * 初始化商品索引--加载数据存储.

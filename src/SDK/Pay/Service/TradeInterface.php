@@ -41,7 +41,7 @@ interface TradeInterface
      *
      * @since 2017年09月28日
      */
-    public function doPay(array $data, UidDTO $user = null):void;
+    public function doPay(array $data, UidDTO $user = null): void;
 
     /**
      * 支付宝回调函数.

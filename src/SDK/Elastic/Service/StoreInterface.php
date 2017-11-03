@@ -35,7 +35,7 @@ interface StoreInterface
      *
      * @since 2017-10-10
      */
-    public function searchStore(array $param = null):array;
+    public function searchStore(array $param = null): array;
 
     /**
      * 添加店铺索引信息.
@@ -53,7 +53,7 @@ interface StoreInterface
      *
      * @since 2017-10-10
      */
-    public function putStore(array $stores):bool;
+    public function putStore(array $stores): bool;
 
     /**
      * 创建店铺索引类型mapping映射.
@@ -68,7 +68,7 @@ interface StoreInterface
      *
      * @since 2017-10-09
      */
-    public function createStoreType():bool;
+    public function createStoreType(): bool;
 
     /**
      * 根据storeId删除店铺索引信息.
@@ -85,7 +85,7 @@ interface StoreInterface
      *
      * @since 2017-10-10
      */
-    public function deleteStore(array $storeIds):bool;
+    public function deleteStore(array $storeIds): bool;
 
     /**
      * 清空店铺索引的所有数据.
@@ -100,7 +100,7 @@ interface StoreInterface
      *
      * @since 2017-10-10
      */
-    public function clearStore():bool;
+    public function clearStore(): bool;
 
     /**
      * 更新店铺索引信息--可局部更新.
@@ -118,7 +118,7 @@ interface StoreInterface
      *
      * @since 2017-10-10
      */
-    public function updateStore(array $docs):bool;
+    public function updateStore(array $docs): bool;
 
     /**
      * 初始化店铺索引--加载数据存储.

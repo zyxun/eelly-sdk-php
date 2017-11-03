@@ -134,7 +134,7 @@ class Store implements StoreInterface
      *
      * @since 2017-10-23
      */
-    public function listStoreElasticData(int $currentPage = 1, int $limit = 100):array
+    public function listStoreElasticData(int $currentPage = 1, int $limit = 100): array
     {
         return EellyClient::request('store/store', __FUNCTION__, $currentPage, $limit);
     }
