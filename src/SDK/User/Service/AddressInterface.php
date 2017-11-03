@@ -27,8 +27,8 @@ interface AddressInterface
     /**
      * 根据地址id，获取对应的地址信息.
      *
-     * @param int  $uaId    地址id
-     * @param UidDTO $user  用户信息
+     * @param int    $uaId 地址id
+     * @param UidDTO $user 用户信息
      *
      * @throws UserException
      *
@@ -47,15 +47,15 @@ interface AddressInterface
      * 添加用户地址.
      *
      * @param array  $data
-     * @param int    $data['consignee']     联系人姓名
-     * @param int    $data['gbCode']         地区编码
-     * @param int    $data['zipcode']       邮政编码
-     * @param int    $data['address']       详细地址
-     * @param int    $data['mobile']        手机号
-     * @param int    $data['phone']         联系电话，多个电话用英文逗号分割
-     * @param int    $data['deliveryType']  送货类型：1 只工作日送货 2 只双休日、假日送货 3 工作日、双休日或假日均可送货
-     * @param int    $data['status']        状态标志：0 有效地址 1 默认地址 4 删除
-     * @param UidDTO $user                  用户信息
+     * @param int    $data['consignee']    联系人姓名
+     * @param int    $data['gbCode']       地区编码
+     * @param int    $data['zipcode']      邮政编码
+     * @param int    $data['address']      详细地址
+     * @param int    $data['mobile']       手机号
+     * @param int    $data['phone']        联系电话，多个电话用英文逗号分割
+     * @param int    $data['deliveryType'] 送货类型：1 只工作日送货 2 只双休日、假日送货 3 工作日、双休日或假日均可送货
+     * @param int    $data['status']       状态标志：0 有效地址 1 默认地址 4 删除
+     * @param UidDTO $user                 用户信息
      *
      * @throws UserException
      *
@@ -69,20 +69,20 @@ interface AddressInterface
      * @since  2017/9/8
      */
     public function addAddress(array $data, UidDTO $user = null): bool;
-    
+
     /**
-     * 添加用户地址.(App)
+     * 添加用户地址.(App).
      *
      * @param array  $data
-     * @param int    $data['consignee']     联系人姓名
-     * @param int    $data['gbCode']        地区编码
-     * @param int    $data['zipcode']       邮政编码
-     * @param int    $data['address']       详细地址
-     * @param int    $data['mobile']        手机号
-     * @param int    $data['phone']         联系电话，多个电话用英文逗号分割
-     * @param int    $data['deliveryType']  送货类型：1 只工作日送货 2 只双休日、假日送货 3 工作日、双休日或假日均可送货
-     * @param int    $data['status']        状态标志：0 有效地址 1 默认地址 4 删除
-     * @param UidDTO $user                  用户信息
+     * @param int    $data['consignee']    联系人姓名
+     * @param int    $data['gbCode']       地区编码
+     * @param int    $data['zipcode']      邮政编码
+     * @param int    $data['address']      详细地址
+     * @param int    $data['mobile']       手机号
+     * @param int    $data['phone']        联系电话，多个电话用英文逗号分割
+     * @param int    $data['deliveryType'] 送货类型：1 只工作日送货 2 只双休日、假日送货 3 工作日、双休日或假日均可送货
+     * @param int    $data['status']       状态标志：0 有效地址 1 默认地址 4 删除
+     * @param UidDTO $user                 用户信息
      *
      * @throws UserException
      *
@@ -99,17 +99,17 @@ interface AddressInterface
     /**
      * 更新用户地址.
      *
-     * @param int    $uaId                  地址id
+     * @param int    $uaId                 地址id
      * @param array  $data
-     * @param int    $data['consignee']     联系人姓名
-     * @param int    $data['gbCode']        地区编码
-     * @param int    $data['zipcode']       邮政编码
-     * @param int    $data['address']       详细地址
-     * @param int    $data['mobile']        手机号
-     * @param int    $data['phone']         联系电话，多个电话用英文逗号分割
-     * @param int    $data['deliveryType']  送货类型：1 只工作日送货 2 只双休日、假日送货 3 工作日、双休日或假日均可送货
-     * @param int    $data['status']        状态标志：0 有效地址 1 默认地址 4 删除
-     * @param UidDTO $user                  用户信息
+     * @param int    $data['consignee']    联系人姓名
+     * @param int    $data['gbCode']       地区编码
+     * @param int    $data['zipcode']      邮政编码
+     * @param int    $data['address']      详细地址
+     * @param int    $data['mobile']       手机号
+     * @param int    $data['phone']        联系电话，多个电话用英文逗号分割
+     * @param int    $data['deliveryType'] 送货类型：1 只工作日送货 2 只双休日、假日送货 3 工作日、双休日或假日均可送货
+     * @param int    $data['status']       状态标志：0 有效地址 1 默认地址 4 删除
+     * @param UidDTO $user                 用户信息
      *
      * @throws UserException
      *
@@ -127,8 +127,8 @@ interface AddressInterface
     /**
      * 删除用户地址.
      *
-     * @param int    $uaId   地址id
-     * @param UidDTO $user   用户信息
+     * @param int    $uaId 地址id
+     * @param UidDTO $user 用户信息
      *
      * @throws UserException
      *
@@ -146,25 +146,27 @@ interface AddressInterface
      * )
      */
     public function deleteAddress(int $uaId, UidDTO $user = null): bool;
-    
+
     /**
-     * 获取用户地址列表
+     * 获取用户地址列表.
      *
-     * @param array $condtion
-     * @param UidDTO $user   用户信息
+     * @param array  $condtion
+     * @param UidDTO $user     用户信息
      * @explain
      *
      * @throws UserException
      *
      * @requestExample({})
      * @returnExample({"data":{"items":[{"uaId":"1","userId":"148086","consignee":"heiheisss","gbCode":"1","zipcode":"1","address":"\u6c5f\u5357\u5927\u9053\u4e2d112","mobile":"13711221122","phone":"111","deliveryType":"3","status":"1","createdTime":"0"}]}})
+     *
      * @return array
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2017-10-24
      */
     public function listAddress(array $condtion = [], UidDTO $user = null) : array;
-    
+
     /**
      * 获取用户的地址列表.
      *

@@ -23,7 +23,6 @@ use Eelly\SDK\Service\Service\BuyInterface;
  */
 class Buy implements BuyInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */

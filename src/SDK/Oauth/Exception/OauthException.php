@@ -43,12 +43,12 @@ class OauthException extends LogicException
      * 逻辑开发错误代码提示数据.
      */
     public const LOGIC_ERROR = [
-         701001=> '参数错误',
-         702001=> '数据不存在',
-         703001=> '插入数据失败',
-         704001=> '更新数据失败',
-         705001=> '删除数据失败',
-         706001=> '数据已经存在',
+         701001 => '参数错误',
+         702001 => '数据不存在',
+         703001 => '插入数据失败',
+         704001 => '更新数据失败',
+         705001 => '删除数据失败',
+         706001 => '数据已经存在',
      ];
 
     //    public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)

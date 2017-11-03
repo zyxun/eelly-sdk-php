@@ -15,7 +15,7 @@ namespace Eelly\SDK\Message\Service;
 
 /**
  * 发送短信.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SmsInterface
@@ -24,10 +24,12 @@ interface SmsInterface
      * 校验验证码.
      *
      * @param string $token token即是mongodb没有加ObjectID($id)ID
-     * @param string $code 验证码
+     * @param string $code  验证码
      * @requestExample({'token':'124sd33ww2','code':1234})
      * @returnExample('13512719887')
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年11月01日
      * @Validation(
      *  @PresenceOf(0,{message : "非法的token"}),
@@ -36,7 +38,8 @@ interface SmsInterface
      * )
      */
     public function getMobileByToken(string $token, string $code, int $type): string;
-    /**
+
+    /*
      * 发送短信.
      *
      * @Async(route=sms)

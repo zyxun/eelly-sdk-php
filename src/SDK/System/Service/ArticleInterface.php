@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\ArticleDTO;
 
 /**
  * 文章.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleInterface
@@ -129,5 +129,4 @@ interface ArticleInterface
      * @since 2017-09-01
      */
     public function listArticlePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
 }

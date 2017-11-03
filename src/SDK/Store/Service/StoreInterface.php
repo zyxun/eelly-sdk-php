@@ -118,31 +118,39 @@ interface StoreInterface
      * 通过用户ID批量获取店铺信息.
      *
      * @param array $userIds 多个用户的ID
+     *
+     * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
      * @return array
      * @requestExample({'userIds':{148086,148087}})
-     * @throws \Eelly\SDK\Store\Exception\StoreException
      * @returnExample({"storeId": 2,"userId": 148086,"storeName":"店铺名称22","domain":"domain-2","status": 1,"logo":"","weight":0,"creditMark":0,"createdTime":1502278521})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年10月27日
      */
     public function getStoreInfoByUserIds(array $userIds): array;
 
-	/**
+    /**
      * 获取店铺搜索引擎所需数据.
      *
-     * @param int $currentPage  当前页
-     * @param int $limit    限制数
+     * @param int $currentPage 当前页
+     * @param int $limit       限制数
+     *
+     * @throws StoreException
+     *
      * @return array 返回入库会员搜索引擎所需数据
      * @requestExample({"currentPage":1,"limit":100})
      * @returnExample({"items":[{"storeId":"3","storeName":"LiWeiQuan123456","domain":"domain-3","creditValue":null,"addedCredit":null,"isMix":null,"mixNum":null,"mixMoney":null,"limitActivityExpireTime":null,"introduction":null,"storeWeight":0,"favorityNum":0,"isEntity":0,"isEnterprise":0,"isReturnedExchange":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isTryOn":0,"isRealGoods":0,"isMobiePay":0,"isSelfLift":0,"isHot":0}],"page":{"totalPages":3,"totalItems":3,"limit":1}})
-     * @throws StoreException
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-10-23
      */
-    public function listStoreElasticData(int $currentPage = 1,int $limit = 100):array;
+    public function listStoreElasticData(int $currentPage = 1, int $limit = 100):array;
 
     /**
-     * 分页获取店铺列表
+     * 分页获取店铺列表.
      *
      * @param array      $condition              店铺的查询条件
      * @param int|string $condition['storeId']   店铺id,多个以逗号隔开
@@ -159,14 +167,15 @@ interface StoreInterface
      * @returnExample({"items":[{"storeId":"1","userId":"148086","storeName":"\u5e97\u94fa\u540d\u79f0","domain":"domain-1","status":"1","logo":"","weight":"0","creditMark":"0"}],"page":{"totalPages":1,"totalItems":1,"limit":10}})
      *
      * @author wujunhua<wujunhua@eelly.net>
+     *
      * @since 2017-10-27
      */
     public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-	
-	 /**
+
+    /**
      * 获取店铺基本信息.
      *
-     * @param int      $storeId              店铺Id
+     * @param int $storeId 店铺Id
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
@@ -175,18 +184,21 @@ interface StoreInterface
      * @returnExample({"storeId":"1","userId":"148086","storeName":"\u5e97\u94fa\u540d\u79f0","domain":"domain-1","status":"1","logo":"","weight":"0","creditMark":"0"})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
+     *
      * @since 2017-10-27
      */
     public function getStore(int $storeId):StoreDTO;
 
     /**
      * 获取店铺认证服务
-     * 获取店铺认证服务信息
+     * 获取店铺认证服务信息.
      *
      * @param array $storeIds 店铺id
-     * @param array $types 服务类型(默认为空获取全部) 0:实体认证 1:企业认证 2:48小时包退货 3:商品实拍 4:准时发货 5:诚信保障 6:卖家认证 7:品牌认证 8:全店包邮
-     * @return array 店铺认证服务信息
+     * @param array $types    服务类型(默认为空获取全部) 0:实体认证 1:企业认证 2:48小时包退货 3:商品实拍 4:准时发货 5:诚信保障 6:卖家认证 7:品牌认证 8:全店包邮
+     *
      * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return array 店铺认证服务信息
      * @requestExample({
      *     "storeIds":[
      *         1,
@@ -213,7 +225,9 @@ interface StoreInterface
      *         "hotCertification":1
      *     }
      * })
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年10月31日
      */
     public function getCertificationServices(array $storeIds, array $types = []): array;

@@ -18,7 +18,7 @@ use Eelly\SDK\Service\DTO\ContractUserDTO;
 
 /**
  * 用户合同签订记录.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ContractUserInterface
@@ -96,7 +96,7 @@ interface ContractUserInterface
     public function updateContractUser(int $scuId, array $data, UidDTO $user = null): bool;
 
     /**
-     * 分页获取用户合同签订记录列表
+     * 分页获取用户合同签订记录列表.
      *
      * @param array  $condition                  查询条件
      * @param int    $condition['userId']        用户ID

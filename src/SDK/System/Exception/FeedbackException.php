@@ -25,10 +25,10 @@ use Eelly\Exception\LogicException;
 class FeedbackException extends LogicException
 {
     public const DATA_LOG_TIME_OUT_RANGE = [
-        'STATUS_CODE'=> 701,
-        'ERR_CODE'   => 701001,
-        'FRIEND_MSG' => '您搜索时间大于或等于一个月，请指定在一个月内进行搜索！',
-        'ERR_MSG'    => '您搜索时间大于或等于一个月，请指定在一个月内进行搜索！',
+        'STATUS_CODE' => 701,
+        'ERR_CODE'    => 701001,
+        'FRIEND_MSG'  => '您搜索时间大于或等于一个月，请指定在一个月内进行搜索！',
+        'ERR_MSG'     => '您搜索时间大于或等于一个月，请指定在一个月内进行搜索！',
     ];
 
     public function __construct(string $message, int $code, int $errCode, \Exception $previous = null)

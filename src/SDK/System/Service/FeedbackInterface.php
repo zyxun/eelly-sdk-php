@@ -19,7 +19,7 @@ use Eelly\SDK\System\Exception\SystemException;
 
 /**
  * 用户意见反馈记录.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface FeedbackInterface

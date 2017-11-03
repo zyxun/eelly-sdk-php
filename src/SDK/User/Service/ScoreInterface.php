@@ -23,12 +23,11 @@ use Eelly\SDK\User\Exception\ScoreException;
  */
 interface ScoreInterface
 {
-
     /**
      * 获取用户积分.
      *
-     * @param int $userId          用户id
-     * ### 返回数据说明
+     * @param int $userId 用户id
+     *                    ### 返回数据说明
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -43,6 +42,7 @@ interface ScoreInterface
      * @returnExample({"userId":148086,"totalScore":100,"usedScore":20,"createdTime":1506584839,"updateTime":"2017-09-28 15:57:19"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function getScore(int $userId): ScoreDTO;
@@ -51,16 +51,18 @@ interface ScoreInterface
      * 添加用户积分.
      *
      * @param array $data
-     * @param int $data["userId"]       用户id
-     * @param int $data["totalScore"]   总积分
-     * @param int $data["usedScore"]    使用积分
+     * @param int   $data["userId"]     用户id
+     * @param int   $data["totalScore"] 总积分
+     * @param int   $data["usedScore"]  使用积分
      *
      * @throws ScoreException
+     *
      * @return bool
      * @requestExample({"data":{"userId":148086,"totalScore":100,"usedScore":20}})
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function addScore(array $data): bool;
@@ -68,10 +70,10 @@ interface ScoreInterface
     /**
      * 更新用户积分.
      *
-     * @param int $userId
+     * @param int   $userId
      * @param array $data
-     * @param int $data["totalScore"]
-     * @param int $data["usedScore"]
+     * @param int   $data["totalScore"]
+     * @param int   $data["usedScore"]
      *
      * @throws ScoreException
      *
@@ -80,9 +82,8 @@ interface ScoreInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function updateScore(int $userId, array $data): bool;
-
-
 }

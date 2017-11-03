@@ -18,6 +18,7 @@ use Eelly\SDK\Service\DTO\CompanyDTO;
 
 /**
  * 企业认证.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CompanyInterface

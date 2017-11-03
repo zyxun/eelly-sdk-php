@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 
 /**
  * 购物车.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CartInterface

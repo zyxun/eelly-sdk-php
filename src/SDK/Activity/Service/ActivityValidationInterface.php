@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Activity\Service;
 
 /**
- * 验证接口逻辑
- * 
+ * 验证接口逻辑.
+ *
  * @author wechan<liweiquan@eelly.net>
  */
 interface ActivityValidationInterface
@@ -27,7 +27,7 @@ interface ActivityValidationInterface
      *
      * @throws \Eelly\SDK\Activity\Exception\ActivityException
      *
-     * @return bool 
+     * @return bool
      * @requestExample({"userId": 1})
      * @returnExample({"result":true})
      *

@@ -31,9 +31,9 @@ class UserDTO extends UidDTO
      * @var string
      */
     public $mobile;
-    
+
     /**
-     * 头像
+     * 头像.
      *
      * @var string
      */

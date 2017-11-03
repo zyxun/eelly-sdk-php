@@ -26,16 +26,18 @@ interface PropertyValueCustomInterface
      * 新增商品自定义属性值
      * 新增商品自定义属性值
      *
-     * @param array $valueData 自定义属性值数据
-     * @param int $valueData["storeId"] 店铺id
-     * @param int $valueData["type"] 属性类型 1 尺码 2 颜色
-     * @param array $valueData["content"] 自定义属性内容
-     * @param int $valueData["content"]["0"] 内容1
-     * @param int $valueData["content"]["1"] 内容2
-     * @param int $valueData["content"]["2"] 内容3
-     * @param \Eelly\DTO\UidDTO $user 登录用户信息
-     * @return bool 新增结果
+     * @param array             $valueData                 自定义属性值数据
+     * @param int               $valueData["storeId"]      店铺id
+     * @param int               $valueData["type"]         属性类型 1 尺码 2 颜色
+     * @param array             $valueData["content"]      自定义属性内容
+     * @param int               $valueData["content"]["0"] 内容1
+     * @param int               $valueData["content"]["1"] 内容2
+     * @param int               $valueData["content"]["2"] 内容3
+     * @param \Eelly\DTO\UidDTO $user                      登录用户信息
+     *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     *
+     * @return bool 新增结果
      * @requestExample({
      *     "valueData":{
      *         "storeId":1,
@@ -44,7 +46,9 @@ interface PropertyValueCustomInterface
      *     }
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年9月26日
      */
     public function addPropertyValue(array $valueData, UidDTO $user = null): bool;
@@ -53,17 +57,19 @@ interface PropertyValueCustomInterface
      * 修改商品自定义属性值
      * 修改商品自定义属性值
      *
-     * @param array $valueData 自定义属性值数据
-     * @param int $valueData["customValueId"] 自定义属性值id
-     * @param int $valueData["storeId"] 店铺id
-     * @param int $valueData["type"] 属性类型 1 尺码 2 颜色
-     * @param array $valueData["content"] 自定义属性内容
-     * @param int $valueData["content"]["0"] 内容1
-     * @param int $valueData["content"]["1"] 内容2
-     * @param int $valueData["content"]["2"] 内容3
-     * @param \Eelly\DTO\UidDTO $user 登录用户信息
-     * @return bool 修改结果
+     * @param array             $valueData                  自定义属性值数据
+     * @param int               $valueData["customValueId"] 自定义属性值id
+     * @param int               $valueData["storeId"]       店铺id
+     * @param int               $valueData["type"]          属性类型 1 尺码 2 颜色
+     * @param array             $valueData["content"]       自定义属性内容
+     * @param int               $valueData["content"]["0"]  内容1
+     * @param int               $valueData["content"]["1"]  内容2
+     * @param int               $valueData["content"]["2"]  内容3
+     * @param \Eelly\DTO\UidDTO $user                       登录用户信息
+     *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     *
+     * @return bool 修改结果
      * @requestExample({
      *     "valueData":{
      *         "customValueId":1,
@@ -73,7 +79,9 @@ interface PropertyValueCustomInterface
      *     }
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年9月26日
      */
     public function updatePropertyValue(array $valueData, UidDTO $user = null): bool;
@@ -82,17 +90,21 @@ interface PropertyValueCustomInterface
      * 删除商品自定义属性值
      * 删除商品自定义属性值
      *
-     * @param int $storeId 店铺id
-     * @param int $customValueId 自定义属性值id
-     * @param \Eelly\DTO\UidDTO $user 登录用户信息
-     * @return bool 删除结果
+     * @param int               $storeId       店铺id
+     * @param int               $customValueId 自定义属性值id
+     * @param \Eelly\DTO\UidDTO $user          登录用户信息
+     *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     *
+     * @return bool 删除结果
      * @requestExample({
      *     "storeId":1,
      *     "customValueId":1
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年9月26日
      */
     public function deletePropertyValue(int $storeId, int $customValueId, UidDTO $user = null): bool;
@@ -102,9 +114,11 @@ interface PropertyValueCustomInterface
      * 获取商品自定义属性值
      *
      * @param int $storeId 店铺id
-     * @param int $type 属性类型 -1 全部 1 尺码 2 颜色
-     * @return array 商品自定义属性值信息
+     * @param int $type    属性类型 -1 全部 1 尺码 2 颜色
+     *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
+     *
+     * @return array 商品自定义属性值信息
      * @requestExample({
      *     "storeId":1,
      *     "type":-1
@@ -115,7 +129,9 @@ interface PropertyValueCustomInterface
      *         "content":[1,2,3]
      *     }
      * ])
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年9月26日
      */
     public function getPropertyValue(int $storeId, int $type = -1): array;

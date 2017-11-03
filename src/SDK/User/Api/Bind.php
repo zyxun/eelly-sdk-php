@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\User\DTO\UserBindDTO;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\User\DTO\UserBindDTO;
 use Eelly\SDK\User\Service\BindInterface;
 
 /**
@@ -81,9 +81,6 @@ class Bind implements BindInterface
     {
         return EellyClient::request('user/bind', 'getByContact', $type, $unionId);
     }
-
-
-
 
     /**
      * @return self

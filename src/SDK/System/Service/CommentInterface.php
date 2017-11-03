@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\CommentDTO;
 
 /**
  * 评论信息.
- * 
+ *
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface CommentInterface
@@ -36,6 +36,7 @@ interface CommentInterface
      *  "userIp":"","status":0,"createdTime":1505109590})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function getComment(int $commentId): CommentDTO;
@@ -62,6 +63,7 @@ interface CommentInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function addComment(array $data, UidDTO $user = null): bool;
@@ -69,8 +71,8 @@ interface CommentInterface
     /**
      * 删除评论.
      *
-     * @param int $commentId 评论id
-     * @param UidDTO $user   登录用户信息
+     * @param int    $commentId 评论id
+     * @param UidDTO $user      登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -79,6 +81,7 @@ interface CommentInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function deleteComment(int $commentId, UidDTO $user = null): bool;
@@ -130,6 +133,7 @@ interface CommentInterface
      *  "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since  2017-09-27
      */
     public function listCommentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

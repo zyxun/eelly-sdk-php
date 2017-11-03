@@ -20,7 +20,6 @@ use Eelly\DTO\AbstractDTO;
  */
 class ArticleImageDTO extends AbstractDTO
 {
-
     /**
      * 文章图片主键id.
      *
@@ -50,10 +49,9 @@ class ArticleImageDTO extends AbstractDTO
     public $toImage;
 
     /**
-     * 添加时间
+     * 添加时间.
      *
      * @var int
      */
     public $createdTime;
-
 }

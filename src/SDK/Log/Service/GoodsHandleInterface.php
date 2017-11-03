@@ -17,7 +17,7 @@ use Eelly\SDK\Log\DTO\GoodsHandleDTO;
 
 /**
  * 商品操作日志.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface GoodsHandleInterface

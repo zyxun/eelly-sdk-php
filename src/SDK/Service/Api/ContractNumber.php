@@ -23,7 +23,6 @@ use Eelly\SDK\Service\Service\ContractNumberInterface;
  */
 class ContractNumber implements ContractNumberInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */

@@ -18,7 +18,7 @@ use Eelly\SDK\Service\DTO\EntityCustomDTO;
 
 /**
  * 实体认证自定义商圈市场楼层.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EntityCustomInterface
@@ -26,7 +26,7 @@ interface EntityCustomInterface
     /**
      * 获取指定id的单条店铺实体认证自定义商圈市场楼层信息.
      *
-     * @param int    $secId 自定义商圈市场楼层信息id
+     * @param int $secId 自定义商圈市场楼层信息id
      *
      * @throws \Eelly\SDK\Service\Exception\EntityCustomException
      *
@@ -84,7 +84,7 @@ interface EntityCustomInterface
     public function updateEntityCustom(int $secId, array $data, UidDTO $user = null): bool;
 
     /**
-     * 分页获取店铺实体认证自定义商圈市场楼层信息列表
+     * 分页获取店铺实体认证自定义商圈市场楼层信息列表.
      *
      * @param array  $condition                 查询条件
      * @param string $condition['customMarket'] 自定义商圈市场
@@ -98,6 +98,7 @@ interface EntityCustomInterface
      * @return array
      * @requestExample({"condition":{"customMarket":"自定义商圈市场","customFloor":"自定义楼层","status":0}})
      * @returnExample({"items":[{"secId":"1","customMarket":"fsdfdsf","customFloor":"123","status":"1","createdTime":"1505462704"}],"page":{"totalPages":1,"totalItems":1,"limit":10}})
+     *
      * @author wujunhua<wujunhua@eelly.net>
      *
      * @since 2017-09-27
@@ -107,5 +108,4 @@ interface EntityCustomInterface
      * )
      */
     public function listEntityCustomPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
 }

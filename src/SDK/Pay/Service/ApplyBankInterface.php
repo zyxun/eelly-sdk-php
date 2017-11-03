@@ -15,10 +15,9 @@ namespace Eelly\SDK\Pay\Service;
 
 use Eelly\SDK\Pay\DTO\ApplyBankDTO;
 
-
 /**
  * 发起交易申请银行信息.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ApplyBankInterface

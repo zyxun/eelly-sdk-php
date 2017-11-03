@@ -1,12 +1,14 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Data\Api;
@@ -15,14 +17,11 @@ use Eelly\SDK\Data\Service\EaTrackInterface;
 use Eelly\SDK\EellyClient;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class EaTrack implements EaTrackInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function logUserFavorites(array $data): array
@@ -31,7 +30,6 @@ class EaTrack implements EaTrackInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function logUserClick(array $data): array
@@ -40,7 +38,6 @@ class EaTrack implements EaTrackInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function logEcommerce(array $data): array
@@ -49,7 +46,6 @@ class EaTrack implements EaTrackInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function logUserPageView(array $data): array
@@ -58,7 +54,6 @@ class EaTrack implements EaTrackInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function trackMarsEvent(array $data): array

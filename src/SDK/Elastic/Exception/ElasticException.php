@@ -30,7 +30,4 @@ class ElasticException extends LogicException
     public const TYPE_NOT_EXIST = '索引类型不存在';
 
     public const TYPE_ALREADY_EXIST = '索引类型已存在';
-
-
-
 }

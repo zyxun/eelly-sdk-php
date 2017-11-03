@@ -23,7 +23,6 @@ use Eelly\SDK\User\Exception\EntranceException;
  */
 interface EntranceInterface
 {
-
     /**
      * 获取用户后台快速入口设置.
      *
@@ -47,6 +46,7 @@ interface EntranceInterface
      * @returnExample({"ueId":1,"userId":148086,"type":1,"entrance":"xxx","createdTime":1506496290,"updateTime":"2017-09-27 15:11:33"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function getEntrance(int $entranceId): EntranceDTO;
@@ -54,10 +54,10 @@ interface EntranceInterface
     /**
      * 添加用户后台快速入口设置.
      *
-     * @param array $data
-     * @param int $data["userId"]       用户id
-     * @param int $data["type"]         入口类型：0 买家后台 1 卖家后台
-     * @param string $data["entrance"]  快速入口
+     * @param array  $data
+     * @param int    $data["userId"]   用户id
+     * @param int    $data["type"]     入口类型：0 买家后台 1 卖家后台
+     * @param string $data["entrance"] 快速入口
      *
      * @throws EntranceException
      *
@@ -66,6 +66,7 @@ interface EntranceInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function addEntrance(array $data): bool;
@@ -73,11 +74,11 @@ interface EntranceInterface
     /**
      * 更新用户后台快速入口设置.
      *
-     * @param int $entranceId           快速入口ID
-     * @param array $data
-     * @param int $data["userId"]       用户id
-     * @param int $data["type"]         入口类型：0 买家后台 1 卖家后台
-     * @param string $data["entrance"]  快速入口
+     * @param int    $entranceId       快速入口ID
+     * @param array  $data
+     * @param int    $data["userId"]   用户id
+     * @param int    $data["type"]     入口类型：0 买家后台 1 卖家后台
+     * @param string $data["entrance"] 快速入口
      *
      * @throws EntranceException
      *
@@ -86,6 +87,7 @@ interface EntranceInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function updateEntrance(int $entranceId, array $data): bool;
@@ -102,6 +104,7 @@ interface EntranceInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function deleteEntrance(int $entranceId): bool;
@@ -109,12 +112,12 @@ interface EntranceInterface
     /**
      * 分页获取用户后台快速入口设置.
      *
-     * @param array $condition
-     * @param int $condition["userId"]          用户id
-     * @param int $condition["type"]            入口类型：0 买家后台 1 卖家后台
-     * @param string $condition["entrance"]     快速入口
-     * @param int $currentPage
-     * @param int $limit
+     * @param array  $condition
+     * @param int    $condition["userId"]   用户id
+     * @param int    $condition["type"]     入口类型：0 买家后台 1 卖家后台
+     * @param string $condition["entrance"] 快速入口
+     * @param int    $currentPage
+     * @param int    $limit
      *
      * ### 返回数据说明
      *
@@ -127,7 +130,6 @@ interface EntranceInterface
      * createdTime |int    |
      * updateTime  |string |
      *
-     *
      * @throws EntranceException
      *
      * @return array
@@ -135,6 +137,7 @@ interface EntranceInterface
      * @returnExample([{"ueId":1,"userId":148086,"type":1,"entrance":"xxx","createdTime":1506496290,"updateTime":"2017-09-27 15:11:33"}])
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function listEntrancePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

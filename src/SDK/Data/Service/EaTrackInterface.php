@@ -1,26 +1,25 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Data\Service;
 
-
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EaTrackInterface
 {
-
     /**
-     * 记录用户收藏信息
+     * 记录用户收藏信息.
      *
      * @param array  $data                     数据
      * @param string $data['visitorId']        访客id
@@ -45,7 +44,7 @@ interface EaTrackInterface
     public function logUserFavorites(array $data): array;
 
     /**
-     * 记录用户点击信息
+     * 记录用户点击信息.
      *
      * @param array  $data                     数据
      * @param string $data['visitorId']        访客id
@@ -70,7 +69,7 @@ interface EaTrackInterface
     public function logUserClick(array $data): array;
 
     /**
-     * 记录商业转化
+     * 记录商业转化.
      *
      * @param array  $data                     数据
      * @param string $data['visitorId']        访客id
@@ -95,7 +94,7 @@ interface EaTrackInterface
     public function logEcommerce(array $data): array;
 
     /**
-     * 记录用户访问和普通页面访问
+     * 记录用户访问和普通页面访问.
      *
      * @param array  $data                     数据
      * @param string $data['visitorId']        访客id
@@ -120,7 +119,7 @@ interface EaTrackInterface
     public function logUserPageView(array $data): array;
 
     /**
-     * 追踪事件
+     * 追踪事件.
      *
      * @param array  $data                     数据
      * @param string $data['visitorId']        访客id
@@ -143,5 +142,4 @@ interface EaTrackInterface
      * @since 2017-10-18
      */
     public function trackMarsEvent(array $data): array;
-
 }

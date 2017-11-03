@@ -18,11 +18,11 @@ use Eelly\SDK\Service\DTO\ContractNumberDTO;
 
 /**
  * 合同编号.
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ContractNumberInterface
 {
-
     /**
      * 获取指定ID的合同编号.
      *

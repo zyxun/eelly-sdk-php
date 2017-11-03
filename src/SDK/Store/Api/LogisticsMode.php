@@ -1,27 +1,27 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Store\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\LogisticsModeInterface;
-use Eelly\DTO\UidDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class LogisticsMode implements LogisticsModeInterface
 {
-
     /**
      * 新增物流配送方式
      * 新增店铺的物流配送方式.
@@ -151,11 +151,13 @@ class LogisticsMode implements LogisticsModeInterface
 
     /**
      * 获取物流配送信息
-     * 获取物流配送信息
+     * 获取物流配送信息.
      *
      * @param array $styleIds 配送方式id
-     * @return array 物流配送信息
+     *
      * @throws \Eelly\SDK\Store\Exception\StoreException
+     *
+     * @return array 物流配送信息
      * @requestExample({
      *     "styleIds":[1,2,3]
      * })
@@ -173,7 +175,9 @@ class LogisticsMode implements LogisticsModeInterface
      *         ]
      *     }
      * })
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2017年10月31日
      */
     public function getLogisticsInfoByStyle(array $styleIds): array
