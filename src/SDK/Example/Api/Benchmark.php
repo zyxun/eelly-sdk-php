@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Eelly\SDK\Example\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Example\Service\BenchmarkInterface;
 
 class Benchmark
 {

@@ -65,11 +65,11 @@ abstract class AbstractDocumentShow extends Injectable
         $lineNumberCnt = 0;
         $file = new SplFileObject($filename);
         while (!$file->eof()) {
-            ++$lineCnt;
+            $lineCnt++;
             $line = $file->fgets();
             if ($startLineNumber <= $lineCnt) {
                 $content .= $line;
-                ++$lineNumberCnt;
+                $lineNumberCnt++;
             }
             if ($lineNumber == $lineNumberCnt) {
                 break;

@@ -29,6 +29,7 @@ interface BenchmarkInterface
      * sleep.
      *
      * @param int $time
+     *
      * @return string
      */
     public function sleep(int $time): string;
