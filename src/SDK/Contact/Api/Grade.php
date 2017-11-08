@@ -27,7 +27,7 @@ class Grade implements GradeInterface
      */
     public function getGrade(int $gradeId): GradeDTO
     {
-        return EellyClient::request('contact/grade', 'getGrade', $gradeId);
+        return EellyClient::request('contact/grade', 'getGrade', true, $gradeId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Grade implements GradeInterface
      */
     public function addGrade(array $data): bool
     {
-        return EellyClient::request('contact/grade', 'addGrade', $data);
+        return EellyClient::request('contact/grade', 'addGrade', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Grade implements GradeInterface
      */
     public function updateGrade(int $gradeId, array $data): bool
     {
-        return EellyClient::request('contact/grade', 'updateGrade', $gradeId, $data);
+        return EellyClient::request('contact/grade', 'updateGrade', true, $gradeId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Grade implements GradeInterface
      */
     public function deleteGrade(int $gradeId): bool
     {
-        return EellyClient::request('contact/grade', 'deleteGrade', $gradeId);
+        return EellyClient::request('contact/grade', 'deleteGrade', true, $gradeId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Grade implements GradeInterface
      */
     public function listGradePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('contact/grade', 'listGradePage', $condition, $currentPage, $limit);
+        return EellyClient::request('contact/grade', 'listGradePage', true, $condition, $currentPage, $limit);
     }
 
     /**

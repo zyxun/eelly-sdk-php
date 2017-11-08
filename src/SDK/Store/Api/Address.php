@@ -28,7 +28,7 @@ class Address implements AddressInterface
      */
     public function addStoreAddress(array $addrData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/address', __FUNCTION__, $addrData, $user);
+        return EellyClient::request('store/address', __FUNCTION__, true, $addrData, $user);
     }
 
     /**
@@ -38,7 +38,7 @@ class Address implements AddressInterface
      */
     public function updateStoreAddress(array $addrData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/address', __FUNCTION__, $addrData, $user);
+        return EellyClient::request('store/address', __FUNCTION__, true, $addrData, $user);
     }
 
     /**
@@ -48,7 +48,7 @@ class Address implements AddressInterface
      */
     public function deleteStoreAddress(int $addrId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/address', __FUNCTION__, $addrId, $user);
+        return EellyClient::request('store/address', __FUNCTION__, true, $addrId, $user);
     }
 
     /**
@@ -58,7 +58,7 @@ class Address implements AddressInterface
      */
     public function getStoreAddress(int $storeId, int $addressType, UidDTO $user = null): AddressDTO
     {
-        return EellyClient::request('store/address', __FUNCTION__, $storeId, $addressType, $user);
+        return EellyClient::request('store/address', __FUNCTION__, true, $storeId, $addressType, $user);
     }
 
     /**

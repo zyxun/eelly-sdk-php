@@ -27,7 +27,7 @@ class Qualification implements QualificationInterface
      */
     public function getQualification(int $qualificationId): QualificationDTO
     {
-        return EellyClient::request('activity/qualification', 'getQualification', $qualificationId);
+        return EellyClient::request('activity/qualification', 'getQualification', true, $qualificationId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Qualification implements QualificationInterface
      */
     public function addQualification(array $data): bool
     {
-        return EellyClient::request('activity/qualification', 'addQualification', $data);
+        return EellyClient::request('activity/qualification', 'addQualification', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Qualification implements QualificationInterface
      */
     public function updateQualification(int $qualificationId, array $data): bool
     {
-        return EellyClient::request('activity/qualification', 'updateQualification', $qualificationId, $data);
+        return EellyClient::request('activity/qualification', 'updateQualification', true, $qualificationId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Qualification implements QualificationInterface
      */
     public function deleteQualification(int $qualificationId): bool
     {
-        return EellyClient::request('activity/qualification', 'deleteQualification', $qualificationId);
+        return EellyClient::request('activity/qualification', 'deleteQualification', true, $qualificationId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Qualification implements QualificationInterface
      */
     public function listQualificationPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/qualification', 'listQualificationPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/qualification', 'listQualificationPage', true, $condition, $limit, $currentPage);
     }
 
     /**

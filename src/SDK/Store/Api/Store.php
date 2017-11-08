@@ -30,7 +30,7 @@ class Store implements StoreInterface
      */
     public function addStore(array $storeData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, $storeData, $user);
+        return EellyClient::request('store/store', __FUNCTION__, true, $storeData, $user);
     }
 
     /**
@@ -40,7 +40,7 @@ class Store implements StoreInterface
      */
     public function addStoreOperator(int $userId, int $storeId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $user);
+        return EellyClient::request('store/store', __FUNCTION__, true, $userId, $storeId, $user);
     }
 
     /**
@@ -50,7 +50,7 @@ class Store implements StoreInterface
      */
     public function deleteStoreOperator(int $operatorId, int $storeId, int $type, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, $operatorId, $storeId, $type, $user);
+        return EellyClient::request('store/store', __FUNCTION__, true, $operatorId, $storeId, $type, $user);
     }
 
     /**
@@ -60,7 +60,7 @@ class Store implements StoreInterface
      */
     public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('store/store', __FUNCTION__, $condition, $currentPage, $limit);
+        return EellyClient::request('store/store', __FUNCTION__, true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -95,7 +95,7 @@ class Store implements StoreInterface
      */
     public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, $userId, $storeId, $onlyCheckOwner);
+        return EellyClient::request('store/store', __FUNCTION__, true, $userId, $storeId, $onlyCheckOwner);
     }
 
     /**
@@ -105,7 +105,7 @@ class Store implements StoreInterface
      */
     public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, $newOwner, $storeId, $user);
+        return EellyClient::request('store/store', __FUNCTION__, true, $newOwner, $storeId, $user);
     }
 
     /**
@@ -136,7 +136,7 @@ class Store implements StoreInterface
      */
     public function listStoreElasticData(int $currentPage = 1, int $limit = 100): array
     {
-        return EellyClient::request('store/store', __FUNCTION__, $currentPage, $limit);
+        return EellyClient::request('store/store', __FUNCTION__, true, $currentPage, $limit);
     }
 
     /**
@@ -156,7 +156,7 @@ class Store implements StoreInterface
      */
     public function getStore(int $storeId): StoreDTO
     {
-        return EellyClient::request('store/store', __FUNCTION__, $storeId);
+        return EellyClient::request('store/store', __FUNCTION__, true, $storeId);
     }
 
     /**
@@ -166,6 +166,6 @@ class Store implements StoreInterface
      */
     public function getCertificationServices(array $storeIds, array $types = []): array
     {
-        return EellyClient::request('store/store', __FUNCTION__, $storeIds, $types);
+        return EellyClient::request('store/store', __FUNCTION__, true, $storeIds, $types);
     }
 }

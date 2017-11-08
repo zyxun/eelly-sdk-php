@@ -27,7 +27,7 @@ class Goods implements GoodsInterface
      */
     public function getGoods(int $goodsId): GoodsDTO
     {
-        return EellyClient::request('activity/goods', 'getGoods', $goodsId);
+        return EellyClient::request('activity/goods', 'getGoods', true, $goodsId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Goods implements GoodsInterface
      */
     public function addGoods(array $data): bool
     {
-        return EellyClient::request('activity/goods', 'addGoods', $data);
+        return EellyClient::request('activity/goods', 'addGoods', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Goods implements GoodsInterface
      */
     public function updateGoods(int $goodsId, array $data): bool
     {
-        return EellyClient::request('activity/goods', 'updateGoods', $goodsId, $data);
+        return EellyClient::request('activity/goods', 'updateGoods', true, $goodsId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Goods implements GoodsInterface
      */
     public function deleteGoods(int $goodsId): bool
     {
-        return EellyClient::request('activity/goods', 'deleteGoods', $goodsId);
+        return EellyClient::request('activity/goods', 'deleteGoods', true, $goodsId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Goods implements GoodsInterface
      */
     public function listGoodsPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/goods', 'listGoodsPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/goods', 'listGoodsPage', true, $condition, $limit, $currentPage);
     }
 
     /**

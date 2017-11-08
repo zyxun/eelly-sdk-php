@@ -28,7 +28,7 @@ class Company implements CompanyInterface
      */
     public function getCompany(int $storeId): CompanyDTO
     {
-        return EellyClient::request('service/Company', 'getCompany', $storeId);
+        return EellyClient::request('service/Company', 'getCompany', true, $storeId);
     }
 
     /**
@@ -36,7 +36,7 @@ class Company implements CompanyInterface
      */
     public function addCompany(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Company', 'addCompany', $data, $user);
+        return EellyClient::request('service/Company', 'addCompany', true, $data, $user);
     }
 
     /**
@@ -44,7 +44,7 @@ class Company implements CompanyInterface
      */
     public function updateCompany(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Company', 'updateCompany', $data, $user);
+        return EellyClient::request('service/Company', 'updateCompany', true, $data, $user);
     }
 
     /**
@@ -52,7 +52,7 @@ class Company implements CompanyInterface
      */
     public function checkCompany(int $storeId, int $status, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Company', 'checkCompany', $storeId, $status, $user);
+        return EellyClient::request('service/Company', 'checkCompany', true, $storeId, $status, $user);
     }
 
     /**

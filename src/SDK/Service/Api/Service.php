@@ -28,7 +28,7 @@ class Service implements ServiceInterface
      */
     public function getService(int $serviceId): ServiceDTO
     {
-        return EellyClient::request('service/Service', 'getService', $serviceId);
+        return EellyClient::request('service/Service', 'getService', true, $serviceId);
     }
 
     /**
@@ -36,7 +36,7 @@ class Service implements ServiceInterface
      */
     public function addService(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Service', 'addService', $data, $user);
+        return EellyClient::request('service/Service', 'addService', true, $data, $user);
     }
 
     /**
@@ -44,7 +44,7 @@ class Service implements ServiceInterface
      */
     public function updateService(int $serviceId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Service', 'updateService', $serviceId, $data, $user);
+        return EellyClient::request('service/Service', 'updateService', true, $serviceId, $data, $user);
     }
 
     /**
@@ -52,7 +52,7 @@ class Service implements ServiceInterface
      */
     public function deleteService(int $serviceId, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Service', 'deleteService', $serviceId, $user);
+        return EellyClient::request('service/Service', 'deleteService', true, $serviceId, $user);
     }
 
     /**
@@ -60,7 +60,7 @@ class Service implements ServiceInterface
      */
     public function listServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Service', 'listServicePage', $condition, $currentPage, $limit);
+        return EellyClient::request('service/Service', 'listServicePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -68,7 +68,7 @@ class Service implements ServiceInterface
      */
     public function listBuyerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Service', 'listServicePage', $condition, $currentPage, $limit);
+        return EellyClient::request('service/Service', 'listServicePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -76,7 +76,7 @@ class Service implements ServiceInterface
      */
     public function listSellerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Service', 'listServicePage', $condition, $currentPage, $limit);
+        return EellyClient::request('service/Service', 'listServicePage', true, $condition, $currentPage, $limit);
     }
 
     /**

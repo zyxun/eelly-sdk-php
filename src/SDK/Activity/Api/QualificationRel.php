@@ -27,7 +27,7 @@ class QualificationRel implements QualificationRelInterface
      */
     public function getQualificationRel(int $qualificationRelId): QualificationRelDTO
     {
-        return EellyClient::request('activity/qualificationrel', 'getQualificationRel', $qualificationRelId);
+        return EellyClient::request('activity/qualificationrel', 'getQualificationRel', true, $qualificationRelId);
     }
 
     /**
@@ -35,7 +35,7 @@ class QualificationRel implements QualificationRelInterface
      */
     public function addQualificationRel(array $data): bool
     {
-        return EellyClient::request('activity/qualificationrel', 'addQualificationRel', $data);
+        return EellyClient::request('activity/qualificationrel', 'addQualificationRel', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class QualificationRel implements QualificationRelInterface
      */
     public function updateQualificationRel(int $qualificationRelId, array $data): bool
     {
-        return EellyClient::request('activity/qualificationrel', 'updateQualificationRel', $qualificationRelId, $data);
+        return EellyClient::request('activity/qualificationrel', 'updateQualificationRel', true, $qualificationRelId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class QualificationRel implements QualificationRelInterface
      */
     public function deleteQualificationRel(int $qualificationRelId): bool
     {
-        return EellyClient::request('activity/qualificationrel', 'deleteQualificationRel', $qualificationRelId);
+        return EellyClient::request('activity/qualificationrel', 'deleteQualificationRel', true, $qualificationRelId);
     }
 
     /**
@@ -59,7 +59,7 @@ class QualificationRel implements QualificationRelInterface
      */
     public function listQualificationRelPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/qualificationrel', 'listQualificationRelPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/qualificationrel', 'listQualificationRelPage', true, $condition, $limit, $currentPage);
     }
 
     /**

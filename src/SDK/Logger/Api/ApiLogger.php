@@ -28,6 +28,6 @@ class ApiLogger implements ApiLoggerInterface
      */
     public function log(string $traceId, array $request = [], array $response = [], array $extras = []): bool
     {
-        return EellyClient::request('logger/apiLogger', __FUNCTION__, $traceId, $request, $response, $extras);
+        return EellyClient::request('logger/apiLogger', __FUNCTION__, true, $traceId, $request, $response, $extras);
     }
 }
