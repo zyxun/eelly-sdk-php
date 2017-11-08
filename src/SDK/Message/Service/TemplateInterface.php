@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-use Eelly\SDK\Message\Service\DTO\TemplateDTO;
+use Eelly\SDK\Message\DTO\TemplateDTO;
 
 /**
  * 信息模板.

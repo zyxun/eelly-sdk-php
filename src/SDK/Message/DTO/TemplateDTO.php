@@ -22,7 +22,7 @@ class TemplateDTO extends AbstractDTO
      *
      * @var int
      */
-    public $mt_id;
+    public $mtId;
 
     /**
      * 消息模板类型：1 站内消息 2 邮件 4 手机短信
@@ -57,12 +57,12 @@ class TemplateDTO extends AbstractDTO
      *
      * @var int
      */
-    public $created_time;
+    public $createdTime;
 
     /**
      * 修改时间.
      *
-     * @var unknown
+     * @var string
      */
-    public $update_time;
+    public $updateTime;
 }
