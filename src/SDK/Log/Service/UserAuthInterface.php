@@ -37,7 +37,7 @@ interface UserAuthInterface
      *
      * @since 2017年10月26日
      * @Validation(
-     *    @OperatorValidator(0,{message : "用户Id",operator:["gt",0]})
+     *    @OperatorValidator(0,{message : "用户Id",operator:["gt",0]}),
      *    @OperatorValidator(1,{message : "开始时间非法",operator:["gt",0]})
      * )
      */
