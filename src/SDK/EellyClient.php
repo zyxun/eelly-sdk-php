@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Eelly\SDK;
 
 use Eelly\OAuth2\Client\Provider\EellyProvider;
-use function GuzzleHttp\Promise\unwrap;
 use GuzzleHttp\Psr7\MultipartStream;
 use League\OAuth2\Client\Token\AccessToken;
 use LogicException;
@@ -130,7 +129,7 @@ class EellyClient
     /**
      * @param string $uri
      * @param string $method
-     * @param bool $sync
+     * @param bool   $sync
      * @param mixed  ...$args
      *
      * @return mixed
@@ -165,9 +164,11 @@ class EellyClient
 
         if ($sync) {
             $response = $provider->getResponse($request);
+
             return $client->responseToObject($response);
-        }  else {
+        } else {
             $promise = $provider->getHttpClient()->sendAsync($request);
+
             return new class($client, $promise) {
                 private $client;
                 private $promise;
@@ -185,8 +186,6 @@ class EellyClient
             };
         }
     }
-
-
 
     public function responseToObject(ResponseInterface $response)
     {

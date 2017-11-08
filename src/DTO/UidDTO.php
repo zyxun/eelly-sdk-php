@@ -38,7 +38,7 @@ class UidDTO extends AbstractDTO
      *
      * @return UidDTO
      */
-    public function setUid(int $uid): UidDTO
+    public function setUid(int $uid): self
     {
         $this->uid = $uid;
 
