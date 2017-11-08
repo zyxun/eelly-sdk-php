@@ -28,7 +28,7 @@ class User implements UserInterface
      */
     public function checkPassword(string $username, string $password): bool
     {
-        return EellyClient::request('user/user', 'checkPassword', $username, $password);
+        return EellyClient::request('user/user', 'checkPassword', true, $username, $password);
     }
 
     /**
@@ -36,7 +36,7 @@ class User implements UserInterface
      */
     public function getUserByPassword(string $username, string $password): UserDTO
     {
-        return EellyClient::request('user/user', 'getUserByPassword', $username, $password);
+        return EellyClient::request('user/user', 'getUserByPassword', true, $username, $password);
     }
 
     /**

@@ -27,7 +27,7 @@ class Statistics implements StatisticsInterface
      */
     public function getStatistics(int $statisticsId): StatisticsDTO
     {
-        return EellyClient::request('contact/statistics', 'getStatistics', $statisticsId);
+        return EellyClient::request('contact/statistics', 'getStatistics', true, $statisticsId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Statistics implements StatisticsInterface
      */
     public function addStatistics(array $data): bool
     {
-        return EellyClient::request('contact/statistics', 'addStatistics', $data);
+        return EellyClient::request('contact/statistics', 'addStatistics', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Statistics implements StatisticsInterface
      */
     public function updateStatistics(int $statisticsId, array $data): bool
     {
-        return EellyClient::request('contact/statistics', 'updateStatistics', $statisticsId, $data);
+        return EellyClient::request('contact/statistics', 'updateStatistics', true, $statisticsId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Statistics implements StatisticsInterface
      */
     public function deleteStatistics(int $statisticsId): bool
     {
-        return EellyClient::request('contact/statistics', 'deleteStatistics', $statisticsId);
+        return EellyClient::request('contact/statistics', 'deleteStatistics', true, $statisticsId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Statistics implements StatisticsInterface
      */
     public function listStatisticsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('contact/statistics', 'listStatisticsPage', $condition, $currentPage, $limit);
+        return EellyClient::request('contact/statistics', 'listStatisticsPage', true, $condition, $currentPage, $limit);
     }
 
     /**

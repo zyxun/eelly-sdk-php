@@ -27,7 +27,7 @@ class Condition implements ConditionInterface
      */
     public function getCondition(int $conditionId): ConditionDTO
     {
-        return EellyClient::request('activity/condition', 'getCondition', $conditionId);
+        return EellyClient::request('activity/condition', 'getCondition', true, $conditionId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Condition implements ConditionInterface
      */
     public function addCondition(array $data): bool
     {
-        return EellyClient::request('activity/condition', 'addCondition', $data);
+        return EellyClient::request('activity/condition', 'addCondition', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Condition implements ConditionInterface
      */
     public function updateCondition(int $conditionId, array $data): bool
     {
-        return EellyClient::request('activity/condition', 'updateCondition', $conditionId, $data);
+        return EellyClient::request('activity/condition', 'updateCondition', true, $conditionId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Condition implements ConditionInterface
      */
     public function deleteCondition(int $conditionId): bool
     {
-        return EellyClient::request('activity/condition', 'deleteCondition', $conditionId);
+        return EellyClient::request('activity/condition', 'deleteCondition', true, $conditionId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Condition implements ConditionInterface
      */
     public function listConditionPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/condition', 'listConditionPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/condition', 'listConditionPage', true, $condition, $limit, $currentPage);
     }
 
     /**

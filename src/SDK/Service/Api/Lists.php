@@ -28,7 +28,7 @@ class Lists implements ListsInterface
      */
     public function getLists(int $slId): ListsDTO
     {
-        return EellyClient::request('service/Lists', 'getLists', $slId);
+        return EellyClient::request('service/Lists', 'getLists', true, $slId);
     }
 
     /**
@@ -36,7 +36,7 @@ class Lists implements ListsInterface
      */
     public function addLists(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Lists', 'addLists', $data, $user);
+        return EellyClient::request('service/Lists', 'addLists', true, $data, $user);
     }
 
     /**
@@ -44,7 +44,7 @@ class Lists implements ListsInterface
      */
     public function updateLists(int $slId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Lists', 'updateLists', $slId, $data, $user);
+        return EellyClient::request('service/Lists', 'updateLists', true, $slId, $data, $user);
     }
 
     /**
@@ -52,7 +52,7 @@ class Lists implements ListsInterface
      */
     public function deleteLists(int $slId, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Lists', 'deleteLists', $slId, $user);
+        return EellyClient::request('service/Lists', 'deleteLists', true, $slId, $user);
     }
 
     /**
@@ -60,7 +60,7 @@ class Lists implements ListsInterface
      */
     public function listListsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Lists', 'listListsPage', $condition, $currentPage, $limit);
+        return EellyClient::request('service/Lists', 'listListsPage', true, $condition, $currentPage, $limit);
     }
 
     /**

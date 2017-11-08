@@ -27,7 +27,7 @@ class ConditionRel implements ConditionRelInterface
      */
     public function getConditionRel(int $conditionRelId): ConditionRelDTO
     {
-        return EellyClient::request('activity/conditionrel', 'getConditionRel', $conditionRelId);
+        return EellyClient::request('activity/conditionrel', 'getConditionRel', true, $conditionRelId);
     }
 
     /**
@@ -35,7 +35,7 @@ class ConditionRel implements ConditionRelInterface
      */
     public function addConditionRel(array $data): bool
     {
-        return EellyClient::request('activity/conditionrel', 'addConditionRel', $data);
+        return EellyClient::request('activity/conditionrel', 'addConditionRel', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class ConditionRel implements ConditionRelInterface
      */
     public function updateConditionRel(int $conditionRelId, array $data): bool
     {
-        return EellyClient::request('activity/conditionrel', 'updateConditionRel', $conditionRelId, $data);
+        return EellyClient::request('activity/conditionrel', 'updateConditionRel', true, $conditionRelId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class ConditionRel implements ConditionRelInterface
      */
     public function deleteConditionRel(int $conditionRelId): bool
     {
-        return EellyClient::request('activity/conditionrel', 'deleteConditionRel', $conditionRelId);
+        return EellyClient::request('activity/conditionrel', 'deleteConditionRel', true, $conditionRelId);
     }
 
     /**
@@ -59,7 +59,7 @@ class ConditionRel implements ConditionRelInterface
      */
     public function listConditionRelPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/conditionrel', 'listConditionRelPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/conditionrel', 'listConditionRelPage', true, $condition, $limit, $currentPage);
     }
 
     /**

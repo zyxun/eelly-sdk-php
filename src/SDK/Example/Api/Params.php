@@ -27,7 +27,7 @@ class Params implements ParamsInterface
      */
     public function paramArray(array $arr, array $framework): array
     {
-        return EellyClient::request('example/params', __FUNCTION__, $arr, $framework);
+        return EellyClient::request('example/params', __FUNCTION__, true, $arr, $framework);
     }
 
     /**
@@ -35,7 +35,7 @@ class Params implements ParamsInterface
      */
     public function cacheTime(string $name): TimeDTO
     {
-        return EellyClient::request('example/params', __FUNCTION__, $name);
+        return EellyClient::request('example/params', __FUNCTION__, true, $name);
     }
 
     /**

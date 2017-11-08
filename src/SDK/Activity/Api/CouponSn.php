@@ -27,7 +27,7 @@ class CouponSn implements CouponSnInterface
      */
     public function getCouponSn(int $couponSnId): CouponSnDTO
     {
-        return EellyClient::request('activity/couponsn', 'getCouponSn', $couponSnId);
+        return EellyClient::request('activity/couponsn', 'getCouponSn', true, $couponSnId);
     }
 
     /**
@@ -35,7 +35,7 @@ class CouponSn implements CouponSnInterface
      */
     public function addCouponSn(array $data): bool
     {
-        return EellyClient::request('activity/couponsn', 'addCouponSn', $data);
+        return EellyClient::request('activity/couponsn', 'addCouponSn', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class CouponSn implements CouponSnInterface
      */
     public function updateCouponSn(int $couponSnId, array $data): bool
     {
-        return EellyClient::request('activity/couponsn', 'updateCouponSn', $couponSnId, $data);
+        return EellyClient::request('activity/couponsn', 'updateCouponSn', true, $couponSnId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class CouponSn implements CouponSnInterface
      */
     public function deleteCouponSn(int $couponSnId): bool
     {
-        return EellyClient::request('activity/couponsn', 'deleteCouponSn', $couponSnId);
+        return EellyClient::request('activity/couponsn', 'deleteCouponSn', true, $couponSnId);
     }
 
     /**
@@ -59,7 +59,7 @@ class CouponSn implements CouponSnInterface
      */
     public function listCouponSnPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/couponsn', 'listCouponSnPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/couponsn', 'listCouponSnPage', true, $condition, $limit, $currentPage);
     }
 
     /**

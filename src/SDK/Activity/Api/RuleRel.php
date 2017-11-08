@@ -27,7 +27,7 @@ class RuleRel implements RuleRelInterface
      */
     public function getRuleRel(int $ruleRelId): RuleRelDTO
     {
-        return EellyClient::request('activity/rulerel', 'getRuleRel', $ruleRelId);
+        return EellyClient::request('activity/rulerel', 'getRuleRel', true, $ruleRelId);
     }
 
     /**
@@ -35,7 +35,7 @@ class RuleRel implements RuleRelInterface
      */
     public function addRuleRel(array $data): bool
     {
-        return EellyClient::request('activity/rulerel', 'addRuleRel', $data);
+        return EellyClient::request('activity/rulerel', 'addRuleRel', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class RuleRel implements RuleRelInterface
      */
     public function updateRuleRel(int $ruleRelId, array $data): bool
     {
-        return EellyClient::request('activity/rulerel', 'updateRuleRel', $ruleRelId, $data);
+        return EellyClient::request('activity/rulerel', 'updateRuleRel', true, $ruleRelId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class RuleRel implements RuleRelInterface
      */
     public function deleteRuleRel(int $ruleRelId): bool
     {
-        return EellyClient::request('activity/rulerel', 'deleteRuleRel', $ruleRelId);
+        return EellyClient::request('activity/rulerel', 'deleteRuleRel', true, $ruleRelId);
     }
 
     /**
@@ -59,7 +59,7 @@ class RuleRel implements RuleRelInterface
      */
     public function listRuleRelPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/rulerel', 'listRuleRelPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/rulerel', 'listRuleRelPage', true, $condition, $limit, $currentPage);
     }
 
     /**

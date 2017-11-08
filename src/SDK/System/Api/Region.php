@@ -164,7 +164,7 @@ class Region implements RegionInterface
      */
     public function getUserAddressByGbCode(int $gbCode): array
     {
-        return EellyClient::request('system/region', __FUNCTION__, $gbCode);
+        return EellyClient::request('system/region', __FUNCTION__, true, $gbCode);
     }
 
     /**

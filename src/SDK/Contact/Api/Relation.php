@@ -27,7 +27,7 @@ class Relation implements RelationInterface
      */
     public function getRelation(int $relationId): RelationDTO
     {
-        return EellyClient::request('contact/relation', 'getRelation', $relationId);
+        return EellyClient::request('contact/relation', 'getRelation', true, $relationId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Relation implements RelationInterface
      */
     public function addRelation(array $data): bool
     {
-        return EellyClient::request('contact/relation', 'addRelation', $data);
+        return EellyClient::request('contact/relation', 'addRelation', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Relation implements RelationInterface
      */
     public function updateRelation(int $relationId, array $data): bool
     {
-        return EellyClient::request('contact/relation', 'updateRelation', $relationId, $data);
+        return EellyClient::request('contact/relation', 'updateRelation', true, $relationId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Relation implements RelationInterface
      */
     public function deleteRelation(int $relationId): bool
     {
-        return EellyClient::request('contact/relation', 'deleteRelation', $relationId);
+        return EellyClient::request('contact/relation', 'deleteRelation', true, $relationId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Relation implements RelationInterface
      */
     public function listRelationPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('contact/relation', 'listRelationPage', $condition, $currentPage, $limit);
+        return EellyClient::request('contact/relation', 'listRelationPage', true, $condition, $currentPage, $limit);
     }
 
     /**

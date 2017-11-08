@@ -28,7 +28,7 @@ class Seller implements SellerInterface
      */
     public function getSeller(int $storeId, UidDTO $user = null): SellerDTO
     {
-        return EellyClient::request('service/Seller', 'getSeller', $storeId, $user);
+        return EellyClient::request('service/Seller', 'getSeller', true, $storeId, $user);
     }
 
     /**
@@ -36,7 +36,7 @@ class Seller implements SellerInterface
      */
     public function addSeller(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Seller', 'addSeller', $data, $user);
+        return EellyClient::request('service/Seller', 'addSeller', true, $data, $user);
     }
 
     /**
@@ -44,7 +44,7 @@ class Seller implements SellerInterface
      */
     public function updateSeller(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Seller', 'updateSeller', $data, $user);
+        return EellyClient::request('service/Seller', 'updateSeller', true, $data, $user);
     }
 
     /**
@@ -52,7 +52,7 @@ class Seller implements SellerInterface
      */
     public function checkSeller(int $storeId, int $status, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Seller', 'checkSeller', $storeId, $status, $user);
+        return EellyClient::request('service/Seller', 'checkSeller', true, $storeId, $status, $user);
     }
 
     /**
