@@ -11,44 +11,44 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\BankDTO;
+use Eelly\DTO\RefundDTO;
 
 /**
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface BankInterface
+interface RefundInterface
 {
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getBank(int $bankId): BankDTO;
+    public function getRefund(int $refundId): RefundDTO;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addBank(array $data): bool;
+    public function addRefund(array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateBank(int $bankId, array $data): bool;
+    public function updateRefund(int $refundId, array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteBank(int $bankId): bool;
+    public function deleteRefund(int $refundId): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listRefundPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
 
 }

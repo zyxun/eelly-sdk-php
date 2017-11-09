@@ -11,44 +11,44 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\BankDTO;
+use Eelly\DTO\RequestDTO;
 
 /**
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface BankInterface
+interface RequestInterface
 {
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getBank(int $bankId): BankDTO;
+    public function getRequest(int $requestId): RequestDTO;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addBank(array $data): bool;
+    public function addRequest(array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateBank(int $bankId, array $data): bool;
+    public function updateRequest(int $requestId, array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteBank(int $bankId): bool;
+    public function deleteRequest(int $requestId): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listRequestPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
 
 }
