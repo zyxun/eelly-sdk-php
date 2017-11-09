@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\User\DTO\ExtendDTO;
 use Eelly\SDK\User\Exception\ExtendException;
 
@@ -43,6 +44,7 @@ interface ExtendInterface
      * regChannel    |int    | 注册渠道
      * regType       |int    | 注册方式
      * regFromUserId |int    | 推荐的用户ID
+     * scanFlag      |int    | 是否允许被雷达扫客扫描：0 否 1 是
      * flag          |string | 用户标识
      * createdTime   |int    | 添加时间
      * updateTime    |string | 修改时间
@@ -53,7 +55,7 @@ interface ExtendInterface
      * @requestExample({"extendId":1})
      * @returnExample({"userId":148086,"realname":"xx","gender":"1","birthday":1506500037,"gbCode":4401,"address":"xxx",
      *     "email":"xxx","regTime":1506500037,"regIp":"127.0.0.1","regChannel":0,"regType":0,"regFromUserId":0,
-     *     "flag":"1","createdTime":1506500037,"updateTime":"2017/9/27 16:13:55"})
+     *     "flag":"1","scanFlag":"1","createdTime":1506500037,"updateTime":"2017/9/27 16:13:55"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      *
@@ -169,4 +171,43 @@ interface ExtendInterface
      * @since  2017/9/27
      */
     public function listExtendPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    
+    /**
+     * 检查手机号码是否已被绑定
+     *
+     * @param string $mobile 手机号码
+     * @return bool
+     * @throws ExtendException
+     * @requestExample({"mobile":"13430245645"})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2017-11-06
+     */
+    public function checkMobileIsBind(string $mobile): bool;
+    
+    /**
+     * 获得用户当前能否被雷达检查的状态
+     *
+     * @param UidDTO $user  用户登录信息
+     * @return array
+     * @requestExample({})
+     * @returnExample({"status":"1"})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2017-11-06
+     */
+    public function getScanFlagStatus(UidDTO $user = null): array;
+    
+    /**
+     * 改变用户能否被雷达检查的状态
+     *
+     * @param int $scanFlag  是否允许被雷达扫客扫描：0 否 1 是
+     * @param UidDTO $user  用户登录信息
+     * @return bool
+     * @requestExample({"scanFlag":0})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2017-11-06
+     */
+    public function changeScanFlagStatus(int $scanFlag, UidDTO $user = null): bool;
 }
