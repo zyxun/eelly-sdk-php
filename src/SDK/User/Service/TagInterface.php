@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\User\DTO\TagDTO;
 use Eelly\SDK\User\Exception\TagException;
 
@@ -135,4 +136,56 @@ interface TagInterface
      * @since  2017/9/29
      */
     public function listTagPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 获取进货设置基础.
+     *
+     * @requestExample()
+     * @returnExample({
+     *     "type":{"valueId": 1,"value": "二批/三批商"},
+     *     "cate":{"cateId": 348,"catName": "特色服装"},
+     *     "price":{"valueId": 5,"value": "低档"},
+     *     "district":{"districtId": 0,"districtName": "全部商圈"}
+     *  })
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年11月08日
+     */
+    public function getTagPreference(): array;
+
+    /**
+     * 获取用户选择的偏好.
+     *
+     * @param UidDTO|null $user 登录用户
+     * @return array
+     * @requestExample()
+     * @returnExample({
+     *     "typeIds":{1,2,3},
+     *     "cateIds": {2,3},
+     *     "levelIds": {3,5,6},
+     *     "recIds": {8,3,4}
+     *     })
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年11月08日
+     */
+    public function getUserTagPreferenceSetting(UidDTO $user = null): array;
+
+    /**
+     * 添加偏好设置的标签.
+     *
+     * @param array       $data             标签数据
+     * @param array       $data['typeIds']  身份标签
+     * @param array       $data['cateIds']  主营类目
+     * @param array       $data['levelIds'] 价格档次
+     * @param array       $data['recIds']   货源市场
+     * @param UidDTO|null $user             登录数据
+     *
+     * @return bool
+     * @requestExample({"data":{"typeIds":{1,3,4}},"cateIds":{3,4,5},"levelIds":{9,4,5},"recIds":{9,7,4}})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年11月09日
+     */
+    public function addTagPreference(array $data, UidDTO $user = null): bool;
 }
