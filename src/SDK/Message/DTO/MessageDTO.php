@@ -22,22 +22,22 @@ class MessageDTO extends AbstractDTO
      *
      * @var int
      */
-    public $message_id;
+    public $messageId;
 
     /**
      * @var int 发送者ID：0 系统消息
      */
-    public $sender_id;
+    public $senderId;
 
     /**
      * @var int 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
      */
-    public $receive_type;
+    public $receiveType;
 
     /**
      * @var int 消息模板ID：0 自定义消息
      */
-    public $mt_id;
+    public $mtId;
 
     /**
      * @var string 消息标题
@@ -61,10 +61,10 @@ class MessageDTO extends AbstractDTO
     /**
      * @var int 添加时间
      */
-    public $created_time;
+    public $createdTime;
 
     /**
      * @var string 修改时间
      */
-    public $update_time;
+    public $updateTime;
 }
