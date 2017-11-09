@@ -464,7 +464,7 @@ interface GoodsInterface
      *
      * @since 2017年10月28日
      */
-    public function checkOrderGoodsInfo(array $goodsInfo): array;
+    public function checkOrderGoodsInfo(array $goodsInfo, bool $returnCheckInfo = true): array;
 
     /**
      * 计算订单商品邮费
