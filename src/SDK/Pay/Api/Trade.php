@@ -1,29 +1,27 @@
 <?php
 
 declare(strict_types=1);
-
 /*
- * This file is part of eelly package.
+ * PHP version 7.1
  *
- * (c) eelly.com
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
+ * @link      https://api.eelly.com
+ * @license   衣联网版权所有
  */
 
-namespace Eelly\SDK\Pay\Service;
+namespace Eelly\SDK\Pay\Api;
 
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\Pay\Service\TradeInterface;
 use Eelly\DTO\UidDTO;
 
 /**
- * 支付接口.
  *
- * @author  肖俊明<xiaojunming@eelly.net>
- *
- * @since 2017年09月28日
+ * @author eellytools<localhost.shell@gmail.com>
  */
-interface TradeInterface
+class Trade implements TradeInterface
 {
+
     /**
      * 支付发起.
      *
@@ -41,7 +39,10 @@ interface TradeInterface
      *
      * @since 2017年09月28日
      */
-    public function doPay(array $data, UidDTO $user = null): void;
+    public function doPay(array $data, UidDTO $user = null): void
+    {
+        return EellyClient::request('pay/trade', 'doPay', $data, $user);
+    }
 
     /**
      * 支付宝回调函数.
@@ -59,5 +60,21 @@ interface TradeInterface
      *
      * @since 2017年09月28日
      */
-    public function aliPayNotify(array $data): void;
+    public function aliPayNotify(array $data): void
+    {
+        return EellyClient::request('pay/trade', 'aliPayNotify', $data);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
+    }
 }

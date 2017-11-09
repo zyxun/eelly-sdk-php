@@ -11,44 +11,44 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\BankDTO;
+use Eelly\DTO\SubjectAdjustDTO;
 
 /**
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface BankInterface
+interface SubjectAdjustInterface
 {
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getBank(int $bankId): BankDTO;
+    public function getSubjectAdjust(int $subjectAdjustId): SubjectAdjustDTO;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addBank(array $data): bool;
+    public function addSubjectAdjust(array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateBank(int $bankId, array $data): bool;
+    public function updateSubjectAdjust(int $subjectAdjustId, array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteBank(int $bankId): bool;
+    public function deleteSubjectAdjust(int $subjectAdjustId): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listSubjectAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
 
 }

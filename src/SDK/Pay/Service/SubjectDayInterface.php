@@ -11,44 +11,44 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\BankDTO;
+use Eelly\DTO\SubjectDayDTO;
 
 /**
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface BankInterface
+interface SubjectDayInterface
 {
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getBank(int $bankId): BankDTO;
+    public function getSubjectDay(int $subjectDayId): SubjectDayDTO;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addBank(array $data): bool;
+    public function addSubjectDay(array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateBank(int $bankId, array $data): bool;
+    public function updateSubjectDay(int $subjectDayId, array $data): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteBank(int $bankId): bool;
+    public function deleteSubjectDay(int $subjectDayId): bool;
 
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listSubjectDayPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
 
 }
