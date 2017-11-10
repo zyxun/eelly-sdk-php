@@ -25,9 +25,9 @@ class Extend implements ExtendInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getExtend(int $ExtendId): ExtendDTO
+    public function getExtend(int $userId): ExtendDTO
     {
-        return EellyClient::request('user/extend', 'getExtend', $ExtendId);
+        return EellyClient::request('user/extend', 'getExtend', $userId);
     }
 
     /**
