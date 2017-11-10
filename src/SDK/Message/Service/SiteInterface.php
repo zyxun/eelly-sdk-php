@@ -44,7 +44,7 @@ interface SiteInterface
     /**
      * 更新站内信成已读.
      *
-     * @param int     $msiId 消息读取ID
+     * @param int    $msiId 消息读取ID
      * @param UidDTO $user  用户对象
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
@@ -81,8 +81,8 @@ interface SiteInterface
      * 分页获取用户消息.
      *
      * @param UidDTO $user        用户对象
-     * @param int     $limit       每页条数
-     * @param int     $currentPage 当前页
+     * @param int    $limit       每页条数
+     * @param int    $currentPage 当前页
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
@@ -94,7 +94,7 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function listMessageSitePage(int $currentPage = 1, int $limit = 10,UidDTO $user): array;
+    public function listMessageSitePage(int $currentPage, int $limit, UidDTO $user): array;
 
     /**
      * 获取用户消息.

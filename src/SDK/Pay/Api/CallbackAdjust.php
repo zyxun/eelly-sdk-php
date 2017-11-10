@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Pay\Api;
 
+use Eelly\DTO\CallbackAdjustDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\CallbackAdjustInterface;
-use Eelly\DTO\CallbackAdjustDTO;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class CallbackAdjust implements CallbackAdjustInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getCallbackAdjust(int $callbackAdjustId): CallbackAdjustDTO
@@ -32,7 +31,6 @@ class CallbackAdjust implements CallbackAdjustInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addCallbackAdjust(array $data): bool
@@ -41,7 +39,6 @@ class CallbackAdjust implements CallbackAdjustInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateCallbackAdjust(int $callbackAdjustId, array $data): bool
@@ -50,7 +47,6 @@ class CallbackAdjust implements CallbackAdjustInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteCallbackAdjust(int $callbackAdjustId): bool
@@ -59,7 +55,6 @@ class CallbackAdjust implements CallbackAdjustInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listCallbackAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array

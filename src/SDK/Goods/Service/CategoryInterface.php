@@ -175,10 +175,13 @@ interface CategoryInterface
      * 通过父id获取商品分类数据.
      *
      * @param int $parentId 父类分类ID
+     *
      * @return array
      * @requestExample({"parentId":0})
      * @returnExample({"cateId": 348,"catName": "特色服装"})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年11月08日
      * @Validation(
      * @Digit(0,{message : "非法的商品分类id"})
