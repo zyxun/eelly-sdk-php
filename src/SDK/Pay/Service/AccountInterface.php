@@ -11,7 +11,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\AccountDTO;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\Pay\DTO\AccountDTO;
+
 
 /**
  *
@@ -24,7 +26,7 @@ interface AccountInterface
      *
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getAccount(int $accountId): AccountDTO;
+    public function getAccount(UidDTO $user = null): AccountDTO;
 
     /**
      *
@@ -38,17 +40,28 @@ interface AccountInterface
      */
     public function updateAccount(int $accountId, array $data): bool;
 
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteAccount(int $accountId): bool;
 
     /**
+     * 我的余额，管理=》app资金管理.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param int $storeId 店铺ID,如果是店铺ID
+     * @param UidDTO|null $user 登录用户
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({
+     *     "money":"0.02",
+     *     "frozenMoney":"0.01",
+     *     "isWechatBindPurse":"true",
+     *     "wechatNickname":"molimoq",
+     *     "bindMobile":"13800138000",
+     *     "isSetPayPwd":true,
+     *     "isCapitalFreeze":true,
+     *     "limitedFunctionality": true
+     * })
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2017年11月09日
      */
-    public function listAccountPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function getAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array;
 
 
 }

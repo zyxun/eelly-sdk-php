@@ -32,17 +32,6 @@ interface RecordInterface
      */
     public function addRecord(array $data): bool;
 
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateRecord(int $recordId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteRecord(int $recordId): bool;
 
     /**
      *
