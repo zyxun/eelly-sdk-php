@@ -67,7 +67,7 @@ class District implements DistrictInterface
      *
      * @since 2017-9-7
      */
-    public function addDistrict(array $data, UidDTO $user=null): bool
+    public function addDistrict(array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('system/district', 'addDistrict', $data);
     }
@@ -96,7 +96,7 @@ class District implements DistrictInterface
      *
      * @since 2017-9-8
      */
-    public function updateDistrict(int $districtId, array $data, UidDTO $user=null): bool
+    public function updateDistrict(int $districtId, array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('system/district', 'updateDistrict', $districtId, $data);
     }

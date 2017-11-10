@@ -210,26 +210,30 @@ interface UserInterface
      * @since 2017-10-23
      */
     public function listUserElasticData(int $currentPage = 1, int $limit = 100): array;
-    
+
     /**
-     * 根据传过来的用户id，获取对应的用户资料
+     * 根据传过来的用户id，获取对应的用户资料.
      *
      * @param int $userId 用户id
-     * @return array
      *
      * @throws \Exception
+     *
+     * @return array
+     *
      *
      * @requestExample({"userId":"148086"})
      * @returnExample({"userId":"148086","mobile":"13430245678","avatar":"","realname":"陌陌","username":"molimoq"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-11-26
      */
     public function getMineDataApp(int $userId): array;
-    
+
     /**
      * 更新用户头像.
-     * @param int $uid
+     *
+     * @param int    $uid
      * @param string $avatar
      *
      * @throws UserException
@@ -239,67 +243,79 @@ interface UserInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017-11-06
      */
     public function updateUserAvatar(int $uid, string $avatar): bool;
-    
+
     /**
-     * 根据用户id获取二维码数据
+     * 根据用户id获取二维码数据.
      *
-     * @param int $userId  用户id
-     * @return array
+     * @param int $userId 用户id
+     *
      * @throws UserException
+     *
+     * @return array
      * @requestExample({"userId":"148086"})
      * @returnExample({"userId":148086, "userName":"molimoq", "portraitUrl":"https://img01.eelly.com/G03/M00/00/52/small_p4YB1.jpg","addressName": "广东.广州"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-11-06
      */
     public function getCodeCardInfo(int $userId) : array;
-    
+
     /**
      * 查看用户绑定状态
      *
-     * @param int $type 类型 1:手机 2:QQ 3:微信 4:全部(手机+QQ+微信+邮箱)
-     * @param UidDTO  $user  用户登录信息
-     * @return array
+     * @param int    $type 类型 1:手机 2:QQ 3:微信 4:全部(手机+QQ+微信+邮箱)
+     * @param UidDTO $user 用户登录信息
+     *
      * @throws UserException
+     *
+     * @return array
      * @requestExample({"type":4})
      * @returnExample({"isBindMobile":"true", "mobile":"134****8648","phoneMob":"13430248648","isBindQQ":"true","qqNickname":"","isBindWechat":"false","WechatNickname":"","isBindEmail":"true","email":"molimoq@eelly.net"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-11-06
      */
     public function checkBindStatus(int $type, UidDTO $user = null): array;
-    
+
     /**
-     * 绑定手机
+     * 绑定手机.
      *
-     * @param array   $data
-     * @param string  $data['mobile']         手机号
-     * @param string  $data['captcha']        验证码
-     * @param string  $data['type']           验证码类型
-     * @param string  $data['opType']         操作类型  (add添加绑定手机 edit修改绑定手机)
-     * @param string  $data['mobileNew']      新的手机号码 (修改绑定的手机号)
-     * @param UidDTO  $user                   用户登录信息
+     * @param array  $data
+     * @param string $data['mobile']    手机号
+     * @param string $data['captcha']   验证码
+     * @param string $data['type']      验证码类型
+     * @param string $data['opType']    操作类型  (add添加绑定手机 edit修改绑定手机)
+     * @param string $data['mobileNew'] 新的手机号码 (修改绑定的手机号)
+     * @param UidDTO $user              用户登录信息
+     *
      * @return bool
      *
      * @requestExample({"data":{"mobile":"13430245645", "captcha":"123456","type":"boundMobile","opType":"add","mobileNew":""}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-11-06
      */
     public function bindingMobile(array $data, UidDTO $user = null): bool;
-    
+
     /**
-     * 判断用户是否已经绑定手机
+     * 判断用户是否已经绑定手机.
      *
      * @param int $userId 用户id
+     *
      * @return array
      * @requestExample({"userId":"148086"})
      * @returnExample({"isBindMobile":1, "mobile":"134****5645","phoneMob":"13430245645"})
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-11-06
      */
     public function checkUserIsBindingMobile(int $userId): array;

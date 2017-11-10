@@ -38,20 +38,20 @@ class Category implements CategoryInterface
      * 新增商品分类
      * 新增商品分类.
      *
-     * @param array $categoryData 商品分类数据
+     * @param array  $categoryData 商品分类数据
      * @param string $categoryData ["name"]           商品分类名称
-     * @param int $categoryData ["parentId"]       父分类id
-     * @param int $categoryData ["showFlag"]       显示标志 1 全局显示控制 2 商品发布(可选分类) 4 首页 8 频道页 16 搜索页 32 平台头部
-     * @param int $categoryData ["useFlag"]        功能标志 1 高亮显示 2 热门分类 4 新增分类 8 批量销售 16 规格报价 32 限制最低价 64 限制重量
-     * @param int $categoryData ["minPrice"]       最低价格,单位为分
-     * @param float $categoryData ["maxWeight"]      最大重量
-     * @param int $categoryData ["status"]         分类状态 0 未启用 1 启用
-     * @param int $categoryData ["sort"]           排序
+     * @param int    $categoryData ["parentId"]       父分类id
+     * @param int    $categoryData ["showFlag"]       显示标志 1 全局显示控制 2 商品发布(可选分类) 4 首页 8 频道页 16 搜索页 32 平台头部
+     * @param int    $categoryData ["useFlag"]        功能标志 1 高亮显示 2 热门分类 4 新增分类 8 批量销售 16 规格报价 32 限制最低价 64 限制重量
+     * @param int    $categoryData ["minPrice"]       最低价格,单位为分
+     * @param float  $categoryData ["maxWeight"]      最大重量
+     * @param int    $categoryData ["status"]         分类状态 0 未启用 1 启用
+     * @param int    $categoryData ["sort"]           排序
      * @param string $categoryData ["logo"]           分类图片路径
-     * @param array $categoryData ["taobaoIds"]      淘宝分类数据
-     * @param int $categoryData ["taobaoIds"]["0"] 淘宝分类id
-     * @param int $categoryData ["taobaoIds"]["1"] 淘宝分类id
-     * @param int $categoryData ["taobaoIds"]["2"] 淘宝分类id
+     * @param array  $categoryData ["taobaoIds"]      淘宝分类数据
+     * @param int    $categoryData ["taobaoIds"]["0"] 淘宝分类id
+     * @param int    $categoryData ["taobaoIds"]["1"] 淘宝分类id
+     * @param int    $categoryData ["taobaoIds"]["2"] 淘宝分类id
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
      *
@@ -85,21 +85,21 @@ class Category implements CategoryInterface
      * 修改商品分类
      * 修改商品分类.
      *
-     * @param array $categoryData 商品分类数据
-     * @param int $categoryData ["cateId"]         商品分类id
+     * @param array  $categoryData 商品分类数据
+     * @param int    $categoryData ["cateId"]         商品分类id
      * @param string $categoryData ["name"]           商品分类名称
-     * @param int $categoryData ["parentId"]       父分类id
-     * @param int $categoryData ["showFlag"]       显示标志 1 全局显示控制 2 商品发布(可选分类) 4 首页 8 频道页 16 搜索页 32 平台头部
-     * @param int $categoryData ["useFlag"]        功能标志 1 高亮显示 2 热门分类 4 新增分类 8 批量销售 16 规格报价 32 限制最低价 64 限制重量
-     * @param int $categoryData ["minPrice"]       最低价格,单位为分
-     * @param float $categoryData ["maxWeight"]      最大重量
-     * @param int $categoryData ["status"]         分类状态 0 未启用 1 启用
-     * @param int $categoryData ["sort"]           排序
+     * @param int    $categoryData ["parentId"]       父分类id
+     * @param int    $categoryData ["showFlag"]       显示标志 1 全局显示控制 2 商品发布(可选分类) 4 首页 8 频道页 16 搜索页 32 平台头部
+     * @param int    $categoryData ["useFlag"]        功能标志 1 高亮显示 2 热门分类 4 新增分类 8 批量销售 16 规格报价 32 限制最低价 64 限制重量
+     * @param int    $categoryData ["minPrice"]       最低价格,单位为分
+     * @param float  $categoryData ["maxWeight"]      最大重量
+     * @param int    $categoryData ["status"]         分类状态 0 未启用 1 启用
+     * @param int    $categoryData ["sort"]           排序
      * @param string $categoryData ["logo"]           分类图片路径
-     * @param array $categoryData ["taobaoIds"]      淘宝分类数据
-     * @param int $categoryData ["taobaoIds"]["0"] 淘宝分类id
-     * @param int $categoryData ["taobaoIds"]["1"] 淘宝分类id
-     * @param int $categoryData ["taobaoIds"]["2"] 淘宝分类id
+     * @param array  $categoryData ["taobaoIds"]      淘宝分类数据
+     * @param int    $categoryData ["taobaoIds"]["0"] 淘宝分类id
+     * @param int    $categoryData ["taobaoIds"]["1"] 淘宝分类id
+     * @param int    $categoryData ["taobaoIds"]["2"] 淘宝分类id
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
      *
@@ -201,10 +201,13 @@ class Category implements CategoryInterface
      * 通过父id获取商品分类数据.
      *
      * @param int $parentId 父类分类ID
+     *
      * @return array
      * @requestExample({"parentId":0})
      * @returnExample({"cateId": 348,"catName": "特色服装"})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年11月08日
      * @Validation(
      * @Digit(0,{message : "非法的商品分类id"})

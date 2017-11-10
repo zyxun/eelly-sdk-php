@@ -38,10 +38,10 @@ class PropertyKey implements PropertyKeyInterface
      * 新增商品属性名
      * 新增商品属性名.
      *
-     * @param array $keyData 商品属性名数据
+     * @param array  $keyData 商品属性名数据
      * @param string $keyData ["name"]   属性名
-     * @param int $keyData ["sort"]   排序
-     * @param int $keyData ["status"] 状态 0 无效 1 有效
+     * @param int    $keyData ["sort"]   排序
+     * @param int    $keyData ["status"] 状态 0 无效 1 有效
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
      *
@@ -68,11 +68,11 @@ class PropertyKey implements PropertyKeyInterface
      * 修改商品属性名
      * 修改商品属性名.
      *
-     * @param array $keyData 商品属性名数据
-     * @param int $keyData ["keyId"]  商品属性名id
+     * @param array  $keyData 商品属性名数据
+     * @param int    $keyData ["keyId"]  商品属性名id
      * @param string $keyData ["name"]   属性名
-     * @param int $keyData ["sort"]   排序
-     * @param int $keyData ["status"] 状态 0 无效 1 有效
+     * @param int    $keyData ["sort"]   排序
+     * @param int    $keyData ["status"] 状态 0 无效 1 有效
      *
      * @throws \Eelly\SDK\Goods\Exception\GoodsException
      *

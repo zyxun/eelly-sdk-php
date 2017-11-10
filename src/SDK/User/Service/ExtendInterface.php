@@ -171,42 +171,51 @@ interface ExtendInterface
      * @since  2017/9/27
      */
     public function listExtendPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-    
+
     /**
-     * 检查手机号码是否已被绑定
+     * 检查手机号码是否已被绑定.
      *
      * @param string $mobile 手机号码
-     * @return bool
+     *
      * @throws ExtendException
+     *
+     * @return bool
      * @requestExample({"mobile":"13430245645"})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2017-11-06
      */
     public function checkMobileIsBind(string $mobile): bool;
-    
+
     /**
      * 获得用户当前能否被雷达检查的状态
      *
-     * @param UidDTO $user  用户登录信息
+     * @param UidDTO $user 用户登录信息
+     *
      * @return array
      * @requestExample({})
      * @returnExample({"status":"1"})
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-11-06
      */
     public function getScanFlagStatus(UidDTO $user = null): array;
-    
+
     /**
      * 改变用户能否被雷达检查的状态
      *
-     * @param int $scanFlag  是否允许被雷达扫客扫描：0 否 1 是
-     * @param UidDTO $user  用户登录信息
+     * @param int    $scanFlag 是否允许被雷达扫客扫描：0 否 1 是
+     * @param UidDTO $user     用户登录信息
+     *
      * @return bool
      * @requestExample({"scanFlag":0})
      * @returnExample(true)
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-11-06
      */
     public function changeScanFlagStatus(int $scanFlag, UidDTO $user = null): bool;

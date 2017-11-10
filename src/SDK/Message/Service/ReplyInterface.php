@@ -13,10 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\Message\DTO\ReplyDTO;
-
 
 /**
  * 消息回复.
@@ -47,7 +45,7 @@ interface ReplyInterface
     /**
      * 更新用户消息成已读.
      *
-     * @param int     $mrId 回复id
+     * @param int    $mrId 回复id
      * @param UidDTO $user 用户对象
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
