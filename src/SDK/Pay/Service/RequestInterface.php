@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\RequestDTO;
+use Eelly\SDK\Pay\DTO\RequestDTO;
 
 /**
  * @author eellytools<localhost.shell@gmail.com>

@@ -44,4 +44,9 @@ class BankException extends LogicException
      * 账户不存在.
      */
     public const SERVER_ACCOUNT_ERROR = '银行信息不存在';
+
+    /**
+     * 交易号生成失败
+     */
+    public const GENERATE_BILLNO_ERROR = '交易号生成失败';
 }
