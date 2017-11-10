@@ -147,7 +147,9 @@ interface TagInterface
      *     "price":{"valueId": 5,"value": "低档"},
      *     "district":{"districtId": 0,"districtName": "全部商圈"}
      *  })
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年11月08日
      */
     public function getTagPreference(): array;
@@ -156,6 +158,7 @@ interface TagInterface
      * 获取用户选择的偏好.
      *
      * @param UidDTO|null $user 登录用户
+     *
      * @return array
      * @requestExample()
      * @returnExample({
@@ -164,7 +167,9 @@ interface TagInterface
      *     "levelIds": {3,5,6},
      *     "recIds": {8,3,4}
      *     })
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年11月08日
      */
     public function getUserTagPreferenceSetting(UidDTO $user = null): array;

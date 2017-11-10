@@ -77,7 +77,7 @@ interface MessageInterface
      *
      * @since 2017-8-1
      */
-    public function deleteMessage(int $messageId, UidDTO $user=null): bool;
+    public function deleteMessage(int $messageId, UidDTO $user = null): bool;
 
     /**
      * 批量删除消息.
