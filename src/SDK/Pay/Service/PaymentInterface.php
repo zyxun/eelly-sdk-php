@@ -57,20 +57,20 @@ interface PaymentInterface
      * 添加支付交易流水记录.
      *
      * @param array $data
-     * @param int $data["pa"]["id"]
+     * @param int $data["paId"]
      * @param int $data["type"]
-     * @param int $data["item"]["id"]
+     * @param int $data["itemId"]
      * @param int $data["money"]
-     * @param int $data["prec"]["id"]
+     * @param int $data["precId"]
      * @param int $data["status"]
-     * @param int $data["check"]["status"]
+     * @param int $data["checkStatus"]
      * @param string $data ["remark"]
      * @param UidDTO|null $uidDTO
      *
      * @throws PayException
      *
      * @return bool
-     * @requestExample({"data":{"pa_id":1,"type":1,"item_id":10001,"money":100,"prec_id":0,"status":0,"check_status":0,"remark":"备注"}})
+     * @requestExample({"data":{"paId":1,"type":1,"itemId":10001,"money":100,"precId":0,"status":0,"checkStatus":0,"remark":"备注"}})
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
