@@ -40,6 +40,8 @@ class LogicException extends \LogicException
 
     public const NO_LOGIN = '用户未登录';
 
+    public const PARAMETER_VALIDATION_ERROR = '校验传入参数错误';
+
     /**
      * @var array
      */
