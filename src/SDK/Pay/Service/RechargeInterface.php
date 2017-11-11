@@ -67,21 +67,21 @@ interface RechargeInterface
      * 添加充值交易流水 记录
      *
      * @param array $data
-     * @param int $data["pa"]["id"]
+     * @param int $data["paId"]
      * @param int $data["money"]    充值金额
      * @param int $data["channel"]  充值渠道：0 线下 1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
      * @param int $data["style"]    充值方式：0 未知 1 储蓄卡 2 信用卡 3 余额充值
-     * @param int $data["bank"]["id"]   充值银行ID
-     * @param string $data["bank"]["name"]  充值银行名称
-     * @param string $data["bank"]["account"]   充值帐号：支付宝账号/微信绑定open_id/QQ
+     * @param int $data["bankId"]   充值银行ID
+     * @param string $data["bankName"]  充值银行名称
+     * @param string $data["bankAccount"]   充值帐号：支付宝账号/微信绑定open_id/QQ
      * @param string $data["remark"]    备注
-     * @param string $data["admin"]["remark"]   系统及管理备注
+     * @param string $data["adminRemark"]   系统及管理备注
      *
      * @throws RechargeException
      *
      * @return bool
-     * @requestExample({"data":{"pa_id":1,"money":100,"channel":1,"style":0,"bank_id":111,"bank_name":"银行名","bank_account":"银行账号",
-     *     "remark":"","admin_remark":""}})
+     * @requestExample({"data":{"paId":1,"money":100,"channel":1,"style":0,"bankId":111,"bankName":"银行名","bankAccount":"银行账号",
+     *     "remark":"","adminRemark":""}})
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
