@@ -29,18 +29,18 @@ interface PaymentInterface
      *
      * 字段|类型|说明
      * ------------|-------|--------------
-     * ppId        |string |
-     * paId        |string |
-     * type        |string |
-     * itemId      |string |
-     * billNo      |string |
-     * money       |string |
-     * precId      |string |
-     * status      |string |
-     * checkStatus |string |
-     * remark      |string |
-     * createdTime |string |
-     * updateTime  |string |
+     * ppId        |string |    支付交易ID，自增主键
+     * paId        |string |    会员帐户ID
+     * type        |string |    支付类型：1 订单支付 2 购买服务
+     * itemId      |string |    关联对象ID：如订单ID、购买服务记录ID等
+     * billNo      |string |    衣联交易号
+     * money       |string |    支付金额：单位为分
+     * precId      |string |    支付批次：pay_recharge->prec_id，合并支付交易批次相同，纯余额支付为0
+     * status      |string |    处理状态：0 待处理 1 成功 2 处理中 3 失败
+     * checkStatus |string |    对帐状态：0 未对帐 1 对帐成功 2 对帐中 3 对帐失败
+     * remark      |string |    备注
+     * createdTime |string |    添加时间
+     * updateTime  |string |    修改时间
      *
      * @throws PayException
      *
@@ -57,14 +57,14 @@ interface PaymentInterface
      * 添加支付交易流水记录.
      *
      * @param array $data
-     * @param int $data["paId"]
-     * @param int $data["type"]
-     * @param int $data["itemId"]
-     * @param int $data["money"]
-     * @param int $data["precId"]
-     * @param int $data["status"]
-     * @param int $data["checkStatus"]
-     * @param string $data ["remark"]
+     * @param int $data["paId"]     会员帐户ID
+     * @param int $data["type"]     支付类型：1 订单支付 2 购买服务
+     * @param int $data["itemId"]   关联对象ID：如订单ID、购买服务记录ID等
+     * @param int $data["money"]    支付金额：单位为分
+     * @param int $data["precId"]   支付批次：pay_recharge->prec_id，合并支付交易批次相同，纯余额支付为0
+     * @param int $data["status"]   处理状态：0 待处理 1 成功 2 处理中 3 失败
+     * @param int $data["checkStatus"]  对帐状态：0 未对帐 1 对帐成功 2 对帐中 3 对帐失败
+     * @param string $data ["remark"]   备注
      * @param UidDTO|null $uidDTO
      *
      * @throws PayException
