@@ -16,6 +16,7 @@ namespace Eelly\SDK\User\Api;
 use Eelly\DTO\UidDTO;
 use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\User\Exception\UserException;
 use Eelly\SDK\User\Service\UserInterface;
 
 /**
@@ -23,6 +24,46 @@ use Eelly\SDK\User\Service\UserInterface;
  */
 class User implements UserInterface
 {
+    /**
+     * @inheritDoc
+     */
+    public function getMineDataApp(int $userId): array
+    {
+        // TODO: Implement getMineDataApp() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getCodeCardInfo(int $userId): array
+    {
+        // TODO: Implement getCodeCardInfo() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function checkBindStatus(int $type, UidDTO $user = null): array
+    {
+        // TODO: Implement checkBindStatus() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function bindingMobile(array $data, UidDTO $user = null): bool
+    {
+        // TODO: Implement bindingMobile() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function checkUserIsBindingMobile(int $userId): array
+    {
+        // TODO: Implement checkUserIsBindingMobile() method.
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -44,7 +85,7 @@ class User implements UserInterface
      */
     public function getInfo(UidDTO $user = null): UserDTO
     {
-        return EellyClient::request('user/user', 'info', $user);
+        return EellyClient::request('user/user', 'info', true, $user);
     }
 
     /**
@@ -52,7 +93,7 @@ class User implements UserInterface
      */
     public function getUser(int $userId): UserDTO
     {
-        return EellyClient::request('user/user', 'getUser', $userId);
+        return EellyClient::request('user/user', 'getUser', true, $userId);
     }
 
     /**
@@ -60,7 +101,7 @@ class User implements UserInterface
      */
     public function addUser(array $data): int
     {
-        return EellyClient::request('user/user', 'addUser', $data);
+        return EellyClient::request('user/user', 'addUser', true, $data);
     }
 
     /**
@@ -68,7 +109,7 @@ class User implements UserInterface
      */
     public function updateUser(int $userId, array $data): bool
     {
-        return EellyClient::request('user/user', 'updateUser', $userId, $data);
+        return EellyClient::request('user/user', 'updateUser', true, $userId, $data);
     }
 
     /**
@@ -76,7 +117,7 @@ class User implements UserInterface
      */
     public function deleteUser(int $userId): bool
     {
-        return EellyClient::request('user/user', 'deleteUser', $userId);
+        return EellyClient::request('user/user', 'deleteUser', true, $userId);
     }
 
     /**
@@ -84,52 +125,52 @@ class User implements UserInterface
      */
     public function listUserPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/user', 'listUserPage', $condition, $limit, $currentPage);
+        return EellyClient::request('user/user', 'listUserPage', true, $condition, $limit, $currentPage);
     }
 
     public function getByUserName(string $username): array
     {
-        return EellyClient::request('user/user', 'getByUserName', $username);
+        return EellyClient::request('user/user', 'getByUserName', true, $username);
     }
 
     public function addUcUser(string $username, string $password, string $email, int $uid = 0, string $regip = ''): int
     {
-        return EellyClient::request('user/user', 'addUcUser', $username, $password, $email, $uid, $regip);
+        return EellyClient::request('user/user', 'addUcUser', true, $username, $password, $email, $uid, $regip);
     }
 
     public function editUcUser(string $username, string $oldpw, string $newpw, string $email, int $ignoreoldpw = 0): int
     {
-        return EellyClient::request('user/user', 'editUcUser', $username, $oldpw, $newpw, $email, $ignoreoldpw);
+        return EellyClient::request('user/user', 'editUcUser', true, $username, $oldpw, $newpw, $email, $ignoreoldpw);
     }
 
     public function getUcUserByUid(int $uid, string $fields = ''): array
     {
-        return EellyClient::request('user/user', 'getUcUserByUid', $uid, $fields);
+        return EellyClient::request('user/user', 'getUcUserByUid', true, $uid, $fields);
     }
 
     public function getUcAvatarByIds(string $uids): array
     {
-        return EellyClient::request('user/user', 'getUcAvatarByIds', $uids);
+        return EellyClient::request('user/user', 'getUcAvatarByIds', true, $uids);
     }
 
     public function getUcUserByEmail(string $email): array
     {
-        return EellyClient::request('user/user', 'getUcUserByEmail', $email);
+        return EellyClient::request('user/user', 'getUcUserByEmail', true, $email);
     }
 
     public function getUcUserByUsername(string $username): array
     {
-        return EellyClient::request('user/user', 'getUcUserByUsername', $username);
+        return EellyClient::request('user/user', 'getUcUserByUsername', true, $username);
     }
 
     public function checkThirdKey(int $type, string $key): int
     {
-        return EellyClient::request('user/user', 'checkThirdKey', $type, $key);
+        return EellyClient::request('user/user', 'checkThirdKey', true, $type, $key);
     }
 
     public function updateUserAvatar(int $uid, string $avatar): bool
     {
-        return EellyClient::request('user/user', 'updateUserAvatar', $uid, $avatar);
+        return EellyClient::request('user/user', 'updateUserAvatar', true, $uid, $avatar);
     }
 
     /**
@@ -150,7 +191,7 @@ class User implements UserInterface
      */
     public function listUserElasticData(int $currentPage = 1, int $limit = 100): array
     {
-        return EellyClient::request('user/user', 'listUserElasticData', $currentPage, $limit);
+        return EellyClient::request('user/user', 'listUserElasticData', true, $currentPage, $limit);
     }
 
     /**
@@ -158,7 +199,7 @@ class User implements UserInterface
      */
     public function checkIsExistUserMobile(string $mobile): int
     {
-        return EellyClient::request('user/user', 'checkIsExistUserMobile', $mobile);
+        return EellyClient::request('user/user', 'checkIsExistUserMobile', true, $mobile);
     }
 
     /**
@@ -166,7 +207,7 @@ class User implements UserInterface
      */
     public function registerUser(array $data): int
     {
-        return EellyClient::request('user/user', 'registerUser', $data);
+        return EellyClient::request('user/user', 'registerUser', true, $data);
     }
 
     /**
@@ -174,7 +215,7 @@ class User implements UserInterface
      */
     public function getListByUserIds(array $userIds): array
     {
-        return EellyClient::request('user/user', 'getListByUserIds', $userIds);
+        return EellyClient::request('user/user', 'getListByUserIds', true, $userIds);
     }
 
     /**
@@ -192,7 +233,7 @@ class User implements UserInterface
      */
     public function checkPasswordPowerRule(string $password): int
     {
-        return EellyClient::request('user/user', 'checkPasswordPowerRule', $password);
+        return EellyClient::request('user/user', 'checkPasswordPowerRule', true, $password);
     }
 
     /**
