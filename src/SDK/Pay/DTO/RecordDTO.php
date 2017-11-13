@@ -18,86 +18,62 @@ use Eelly\DTO\AbstractDTO;
 class RecordDTO extends AbstractDTO
 {
     /**
-     * 资金变动日志ID，自增主键.
-     *
-     * @var int
+     * 交易ID，自增主键
+     * @var
      */
     public $prId;
 
     /**
-     * 交易申请ID.
-     *
-     * @var int
+     * 来源帐户ID
+     * @var
      */
-    public $paId;
+    public $fromPaId;
 
     /**
-     * 资金来源用户ID：0 系统帐户.
-     *
-     * @var int
+     * 目标帐户ID
+     * @var
      */
-    public $fromUserId;
+    public $toPaId;
 
     /**
-     * 资金来源店铺ID：0 系统帐户或买家帐户.
-     *
-     * @var int
-     */
-    public $fromStoreId;
-
-    /**
-     * 资金目标用户ID：0 系统帐户.
-     *
-     * @var int
-     */
-    public $toUserId;
-
-    /**
-     * 资金目标店铺ID：0 系统帐户或买家帐户.
-     *
-     * @var int
-     */
-    public $toStoreId;
-
-    /**
-     * 操作类型：1 充值到系统 2 系统到帐户 3 帐户消费 4 消费结算 5 消费退款 6 购买服务 7 服务退款 8 提现到系统(冻结) 9 系统打款.
-     *
-     * @var int
+     * 操作类型：1 充值 2 提现 3 消费 4 结算 5 退款 6 诚保冻结 7 诚保解冻
+     * @var
      */
     public $type;
 
     /**
-     * 变动前余额.
-     *
-     * @var int
+     * 关联ID
+     * @var
      */
-    public $moneyBefore;
+    public $itemId;
 
     /**
-     * 变动金额.
-     *
-     * @var int
+     * 衣联交易号
+     * @var
+     */
+    public $billNo;
+
+    /**
+     * 成交金额：单位为分
+     * @var
      */
     public $money;
 
     /**
-     * 变动后余额.
-     *
-     * @var int
-     */
-    public $moneyAfter;
-
-    /**
-     * 备注：JSON格式.
-     *
-     * @var string
+     * 备注：JSON格式
+     * @var
      */
     public $remark;
 
     /**
-     * 添加时间.
-     *
-     * @var int
+     * 添加时间
+     * @var
      */
     public $createdTime;
+
+    /**
+     * 修改时间
+     * @var
+     */
+    public $updateTime;
 }
