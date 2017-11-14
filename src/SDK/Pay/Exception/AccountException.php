@@ -33,4 +33,14 @@ class AccountException extends LogicException
      * 权限不够
      */
     public const REQUEST_FORBIDDEN = '无权操作';
+
+    /**
+     * 请求超时
+     */
+    public const REQUEST_TIME_OUT = '请求超时';
+
+    /**
+     * 金额不足
+     */
+    public const MONEY_NOT_ENOUGH = '金额不足';
 }
