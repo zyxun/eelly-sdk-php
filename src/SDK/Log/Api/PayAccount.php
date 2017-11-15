@@ -12,8 +12,9 @@ declare(strict_types=1);
 namespace Eelly\SDK\Log\Api;
 
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Log\DTO\PayAccountDTO;
 use Eelly\SDK\Log\Service\PayAccountInterface;
-use Eelly\DTO\PayAccountDTO;
+
 
 /**
  *
@@ -37,7 +38,7 @@ class PayAccount implements PayAccountInterface
      */
     public function addPayAccount(array $data): bool
     {
-        return EellyClient::request('log/payaccount', 'addPayAccount', $data);
+        return EellyClient::request('log/payaccount', 'addPayAccount',true,$data);
     }
 
     /**
