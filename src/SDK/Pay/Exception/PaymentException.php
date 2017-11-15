@@ -27,7 +27,13 @@ use Eelly\Exception\LogicException;
 class PaymentException extends LogicException
 {
 
-    public const DATA_STATUS_NOT_SUCCESS = '支付交易处理状态失败';
+    /**
+     * 支付交易处理状态失败
+     */
+    public const UPDATE_DATA_STATUS_FAIL = '支付交易处理状态失败';
 
-    public const PAY_ACCOUNT_REDUCE_FAIL = '账号扣款失败';
+    /**
+     * 账号扣款失败
+     */
+    public const REDUCE_PAY_ACCOUNT_FAIL = '账号扣款失败';
 }

@@ -30,4 +30,9 @@ class RecordException extends LogicException
      *错误信息.
      */
     public const PARAMETER_ERROR = '参数有误';
+
+    /**
+     * 第三方回调判断是否已处理
+     */
+    public const RECORD_EXIST = '记录已存在，忽略第三方此次回调';
 }

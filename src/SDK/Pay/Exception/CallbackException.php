@@ -16,23 +16,28 @@ namespace Eelly\SDK\Pay\Exception;
 use Eelly\Exception\LogicException;
 
 /**
- * 充值交易流水.
+ * 错误类.
  *
  * @author 张泽强 <zhangzeqiang@eelly.net>
  *
- * @since  2017年11月10日
+ * @since  2017年11月15日
  *
  * @version 1.0
  */
-class RechargeException extends LogicException
+class CallbackException extends LogicException
 {
     /**
      *错误信息.
      */
-    public const DATA_BILLNO_EXIST = '交易流水号已存在';
+    public const UPDATE_ACCOUNT_FAIL = '更新会员资金失败';
 
     /**
-     * 支付交易处理状态失败
+     * 衣联交易号对应数据找不到.
      */
-    public const UPDATE_DATA_STATUS_FAIL = '支付交易处理状态失败';
+    public const BILL_NO_DATA_NOT_FOUNT = '衣联交易号对应数据找不到';
+
+    /**
+     * 支付类型错误
+     */
+    public const CHANNEL_TYPE_NOT_EXIT = '支付类型错误';
 }
