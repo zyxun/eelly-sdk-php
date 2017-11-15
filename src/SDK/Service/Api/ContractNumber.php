@@ -23,13 +23,12 @@ use Eelly\SDK\Service\Service\ContractNumberInterface;
  */
 class ContractNumber implements ContractNumberInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getContractNumber(int $scnId): ContractNumberDTO
     {
-        return EellyClient::request('service/ContractNumber', 'getContractNumber', $scnId);
+        return EellyClient::request('service/ContractNumber', 'getContractNumber', true, $scnId);
     }
 
     /**
@@ -37,7 +36,7 @@ class ContractNumber implements ContractNumberInterface
      */
     public function addContractNumber(int $scId, int $number, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/ContractNumber', 'addContractNumber', $scId, $number, $user);
+        return EellyClient::request('service/ContractNumber', 'addContractNumber', true, $scId, $number, $user);
     }
 
     /**
@@ -45,7 +44,7 @@ class ContractNumber implements ContractNumberInterface
      */
     public function listContractNumberPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/ContractNumber', 'listContractNumberPage', $condition, $currentPage, $limit);
+        return EellyClient::request('service/ContractNumber', 'listContractNumberPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -53,7 +52,7 @@ class ContractNumber implements ContractNumberInterface
      */
     public function unbindContractNumber(int $scnId, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/ContractNumber', 'updateContractNumber', $scnId, $user);
+        return EellyClient::request('service/ContractNumber', 'updateContractNumber', true, $scnId, $user);
     }
 
     /**

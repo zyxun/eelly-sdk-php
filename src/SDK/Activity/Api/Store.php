@@ -27,7 +27,7 @@ class Store implements StoreInterface
      */
     public function getStore(int $storeId): StoreDTO
     {
-        return EellyClient::request('activity/store', 'getStore', $storeId);
+        return EellyClient::request('activity/store', 'getStore', true, $storeId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Store implements StoreInterface
      */
     public function addStore(array $data): bool
     {
-        return EellyClient::request('activity/store', 'addStore', $data);
+        return EellyClient::request('activity/store', 'addStore', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Store implements StoreInterface
      */
     public function updateStore(int $storeId, array $data): bool
     {
-        return EellyClient::request('activity/store', 'updateStore', $storeId, $data);
+        return EellyClient::request('activity/store', 'updateStore', true, $storeId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Store implements StoreInterface
      */
     public function deleteStore(int $storeId): bool
     {
-        return EellyClient::request('activity/store', 'deleteStore', $storeId);
+        return EellyClient::request('activity/store', 'deleteStore', true, $storeId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Store implements StoreInterface
      */
     public function listStorePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/store', 'listStorePage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/store', 'listStorePage', true, $condition, $limit, $currentPage);
     }
 
     /**

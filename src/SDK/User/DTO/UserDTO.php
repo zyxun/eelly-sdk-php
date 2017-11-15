@@ -1,23 +1,22 @@
 <?php
+
 declare(strict_types=1);
-/**
- * PHP version 5.5
+
+/*
+ * This file is part of eelly package.
  *
- * @copyright  Copyright (c) 2012-2015 EELLY Inc. (http://www.eelly.com)
- * @link       http://www.eelly.com
- * @license    衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-
 namespace Eelly\SDK\User\DTO;
-
 
 use Eelly\DTO\AbstractDTO;
 
 class UserDTO extends AbstractDTO
 {
-
-
     /**
      * 用户ID.
      *
@@ -26,7 +25,7 @@ class UserDTO extends AbstractDTO
     public $userId;
 
     /**
-     * 用户帐号
+     * 用户帐号.
      *
      * @var string
      */
@@ -53,12 +52,10 @@ class UserDTO extends AbstractDTO
      */
     public $status;
 
-
     /**
      * 添加时间.
      *
      * @var int
      */
     public $createdTime;
-
 }

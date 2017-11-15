@@ -28,7 +28,7 @@ class Brand implements BrandInterface
      */
     public function getBrand(int $storeId, UidDTO $user = null): BrandDTO
     {
-        return EellyClient::request('service/Brand', 'getBrand', $storeId, $user);
+        return EellyClient::request('service/Brand', 'getBrand', true, $storeId, $user);
     }
 
     /**
@@ -36,7 +36,7 @@ class Brand implements BrandInterface
      */
     public function addBrand(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Brand', 'addBrand', $data, $user);
+        return EellyClient::request('service/Brand', 'addBrand', true, $data, $user);
     }
 
     /**
@@ -44,7 +44,7 @@ class Brand implements BrandInterface
      */
     public function updateBrand(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Brand', 'updateBrand', $data, $user);
+        return EellyClient::request('service/Brand', 'updateBrand', true, $data, $user);
     }
 
     /**
@@ -52,7 +52,7 @@ class Brand implements BrandInterface
      */
     public function checkBrand(int $storeId, int $status, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Brand', 'checkBrand', $storeId, $status, $user);
+        return EellyClient::request('service/Brand', 'checkBrand', true, $storeId, $status, $user);
     }
 
     /**

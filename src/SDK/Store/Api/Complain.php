@@ -27,7 +27,7 @@ class Complain implements ComplainInterface
      */
     public function addStoreComplain(array $complainData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/complain', __FUNCTION__, $complainData, $user);
+        return EellyClient::request('store/complain', __FUNCTION__, true, $complainData, $user);
     }
 
     /**
@@ -37,7 +37,7 @@ class Complain implements ComplainInterface
      */
     public function deleteStoreComplain(int $complainId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/complain', __FUNCTION__, $complainId, $user);
+        return EellyClient::request('store/complain', __FUNCTION__, true, $complainId, $user);
     }
 
     /**
@@ -47,7 +47,7 @@ class Complain implements ComplainInterface
      */
     public function listStoreComplainPage(int $storeId, int $dimension, int $page = 1, UidDTO $user = null): array
     {
-        return EellyClient::request('store/complain', __FUNCTION__, $storeId, $dimension, $page, $user);
+        return EellyClient::request('store/complain', __FUNCTION__, true, $storeId, $dimension, $page, $user);
     }
 
     /**

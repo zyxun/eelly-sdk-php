@@ -63,5 +63,4 @@ class EntranceDTO extends AbstractDTO
      * @var unknown
      */
     public $updateTime;
-
 }

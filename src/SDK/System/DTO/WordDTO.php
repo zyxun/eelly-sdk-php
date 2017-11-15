@@ -40,7 +40,7 @@ class WordDTO extends AbstractDTO
      *
      * @return WordDTO
      */
-    public function setWord(string $word): WordDTO
+    public function setWord(string $word): self
     {
         $this->word = $word;
 

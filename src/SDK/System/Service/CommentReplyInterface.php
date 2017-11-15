@@ -18,17 +18,18 @@ use Eelly\SDK\System\DTO\CommentReplyDTO;
 
 /**
  * 评论回复.
- * 
+ *
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface CommentReplyInterface
 {
     /**
-     * 获取评论回复记录
+     * 获取评论回复记录.
      *
-     * @param int $scrId  评论回复id
+     * @param int $scrId 评论回复id
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return CommentReplyDTO
      *
      * @requestExample({"scrId":1})
@@ -36,26 +37,28 @@ interface CommentReplyInterface
      *     "receiverId":148086,"createdTime":1503560249})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-27
      */
     public function getCommentReply(int $scrId): CommentReplyDTO;
 
     /**
-     * 添加一条评论回复记录
+     * 添加一条评论回复记录.
      *
-     * @param array $data
-     * @param int $data["scrId"] 评论回复id
-     * @param int $data["commentId"] 主评论ID
-     * @param int $data["parentId"] 父回复id
-     * @param string $data["content"] 评论回复内容
-     * @param int $data["useId"] 评论回复人id
-     * @param string $data["username"] 评论回复人用户名
-     * @param string $data["userIp"] 评论回复人ip
-     * @param int $data["receiverId"] 被回复者id
-     * @param int $data["createdTime"] 添加时间
-     * @param UidDTO $user 登录用户信息
+     * @param array  $data
+     * @param int    $data["scrId"]       评论回复id
+     * @param int    $data["commentId"]   主评论ID
+     * @param int    $data["parentId"]    父回复id
+     * @param string $data["content"]     评论回复内容
+     * @param int    $data["useId"]       评论回复人id
+     * @param string $data["username"]    评论回复人用户名
+     * @param string $data["userIp"]      评论回复人ip
+     * @param int    $data["receiverId"]  被回复者id
+     * @param int    $data["createdTime"] 添加时间
+     * @param UidDTO $user                登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool
      *
      * @requestExample({"data":{"scrId":1,"commentId":1, "parentId":0,"content":"reply test","useId":1,"username":"","userIp":"",
@@ -63,28 +66,31 @@ interface CommentReplyInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-27
      */
     public function addCommentReply(array $data, UidDTO $user = null): bool;
 
     /**
-     * 删除评论回复记录
+     * 删除评论回复记录.
      *
-     * @param int $scrId  评论回复id
+     * @param int $scrId 评论回复id
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return bool
      *
      * @requestExample({"scrId":1})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-27
      */
     public function deleteCommentReply(int $scrId): bool;
 
     /**
-     * 分页获取评论回复记录列表
+     * 分页获取评论回复记录列表.
      *
      *
      * @param array  $condition
@@ -117,12 +123,14 @@ interface CommentReplyInterface
      * page[limit]            |int    | 每页显示的数量
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
+     *
      * @return array
      *
      * @requestExample({"condition":{"commentId":1},"currentPage": "1","limit": "10"})
      * @returnExample(["items":[{"scrId":1,"commentId":1, "parentId":0,"content":"reply test","useId":1,"username":"","userIp":"","receiverId":148086,"createdTime":1503560249}],"page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-27
      */
     public function listCommentReplyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

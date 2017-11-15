@@ -33,6 +33,13 @@ class UserDTO extends UidDTO
     public $mobile;
 
     /**
+     * 头像.
+     *
+     * @var string
+     */
+    public $avatar;
+
+    /**
      * @return string
      */
     public function getUsername(): string
@@ -45,7 +52,7 @@ class UserDTO extends UidDTO
      *
      * @return UserDTO
      */
-    public function setUsername(string $username): UserDTO
+    public function setUsername(string $username): self
     {
         $this->username = $username;
 
@@ -65,7 +72,7 @@ class UserDTO extends UidDTO
      *
      * @return UserDTO
      */
-    public function setMobile(string $mobile): UserDTO
+    public function setMobile(string $mobile): self
     {
         $this->mobile = $mobile;
 

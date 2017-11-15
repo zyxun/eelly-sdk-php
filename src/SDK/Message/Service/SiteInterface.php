@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-use Eelly\DTO\UserDTO;
-use Eelly\SDK\Message\Service\DTO\SiteDTO;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\Message\DTO\SiteDTO;
 
 /**
  * 站内信消息.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SiteInterface
@@ -44,8 +44,8 @@ interface SiteInterface
     /**
      * 更新站内信成已读.
      *
-     * @param int     $msiId 消息读取ID
-     * @param UserDTO $user  用户对象
+     * @param int    $msiId 消息读取ID
+     * @param UidDTO $user  用户对象
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
@@ -57,7 +57,7 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function updateMessageSiteRead(int $msiId, UserDTO $user): bool;
+    public function updateMessageSiteRead(int $msiId, UidDTO $user): bool;
 
     /**
      * 批量更新站内信成已读状态.
@@ -75,14 +75,14 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function updateMessageSiteReadBatch(int $msiIds, UserDTO $user): bool;
+    public function updateMessageSiteReadBatch(array $msiIds, UidDTO $user): bool;
 
     /**
      * 分页获取用户消息.
      *
-     * @param UserDTO $user        用户对象
-     * @param int     $limit       每页条数
-     * @param int     $currentPage 当前页
+     * @param UidDTO $user        用户对象
+     * @param int    $limit       每页条数
+     * @param int    $currentPage 当前页
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
@@ -94,7 +94,7 @@ interface SiteInterface
      *
      * @since 2017-8-1
      */
-    public function listMessageSitePage(UserDTO $user, int $currentPage = 1, int $limit = 10): array;
+    public function listMessageSitePage(int $currentPage, int $limit, UidDTO $user): array;
 
     /**
      * 获取用户消息.
@@ -128,7 +128,7 @@ interface SiteInterface
      *
      * @since 2017-8-2
      */
-    public function deleteMessageSite(int $msiId, UserDTO $user): bool;
+    public function deleteMessageSite(int $msiId, UidDTO $user): bool;
 
     /**
      * 批量删除用户消息.
@@ -145,5 +145,5 @@ interface SiteInterface
      *
      * @since 2017-8-2
      */
-    public function deleteMessageSiteBatch(array $msiIds, UserDTO $user): bool;
+    public function deleteMessageSiteBatch(array $msiIds, UidDTO $user): bool;
 }

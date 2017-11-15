@@ -17,7 +17,7 @@ use Eelly\SDK\Activity\DTO\ActivityDTO;
 
 /**
  * 营销活动信息.
- * 
+ *
  * @author wechan<liweiquan@eelly.net>
  */
 interface ActivityInterface
@@ -73,27 +73,26 @@ interface ActivityInterface
     public function addActivity(array $data): bool;
 
     /**
-     * 更新活动信息
+     * 更新活动信息.
      *
-     * @param int       $activityId                         活动id
-     * @param array     $data                               活动数据
-     * @param string    $data['title']                      活动标题
-     * @param string    $data['image']                      活动图片
-     * @param string    $data['content']                    活动内容
-     * @param string    $data['applyStartTime']             报名开始时间
-     * @param string    $data['applyEndTime']               报名结束结束
-     * @param string    $data['activityStartTime']          活动开始时间
-     * @param string    $data['activityEndTime']            活动结束时间
-     * @param string    $data['dayStartTime']               活动每天开始时间：0 不限，每天的第N秒数
-     * @param string    $data['dayEndTime']                 活动每天结束时间：0 不限，每天的第N秒数，结束时间比开始时间大
-     * @param string    $data['status']                     活动状态：0 未审核 1 审核通过 2 审核失败
-     * @param int       $data['sort']                       活动优先级排序
-     * @param int       $data['range']                      活动影响范围：0 平台级 1 店铺级 2 商品级
-     * @param int       $data['adminId']                    管理员ID
-     * @param string    $data['adminName']                  管理员名称
-     * @param string    $data['remark']                     活动备注
-     * 
-     * 
+     * @param int    $activityId                活动id
+     * @param array  $data                      活动数据
+     * @param string $data['title']             活动标题
+     * @param string $data['image']             活动图片
+     * @param string $data['content']           活动内容
+     * @param string $data['applyStartTime']    报名开始时间
+     * @param string $data['applyEndTime']      报名结束结束
+     * @param string $data['activityStartTime'] 活动开始时间
+     * @param string $data['activityEndTime']   活动结束时间
+     * @param string $data['dayStartTime']      活动每天开始时间：0 不限，每天的第N秒数
+     * @param string $data['dayEndTime']        活动每天结束时间：0 不限，每天的第N秒数，结束时间比开始时间大
+     * @param string $data['status']            活动状态：0 未审核 1 审核通过 2 审核失败
+     * @param int    $data['sort']              活动优先级排序
+     * @param int    $data['range']             活动影响范围：0 平台级 1 店铺级 2 商品级
+     * @param int    $data['adminId']           管理员ID
+     * @param string $data['adminName']         管理员名称
+     * @param string $data['remark']            活动备注
+     *
      * @throws \Eelly\SDK\Activity\Exception\ActivityException
      *
      * @return bool sql操作结果

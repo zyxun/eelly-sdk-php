@@ -23,13 +23,12 @@ use Eelly\SDK\Service\Service\BuyInterface;
  */
 class Buy implements BuyInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getBuy(int $storeId, UidDTO $user = null): BuyDTO
     {
-        return EellyClient::request('service/Buy', 'getBuy', $storeId, $user);
+        return EellyClient::request('service/Buy', 'getBuy', true, $storeId, $user);
     }
 
     /**
@@ -37,7 +36,7 @@ class Buy implements BuyInterface
      */
     public function addBuy(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Buy', 'addBuy', $data, $user);
+        return EellyClient::request('service/Buy', 'addBuy', true, $data, $user);
     }
 
     /**
@@ -45,7 +44,7 @@ class Buy implements BuyInterface
      */
     public function listBuyPage(int $storeId = null, int $userId = null, int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Buy', 'listBuyPage', $storeId, $userId, $currentPage, $limit);
+        return EellyClient::request('service/Buy', 'listBuyPage', true, $storeId, $userId, $currentPage, $limit);
     }
 
     /**

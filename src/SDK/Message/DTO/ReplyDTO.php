@@ -22,42 +22,42 @@ class ReplyDTO extends AbstractDTO
      *
      * @var int
      */
-    public $mr_id;
+    public $mrId;
 
     /**
      * 消息ID.
      *
      * @var int
      */
-    public $message_id;
+    public $messageId;
 
     /**
      * 回复发送者ID.
      *
      * @var int
      */
-    public $replay_sender_id;
+    public $replaySenderId;
 
     /**
      * 回复发送者名字.
      *
      * @var string
      */
-    public $replay_sender_name;
+    public $replaySenderName;
 
     /**
      * 回复接收者ID.
      *
      * @var int
      */
-    public $replay_receiver_id;
+    public $replayReceiverId;
 
     /**
      * 回复发送者名字.
      *
      * @var string
      */
-    public $replay_receiver_name;
+    public $replayReceiverName;
 
     /**
      * 回复内容.
@@ -71,26 +71,26 @@ class ReplyDTO extends AbstractDTO
      *
      * @var int
      */
-    public $is_read;
+    public $isRead;
 
     /**
      * 删除标志：0 正常 1 回复发送者删除 2 回复接收者删除.
      *
      * @var int
      */
-    public $delete_flag;
+    public $deleteFlag;
 
     /**
      * 添加时间.
      *
      * @var int
      */
-    public $created_time;
+    public $createdTime;
 
     /**
      * 修改时间.
      *
-     * @var unknown
+     * @var string
      */
-    public $update_time;
+    public $updateTime;
 }

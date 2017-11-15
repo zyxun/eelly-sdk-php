@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-use Eelly\DTO\UserDTO;
-use Eelly\SDK\Message\Service\DTO\MessageReplyDTO;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\Message\DTO\ReplyDTO;
 
 /**
  * 消息回复.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ReplyInterface
@@ -40,13 +40,13 @@ interface ReplyInterface
      *
      * @since 2017-8-1
      */
-    public function addMessageReply(int $msiId, int $replayReceiverId, string $content, UserDTO $user): int;
+    public function addMessageReply(int $msiId, int $replayReceiverId, string $content, UidDTO $user): int;
 
     /**
      * 更新用户消息成已读.
      *
-     * @param int     $mrId 回复id
-     * @param UserDTO $user 用户对象
+     * @param int    $mrId 回复id
+     * @param UidDTO $user 用户对象
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
@@ -58,7 +58,7 @@ interface ReplyInterface
      *
      * @since 2017-8-1
      */
-    public function updateMessageReplyStatus(int $mrId, UserDTO $user): bool;
+    public function updateMessageReplyStatus(int $mrId, UidDTO $user = null): bool;
 
     /**
      * 获取指定messageId的所有回复列表.
@@ -88,7 +88,7 @@ interface ReplyInterface
      *
      * @since 2017-8-1
      */
-    public function deleteMessageReply(int $mrId, UserDTO $user): bool;
+    public function deleteMessageReply(int $mrId, UidDTO $user = null): bool;
 
     /**
      * 获得指定id消息回复.
@@ -97,7 +97,7 @@ interface ReplyInterface
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
-     * @return MessageReplyDTO
+     * @return ReplyDTO
      * @requestExample(1)
      * @returnExample()
      *
@@ -105,5 +105,5 @@ interface ReplyInterface
      *
      * @since 2017-8-4
      */
-    public function getMessageReply(int $mrId): MessageReplyDTO;
+    public function getMessageReply(int $mrId): ReplyDTO;
 }

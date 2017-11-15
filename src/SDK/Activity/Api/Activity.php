@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Api;
 
-use Eelly\DTO\ActivityDTO;
+use Eelly\SDK\Activity\DTO\ActivityDTO;
 use Eelly\SDK\Activity\Service\ActivityInterface;
 use Eelly\SDK\EellyClient;
 
@@ -27,7 +27,7 @@ class Activity implements ActivityInterface
      */
     public function getActivity(int $activityId): ActivityDTO
     {
-        return EellyClient::request('activity/activity', 'getActivity', $activityId);
+        return EellyClient::request('activity/activity', 'getActivity', true, $activityId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Activity implements ActivityInterface
      */
     public function addActivity(array $data): bool
     {
-        return EellyClient::request('activity/activity', 'addActivity', $data);
+        return EellyClient::request('activity/activity', 'addActivity', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Activity implements ActivityInterface
      */
     public function updateActivity(int $activityId, array $data): bool
     {
-        return EellyClient::request('activity/activity', 'updateActivity', $activityId, $data);
+        return EellyClient::request('activity/activity', 'updateActivity', true, $activityId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Activity implements ActivityInterface
      */
     public function deleteActivity(int $activityId): bool
     {
-        return EellyClient::request('activity/activity', 'deleteActivity', $activityId);
+        return EellyClient::request('activity/activity', 'deleteActivity', true, $activityId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Activity implements ActivityInterface
      */
     public function listActivityPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/activity', 'listActivityPage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/activity', 'listActivityPage', true, $condition, $limit, $currentPage);
     }
 
     /**

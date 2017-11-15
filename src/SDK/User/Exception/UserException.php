@@ -25,4 +25,8 @@ use Eelly\Exception\LogicException;
 class UserException extends LogicException
 {
     public const OVERTAKE_ERROR = '收货地址不能超过10';
+    public const TYPE_ERROR = '参数类型错误';
+    public const BIND_PHONE_ERROR = '手机号码已被其他用户绑定';
+    public const NO_BIND_PHONE_ERROR = '请先绑定手机号码';
+    public const NO_REGISTER_PHONE_ERROR = '该手机号没有注册账号，无法收取验证码';
 }

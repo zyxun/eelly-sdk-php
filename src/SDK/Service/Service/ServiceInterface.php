@@ -18,7 +18,7 @@ use Eelly\SDK\Service\DTO\ServiceDTO;
 
 /**
  * 增值服务.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ServiceInterface

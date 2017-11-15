@@ -1,29 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Contact\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\Contact\Service\TagRelInterface;
 use Eelly\DTO\TagRelDTO;
+use Eelly\SDK\Contact\Service\TagRelInterface;
+use Eelly\SDK\EellyClient;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class TagRel implements TagRelInterface
 {
-
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getTagRel(int $tagRelId): TagRelDTO
@@ -32,7 +31,6 @@ class TagRel implements TagRelInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addTagRel(array $data): bool
@@ -41,7 +39,6 @@ class TagRel implements TagRelInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateTagRel(int $tagRelId, array $data): bool
@@ -50,7 +47,6 @@ class TagRel implements TagRelInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteTagRel(int $tagRelId): bool
@@ -59,7 +55,6 @@ class TagRel implements TagRelInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listTagRelPage(array $condition = [], int $currentPage = 1, int $limit = 10): array

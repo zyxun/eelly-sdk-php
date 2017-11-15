@@ -18,7 +18,7 @@ use Eelly\SDK\Goods\DTO\CategoryCustomDTO;
 
 /**
  * 店铺自定义商品分类.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CategoryCustomInterface

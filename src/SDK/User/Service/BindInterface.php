@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\User\DTO\UserBindDTO;
 use Eelly\SDK\User\Exception\BindException;
 
@@ -28,6 +27,7 @@ interface BindInterface
      * 获取用户绑定记录.
      *
      * @param int $bindId 绑定ID
+     *
      * @return UserBindDTO
      *
      * ### 返回数据说明
@@ -55,19 +55,20 @@ interface BindInterface
     /**
      * 添加绑定.
      *
-     * @param array $data
-     * @param int       $data['userId'] 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param int       $data['type'] 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string    $data['unionId'] 第三方平台union_id
-     * @param string    $data['openId']  第三方平台open_id
-     * @param string    $data['appId']   微信公众平台ID,对应mobile.mobile_wechat表appid字段
-     * @param int       $data['status']   绑定状态：1 绑定状态 2 解绑状态
+     * @param array  $data
+     * @param int    $data['userId']  绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param int    $data['type']    绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param string $data['unionId'] 第三方平台union_id
+     * @param string $data['openId']  第三方平台open_id
+     * @param string $data['appId']   微信公众平台ID,对应mobile.mobile_wechat表appid字段
+     * @param int    $data['status']  绑定状态：1 绑定状态 2 解绑状态
      *
      * @return bool
      * @requestExample({"type":"1","union_id":"xxxx","open_id":"xxxx","app_id":"xxxx","status":"1"})
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function addBind(array $data): bool;
@@ -75,13 +76,13 @@ interface BindInterface
     /**
      * 更新绑定信息.
      *
-     * @param int       $bindId                 绑定id
-     * @param array     $data
-     * @param int       $data["type"]           绑定类型
-     * @param string    $data["unionId"]        第三方平台union_id
-     * @param string    $data["openId"]         第三方平台open_id
-     * @param string    $data["appId"]          微信公众平台ID,对应mobile.mobile_wechat表appid字段
-     * @param int $data["status"]               绑定状态：1 绑定状态 2 解绑状态
+     * @param int    $bindId          绑定id
+     * @param array  $data
+     * @param int    $data["type"]    绑定类型
+     * @param string $data["unionId"] 第三方平台union_id
+     * @param string $data["openId"]  第三方平台open_id
+     * @param string $data["appId"]   微信公众平台ID,对应mobile.mobile_wechat表appid字段
+     * @param int    $data["status"]  绑定状态：1 绑定状态 2 解绑状态
      *
      * @throws BindException
      *
@@ -90,6 +91,7 @@ interface BindInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function updateBind(int $bindId, array $data): bool;
@@ -97,15 +99,15 @@ interface BindInterface
     /**
      * 获取绑定的列表.
      *
-     * @param array     $condition
-     * @param int       $condition["type"]       绑定类型
-     * @param int       $condition["userId"]     用户id
-     * @param string    $condition["unionId"]    第三方平台union_id
-     * @param string    $condition["openId"]     第三方平台open_id
-     * @param string    $condition["appId"]      微信公众平台ID,对应mobile.mobile_wechat表appid字段
-     * @param int       $condition["status"]     绑定状态：1 绑定状态 2 解绑状态
-     * @param int       $currentPage             当前页码
-     * @param int       $limit                   一页显示的数量
+     * @param array  $condition
+     * @param int    $condition["type"]    绑定类型
+     * @param int    $condition["userId"]  用户id
+     * @param string $condition["unionId"] 第三方平台union_id
+     * @param string $condition["openId"]  第三方平台open_id
+     * @param string $condition["appId"]   微信公众平台ID,对应mobile.mobile_wechat表appid字段
+     * @param int    $condition["status"]  绑定状态：1 绑定状态 2 解绑状态
+     * @param int    $currentPage          当前页码
+     * @param int    $limit                一页显示的数量
      *
      * ### 返回数据说明
      *
@@ -130,6 +132,7 @@ interface BindInterface
      *     "createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"}])
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/27
      */
     public function listBindPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

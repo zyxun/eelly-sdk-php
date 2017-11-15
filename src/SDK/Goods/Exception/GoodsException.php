@@ -24,4 +24,5 @@ use Eelly\Exception\LogicException;
  */
 class GoodsException extends LogicException
 {
+    public const DATA_EXCEPTION = '数据异常';
 }

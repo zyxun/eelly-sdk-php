@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\DistrictDTO;
 
 /**
  * 商圈.
- * 
+ *
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface DistrictInterface
@@ -36,6 +36,7 @@ interface DistrictInterface
      *     "remark":"潮流时尚","adminId":155231,"adminName":"test","sort":10,"createdTime":1489631647})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-26
      */
     public function getDistrict(int $districtId): DistrictDTO;
@@ -62,6 +63,7 @@ interface DistrictInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-26
      */
     public function addDistrict(array $data, UidDTO $user = null): bool;
@@ -88,6 +90,7 @@ interface DistrictInterface
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-26
      */
     public function updateDistrict(int $districtId, array $data, UidDTO $user = null): bool;
@@ -134,6 +137,7 @@ interface DistrictInterface
      *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
+     *
      * @since 2017-09-26
      */
     public function listDistrictPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

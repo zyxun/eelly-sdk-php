@@ -13,38 +13,35 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\SDK\Pay\DTO\ApplyBankDTO;
-
+use Eelly\DTO\CallbackAdjustDTO;
 
 /**
- * 发起交易申请银行信息.
- * 
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface ApplyBankInterface
+interface CallbackAdjustInterface
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getApplyBank(int $applyBankId): ApplyBankDTO;
+    public function getCallbackAdjust(int $callbackAdjustId): CallbackAdjustDTO;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addApplyBank(array $data): bool;
+    public function addCallbackAdjust(array $data): bool;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function updateApplyBank(int $applyBankId, array $data): bool;
+    public function updateCallbackAdjust(int $callbackAdjustId, array $data): bool;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function deleteApplyBank(int $applyBankId): bool;
+    public function deleteCallbackAdjust(int $callbackAdjustId): bool;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listApplyBankPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listCallbackAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

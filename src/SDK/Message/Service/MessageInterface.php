@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Message\Service;
 
-use Eelly\DTO\UserDTO;
-use Eelly\SDK\Message\Service\DTO\MessageDTO;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\Message\DTO\MessageDTO;
 
 /**
  * 消息.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface MessageInterface
@@ -43,23 +43,24 @@ interface MessageInterface
     /**
      * 添加消息.
      *
-     * @param int    $senderId    发送者ID：0 系统消息
-     * @param int    $receiveType 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
-     * @param int    $mtId        消息模板ID：0 自定义消息
-     * @param string $title       消息标题
-     * @param string $content     消息内容：JSON格式
+     * @param array  $data 添加的信息
+     * @param int    $data ['senderId']    发送者ID：0 系统消息
+     * @param int    $data ['receiveType'] 接收类型：1 全部用户(系统) 2
+     * @param int    $data ['mtId']        消息模板ID：0 自定义消息
+     * @param string $data ['title']       消息标题
+     * @param array  $data ['parameter']   消息参数
      *
-     * @throws \Eelly\SDK\
+     * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return int 返回添加成功id
-     * @requestExample([1])
+     * @requestExample({"senderId":1,"receiveType":1,"mtId":1,"title":"消息标题","parameter":{"user":"梁新宜","content":"测试消息参数","time":"2017-09-04"}})
      * @returnExample(1)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-8-1
      */
-    public function addMessage(int $senderId, int $receiveType, int $mtId, string $title, string $content): int;
+    public function addMessage(array $data): int;
 
     /**
      * 删除指定id消息.
@@ -76,7 +77,7 @@ interface MessageInterface
      *
      * @since 2017-8-1
      */
-    public function deleteMessage(int $messageId, UserDTO $user): bool;
+    public function deleteMessage(int $messageId, UidDTO $user = null): bool;
 
     /**
      * 批量删除消息.
@@ -93,7 +94,7 @@ interface MessageInterface
      *
      * @since 2017-8-1
      */
-    public function deleteMessageBatch(array $messageIds, UserDTO $user): bool;
+    public function deleteMessageBatch(array $messageIds, UidDTO $user): bool;
 
     /**
      * 获取消息列表（可条件检索）.

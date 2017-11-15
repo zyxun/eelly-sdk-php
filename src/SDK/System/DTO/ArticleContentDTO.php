@@ -35,10 +35,9 @@ class ArticleContentDTO extends AbstractDTO
     public $content;
 
     /**
-     * 添加时间
+     * 添加时间.
      *
      * @var int
      */
     public $createdTime;
-
 }

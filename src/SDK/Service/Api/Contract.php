@@ -28,7 +28,7 @@ class Contract implements ContractInterface
      */
     public function getContract(int $scId): ContractDTO
     {
-        return EellyClient::request('service/Contract', 'getContract', $scId);
+        return EellyClient::request('service/Contract', 'getContract', true, $scId);
     }
 
     /**
@@ -36,7 +36,7 @@ class Contract implements ContractInterface
      */
     public function addContract(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Contract', 'addContract', $data, $user);
+        return EellyClient::request('service/Contract', 'addContract', true, $data, $user);
     }
 
     /**
@@ -44,7 +44,7 @@ class Contract implements ContractInterface
      */
     public function updateContract(int $scId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Contract', 'updateContract', $scId, $data, $user);
+        return EellyClient::request('service/Contract', 'updateContract', true, $scId, $data, $user);
     }
 
     /**
@@ -52,7 +52,7 @@ class Contract implements ContractInterface
      */
     public function listContractPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Contract', 'listContractPage', $condition, $currentPage, $limit);
+        return EellyClient::request('service/Contract', 'listContractPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -60,7 +60,7 @@ class Contract implements ContractInterface
      */
     public function changeContractStatus(int $scId, int $status, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Contract', 'checkContract', $scId, $status, $user);
+        return EellyClient::request('service/Contract', 'checkContract', true, $scId, $status, $user);
     }
 
     /**

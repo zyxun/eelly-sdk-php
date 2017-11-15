@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- *
- * @author wechan<liweiquan@eelly.net>
- * Date: 2017年9月1日
- * Time: 11:54
- */
+
 declare(strict_types=1);
 
 /*
@@ -24,8 +18,8 @@ use Eelly\Exception\LogicException;
 class ActivityException extends LogicException
 {
     public const PARAMETER_EMPTY = '参数有误';
-    
+
     public const CLASS_NO_EXIST = '类不存在';
-    
+
     public const DATA_NOT_EXIST = '数据不存在';
 }

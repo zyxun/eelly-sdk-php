@@ -18,6 +18,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use League\OAuth2\Client\Token\AccessToken;
 use LogicException;
 use Phalcon\Di;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 class EellyClient
@@ -40,6 +41,7 @@ class EellyClient
         'store'   => 'https://api.eelly.com',
         'pay'     => 'https://api.eelly.com',
         'service' => 'https://api.eelly.com',
+        'message' => 'https://api.eelly.com',
     ];
 
     private static $services = [];
@@ -127,11 +129,12 @@ class EellyClient
     /**
      * @param string $uri
      * @param string $method
+     * @param bool   $sync
      * @param mixed  ...$args
      *
      * @return mixed
      */
-    public static function request(string $uri, string $method, ...$args)
+    public static function request(string $uri, string $method, bool $sync = true, ...$args)
     {
         if (null === self::$self) {
             $di = Di::getDefault();
@@ -158,7 +161,34 @@ class EellyClient
             ];
         }
         $request = $provider->getAuthenticatedRequest(EellyProvider::METHOD_POST, $uri, self::$accessToken->getToken(), $options);
-        $response = $provider->getResponse($request);
+
+        if ($sync) {
+            $response = $provider->getResponse($request);
+
+            return $client->responseToObject($response);
+        } else {
+            $promise = $provider->getHttpClient()->sendAsync($request);
+
+            return new class($client, $promise) {
+                private $client;
+                private $promise;
+
+                public function __construct($client, $promise)
+                {
+                    $this->client = $client;
+                    $this->promise = $promise;
+                }
+
+                public function wait()
+                {
+                    return $this->client->responseToObject($this->promise->wait());
+                }
+            };
+        }
+    }
+
+    public function responseToObject(ResponseInterface $response)
+    {
         $class = $response->getHeader('ReturnType');
         if (!empty($class)) {
             $returnType = $class[0];

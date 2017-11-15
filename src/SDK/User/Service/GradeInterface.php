@@ -23,12 +23,11 @@ use Eelly\SDK\User\Exception\GradeException;
  */
 interface GradeInterface
 {
-
     /**
      * 获取用户等级信息.
      *
-     * @param int $gradeId  等级ID
-     * ### 返回数据说明
+     * @param int $gradeId 等级ID
+     *                     ### 返回数据说明
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -48,6 +47,7 @@ interface GradeInterface
      *     15:12:59"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function getGrade(int $gradeId): GradeDTO;
@@ -56,16 +56,17 @@ interface GradeInterface
      * 添加用户等级.
      *
      * @param array  $data
-     * @param string $data["name"]             等级名称
-     * @param int    $data["score"]            等级对应分数
-     * @param string $data["privilege"]        等级对应的特权
-     * @param int    $data["status"]           等级状态：0 有效 4 删除
+     * @param string $data["name"]      等级名称
+     * @param int    $data["score"]     等级对应分数
+     * @param string $data["privilege"] 等级对应的特权
+     * @param int    $data["status"]    等级状态：0 有效 4 删除
      *
      * @return bool
      * @requestExample({"data":{"name":"test","score":100,"privilege":"xxx","status":0}})
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function addGrade(array $data): bool;
@@ -73,12 +74,12 @@ interface GradeInterface
     /**
      * 更新等级信息.
      *
-     * @param int       $gradeId                等级ID
-     * @param array     $data
-     * @param string    $data["name"]           等级名称
-     * @param int       $data["score"]          等级对应分数
-     * @param string    $data["privilege"]      等级对应的特权
-     * @param int       $data["status"]         等级状态：0 有效 4 删除
+     * @param int    $gradeId           等级ID
+     * @param array  $data
+     * @param string $data["name"]      等级名称
+     * @param int    $data["score"]     等级对应分数
+     * @param string $data["privilege"] 等级对应的特权
+     * @param int    $data["status"]    等级状态：0 有效 4 删除
      *
      * @throws GradeException
      *
@@ -87,6 +88,7 @@ interface GradeInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function updateGrade(int $gradeId, array $data): bool;
@@ -94,7 +96,7 @@ interface GradeInterface
     /**
      * 删除等级信息.
      *
-     * @param int $gradeId      等级ID
+     * @param int $gradeId 等级ID
      *
      * @throws GradeException
      *
@@ -103,6 +105,7 @@ interface GradeInterface
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function deleteGrade(int $gradeId): bool;
@@ -111,9 +114,9 @@ interface GradeInterface
      * 用户等级列表.
      *
      * @param array $condition
-     * @param int $condition["status"]  等级状态：0 有效 4 删除
-     * @param int $currentPage
-     * @param int $limit
+     * @param int   $condition["status"] 等级状态：0 有效 4 删除
+     * @param int   $currentPage
+     * @param int   $limit
      *
      * ### 返回数据说明
      *
@@ -135,6 +138,7 @@ interface GradeInterface
      *     15:12:59"}])
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/28
      */
     public function listGradePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;

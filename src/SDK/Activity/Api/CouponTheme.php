@@ -27,7 +27,7 @@ class CouponTheme implements CouponThemeInterface
      */
     public function getCouponTheme(int $couponThemeId): CouponThemeDTO
     {
-        return EellyClient::request('activity/coupontheme', 'getCouponTheme', $couponThemeId);
+        return EellyClient::request('activity/coupontheme', 'getCouponTheme', true, $couponThemeId);
     }
 
     /**
@@ -35,7 +35,7 @@ class CouponTheme implements CouponThemeInterface
      */
     public function addCouponTheme(array $data): bool
     {
-        return EellyClient::request('activity/coupontheme', 'addCouponTheme', $data);
+        return EellyClient::request('activity/coupontheme', 'addCouponTheme', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class CouponTheme implements CouponThemeInterface
      */
     public function updateCouponTheme(int $couponThemeId, array $data): bool
     {
-        return EellyClient::request('activity/coupontheme', 'updateCouponTheme', $couponThemeId, $data);
+        return EellyClient::request('activity/coupontheme', 'updateCouponTheme', true, $couponThemeId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class CouponTheme implements CouponThemeInterface
      */
     public function deleteCouponTheme(int $couponThemeId): bool
     {
-        return EellyClient::request('activity/coupontheme', 'deleteCouponTheme', $couponThemeId);
+        return EellyClient::request('activity/coupontheme', 'deleteCouponTheme', true, $couponThemeId);
     }
 
     /**
@@ -59,7 +59,7 @@ class CouponTheme implements CouponThemeInterface
      */
     public function listCouponThemePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('activity/coupontheme', 'listCouponThemePage', $condition, $limit, $currentPage);
+        return EellyClient::request('activity/coupontheme', 'listCouponThemePage', true, $condition, $limit, $currentPage);
     }
 
     /**

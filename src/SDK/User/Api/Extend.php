@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\User\DTO\ExtendDTO;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\User\DTO\ExtendDTO;
 use Eelly\SDK\User\Service\ExtendInterface;
 
 /**
@@ -25,9 +25,9 @@ class Extend implements ExtendInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getExtend(int $ExtendId): ExtendDTO
+    public function getExtend(int $userId): ExtendDTO
     {
-        return EellyClient::request('user/extend', 'getExtend', $ExtendId);
+        return EellyClient::request('user/extend', 'getExtend', $userId);
     }
 
     /**

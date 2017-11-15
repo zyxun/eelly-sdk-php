@@ -22,7 +22,6 @@ use Eelly\DTO\AbstractDTO;
  */
 class TagDTO extends AbstractDTO
 {
-
     /**
      * 用户标签ID，自增主键.
      *
@@ -38,14 +37,14 @@ class TagDTO extends AbstractDTO
     public $userId;
 
     /**
-     * 标签类型：1 用户身份 2 进货类目 3 进货风格 4 进货档次 5 进货商圈，可扩展
+     * 标签类型：1 用户身份 2 进货类目 3 进货风格 4 进货档次 5 进货商圈，可扩展.
      *
      * @var int
      */
     public $type;
 
     /**
-     * 关联ID
+     * 关联ID.
      *
      * @var int
      */

@@ -1,27 +1,28 @@
 <?php
 
 declare(strict_types=1);
+
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\System\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\DistrictInterface;
 use Eelly\SDK\System\DTO\DistrictDTO;
+use Eelly\SDK\System\Service\DistrictInterface;
 
 /**
- *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class District implements DistrictInterface
 {
-
     /**
      * 根据传过来的商圈id，返回对应的信息.
      *
@@ -54,6 +55,7 @@ class District implements DistrictInterface
      * @param string $data["adminName"]    管理员名称
      * @param int    $data["sort"]         显示排序
      * @param int    $data["createdTime"]  创建时间
+     * @param UidDTO $user                 用户登录信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -65,7 +67,7 @@ class District implements DistrictInterface
      *
      * @since 2017-9-7
      */
-    public function addDistrict(array $data): bool
+    public function addDistrict(array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('system/district', 'addDistrict', $data);
     }
@@ -94,7 +96,7 @@ class District implements DistrictInterface
      *
      * @since 2017-9-8
      */
-    public function updateDistrict(int $districtId, array $data): bool
+    public function updateDistrict(int $districtId, array $data, UidDTO $user = null): bool
     {
         return EellyClient::request('system/district', 'updateDistrict', $districtId, $data);
     }

@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- *
- * @author liangxinyi<liangxinyi@eelly.net>
- * Date: 2017/7/15
- * Time: 11:54
- */
+
 declare(strict_types=1);
 
 /*
@@ -30,7 +24,4 @@ class ElasticException extends LogicException
     public const TYPE_NOT_EXIST = '索引类型不存在';
 
     public const TYPE_ALREADY_EXIST = '索引类型已存在';
-
-
-
 }

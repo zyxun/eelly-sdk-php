@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\ArticleCategoryDTO;
 
 /**
  * 文章分类.
- * 
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface ArticleCategoryInterface

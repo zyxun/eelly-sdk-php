@@ -18,7 +18,7 @@ use Eelly\SDK\System\DTO\ParamDTO;
 
 /**
  * 字典编码.
- * 
+ *
  * @author zhangyingdi<zhangyingdi@gmail.com>
  */
 interface ParamInterface
@@ -43,7 +43,7 @@ interface ParamInterface
     /**
      * 根据传过来的字典编码，返回对应的参数信息.
      *
-     * @param string $code  参数编码
+     * @param string $code 参数编码
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *
@@ -89,7 +89,7 @@ interface ParamInterface
      * @param string $data['paramName'] 参数名称
      * @param string $data['paramDesc'] 参数描述
      * @param int    $data['status']    参数状态：(0 无效 1 有效)
-     * @param UidDTO $user                登录用户信息
+     * @param UidDTO $user              登录用户信息
      *
      * @throws \Eelly\SDK\System\Exception\SystemException
      *

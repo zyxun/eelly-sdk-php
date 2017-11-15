@@ -77,7 +77,7 @@ class ArticleDTO extends AbstractDTO
     public $belongId;
 
     /**
-     * 发布者用户ID
+     * 发布者用户ID.
      *
      * @var int
      */
@@ -103,5 +103,4 @@ class ArticleDTO extends AbstractDTO
      * @var int
      */
     public $status;
-
 }

@@ -25,28 +25,28 @@ class SiteDTO extends AbstractDTO
      *
      * @var int
      */
-    public $msi_id;
+    public $msiId;
 
     /**
      * 消息ID.
      *
      * @var int
      */
-    public $message_id;
+    public $messageId;
 
     /**
      * 发送者ID：0 系统消息.
      *
      * @var int
      */
-    public $sender_id;
+    public $senderId;
 
     /**
      * 接收者ID.
      *
      * @var int
      */
-    public $receiver_id;
+    public $receiverId;
 
     /**
      * (冗余)消息标题.
@@ -67,19 +67,19 @@ class SiteDTO extends AbstractDTO
      *
      * @var string
      */
-    public $is_read;
+    public $isRead;
 
     /**
      * 添加时间.
      *
      * @var int
      */
-    public $created_time;
+    public $createdTime;
 
     /**
      * 修改时间.
      *
-     * @var unknown
+     * @var string
      */
-    public $update_time;
+    public $updateTime;
 }
