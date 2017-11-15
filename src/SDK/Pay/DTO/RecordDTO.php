@@ -24,16 +24,10 @@ class RecordDTO extends AbstractDTO
     public $prId;
 
     /**
-     * 来源帐户ID
+     * 帐户ID
      * @var
      */
-    public $fromPaId;
-
-    /**
-     * 目标帐户ID
-     * @var
-     */
-    public $toPaId;
+    public $paId;
 
     /**
      * 操作类型：1 充值 2 提现 3 消费 4 结算 5 退款 6 诚保冻结 7 诚保解冻
