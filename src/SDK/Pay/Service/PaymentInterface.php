@@ -69,14 +69,14 @@ interface PaymentInterface
      *
      * @throws PayException
      *
-     * @return bool
+     * @return int
      * @requestExample({"data":{"paId":1,"type":1,"itemId":10001,"money":100,"precId":0,"status":0,"checkStatus":0,"remark":"备注"}})
      * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月10日
      */
-    public function addPayment(array $data, UidDTO $uidDTO = null): bool;
+    public function addPayment(array $data, UidDTO $uidDTO = null): int;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>

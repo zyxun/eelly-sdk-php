@@ -43,4 +43,9 @@ class AccountException extends LogicException
      * 金额不足
      */
     public const MONEY_NOT_ENOUGH = '金额不足';
+
+    /**
+     * 会员核心交易数据插入失败
+     */
+    public const RECORD_INSERT_ERROR = '会员核心交易数据插入失败';
 }
