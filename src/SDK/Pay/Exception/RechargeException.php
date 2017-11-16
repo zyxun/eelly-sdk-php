@@ -34,5 +34,10 @@ class RechargeException extends LogicException
     /**
      * 支付交易处理状态失败
      */
-    public const UPDATE_DATA_STATUS_FAIL = '支付交易处理状态失败';
+    public const UPDATE_DATA_STATUS_FAIL = '更新支付交易处理状态失败';
+
+    /**
+     * 更新payment表的prec_id
+     */
+    public const UPDATE_PAYMENT_PREC_FAIL = '更新支付交易充值失败';
 }
