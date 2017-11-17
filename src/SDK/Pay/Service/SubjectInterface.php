@@ -76,4 +76,18 @@ interface SubjectInterface
      * @since 2017年11月10日
      */
     public function getSubjectByWorkData(array $data): array;
+    
+        /**
+     * 计算某时间段内的科目的发生额总和
+     * 
+     * @param string $workDate 结算日期
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月16日
+     * 
+     * @Validation(
+     *    @PresenceOf(0,{message : "非法的结算日期"}),
+     * )
+     */
+    public function sumSujectByWorkDate(string $workDate) : array;
 }
