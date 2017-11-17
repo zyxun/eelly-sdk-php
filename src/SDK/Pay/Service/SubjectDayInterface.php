@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace Eelly\SDK\Pay\Service;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 科目日记帐接口
+ * 
+ * @author wechan<liweiquan@eelly.net>
  */
 interface SubjectDayInterface
 {
@@ -38,19 +40,4 @@ interface SubjectDayInterface
      * @since 2017年11月13日
      */
     public function addSubjectDay(array $data): bool;
-    
-    /**
-     * 获取一条科目日记帐信息的对象
-     * 
-     * 
-     * @param string $subjectCode 科目代码
-     * @param string $workDate 结算日期
-     * 
-     * @requestExample()
-     * @returnExample()
-     * 
-     * @author wechan<liweiquan@eelly.net>
-     * @since 2017年11月17日
-     */
-    public function getSubjectDayObject(string $subjectCode, string $workDate);
 }

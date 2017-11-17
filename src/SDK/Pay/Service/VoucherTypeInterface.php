@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace Eelly\SDK\Pay\Service;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 凭证类型
+ * 
+ * @author wechan<liweiquan@eelly.net>
  */
 interface VoucherTypeInterface
 {
