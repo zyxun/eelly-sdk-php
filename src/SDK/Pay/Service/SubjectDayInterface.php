@@ -13,35 +13,29 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\SubjectDayDTO;
-
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface SubjectDayInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getSubjectDay(int $subjectDayId): SubjectDayDTO;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 新增科目日记帐信息
+     * 
+     * @return bool
+     * 
+     * @param string $data 请求参数
+     * @param string $data['subjectCode'] 科目代码
+     * @param int $data['beforeMoneyDebit'] 昨日余额（借）
+     * @param int $data['beforeMoneyCredit'] 昨日余额（贷）
+     * @param int $data['todayMoneyDebit'] 今日发生额（借）
+     * @param int $data['todayMoneyCredit'] 今日发生额（贷）
+     * @param int $data['remark'] 备注
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<lliweiquan@eelly.net>
+     * @since 2017年11月13日
      */
     public function addSubjectDay(array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateSubjectDay(int $subjectDayId, array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteSubjectDay(int $subjectDayId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listSubjectDayPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }
