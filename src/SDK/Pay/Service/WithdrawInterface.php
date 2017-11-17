@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\Pay\DTO\WithdrawDTO;
 use Eelly\SDK\Pay\Exception\WithdrawException;
 
@@ -69,18 +70,19 @@ interface WithdrawInterface
      * @param string $data["bankName"]  提现银行名称
      * @param string $data["bankSubbranch"] 支行名称
      * @param string $data["bankAccount"]   银行账号/支付宝账号/微信绑定open_id
+     * @param UidDTO $uidDTO
      *
      * @throws WithdrawException
      *
-     * @return bool
+     * @return int
      * @requestExample({"data":{"paId":1,"money":100,"gbCode":512000,"bankId":184,"bankName":"支付宝","bankSubbranch":"支付宝",
      *     "bankAccount":"13711221122"}})
-     * @returnExample(true)
+     * @returnExample(1)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月10日
      */
-    public function addWithdraw(array $data): bool;
+    public function addWithdraw(array $data, UidDTO $uidDTO = null): int;
 
     /**
      * 更新提现交易记录.
