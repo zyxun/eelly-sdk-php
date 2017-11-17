@@ -18,7 +18,24 @@ namespace Eelly\SDK\Pay\Service;
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface VoucherSubjectInterface
-{
+{    
+    /**
+     * 获取一条凭证科目信息
+     * 
+     * @param string $voucherCode
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月15日
+     * 
+     * @Validation(
+     *    @PresenceOf(0,{message : "非法的凭证代码"}),
+     * )
+     */
+    public function getVoucherSubject(string $voucherCode);
+    
     /**
      * 添加凭证科目对应信息
      * 
