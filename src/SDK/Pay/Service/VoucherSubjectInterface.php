@@ -15,7 +15,9 @@ namespace Eelly\SDK\Pay\Service;
 
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 凭证科目对应接口
+ * 
+ * @author wechan<liweiquan@eelly.net>
  */
 interface VoucherSubjectInterface
 {    

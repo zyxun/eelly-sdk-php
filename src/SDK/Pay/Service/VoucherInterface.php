@@ -13,10 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\VoucherDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 凭证明细接口
+ * 
+ * @author wechan<liweiquan@eelly.net>
  */
 interface VoucherInterface
 {
