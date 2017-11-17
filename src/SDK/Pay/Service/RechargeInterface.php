@@ -92,7 +92,22 @@ interface RechargeInterface
     public function addRecharge(array $data, UidDTO $uidDTO = null): int;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新充值交易流水
+     * @param int   $rechargeId
+     * @param array $data
+     * @param string $data['thirdNo'] 第三方交易号
+     * @param int $data['status'] 处理状态：0 待处理 1 成功 2 处理中 3 失败
+     * @param int $data['checkStatus'] 对帐状态：0 未对帐 1 对帐成功 2 对帐中 3 对帐失败
+     * @param string $data['remark'] 备注
+     *
+     * @throws RechargeException
+     *
+     * @return bool
+     * @requestExample({"rechargeId":1,"data":{"thirdNo":1,"status":1,"checkStatus":1,"remark":"helloWorld"}})
+     * @returnExample(true)
+     *
+     * @author 张泽强<zhangzeqiang@eelly.net>
+     * @since  2017年11月15日
      */
     public function updateRecharge(int $rechargeId, array $data): bool;
 

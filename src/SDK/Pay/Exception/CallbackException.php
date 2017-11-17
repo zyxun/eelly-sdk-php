@@ -40,4 +40,9 @@ class CallbackException extends LogicException
      * 支付类型错误
      */
     public const CHANNEL_TYPE_NOT_EXIT = '支付类型错误';
+
+    /**
+     * 回调的交易金额错误
+     */
+    public const BILL_RECORD_MONEY_ERROR = '回调的交易金额错误';
 }
