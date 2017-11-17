@@ -30,4 +30,14 @@ class WithdrawException extends LogicException
      *错误信息.
      */
     public const PARAMETER_EXIST_BILLNO = '此交易号已存在';
+
+    /**
+     * status 值为1或2
+     */
+    public const DATA_STATUS_HANDLED = '提现已处理完毕或正在处理中,请勿重复提交';
+
+    /**
+     * 支付交易处理状态失败
+     */
+    public const UPDATE_DATA_STATUS_FAIL = '更新支付交易处理状态失败';
 }

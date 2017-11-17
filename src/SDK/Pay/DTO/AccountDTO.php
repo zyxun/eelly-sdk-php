@@ -60,6 +60,13 @@ class AccountDTO extends AbstractDTO
     public $commissionRatio;
 
     /**
+     * 支付密码.
+     *
+     * @var string
+     */
+    public $passwordPay;
+
+    /**
      * 状态：0 正常 1 风险监控 2 冻结提现 4 冻结支付.
      *
      * @var int

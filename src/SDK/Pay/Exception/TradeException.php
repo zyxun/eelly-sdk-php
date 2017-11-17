@@ -22,21 +22,8 @@ use Eelly\Exception\LogicException;
  *
  * @since  2017年09月21日
  */
-class ApplyException extends LogicException
+class TradeException extends LogicException
 {
-    /**
-     *错误信息.
-     */
-    public const PARAMETER_ERROR = '参数有误';
-    /**
-     *无权限.
-     */
-    public const REQUEST_FORBIDDEN = '未登录';
-
-    /**
-     *无权限.
-     */
-    public const REQUEST_FORBIDDEN_ERROR = '无权操作';
 
     /**
      *数据未找到.
@@ -52,4 +39,13 @@ class ApplyException extends LogicException
      * 方法不存在.
      */
     public const METHOD_NOT_FOUND = '方法不存在';
+
+    /**
+     * 微信回调出错.
+     */
+    public const CALL_PARAMETER_ERROR = '微信回调出错';
+    /**
+     * 支付宝回调出错.
+     */
+    public const CALL_ALIPY_PARAMETER_ERROR = '支付宝回调出错';
 }

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\Pay\DTO\RechargeDTO;
 use Eelly\SDK\Pay\Exception\RechargeException;
 
@@ -76,21 +77,37 @@ interface RechargeInterface
      * @param string $data["bankAccount"]   充值帐号：支付宝账号/微信绑定open_id/QQ
      * @param string $data["remark"]    备注
      * @param string $data["adminRemark"]   系统及管理备注
+     * @param UidDTO $uidDTO 用户信息
      *
      * @throws RechargeException
      *
-     * @return bool
+     * @return int
      * @requestExample({"data":{"paId":1,"money":100,"channel":1,"style":0,"bankId":111,"bankName":"银行名","bankAccount":"银行账号",
      *     "remark":"","adminRemark":""}})
-     * @returnExample(true)
+     * @returnExample(1)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月10日
      */
-    public function addRecharge(array $data): bool;
+    public function addRecharge(array $data, UidDTO $uidDTO = null): int;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新充值交易流水
+     * @param int   $rechargeId
+     * @param array $data
+     * @param string $data['thirdNo'] 第三方交易号
+     * @param int $data['status'] 处理状态：0 待处理 1 成功 2 处理中 3 失败
+     * @param int $data['checkStatus'] 对帐状态：0 未对帐 1 对帐成功 2 对帐中 3 对帐失败
+     * @param string $data['remark'] 备注
+     *
+     * @throws RechargeException
+     *
+     * @return bool
+     * @requestExample({"rechargeId":1,"data":{"thirdNo":1,"status":1,"checkStatus":1,"remark":"helloWorld"}})
+     * @returnExample(true)
+     *
+     * @author 张泽强<zhangzeqiang@eelly.net>
+     * @since  2017年11月15日
      */
     public function updateRecharge(int $rechargeId, array $data): bool;
 
