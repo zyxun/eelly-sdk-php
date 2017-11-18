@@ -40,4 +40,9 @@ class WithdrawException extends LogicException
      * 支付交易处理状态失败
      */
     public const UPDATE_DATA_STATUS_FAIL = '更新支付交易处理状态失败';
+
+    /**
+     * 会员资金账号不存在
+     */
+    public const ACCOUNT_DATA_NOT_FOUND = '会员资金账号不存在';
 }
