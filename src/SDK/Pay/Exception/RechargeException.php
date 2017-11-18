@@ -40,4 +40,9 @@ class RechargeException extends LogicException
      * 更新payment表的prec_id
      */
     public const UPDATE_PAYMENT_PREC_FAIL = '更新支付交易充值失败';
+
+    /**
+     * 会员资金账号不存在
+     */
+    public const ACCOUNT_DATA_NOT_FOUND = '会员资金账号不存在';
 }
