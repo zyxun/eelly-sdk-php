@@ -15,12 +15,12 @@ namespace Eelly\SDK\Pay\Exception;
 use Eelly\Exception\LogicException;
 
 /**
- * 支付宝第三方支付异常捕捉.
+ * 银联第三方支付异常捕捉.
  *
  * @author 肖俊明<xiaojunming@eelly.net>
  * @since  2017年11月18日
  */
-class AlipayException extends LogicException
+class UnionPayException extends LogicException
 {
     /**
      *账号不存在
@@ -28,7 +28,7 @@ class AlipayException extends LogicException
     public const ACCOUNT_NOT_EXIT = '账号不存在';
 
     /**
-     *支付宝回调失败
+     *银联回调失败
      */
-    public const CALL_PARAMETER_ERROR = '支付宝回调出错';
+    public const NOTIFY_UNION_PARAMETER_ERROR = '银联回调出错';
 }
