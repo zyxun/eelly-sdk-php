@@ -68,7 +68,8 @@ interface RechargeInterface
      * 添加充值交易流水 记录
      *
      * @param array $data
-     * @param int $data["paId"]
+     * @param int $data["paId"]     会员资金账户id
+     * @param int $data["userId"]   用户id
      * @param int $data["money"]    充值金额
      * @param int $data["channel"]  充值渠道：0 线下 1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
      * @param int $data["style"]    充值方式：0 未知 1 储蓄卡 2 信用卡 3 余额充值
@@ -77,19 +78,19 @@ interface RechargeInterface
      * @param string $data["bankAccount"]   充值帐号：支付宝账号/微信绑定open_id/QQ
      * @param string $data["remark"]    备注
      * @param string $data["adminRemark"]   系统及管理备注
-     * @param UidDTO $uidDTO 用户信息
      *
      * @throws RechargeException
      *
      * @return int
-     * @requestExample({"data":{"paId":1,"money":100,"channel":1,"style":0,"bankId":111,"bankName":"银行名","bankAccount":"银行账号",
+     * @requestExample({"data":{"userId":148086,"paId":1,"money":100,"channel":1,"style":0,"bankId":111,"bankName":"银行名",
+     *     "bankAccount":"银行账号",
      *     "remark":"","adminRemark":""}})
      * @returnExample(1)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月10日
      */
-    public function addRecharge(array $data, UidDTO $uidDTO = null): int;
+    public function addRecharge(array $data): int;
 
     /**
      * 更新充值交易流水

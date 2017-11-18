@@ -36,4 +36,9 @@ class PaymentException extends LogicException
      * 账号扣款失败
      */
     public const REDUCE_PAY_ACCOUNT_FAIL = '账号扣款失败';
+
+    /**
+     * 会员资金账号不存在
+     */
+    public const ACCOUNT_DATA_NOT_FOUND = '会员资金账号不存在';
 }
