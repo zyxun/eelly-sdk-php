@@ -24,14 +24,14 @@ interface SubjectVoucherAccountingInterface
     /**
      * 会计主流程
      * 
-     * @param $data 请求参数
-     * @param $$data['voucherCode'] 凭证代码
-     * @param $data['money'] 发生额
-     * @param $data['refId'] 关联业务ID
-     * @param $data['remark'] 备注
+     * @param array $data 请求参数
+     * @param string $data['voucherCode'] 凭证代码
+     * @param int $data['money'] 发生额
+     * @param int $data['refId'] 关联业务ID
+     * @param string $data['remark'] 备注
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since  2017年11月15日
      */
-    public function payAccounting($data) : void;
+    public function payAccounting(array $data) : void;
 }
