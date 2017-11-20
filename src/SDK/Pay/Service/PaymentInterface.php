@@ -58,6 +58,7 @@ interface PaymentInterface
      *
      * @param array $data
      * @param int $data["paId"]     会员帐户ID
+     * @param int $data["userId"]   用户id
      * @param int $data["type"]     支付类型：1 订单支付 2 购买服务
      * @param int $data["itemId"]   关联对象ID：如订单ID、购买服务记录ID等
      * @param int $data["money"]    支付金额：单位为分
@@ -65,7 +66,6 @@ interface PaymentInterface
      * @param int $data["status"]   处理状态：0 待处理 1 成功 2 处理中 3 失败
      * @param int $data["checkStatus"]  对帐状态：0 未对帐 1 对帐成功 2 对帐中 3 对帐失败
      * @param string $data ["remark"]   备注
-     * @param UidDTO|null $uidDTO
      *
      * @throws PayException
      *
@@ -76,7 +76,7 @@ interface PaymentInterface
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月10日
      */
-    public function addPayment(array $data, UidDTO $uidDTO = null): int;
+    public function addPayment(array $data): int;
 
     /**
      * 更新支付交易流水记录
