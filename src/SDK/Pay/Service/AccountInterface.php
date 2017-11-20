@@ -24,7 +24,7 @@ interface AccountInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getAccount(int $storeId = 0, UidDTO $user = null): AccountDTO;
+    public function getAccount(int $paId): AccountDTO;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>

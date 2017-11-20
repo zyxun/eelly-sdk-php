@@ -30,4 +30,19 @@ class RechargeException extends LogicException
      *错误信息.
      */
     public const DATA_BILLNO_EXIST = '交易流水号已存在';
+
+    /**
+     * 支付交易处理状态失败
+     */
+    public const UPDATE_DATA_STATUS_FAIL = '更新支付交易处理状态失败';
+
+    /**
+     * 更新payment表的prec_id
+     */
+    public const UPDATE_PAYMENT_PREC_FAIL = '更新支付交易充值失败';
+
+    /**
+     * 会员资金账号不存在
+     */
+    public const ACCOUNT_DATA_NOT_FOUND = '会员资金账号不存在';
 }

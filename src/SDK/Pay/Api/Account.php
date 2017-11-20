@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\DTO\AccountDTO;
 use Eelly\SDK\Pay\Service\AccountInterface;
@@ -35,26 +36,56 @@ class Account implements AccountInterface
         return $instance;
     }
 
+
     /**
-     * 获取一条价格记录.
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getAccount(int $paId): AccountDTO
+    {
+        return EellyClient::request('pay/account', 'getAccount', true, $paId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addAccount(array $data): bool
+    {
+        // TODO: Implement addAccount() method.
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateAccount(int $accountId, array $data): bool
+    {
+        // TODO: Implement updateAccount() method.
+    }
+
+    /**
+     * 我的余额，管理=》app资金管理.
      *
-     * @param int $userId 历史记录ID
+     * @param int $storeId 店铺ID,如果是店铺ID
+     * @param UidDTO|null $user 登录用户
      *
-     * @throws \Eelly\SDK\Pay\Exception\BankException
-     *
-     * @return AccountDTO
-     * @requestExample({'userId':1})
-     * @returnExample({"paId": 1, "userId": 1, "storeId": 2, "money": "2", "commissionRatio": 3,"status":1,"alipayAccount":'',"wechatPurseOpenId":'' ,"createdTime": "2017-09-04 16:07:05"})
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({
+     *     "money":"0.02",
+     *     "frozenMoney":"0.01",
+     *     "isWechatBindPurse":"true",
+     *     "wechatNickname":"molimoq",
+     *     "bindMobile":"13800138000",
+     *     "isSetPayPwd":true,
+     *     "isCapitalFreeze":true,
+     *     "limitedFunctionality": true
+     * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
-     * @since 2017年09月15日
-     * @Validation(
-     *      @OperatorValidator(0,{message : "日志ID",operator:["gt",0]})
-     * )
+     * @since 2017年11月09日
      */
-    public function getAccount(int $userId): AccountDTO
+    public function getAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array
     {
-        return EellyClient::request('pay/account', 'getAccount', $userId);
+        // TODO: Implement getAccountMoneyManage() method.
     }
 }

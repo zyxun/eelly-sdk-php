@@ -40,14 +40,14 @@ interface RecordInterface
      *
      * @throws RecordException
      *
-     * @return bool
+     * @return int
      * @requestExample({"data":{"fromPaId":111,"toPaId":222,"type":2,"itemId":11101,"billNo":"1711114177786cvA2s","money":"100",
      *     "remark":"备注"}})
-     * @returnExample(true)
+     * @returnExample(1)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月11日
      */
-    public function addRecord(array $data): bool;
+    public function addRecord(array $data): int;
 
 }

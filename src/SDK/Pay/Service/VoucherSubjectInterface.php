@@ -13,35 +13,79 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\VoucherSubjectDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ * 凭证科目对应接口
+ * 
+ * @author wechan<liweiquan@eelly.net>
  */
 interface VoucherSubjectInterface
-{
+{    
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一条凭证科目信息
+     * 
+     * @param string $voucherCode
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月15日
+     * 
+     * @Validation(
+     *    @PresenceOf(0,{message : "非法的凭证代码"}),
+     * )
      */
-    public function getVoucherSubject(int $voucherSubjectId): VoucherSubjectDTO;
-
+    public function getVoucherSubject(string $voucherCode);
+    
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 添加凭证科目对应信息
+     * 
+     * @return bool
+     * 
+     * @param array $data 请求参数
+     * @param string $data['voucherCode'] 凭证代码
+     * @param string $data['subjectCodeDebit'] 记借方科目代码
+     * @param string $data['subjectCodeCredit'] 记贷方科目代码
+     * @param string $data['remark'] 备注
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月15日
      */
     public function addVoucherSubject(array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新凭证科目信息
+     * 
+     * @param string $voucherCode 凭证代码
+     * @param array $data 请求参数
+     * @param string $data['subjectCodeDebit'] 记借方科目代码
+     * @param string $data['subjectCodeCredit'] 记借方科目代码
+     * @param string $data['remark'] 备注
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月15日
      */
-    public function updateVoucherSubject(int $voucherSubjectId, array $data): bool;
+    public function updateVoucherSubject(string $voucherCode, array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 删除一条凭证科目信息
+     * 
+     * @return bool
+     * 
+     * @param $voucherCode 凭证代码
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月15日
      */
-    public function deleteVoucherSubject(int $voucherSubjectId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listVoucherSubjectPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function deleteVoucherSubject(string $voucherCode): bool;
 }
