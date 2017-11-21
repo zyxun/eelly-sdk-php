@@ -147,4 +147,28 @@ interface WithdrawInterface
      * @since  2017年11月16日
      */
     public function listWithdrawPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 提现操作入口
+     * @param array       $data
+     * @param int $data['pwId']           提现交易流水id
+     * @param int $data['paId']           会员资金账户id
+     * @param int $data['userId']         提现用户id
+     * @param int $data['channel']        充值渠道：0 线下 1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
+     * @param string $data['subject']     支付请求标题
+     * @param string $data ['account']    衣联财务账号标识,
+     *                                    值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,
+     *                                         union.pc,
+     *                                         eelly.wap, eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
+     * @param string $data['platform']    ALIPAY_WAP:ALIPAY_WEB:ALIPAY_APP
+     *
+     * @throws WithdrawException
+     *
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author 张泽强<zhangzeqiang@eelly.net>
+     * @since  2017年11月16日
+     */
+    public function goWithdraw(array $data);
 }
