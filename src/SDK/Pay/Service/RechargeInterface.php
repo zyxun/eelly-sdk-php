@@ -116,4 +116,36 @@ interface RechargeInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listRechargePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 充值交易入口
+     * @param array $data
+     * @param int $data['userId']         用户id
+     * @param int $data['paId']           会员账户资金id
+     * @param int $data['money']          充值金额
+     * @param string $data['subject']     支付请求标题
+     * @param string $data['channelType'] 交易类型： payment, recharge, withdraw
+     * @param int $data['channel']        充值渠道：0 线下 1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
+     * @param int $data['style']          充值方式：0 未知 1 储蓄卡 2 信用卡 3 余额充值
+     * @param int $data['bankId']         充值银行ID
+     * @param string $data['bankName']    充值银行名称
+     * @param string $data['billNo']      衣联交易号(可为空)
+     * @param string $data['remark']      备注(可为空)
+     * @param string $data['adminRemark'] 系统备注(可为空)
+     * @param string $data['bankAccount'] 充值帐号：支付宝账号/微信绑定open_id/QQ
+     * @param string $data['platform']    ALIPAY_WAP:ALIPAY_WEB:ALIPAY_APP
+     * @param string $data ['account']    衣联财务账号标识,
+     *                                    值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,
+     *                                         union.pc,
+     *                                         eelly.wap, eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
+     * @param int $data['itemId']         关联id：如订单，增值服务,不存在则传0
+     * @throws RechargeException
+     *
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author 张泽强 <zhangzeqiang@eelly.net>
+     * @since  2017年11月14日
+     */
+    public function goRecharge(array $data);
 }
