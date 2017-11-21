@@ -102,4 +102,39 @@ interface PaymentInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listPaymentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 订单|服务交易入口
+     * @param array $data
+     * @param int $data['userId']           用户id
+     * @param int $data["paId"]             会员账户资金id
+     * @param int $data["type"]             支付类型：1 订单支付 2 购买服务
+     * @param int $data["itemId"]           关联对象ID：如订单ID、购买服务记录ID等
+     * @param int $data["money"]            支付金额：单位为分
+     * @param string $data ["remark"]       备注
+     * @param int $data['mixPay']           0:余额支付 1:纯第三方支付 2:混分支付(账户余额+第三方支付)
+     *
+     * 如选择混合支付或第三方支付方式，需要传递第三方支付需要的信息，如以下，否则传空即可
+     * @param string $data['subject']       支付请求标题
+     * @param int $data['channel']          充值渠道：0 线下 1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
+     * @param int $data['style']            充值方式：0 未知 1 储蓄卡 2 信用卡 3 余额充值
+     * @param int $data['bankId']           充值银行ID
+     * @param string $data['bankName']      充值银行名称
+     * @param string $data['bankAccount']   充值帐号：支付宝账号/微信绑定open_id/QQ
+     * @param string $data['platform']      ALIPAY_WAP:ALIPAY_WEB:ALIPAY_APP
+     * @param string $data ['account']      衣联财务账号标识,
+     *                                      值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,
+     *                                         union.pc,
+     *                                         eelly.wap, eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
+     * @param int $data['itemId']           关联id：如订单，增值服务
+     *
+     * @throws PaymentException
+     *
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月13日
+     */
+    public function goPayment(array $data);
 }
