@@ -25,7 +25,8 @@ interface RechargeInterface
 {
 
     /**
-     * 获取充值交易流水 记录
+     * 获取充值交易流水 记录.
+     *
      * @param string $billNo    衣联交易号
      *
      * ### 返回数据说明
@@ -66,7 +67,7 @@ interface RechargeInterface
     public function getRecharge(string $billNo): RechargeDTO;
 
     /**
-     * 添加充值交易流水 记录
+     * 添加充值交易流水 记录.
      *
      * @param array $data
      * @param int $data["paId"]     会员资金账户id
@@ -94,7 +95,8 @@ interface RechargeInterface
     public function addRecharge(array $data): int;
 
     /**
-     * 更新充值交易流水
+     * 更新充值交易流水.
+     *
      * @param int   $rechargeId     充值交易ID
      * @param array $data
      * @param string $data['thirdNo'] 第三方交易号
@@ -119,7 +121,8 @@ interface RechargeInterface
     public function listRechargePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
-     * 充值交易入口
+     * 充值交易入口.
+     *
      * @param array $data
      * @param int $data['userId']         用户id
      * @param int $data['paId']           会员账户资金id
