@@ -95,7 +95,7 @@ interface RechargeInterface
 
     /**
      * 更新充值交易流水
-     * @param int   $rechargeId
+     * @param int   $rechargeId     充值交易ID
      * @param array $data
      * @param string $data['thirdNo'] 第三方交易号
      * @param int $data['status'] 处理状态：0 待处理 1 成功 2 处理中 3 失败
