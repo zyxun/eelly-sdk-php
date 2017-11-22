@@ -24,7 +24,8 @@ use Eelly\SDK\Pay\Exception\PayException;
 interface PaymentInterface
 {
     /**
-     * 根据交易号 获取支付交易流水
+     * 根据交易号 获取支付交易流水.
+     *
      * @param string $billNo    衣联交易号
      * ### 返回数据说明
      *
@@ -81,7 +82,8 @@ interface PaymentInterface
     public function addPayment(array $data): int;
 
     /**
-     * 更新支付交易流水记录
+     * 更新支付交易流水记录.
+     *
      * @param int   $paymentId    支付交易流水id
      * @param array $data
      * @param int $data['precId'] 支付批次：pay_recharge->prec_id，合并支付交易批次相同，纯余额支付为0
@@ -106,7 +108,8 @@ interface PaymentInterface
     public function listPaymentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
-     * 订单|服务交易入口
+     * 订单|服务交易入口.
+     *
      * @param array $data
      * @param int $data['userId']           用户id
      * @param int $data["paId"]             会员账户资金id
