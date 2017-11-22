@@ -25,11 +25,25 @@ interface AccountLogInterface
 {
     /**
      * 获取一条会员账户资金变更日志.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * palId       |int    |会员账户资金变更ID，自增主键
+     * paId        |int    |会员帐户ID
+     * prId        |int    |交易ID
+     * moneyBefore |int    |变动前余额：单位为分
+     * moneyChange |int    |变动金额：单位为分
+     * moneyAfter  |int    |变动后余额：单位为分
+     * remark      |string |备注
+     * createdTime |string |添加时间
+     * updateTime  |string |修改时间
+     * billNo      |string |交易号(冗余)
      *
      * @param int $palId 会员账户资金变更ID，自增主键
      * @return AccountLogDTO
      * @requestExample({"palId":1})
-     * @returnExample({palId:"1",paId:"1",prId:"1",moneyBefore:"0",moneyChange:"190",moneyAfter:"190",remark:"",createdTime:"1510156801",updateTime:"2017-11-1010:49:50","billNo":""})
+     * @returnExample({palId:1,paId:1,prId:1,moneyBefore:0,moneyChange:190,moneyAfter:190,remark:"",createdTime:"1510156801",updateTime:"2017-11-1010:49:50","billNo":""})
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2017年11月14日
      * @Validation(
