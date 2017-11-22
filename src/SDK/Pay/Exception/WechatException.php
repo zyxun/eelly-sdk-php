@@ -27,6 +27,12 @@ class WechatException extends LogicException
      */
     public const ACCOUNT_NOT_EXIT = '账号不存在';
 
+
+    /**
+     * 微信发起支付失败
+     */
+    public const REQUEST_PARAMETER_ERROR = '微信发起支付失败';
+
     /**
      * 微信回调失败
      */
