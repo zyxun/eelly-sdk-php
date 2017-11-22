@@ -28,15 +28,12 @@ interface SubjectTypeInterface
      * 
      * @param string $subjectCode 科目代码
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"subjectCode":"110"})
+     * @returnExample({"subjectCode":"110","subjectName":"3232","createdTime":"1508466305","updateTime":"2017-10-20 10:25:19"})
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月11日
      * 
-     * @Validation(
-     *    @PresenceOf(1,{message : "非法的科目代码"}),
-     * )
      */
     public function getOneSubjectType(string $subjectCode): array;
 
@@ -49,8 +46,8 @@ interface SubjectTypeInterface
      * @param string $data["subjectCode"] 科目代码
      * @param int $data["subjectName"] 科目名称
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"subjectCode":"120","subjectName":"hahahah"}})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月11日
@@ -66,15 +63,29 @@ interface SubjectTypeInterface
      * @param array $data 请求参数
      * @param string $data['subjectName'] 科目名称
      * 
+     * @requestExample({"subjectCode":"120","data":{"subjectName":"hahahah"}})
+     * @returnExample(true)
+     * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月11日
      */
     public function updateSubjectType(string $subjectCode, array $data): bool;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 删除一条科目明细记录
+     * 
+     * @return bool
+     * 
+     * @param string $subjectCode 科目代码
+     * 
+     * @requestExample({"subjectCode":"120"}})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
+     * 
      */
-    public function deleteSubjectType(int $subjectTypeId): bool;
+    public function deleteSubjectType(string $subjectCode): bool;
 
     /**
      * 获取所有的科目类型
@@ -85,13 +96,13 @@ interface SubjectTypeInterface
      * @param int $data['currentPage'] 当前页面
      * @param int $data['limit'] 每页数量
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"currentPage":"1","limit":"100"}})
+     * @returnExample([{"subjectCode":"110","subjectName":"库存现金","createdTime":"1508466305"}])
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月11日
      */
-    public function getSubjectTypeList($data): array;
+    public function getSubjectTypeList(array $data): array;
 
 
 }

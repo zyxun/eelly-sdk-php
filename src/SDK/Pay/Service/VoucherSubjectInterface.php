@@ -26,8 +26,8 @@ interface VoucherSubjectInterface
      * 
      * @param string $voucherCode
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"voucherCode":"110"})
+     * @returnExample({"voucherCode":"101","subjectCodeDebit":"1300102","subjectCodeCredit":"310","remark":"测试清算","createdTime":"1508466305","updateTime":"2017-11-20 16:59:11"})
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月15日
@@ -49,8 +49,8 @@ interface VoucherSubjectInterface
      * @param string $data['subjectCodeCredit'] 记贷方科目代码
      * @param string $data['remark'] 备注
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"voucherCode":"101","subjectCodeDebit":"1300102","subjectCodeCredit":"1300102","remark":"123"}})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月15日
@@ -66,8 +66,8 @@ interface VoucherSubjectInterface
      * @param string $data['subjectCodeCredit'] 记借方科目代码
      * @param string $data['remark'] 备注
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"$voucherCode":"120","data":{"subjectCodeDebit":"1234", "subjectCodeCredit":"1234", "remark":"1234"}})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月15日
@@ -81,8 +81,8 @@ interface VoucherSubjectInterface
      * 
      * @param $voucherCode 凭证代码
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"voucherCode":"120"})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月15日
