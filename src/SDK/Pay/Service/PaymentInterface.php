@@ -25,7 +25,7 @@ interface PaymentInterface
 {
     /**
      * 根据交易号 获取支付交易流水
-     * @param string $billNo
+     * @param string $billNo    衣联交易号
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -125,6 +125,14 @@ interface PaymentInterface
      * @param string $data['bankAccount']   充值帐号：支付宝账号/微信绑定open_id/QQ
      * @param string $data['platform']      平台的支付网关(tradeLogic->$requestPay的键名)
      * @param string $data['account']      衣联财务账号标识,值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,union.pc,eelly.wap,eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------|-------|--------------
+     * platform  |string |  平台的支付网关(tradeLogic->$requestPay的键名),纯余额支付则返回空
+     * data      |array  |
+     * data["0"] |string |  当platform=alipayWap时返回url地址；当platform=alipayWap时返回url地址；当platform=alipayApp时返回是订单ID
      *
      * @throws PaymentException
      *
