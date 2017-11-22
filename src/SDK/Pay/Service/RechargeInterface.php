@@ -18,6 +18,7 @@ use Eelly\SDK\Pay\DTO\RechargeDTO;
 use Eelly\SDK\Pay\Exception\RechargeException;
 
 /**
+ * 充值交易操作接口
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface RechargeInterface
@@ -25,7 +26,7 @@ interface RechargeInterface
 
     /**
      * 获取充值交易流水 记录
-     * @param string $billNo
+     * @param string $billNo    衣联交易号
      *
      * ### 返回数据说明
      *
@@ -55,8 +56,8 @@ interface RechargeInterface
      * @return RechargeDTO
      * @requestExample({"billNo":"1001"})
      * @returnExample({"precId":"1","paId":"1","money":"100","refundMoney":"0","channel":"1","style":"0","bankId":"111",
-     *     "bankName":"\u652f\u4ed8\u5b9d","bankAccount":"\u652f\u4ed8\u5b9d\u8d26\u53f7sssss","billNo":"17111047444f6cvA6a",
-     *     "thirdNo":"","status":"0","checkStatus":"0","remark":"\u6d4b\u8bd5\u6d4b\u8bd5","adminRemark":"admin\u6d4b\u8bd5",
+     *     "bankName":"支付宝","bankAccount":"支付宝","billNo":"17111047444f6cvA6a",
+     *     "thirdNo":"","status":"0","checkStatus":"0","remark":"备注","adminRemark":"系统备注",
      *     "handleTime":"0","createdTime":"1510303156","updateTime":"2017-11-10 16:39:16"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
@@ -133,19 +134,32 @@ interface RechargeInterface
      * @param string $data['remark']      备注(可为空)
      * @param string $data['adminRemark'] 系统备注(可为空)
      * @param string $data['bankAccount'] 充值帐号：支付宝账号/微信绑定open_id/QQ
-     * @param string $data['platform']    ALIPAY_WAP:ALIPAY_WEB:ALIPAY_APP
-     * @param string $data ['account']    衣联财务账号标识,
-     *                                    值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,
-     *                                         union.pc,
-     *                                         eelly.wap, eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
+     * @param string $data['platform']    平台的支付网关(tradeLogic->$requestPay的键名)
+     * @param string $data['account']     衣联财务账号标识,值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,union.pc,eelly.wap,eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
      * @param int $data['itemId']         关联id：如订单，增值服务,不存在则传0
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------|-------|--------------
+     * platform  |string |  平台的支付网关(tradeLogic->$requestPay的键名),纯余额支付则返回空
+     * data      |array  |
+     * data["0"] |string |  当platform=alipayWap时返回url地址；当platform=alipayWap时返回url地址；当platform=alipayApp时返回是订单ID
+     *
      * @throws RechargeException
      *
-     * @requestExample()
-     * @returnExample()
+     * @return array
+     * @requestExample({"userId":"148086","paId":"1","money":"10","subject":"游戏王充值卡10元券","channelType":"recharge","channel":"1","style":0,"bankId":184,"bankName":"支付宝","billNo":"","remark":"游戏王充值卡10元券","adminRemark":"","bankAccount":"13711221122","platform":"ALIPAY_WAP","account":"126mail.pc"})
+     * @returnExample({
+     *     "platform": 'alipayWap',
+     *     'data':{
+     *          'platform=alipayWap:url地址','platform=alipayWap:url地址',
+     *          'platform=alipayApp:返回是订单ID'
+     *     }
+     * })
      *
      * @author 张泽强 <zhangzeqiang@eelly.net>
      * @since  2017年11月14日
      */
-    public function goRecharge(array $data);
+    public function goRecharge(array $data): array;
 }
