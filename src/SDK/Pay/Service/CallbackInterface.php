@@ -16,6 +16,7 @@ namespace Eelly\SDK\Pay\Service;
 use Eelly\DTO\CallbackDTO;
 
 /**
+ * 第三方回调接口
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface CallbackInterface
