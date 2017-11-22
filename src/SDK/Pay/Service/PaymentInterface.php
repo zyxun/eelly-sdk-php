@@ -18,13 +18,15 @@ use Eelly\SDK\Pay\DTO\PaymentDTO;
 use Eelly\SDK\Pay\Exception\PayException;
 
 /**
+ * 支付交易流水接口
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface PaymentInterface
 {
     /**
-     * 根据交易号 获取支付交易流水
-     * @param string $billNo
+     * 根据交易号 获取支付交易流水.
+     *
+     * @param string $billNo    衣联交易号
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -46,7 +48,8 @@ interface PaymentInterface
      *
      * @return PaymentDTO
      * @requestExample({"billNo":"1001"})
-     * @returnExample({"ppId":"4","paId":"1","type":"1","itemId":"10001","billNo":"1711104274386cvAeR","money":"100","precId":"0","status":"0","checkStatus":"0","remark":"\u6d4b\u8bd5\u63d2\u51651\u6b21","createdTime":"1510296034","updateTime":"2017-11-10 14:40:34"})
+     * @returnExample({"ppId":"4","paId":"1","type":"1","itemId":"10001","billNo":"1711104274386cvAeR","money":"100","precId":"0",
+     *     "status":"0","checkStatus":"0","remark":"备注","createdTime":"1510296034","updateTime":"2017-11-10 14:40:34"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月10日
@@ -79,8 +82,9 @@ interface PaymentInterface
     public function addPayment(array $data): int;
 
     /**
-     * 更新支付交易流水记录
-     * @param int   $paymentId
+     * 更新支付交易流水记录.
+     *
+     * @param int   $paymentId    支付交易流水id
      * @param array $data
      * @param int $data['precId'] 支付批次：pay_recharge->prec_id，合并支付交易批次相同，纯余额支付为0
      * @param int $data['status'] 处理状态：0 待处理 1 成功 2 处理中 3 失败
@@ -104,7 +108,8 @@ interface PaymentInterface
     public function listPaymentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
-     * 订单|服务交易入口
+     * 订单|服务交易入口.
+     *
      * @param array $data
      * @param int $data['userId']           用户id
      * @param int $data["paId"]             会员账户资金id
@@ -114,27 +119,40 @@ interface PaymentInterface
      * @param string $data ["remark"]       备注
      * @param int $data['mixPay']           0:余额支付 1:纯第三方支付 2:混分支付(账户余额+第三方支付)
      *
-     * 如选择混合支付或第三方支付方式，需要传递第三方支付需要的信息，如以下，否则传空即可
+     * @descriptionText 如选择混合支付或第三方支付方式，需要传递第三方支付需要的信息，如以下，否则传空即可
      * @param string $data['subject']       支付请求标题
      * @param int $data['channel']          充值渠道：0 线下 1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
      * @param int $data['style']            充值方式：0 未知 1 储蓄卡 2 信用卡 3 余额充值
      * @param int $data['bankId']           充值银行ID
      * @param string $data['bankName']      充值银行名称
      * @param string $data['bankAccount']   充值帐号：支付宝账号/微信绑定open_id/QQ
-     * @param string $data['platform']      ALIPAY_WAP:ALIPAY_WEB:ALIPAY_APP
-     * @param string $data ['account']      衣联财务账号标识,
-     *                                      值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,
-     *                                         union.pc,
-     *                                         eelly.wap, eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
-     * @param int $data['itemId']           关联id：如订单，增值服务
+     * @param string $data['platform']      平台的支付网关(tradeLogic->$requestPay的键名)
+     * @param string $data['account']      衣联财务账号标识,值为: 126mail.pc, 126mail.wap, eellyMail.pc, eellyMail.app,union.pc,eelly.wap,eellyBuyer.wap, order.app, eelly.app, eellySeller.app, storeUnion.wap
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------|-------|--------------
+     * platform  |string |  平台的支付网关(tradeLogic->$requestPay的键名),纯余额支付则返回空
+     * data      |array  |
+     * data["0"] |string |  当platform=alipayWap时返回url地址；当platform=alipayWap时返回url地址；当platform=alipayApp时返回是订单ID
      *
      * @throws PaymentException
      *
-     * @requestExample()
-     * @returnExample()
+     * @return array
+     * @requestExample({"userId":148086,"paId":1,"type":1,"itemId":1001,"money":12,"remark":"订单支付1元","mixPay":1,
+     *     "subject":"订单支付1元","channel":1,"style":0,"bankId":184,"bankName":"支付宝","bankAccount":"13711221122",
+     *     "platform":"alipayWap","account":"126mail.pc"})
+     * @returnExample({
+     *     "platform": 'alipayWap',
+     *     'data':{
+     *          'platform=alipayWap:url地址','platform=alipayWap:url地址',
+     *          'platform=alipayApp:返回是订单ID'
+     *     }
+     * })
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月13日
      */
-    public function goPayment(array $data);
+    public function goPayment(array $data): array;
 }
