@@ -27,15 +27,12 @@ interface VoucherTypeInterface
      * 
      * @param string $voucherCode
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"voucherCode":"110"})
+     * @returnExample({"voucherCode":"101","voucherName":"充值凭证","refDb":"","refTable":"","refField":"","createdTime":"1508466305","updateTime":"2017-10-20 10:26:00"})
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月14日
      * 
-     * @Validation(
-     *    @PresenceOf(0,{message : "非法的凭证代码"}),
-     * )
      */
     public function getOneVoucherType(string $voucherCode): array;
 
@@ -49,8 +46,8 @@ interface VoucherTypeInterface
      * @param string $data["refDable"] 关联表
      * @param string $data["refField"] 关联字段
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"voucherCode":101,"voucherName":"xx凭证","refDb":"pay","refDable":"pay_record","refField":"pr_id"}})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月14日
@@ -69,8 +66,8 @@ interface VoucherTypeInterface
      * @param array $data['refTable'] 关联表
      * @param array $data['refField'] 关联字段
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"voucherCode":101,"data":{"voucherName":"xx凭证","refDb":"pay","refDable":"pay_record","refField":"pr_id"}})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月14日
@@ -87,14 +84,11 @@ interface VoucherTypeInterface
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月14日
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"voucherCode":101})
+     * @returnExample(true)
      * 
-     * @Validation(
-     *    @PresenceOf(0,{message : "非法的科目代码"}),
-     * )
      */
-    public function deleteVoucherType(int $voucherCode): bool;
+    public function deleteVoucherType(string $voucherCode): bool;
 
     /**
      * 获取所有的凭证类型
@@ -105,8 +99,8 @@ interface VoucherTypeInterface
      * @param int $data['currentPage'] 当前页面
      * @param int $data['limit'] 每页数量
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"currentPage":"1","limit":"100"}})
+     * @returnExample([{"voucherCode":"101","voucherName":"充值凭证","refDb":"","refTable":"","refField":"","createdTime":"1508466305"}])
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月14日

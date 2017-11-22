@@ -32,8 +32,8 @@ interface VoucherInterface
      * @param int $data['refId'] 关联业务ID
      * @param string $data['remark'] 备注
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"voucherCode":"110","money":"12","refId":0,"remark":"12"}})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月13日
@@ -48,8 +48,8 @@ interface VoucherInterface
      * @param int $data['currentPage'] 当前页面
      * @param int $data['limit'] 每页数量
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"workDate":"20170101","currentPage":"1","limit":"100"}})
+     * @returnExample([{"voucherSn":"2017111400000001","workDate":"20171114","voucherCode":"101","money":"100","refId":"101","remark":"haha","createdTime":"1510627144","voucherName":"充值凭证","refDb":"","refTable":"","refField":""}])
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月14日
