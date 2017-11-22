@@ -53,19 +53,4 @@ interface RecordAdjustInterface
      * @since 2017-11-17
      */
     public function addRecordAdjust(int $prId, string $billNo, int $type): bool;
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function updateRecordAdjust(int $recordAdjustId, array $data): bool;
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteRecordAdjust(int $recordAdjustId): bool;
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listRecordAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

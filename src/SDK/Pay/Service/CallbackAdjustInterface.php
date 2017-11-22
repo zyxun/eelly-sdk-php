@@ -51,19 +51,4 @@ interface CallbackAdjustInterface
      * @since 2017-11-14
      */
     public function addCallBackAdjust(string $billNo, int $type): bool;
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function updateCallbackAdjust(int $callbackAdjustId, array $data): bool;
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteCallbackAdjust(int $callbackAdjustId): bool;
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listCallbackAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

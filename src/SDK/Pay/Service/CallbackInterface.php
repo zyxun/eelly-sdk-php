@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\CallbackDTO;
+use Eelly\SDK\Pay\DTO\CallbackDTO;
+
 
 /**
  * 第三方回调接口

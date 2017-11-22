@@ -64,10 +64,4 @@ class RecordDTO extends AbstractDTO
      * @var
      */
     public $createdTime;
-
-    /**
-     * 修改时间
-     * @var
-     */
-    public $updateTime;
 }

@@ -78,18 +78,5 @@ interface AccountAdjustInterface
      * @since  2017-11-09
      */
     public function updateAccountAdjust(int $aaId, array $data): bool;
-
-    /**
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteAccountAdjust(int $accountAdjustId): bool;
-
-    /**
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listAccountAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
-
+    
 }

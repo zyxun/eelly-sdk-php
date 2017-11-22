@@ -21,7 +21,7 @@ class CallbackDTO extends AbstractDTO
      * 支付回调ID，自增主键
      * @var
      */
-    public $callbackId;
+    public $pcId;
 
     /**
      * 交易号
@@ -58,10 +58,4 @@ class CallbackDTO extends AbstractDTO
      * @var
      */
     public $createdTime;
-
-    /**
-     * 修改时间
-     * @var
-     */
-    public $updateTime;
 }
