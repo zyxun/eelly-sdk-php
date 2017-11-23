@@ -22,7 +22,7 @@ class AccountAdjustDTO extends AbstractDTO
      *
      * @var int
      */
-    public $aaId;
+    public $paaId;
 
     /**
      * 账户id
