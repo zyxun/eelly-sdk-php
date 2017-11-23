@@ -21,7 +21,7 @@ class RequestDTO extends AbstractDTO
      * 支付请求ID，自增主键
      * @var
      */
-    public $requestId;
+    public $preqId;
 
     /**
      * 交易号
@@ -58,10 +58,4 @@ class RequestDTO extends AbstractDTO
      * @var
      */
     public $createdTime;
-
-    /**
-     * 修改时间
-     * @var
-     */
-    public $updateTime;
 }

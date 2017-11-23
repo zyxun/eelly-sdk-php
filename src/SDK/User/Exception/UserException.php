@@ -29,4 +29,6 @@ class UserException extends LogicException
     public const BIND_PHONE_ERROR = '手机号码已被其他用户绑定';
     public const NO_BIND_PHONE_ERROR = '请先绑定手机号码';
     public const NO_REGISTER_PHONE_ERROR = '该手机号没有注册账号，无法收取验证码';
+    public const CAPTCHA_OFTEN_ERROR = '申请验证码频繁';
+    public const PHONE_DIFFERENT_ERROR = '输入的手机号码与原手机号码不符';
 }

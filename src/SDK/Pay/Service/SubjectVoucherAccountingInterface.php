@@ -30,6 +30,9 @@ interface SubjectVoucherAccountingInterface
      * @param int $data['refId'] 关联业务ID
      * @param string $data['remark'] 备注
      * 
+     * @requestExample({"data":{"voucherCode":"110","money":"12","refId":0,"remark":"12"}})
+     * @returnExample()
+     * 
      * @author wechan<liweiquan@eelly.net>
      * @since  2017年11月15日
      */

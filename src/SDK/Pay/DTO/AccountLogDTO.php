@@ -77,11 +77,4 @@ class AccountLogDTO extends AbstractDTO
      * @var int
      */
     public $createdTime;
-
-    /**
-     * 修改时间
-     *
-     * @var string
-     */
-    public $updateTime;
 }

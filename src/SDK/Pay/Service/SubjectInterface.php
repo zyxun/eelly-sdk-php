@@ -34,7 +34,7 @@ interface SubjectInterface
      * @param string $data["voucherSn"] 关联凭证
      * @param string $data["remark"] 备注
      * @requestExample({"data":{"subjectCode":"13001","moneyDebit":"100","moneyCredit":"100","voucherSn":"2019110900000001","remark":"备注"}})
-     * @returnExample()
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月09日
@@ -50,8 +50,8 @@ interface SubjectInterface
      * @param array $data 请求参数
      * @param string $data['remark'] 备注
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"subjectSn":"110","data":{"remark":"100454"}})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月11日
@@ -69,25 +69,27 @@ interface SubjectInterface
      * 
      * @return array
      * 
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"data":{"workDate":"20170101","currentPage":"1","limit":"100"}})
+     * @returnExample([{"subjectSn":"110","workDate":"20170101","subjectCode":"110","moneyDebit":"123","moneyCredit":"321","voucherSn":"","remark":"100454","createdTime":"0","subjectName":"库存现金"}])
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月10日
      */
     public function getSubjectByWorkData(array $data): array;
     
-        /**
+    /**
      * 计算某时间段内的科目的发生额总和
      * 
+     * @return array
+     * 
      * @param string $workDate 结算日期
+     * 
+     * @requestExample({"workDate":"20171120"})
+     * @returnExample({"totalDebit":"1400","totalCredit":"1400"})
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月16日
      * 
-     * @Validation(
-     *    @PresenceOf(0,{message : "非法的结算日期"}),
-     * )
      */
     public function sumSujectByWorkDate(string $workDate) : array;
 }

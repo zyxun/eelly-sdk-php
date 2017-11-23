@@ -21,15 +21,45 @@ use Eelly\SDK\Pay\DTO\RequestDTO;
 interface RequestInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取 一条数据.
+     *
+     * @param string $billNo    衣联交易号
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------------------------------|-------|--------------
+     * billNo                              |string |    衣联交易号
+     * channel                             |int    |    支付渠道：1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
+     * money                               |int    |    金额：单位为分
+     * content                             |string |    请求内容
+     * remark                              |string |    备注
+     * createdTime                         |array  |    添加时间
+     * updateTime                          |null   |    更新时间
+     * preqId                              |null   |    支付请求ID
+     * Id                                  |array  |
+     * Id["$oid"]                          |string |    mongoId
+     *
+     *
+     * @throws LogicException
+     *
+     * @return RequestDTO
+     * @requestExample({"billNo":"1122"})
+     * @returnExample({"billNo":"00002","channel":1,"money":100,"content":"测试002","remark":"","createdTime":{"$date":{"$numberLong":"1510278148435"}},"updateTime":null,"preqId":null,"Id":{"$oid":"5a05040497e143001d4c7353"}})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月10日
      */
-    public function getRequest(string $requestId): RequestDTO;
+    public function getRequest(string $billNo): RequestDTO;
 
     /**
      * 添加 发起第三方支付数据记录.
      *
      * @param array $data
-     *
+     * @param string $data['billNo']    衣联交易号
+     * @param string $data['channel']   支付渠道：1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
+     * @param string $data['money']     金额：单位为分
+     * @param string $data['content']   请求内容
+     * @param string $data['remark']    备注
      * @throws LogicException
      *
      * @return bool
