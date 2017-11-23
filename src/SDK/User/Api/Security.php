@@ -27,7 +27,7 @@ class Security implements SecurityInterface
      */
     public function getSecurity(int $SecurityId): SecurityDTO
     {
-        return EellyClient::request('user/security', 'getSecurity', $SecurityId);
+        return EellyClient::request('user/security', 'getSecurity', true, $SecurityId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Security implements SecurityInterface
      */
     public function addSecurity(array $data): bool
     {
-        return EellyClient::request('user/security', 'addSecurity', $data);
+        return EellyClient::request('user/security', 'addSecurity', true, $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Security implements SecurityInterface
      */
     public function updateSecurity(int $SecurityId, array $data): bool
     {
-        return EellyClient::request('user/security', 'updateSecurity', $SecurityId, $data);
+        return EellyClient::request('user/security', 'updateSecurity', true, $SecurityId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Security implements SecurityInterface
      */
     public function deleteSecurity(int $SecurityId): bool
     {
-        return EellyClient::request('user/security', 'deleteSecurity', $SecurityId);
+        return EellyClient::request('user/security', 'deleteSecurity', true, $SecurityId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Security implements SecurityInterface
      */
     public function listSecurityPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/security', 'listSecurityPage', $condition, $currentPage, $limit);
+        return EellyClient::request('user/security', 'listSecurityPage', true, $condition, $currentPage, $limit);
     }
 
     /**

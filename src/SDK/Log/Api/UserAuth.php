@@ -23,7 +23,7 @@ class UserAuth implements UserAuthInterface
      */
     public function getUserAuthCount(int $userId, int $startTime, int $endTime = 0): int
     {
-        return EellyClient::request('log/userAuth', 'getUserAuthCount', $userId, $startTime, $endTime);
+        return EellyClient::request('log/userAuth', 'getUserAuthCount', true, $userId, $startTime, $endTime);
     }
 
     /**
@@ -31,6 +31,6 @@ class UserAuth implements UserAuthInterface
      */
     public function addUserAuth(array $data, int $userId): bool
     {
-        return EellyClient::request('log/userAuth', 'addUserAuth', $data, $userId);
+        return EellyClient::request('log/userAuth', 'addUserAuth', true, $data, $userId);
     }
 }

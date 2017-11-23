@@ -1,65 +1,45 @@
 <?php
 
 declare(strict_types=1);
-
 /*
- * This file is part of eelly package.
+ * PHP version 7.1
  *
- * (c) eelly.com
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
+ * @link      https://api.eelly.com
+ * @license   衣联网版权所有
  */
 
 namespace Eelly\SDK\Contact\Api;
 
-use Eelly\DTO\ImportDTO;
-use Eelly\SDK\Contact\Service\ImportInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Contact\Service\ImportInterface;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Import implements ImportInterface
 {
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getImport(int $importId): ImportDTO
-    {
-        return EellyClient::request('contact/import', 'getImport', $importId);
-    }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 检测用户多个id是否已经被卖家导入通讯录.
+     *
+     * @param array       $userIds 用户ID
+     * @param UidDTO|null $user
+     *
+     * @return array
+     *
+     * @requestExample()
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
      */
-    public function addImport(array $data): bool
+    public function isAddressList(array $userIds, UidDTO $user = null): array
     {
-        return EellyClient::request('contact/import', 'addImport', $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateImport(int $importId, array $data): bool
-    {
-        return EellyClient::request('contact/import', 'updateImport', $importId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteImport(int $importId): bool
-    {
-        return EellyClient::request('contact/import', 'deleteImport', $importId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listImportPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('contact/import', 'listImportPage', $condition, $currentPage, $limit);
+        return EellyClient::request('contact/import', 'isAddressList',true, $userIds, $user);
     }
 
     /**
