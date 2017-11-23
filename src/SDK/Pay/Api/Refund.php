@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 /*
- * PHP version 7.1
+ * This file is part of eelly package.
  *
- * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
- * @link      https://api.eelly.com
- * @license   衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Eelly\SDK\Pay\Api;
@@ -17,17 +18,24 @@ use Eelly\DTO\RefundDTO;
 
 /**
  *
- * @author eellytools<localhost.shell@gmail.com>
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Refund implements RefundInterface
 {
-
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getRefund(int $refundId): RefundDTO
     {
-        return EellyClient::request('pay/refund', 'getRefund',true,  $refundId);
+        return EellyClient::request('pay/refund', __FUNCTION__, true, $refundId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getRefundAsync(int $refundId)
+    {
+        return EellyClient::request('pay/refund', __FUNCTION__, false, $refundId);
     }
 
     /**
@@ -35,7 +43,15 @@ class Refund implements RefundInterface
      */
     public function addRefund(array $data): bool
     {
-        return EellyClient::request('pay/refund', 'addRefund', true,$data);
+        return EellyClient::request('pay/refund', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addRefundAsync(array $data)
+    {
+        return EellyClient::request('pay/refund', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class Refund implements RefundInterface
      */
     public function updateRefund(int $refundId, array $data): bool
     {
-        return EellyClient::request('pay/refund', 'updateRefund', true,$refundId, $data);
+        return EellyClient::request('pay/refund', __FUNCTION__, true, $refundId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateRefundAsync(int $refundId, array $data)
+    {
+        return EellyClient::request('pay/refund', __FUNCTION__, false, $refundId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class Refund implements RefundInterface
      */
     public function deleteRefund(int $refundId): bool
     {
-        return EellyClient::request('pay/refund', 'deleteRefund', true,$refundId);
+        return EellyClient::request('pay/refund', __FUNCTION__, true, $refundId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteRefundAsync(int $refundId)
+    {
+        return EellyClient::request('pay/refund', __FUNCTION__, false, $refundId);
     }
 
     /**
@@ -59,7 +91,15 @@ class Refund implements RefundInterface
      */
     public function listRefundPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('pay/refund', 'listRefundPage', true,$condition, $currentPage, $limit);
+        return EellyClient::request('pay/refund', __FUNCTION__, true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listRefundPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('pay/refund', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**
