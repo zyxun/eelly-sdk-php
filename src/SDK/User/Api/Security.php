@@ -1,27 +1,27 @@
 <?php
 
 declare(strict_types=1);
-
 /*
- * This file is part of eelly package.
+ * PHP version 7.1
  *
- * (c) eelly.com
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
+ * @link      https://api.eelly.com
+ * @license   衣联网版权所有
  */
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\SecurityDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\SecurityInterface;
 
+
 /**
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Security implements SecurityInterface
 {
+
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
@@ -59,7 +59,7 @@ class Security implements SecurityInterface
      */
     public function listSecurityPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/security', 'listSecurityPage', $condition, $limit, $currentPage);
+        return EellyClient::request('user/security', 'listSecurityPage', $condition, $currentPage, $limit);
     }
 
     /**
