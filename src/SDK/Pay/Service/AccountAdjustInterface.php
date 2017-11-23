@@ -23,18 +23,18 @@ interface AccountAdjustInterface
     /**
      * 根据账户日资金核算主键id,获取对应的信息.
      *
-     * @param int $aaId 账户日资金核算主键id
+     * @param int $paaId 账户日资金核算主键id
      *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return AccountAdjustDTO
      * @requestExample({"aaId":1})
-     * @returnExample({"aaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
+     * @returnExample({"paaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     * @since  2017-11-09
+     * @since  2017-11-22
      */
-    public function getAccountAdjust(int $aaId): AccountAdjustDTO;
+    public function getAccountAdjust(int $paaId): AccountAdjustDTO;
     
     /**
      * 根据账户日资金核算主键id,获取对应的信息.
@@ -60,7 +60,7 @@ interface AccountAdjustInterface
     /**
      * 根据账户日资金核算主键id,获取对应的信息.
      *
-     * @param int $aaId 账户日资金核算主键id
+     * @param int $paaId 账户日资金核算主键id
      * @param array $data 账户日资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
@@ -71,12 +71,12 @@ interface AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"aaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({"paaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      * @since  2017-11-09
      */
-    public function updateAccountAdjust(int $aaId, array $data): bool;
+    public function updateAccountAdjust(int $paaId, array $data): bool;
     
 }
