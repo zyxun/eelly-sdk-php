@@ -14,7 +14,8 @@ namespace Eelly\SDK\Pay\Service;
 use Eelly\SDK\Pay\DTO\SubjectAdjustDTO;
 
 /**
- * 会计科目日核算表
+ * 会计科目日核算
+ *
  * @author zhangyingdi<zhangyingdi@eelly.net>
  */
 interface SubjectAdjustInterface
@@ -34,19 +35,4 @@ interface SubjectAdjustInterface
      * @since  2017-11-20
      */
     public function getSubjectAdjust(string $subjectCode, string $workDate): SubjectAdjustDTO;
-    
-    /**
-     * 自动脚本添加科目日核算记录
-     *
-     * @param string $date 结算日期：格式YYYYMMDD
-     * @return bool
-     *
-     * @requestExample({"data":{"workDate":"20171109","subjectCode":"eellyPay","subjectMoney":20,"accountMoney":10,"balanceStatus":1,"remark":"","createdTime":135234565}})
-     * @returnExample(true)
-     *
-     * @author zhangyingdi<zhangyingdi@gmail.com>
-     * @since  2017-11-21
-     */
-    public function autoRunSubjectAdjust(string $date): bool;
-    
 }

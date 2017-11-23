@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
-use Eelly\DTO\RefundDTO;
+use Eelly\SDK\Pay\DTO\RefundDTO;
+
 
 /**
  * @author eellytools<localhost.shell@gmail.com>
