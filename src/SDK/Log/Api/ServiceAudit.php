@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,100 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Log\Api;
 
-use Eelly\DTO\ServiceAuditDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Log\Service\ServiceAuditInterface;
+use Eelly\SDK\Log\DTO\ServiceAuditDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class ServiceAudit implements ServiceAuditInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一条服务审核日志.
+     *
+     * @param int $lsaId 服务审核ID，自增主键
+     *
+     * @throws \Eelly\SDK\Log\Exception\GoodsHandleException
+     *
+     * @return ServiceAuditDTO
+     * @requestExample({"lsaId":1})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年09月14日
+     * @Validation(
+     *   @OperatorValidator(0,{message : "服务审核ID，自增主键",operator:["gt",0]})
+     *  )
      */
     public function getServiceAudit(int $ServiceAuditId): ServiceAuditDTO
     {
-        return EellyClient::request('log/serviceaudit', 'getServiceAudit', $ServiceAuditId);
+        return EellyClient::request('log/serviceaudit', __FUNCTION__, true, $ServiceAuditId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一条服务审核日志.
+     *
+     * @param int $lsaId 服务审核ID，自增主键
+     *
+     * @throws \Eelly\SDK\Log\Exception\GoodsHandleException
+     *
+     * @return ServiceAuditDTO
+     * @requestExample({"lsaId":1})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年09月14日
+     * @Validation(
+     *   @OperatorValidator(0,{message : "服务审核ID，自增主键",operator:["gt",0]})
+     *  )
+     */
+    public function getServiceAuditAsync(int $ServiceAuditId)
+    {
+        return EellyClient::request('log/serviceaudit', __FUNCTION__, false, $ServiceAuditId);
+    }
+
+    /**
+     * 添加一条服务审核日志.
+     *
+     * @param array $data
+     *
+     * @throws \Eelly\SDK\Log\Exception\GoodsHandleException
+     *
+     * @return bool
+     * @requestExample({'data':{'service_id':1}})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年09月14日
      */
     public function addServiceAudit(array $data): bool
     {
-        return EellyClient::request('log/serviceaudit', 'addServiceAudit', $data);
+        return EellyClient::request('log/serviceaudit', __FUNCTION__, true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 添加一条服务审核日志.
+     *
+     * @param array $data
+     *
+     * @throws \Eelly\SDK\Log\Exception\GoodsHandleException
+     *
+     * @return bool
+     * @requestExample({'data':{'service_id':1}})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年09月14日
      */
-    public function updateServiceAudit(int $ServiceAuditId, array $data): bool
+    public function addServiceAuditAsync(array $data)
     {
-        return EellyClient::request('log/serviceaudit', 'updateServiceAudit', $ServiceAuditId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteServiceAudit(int $ServiceAuditId): bool
-    {
-        return EellyClient::request('log/serviceaudit', 'deleteServiceAudit', $ServiceAuditId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listServiceAuditPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
-    {
-        return EellyClient::request('log/serviceaudit', 'listServiceAuditPage', $condition, $limit, $currentPage);
+        return EellyClient::request('log/serviceaudit', __FUNCTION__, false, $data);
     }
 
     /**
