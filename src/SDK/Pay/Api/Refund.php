@@ -1,33 +1,33 @@
 <?php
 
 declare(strict_types=1);
-
 /*
- * This file is part of eelly package.
+ * PHP version 7.1
  *
- * (c) eelly.com
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * @copyright Copyright (c) 2012-2017 EELLY Inc. (https://www.eelly.com)
+ * @link      https://api.eelly.com
+ * @license   衣联网版权所有
  */
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\RefundDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\RefundInterface;
+use Eelly\DTO\RefundDTO;
 
 /**
+ *
  * @author eellytools<localhost.shell@gmail.com>
  */
 class Refund implements RefundInterface
 {
+
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getRefund(int $refundId): RefundDTO
     {
-        return EellyClient::request('pay/refund', 'getRefund', $refundId);
+        return EellyClient::request('pay/refund', 'getRefund',true,  $refundId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Refund implements RefundInterface
      */
     public function addRefund(array $data): bool
     {
-        return EellyClient::request('pay/refund', 'addRefund', $data);
+        return EellyClient::request('pay/refund', 'addRefund', true,$data);
     }
 
     /**
@@ -43,7 +43,7 @@ class Refund implements RefundInterface
      */
     public function updateRefund(int $refundId, array $data): bool
     {
-        return EellyClient::request('pay/refund', 'updateRefund', $refundId, $data);
+        return EellyClient::request('pay/refund', 'updateRefund', true,$refundId, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Refund implements RefundInterface
      */
     public function deleteRefund(int $refundId): bool
     {
-        return EellyClient::request('pay/refund', 'deleteRefund', $refundId);
+        return EellyClient::request('pay/refund', 'deleteRefund', true,$refundId);
     }
 
     /**
@@ -59,7 +59,7 @@ class Refund implements RefundInterface
      */
     public function listRefundPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('pay/refund', 'listRefundPage', $condition, $currentPage, $limit);
+        return EellyClient::request('pay/refund', 'listRefundPage', true,$condition, $currentPage, $limit);
     }
 
     /**
