@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,50 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\SubjectAdjustDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\SubjectAdjustInterface;
+use Eelly\SDK\Pay\DTO\SubjectAdjustDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class SubjectAdjust implements SubjectAdjustInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据结算日期跟科目代码，获取会计科目日核算记录
+     *
+     * @param string $subjectCode 科目代码
+     * @param string $workDate 结算日期：格式YYYYMMDD
+     * @return SubjectAdjustDTO
+     *
+     * @requestExample({"workDate":"20171109","subjectCode":"eellyPay"})
+     * @returnExample({"workDate":"20171109","subjectCode":"eellyPay","subjectMoney":20,"accountMoney":10,"balanceStatus":1,"remark":"","createdTime":135234565})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2017-11-20
      */
-    public function getSubjectAdjust(int $subjectAdjustId): SubjectAdjustDTO
+    public function getSubjectAdjust(string $subjectCode, string $workDate): SubjectAdjustDTO
     {
-        return EellyClient::request('pay/subjectadjust', 'getSubjectAdjust', $subjectAdjustId);
+        return EellyClient::request('pay/subjectAdjust', __FUNCTION__, true, $subjectCode, $workDate);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据结算日期跟科目代码，获取会计科目日核算记录
+     *
+     * @param string $subjectCode 科目代码
+     * @param string $workDate 结算日期：格式YYYYMMDD
+     * @return SubjectAdjustDTO
+     *
+     * @requestExample({"workDate":"20171109","subjectCode":"eellyPay"})
+     * @returnExample({"workDate":"20171109","subjectCode":"eellyPay","subjectMoney":20,"accountMoney":10,"balanceStatus":1,"remark":"","createdTime":135234565})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2017-11-20
      */
-    public function addSubjectAdjust(array $data): bool
+    public function getSubjectAdjustAsync(string $subjectCode, string $workDate)
     {
-        return EellyClient::request('pay/subjectadjust', 'addSubjectAdjust', $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateSubjectAdjust(int $subjectAdjustId, array $data): bool
-    {
-        return EellyClient::request('pay/subjectadjust', 'updateSubjectAdjust', $subjectAdjustId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteSubjectAdjust(int $subjectAdjustId): bool
-    {
-        return EellyClient::request('pay/subjectadjust', 'deleteSubjectAdjust', $subjectAdjustId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listSubjectAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('pay/subjectadjust', 'listSubjectAdjustPage', $condition, $currentPage, $limit);
+        return EellyClient::request('pay/subjectAdjust', __FUNCTION__, false, $subjectCode, $workDate);
     }
 
     /**

@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Log\Api;
 
-use Eelly\DTO\ServiceHandleDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Log\Service\ServiceHandleInterface;
+use Eelly\DTO\ServiceHandleDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class ServiceHandle implements ServiceHandleInterface
 {
@@ -27,7 +27,15 @@ class ServiceHandle implements ServiceHandleInterface
      */
     public function getServiceHandle(int $ServiceHandleId): ServiceHandleDTO
     {
-        return EellyClient::request('log/servicehandle', 'getServiceHandle', $ServiceHandleId);
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, true, $ServiceHandleId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getServiceHandleAsync(int $ServiceHandleId)
+    {
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, false, $ServiceHandleId);
     }
 
     /**
@@ -35,7 +43,15 @@ class ServiceHandle implements ServiceHandleInterface
      */
     public function addServiceHandle(array $data): bool
     {
-        return EellyClient::request('log/servicehandle', 'addServiceHandle', $data);
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addServiceHandleAsync(array $data)
+    {
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class ServiceHandle implements ServiceHandleInterface
      */
     public function updateServiceHandle(int $ServiceHandleId, array $data): bool
     {
-        return EellyClient::request('log/servicehandle', 'updateServiceHandle', $ServiceHandleId, $data);
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, true, $ServiceHandleId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateServiceHandleAsync(int $ServiceHandleId, array $data)
+    {
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, false, $ServiceHandleId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class ServiceHandle implements ServiceHandleInterface
      */
     public function deleteServiceHandle(int $ServiceHandleId): bool
     {
-        return EellyClient::request('log/servicehandle', 'deleteServiceHandle', $ServiceHandleId);
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, true, $ServiceHandleId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteServiceHandleAsync(int $ServiceHandleId)
+    {
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, false, $ServiceHandleId);
     }
 
     /**
@@ -59,7 +91,15 @@ class ServiceHandle implements ServiceHandleInterface
      */
     public function listServiceHandlePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/servicehandle', 'listServiceHandlePage', $condition, $limit, $currentPage);
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, true, $condition, $limit, $currentPage);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listServiceHandlePageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
+    {
+        return EellyClient::request('log/serviceHandle', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

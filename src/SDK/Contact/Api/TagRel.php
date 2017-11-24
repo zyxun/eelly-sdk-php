@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,59 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Contact\Api;
 
-use Eelly\DTO\TagRelDTO;
-use Eelly\SDK\Contact\Service\TagRelInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Contact\Service\TagRelInterface;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class TagRel implements TagRelInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据客户id批量获取标签名称.
+     *
+     * @param array $contactIds 联系人ID，自增主键
+     *
+     * @throws \Eelly\Exception\LogicException
+     *
+     * @return array
+     * @requestExample({contactIds:{148086,1,2}})
+     * @returnExample({"contactId": 1,"name": "呵呵李伟权"})
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
+     * @Validation(
+     *   @OperatorValidator(0,{message : "联系人标签关系ID"})
+     *  )
      */
-    public function getTagRel(int $tagRelId): TagRelDTO
+    public function getTagNameByContactIds(array $contactIds): array
     {
-        return EellyClient::request('contact/tagrel', 'getTagRel', $tagRelId);
+        return EellyClient::request('contact/tagRel', __FUNCTION__, true, $contactIds);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据客户id批量获取标签名称.
+     *
+     * @param array $contactIds 联系人ID，自增主键
+     *
+     * @throws \Eelly\Exception\LogicException
+     *
+     * @return array
+     * @requestExample({contactIds:{148086,1,2}})
+     * @returnExample({"contactId": 1,"name": "呵呵李伟权"})
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
+     * @Validation(
+     *   @OperatorValidator(0,{message : "联系人标签关系ID"})
+     *  )
      */
-    public function addTagRel(array $data): bool
+    public function getTagNameByContactIdsAsync(array $contactIds)
     {
-        return EellyClient::request('contact/tagrel', 'addTagRel', $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateTagRel(int $tagRelId, array $data): bool
-    {
-        return EellyClient::request('contact/tagrel', 'updateTagRel', $tagRelId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteTagRel(int $tagRelId): bool
-    {
-        return EellyClient::request('contact/tagrel', 'deleteTagRel', $tagRelId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listTagRelPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('contact/tagrel', 'listTagRelPage', $condition, $currentPage, $limit);
+        return EellyClient::request('contact/tagRel', __FUNCTION__, false, $contactIds);
     }
 
     /**

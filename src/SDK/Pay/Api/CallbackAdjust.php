@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,86 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\CallbackAdjustDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\CallbackAdjustInterface;
+use Eelly\SDK\Pay\DTO\CallbackAdjustDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class CallbackAdjust implements CallbackAdjustInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据清算流水id，返回对应的详细记录
+     *
+     * @param int $pcaId 清算流水id
+     * @return CallbackAdjustDTO
+     *
+     * @throws \Eelly\SDK\Pay\Exception\AccountException
+     * @requestExample({"pcaId":1})
+     * @returnExample({"pcaId":1,"billNo":"eelly123","type":1,"itemId":1,"itemMoney":100,"requestMoney":100,"callbackMoney":100,"recordMoney":100,"recordMoney":100,"changeMoney":100,"status":1,"remark":"","createdTime":1510211720})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2017-11-13
      */
-    public function getCallbackAdjust(int $callbackAdjustId): CallbackAdjustDTO
+    public function getCallbackAdjust(int $pcaId): CallbackAdjustDTO
     {
-        return EellyClient::request('pay/callbackadjust', 'getCallbackAdjust', $callbackAdjustId);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, true, $pcaId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据清算流水id，返回对应的详细记录
+     *
+     * @param int $pcaId 清算流水id
+     * @return CallbackAdjustDTO
+     *
+     * @throws \Eelly\SDK\Pay\Exception\AccountException
+     * @requestExample({"pcaId":1})
+     * @returnExample({"pcaId":1,"billNo":"eelly123","type":1,"itemId":1,"itemMoney":100,"requestMoney":100,"callbackMoney":100,"recordMoney":100,"recordMoney":100,"changeMoney":100,"status":1,"remark":"","createdTime":1510211720})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2017-11-13
      */
-    public function addCallbackAdjust(array $data): bool
+    public function getCallbackAdjustAsync(int $pcaId)
     {
-        return EellyClient::request('pay/callbackadjust', 'addCallbackAdjust', $data);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, false, $pcaId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据传过来的交易号跟操作类型，插入对应的交易清算流水记录
+     *
+     * @param string $billNo  衣联交易号
+     * @param int $type       操作类型：1 充值 2 提现 3 退款
+     * @return bool
+     *
+     * @requestExample({"billNo":"eelly1234", "type":1})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2017-11-14
      */
-    public function updateCallbackAdjust(int $callbackAdjustId, array $data): bool
+    public function addCallBackAdjust(string $billNo, int $type): bool
     {
-        return EellyClient::request('pay/callbackadjust', 'updateCallbackAdjust', $callbackAdjustId, $data);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, true, $billNo, $type);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 根据传过来的交易号跟操作类型，插入对应的交易清算流水记录
+     *
+     * @param string $billNo  衣联交易号
+     * @param int $type       操作类型：1 充值 2 提现 3 退款
+     * @return bool
+     *
+     * @requestExample({"billNo":"eelly1234", "type":1})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2017-11-14
      */
-    public function deleteCallbackAdjust(int $callbackAdjustId): bool
+    public function addCallBackAdjustAsync(string $billNo, int $type)
     {
-        return EellyClient::request('pay/callbackadjust', 'deleteCallbackAdjust', $callbackAdjustId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listCallbackAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('pay/callbackadjust', 'listCallbackAdjustPage', $condition, $currentPage, $limit);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, false, $billNo, $type);
     }
 
     /**

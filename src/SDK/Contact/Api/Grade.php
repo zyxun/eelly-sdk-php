@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,85 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Contact\Api;
 
-use Eelly\DTO\GradeDTO;
-use Eelly\SDK\Contact\Service\GradeInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Contact\Service\GradeInterface;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Grade implements GradeInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取等级名称.
+     *
+     * @param array $cgIds 联系人等级ID，自增主键
+     *
+     * @return array
+     * @requestExample({"cgIds":{1,2,3}})
+     * @returnExample({"cgId": 1,"name": "eelly"})
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
      */
-    public function getGrade(int $gradeId): GradeDTO
+    public function getGradeNameByIds(array $cgIds): array
     {
-        return EellyClient::request('contact/grade', 'getGrade', true, $gradeId);
+        return EellyClient::request('contact/grade', __FUNCTION__, true, $cgIds);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取等级名称.
+     *
+     * @param array $cgIds 联系人等级ID，自增主键
+     *
+     * @return array
+     * @requestExample({"cgIds":{1,2,3}})
+     * @returnExample({"cgId": 1,"name": "eelly"})
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
      */
-    public function addGrade(array $data): bool
+    public function getGradeNameByIdsAsync(array $cgIds)
     {
-        return EellyClient::request('contact/grade', 'addGrade', true, $data);
+        return EellyClient::request('contact/grade', __FUNCTION__, false, $cgIds);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取等级信息.
+     *
+     * @param int $storeId 店铺ID
+     *
+     * @return array
+     * @requestExample({'storeId':1})
+     * @returnExample({"cgId": 1,"name": "eelly","storeId": 1,"tradeMoney": 0,"isDefault": 1,"discount": 0.2,"degree": 2,"isView": 1,"isViewNew": 1})
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
      */
-    public function updateGrade(int $gradeId, array $data): bool
+    public function getGrade(int $storeId): array
     {
-        return EellyClient::request('contact/grade', 'updateGrade', true, $gradeId, $data);
+        return EellyClient::request('contact/grade', __FUNCTION__, true, $storeId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取等级信息.
+     *
+     * @param int $storeId 店铺ID
+     *
+     * @return array
+     * @requestExample({'storeId':1})
+     * @returnExample({"cgId": 1,"name": "eelly","storeId": 1,"tradeMoney": 0,"isDefault": 1,"discount": 0.2,"degree": 2,"isView": 1,"isViewNew": 1})
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
      */
-    public function deleteGrade(int $gradeId): bool
+    public function getGradeAsync(int $storeId)
     {
-        return EellyClient::request('contact/grade', 'deleteGrade', true, $gradeId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listGradePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('contact/grade', 'listGradePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('contact/grade', __FUNCTION__, false, $storeId);
     }
 
     /**

@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -17,12 +16,55 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Oauth\Service\ResourceServerInterface;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class ResourceServer implements ResourceServerInterface
 {
+    /**
+     * 校验认证的令牌.
+     *
+     * @throws \Exception
+     *
+     * @return array
+     *
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author hehui<hehui@eelly.net>
+     */
     public function verify(): void
     {
-        return EellyClient::request('oauth/resourceserver', 'verify');
+        return EellyClient::request('oauth/resourceServer', __FUNCTION__, true);
+    }
+
+    /**
+     * 校验认证的令牌.
+     *
+     * @throws \Exception
+     *
+     * @return array
+     *
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function verifyAsync()
+    {
+        return EellyClient::request('oauth/resourceServer', __FUNCTION__, false);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
     }
 }

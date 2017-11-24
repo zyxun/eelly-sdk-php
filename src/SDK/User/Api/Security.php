@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\SecurityDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\SecurityInterface;
+use Eelly\DTO\SecurityDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Security implements SecurityInterface
 {
@@ -27,7 +27,15 @@ class Security implements SecurityInterface
      */
     public function getSecurity(int $SecurityId): SecurityDTO
     {
-        return EellyClient::request('user/security', 'getSecurity', $SecurityId);
+        return EellyClient::request('user/security', __FUNCTION__, true, $SecurityId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getSecurityAsync(int $SecurityId)
+    {
+        return EellyClient::request('user/security', __FUNCTION__, false, $SecurityId);
     }
 
     /**
@@ -35,7 +43,15 @@ class Security implements SecurityInterface
      */
     public function addSecurity(array $data): bool
     {
-        return EellyClient::request('user/security', 'addSecurity', $data);
+        return EellyClient::request('user/security', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addSecurityAsync(array $data)
+    {
+        return EellyClient::request('user/security', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class Security implements SecurityInterface
      */
     public function updateSecurity(int $SecurityId, array $data): bool
     {
-        return EellyClient::request('user/security', 'updateSecurity', $SecurityId, $data);
+        return EellyClient::request('user/security', __FUNCTION__, true, $SecurityId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateSecurityAsync(int $SecurityId, array $data)
+    {
+        return EellyClient::request('user/security', __FUNCTION__, false, $SecurityId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class Security implements SecurityInterface
      */
     public function deleteSecurity(int $SecurityId): bool
     {
-        return EellyClient::request('user/security', 'deleteSecurity', $SecurityId);
+        return EellyClient::request('user/security', __FUNCTION__, true, $SecurityId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteSecurityAsync(int $SecurityId)
+    {
+        return EellyClient::request('user/security', __FUNCTION__, false, $SecurityId);
     }
 
     /**
@@ -59,7 +91,15 @@ class Security implements SecurityInterface
      */
     public function listSecurityPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/security', 'listSecurityPage', $condition, $limit, $currentPage);
+        return EellyClient::request('user/security', __FUNCTION__, true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listSecurityPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('user/security', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**

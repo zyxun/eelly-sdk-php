@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\CallbackDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\CallbackInterface;
+use Eelly\SDK\Pay\DTO\CallbackDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Callback implements CallbackInterface
 {
@@ -27,39 +27,63 @@ class Callback implements CallbackInterface
      */
     public function getCallback(int $callbackId): CallbackDTO
     {
-        return EellyClient::request('pay/callback', 'getCallback', $callbackId);
+        return EellyClient::request('pay/callback', __FUNCTION__, true, $callbackId);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getCallbackAsync(int $callbackId)
+    {
+        return EellyClient::request('pay/callback', __FUNCTION__, false, $callbackId);
+    }
+
+    /**
+     * 添加 第三方支付回调记录.
+     *
+     * @param array $data
+     * @param int $data['billNo'] 交易号
+     * @param int $data['channel'] 支付渠道：1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
+     * @param int $data['money'] 金额：单位为分
+     * @param int $data['content']  回调内容
+     * @param int $data['remark']  备注
+     * @throws LogicException
+     *
+     * @return bool
+     * @requestExample({"data":{"billNo":"001","channel":1,"money":100,"content":"测试写入","remark":""}})
+     * @returnExample(true)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年11月9日
      */
     public function addCallback(array $data): bool
     {
-        return EellyClient::request('pay/callback', 'addCallback', $data);
+        return EellyClient::request('pay/callback', __FUNCTION__, true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 添加 第三方支付回调记录.
+     *
+     * @param array $data
+     * @param int $data['billNo'] 交易号
+     * @param int $data['channel'] 支付渠道：1 支付宝 2 微信钱包 3 QQ钱包 4 银联 5 移动支付
+     * @param int $data['money'] 金额：单位为分
+     * @param int $data['content']  回调内容
+     * @param int $data['remark']  备注
+     * @throws LogicException
+     *
+     * @return bool
+     * @requestExample({"data":{"billNo":"001","channel":1,"money":100,"content":"测试写入","remark":""}})
+     * @returnExample(true)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年11月9日
      */
-    public function updateCallback(int $callbackId, array $data): bool
+    public function addCallbackAsync(array $data)
     {
-        return EellyClient::request('pay/callback', 'updateCallback', $callbackId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteCallback(int $callbackId): bool
-    {
-        return EellyClient::request('pay/callback', 'deleteCallback', $callbackId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listCallbackPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('pay/callback', 'listCallbackPage', $condition, $currentPage, $limit);
+        return EellyClient::request('pay/callback', __FUNCTION__, false, $data);
     }
 
     /**

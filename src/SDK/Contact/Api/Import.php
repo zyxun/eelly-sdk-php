@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,54 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Contact\Api;
 
-use Eelly\DTO\ImportDTO;
-use Eelly\SDK\Contact\Service\ImportInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Contact\Service\ImportInterface;
+use Eelly\DTO\UidDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Import implements ImportInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 检测用户多个id是否已经被卖家导入通讯录.
+     *
+     * @param array       $userIds 用户ID
+     * @param UidDTO|null $user
+     *
+     * @return array
+     *
+     * @requestExample()
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
      */
-    public function getImport(int $importId): ImportDTO
+    public function isAddressList(array $userIds, UidDTO $user = null): array
     {
-        return EellyClient::request('contact/import', 'getImport', $importId);
+        return EellyClient::request('contact/import', __FUNCTION__, true, $userIds, $user);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 检测用户多个id是否已经被卖家导入通讯录.
+     *
+     * @param array       $userIds 用户ID
+     * @param UidDTO|null $user
+     *
+     * @return array
+     *
+     * @requestExample()
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年10月12日
      */
-    public function addImport(array $data): bool
+    public function isAddressListAsync(array $userIds, UidDTO $user = null)
     {
-        return EellyClient::request('contact/import', 'addImport', $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateImport(int $importId, array $data): bool
-    {
-        return EellyClient::request('contact/import', 'updateImport', $importId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteImport(int $importId): bool
-    {
-        return EellyClient::request('contact/import', 'deleteImport', $importId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listImportPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('contact/import', 'listImportPage', $condition, $currentPage, $limit);
+        return EellyClient::request('contact/import', __FUNCTION__, false, $userIds, $user);
     }
 
     /**

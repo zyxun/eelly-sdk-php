@@ -156,8 +156,8 @@ interface AddressInterface
      *
      * @throws UserException
      *
-     * @requestExample({})
-     * @returnExample({"data":{"items":[{"uaId":"1","userId":"148086","consignee":"heiheisss","gbCode":"1","zipcode":"1","address":"\u6c5f\u5357\u5927\u9053\u4e2d112","mobile":"13711221122","phone":"111","deliveryType":"3","status":"1","createdTime":"0"}]}})
+     * @requestExample()
+     * @returnExample({"data":{"items":{{"uaId":"1","userId":"148086","consignee":"heiheisss","gbCode":"1","zipcode":"1","address":"\u6c5f\u5357\u5927\u9053\u4e2d112","mobile":"13711221122","phone":"111","deliveryType":"3","status":"1","createdTime":"0"}}}})
      *
      * @return array
      *

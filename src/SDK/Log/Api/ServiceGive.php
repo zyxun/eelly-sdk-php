@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Log\Api;
 
-use Eelly\DTO\ServiceGiveDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Log\Service\ServiceGiveInterface;
+use Eelly\DTO\ServiceGiveDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class ServiceGive implements ServiceGiveInterface
 {
@@ -27,7 +27,15 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function getServiceGive(int $ServiceGiveId): ServiceGiveDTO
     {
-        return EellyClient::request('log/servicegive', 'getServiceGive', $ServiceGiveId);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $ServiceGiveId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getServiceGiveAsync(int $ServiceGiveId)
+    {
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $ServiceGiveId);
     }
 
     /**
@@ -35,7 +43,15 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function addServiceGive(array $data): bool
     {
-        return EellyClient::request('log/servicegive', 'addServiceGive', $data);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addServiceGiveAsync(array $data)
+    {
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function updateServiceGive(int $ServiceGiveId, array $data): bool
     {
-        return EellyClient::request('log/servicegive', 'updateServiceGive', $ServiceGiveId, $data);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $ServiceGiveId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateServiceGiveAsync(int $ServiceGiveId, array $data)
+    {
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $ServiceGiveId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function deleteServiceGive(int $ServiceGiveId): bool
     {
-        return EellyClient::request('log/servicegive', 'deleteServiceGive', $ServiceGiveId);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $ServiceGiveId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteServiceGiveAsync(int $ServiceGiveId)
+    {
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $ServiceGiveId);
     }
 
     /**
@@ -59,7 +91,15 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function listServiceGivePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/servicegive', 'listServiceGivePage', $condition, $limit, $currentPage);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $condition, $limit, $currentPage);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listServiceGivePageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
+    {
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

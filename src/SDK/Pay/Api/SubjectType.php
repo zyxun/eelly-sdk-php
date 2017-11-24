@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,209 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\SubjectTypeDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\SubjectTypeInterface;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class SubjectType implements SubjectTypeInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一条科目类型信息
+     * 
+     * @return array
+     * 
+     * @param string $subjectCode 科目代码
+     * 
+     * @requestExample({"subjectCode":"110"})
+     * @returnExample({"subjectCode":"110","subjectName":"3232","createdTime":"1508466305","updateTime":"2017-10-20 10:25:19"})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
+     * 
      */
-    public function getSubjectType(int $subjectTypeId): SubjectTypeDTO
+    public function getOneSubjectType(string $subjectCode): array
     {
-        return EellyClient::request('pay/subjecttype', 'getSubjectType', $subjectTypeId);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $subjectCode);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一条科目类型信息
+     * 
+     * @return array
+     * 
+     * @param string $subjectCode 科目代码
+     * 
+     * @requestExample({"subjectCode":"110"})
+     * @returnExample({"subjectCode":"110","subjectName":"3232","createdTime":"1508466305","updateTime":"2017-10-20 10:25:19"})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
+     * 
+     */
+    public function getOneSubjectTypeAsync(string $subjectCode)
+    {
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $subjectCode);
+    }
+
+    /**
+     * 添加科目类型
+     * 
+     * @return bool
+     * 
+     * @param array $data 请求参数
+     * @param string $data["subjectCode"] 科目代码
+     * @param int $data["subjectName"] 科目名称
+     * 
+     * @requestExample({"data":{"subjectCode":"120","subjectName":"hahahah"}})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
      */
     public function addSubjectType(array $data): bool
     {
-        return EellyClient::request('pay/subjecttype', 'addSubjectType', $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 添加科目类型
+     * 
+     * @return bool
+     * 
+     * @param array $data 请求参数
+     * @param string $data["subjectCode"] 科目代码
+     * @param int $data["subjectName"] 科目名称
+     * 
+     * @requestExample({"data":{"subjectCode":"120","subjectName":"hahahah"}})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
      */
-    public function updateSubjectType(int $subjectTypeId, array $data): bool
+    public function addSubjectTypeAsync(array $data)
     {
-        return EellyClient::request('pay/subjecttype', 'updateSubjectType', $subjectTypeId, $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新科目类型
+     * 
+     * @return bool
+     * 
+     * @param string $subjectCode 科目代码
+     * @param array $data 请求参数
+     * @param string $data['subjectName'] 科目名称
+     * 
+     * @requestExample({"subjectCode":"120","data":{"subjectName":"hahahah"}})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
      */
-    public function deleteSubjectType(int $subjectTypeId): bool
+    public function updateSubjectType(string $subjectCode, array $data): bool
     {
-        return EellyClient::request('pay/subjecttype', 'deleteSubjectType', $subjectTypeId);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $subjectCode, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新科目类型
+     * 
+     * @return bool
+     * 
+     * @param string $subjectCode 科目代码
+     * @param array $data 请求参数
+     * @param string $data['subjectName'] 科目名称
+     * 
+     * @requestExample({"subjectCode":"120","data":{"subjectName":"hahahah"}})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
      */
-    public function listSubjectTypePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function updateSubjectTypeAsync(string $subjectCode, array $data)
     {
-        return EellyClient::request('pay/subjecttype', 'listSubjectTypePage', $condition, $currentPage, $limit);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $subjectCode, $data);
+    }
+
+    /**
+     * 删除一条科目明细记录
+     * 
+     * @return bool
+     * 
+     * @param string $subjectCode 科目代码
+     * 
+     * @requestExample({"subjectCode":"120"}})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
+     * 
+     */
+    public function deleteSubjectType(string $subjectCode): bool
+    {
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $subjectCode);
+    }
+
+    /**
+     * 删除一条科目明细记录
+     * 
+     * @return bool
+     * 
+     * @param string $subjectCode 科目代码
+     * 
+     * @requestExample({"subjectCode":"120"}})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
+     * 
+     */
+    public function deleteSubjectTypeAsync(string $subjectCode)
+    {
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $subjectCode);
+    }
+
+    /**
+     * 获取所有的科目类型
+     * 
+     * @return array
+     * 
+     * @param $data array 请求的参数
+     * @param int $data['currentPage'] 当前页面
+     * @param int $data['limit'] 每页数量
+     * 
+     * @requestExample({"data":{"currentPage":"1","limit":"100"}})
+     * @returnExample([{"subjectCode":"110","subjectName":"库存现金","createdTime":"1508466305"}])
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
+     */
+    public function getSubjectTypeList(array $data): array
+    {
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * 获取所有的科目类型
+     * 
+     * @return array
+     * 
+     * @param $data array 请求的参数
+     * @param int $data['currentPage'] 当前页面
+     * @param int $data['limit'] 每页数量
+     * 
+     * @requestExample({"data":{"currentPage":"1","limit":"100"}})
+     * @returnExample([{"subjectCode":"110","subjectName":"库存现金","createdTime":"1508466305"}])
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月11日
+     */
+    public function getSubjectTypeListAsync(array $data)
+    {
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $data);
     }
 
     /**

@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Log\Api;
 
-use Eelly\DTO\StoreHandleDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Log\Service\StoreHandleInterface;
+use Eelly\DTO\StoreHandleDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class StoreHandle implements StoreHandleInterface
 {
@@ -27,7 +27,15 @@ class StoreHandle implements StoreHandleInterface
      */
     public function getStoreHandle(int $StoreHandleId): StoreHandleDTO
     {
-        return EellyClient::request('log/storehandle', 'getStoreHandle', $StoreHandleId);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $StoreHandleId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getStoreHandleAsync(int $StoreHandleId)
+    {
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $StoreHandleId);
     }
 
     /**
@@ -35,7 +43,15 @@ class StoreHandle implements StoreHandleInterface
      */
     public function addStoreHandle(array $data): bool
     {
-        return EellyClient::request('log/storehandle', 'addStoreHandle', $data);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addStoreHandleAsync(array $data)
+    {
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class StoreHandle implements StoreHandleInterface
      */
     public function updateStoreHandle(int $StoreHandleId, array $data): bool
     {
-        return EellyClient::request('log/storehandle', 'updateStoreHandle', $StoreHandleId, $data);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $StoreHandleId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateStoreHandleAsync(int $StoreHandleId, array $data)
+    {
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $StoreHandleId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class StoreHandle implements StoreHandleInterface
      */
     public function deleteStoreHandle(int $StoreHandleId): bool
     {
-        return EellyClient::request('log/storehandle', 'deleteStoreHandle', $StoreHandleId);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $StoreHandleId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteStoreHandleAsync(int $StoreHandleId)
+    {
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $StoreHandleId);
     }
 
     /**
@@ -59,7 +91,15 @@ class StoreHandle implements StoreHandleInterface
      */
     public function listStoreHandlePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/storehandle', 'listStoreHandlePage', $condition, $limit, $currentPage);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $condition, $limit, $currentPage);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listStoreHandlePageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
+    {
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

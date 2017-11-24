@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,195 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Api;
 
-use Eelly\DTO\RuleDTO;
-use Eelly\SDK\Activity\Service\RuleInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Activity\Service\RuleInterface;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Rule implements RuleInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取营销活动优惠规则信息.
+     *
+     * @param int $arId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"arId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
      */
-    public function getRule(int $ruleId): RuleDTO
+    public function getRule(int $arId): array
     {
-        return EellyClient::request('activity/rule', 'getRule', true, $ruleId);
+        return EellyClient::request('activity/rule', __FUNCTION__, true, $arId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取营销活动优惠规则信息.
+     *
+     * @param int $arId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"arId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
+     */
+    public function getRuleAsync(int $arId)
+    {
+        return EellyClient::request('activity/rule', __FUNCTION__, false, $arId);
+    }
+
+    /**
+     * 新增营销活动优惠规则信息.
+     *
+     *
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"] 验证服务接口
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
      */
     public function addRule(array $data): bool
     {
-        return EellyClient::request('activity/rule', 'addRule', true, $data);
+        return EellyClient::request('activity/rule', __FUNCTION__, true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 新增营销活动优惠规则信息.
+     *
+     *
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"] 验证服务接口
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
      */
-    public function updateRule(int $ruleId, array $data): bool
+    public function addRuleAsync(array $data)
     {
-        return EellyClient::request('activity/rule', 'updateRule', true, $ruleId, $data);
+        return EellyClient::request('activity/rule', __FUNCTION__, false, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新营销活动优惠规则信息.
+     *
+     *
+     * @param int    $arId            参与条件ID
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"]
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"arId":1,"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
      */
-    public function deleteRule(int $ruleId): bool
+    public function updateRule(int $arId, array $data): bool
     {
-        return EellyClient::request('activity/rule', 'deleteRule', true, $ruleId);
+        return EellyClient::request('activity/rule', __FUNCTION__, true, $arId, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新营销活动优惠规则信息.
+     *
+     *
+     * @param int    $arId            参与条件ID
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"]
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"arId":1,"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
      */
-    public function listRulePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function updateRuleAsync(int $arId, array $data)
     {
-        return EellyClient::request('activity/rule', 'listRulePage', true, $condition, true, $limit, $currentPage);
+        return EellyClient::request('activity/rule', __FUNCTION__, false, $arId, $data);
+    }
+
+    /**
+     * 删除参加活动店铺信息.
+     *
+     * @param int $arId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"arId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
+     */
+    public function deleteRule(int $arId): bool
+    {
+        return EellyClient::request('activity/rule', __FUNCTION__, true, $arId);
+    }
+
+    /**
+     * 删除参加活动店铺信息.
+     *
+     * @param int $arId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"arId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月16日
+     */
+    public function deleteRuleAsync(int $arId)
+    {
+        return EellyClient::request('activity/rule', __FUNCTION__, false, $arId);
     }
 
     /**

@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,199 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Api;
 
-use Eelly\DTO\CouponThemeDTO;
-use Eelly\SDK\Activity\Service\CouponThemeInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Activity\Service\CouponThemeInterface;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class CouponTheme implements CouponThemeInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取生意圈主题信息.
+     *
+     * @param int $couponThemeId 优惠券主题ID
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 优惠券主题结果集
+     *
+     * @requestExample({"couponThemeId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
      */
-    public function getCouponTheme(int $couponThemeId): CouponThemeDTO
+    public function getCouponTheme(int $couponThemeId): array
     {
-        return EellyClient::request('activity/coupontheme', 'getCouponTheme', true, $couponThemeId);
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, true, $couponThemeId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取生意圈主题信息.
+     *
+     * @param int $couponThemeId 优惠券主题ID
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 优惠券主题结果集
+     *
+     * @requestExample({"couponThemeId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
+     */
+    public function getCouponThemeAsync(int $couponThemeId)
+    {
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, false, $couponThemeId);
+    }
+
+    /**
+     * 新增优惠券主题信息.
+     *
+     *
+     * @param array  $data          优惠券主题数据集
+     * @param string $data["name"]  主题名称
+     * @param string $data["image"] 主题背景图
+     * @param string $data["css"]   主题样式
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"data":{"name":"21313","image":"hahahaha","css":"{\"hahahah\"}"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
      */
     public function addCouponTheme(array $data): bool
     {
-        return EellyClient::request('activity/coupontheme', 'addCouponTheme', true, $data);
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 新增优惠券主题信息.
+     *
+     *
+     * @param array  $data          优惠券主题数据集
+     * @param string $data["name"]  主题名称
+     * @param string $data["image"] 主题背景图
+     * @param string $data["css"]   主题样式
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"data":{"name":"21313","image":"hahahaha","css":"{\"hahahah\"}"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
+     */
+    public function addCouponThemeAsync(array $data)
+    {
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, false, $data);
+    }
+
+    /**
+     * 更新优惠券主题信息.
+     *
+     *
+     * @param int    $couponThemeId 优惠券主题ID
+     * @param array  $data          优惠券主题数据集
+     * @param string $data["name"]  参数名称
+     * @param string $data["image"] 主题背景图
+     * @param string $data["css"]   主题样式
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"couponThemeId":1,"data":{"name":"21313","image":"hahahaha","css":"{\"hahahah\"}"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
      */
     public function updateCouponTheme(int $couponThemeId, array $data): bool
     {
-        return EellyClient::request('activity/coupontheme', 'updateCouponTheme', true, $couponThemeId, $data);
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, true, $couponThemeId, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 更新优惠券主题信息.
+     *
+     *
+     * @param int    $couponThemeId 优惠券主题ID
+     * @param array  $data          优惠券主题数据集
+     * @param string $data["name"]  参数名称
+     * @param string $data["image"] 主题背景图
+     * @param string $data["css"]   主题样式
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"couponThemeId":1,"data":{"name":"21313","image":"hahahaha","css":"{\"hahahah\"}"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
+     */
+    public function updateCouponThemeAsync(int $couponThemeId, array $data)
+    {
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, false, $couponThemeId, $data);
+    }
+
+    /**
+     * 删除优惠券主题信息.
+     *
+     * @param int $couponThemeId 优惠券主题ID
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 优惠券主题结果集
+     *
+     * @requestExample({"couponThemeId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
      */
     public function deleteCouponTheme(int $couponThemeId): bool
     {
-        return EellyClient::request('activity/coupontheme', 'deleteCouponTheme', true, $couponThemeId);
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, true, $couponThemeId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 删除优惠券主题信息.
+     *
+     * @param int $couponThemeId 优惠券主题ID
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 优惠券主题结果集
+     *
+     * @requestExample({"couponThemeId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年10月17日
      */
-    public function listCouponThemePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function deleteCouponThemeAsync(int $couponThemeId)
     {
-        return EellyClient::request('activity/coupontheme', 'listCouponThemePage', true, $condition, $limit, $currentPage);
+        return EellyClient::request('activity/couponTheme', __FUNCTION__, false, $couponThemeId);
     }
 
     /**
