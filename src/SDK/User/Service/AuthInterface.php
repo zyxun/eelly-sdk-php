@@ -80,6 +80,7 @@ interface AuthInterface
      * @param int    $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
      * @param string $condition['name']    真实姓名/企业名称,
      * @param string $condition['license'] 身份证号码/营业执照号
+     * @param UidDTO|null $user 登录用户
      *
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
