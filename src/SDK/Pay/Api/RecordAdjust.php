@@ -37,7 +37,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function getRecordAdjust(int $prId): RecordAdjustDTO
     {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, true, $prId);
+        return EellyClient::request('pay/recordAdjust', __FUNCTION__, true, $prId);
     }
 
     /**
@@ -55,7 +55,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function getRecordAdjustAsync(int $prId)
     {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, false, $prId);
+        return EellyClient::request('pay/recordAdjust', __FUNCTION__, false, $prId);
     }
 
     /**
@@ -74,7 +74,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function addRecordAdjust(int $prId, string $billNo, int $type): bool
     {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, true, $prId, $billNo, $type);
+        return EellyClient::request('pay/recordAdjust', __FUNCTION__, true, $prId, $billNo, $type);
     }
 
     /**
@@ -93,55 +93,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function addRecordAdjustAsync(int $prId, string $billNo, int $type)
     {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, false, $prId, $billNo, $type);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function updateRecordAdjust(int $recordAdjustId, array $data): bool
-    {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, true, $recordAdjustId, $data);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function updateRecordAdjustAsync(int $recordAdjustId, array $data)
-    {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, false, $recordAdjustId, $data);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteRecordAdjust(int $recordAdjustId): bool
-    {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, true, $recordAdjustId);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteRecordAdjustAsync(int $recordAdjustId)
-    {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, false, $recordAdjustId);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listRecordAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, true, $condition, $currentPage, $limit);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listRecordAdjustPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
-    {
-        return EellyClient::request('pay/recordadjust', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/recordAdjust', __FUNCTION__, false, $prId, $billNo, $type);
     }
 
     /**

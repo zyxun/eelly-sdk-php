@@ -14,7 +14,7 @@ namespace Eelly\SDK\Pay\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\CallbackInterface;
-use Eelly\DTO\CallbackDTO;
+use Eelly\SDK\Pay\DTO\CallbackDTO;
 
 /**
  *

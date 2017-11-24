@@ -14,7 +14,7 @@ namespace Eelly\SDK\Pay\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\RefundInterface;
-use Eelly\DTO\RefundDTO;
+use Eelly\SDK\Pay\DTO\RefundDTO;
 
 /**
  *

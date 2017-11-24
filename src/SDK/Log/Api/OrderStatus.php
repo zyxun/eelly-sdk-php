@@ -42,7 +42,7 @@ class OrderStatus implements OrderStatusInterface
      */
     public function getOrderStatus(int $losId): OrderStatusDTO
     {
-        return EellyClient::request('log/orderstatus', __FUNCTION__, true, $losId);
+        return EellyClient::request('log/orderStatus', __FUNCTION__, true, $losId);
     }
 
     /**
@@ -65,7 +65,7 @@ class OrderStatus implements OrderStatusInterface
      */
     public function getOrderStatusAsync(int $losId)
     {
-        return EellyClient::request('log/orderstatus', __FUNCTION__, false, $losId);
+        return EellyClient::request('log/orderStatus', __FUNCTION__, false, $losId);
     }
 
     /**
@@ -85,7 +85,7 @@ class OrderStatus implements OrderStatusInterface
      */
     public function addOrderStatus(array $data): bool
     {
-        return EellyClient::request('log/orderstatus', __FUNCTION__, true, $data);
+        return EellyClient::request('log/orderStatus', __FUNCTION__, true, $data);
     }
 
     /**
@@ -105,7 +105,7 @@ class OrderStatus implements OrderStatusInterface
      */
     public function addOrderStatusAsync(array $data)
     {
-        return EellyClient::request('log/orderstatus', __FUNCTION__, false, $data);
+        return EellyClient::request('log/orderStatus', __FUNCTION__, false, $data);
     }
 
     /**
@@ -130,7 +130,7 @@ class OrderStatus implements OrderStatusInterface
      */
     public function listOrderStatusPage(array $losIds = [], array $orderIds = [], int $fromOsId = 0, int $toOsId = 0, int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('log/orderstatus', __FUNCTION__, true, $losIds, $orderIds, $fromOsId, $toOsId, $currentPage, $limit);
+        return EellyClient::request('log/orderStatus', __FUNCTION__, true, $losIds, $orderIds, $fromOsId, $toOsId, $currentPage, $limit);
     }
 
     /**
@@ -155,7 +155,7 @@ class OrderStatus implements OrderStatusInterface
      */
     public function listOrderStatusPageAsync(array $losIds = [], array $orderIds = [], int $fromOsId = 0, int $toOsId = 0, int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('log/orderstatus', __FUNCTION__, false, $losIds, $orderIds, $fromOsId, $toOsId, $currentPage, $limit);
+        return EellyClient::request('log/orderStatus', __FUNCTION__, false, $losIds, $orderIds, $fromOsId, $toOsId, $currentPage, $limit);
     }
 
     /**

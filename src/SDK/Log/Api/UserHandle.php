@@ -27,7 +27,7 @@ class UserHandle implements UserHandleInterface
      */
     public function getUserHandle(int $UserHandleId): UserHandleDTO
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, true, $UserHandleId);
+        return EellyClient::request('log/userHandle', __FUNCTION__, true, $UserHandleId);
     }
 
     /**
@@ -35,7 +35,7 @@ class UserHandle implements UserHandleInterface
      */
     public function getUserHandleAsync(int $UserHandleId)
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, false, $UserHandleId);
+        return EellyClient::request('log/userHandle', __FUNCTION__, false, $UserHandleId);
     }
 
     /**
@@ -43,7 +43,7 @@ class UserHandle implements UserHandleInterface
      */
     public function addUserHandle(array $data): bool
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, true, $data);
+        return EellyClient::request('log/userHandle', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class UserHandle implements UserHandleInterface
      */
     public function addUserHandleAsync(array $data)
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, false, $data);
+        return EellyClient::request('log/userHandle', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class UserHandle implements UserHandleInterface
      */
     public function updateUserHandle(int $UserHandleId, array $data): bool
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, true, $UserHandleId, $data);
+        return EellyClient::request('log/userHandle', __FUNCTION__, true, $UserHandleId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class UserHandle implements UserHandleInterface
      */
     public function updateUserHandleAsync(int $UserHandleId, array $data)
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, false, $UserHandleId, $data);
+        return EellyClient::request('log/userHandle', __FUNCTION__, false, $UserHandleId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class UserHandle implements UserHandleInterface
      */
     public function deleteUserHandle(int $UserHandleId): bool
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, true, $UserHandleId);
+        return EellyClient::request('log/userHandle', __FUNCTION__, true, $UserHandleId);
     }
 
     /**
@@ -83,7 +83,7 @@ class UserHandle implements UserHandleInterface
      */
     public function deleteUserHandleAsync(int $UserHandleId)
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, false, $UserHandleId);
+        return EellyClient::request('log/userHandle', __FUNCTION__, false, $UserHandleId);
     }
 
     /**
@@ -91,7 +91,7 @@ class UserHandle implements UserHandleInterface
      */
     public function listUserHandlePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/userHandle', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class UserHandle implements UserHandleInterface
      */
     public function listUserHandlePageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/userhandle', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/userHandle', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

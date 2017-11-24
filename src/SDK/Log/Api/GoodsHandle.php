@@ -39,7 +39,7 @@ class GoodsHandle implements GoodsHandleInterface
      */
     public function getGoodsHandle(int $goodsHandleId): GoodsHandleDTO
     {
-        return EellyClient::request('log/goodshandle', __FUNCTION__, true, $goodsHandleId);
+        return EellyClient::request('log/goodsHandle', __FUNCTION__, true, $goodsHandleId);
     }
 
     /**
@@ -59,7 +59,7 @@ class GoodsHandle implements GoodsHandleInterface
      */
     public function getGoodsHandleAsync(int $goodsHandleId)
     {
-        return EellyClient::request('log/goodshandle', __FUNCTION__, false, $goodsHandleId);
+        return EellyClient::request('log/goodsHandle', __FUNCTION__, false, $goodsHandleId);
     }
 
     /**
@@ -85,7 +85,7 @@ class GoodsHandle implements GoodsHandleInterface
      */
     public function addGoodsHandle(array $data): bool
     {
-        return EellyClient::request('log/goodshandle', __FUNCTION__, true, $data);
+        return EellyClient::request('log/goodsHandle', __FUNCTION__, true, $data);
     }
 
     /**
@@ -111,7 +111,7 @@ class GoodsHandle implements GoodsHandleInterface
      */
     public function addGoodsHandleAsync(array $data)
     {
-        return EellyClient::request('log/goodshandle', __FUNCTION__, false, $data);
+        return EellyClient::request('log/goodsHandle', __FUNCTION__, false, $data);
     }
 
     /**
@@ -137,7 +137,7 @@ class GoodsHandle implements GoodsHandleInterface
      */
     public function listGoodsHandlePage(int $type = 0, int $goodsId = 0, string $name = '', int $adminId = 0, string $adminName = '', int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('log/goodshandle', __FUNCTION__, true, $type, $goodsId, $name, $adminId, $adminName, $currentPage, $limit);
+        return EellyClient::request('log/goodsHandle', __FUNCTION__, true, $type, $goodsId, $name, $adminId, $adminName, $currentPage, $limit);
     }
 
     /**
@@ -163,7 +163,7 @@ class GoodsHandle implements GoodsHandleInterface
      */
     public function listGoodsHandlePageAsync(int $type = 0, int $goodsId = 0, string $name = '', int $adminId = 0, string $adminName = '', int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('log/goodshandle', __FUNCTION__, false, $type, $goodsId, $name, $adminId, $adminName, $currentPage, $limit);
+        return EellyClient::request('log/goodsHandle', __FUNCTION__, false, $type, $goodsId, $name, $adminId, $adminName, $currentPage, $limit);
     }
 
     /**

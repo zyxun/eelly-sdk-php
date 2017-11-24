@@ -37,7 +37,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function getOneSubjectType(string $subjectCode): array
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, true, $subjectCode);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $subjectCode);
     }
 
     /**
@@ -56,7 +56,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function getOneSubjectTypeAsync(string $subjectCode)
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, false, $subjectCode);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $subjectCode);
     }
 
     /**
@@ -76,7 +76,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function addSubjectType(array $data): bool
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $data);
     }
 
     /**
@@ -96,7 +96,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function addSubjectTypeAsync(array $data)
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $data);
     }
 
     /**
@@ -116,7 +116,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function updateSubjectType(string $subjectCode, array $data): bool
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, true, $subjectCode, $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $subjectCode, $data);
     }
 
     /**
@@ -136,7 +136,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function updateSubjectTypeAsync(string $subjectCode, array $data)
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, false, $subjectCode, $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $subjectCode, $data);
     }
 
     /**
@@ -155,7 +155,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function deleteSubjectType(string $subjectCode): bool
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, true, $subjectCode);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $subjectCode);
     }
 
     /**
@@ -174,7 +174,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function deleteSubjectTypeAsync(string $subjectCode)
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, false, $subjectCode);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $subjectCode);
     }
 
     /**
@@ -194,7 +194,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function getSubjectTypeList(array $data): array
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, true, $data);
     }
 
     /**
@@ -214,7 +214,7 @@ class SubjectType implements SubjectTypeInterface
      */
     public function getSubjectTypeListAsync(array $data)
     {
-        return EellyClient::request('pay/subjecttype', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/subjectType', __FUNCTION__, false, $data);
     }
 
     /**

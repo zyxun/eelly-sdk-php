@@ -37,7 +37,7 @@ class PayAccount implements PayAccountInterface
      */
     public function getPayAccount(int $lpaId): PayAccountDTO
     {
-        return EellyClient::request('log/payaccount', __FUNCTION__, true, $lpaId);
+        return EellyClient::request('log/payAccount', __FUNCTION__, true, $lpaId);
     }
 
     /**
@@ -55,7 +55,7 @@ class PayAccount implements PayAccountInterface
      */
     public function getPayAccountAsync(int $lpaId)
     {
-        return EellyClient::request('log/payaccount', __FUNCTION__, false, $lpaId);
+        return EellyClient::request('log/payAccount', __FUNCTION__, false, $lpaId);
     }
 
     /**
@@ -70,7 +70,7 @@ class PayAccount implements PayAccountInterface
      */
     public function addPayAccount(array $data): bool
     {
-        return EellyClient::request('log/payaccount', __FUNCTION__, true, $data);
+        return EellyClient::request('log/payAccount', __FUNCTION__, true, $data);
     }
 
     /**
@@ -85,7 +85,7 @@ class PayAccount implements PayAccountInterface
      */
     public function addPayAccountAsync(array $data)
     {
-        return EellyClient::request('log/payaccount', __FUNCTION__, false, $data);
+        return EellyClient::request('log/payAccount', __FUNCTION__, false, $data);
     }
 
     /**
@@ -94,7 +94,7 @@ class PayAccount implements PayAccountInterface
      */
     public function listPayAccountPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('log/payaccount', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('log/payAccount', __FUNCTION__, true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -103,7 +103,7 @@ class PayAccount implements PayAccountInterface
      */
     public function listPayAccountPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('log/payaccount', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('log/payAccount', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**

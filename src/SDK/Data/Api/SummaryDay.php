@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Data\Api;
 
-use Eelly\DTO\SummaryDayDTO;
-use Eelly\SDK\Data\Service\SummaryDayInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Data\Service\SummaryDayInterface;
+use Eelly\DTO\SummaryDayDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class SummaryDay implements SummaryDayInterface
 {
@@ -27,7 +27,15 @@ class SummaryDay implements SummaryDayInterface
      */
     public function getSummaryDay(int $summaryDayId): SummaryDayDTO
     {
-        return EellyClient::request('data/summaryday', 'getSummaryDay', $summaryDayId);
+        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $summaryDayId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getSummaryDayAsync(int $summaryDayId)
+    {
+        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $summaryDayId);
     }
 
     /**
@@ -35,7 +43,15 @@ class SummaryDay implements SummaryDayInterface
      */
     public function addSummaryDay(array $data): bool
     {
-        return EellyClient::request('data/summaryday', 'addSummaryDay', $data);
+        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addSummaryDayAsync(array $data)
+    {
+        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class SummaryDay implements SummaryDayInterface
      */
     public function updateSummaryDay(int $summaryDayId, array $data): bool
     {
-        return EellyClient::request('data/summaryday', 'updateSummaryDay', $summaryDayId, $data);
+        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $summaryDayId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateSummaryDayAsync(int $summaryDayId, array $data)
+    {
+        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $summaryDayId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class SummaryDay implements SummaryDayInterface
      */
     public function deleteSummaryDay(int $summaryDayId): bool
     {
-        return EellyClient::request('data/summaryday', 'deleteSummaryDay', $summaryDayId);
+        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $summaryDayId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteSummaryDayAsync(int $summaryDayId)
+    {
+        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $summaryDayId);
     }
 
     /**
@@ -59,7 +91,15 @@ class SummaryDay implements SummaryDayInterface
      */
     public function listSummaryDayPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('data/summaryday', 'listSummaryDayPage', $condition, $currentPage, $limit);
+        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listSummaryDayPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**

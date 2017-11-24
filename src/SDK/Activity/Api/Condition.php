@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,53 +12,195 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Activity\Api;
 
-use Eelly\DTO\ConditionDTO;
-use Eelly\SDK\Activity\Service\ConditionInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Activity\Service\ConditionInterface;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Condition implements ConditionInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取参加活动店铺信息.
+     *
+     * @param int $acId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"acId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
      */
-    public function getCondition(int $conditionId): ConditionDTO
+    public function getCondition(int $acId): array
     {
-        return EellyClient::request('activity/condition', 'getCondition', true, $conditionId);
+        return EellyClient::request('activity/condition', __FUNCTION__, true, $acId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取参加活动店铺信息.
+     *
+     * @param int $acId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"acId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
+     */
+    public function getConditionAsync(int $acId)
+    {
+        return EellyClient::request('activity/condition', __FUNCTION__, false, $acId);
+    }
+
+    /**
+     * 获取参加活动店铺信息.
+     *
+     *
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"] 验证服务接口
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
      */
     public function addCondition(array $data): bool
     {
-        return EellyClient::request('activity/condition', 'addCondition', true, $data);
+        return EellyClient::request('activity/condition', __FUNCTION__, true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取参加活动店铺信息.
+     *
+     *
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"] 验证服务接口
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
      */
-    public function updateCondition(int $conditionId, array $data): bool
+    public function addConditionAsync(array $data)
     {
-        return EellyClient::request('activity/condition', 'updateCondition', true, $conditionId, $data);
+        return EellyClient::request('activity/condition', __FUNCTION__, false, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取参加活动店铺信息.
+     *
+     *
+     * @param int    $acId            参与条件ID
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"]
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"acId":1,"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
      */
-    public function deleteCondition(int $conditionId): bool
+    public function updateCondition(int $acId, array $data): bool
     {
-        return EellyClient::request('activity/condition', 'deleteCondition', true, $conditionId);
+        return EellyClient::request('activity/condition', __FUNCTION__, true, $acId, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取参加活动店铺信息.
+     *
+     *
+     * @param int    $acId            参与条件ID
+     * @param array  $data            参与条件数据集
+     * @param string $data["name"]    参数名称
+     * @param string $data["service"]
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动商品结果集
+     *
+     * @requestExample({"acId":1,"data":{"name":"21313","service":"hahahaha"}})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
      */
-    public function listConditionPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
+    public function updateConditionAsync(int $acId, array $data)
     {
-        return EellyClient::request('activity/condition', 'listConditionPage', true, $condition, $limit, $currentPage);
+        return EellyClient::request('activity/condition', __FUNCTION__, false, $acId, $data);
+    }
+
+    /**
+     * 删除参加活动店铺信息.
+     *
+     * @param int $acId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"acId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
+     */
+    public function deleteCondition(int $acId): bool
+    {
+        return EellyClient::request('activity/condition', __FUNCTION__, true, $acId);
+    }
+
+    /**
+     * 删除参加活动店铺信息.
+     *
+     * @param int $acId 营销活动id
+     *
+     * @throws \Eelly\SDK\Activity\Exception\ActivityException
+     *
+     * @return array 活动条件参数结果集
+     *
+     * @requestExample({"acId": 1})
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     *
+     * @since 2017年09月12日
+     */
+    public function deleteConditionAsync(int $acId)
+    {
+        return EellyClient::request('activity/condition', __FUNCTION__, false, $acId);
     }
 
     /**

@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,70 +12,387 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Service\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Service\DTO\ServiceDTO;
 use Eelly\SDK\Service\Service\ServiceInterface;
+use Eelly\SDK\Service\DTO\ServiceDTO;
+use Eelly\DTO\UidDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Service implements ServiceInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一条增值服务.
+     *
+     * @param int $serviceId 服务ID
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return ServiceDTO
+     * @requestExample({"serviceId":1})
+     * @returnExample({"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
      */
     public function getService(int $serviceId): ServiceDTO
     {
-        return EellyClient::request('service/Service', 'getService', true, $serviceId);
+        return EellyClient::request('service/service', __FUNCTION__, true, $serviceId);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一条增值服务.
+     *
+     * @param int $serviceId 服务ID
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return ServiceDTO
+     * @requestExample({"serviceId":1})
+     * @returnExample({"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function getServiceAsync(int $serviceId)
+    {
+        return EellyClient::request('service/service', __FUNCTION__, false, $serviceId);
+    }
+
+    /**
+     * 新增增值服务.
+     *
+     * @param array  $data           服务数据
+     * @param string $data['name']   服务名称
+     * @param int    $data['value']  认证标志值
+     * @param int    $data['type']   服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $data['model']  计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param string $data['table']  服务对应的主体表
+     * @param int    $data['status'] 服务状态：1 启用 2 停用 4 删除
+     * @param UidDTO $user           登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return bool 新增结果
+     *
+     * @requestExample({"data":{"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1}})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
      */
     public function addService(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Service', 'addService', true, $data, $user);
+        return EellyClient::request('service/service', __FUNCTION__, true, $data, $user);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 新增增值服务.
+     *
+     * @param array  $data           服务数据
+     * @param string $data['name']   服务名称
+     * @param int    $data['value']  认证标志值
+     * @param int    $data['type']   服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $data['model']  计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param string $data['table']  服务对应的主体表
+     * @param int    $data['status'] 服务状态：1 启用 2 停用 4 删除
+     * @param UidDTO $user           登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return bool 新增结果
+     *
+     * @requestExample({"data":{"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1}})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function addServiceAsync(array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('service/service', __FUNCTION__, false, $data, $user);
+    }
+
+    /**
+     * 修改增值服务.
+     *
+     * @param int    $serviceId      服务ID
+     * @param array  $data           认证数据
+     * @param string $data['name']   服务名称
+     * @param int    $data['value']  认证标志值
+     * @param int    $data['type']   服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $data['model']  计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param string $data['table']  服务对应的主体表
+     * @param int    $data['status'] 服务状态：1 启用 2 停用 4 删除
+     * @param UidDTO $user           登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return bool 修改结果
+     *
+     * @requestExample({"serviceId":1,"data":{"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1}})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
      */
     public function updateService(int $serviceId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Service', 'updateService', true, $serviceId, $data, $user);
+        return EellyClient::request('service/service', __FUNCTION__, true, $serviceId, $data, $user);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 修改增值服务.
+     *
+     * @param int    $serviceId      服务ID
+     * @param array  $data           认证数据
+     * @param string $data['name']   服务名称
+     * @param int    $data['value']  认证标志值
+     * @param int    $data['type']   服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $data['model']  计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param string $data['table']  服务对应的主体表
+     * @param int    $data['status'] 服务状态：1 启用 2 停用 4 删除
+     * @param UidDTO $user           登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return bool 修改结果
+     *
+     * @requestExample({"serviceId":1,"data":{"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":1,"type":2,"model":1,"table":"service_entity","status":1}})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function updateServiceAsync(int $serviceId, array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('service/service', __FUNCTION__, false, $serviceId, $data, $user);
+    }
+
+    /**
+     * 删除增值服务.
+     *
+     * @param int    $serviceId 服务ID
+     * @param UidDTO $user      登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return bool 删除结果
+     *
+     * @requestExample({"serviceId":1})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
      */
     public function deleteService(int $serviceId, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/Service', 'deleteService', true, $serviceId, $user);
+        return EellyClient::request('service/service', __FUNCTION__, true, $serviceId, $user);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 删除增值服务.
+     *
+     * @param int    $serviceId 服务ID
+     * @param UidDTO $user      登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return bool 删除结果
+     *
+     * @requestExample({"serviceId":1})
+     * @returnExample(true)
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function deleteServiceAsync(int $serviceId, UidDTO $user = null)
+    {
+        return EellyClient::request('service/service', __FUNCTION__, false, $serviceId, $user);
+    }
+
+    /**
+     * 获取买家和卖家增值服务列表.
+     *
+     * @param array  $condition              查询条件
+     * @param int    $condition['serviceId'] 服务ID
+     * @param string $condition['name']      服务名称
+     * @param int    $condition['value']     认证标志值
+     * @param int    $condition['type']      服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $condition['model']     计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int    $condition['status']    服务状态：1 启用 2 停用 4 删除
+     * @param int    $currentPage            当前页
+     * @param int    $limit                  每页页数
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return array
+     *
+     * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
      */
     public function listServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Service', 'listServicePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', __FUNCTION__, true, $condition, $currentPage, $limit);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取买家和卖家增值服务列表.
+     *
+     * @param array  $condition              查询条件
+     * @param int    $condition['serviceId'] 服务ID
+     * @param string $condition['name']      服务名称
+     * @param int    $condition['value']     认证标志值
+     * @param int    $condition['type']      服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $condition['model']     计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int    $condition['status']    服务状态：1 启用 2 停用 4 删除
+     * @param int    $currentPage            当前页
+     * @param int    $limit                  每页页数
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return array
+     *
+     * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function listServicePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('service/service', __FUNCTION__, false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 获取买家增值服务列表.
+     *
+     * @param array  $condition              查询条件
+     * @param int    $condition['serviceId'] 服务ID
+     * @param string $condition['name']      服务名称
+     * @param int    $condition['value']     认证标志值
+     * @param int    $condition['type']      服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $condition['model']     计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int    $condition['status']    服务状态：1 启用 2 停用 4 删除
+     * @param int    $currentPage            当前页
+     * @param int    $limit                  每页页数
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return array
+     *
+     * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
      */
     public function listBuyerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Service', 'listServicePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', __FUNCTION__, true, $condition, $currentPage, $limit);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 获取买家增值服务列表.
+     *
+     * @param array  $condition              查询条件
+     * @param int    $condition['serviceId'] 服务ID
+     * @param string $condition['name']      服务名称
+     * @param int    $condition['value']     认证标志值
+     * @param int    $condition['type']      服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $condition['model']     计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int    $condition['status']    服务状态：1 启用 2 停用 4 删除
+     * @param int    $currentPage            当前页
+     * @param int    $limit                  每页页数
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return array
+     *
+     * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function listBuyerServicePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('service/service', __FUNCTION__, false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 获取卖家增值服务列表.
+     *
+     * @param array  $condition              查询条件
+     * @param int    $condition['serviceId'] 服务ID
+     * @param string $condition['name']      服务名称
+     * @param int    $condition['value']     认证标志值
+     * @param int    $condition['type']      服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $condition['model']     计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int    $condition['status']    服务状态：1 启用 2 停用 4 删除
+     * @param int    $currentPage            当前页
+     * @param int    $limit                  每页页数
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return array
+     *
+     * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
      */
     public function listSellerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/Service', 'listServicePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', __FUNCTION__, true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 获取卖家增值服务列表.
+     *
+     * @param array  $condition              查询条件
+     * @param int    $condition['serviceId'] 服务ID
+     * @param string $condition['name']      服务名称
+     * @param int    $condition['value']     认证标志值
+     * @param int    $condition['type']      服务对象：1 店+(下游买家) 2 厂+(上游卖家)
+     * @param int    $condition['model']     计数模式：1 合同期内 2 每月 4 每日，全部模式：1+2+4=7
+     * @param int    $condition['status']    服务状态：1 启用 2 停用 4 删除
+     * @param int    $currentPage            当前页
+     * @param int    $limit                  每页页数
+     *
+     * @throws \Eelly\SDK\Service\Exception\ServiceException
+     *
+     * @return array
+     *
+     * @requestExample({"condition":{"serviceId":1,"name":"\u5b9e\u4f53\u8ba4\u8bc1","value":0,"type":1,"model":7,"table":"service_entity","status":1},"limit":10,"currentPage":1})
+     * @returnExample({"items":[{"serviceId":"4","name":"\u4e91\u5e97\u94fa","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"},{"serviceId":"5","name":"\u4e91\u8d27\u6e90","value":"0","type":"1","model":"1","table":"","status":"4","createdTime":"1458093605"}],"page":{"first":1,"before":1,"current":1,"last":1,"next":1,"totalPages":1,"totalItems":2,"limit":10}})
+     *
+     * @author wujunhua<wujunhua@eelly.net>
+     *
+     * @since 2017-09-21
+     */
+    public function listSellerServicePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('service/service', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**

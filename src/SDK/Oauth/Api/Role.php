@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -15,80 +14,182 @@ namespace Eelly\SDK\Oauth\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Oauth\Service\RoleInterface;
+use Eelly\SDK\Oauth\DTO\RoleDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Role implements RoleInterface
 {
     /**
+     * 获得指定角色.
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return RoleDTO 角色DTO
+     * @requestExample({"roleId":1})
+     * @returnExample({"roleId": "1","roleName": "系统管理员","defaultPermission": "**"})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-9-18
+     */
+    public function getRole(int $roleId): RoleDTO
+    {
+        return EellyClient::request('oauth/role', __FUNCTION__, true, $roleId);
+    }
+
+    /**
+     * 获得指定角色.
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return RoleDTO 角色DTO
+     * @requestExample({"roleId":1})
+     * @returnExample({"roleId": "1","roleName": "系统管理员","defaultPermission": "**"})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-9-18
+     */
+    public function getRoleAsync(int $roleId)
+    {
+        return EellyClient::request('oauth/role', __FUNCTION__, false, $roleId);
+    }
+
+    /**
      * 获得角色列表.
      *
-     * @return array
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return array 返回角色列表
+     * @requestExample()
+     * @returnExample([{"roleId": "1","roleName": "系统管理员","defaultPermission": "**","createdTime": "0","updateTime": "2017-06-21 17:36:49"}])
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-7-25
      */
-    public function getRoleList(): array
+    public function listRole(): array
     {
-        return EellyClient::request('oauth/roleserver', 'getRoleList');
+        return EellyClient::request('oauth/role', __FUNCTION__, true);
     }
 
     /**
-     * @param int   $id   角色id
-     * @param array $data 更新数组
+     * 获得角色列表.
      *
-     * @return int 数据库更新返回值
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return array 返回角色列表
+     * @requestExample()
+     * @returnExample([{"roleId": "1","roleName": "系统管理员","defaultPermission": "**","createdTime": "0","updateTime": "2017-06-21 17:36:49"}])
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-7-25
      */
-    public function updateRole(int $id, array $data): int
+    public function listRoleAsync()
     {
-        return EellyClient::request('oauth/roleserver', 'updateRole', $id, $data);
+        return EellyClient::request('oauth/role', __FUNCTION__, false);
     }
 
     /**
-     * 新增角色.
+     * 更新角色信息.
      *
-     * @param array $data 数组
+     * @param int    $roleId            角色id
+     * @param string $roleName          角色名
+     * @param string $defaultPermission 角色权限
      *
-     * @return int 数据库新增返回id
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return bool 返回bool
+     * @requestExample({"roleId":1,"roleName":"管理员","defaultPermission":"*"})
+     * @returnExample(true)
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-7-25
      */
-    public function addRole(array $data): int
+    public function updateRole(int $roleId, string $roleName, string $defaultPermission): bool
     {
-        return EellyClient::request('oauth/roleserver', 'addRole', $data);
+        return EellyClient::request('oauth/role', __FUNCTION__, true, $roleId, $roleName, $defaultPermission);
     }
 
     /**
-     * 新增角色与客户端对应关系.
+     * 更新角色信息.
      *
-     * @param array $data
+     * @param int    $roleId            角色id
+     * @param string $roleName          角色名
+     * @param string $defaultPermission 角色权限
      *
-     * @return int
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return bool 返回bool
+     * @requestExample({"roleId":1,"roleName":"管理员","defaultPermission":"*"})
+     * @returnExample(true)
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-7-25
      */
-    public function addRoleClient($data): int
+    public function updateRoleAsync(int $roleId, string $roleName, string $defaultPermission)
     {
-        // TODO: Implement addRoleClient() method.
-        return EellyClient::request('oauth/roleserver', 'addRoleClient', $data);
+        return EellyClient::request('oauth/role', __FUNCTION__, false, $roleId, $roleName, $defaultPermission);
     }
 
     /**
-     * 新增角色权限操作.
+     * 增加角色.
      *
-     * @param array $data
+     * @param string $roleName          角色名称
+     * @param string $defaultPermission 默认权限
      *
-     * @return int
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return RoleDTO 新增角色信息
+     * @requestExample({"roleName":"goods","defaultPermission":"*"})
+     * @returnExample({"roleId":"16","roleName":"ffff","defaultPermission":"***","createdTime":"1504779860","updateTime":"2017-09-07 10:20:07"})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-7-25
      */
-    public function addRolePermission(array $data): int
+    public function addRole(string $roleName, string $defaultPermission): RoleDTO
     {
-        // TODO: Implement addRolePermission() method.
-        return EellyClient::request('oauth/roleserver', 'addRolePermission', $data);
+        return EellyClient::request('oauth/role', __FUNCTION__, true, $roleName, $defaultPermission);
     }
 
     /**
-     * @param int   $id   角色id
-     * @param array $data 更新角色权限数组
+     * 增加角色.
      *
-     * @return int 数据库更新返回值
+     * @param string $roleName          角色名称
+     * @param string $defaultPermission 默认权限
+     *
+     * @throws \Eelly\SDK\Oauth\Exception\OauthException
+     *
+     * @return RoleDTO 新增角色信息
+     * @requestExample({"roleName":"goods","defaultPermission":"*"})
+     * @returnExample({"roleId":"16","roleName":"ffff","defaultPermission":"***","createdTime":"1504779860","updateTime":"2017-09-07 10:20:07"})
+     *
+     * @author liangxinyi<liangxinyi@eelly.net>
+     *
+     * @since 2017-7-25
      */
-    public function updateRolePermission(int $id, array $data): bool
+    public function addRoleAsync(string $roleName, string $defaultPermission)
     {
-        // TODO: Implement updateRolePermission() method.
-        return EellyClient::request('oauth/roleserver', 'updateRolePermission', $id, $data);
+        return EellyClient::request('oauth/role', __FUNCTION__, false, $roleName, $defaultPermission);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
     }
 }

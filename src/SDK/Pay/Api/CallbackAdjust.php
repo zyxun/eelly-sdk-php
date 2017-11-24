@@ -37,7 +37,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function getCallbackAdjust(int $pcaId): CallbackAdjustDTO
     {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, true, $pcaId);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, true, $pcaId);
     }
 
     /**
@@ -55,7 +55,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function getCallbackAdjustAsync(int $pcaId)
     {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, false, $pcaId);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, false, $pcaId);
     }
 
     /**
@@ -73,7 +73,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function addCallBackAdjust(string $billNo, int $type): bool
     {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, true, $billNo, $type);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, true, $billNo, $type);
     }
 
     /**
@@ -91,55 +91,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function addCallBackAdjustAsync(string $billNo, int $type)
     {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, false, $billNo, $type);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function updateCallbackAdjust(int $callbackAdjustId, array $data): bool
-    {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, true, $callbackAdjustId, $data);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function updateCallbackAdjustAsync(int $callbackAdjustId, array $data)
-    {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, false, $callbackAdjustId, $data);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteCallbackAdjust(int $callbackAdjustId): bool
-    {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, true, $callbackAdjustId);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteCallbackAdjustAsync(int $callbackAdjustId)
-    {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, false, $callbackAdjustId);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listCallbackAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, true, $condition, $currentPage, $limit);
-    }
-
-    /**
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listCallbackAdjustPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
-    {
-        return EellyClient::request('pay/callbackadjust', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, false, $billNo, $type);
     }
 
     /**

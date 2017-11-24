@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\DTO\ReplyDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\Service\ReplyInterface;
+use Eelly\DTO\ReplyDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Reply implements ReplyInterface
 {
@@ -27,7 +27,15 @@ class Reply implements ReplyInterface
      */
     public function getReply(int $ReplyId): ReplyDTO
     {
-        return EellyClient::request('system/reply', 'getReply', $ReplyId);
+        return EellyClient::request('system/reply', __FUNCTION__, true, $ReplyId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getReplyAsync(int $ReplyId)
+    {
+        return EellyClient::request('system/reply', __FUNCTION__, false, $ReplyId);
     }
 
     /**
@@ -35,7 +43,15 @@ class Reply implements ReplyInterface
      */
     public function addReply(array $data): bool
     {
-        return EellyClient::request('system/reply', 'addReply', $data);
+        return EellyClient::request('system/reply', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addReplyAsync(array $data)
+    {
+        return EellyClient::request('system/reply', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class Reply implements ReplyInterface
      */
     public function updateReply(int $ReplyId, array $data): bool
     {
-        return EellyClient::request('system/reply', 'updateReply', $ReplyId, $data);
+        return EellyClient::request('system/reply', __FUNCTION__, true, $ReplyId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateReplyAsync(int $ReplyId, array $data)
+    {
+        return EellyClient::request('system/reply', __FUNCTION__, false, $ReplyId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class Reply implements ReplyInterface
      */
     public function deleteReply(int $ReplyId): bool
     {
-        return EellyClient::request('system/reply', 'deleteReply', $ReplyId);
+        return EellyClient::request('system/reply', __FUNCTION__, true, $ReplyId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteReplyAsync(int $ReplyId)
+    {
+        return EellyClient::request('system/reply', __FUNCTION__, false, $ReplyId);
     }
 
     /**
@@ -59,7 +91,15 @@ class Reply implements ReplyInterface
      */
     public function listReplyPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('system/reply', 'listReplyPage', $condition, $limit, $currentPage);
+        return EellyClient::request('system/reply', __FUNCTION__, true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listReplyPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('system/reply', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**

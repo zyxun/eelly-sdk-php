@@ -37,7 +37,7 @@ class SubjectDay implements SubjectDayInterface
      */
     public function getOneSubjectDay(string $subjectCode, string $workDate): array
     {
-        return EellyClient::request('pay/subjectday', __FUNCTION__, true, $subjectCode, $workDate);
+        return EellyClient::request('pay/subjectDay', __FUNCTION__, true, $subjectCode, $workDate);
     }
 
     /**
@@ -56,7 +56,7 @@ class SubjectDay implements SubjectDayInterface
      */
     public function getOneSubjectDayAsync(string $subjectCode, string $workDate)
     {
-        return EellyClient::request('pay/subjectday', __FUNCTION__, false, $subjectCode, $workDate);
+        return EellyClient::request('pay/subjectDay', __FUNCTION__, false, $subjectCode, $workDate);
     }
 
     /**
@@ -80,7 +80,7 @@ class SubjectDay implements SubjectDayInterface
      */
     public function addSubjectDay(array $data): bool
     {
-        return EellyClient::request('pay/subjectday', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/subjectDay', __FUNCTION__, true, $data);
     }
 
     /**
@@ -104,7 +104,7 @@ class SubjectDay implements SubjectDayInterface
      */
     public function addSubjectDayAsync(array $data)
     {
-        return EellyClient::request('pay/subjectday', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/subjectDay', __FUNCTION__, false, $data);
     }
 
     /**
