@@ -150,9 +150,7 @@ interface AddressInterface
     /**
      * 获取用户地址列表.
      *
-     * @param array  $condtion
      * @param UidDTO $user     用户信息
-     * @explain
      *
      * @throws UserException
      *
@@ -165,7 +163,7 @@ interface AddressInterface
      *
      * @since  2017-10-24
      */
-    public function listAddress(array $condtion = [], UidDTO $user = null): array;
+    public function listAddress(UidDTO $user = null): array;
 
     /**
      * 获取用户的地址列表.
