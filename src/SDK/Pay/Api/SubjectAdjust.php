@@ -37,7 +37,7 @@ class SubjectAdjust implements SubjectAdjustInterface
      */
     public function getSubjectAdjust(string $subjectCode, string $workDate): SubjectAdjustDTO
     {
-        return EellyClient::request('pay/subjectadjust', __FUNCTION__, true, $subjectCode, $workDate);
+        return EellyClient::request('pay/subjectAdjust', __FUNCTION__, true, $subjectCode, $workDate);
     }
 
     /**
@@ -55,41 +55,7 @@ class SubjectAdjust implements SubjectAdjustInterface
      */
     public function getSubjectAdjustAsync(string $subjectCode, string $workDate)
     {
-        return EellyClient::request('pay/subjectadjust', __FUNCTION__, false, $subjectCode, $workDate);
-    }
-
-    /**
-     * 自动脚本添加科目日核算记录
-     *
-     * @param string $date 结算日期：格式YYYYMMDD
-     * @return bool
-     *
-     * @requestExample({"data":{"workDate":"20171109","subjectCode":"eellyPay","subjectMoney":20,"accountMoney":10,"balanceStatus":1,"remark":"","createdTime":135234565}})
-     * @returnExample(true)
-     *
-     * @author zhangyingdi<zhangyingdi@gmail.com>
-     * @since  2017-11-21
-     */
-    public function autoRunSubjectAdjust(string $date): bool
-    {
-        return EellyClient::request('pay/subjectadjust', __FUNCTION__, true, $date);
-    }
-
-    /**
-     * 自动脚本添加科目日核算记录
-     *
-     * @param string $date 结算日期：格式YYYYMMDD
-     * @return bool
-     *
-     * @requestExample({"data":{"workDate":"20171109","subjectCode":"eellyPay","subjectMoney":20,"accountMoney":10,"balanceStatus":1,"remark":"","createdTime":135234565}})
-     * @returnExample(true)
-     *
-     * @author zhangyingdi<zhangyingdi@gmail.com>
-     * @since  2017-11-21
-     */
-    public function autoRunSubjectAdjustAsync(string $date)
-    {
-        return EellyClient::request('pay/subjectadjust', __FUNCTION__, false, $date);
+        return EellyClient::request('pay/subjectAdjust', __FUNCTION__, false, $subjectCode, $workDate);
     }
 
     /**

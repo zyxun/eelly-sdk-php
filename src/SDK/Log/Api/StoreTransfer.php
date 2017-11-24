@@ -27,7 +27,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function getStoreTransfer(int $StoreTransferId): StoreTransferDTO
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, true, $StoreTransferId);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, true, $StoreTransferId);
     }
 
     /**
@@ -35,7 +35,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function getStoreTransferAsync(int $StoreTransferId)
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, false, $StoreTransferId);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, false, $StoreTransferId);
     }
 
     /**
@@ -43,7 +43,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function addStoreTransfer(array $data): bool
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, true, $data);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function addStoreTransferAsync(array $data)
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, false, $data);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function updateStoreTransfer(int $StoreTransferId, array $data): bool
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, true, $StoreTransferId, $data);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, true, $StoreTransferId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function updateStoreTransferAsync(int $StoreTransferId, array $data)
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, false, $StoreTransferId, $data);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, false, $StoreTransferId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function deleteStoreTransfer(int $StoreTransferId): bool
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, true, $StoreTransferId);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, true, $StoreTransferId);
     }
 
     /**
@@ -83,7 +83,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function deleteStoreTransferAsync(int $StoreTransferId)
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, false, $StoreTransferId);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, false, $StoreTransferId);
     }
 
     /**
@@ -91,7 +91,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function listStoreTransferPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class StoreTransfer implements StoreTransferInterface
      */
     public function listStoreTransferPageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/storetransfer', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/storeTransfer', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

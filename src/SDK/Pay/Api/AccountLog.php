@@ -51,7 +51,7 @@ class AccountLog implements AccountLogInterface
      */
     public function getAccountLog(int $palId): AccountLogDTO
     {
-        return EellyClient::request('pay/accountlog', __FUNCTION__, true, $palId);
+        return EellyClient::request('pay/accountLog', __FUNCTION__, true, $palId);
     }
 
     /**
@@ -83,7 +83,7 @@ class AccountLog implements AccountLogInterface
      */
     public function getAccountLogAsync(int $palId)
     {
-        return EellyClient::request('pay/accountlog', __FUNCTION__, false, $palId);
+        return EellyClient::request('pay/accountLog', __FUNCTION__, false, $palId);
     }
 
     /**
@@ -112,7 +112,7 @@ class AccountLog implements AccountLogInterface
      */
     public function addAccountLog(array $data): bool
     {
-        return EellyClient::request('pay/accountlog', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/accountLog', __FUNCTION__, true, $data);
     }
 
     /**
@@ -141,7 +141,7 @@ class AccountLog implements AccountLogInterface
      */
     public function addAccountLogAsync(array $data)
     {
-        return EellyClient::request('pay/accountlog', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/accountLog', __FUNCTION__, false, $data);
     }
 
     /**

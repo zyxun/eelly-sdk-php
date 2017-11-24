@@ -25,39 +25,39 @@ class AccountAdjust implements AccountAdjustInterface
     /**
      * 根据账户日资金核算主键id,获取对应的信息.
      *
-     * @param int $aaId 账户日资金核算主键id
+     * @param int $paaId 账户日资金核算主键id
      *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return AccountAdjustDTO
      * @requestExample({"aaId":1})
-     * @returnExample({"aaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
+     * @returnExample({"paaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     * @since  2017-11-09
+     * @since  2017-11-22
      */
-    public function getAccountAdjust(int $aaId): AccountAdjustDTO
+    public function getAccountAdjust(int $paaId): AccountAdjustDTO
     {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, true, $aaId);
+        return EellyClient::request('pay/accountAdjust', __FUNCTION__, true, $paaId);
     }
 
     /**
      * 根据账户日资金核算主键id,获取对应的信息.
      *
-     * @param int $aaId 账户日资金核算主键id
+     * @param int $paaId 账户日资金核算主键id
      *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return AccountAdjustDTO
      * @requestExample({"aaId":1})
-     * @returnExample({"aaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
+     * @returnExample({"paaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
-     * @since  2017-11-09
+     * @since  2017-11-22
      */
-    public function getAccountAdjustAsync(int $aaId)
+    public function getAccountAdjustAsync(int $paaId)
     {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, false, $aaId);
+        return EellyClient::request('pay/accountAdjust', __FUNCTION__, false, $paaId);
     }
 
     /**
@@ -81,7 +81,7 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function addAccountAdjust(array $data): bool
     {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/accountAdjust', __FUNCTION__, true, $data);
     }
 
     /**
@@ -105,13 +105,13 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function addAccountAdjustAsync(array $data)
     {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/accountAdjust', __FUNCTION__, false, $data);
     }
 
     /**
      * 根据账户日资金核算主键id,获取对应的信息.
      *
-     * @param int $aaId 账户日资金核算主键id
+     * @param int $paaId 账户日资金核算主键id
      * @param array $data 账户日资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
@@ -122,21 +122,21 @@ class AccountAdjust implements AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"aaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({"paaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      * @since  2017-11-09
      */
-    public function updateAccountAdjust(int $aaId, array $data): bool
+    public function updateAccountAdjust(int $paaId, array $data): bool
     {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, true, $aaId, $data);
+        return EellyClient::request('pay/accountAdjust', __FUNCTION__, true, $paaId, $data);
     }
 
     /**
      * 根据账户日资金核算主键id,获取对应的信息.
      *
-     * @param int $aaId 账户日资金核算主键id
+     * @param int $paaId 账户日资金核算主键id
      * @param array $data 账户日资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
@@ -147,51 +147,15 @@ class AccountAdjust implements AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"aaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({"paaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      * @since  2017-11-09
      */
-    public function updateAccountAdjustAsync(int $aaId, array $data)
+    public function updateAccountAdjustAsync(int $paaId, array $data)
     {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, false, $aaId, $data);
-    }
-
-    /**
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteAccountAdjust(int $accountAdjustId): bool
-    {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, true, $accountAdjustId);
-    }
-
-    /**
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function deleteAccountAdjustAsync(int $accountAdjustId)
-    {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, false, $accountAdjustId);
-    }
-
-    /**
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listAccountAdjustPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, true, $condition, $currentPage, $limit);
-    }
-
-    /**
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     */
-    public function listAccountAdjustPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
-    {
-        return EellyClient::request('pay/accountadjust', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/accountAdjust', __FUNCTION__, false, $paaId, $data);
     }
 
     /**

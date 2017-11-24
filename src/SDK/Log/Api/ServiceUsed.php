@@ -27,7 +27,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function getServiceUsed(int $ServiceUsedId): ServiceUsedDTO
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, true, $ServiceUsedId);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, true, $ServiceUsedId);
     }
 
     /**
@@ -35,7 +35,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function getServiceUsedAsync(int $ServiceUsedId)
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, false, $ServiceUsedId);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, false, $ServiceUsedId);
     }
 
     /**
@@ -43,7 +43,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function addServiceUsed(array $data): bool
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, true, $data);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function addServiceUsedAsync(array $data)
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, false, $data);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function updateServiceUsed(int $ServiceUsedId, array $data): bool
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, true, $ServiceUsedId, $data);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, true, $ServiceUsedId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function updateServiceUsedAsync(int $ServiceUsedId, array $data)
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, false, $ServiceUsedId, $data);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, false, $ServiceUsedId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function deleteServiceUsed(int $ServiceUsedId): bool
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, true, $ServiceUsedId);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, true, $ServiceUsedId);
     }
 
     /**
@@ -83,7 +83,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function deleteServiceUsedAsync(int $ServiceUsedId)
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, false, $ServiceUsedId);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, false, $ServiceUsedId);
     }
 
     /**
@@ -91,7 +91,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function listServiceUsedPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class ServiceUsed implements ServiceUsedInterface
      */
     public function listServiceUsedPageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/serviceused', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/serviceUsed', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

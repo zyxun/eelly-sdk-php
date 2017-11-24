@@ -27,7 +27,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function getGoodsHistory1(int $GoodsHistory1Id): GoodsHistory1DTO
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, true, $GoodsHistory1Id);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, true, $GoodsHistory1Id);
     }
 
     /**
@@ -35,7 +35,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function getGoodsHistory1Async(int $GoodsHistory1Id)
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, false, $GoodsHistory1Id);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, false, $GoodsHistory1Id);
     }
 
     /**
@@ -43,7 +43,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function addGoodsHistory1(array $data): bool
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, true, $data);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function addGoodsHistory1Async(array $data)
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, false, $data);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function updateGoodsHistory1(int $GoodsHistory1Id, array $data): bool
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, true, $GoodsHistory1Id, $data);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, true, $GoodsHistory1Id, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function updateGoodsHistory1Async(int $GoodsHistory1Id, array $data)
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, false, $GoodsHistory1Id, $data);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, false, $GoodsHistory1Id, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function deleteGoodsHistory1(int $GoodsHistory1Id): bool
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, true, $GoodsHistory1Id);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, true, $GoodsHistory1Id);
     }
 
     /**
@@ -83,7 +83,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function deleteGoodsHistory1Async(int $GoodsHistory1Id)
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, false, $GoodsHistory1Id);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, false, $GoodsHistory1Id);
     }
 
     /**
@@ -91,7 +91,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function listGoodsHistory1Page(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class GoodsHistory1 implements GoodsHistory1Interface
      */
     public function listGoodsHistory1PageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/goodshistory1', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/goodsHistory1', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

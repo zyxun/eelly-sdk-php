@@ -42,7 +42,7 @@ class GoodsPrice implements GoodsPriceInterface
      */
     public function getGoodsPrice(int $lgpId): GoodsPriceDTO
     {
-        return EellyClient::request('log/goodsprice', __FUNCTION__, true, $lgpId);
+        return EellyClient::request('log/goodsPrice', __FUNCTION__, true, $lgpId);
     }
 
     /**
@@ -65,7 +65,7 @@ class GoodsPrice implements GoodsPriceInterface
      */
     public function getGoodsPriceAsync(int $lgpId)
     {
-        return EellyClient::request('log/goodsprice', __FUNCTION__, false, $lgpId);
+        return EellyClient::request('log/goodsPrice', __FUNCTION__, false, $lgpId);
     }
 
     /**
@@ -89,7 +89,7 @@ class GoodsPrice implements GoodsPriceInterface
      */
     public function addGoodsPrice(array $data): bool
     {
-        return EellyClient::request('log/goodsprice', __FUNCTION__, true, $data);
+        return EellyClient::request('log/goodsPrice', __FUNCTION__, true, $data);
     }
 
     /**
@@ -113,7 +113,7 @@ class GoodsPrice implements GoodsPriceInterface
      */
     public function addGoodsPriceAsync(array $data)
     {
-        return EellyClient::request('log/goodsprice', __FUNCTION__, false, $data);
+        return EellyClient::request('log/goodsPrice', __FUNCTION__, false, $data);
     }
 
     /**
@@ -135,7 +135,7 @@ class GoodsPrice implements GoodsPriceInterface
      */
     public function listGoodsPricePage(int $goodsId, int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('log/goodsprice', __FUNCTION__, true, $goodsId, $currentPage, $limit);
+        return EellyClient::request('log/goodsPrice', __FUNCTION__, true, $goodsId, $currentPage, $limit);
     }
 
     /**
@@ -157,7 +157,7 @@ class GoodsPrice implements GoodsPriceInterface
      */
     public function listGoodsPricePageAsync(int $goodsId, int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('log/goodsprice', __FUNCTION__, false, $goodsId, $currentPage, $limit);
+        return EellyClient::request('log/goodsPrice', __FUNCTION__, false, $goodsId, $currentPage, $limit);
     }
 
     /**

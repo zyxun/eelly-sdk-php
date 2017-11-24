@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Data\Api;
 
-use Eelly\DTO\SummaryDTO;
-use Eelly\SDK\Data\Service\SummaryInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Data\Service\SummaryInterface;
+use Eelly\DTO\SummaryDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class Summary implements SummaryInterface
 {
@@ -27,7 +27,15 @@ class Summary implements SummaryInterface
      */
     public function getSummary(int $summaryId): SummaryDTO
     {
-        return EellyClient::request('data/summary', 'getSummary', $summaryId);
+        return EellyClient::request('data/summary', __FUNCTION__, true, $summaryId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getSummaryAsync(int $summaryId)
+    {
+        return EellyClient::request('data/summary', __FUNCTION__, false, $summaryId);
     }
 
     /**
@@ -35,7 +43,15 @@ class Summary implements SummaryInterface
      */
     public function addSummary(array $data): bool
     {
-        return EellyClient::request('data/summary', 'addSummary', $data);
+        return EellyClient::request('data/summary', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addSummaryAsync(array $data)
+    {
+        return EellyClient::request('data/summary', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class Summary implements SummaryInterface
      */
     public function updateSummary(int $summaryId, array $data): bool
     {
-        return EellyClient::request('data/summary', 'updateSummary', $summaryId, $data);
+        return EellyClient::request('data/summary', __FUNCTION__, true, $summaryId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateSummaryAsync(int $summaryId, array $data)
+    {
+        return EellyClient::request('data/summary', __FUNCTION__, false, $summaryId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class Summary implements SummaryInterface
      */
     public function deleteSummary(int $summaryId): bool
     {
-        return EellyClient::request('data/summary', 'deleteSummary', $summaryId);
+        return EellyClient::request('data/summary', __FUNCTION__, true, $summaryId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteSummaryAsync(int $summaryId)
+    {
+        return EellyClient::request('data/summary', __FUNCTION__, false, $summaryId);
     }
 
     /**
@@ -59,7 +91,15 @@ class Summary implements SummaryInterface
      */
     public function listSummaryPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('data/summary', 'listSummaryPage', $condition, $currentPage, $limit);
+        return EellyClient::request('data/summary', __FUNCTION__, true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listSummaryPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('data/summary', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**

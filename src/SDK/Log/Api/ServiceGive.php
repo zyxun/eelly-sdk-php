@@ -27,7 +27,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function getServiceGive(int $ServiceGiveId): ServiceGiveDTO
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, true, $ServiceGiveId);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $ServiceGiveId);
     }
 
     /**
@@ -35,7 +35,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function getServiceGiveAsync(int $ServiceGiveId)
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, false, $ServiceGiveId);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $ServiceGiveId);
     }
 
     /**
@@ -43,7 +43,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function addServiceGive(array $data): bool
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, true, $data);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function addServiceGiveAsync(array $data)
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, false, $data);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function updateServiceGive(int $ServiceGiveId, array $data): bool
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, true, $ServiceGiveId, $data);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $ServiceGiveId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function updateServiceGiveAsync(int $ServiceGiveId, array $data)
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, false, $ServiceGiveId, $data);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $ServiceGiveId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function deleteServiceGive(int $ServiceGiveId): bool
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, true, $ServiceGiveId);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $ServiceGiveId);
     }
 
     /**
@@ -83,7 +83,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function deleteServiceGiveAsync(int $ServiceGiveId)
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, false, $ServiceGiveId);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $ServiceGiveId);
     }
 
     /**
@@ -91,7 +91,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function listServiceGivePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class ServiceGive implements ServiceGiveInterface
      */
     public function listServiceGivePageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/servicegive', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/serviceGive', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

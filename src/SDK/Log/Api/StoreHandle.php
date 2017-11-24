@@ -27,7 +27,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function getStoreHandle(int $StoreHandleId): StoreHandleDTO
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, true, $StoreHandleId);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $StoreHandleId);
     }
 
     /**
@@ -35,7 +35,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function getStoreHandleAsync(int $StoreHandleId)
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, false, $StoreHandleId);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $StoreHandleId);
     }
 
     /**
@@ -43,7 +43,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function addStoreHandle(array $data): bool
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, true, $data);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function addStoreHandleAsync(array $data)
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, false, $data);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function updateStoreHandle(int $StoreHandleId, array $data): bool
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, true, $StoreHandleId, $data);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $StoreHandleId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function updateStoreHandleAsync(int $StoreHandleId, array $data)
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, false, $StoreHandleId, $data);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $StoreHandleId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function deleteStoreHandle(int $StoreHandleId): bool
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, true, $StoreHandleId);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $StoreHandleId);
     }
 
     /**
@@ -83,7 +83,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function deleteStoreHandleAsync(int $StoreHandleId)
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, false, $StoreHandleId);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $StoreHandleId);
     }
 
     /**
@@ -91,7 +91,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function listStoreHandlePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class StoreHandle implements StoreHandleInterface
      */
     public function listStoreHandlePageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/storehandle', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/storeHandle', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

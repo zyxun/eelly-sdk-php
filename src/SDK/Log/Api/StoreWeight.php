@@ -27,7 +27,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function getStoreWeight(int $StoreWeightId): StoreWeightDTO
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, true, $StoreWeightId);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, true, $StoreWeightId);
     }
 
     /**
@@ -35,7 +35,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function getStoreWeightAsync(int $StoreWeightId)
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, false, $StoreWeightId);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, false, $StoreWeightId);
     }
 
     /**
@@ -43,7 +43,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function addStoreWeight(array $data): bool
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, true, $data);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function addStoreWeightAsync(array $data)
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, false, $data);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function updateStoreWeight(int $StoreWeightId, array $data): bool
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, true, $StoreWeightId, $data);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, true, $StoreWeightId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function updateStoreWeightAsync(int $StoreWeightId, array $data)
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, false, $StoreWeightId, $data);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, false, $StoreWeightId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function deleteStoreWeight(int $StoreWeightId): bool
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, true, $StoreWeightId);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, true, $StoreWeightId);
     }
 
     /**
@@ -83,7 +83,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function deleteStoreWeightAsync(int $StoreWeightId)
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, false, $StoreWeightId);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, false, $StoreWeightId);
     }
 
     /**
@@ -91,7 +91,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function listStoreWeightPage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class StoreWeight implements StoreWeightInterface
      */
     public function listStoreWeightPageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/storeweight', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/storeWeight', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

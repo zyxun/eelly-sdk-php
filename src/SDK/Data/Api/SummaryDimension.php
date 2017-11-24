@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Data\Api;
 
-use Eelly\DTO\SummaryDimensionDTO;
-use Eelly\SDK\Data\Service\SummaryDimensionInterface;
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Data\Service\SummaryDimensionInterface;
+use Eelly\DTO\SummaryDimensionDTO;
 
 /**
- * @author eellytools<localhost.shell@gmail.com>
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class SummaryDimension implements SummaryDimensionInterface
 {
@@ -27,7 +27,15 @@ class SummaryDimension implements SummaryDimensionInterface
      */
     public function getSummaryDimension(int $summaryDimensionId): SummaryDimensionDTO
     {
-        return EellyClient::request('data/summarydimension', 'getSummaryDimension', $summaryDimensionId);
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, true, $summaryDimensionId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function getSummaryDimensionAsync(int $summaryDimensionId)
+    {
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, false, $summaryDimensionId);
     }
 
     /**
@@ -35,7 +43,15 @@ class SummaryDimension implements SummaryDimensionInterface
      */
     public function addSummaryDimension(array $data): bool
     {
-        return EellyClient::request('data/summarydimension', 'addSummaryDimension', $data);
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function addSummaryDimensionAsync(array $data)
+    {
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, false, $data);
     }
 
     /**
@@ -43,7 +59,15 @@ class SummaryDimension implements SummaryDimensionInterface
      */
     public function updateSummaryDimension(int $summaryDimensionId, array $data): bool
     {
-        return EellyClient::request('data/summarydimension', 'updateSummaryDimension', $summaryDimensionId, $data);
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, true, $summaryDimensionId, $data);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function updateSummaryDimensionAsync(int $summaryDimensionId, array $data)
+    {
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, false, $summaryDimensionId, $data);
     }
 
     /**
@@ -51,7 +75,15 @@ class SummaryDimension implements SummaryDimensionInterface
      */
     public function deleteSummaryDimension(int $summaryDimensionId): bool
     {
-        return EellyClient::request('data/summarydimension', 'deleteSummaryDimension', $summaryDimensionId);
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, true, $summaryDimensionId);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function deleteSummaryDimensionAsync(int $summaryDimensionId)
+    {
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, false, $summaryDimensionId);
     }
 
     /**
@@ -59,7 +91,15 @@ class SummaryDimension implements SummaryDimensionInterface
      */
     public function listSummaryDimensionPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('data/summarydimension', 'listSummaryDimensionPage', $condition, $currentPage, $limit);
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     */
+    public function listSummaryDimensionPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('data/summaryDimension', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**

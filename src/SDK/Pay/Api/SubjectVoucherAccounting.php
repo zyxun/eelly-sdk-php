@@ -38,7 +38,7 @@ class SubjectVoucherAccounting implements SubjectVoucherAccountingInterface
      */
     public function payAccounting(array $data): void
     {
-        return EellyClient::request('pay/subjectvoucheraccounting', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/subjectVoucherAccounting', __FUNCTION__, true, $data);
     }
 
     /**
@@ -58,7 +58,7 @@ class SubjectVoucherAccounting implements SubjectVoucherAccountingInterface
      */
     public function payAccountingAsync(array $data)
     {
-        return EellyClient::request('pay/subjectvoucheraccounting', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/subjectVoucherAccounting', __FUNCTION__, false, $data);
     }
 
     /**

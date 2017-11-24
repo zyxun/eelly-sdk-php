@@ -27,7 +27,7 @@ class UserScore implements UserScoreInterface
      */
     public function getUserScore(int $UserScoreId): UserScoreDTO
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, true, $UserScoreId);
+        return EellyClient::request('log/userScore', __FUNCTION__, true, $UserScoreId);
     }
 
     /**
@@ -35,7 +35,7 @@ class UserScore implements UserScoreInterface
      */
     public function getUserScoreAsync(int $UserScoreId)
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, false, $UserScoreId);
+        return EellyClient::request('log/userScore', __FUNCTION__, false, $UserScoreId);
     }
 
     /**
@@ -43,7 +43,7 @@ class UserScore implements UserScoreInterface
      */
     public function addUserScore(array $data): bool
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, true, $data);
+        return EellyClient::request('log/userScore', __FUNCTION__, true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class UserScore implements UserScoreInterface
      */
     public function addUserScoreAsync(array $data)
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, false, $data);
+        return EellyClient::request('log/userScore', __FUNCTION__, false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class UserScore implements UserScoreInterface
      */
     public function updateUserScore(int $UserScoreId, array $data): bool
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, true, $UserScoreId, $data);
+        return EellyClient::request('log/userScore', __FUNCTION__, true, $UserScoreId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class UserScore implements UserScoreInterface
      */
     public function updateUserScoreAsync(int $UserScoreId, array $data)
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, false, $UserScoreId, $data);
+        return EellyClient::request('log/userScore', __FUNCTION__, false, $UserScoreId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class UserScore implements UserScoreInterface
      */
     public function deleteUserScore(int $UserScoreId): bool
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, true, $UserScoreId);
+        return EellyClient::request('log/userScore', __FUNCTION__, true, $UserScoreId);
     }
 
     /**
@@ -83,7 +83,7 @@ class UserScore implements UserScoreInterface
      */
     public function deleteUserScoreAsync(int $UserScoreId)
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, false, $UserScoreId);
+        return EellyClient::request('log/userScore', __FUNCTION__, false, $UserScoreId);
     }
 
     /**
@@ -91,7 +91,7 @@ class UserScore implements UserScoreInterface
      */
     public function listUserScorePage(array $condition = [], int $limit = 10, int $currentPage = 1): array
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, true, $condition, $limit, $currentPage);
+        return EellyClient::request('log/userScore', __FUNCTION__, true, $condition, $limit, $currentPage);
     }
 
     /**
@@ -99,7 +99,7 @@ class UserScore implements UserScoreInterface
      */
     public function listUserScorePageAsync(array $condition = [], int $limit = 10, int $currentPage = 1)
     {
-        return EellyClient::request('log/userscore', __FUNCTION__, false, $condition, $limit, $currentPage);
+        return EellyClient::request('log/userScore', __FUNCTION__, false, $condition, $limit, $currentPage);
     }
 
     /**

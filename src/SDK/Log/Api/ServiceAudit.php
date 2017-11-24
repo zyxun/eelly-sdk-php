@@ -42,7 +42,7 @@ class ServiceAudit implements ServiceAuditInterface
      */
     public function getServiceAudit(int $ServiceAuditId): ServiceAuditDTO
     {
-        return EellyClient::request('log/serviceaudit', __FUNCTION__, true, $ServiceAuditId);
+        return EellyClient::request('log/serviceAudit', __FUNCTION__, true, $ServiceAuditId);
     }
 
     /**
@@ -65,7 +65,7 @@ class ServiceAudit implements ServiceAuditInterface
      */
     public function getServiceAuditAsync(int $ServiceAuditId)
     {
-        return EellyClient::request('log/serviceaudit', __FUNCTION__, false, $ServiceAuditId);
+        return EellyClient::request('log/serviceAudit', __FUNCTION__, false, $ServiceAuditId);
     }
 
     /**
@@ -85,7 +85,7 @@ class ServiceAudit implements ServiceAuditInterface
      */
     public function addServiceAudit(array $data): bool
     {
-        return EellyClient::request('log/serviceaudit', __FUNCTION__, true, $data);
+        return EellyClient::request('log/serviceAudit', __FUNCTION__, true, $data);
     }
 
     /**
@@ -105,7 +105,7 @@ class ServiceAudit implements ServiceAuditInterface
      */
     public function addServiceAuditAsync(array $data)
     {
-        return EellyClient::request('log/serviceaudit', __FUNCTION__, false, $data);
+        return EellyClient::request('log/serviceAudit', __FUNCTION__, false, $data);
     }
 
     /**
