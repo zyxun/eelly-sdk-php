@@ -42,7 +42,7 @@ class UserAuth implements UserAuthInterface
      */
     public function getUserAuthCount(int $userId, int $startTime, int $endTime = 0): int
     {
-        return EellyClient::request('log/userauth', __FUNCTION__, true, $userId, $startTime, $endTime);
+        return EellyClient::request('log/userAuth', __FUNCTION__, true, $userId, $startTime, $endTime);
     }
 
     /**
@@ -66,7 +66,7 @@ class UserAuth implements UserAuthInterface
      */
     public function getUserAuthCountAsync(int $userId, int $startTime, int $endTime = 0)
     {
-        return EellyClient::request('log/userauth', __FUNCTION__, false, $userId, $startTime, $endTime);
+        return EellyClient::request('log/userAuth', __FUNCTION__, false, $userId, $startTime, $endTime);
     }
 
     /**
@@ -93,7 +93,7 @@ class UserAuth implements UserAuthInterface
      */
     public function addUserAuth(array $data, int $userId): bool
     {
-        return EellyClient::request('log/userauth', __FUNCTION__, true, $data, $userId);
+        return EellyClient::request('log/userAuth', __FUNCTION__, true, $data, $userId);
     }
 
     /**
@@ -120,7 +120,7 @@ class UserAuth implements UserAuthInterface
      */
     public function addUserAuthAsync(array $data, int $userId)
     {
-        return EellyClient::request('log/userauth', __FUNCTION__, false, $data, $userId);
+        return EellyClient::request('log/userAuth', __FUNCTION__, false, $data, $userId);
     }
 
     /**
