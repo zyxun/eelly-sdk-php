@@ -77,4 +77,11 @@ class AddressDTO extends AbstractDTO
      * @var int
      */
     public $deliveryType;
+
+    /**
+     * 地区编码.
+     *
+     * @var
+     */
+    public $gbCode;
 }
