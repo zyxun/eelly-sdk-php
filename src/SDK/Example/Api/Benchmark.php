@@ -14,27 +14,18 @@ declare(strict_types=1);
 namespace Eelly\SDK\Example\Api;
 
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Example\Service\BenchmarkInterface;
 
-class Benchmark
+class Benchmark implements BenchmarkInterface
 {
-    /**
-     * @var bool
-     */
-    private $sync;
-
-    public function __construct(bool $sync = true)
-    {
-        $this->sync = $sync;
-    }
-
     /**
      * Hello world.
      *
      * @return string
      */
-    public function helloWorld()
+    public function helloWorld(): string
     {
-        return EellyClient::request('example/benchmark', __FUNCTION__, $this->sync);
+        return EellyClient::request('example/benchmark', __FUNCTION__, true);
     }
 
     /**
@@ -42,8 +33,18 @@ class Benchmark
      *
      * @return string
      */
-    public function sleep(int $time)
+    public function sleep(int $time): string
     {
-        return EellyClient::request('example/benchmark', __FUNCTION__, $this->sync, $time);
+        return EellyClient::request('example/benchmark', __FUNCTION__, true, $time);
+    }
+
+    /**
+     * @param int $time
+     *
+     * @return mixed
+     */
+    public function sleepAsync(int $time)
+    {
+        return EellyClient::request('example/benchmark', 'sleep', false, $time);
     }
 }
