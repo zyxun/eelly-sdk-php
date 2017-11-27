@@ -390,6 +390,24 @@ class Category implements CategoryInterface
     }
 
     /**
+     * 根据分类id获取指定字段数据.
+     *
+     * @param array $cateIds  分类id数组
+     * @param string $field   字段名
+     *
+     * @return array
+     * @requestExample({"cateIds":[289,292],"filed":"dealIn"})
+     * @returnExample([{"gc_id":"292","name":"男装"},{"gc_id":"289","name":"女装"}])
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月27日
+     */
+    public function getCateByIds(array $cateIds, string $field = 'base'): array
+    {
+        return EellyClient::request('goods/category', __FUNCTION__, true, $cateIds, $field);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
