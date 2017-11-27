@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Store\Service;
 
 use Eelly\DTO\UidDTO;
-use Eelly\SDK\Store\Service\DTO\AddressDTO;
+use Eelly\SDK\Store\DTO\AddressDTO;
 
 /**
  * 店铺地址.
@@ -105,11 +105,10 @@ interface AddressInterface
      *
      * @param int    $storeId     店铺地址
      * @param int    $addressType 店铺地址类型 1店铺地址 2退货地址
-     * @param UidDTO $user        登录用户信息
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
-     * @return \Eelly\SDK\Store\DTO\AddressDTO
+     * @return AddressDTO
      * @requestExample({"storeId":1, "addressType":1})
      * @returnExample({"storeName":"店铺名称","addressType":1,"consignee":"联系人姓名","zipcode":"邮政编码","address":"详细地址","mobile":"13333333","deliveryType":1})
      *
@@ -117,5 +116,5 @@ interface AddressInterface
      *
      * @since 2017-08-12
      */
-    public function getStoreAddress(int $storeId, int $addressType, UidDTO $user = null): AddressDTO;
+    public function getStoreAddress(int $storeId, int $addressType): AddressDTO;
 }
