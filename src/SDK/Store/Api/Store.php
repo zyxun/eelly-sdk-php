@@ -496,6 +496,70 @@ class Store implements StoreInterface
     }
 
     /**
+     * 开店流程
+     *
+     * @param array  $data 开店流程请求参数
+     * @param string $data['storeId'] 店铺id
+     * @param string $data['storeName'] 店铺名称
+     * @param string $data['consignee'] 联系人姓名
+     * @param string $data['gbCode'] 地区编码
+     * @param string $data['zipcode'] 邮政编码
+     * @param string $data['address'] 详细地址
+     * @param string $data['mobile'] 手机号
+     * @param string $data['marketId'] 市场id
+     * @param string $data['address'] 详细地址
+     * @param int $data['floorId'] 楼层id
+     * @param array $data['entNumber'] 档口号
+     * @param int $data['gcId'] 主营类型Id
+     * @param array $data['gpvIds'] 销售风格Id
+     * @param int $data['glId'] 销售档次id
+     * @param UidDTO $user 登录用户信息
+     * @return  boolean
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月24日
+     */
+    public function addStoreMainInfo(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('store/store', __FUNCTION__, true, $data, $user);
+    }
+
+    /**
+     * 开店流程
+     *
+     * @param array  $data 开店流程请求参数
+     * @param string $data['storeId'] 店铺id
+     * @param string $data['storeName'] 店铺名称
+     * @param string $data['consignee'] 联系人姓名
+     * @param string $data['gbCode'] 地区编码
+     * @param string $data['zipcode'] 邮政编码
+     * @param string $data['address'] 详细地址
+     * @param string $data['mobile'] 手机号
+     * @param string $data['marketId'] 市场id
+     * @param string $data['address'] 详细地址
+     * @param int $data['floorId'] 楼层id
+     * @param array $data['entNumber'] 档口号
+     * @param int $data['gcId'] 主营类型Id
+     * @param array $data['gpvIds'] 销售风格Id
+     * @param int $data['glId'] 销售档次id
+     * @param UidDTO $user 登录用户信息
+     * @return  boolean
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年11月24日
+     */
+    public function addStoreMainInfoAsync(array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('store/store', __FUNCTION__, false, $data, $user);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

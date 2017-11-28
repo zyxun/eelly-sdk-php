@@ -35,7 +35,7 @@ interface StoreInterface
      *
      * @since 2017-10-10
      */
-    public function searchStore(array $param = null): array;
+    public function searchStore(array $param): array;
 
     /**
      * 添加店铺索引信息.
