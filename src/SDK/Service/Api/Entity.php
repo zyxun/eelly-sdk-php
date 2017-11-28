@@ -255,7 +255,10 @@ class Entity implements EntityInterface
      * 获取店铺实体认证地址.
      *
      * @param int $storeId      店铺id
-     * @param int $addressType  店铺地址格式类型,1:省市区商圈市场楼层门牌号 2:(省|市|区)市场楼层门牌号
+     * @param int $addressType 店铺地址格式类型,
+     *                         1:xx省xx市xx区xx商圈xx市场xx楼层xx号
+     *                         2:xx(省)xx(市)xx(区)xx市场xx楼层xx号
+     *                         3:xx省xx市xx区xx市场xx层xx号
      *
      * @throws EntityException
      *
@@ -276,11 +279,9 @@ class Entity implements EntityInterface
      *
      * @param int $storeId  店铺id
      *
-     * @throws
-     *
      * @return array
      * @requestExample({"storeId":1})
-     * @returnExample({"authName":"档口地址真实性认证","authRank":"中级认证","auditTime":1525107661,"expireTime":1538326861,"imagesArr":[]}")
+     * @returnExample({"authName":"档口地址真实性认证","authRank":"中级认证","auditTime":1525107661,"expireTime":1538326861,"imagesArr":[]})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月28日

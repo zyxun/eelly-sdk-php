@@ -216,6 +216,26 @@ class Seller implements SellerInterface
     }
 
     /**
+     * 获取卖家认证简介信息.
+     *
+     * @param int $storeId  店铺id
+     *
+     * @return array
+     * @requestExample({"storeId":1}})
+     * @returnExample({"authName":"卖家身份真实性认证","authRank":"初级认证","auditTime":0,"expireTime":0})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月28日
+     * @validation(
+     *     @digit(0, {message:"非法的店铺id类型"})
+     * )
+     */
+    public function getSellerBase(int $storeId): array
+    {
+        return EellyClient::request('service/seller', __FUNCTION__, true, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

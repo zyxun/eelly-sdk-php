@@ -124,4 +124,21 @@ interface EntityInterface
      * @since 2017-09-16
      */
     public function checkEntity(int $storeId, int $status, UidDTO $user = null): bool;
+
+    /**
+     * 获取店铺实体认证地址.
+     *
+     * @param int $storeId      店铺id
+     * @param int $addressType 店铺地址格式类型, 1:xx省xx市xx区xx商圈xx市场xx楼层xx号, 2:xx(省)xx(市)xx(区)xx市场xx楼层xx号, 3:xx省xx市xx区xx市场xx层xx号
+     *
+     * @throws EntityException
+     *
+     * @return string
+     * @requestExample({"storeId":1,"addressType":1})
+     * @returnExample("xx省xx市xx区xx商圈xx市场xx层xx号")
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月25日
+     */
+    public function getEntityAddress(int $storeId, int $addressType): string;
 }
