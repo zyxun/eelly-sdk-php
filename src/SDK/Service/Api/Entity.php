@@ -252,6 +252,26 @@ class Entity implements EntityInterface
     }
 
     /**
+     * 获取店铺实体认证地址.
+     *
+     * @param int $storeId      店铺id
+     * @param int $addressType  店铺地址格式类型,1:省市区商圈市场楼层门牌号 2:(省|市|区)市场楼层门牌号
+     *
+     * @throws EntityException
+     *
+     * @return string
+     * @requestExample({"storeId":1,"addressType":1})
+     * @returnExample("xx省xx市xx区xx商圈xx市场xx层xx号")
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月25日
+     */
+    public function getEntityAddress(int $storeId, int $addressType): string
+    {
+        return EellyClient::request('service/entity', __FUNCTION__, true, $storeId, $addressType);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
