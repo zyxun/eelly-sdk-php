@@ -272,6 +272,28 @@ class Entity implements EntityInterface
     }
 
     /**
+     * 获取实体认证简介信息.
+     *
+     * @param int $storeId  店铺id
+     *
+     * @throws
+     *
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({"authName":"档口地址真实性认证","authRank":"中级认证","auditTime":1525107661,"expireTime":1538326861,"imagesArr":[]}")
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月28日
+     * @validation(
+     *     @digit(0,{"message":"非法的店铺id类型"})
+     * )
+     */
+    public function getEntityBase(int $storeId): array
+    {
+        return EellyClient::request('service/entity', __FUNCTION__, true, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
