@@ -36,7 +36,7 @@ class Store implements StoreInterface
      *
      * @since 2017-10-10
      */
-    public function searchStore(array $param = null): array
+    public function searchStore(array $param): array
     {
         return EellyClient::request('elastic/store', __FUNCTION__, true, $param);
     }
@@ -56,7 +56,7 @@ class Store implements StoreInterface
      *
      * @since 2017-10-10
      */
-    public function searchStoreAsync(array $param = null)
+    public function searchStoreAsync(array $param)
     {
         return EellyClient::request('elastic/store', __FUNCTION__, false, $param);
     }
