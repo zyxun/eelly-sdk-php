@@ -234,6 +234,23 @@ class Company implements CompanyInterface
     }
 
     /**
+     * 获取企业认证简介.
+     *
+     * @param int $storeId  店铺id
+     *
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({"authName":"企业身份真实性认证","authRank":"中级认证","auditTime":0,"expireTime":0,"imagesArr":[]})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月28日
+     */
+    public function getCompanyBase(int $storeId): array
+    {
+        return EellyClient::request('service/company', __FUNCTION__, true, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
