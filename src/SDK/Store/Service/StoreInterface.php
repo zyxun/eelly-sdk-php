@@ -260,4 +260,36 @@ interface StoreInterface
      * @since 2017年11月24日
      */
     public function addStoreMainInfo(array $data, UidDTO $user = null): bool;
+
+    /**
+     * 店铺信息页--店铺档案【新版档案】.
+     *
+     * @param int $storeId      店铺id
+     * @throws StoreException
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月24日
+     */
+    public function storeArchiveV2(int $storeId): array;
+
+    /**
+     * 店铺评论接口.
+     *
+     * @param int $storeId
+     *
+     * @throws
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月29日
+     */
+    public function getStoresEvaluation(int $storeId): array;
+
 }

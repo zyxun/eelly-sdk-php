@@ -21,6 +21,27 @@ use Eelly\SDK\Order\Service\EvaluationGoodsInterface;
  */
 class EvaluationGoods implements EvaluationGoodsInterface
 {
+
+    /**
+     * 统计订单商品评价分.
+     *
+     * @param int $storeId  店铺id
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月29日
+     * @validation(
+     *     @digit(0,{message:"非法的店铺id类型"})
+     * )
+     */
+    public function countGoodsEvaluation(int $storeId): array
+    {
+        return EellyClient::request('order/evaluationGoods', __FUNCTION__, true, $storeId);
+    }
+
     /**
      * @return self
      */
