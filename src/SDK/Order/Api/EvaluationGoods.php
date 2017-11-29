@@ -28,8 +28,8 @@ class EvaluationGoods implements EvaluationGoodsInterface
      * @param int $storeId  店铺id
      *
      * @return array
-     * @requestExample()
-     * @returnExample()
+     * @requestExample({"storeId":1})
+     * @returnExample({"zg":3,"ml":3,"bx":3.3,"com":3.1})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017年11月29日
