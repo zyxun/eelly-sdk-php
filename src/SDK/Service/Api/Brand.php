@@ -228,6 +228,27 @@ class Brand implements BrandInterface
     }
 
     /**
+     * 获取品牌认证简介信息.
+     *
+     * @param int $storeId  店铺id
+     *
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({"authName":"品牌真实性认证","authRank":"高级认证","auditTime":0,"expireTime":0})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月28日
+     * @validation(
+     *     @digit(0, {message:"非法的店铺id类型"})
+     * )
+     */
+    public function getBrandBase(int $storeId): array
+    {
+        return EellyClient::request('service/brand', __FUNCTION__, true, $storeId);
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance(): self
