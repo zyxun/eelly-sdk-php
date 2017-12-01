@@ -42,9 +42,9 @@ class ApiDocLogic extends Controller
     /**
      * 首页.
      */
-    public function home(): void
+    public function home(): View
     {
-        $this->rendBody(HomeDocumentShow::class, __FUNCTION__);
+        return $this->rendBody(HomeDocumentShow::class, __FUNCTION__);
     }
 
     /**
@@ -52,9 +52,9 @@ class ApiDocLogic extends Controller
      *
      * @param string $module
      */
-    public function module(string $module): void
+    public function module(string $module): View
     {
-        $this->rendBody(ModuleDocumentShow::class, __FUNCTION__, [$module]);
+        return $this->rendBody(ModuleDocumentShow::class, __FUNCTION__, [$module]);
     }
 
     /**
@@ -62,10 +62,11 @@ class ApiDocLogic extends Controller
      *
      * @param string $module
      */
-    public function service(string $module): void
+    public function service(string $module): View
     {
         $class = $this->dispatcher->getParam('class');
-        $this->rendBody(ServiceDocumentShow::class, __FUNCTION__, [$module, $class]);
+
+        return $this->rendBody(ServiceDocumentShow::class, __FUNCTION__, [$module, $class]);
     }
 
     /**
@@ -73,11 +74,12 @@ class ApiDocLogic extends Controller
      *
      * @param string $module
      */
-    public function api(string $module): void
+    public function api(string $module): View
     {
         $class = $this->dispatcher->getParam('class');
         $method = $this->dispatcher->getParam('method');
-        $this->rendBody(ApiDocumentShow::class, __FUNCTION__, [$module, $class, $method]);
+
+        return $this->rendBody(ApiDocumentShow::class, __FUNCTION__, [$module, $class, $method]);
     }
 
     /**
@@ -85,13 +87,15 @@ class ApiDocLogic extends Controller
      * @param string $method
      * @param array  $params
      */
-    private function rendBody(string $class, string $method, array $params = []): void
+    private function rendBody(string $class, string $method, array $params = []): View
     {
         $documentShow = $this->di->get($class, $params);
         if (method_exists($documentShow, 'initialize')) {
             $documentShow->initialize();
         }
         $documentShow->setViewVars();
+
+        return $this->view;
     }
 
     private function assignModuleList(): void
