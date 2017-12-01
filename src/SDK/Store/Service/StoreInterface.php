@@ -141,8 +141,7 @@ interface StoreInterface
      *
      * @return array 返回入库会员搜索引擎所需数据
      * @requestExample({"currentPage":1,"limit":100})
-     * @returnExample({"items":[{"storeId":"3","storeName":"LiWeiQuan123456","domain":"domain-3","creditValue":null,"addedCredit":null,"isMix":null,"mixNum":null,"mixMoney":null,"limitActivityExpireTime":null,"introduction":null,"storeWeight":0,"favorityNum":0,"isEntity":0,"isEnterprise":0,"isReturnedExchange":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isTryOn":0,"isRealGoods":0,"isMobiePay":0,"isSelfLift":0,"isHot":0}],"page":{"totalPages":3,"totalItems":3,"limit":1}})
-     *
+     * @returnExample({"items":{"1":{"storeId":"1","storeName":"店铺名称","domain":"domain-1","storeStatus":"1","storeLog":"","storeWeight":"0","createdTime":"1502278385","gbCodes":["65","6542","654223","654223100"],"creditValue":"0","minQuantity":"0","minPrice":"0","storeIntro":"","cateId":["22","22"],"storeYear":1,"isEnterprise":0,"isEntity":0,"isBrand":0,"isSeller":0,"isHot":0,"isTimeShipping":0,"isIntegrity":0,"isRealShot":0,"onlineStatus":1,"isBehalfof":1,"floorId":0,"marketId":0,"goodsNewTime":0,"recommendGoods":["goodsInfo"]}},"page":{"totalPages":1,"totalItems":3,"current":1,"limit":100}})
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-10-23
@@ -231,7 +230,7 @@ interface StoreInterface
      * @since 2017年10月31日
      */
     public function getCertificationServices(array $storeIds, array $types = []): array;
-    
+
     /**
      * 开店流程
      *
@@ -252,10 +251,10 @@ interface StoreInterface
      * @param int $data['glId'] 销售档次id
      * @param UidDTO $user 登录用户信息
      * @return  boolean
-     * 
+     *
      * @requestExample()
      * @returnExample()
-     * 
+     *
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月24日
      */
