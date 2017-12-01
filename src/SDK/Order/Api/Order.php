@@ -323,6 +323,27 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取店铺订单的买家id.
+     *
+     * @param int $sellerId 卖家id
+     *
+     * @throws OrderException
+     *
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年12月1日
+     * @validation(
+     *     @digit(0, {message:"非法的卖家id"})
+     * )
+     */
+    public function getBuyerId(int $sellerId)
+    {
+        return EellyClient::request('order/order', __FUNCTION__, true, $sellerId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

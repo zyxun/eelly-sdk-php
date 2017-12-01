@@ -280,7 +280,7 @@ class Region implements RegionInterface
      *
      * @return array
      * @requestExample({"gbCode":1})
-     * @returnExample({"gbCode":"4401","areaName":"广东省.广州市","shortName":"广东.广州"})
+     * @returnExample({"gbCode":"4401","areaName":"广东省 广州市","shortName":"广东 广州"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *

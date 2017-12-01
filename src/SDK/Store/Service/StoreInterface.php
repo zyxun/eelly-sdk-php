@@ -361,7 +361,7 @@ interface StoreInterface
      * list["buyerName"]      |string | 买家用户名
      * list["buyerId"]        |string | 买家用户id
      * list["goodsImage"]     |string | 商品默认图
-     * list["price"]          |string | 商品价格
+     * list["price"]          |string | 商品下单价格
      *
      * @return array
      * @requestExample({"storeId":1})
