@@ -44,8 +44,10 @@ interface ContactInterface
     /**
      * 统计关注的人数(含有Key值返回).
      *
-     * @param int         $startTime 关注开始时间
-     * @param int         $endTime   关注结束时间
+     * @param array       $data
+     * @param int         $data["startTime"] 关注开始时间
+     * @param int         $data["endTime"]   关注结束时间
+     * @param int         $data["ownerId"]   联系人所有者用户ID
      * @param UidDTO|null $user      登录id
      *
      * @return array
@@ -56,7 +58,7 @@ interface ContactInterface
      *
      * @since 2017年09月30日
      */
-    public function getConcernCount(int $startTime = 0, int $endTime = 0, UidDTO $user = null): array;
+    public function getConcernCount(array $data = [], UidDTO $user = null): array;
 
     /**
      * 获取联系人列表.
