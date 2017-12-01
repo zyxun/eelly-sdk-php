@@ -15,7 +15,6 @@ namespace Eelly\DocsBundle\Adapter;
 
 use Eelly\Di\Injectable;
 use phpDocumentor\Reflection\DocBlockFactory;
-use ReflectionClass;
 use SplFileObject;
 
 /**
@@ -23,12 +22,6 @@ use SplFileObject;
  */
 abstract class AbstractDocumentShow extends Injectable
 {
-    public function initialize(): void
-    {
-        $this->view = $this->di->get('view');
-        $this->assignModuleList();
-    }
-
     /**
      * parser markdown.
      *
@@ -102,23 +95,5 @@ abstract class AbstractDocumentShow extends Injectable
             'authors'     => $authors,
             'params'      => $params,
         ];
-    }
-
-    protected function assignModuleList(): void
-    {
-        $moduleList = [];
-        foreach ($this->config->modules as $module => $value) {
-            if (!class_exists($value->className)) {
-                require $value->path;
-            }
-            $reflectionClass = new ReflectionClass($value->className);
-            $docComment = $reflectionClass->getDocComment();
-            $factory = \phpDocumentor\Reflection\DocBlockFactory::createInstance();
-            $docblock = $factory->create($docComment);
-            $summary = $docblock->getSummary();
-            $moduleName = substr($value->className, 0, -7);
-            $moduleList[] = ['moduleName' => $moduleName, 'url' => '/'.$module, 'summary' => $summary];
-        }
-        $this->view->setVar('moduleList', $moduleList);
     }
 }

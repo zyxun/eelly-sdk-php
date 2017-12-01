@@ -22,12 +22,11 @@ use Phalcon\Mvc\View;
 
 class DocsBundle extends Injectable
 {
-    public function register(): void
+    public function registerRouter(): void
     {
         $router = $this->router;
         foreach ($this->config->modules as $moduleName => $value) {
             $value = $value->toArray();
-            $namespace = str_replace('Module', 'Logic', $value['className']);
             $router->addGet('/', [
                 'namespace'  => __NAMESPACE__,
                 'controller' => 'apiDoc',
@@ -55,6 +54,11 @@ class DocsBundle extends Injectable
                 'method'     => 2,
             ])->setName($moduleName);
         }
+    }
+
+    public function register(): void
+    {
+        $this->registerRouter();
         $this->getDI()->setShared('view', function () {
             $view = new View();
             $view->setViewsDir(__DIR__.'/Resources/views/');
