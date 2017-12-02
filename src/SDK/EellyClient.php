@@ -70,7 +70,7 @@ class EellyClient
      */
     private function __construct(array $options, array $collaborators = [], array $providerUri = [])
     {
-        self::$providerUri = array_replace($providerUri, self::$providerUri);
+        self::$providerUri = array_replace(self::$providerUri, $providerUri);
         $this->provider = new EellyProvider($options, $collaborators);
     }
 
