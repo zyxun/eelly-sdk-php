@@ -25,8 +25,7 @@ class DocsBundle extends Injectable
     public function registerRouter(): self
     {
         $router = $this->router;
-        foreach ($this->config->modules as $moduleName => $value) {
-            $value = $value->toArray();
+        foreach ($this->config->moduleList as $moduleName) {
             $router->addGet('/', [
                 'namespace'  => __NAMESPACE__,
                 'controller' => 'apiDoc',
