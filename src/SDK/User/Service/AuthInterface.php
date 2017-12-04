@@ -29,6 +29,7 @@ interface AuthInterface
      * @param array       $data                    实名认证数据
      * @param int         $data['type']            认证类型：0 个人实名认证 1 企业实名认证,
      * @param string      $data['name']            真实姓名/企业名称,
+     * @param string      $data['mobile']          手机号码type为0需要传这个值,
      * @param string      $data['license']         身份证号码/营业执照号,
      * @param int         $data['idType']          证件有效期：0 有期限 1 长期,
      * @param int         $data['expiryDate']      证件到期时间,
@@ -44,8 +45,8 @@ interface AuthInterface
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
      * @return bool
-     * @requestExample({'type':1,'name':'小王','license':444444,'idType':0,'expiryDate':1509592537,
-     *     'bankId':222,'gbCode':11,'bankSubbranch':'支行名称','bankAccount':'银行账号','cartPic':'/SKKSKS/SSJJS/KSKKS.png','cartReversedPic':'/SKKSKS/SSJJS/KSKKS.png','remark':'备注'})
+     * @requestExample({"data":{"type":1,"name":"小王","license":444444,"idType":0,"expiryDate":1509592537,
+     *     "bankId":222,"gbCode":"SKKUUE","bankSubbranch":"支行名称","bankAccount":"银行账号","cartPic":"/SKKSKS/SSJJS/KSKKS.png","cartReversedPic":"/SKKSKS/SSJJS/KSKKS.png","remark":"备注"}})
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
