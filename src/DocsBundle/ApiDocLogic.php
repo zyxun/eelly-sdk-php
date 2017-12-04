@@ -101,17 +101,17 @@ class ApiDocLogic extends Controller
     private function assignModuleList(): void
     {
         $moduleList = [];
-        foreach ($this->config->modules as $module => $value) {
-            if (!class_exists($value->className)) {
-                require $value->path;
+        foreach ($this->config->moduleList as $moduleName) {
+            $moduleClass = ucfirst($moduleName).'\\Module';
+            if (!class_exists($moduleClass)) {
+                require 'src/'.ucfirst($moduleName).'/Module.php';
             }
-            $reflectionClass = new ReflectionClass($value->className);
+            $reflectionClass = new ReflectionClass($moduleClass);
             $docComment = $reflectionClass->getDocComment();
             $factory = \phpDocumentor\Reflection\DocBlockFactory::createInstance();
             $docblock = $factory->create($docComment);
             $summary = $docblock->getSummary();
-            $moduleName = substr($value->className, 0, -7);
-            $moduleList[] = ['moduleName' => $moduleName, 'url' => '/'.$module, 'summary' => $summary];
+            $moduleList[] = ['moduleName' => $moduleName, 'url' => '/'.$moduleName, 'summary' => $summary];
         }
         $this->view->setVar('moduleList', $moduleList);
     }
