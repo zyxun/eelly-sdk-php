@@ -65,8 +65,10 @@ class Contact implements ContactInterface
     /**
      * 统计关注的人数(含有Key值返回).
      *
-     * @param int         $startTime 关注开始时间
-     * @param int         $endTime   关注结束时间
+     * @param array       $data
+     * @param int         $data["startTime"] 关注开始时间
+     * @param int         $data["endTime"]   关注结束时间
+     * @param int         $data["ownerId"]   联系人所有者用户ID
      * @param UidDTO|null $user      登录id
      *
      * @return array
@@ -77,9 +79,9 @@ class Contact implements ContactInterface
      *
      * @since 2017年09月30日
      */
-    public function getConcernCount(int $startTime = 0, int $endTime = 0, UidDTO $user = null): array
+    public function getConcernCount(array $data = [], UidDTO $user = null): array
     {
-        return EellyClient::request('contact/contact', __FUNCTION__, true, $startTime, $endTime, $user);
+        return EellyClient::request('contact/contact', __FUNCTION__, true, $data, $user);
     }
 
     /**
@@ -360,6 +362,50 @@ class Contact implements ContactInterface
     public function addMobileContactAsync(array $data, UidDTO $user = null)
     {
         return EellyClient::request('contact/contact', __FUNCTION__, false, $data, $user);
+    }
+
+    /**
+     * 获取联系人主表信息.
+     *
+     * @param array $condition
+     * @param int $condition["ownerId"]     联系人所有者id(可不传)
+     * @param string $condition["fields"]   获取的字段空间(可不传)
+     * @param int $condition["fromType"]    来源类型：1 厂+ 2 店+ 3 CRM 4 云店卖家 5 云店买家(可不传)
+     * @param int $condition["userType"]    用户类型：1 厂+ 2 店+ 3 云店卖家 4 云店买家(可不传)
+     * @param string $condition["keyBy"]    指定返回数据的下标(可不传)
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --------------------|-------|--------------
+     * 2                   |array  |  contactId值
+     * 2["contactId"]      |string |  contactId值
+     * 2["ownerId"]        |string |  联系人所有者id
+     * 2["userId"]         |string |  联系人id
+     *
+     * @throws ContactException
+     *
+     * @return array
+     * @requestExample({"condition":{"ownerId":1,"fields":"userId","fromType":2,"userType":1,"keyBy":"user_id"}})
+     * @returnExample({
+     *     "2":{
+     *          "contactId":"1",
+     *          "ownerId":"1",
+     *          "userId":"2"
+     *      },
+     *     "148086":{
+     *          "contactId":"2",
+     *          "ownerId":"1",
+     *          "userId":"148086"
+     *      }
+     * })
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年12月1日
+     */
+    public function getContactInfo(array $condition): array
+    {
+        return EellyClient::request('contact/contact', __FUNCTION__, true, $condition);
     }
 
     /**

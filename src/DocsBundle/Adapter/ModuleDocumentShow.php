@@ -28,8 +28,8 @@ class ModuleDocumentShow extends AbstractDocumentShow implements DocumentShowInt
 
     public function __construct(string $class)
     {
-        $module = $this->config->modules->{$class};
-        $this->class = $module->className;
+        //$module = $this->config->modules->{$class};
+        $this->class = ucfirst($class).'\\Module';
     }
 
     public function setViewVars(): void
