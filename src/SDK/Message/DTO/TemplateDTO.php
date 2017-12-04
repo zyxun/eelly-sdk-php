@@ -32,11 +32,25 @@ class TemplateDTO extends AbstractDTO
     public $type;
 
     /**
+     * 息模板使用范围：1 买家用户 2 卖家用户，所有用户位计算1+2=3
+     *
+     * @var int
+     */
+    public $range;
+
+    /**
      * 消息模板名称.
      *
      * @var string
      */
     public $name;
+
+    /**
+     * 消息模板分组名称.
+     *
+     * @var string
+     */
+    public $groupName;
 
     /**
      * 消息模板内容.
