@@ -14,22 +14,34 @@ namespace Eelly\SDK\Pay\Service;
 use Eelly\SDK\Pay\DTO\AccountAdjustDTO;
 
 /**
- * 帐户日资金核算表(只计算当前时间前一天资金有变更的帐户)
+ * 帐户资金核算(只计算当前时间前一天资金有变更的帐户).
+ * 
  * @author zhangyingdi<zhangyingdi@eelly.net>
+ * @since  2017-11-22
  */
 interface AccountAdjustInterface
 {
     
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 根据账户资金核算主键id,获取对应的信息.
      *
-     * @param int $paaId 账户日资金核算主键id
+     * @param int $paaId 账户资金核算主键id
      *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return AccountAdjustDTO
-     * @requestExample({"aaId":1})
-     * @returnExample({"paaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
+     * @requestExample({
+     *     "paaId":1
+     * })
+     * @returnExample({
+     *     "paaId":3,
+     *     "paId":2,
+     *     "accountMoney":100,
+     *     "changeMoney":10,
+     *     "status":1,
+     *     "remark":"",
+     *     "createdTime":1510211720
+     * })
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      * @since  2017-11-22
@@ -37,9 +49,9 @@ interface AccountAdjustInterface
     public function getAccountAdjust(int $paaId): AccountAdjustDTO;
     
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 新增账户资金核算记录.
      *
-     * @param array $data 账户日资金核算数据
+     * @param array $data 账户资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
      * @param int $data['changeMoney'] 帐户变更金额汇总
@@ -49,7 +61,15 @@ interface AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({
+     *     "data":{
+     *         "paId":2,
+     *         "accountMoney":100,
+     *         "changeMoney":10,
+     *         "status":1,
+     *         "remark":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -58,10 +78,10 @@ interface AccountAdjustInterface
     public function addAccountAdjust(array $data): bool;
     
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 更新账户资金核算记录.
      *
-     * @param int $paaId 账户日资金核算主键id
-     * @param array $data 账户日资金核算数据
+     * @param int $paaId 账户资金核算主键id
+     * @param array $data 账户资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
      * @param int $data['changeMoney'] 帐户变更金额汇总
@@ -71,7 +91,16 @@ interface AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"paaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({
+     *     "paaId":1,
+     *     "data":{
+     *         "paId":2,
+     *         "accountMoney":100,
+     *         "changeMoney":10,
+     *         "status":1,
+     *         "remark":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>

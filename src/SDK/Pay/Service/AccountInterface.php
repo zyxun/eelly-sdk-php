@@ -20,13 +20,13 @@ use Eelly\SDK\Pay\DTO\AccountDTO;
  * 会员资金账户.
  *
  * @author 肖俊明<xiaojunming@eelly.net>
- *
  * @since  2017年09月15日
  */
 interface AccountInterface
 {
     /**
-     * 获取用户账户信息.
+     * 根据帐户主键id获取账户信息.
+     * 
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -43,20 +43,32 @@ interface AccountInterface
      * wechatPurseOpenId |string |微信钱包绑定的微信账户open_id
      * createdTime       |string |添加时间
      *
-     *
-     *
      * @param int $paId 账户ID，自增主键
      *
      * @return AccountDTO
-     * @requestExample({"paId":1})
-     * @returnExample({paId:1,userId:148086,storeId:0,money:2190,frozenMoney:200,commissionRatio:"0.000",passwordPay:null,status:0,alipayAccount:"",wechatPurseOpenId:"",createdTime:"1510278091"})
+     * @requestExample({
+     *     "paId":1
+     * })
+     * @returnExample({
+     *     paId:1,
+     *     userId:148086,
+     *     storeId:0,
+     *     money:2190,
+     *     frozenMoney:200,
+     *     commissionRatio:"0.000",
+     *     passwordPay:null,
+     *     status:0,
+     *     alipayAccount:"",
+     *     wechatPurseOpenId:"",
+     *     createdTime:"1510278091"
+     * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年11月15日
+     * 
      * @Validation(
-     * @OperatorValidator(0,{message:"账户ID",operator:["gt",0]})
-     *)
+     *     @OperatorValidator(0,{message:"账户ID",operator:["gt",0]})
+     * )
      */
     public function getAccount(int $paId): AccountDTO;
 
@@ -79,17 +91,25 @@ interface AccountInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({'data':{"storeId": 2, "money": "2", "commissionRatio": 3,"status":1,"alipayAccount":'',"wechatPurseOpenId":''}})
+     * @requestExample({
+     *     "data":{
+     *         "storeId":2,
+     *         "money":2,
+     *         "commissionRatio":3,
+     *         "status":1,
+     *         "alipayAccount":"",
+     *         "wechatPurseOpenId":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月21日
      */
     public function addAccount(array $data, UidDTO $user = null): bool;
 
     /**
-     * 更新自己的会员资金账户信息.
+     * 更新会员资金账户信息.
      *
      * @param int         $paId 账户ID
      * @param array       $data 需要更新的账号信息
@@ -103,21 +123,33 @@ interface AccountInterface
      * @param UidDTO|null $user 登录的用户信息
      *
      * @return bool
-     * @requestExample({'paId':1,'data':{"userId": 1, "storeId": 2, "money": "2", "commissionRatio": 3,"status":1,"alipayAccount":'',"wechatPurseOpenId":''}})
+     * @requestExample({
+     *     "paId":1,
+     *     "data":{
+     *         "userId":1, 
+     *         "storeId":2, 
+     *         "money":2, 
+     *         "commissionRatio":3,
+     *         "status":1,
+     *         "alipayAccount":"",
+     *         "wechatPurseOpenId":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月21日
-     * * @Validation(
-     * @OperatorValidator(0,{message:"账号Id",operator:["gt",0]}),
-     * @OperatorValidator(1,{message:"数据不能为空"})
+     * 
+     * @Validation(
+     *     @OperatorValidator(0,{message:"账号Id",operator:["gt",0]}),
+     *     @OperatorValidator(1,{message:"数据不能为空"})
      * )
      */
     public function updateAccount(int $paId, array $data, UidDTO $user = null): bool;
 
     /**
      * 我的余额，管理=》app资金管理.
+     * 
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -135,7 +167,9 @@ interface AccountInterface
      * @param UidDTO|null $user    登录用户
      *
      * @return array
-     * @requestExample({"storeId":1})
+     * @requestExample({
+     *     "storeId":1
+     * })
      * @returnExample({
      *     "money":"0.02",
      *     "frozenMoney":"0.01",
@@ -148,7 +182,6 @@ interface AccountInterface
      * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年11月09日
      */
     public function getAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array;
