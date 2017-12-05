@@ -26,11 +26,17 @@ interface UserInterface
 {
     /**
      * 校验手机号码是否存在.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --|-------|--------------
+     * 0 |int    |手机号码存在返回用户ID,否则返回空
+     *
      *
      * @param string $mobile 手机号
      *
      * @return int 存在返回用户Id，否则返回0
-     * @requestExample({'mobile':'13512719777'})
+     * @requestExample({"mobile":"13512719777"})
      * @returnExample(148084)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -44,11 +50,16 @@ interface UserInterface
 
     /**
      * 校验密码强度.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --|-------|--------------
+     * 0 |int    | -1:密码不符合规则;<2:密码过于简单值越大强度越高
      *
      * @param string $password 密码
      *
      * @return int -1:密码不符合规则;<2:密码过于简单
-     * @requestExample({'password':123456})
+     * @requestExample({"password":123456})
      * @returnExample({-1})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -154,12 +165,20 @@ interface UserInterface
 
     /**
      * 批量获取用户基本信息.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * userId   |int    | 用户id
+     * username |string | 用户名
+     * mobile   |string | 用户手机号
+     * avatar   |string | 用户头像
      *
      * @param array $userIds 用户一维数据user_id: [148086,148087,148088]
      *
      * @return array
-     * @requestExample({'userIds':{148086,148087,148088}})
-     * @returnExample(true)
+     * @requestExample({"userIds":{148086,148087,148088}})
+     * @returnExample({{"userId":148086,"username":"molimoq","mobile":"13632444448","avatar":"avatar"}})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -250,6 +269,14 @@ interface UserInterface
 
     /**
      * 根据用户id获取二维码数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * userId      |int    |用户ID
+     * userName    |string |用户名
+     * portraitUrl |string |二维码
+     * addressName |string |地址
      *
      * @param int $userId 用户id
      *
