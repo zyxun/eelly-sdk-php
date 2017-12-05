@@ -15,6 +15,7 @@ namespace Eelly\SDK\Message\Service;
 
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\Message\DTO\SiteDTO;
+use Eelly\SDK\Message\Exception\SiteException;
 
 /**
  * 站内信消息.
@@ -227,4 +228,31 @@ interface SiteInterface
      * @since  2017年12月4日
      */
     public function getGroupNameList(int $userId, int $userType, array $condition): array;
+
+    /**
+     * 获取用户未读的站内信数量.
+     *
+     * @param int $userId       用户id
+     * @param int $userType     1:买家(店+app)，2:卖家(厂+app)
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------|-------|--------------
+     * count |string |  未读统计数
+     *
+     * @throws SiteException
+     *
+     * @return array
+     * @requestExample({"userId":1,"userType":1})
+     * @returnExample({"count":"4"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年12月4日
+     * @Validation(
+     *     @Digit(0, {message:"非法的用户id类型"}),
+     *     @InclusionId(1, {message:"非法的用户类型", domain:[1,2]})
+     * )
+     */
+    public function getNotReadCount(int $userId, int $userType): array;
+
 }
