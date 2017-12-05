@@ -53,7 +53,7 @@ interface TemplateInterface
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample({"mtId":1,"type":1,"name":"模板名称","content":"模板内容")
+     * @requestExample({"mtId":1,"type":1,"name":"模板名称","content":"模板内容"})
      * @returnExample(true)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
@@ -132,7 +132,7 @@ interface TemplateInterface
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return TemplateDTO
-     * @requestExample({"mtId":1,"parameter":{"key":"value"})
+     * @requestExample({"mtId":1,"parameter":{"key":"value"}})
      * @returnExample({"mt_id":"1","type":"1","name":"\u6d4b\u8bd5\u6a21\u677f\u6d88\u606f","content":"\u4f60\u597ddddd\uff0c\u6d4b\u8bd5sss\uff0c\u6b63\u786e\u4e48ddddu","status":"1","created_time":"0","update_time":"2017-08-02 11:35:55"})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
