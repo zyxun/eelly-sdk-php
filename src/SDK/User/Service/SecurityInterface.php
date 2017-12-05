@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
-use Eelly\DTO\SecurityDTO;
+use Eelly\SDK\User\DTO\SecurityDTO;
+
 
 /**
  * 用户密保信息.
@@ -25,7 +26,7 @@ interface SecurityInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function getSecurity(int $SecurityId): SecurityDTO;
+    public function getSecurity(int $usId): SecurityDTO;
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
