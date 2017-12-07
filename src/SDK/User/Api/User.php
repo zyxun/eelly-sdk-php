@@ -735,22 +735,24 @@ class User implements UserInterface
     /**
      * uc添加用户.
      *
-     * @param string $username  用户名
-     * @param string $password  密码
-     * @param string $email     邮箱地址
-     * @param int $uid          用户id,没有则传0
-     * @param string $regIp     注册时的ip地址
+     * @param array  $data
+     * @param string $data["username"]  用户名
+     * @param string $data["password"]  密码
+     * @param string $data["email"]     邮箱地址
+     * @param int $data["uid"]          用户id,没有则传0
+     * @param string $data["regip"]     注册时的ip地址
+     * @param int   $data["mobile"]     注册的手机号
      *
      * @return int
-     * @requestExample({"username":"新增测试用户","password":"123","email":"1258525@qq.com","uid":0,"regIp":"127.0.0.1"})
+     * @requestExample({"data":{"username":"新增测试用户","password":"123","email":"1258525@qq.com","uid":0,"regip":"127.0.0.1","mobile":0}})
      * @returnExample(148081)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      * @since  2017/10/9
      */
-    public function addUcUser(string $username, string $password, string $email, int $uid = 0, string $regIp = ''): int
+    public function addUcUser(array $data): int
     {
-        return EellyClient::request('user/user', __FUNCTION__, true, $username, $password, $email, $uid, $regIp);
+        return EellyClient::request('user/user', __FUNCTION__, true, $data);
     }
 
     /**
