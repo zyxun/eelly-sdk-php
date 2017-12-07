@@ -458,6 +458,28 @@ class Extend implements ExtendInterface
     }
 
     /**
+     * 判断email是否被注册过.
+     *
+     * @param string $email     邮箱地址
+     * @param string $username  用户名
+     *
+     * @return bool
+     * @requestExample({"email":"xxxx@qq.com","username":"haha"})
+     * @returnExample(false)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/10/9
+     *
+     * @Validation(
+     *     @Email(0,{message : '邮箱格式不正确'})
+     * )
+     */
+    public function checkEmailExists(string $email, string $username = ''): bool
+    {
+        return EellyClient::request('user/extend', __FUNCTION__, true, $email, $username);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
