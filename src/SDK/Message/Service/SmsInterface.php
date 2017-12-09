@@ -25,7 +25,8 @@ interface SmsInterface
      *
      * @param string $token token即是mongodb没有加ObjectID($id)ID
      * @param string $code  验证码
-     * @requestExample({'token':'124sd33ww2','code':1234})
+     * @param array $type 类型
+     * @requestExample({'token':'124sd33ww2','code':1234,"type":{1,2}})
      * @returnExample('13512719887')
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -37,7 +38,7 @@ interface SmsInterface
      *  @InclusionIn(2,{message : '非法类型',domain:[1,2,3]})
      * )
      */
-    public function getMobileByToken(string $token, string $code, int $type): string;
+    public function getMobileByToken(string $token, string $code, array $type): string;
 
     /**
      * 发送手机验证码.

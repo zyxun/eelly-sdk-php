@@ -38,7 +38,7 @@ class Sms implements SmsInterface
      *  @InclusionIn(2,{message : '非法类型',domain:[1,2,3]})
      * )
      */
-    public function getMobileByToken(string $token, string $code, int $type): string
+    public function getMobileByToken(string $token, string $code, array $type): string
     {
         return EellyClient::request('message/sms', __FUNCTION__, true, $token, $code, $type);
     }
@@ -60,7 +60,7 @@ class Sms implements SmsInterface
      *  @InclusionIn(2,{message : '非法类型',domain:[1,2,3]})
      * )
      */
-    public function getMobileByTokenAsync(string $token, string $code, int $type)
+    public function getMobileByTokenAsync(string $token, string $code, array $type)
     {
         return EellyClient::request('message/sms', __FUNCTION__, false, $token, $code, $type);
     }
@@ -84,6 +84,27 @@ class Sms implements SmsInterface
     public function sendSmsCode(string $mobile, int $type, int $length = 4): array
     {
         return EellyClient::request('message/sms', __FUNCTION__, true, $mobile, $type, $length);
+    }
+
+    /**
+     * 发送手机验证码.
+     *
+     * @param string $mobile 手机号码
+     * @param int $type 1:找回密码,2:快速登录,3:注册,4:手机绑定,5:手机修改密码,6:手机登陆店+,7:重置支付密码,8:绑定银行卡
+     * @param int $length 验证码长度
+     * @requestExample({"mobile":13512719887,"type":1,"length":4})
+     * @returnExample({"messageId":"59f95de6f31eea00055f90e9"})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2017年10月31日
+     * @Validation(
+     *  @Regex(0,{pattern:" /^1[34578]\d{9}$/",message : 'phoneNumber字段不是不符合手机号码格式'}),
+     *  @InclusionIn(1,{message : '非法类型',domain:[1,2,3,4,5,6,7,8]})
+     * )
+     */
+    public function sendSmsCodeAsync(string $mobile, int $type, int $length = 4): array
+    {
+        return EellyClient::request('message/sms', __FUNCTION__, false, $mobile, $type, $length);
     }
 
     /**
