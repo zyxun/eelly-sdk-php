@@ -346,4 +346,20 @@ interface UserInterface
      * @since 2017-11-06
      */
     public function checkUserIsBindingMobile(int $userId): array;
+
+    /**
+     * 获取用户信息.
+     *
+     * @param int $uid 用户id
+     *
+     * @return UserDTO
+     * @requestExample({"uid":"148086"})
+     * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @author hehui<hehui@eelly.net>
+     *
+     * @since 2017-11-06
+     */
+    public function getUser(int $uid): UserDTO;
 }

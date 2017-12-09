@@ -46,7 +46,7 @@ interface AuthInterface
      *
      * @return bool
      * @requestExample({"data":{"type":1,"name":"小王","license":444444,"idType":0,"expiryDate":1509592537,
-     *     "bankId":222,"gbCode":"SKKUUE","bankSubbranch":"支行名称","bankAccount":"银行账号","cartPic":"/SKKSKS/SSJJS/KSKKS.png","cartReversedPic":"/SKKSKS/SSJJS/KSKKS.png","remark":"备注"}})
+     *     "bankId":222,"gbCode":222,"bankSubbranch":"支行名称","bankAccount":"银行账号","cartPic":"/SKKSKS/SSJJS/KSKKS.png","cartReversedPic":"/SKKSKS/SSJJS/KSKKS.png","remark":"备注"}})
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>

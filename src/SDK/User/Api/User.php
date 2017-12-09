@@ -712,6 +712,42 @@ class User implements UserInterface
     }
 
     /**
+     * 获取用户信息.
+     *
+     * @param int $uid 用户id
+     *
+     * @return UserDTO
+     * @requestExample({"uid":"148086"})
+     * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @author hehui<hehui@eelly.net>
+     *
+     * @since 2017-11-06
+     */
+    public function getUser(int $uid): UserDTO
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $uid);
+    }
+
+    /**
+     * 判断用户是否已经绑定手机.
+     *
+     * @param int $userId 用户id
+     *
+     * @return array
+     * @requestExample({"userId":"148086"})
+     * @returnExample({"isBindMobile":1, "mobile":"134****5645","phoneMob":"13430245645"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2017-11-06
+     */
+    public function getUserAsync(int $uid)
+    {
+        return EellyClient::request('user/user', __FUNCTION__, false, $uid);
+    }
+    /**
      * 根据用户名获取用户信息.
      *
      * @param string $username 用户名
