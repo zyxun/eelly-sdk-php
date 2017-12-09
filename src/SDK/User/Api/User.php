@@ -747,6 +747,149 @@ class User implements UserInterface
     {
         return EellyClient::request('user/user', __FUNCTION__, false, $uid);
     }
+    /**
+     * 根据用户名获取用户信息.
+     *
+     * @param string $username 用户名
+     *
+     * @return array
+     * @requestExample({"username":"hello"})
+     * @returnExample({"user_id":"2","username":"hello","password_old":"","password":"xxx","mobile":"13711223344","avatar":"","status":"0","created_time":"1506668224","update_time":"2017-09-29 14:57:05"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/10/9
+     *
+     * @validation(
+     *     @PresenceOf(0,{message:"用户名不能为空"})
+     * )
+     */
+    public function getByUserName(string $username): array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $username);
+    }
+
+    /**
+     * uc添加用户.
+     *
+     * @param array  $data
+     * @param string $data["username"]  用户名
+     * @param string $data["password"]  密码
+     * @param string $data["email"]     邮箱地址
+     * @param int $data["uid"]          用户id,没有则传0
+     * @param string $data["regip"]     注册时的ip地址
+     * @param int   $data["mobile"]     注册的手机号
+     *
+     * @return int
+     * @requestExample({"data":{"username":"新增测试用户","password":"123","email":"1258525@qq.com","uid":0,"regip":"127.0.0.1","mobile":0}})
+     * @returnExample(148081)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/10/9
+     */
+    public function addUcUser(array $data): int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * uc编辑用户.
+     *
+     * @param string $username      用户名
+     * @param string $oldpw         旧密码
+     * @param string $newpw         新密码
+     * @param string $email         邮件地址
+     * @param int $ignoreoldpw
+     *
+     * @return int
+     * @requestExample({"username":"poyu","oldpw":"","newpw":"","email":"","ignoreoldpw":0})
+     * @returnExample(1)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/10/10
+     */
+    public function editUcUser(string $username, string $oldpw, string $newpw, string $email, int $ignoreoldpw = 0): int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $username, $oldpw, $newpw, $email, $ignoreoldpw);
+    }
+
+    /**
+     * 批量获取用户头像.
+     * @param string $uids 用户ids
+     *
+     * @return array
+     * @requestExample({"uids":1})
+     * @returnExample({"userId":1,"avatar":""})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/10/13
+     * @Validation(
+     *     @PresenceOf(0,{message : "用户id不能为空"})
+     * )
+     */
+    public function getUcAvatarByIds(string $uids): array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $uids);
+    }
+
+    /**
+     * uc根据qqopenid, 微信unionid检测用户是否存在.
+     * @param int $type 第三方平台类型：1：qq 2：微信 3：新浪微博
+     * @param string $key 第三方用户认证信息，qqopenid， wxunionid
+     *
+     * @return int
+     * @requestExample({"type":1,"key":"xxx"})
+     * @returnExample(0)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017/10/10
+     *
+     * @Validation(
+     *     @InclusionIn(0,{message:"非法的第三方账号类型",domain:[1,2,3]}),
+     *     @PresenceOf(1,{message : "第三方平台信息不能为空"})
+     * )
+     */
+    public function checkThirdKey(int $type, string $key): int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $type, $key);
+    }
+
+    /**
+     * Uc通过条件获取用户信息.
+     *
+     * @param array     $data
+     * @param int       $data["type"]   获取类型  2:username, 3:根据用户id获取字段
+     * @param string    $data["val"]    对应类型的值
+     * @param string    $data["field"]  字段
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * userId      |string |    用户id
+     * username    |string |    用户名
+     * passwordOld |string |    用户旧密码
+     * password    |string |    用户新密码
+     * mobile      |string |    用户手机
+     * avatar      |string |    用户头像
+     * status      |string |    用户状态
+     * createdTime |string |    创建时间
+     * updateTime  |string |    更新时间
+     * email       |string |    邮箱地址
+     * regIp       |string |    注册ip
+     *
+     *
+     * @throws UserException
+     *
+     * @return array
+     * @requestExample({"data":{"type":1,"val":"1111@qq.com"}})
+     * @returnExample({"userId":"1","username":"admin_moq","passwordOld":"17130970363720a389d2c582ddb9042f03b2bd","password":"","mobile":"","avatar":"","status":"0","createdTime":"1258946046","updateTime":"2017-11-25 10:50:56","email":"111@eelly.com","regIp":"116.22.30.27"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年12月7日
+     */
+    public function getInfoByFieldUc(array $data = []): array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $data);
+    }
 
     /**
      * @return self

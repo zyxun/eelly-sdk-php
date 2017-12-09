@@ -130,8 +130,8 @@ interface ClientInterface
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return bool 返回bool值
-     * @requestExample({"clientId":1})
-     * @returnExample(true)
+     * @requestExample({"clientId":99999})
+     * @returnExample(false)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
@@ -149,7 +149,7 @@ interface ClientInterface
      * @throws \Eelly\SDK\Oauth\Exception\OauthException
      *
      * @return bool
-     * @requestExample({"clientIds":[1,2,3,4,5,6,7]})
+     * @requestExample({"clientIds":[2,3,4,5,6,7]})
      * @returnExample(true)
      *
      * @author liangxinyi<liangxinyi@eelly.net>
