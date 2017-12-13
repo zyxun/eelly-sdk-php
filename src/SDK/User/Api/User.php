@@ -71,14 +71,14 @@ class User implements UserInterface
      * @param string $password 密码
      *
      * @return int -1:密码不符合规则;<2:密码过于简单
-     * @requestExample({'password':123456})
-     * @returnExample({-1})
+     * @requestExample({"password":"!ab123456"})
+     * @returnExample({true})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2017年10月28日
      */
-    public function checkPasswordPowerRule(string $password): int
+    public function checkPasswordPowerRule(string $password): bool
     {
         return EellyClient::request('user/user', __FUNCTION__, true, $password);
     }
@@ -89,8 +89,8 @@ class User implements UserInterface
      * @param string $password 密码
      *
      * @return int -1:密码不符合规则;<2:密码过于简单
-     * @requestExample({'password':123456})
-     * @returnExample({-1})
+     * @requestExample({"password":"!ab123456"})
+     * @returnExample({true})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *

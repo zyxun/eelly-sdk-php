@@ -54,19 +54,19 @@ interface UserInterface
      *
      * 字段|类型|说明
      * --|-------|--------------
-     * 0 |int    | -1:密码不符合规则;<2:密码过于简单值越大强度越高
+     * 0 |string    | -1:密码不符合规则;<2:密码过于简单值越大强度越高
      *
      * @param string $password 密码
      *
      * @return int -1:密码不符合规则;<2:密码过于简单
-     * @requestExample({"password":123456})
-     * @returnExample({-1})
+     * @requestExample({"password":"!ab123456"})
+     * @returnExample({true})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2017年10月28日
      */
-    public function checkPasswordPowerRule(string $password): int;
+    public function checkPasswordPowerRule(string $password): bool ;
 
     /**
      * 更新用户数据.
