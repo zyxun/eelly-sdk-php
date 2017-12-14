@@ -1,5 +1,5 @@
 <?php
-$markdown = <<<EOF
+$readmeMd = <<<EOF
 # 衣联网api开放文档
 
 > 本文档由接口代码文档生成，接口文档使用[github markdown](https://guides.github.com/features/mastering-markdown/)风格
@@ -30,7 +30,40 @@ EOF;
                 <?php endforeach;?>
             </ul>
         </div>
-        <div class="col-12 col-md-9"><article class="markdown-body"><?=$markup($markdown)?></article></div>
+        <div class="col-12 col-md-9">
+            <article class="markdown-body">
+                <?=$markup($readmeMd)?>
+                <h3>Local server</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Module</th>
+                        <th scope="col">Ip</th>
+                        <th scope="col">Port</th>
+                        <th scope="col">Created</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($moduleMap as $moduleName => $value): ?>
+                    <tr>
+                        <th scope="row"><?=$moduleName?></th>
+                        <td><?=$value['ip']?></td>
+                        <td><?=$value['port']?></td>
+                        <td><?=date('Y-m-d H:i:s', $value['created'])?></td>
+                    </tr>
+                    <?php endforeach;?>
+                    </tbody>
+                </table>
+                <h3>Remote server</h3>
+                <h3>Version</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">PHP_VERSION = <span class="badge badge-info"><?=$_ENV['PHP_VERSION']?></span></li>
+                    <li class="list-group-item">PHALCON_VERSION = <span class="badge badge-info"><?=$_ENV['PHALCON_VERSION']?></span></li>
+                    <li class="list-group-item">SWOOLE_VERSION = <span class="badge badge-info"><?=$_ENV['SWOOLE_VERSION']?></span></li>
+                </ul>
+            </article>
+        </div>
+
     </div>
 </div>
 <!-- ./home.phtml -->

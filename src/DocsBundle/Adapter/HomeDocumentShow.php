@@ -20,6 +20,14 @@ class HomeDocumentShow extends AbstractDocumentShow implements DocumentShowInter
 {
     public function setViewVars(): void
     {
+        if (defined('RUN_SWOOLE') && RUN_SWOOLE) {
+            /* @var \Eelly\Network\HttpServer $server */
+            $server = $this->getDI()->getShared('server');
+            $moduleMap = $server->getModuleMap();
+        } else {
+            $moduleMap = [];
+        }
+        $this->view->setVar('moduleMap', $moduleMap);
         $this->view->markup = function ($markdown) {
             return $this->parserMarkdown($markdown);
         };
