@@ -28,6 +28,8 @@ class LogicException extends \LogicException
 
     public const DATA_NOT_EXIT = '记录不存在';
 
+    public const MOBILE_EXIT = '手机已经注册过';
+
     public const DATA_ALREADER_EXIT = '该数据已经存在';
 
     public const DATA_INSERT_FAIL = '插入失败';
