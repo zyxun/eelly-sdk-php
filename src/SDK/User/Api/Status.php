@@ -329,26 +329,6 @@ class Status implements StatusInterface
     }
 
     /**
-     * uc添加用户登录时间和ip.
-     *
-     * @param array $data
-     * @param int   $data["userId"]     用户id
-     * @param int   $data["lastLogin"]  上次登录时间
-     * @param string $data["lastIp"]    上次登录ip
-     *
-     * @return bool
-     * @requestExample({"data":{"userId":1,"lastLogin":1512369905}})
-     * @returnExample(true)
-     *
-     * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     * @since  2017/10/10
-     */
-    public function addUcLogin(array $data): bool
-    {
-        return EellyClient::request('user/status', __FUNCTION__, true, $data);
-    }
-
-    /**
      * @return self
      */
     public static function getInstance(): self

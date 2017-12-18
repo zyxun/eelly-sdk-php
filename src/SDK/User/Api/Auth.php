@@ -29,6 +29,7 @@ class Auth implements AuthInterface
      * @param array       $data                    实名认证数据
      * @param int         $data['type']            认证类型：0 个人实名认证 1 企业实名认证,
      * @param string      $data['name']            真实姓名/企业名称,
+     * @param string      $data['mobile']          手机号码type为0需要传这个值,
      * @param string      $data['license']         身份证号码/营业执照号,
      * @param int         $data['idType']          证件有效期：0 有期限 1 长期,
      * @param int         $data['expiryDate']      证件到期时间,
@@ -44,8 +45,8 @@ class Auth implements AuthInterface
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
      * @return bool
-     * @requestExample({'type':1,'name':'小王','license':444444,'idType':0,'expiryDate':1509592537,
-     *     'bankId':222,'gbCode':11,'bankSubbranch':'支行名称','bankAccount':'银行账号','cartPic':'/SKKSKS/SSJJS/KSKKS.png','cartReversedPic':'/SKKSKS/SSJJS/KSKKS.png','remark':'备注'})
+     * @requestExample({"data":{"type":1,"name":"小王","license":444444,"idType":0,"expiryDate":1509592537,
+     *     "bankId":222,"gbCode":222,"bankSubbranch":"支行名称","bankAccount":"银行账号","cartPic":"/SKKSKS/SSJJS/KSKKS.png","cartReversedPic":"/SKKSKS/SSJJS/KSKKS.png","remark":"备注"}})
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -63,6 +64,7 @@ class Auth implements AuthInterface
      * @param array       $data                    实名认证数据
      * @param int         $data['type']            认证类型：0 个人实名认证 1 企业实名认证,
      * @param string      $data['name']            真实姓名/企业名称,
+     * @param string      $data['mobile']          手机号码type为0需要传这个值,
      * @param string      $data['license']         身份证号码/营业执照号,
      * @param int         $data['idType']          证件有效期：0 有期限 1 长期,
      * @param int         $data['expiryDate']      证件到期时间,
@@ -78,8 +80,8 @@ class Auth implements AuthInterface
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
      * @return bool
-     * @requestExample({'type':1,'name':'小王','license':444444,'idType':0,'expiryDate':1509592537,
-     *     'bankId':222,'gbCode':11,'bankSubbranch':'支行名称','bankAccount':'银行账号','cartPic':'/SKKSKS/SSJJS/KSKKS.png','cartReversedPic':'/SKKSKS/SSJJS/KSKKS.png','remark':'备注'})
+     * @requestExample({"data":{"type":1,"name":"小王","license":444444,"idType":0,"expiryDate":1509592537,
+     *     "bankId":222,"gbCode":222,"bankSubbranch":"支行名称","bankAccount":"银行账号","cartPic":"/SKKSKS/SSJJS/KSKKS.png","cartReversedPic":"/SKKSKS/SSJJS/KSKKS.png","remark":"备注"}})
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -142,6 +144,7 @@ class Auth implements AuthInterface
      * @param int    $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
      * @param string $condition['name']    真实姓名/企业名称,
      * @param string $condition['license'] 身份证号码/营业执照号
+     * @param UidDTO|null $user 登录用户
      *
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
@@ -165,6 +168,7 @@ class Auth implements AuthInterface
      * @param int    $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
      * @param string $condition['name']    真实姓名/企业名称,
      * @param string $condition['license'] 身份证号码/营业执照号
+     * @param UidDTO|null $user 登录用户
      *
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
@@ -188,18 +192,18 @@ class Auth implements AuthInterface
      * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
      * @param string $data['name']              真实姓名/企业名称,
      * @param string $data['license']           身份证号码/营业执照号,
-     * @param int    $data['id_type']           证件有效期：0 有期限 1 长期,
-     * @param int    $data['expiry_date']       证件到期时间,
-     * @param int    $data['bank_id']           开户银行ID：el_config->bank->bank_id,
-     * @param int    $data['gb_code']           开户银行所在地：：el_config->region_gb->gb_code,
-     * @param string $data['bank_subbranch']    支行名称,
-     * @param string $data['bank_account']      银行账号,
-     * @param string $data['cart_pic']          身份证正面照片/营业执照图片路径,
-     * @param string $data['cart_reversed_pic'] 身份证反面照片,
+     * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
+     * @param int    $data['expiryDate']       证件到期时间,
+     * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
+     * @param int    $data['gbCode']           开户银行所在地：：el_config->region_gb->gb_code,
+     * @param string $data['bankSubbranch']    支行名称,
+     * @param string $data['bankAccount']      银行账号,
+     * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
+     * @param string $data['cartReversed_pic'] 身份证反面照片,
      * @param int    $data['remark']            备注,
      * @param UidDTO $user
      *
-     * @throws \Eelly\SDK\User\Exception\AuthException
+     * @throws AuthException
      *
      * @return bool
      * @requestExample()
@@ -221,18 +225,18 @@ class Auth implements AuthInterface
      * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
      * @param string $data['name']              真实姓名/企业名称,
      * @param string $data['license']           身份证号码/营业执照号,
-     * @param int    $data['id_type']           证件有效期：0 有期限 1 长期,
-     * @param int    $data['expiry_date']       证件到期时间,
-     * @param int    $data['bank_id']           开户银行ID：el_config->bank->bank_id,
-     * @param int    $data['gb_code']           开户银行所在地：：el_config->region_gb->gb_code,
-     * @param string $data['bank_subbranch']    支行名称,
-     * @param string $data['bank_account']      银行账号,
-     * @param string $data['cart_pic']          身份证正面照片/营业执照图片路径,
-     * @param string $data['cart_reversed_pic'] 身份证反面照片,
+     * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
+     * @param int    $data['expiryDate']       证件到期时间,
+     * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
+     * @param int    $data['gbCode']           开户银行所在地：：el_config->region_gb->gb_code,
+     * @param string $data['bankSubbranch']    支行名称,
+     * @param string $data['bankAccount']      银行账号,
+     * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
+     * @param string $data['cartReversed_pic'] 身份证反面照片,
      * @param int    $data['remark']            备注,
      * @param UidDTO $user
      *
-     * @throws \Eelly\SDK\User\Exception\AuthException
+     * @throws AuthException
      *
      * @return bool
      * @requestExample()
@@ -254,18 +258,18 @@ class Auth implements AuthInterface
      * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
      * @param string $data['name']              真实姓名/企业名称,
      * @param string $data['license']           身份证号码/营业执照号,
-     * @param int    $data['id_type']           证件有效期：0 有期限 1 长期,
-     * @param int    $data['expiry_date']       证件到期时间,
-     * @param int    $data['bank_id']           开户银行ID：el_config->bank->bank_id,
-     * @param int    $data['gb_code']           开户银行所在地：：el_config->region_gb->gb_code,
-     * @param string $data['bank_subbranch']    支行名称,
-     * @param string $data['bank_account']      银行账号,
-     * @param string $data['cart_pic']          身份证正面照片/营业执照图片路径,
-     * @param string $data['cart_reversed_pic'] 身份证反面照片,
+     * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
+     * @param int    $data['expiryDate']       证件到期时间,
+     * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
+     * @param int    $data['gbCode']           开户银行所在地：：el_config->region_gb->gb_code,
+     * @param string $data['bankSubbranch']    支行名称,
+     * @param string $data['bankAccount']      银行账号,
+     * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
+     * @param string $data['cartReversedPic'] 身份证反面照片,
      * @param string $data['remark']            备注
-     * @param UidDTO $user
+     * @param UidDTO $user                      登录用户
      *
-     * @throws \Eelly\SDK\User\Exception\AuthException
+     * @throws AuthException
      *
      * @return bool
      * @requestExample()
@@ -287,18 +291,18 @@ class Auth implements AuthInterface
      * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
      * @param string $data['name']              真实姓名/企业名称,
      * @param string $data['license']           身份证号码/营业执照号,
-     * @param int    $data['id_type']           证件有效期：0 有期限 1 长期,
-     * @param int    $data['expiry_date']       证件到期时间,
-     * @param int    $data['bank_id']           开户银行ID：el_config->bank->bank_id,
-     * @param int    $data['gb_code']           开户银行所在地：：el_config->region_gb->gb_code,
-     * @param string $data['bank_subbranch']    支行名称,
-     * @param string $data['bank_account']      银行账号,
-     * @param string $data['cart_pic']          身份证正面照片/营业执照图片路径,
-     * @param string $data['cart_reversed_pic'] 身份证反面照片,
+     * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
+     * @param int    $data['expiryDate']       证件到期时间,
+     * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
+     * @param int    $data['gbCode']           开户银行所在地：：el_config->region_gb->gb_code,
+     * @param string $data['bankSubbranch']    支行名称,
+     * @param string $data['bankAccount']      银行账号,
+     * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
+     * @param string $data['cartReversedPic'] 身份证反面照片,
      * @param string $data['remark']            备注
-     * @param UidDTO $user
+     * @param UidDTO $user                      登录用户
      *
-     * @throws \Eelly\SDK\User\Exception\AuthException
+     * @throws AuthException
      *
      * @return bool
      * @requestExample()
