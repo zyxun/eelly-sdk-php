@@ -302,9 +302,7 @@ class Address implements AddressInterface
     /**
      * 获取用户地址列表.
      *
-     * @param array  $condtion
      * @param UidDTO $user     用户信息
-     * @explain
      *
      * @throws UserException
      *
@@ -317,17 +315,15 @@ class Address implements AddressInterface
      *
      * @since  2017-10-24
      */
-    public function listAddress(array $condtion = [], UidDTO $user = null): array
+    public function listAddress(UidDTO $user = null): array
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $condtion, $user);
+        return EellyClient::request('user/address', __FUNCTION__, true, $user);
     }
 
     /**
      * 获取用户地址列表.
      *
-     * @param array  $condtion
      * @param UidDTO $user     用户信息
-     * @explain
      *
      * @throws UserException
      *
@@ -340,9 +336,9 @@ class Address implements AddressInterface
      *
      * @since  2017-10-24
      */
-    public function listAddressAsync(array $condtion = [], UidDTO $user = null)
+    public function listAddressAsync(UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $condtion, $user);
+        return EellyClient::request('user/address', __FUNCTION__, false, $user);
     }
 
     /**

@@ -25,6 +25,7 @@ class Bank implements BankInterface
 {
     /**
      * 获取一条价用户银行信息,并且判断是否是自己的.
+     * 
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -39,7 +40,7 @@ class Bank implements BankInterface
      * phone          |string | 手机号
      * isDefault      |int    | 是否默认使用此卡：0 否 1 是
      * createdTime    |string | 添加时间
-     * updateTime     |null   | 修改时间
+     * updateTime     |string | 修改时间
      *
      * @param int         $pbId 用户银行信息ID
      * @param UidDTO|null $user 登录用户
@@ -47,12 +48,26 @@ class Bank implements BankInterface
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *
      * @return BankDTO
-     * @requestExample({'pbId':1})
-     * @returnExample({"pbId": 1,"userId": 148086,"gbCode": 0,"bankId": 0,"bankSubbranch": "4541512","bankAccount": "62283625841236512354","realName": "molimoq","phone": "","isDefault": 0,"createdTime": "2015-04-02 15:18:53","updateTime": null,"update_time": "2017-09-19 16:28:26"})
+     * @requestExample({
+     *     "pbId":1
+     * })
+     * @returnExample({
+     *     "pbId":1,
+     *     "userId":148086,
+     *     "gbCode":0,
+     *     "bankId":0,
+     *     "bankSubbranch":"4541512",
+     *     "bankAccount":"62283625841236512354",
+     *     "realName":"molimoq",
+     *     "phone":"",
+     *     "isDefault":0,
+     *     "createdTime":"1510156801",
+     *     "updateTime":"2017-09-19 16:28:26"
+     * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月11日
+     * 
      * @Validation(
      *      @OperatorValidator(0,{message : "用户银行信息ID",operator:["gt",0]})
      * )
@@ -64,6 +79,7 @@ class Bank implements BankInterface
 
     /**
      * 获取一条价用户银行信息,并且判断是否是自己的.
+     * 
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -78,7 +94,7 @@ class Bank implements BankInterface
      * phone          |string | 手机号
      * isDefault      |int    | 是否默认使用此卡：0 否 1 是
      * createdTime    |string | 添加时间
-     * updateTime     |null   | 修改时间
+     * updateTime     |string | 修改时间
      *
      * @param int         $pbId 用户银行信息ID
      * @param UidDTO|null $user 登录用户
@@ -86,12 +102,26 @@ class Bank implements BankInterface
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *
      * @return BankDTO
-     * @requestExample({'pbId':1})
-     * @returnExample({"pbId": 1,"userId": 148086,"gbCode": 0,"bankId": 0,"bankSubbranch": "4541512","bankAccount": "62283625841236512354","realName": "molimoq","phone": "","isDefault": 0,"createdTime": "2015-04-02 15:18:53","updateTime": null,"update_time": "2017-09-19 16:28:26"})
+     * @requestExample({
+     *     "pbId":1
+     * })
+     * @returnExample({
+     *     "pbId":1,
+     *     "userId":148086,
+     *     "gbCode":0,
+     *     "bankId":0,
+     *     "bankSubbranch":"4541512",
+     *     "bankAccount":"62283625841236512354",
+     *     "realName":"molimoq",
+     *     "phone":"",
+     *     "isDefault":0,
+     *     "createdTime":"1510156801",
+     *     "updateTime":"2017-09-19 16:28:26"
+     * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月11日
+     * 
      * @Validation(
      *      @OperatorValidator(0,{message : "用户银行信息ID",operator:["gt",0]})
      * )
@@ -119,14 +149,16 @@ class Bank implements BankInterface
      *
      * @return bool
      * @requestExample({
-     *     "realName":"molimoq","bankAccount":"9843010902492123",
-     *     "bankId":1,"mobile":"13800138000","passwordPay":"MDAxUGlRa0kwQndYbEFoSmpFeU16UTFOZz09ODI1YWZmNzZjMzZiY2YzN2Y3MTljNDE1NGNkZTc4NTE=",
+     *     "realName":"molimoq",
+     *     "bankAccount":"9843010902492123",
+     *     "bankId":1,
+     *     "mobile":"13800138000",
+     *     "passwordPay":"MDAxUGlRa0kwQndYbEFoSmpFeU16UTFOZz09ODI1YWZmNzZjMzZiY2YzN2Y3MTljNDE1NGNkZTc4NTE=",
      *     "timeStamp":"1510296438"
      * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年11月11日
      */
     public function addBank(array $data): bool
@@ -152,14 +184,16 @@ class Bank implements BankInterface
      *
      * @return bool
      * @requestExample({
-     *     "realName":"molimoq","bankAccount":"9843010902492123",
-     *     "bankId":1,"mobile":"13800138000","passwordPay":"MDAxUGlRa0kwQndYbEFoSmpFeU16UTFOZz09ODI1YWZmNzZjMzZiY2YzN2Y3MTljNDE1NGNkZTc4NTE=",
+     *     "realName":"molimoq",
+     *     "bankAccount":"9843010902492123",
+     *     "bankId":1,
+     *     "mobile":"13800138000",
+     *     "passwordPay":"MDAxUGlRa0kwQndYbEFoSmpFeU16UTFOZz09ODI1YWZmNzZjMzZiY2YzN2Y3MTljNDE1NGNkZTc4NTE=",
      *     "timeStamp":"1510296438"
      * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年11月11日
      */
     public function addBankAsync(array $data)
@@ -172,23 +206,36 @@ class Bank implements BankInterface
      *
      * @param int         $pbId 用户银行信息ID
      * @param array       $data 银行账户信息
-     * @param int         $data ['gbCode'] 开户银行所在地区ID
-     * @param int         $data ['bankId'] 开户银行ID
-     * @param string      $data ['bankSubbranch'] 支行名称
-     * @param string      $data ['bankAccount'] 银行账号
-     * @param string      $data ['realName'] 银行账号
-     * @param string      $data ['phone'] 手机号
-     * @param int         $data ['isDefault'] 是否默认使用此卡：0 否 1 是
+     * @param int         $data['gbCode']        开户银行所在地区ID
+     * @param int         $data['bankId']        开户银行ID
+     * @param string      $data['bankSubbranch'] 支行名称
+     * @param string      $data['bankAccount']   银行账号
+     * @param string      $data['realName']      银行账号
+     * @param string      $data['phone']         手机号
+     * @param int         $data['isDefault']     是否默认使用此卡：0 否 1 是
      * @param UidDTO|null $user 用户信息
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *
      * @return bool
-     * @requestExample({"pbId":1,"data":{"pbId": 1,"userId": 148086,"gbCode": 0,"bankId": 0,"bankSubbranch": "4541512","bankAccount": "62283625841236512354","realName": "molimoq","phone": "","isDefault": 0,"createdTime": "2015-04-02 15:18:53"}})
+     * @requestExample({
+     *     "pbId":1,
+     *     "data":{
+     *         "pbId": 1,
+     *         "userId": 148086,
+     *         "gbCode": 0,
+     *         "bankId": 0,
+     *         "bankSubbranch": "4541512",
+     *         "bankAccount": "62283625841236512354",
+     *         "realName": "molimoq",
+     *         "phone": "",
+     *         "isDefault": 0,
+     *         "createdTime": "1510156801"
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月20日
      */
     public function updateBank(int $pbId, array $data, UidDTO $user = null): bool
@@ -201,23 +248,36 @@ class Bank implements BankInterface
      *
      * @param int         $pbId 用户银行信息ID
      * @param array       $data 银行账户信息
-     * @param int         $data ['gbCode'] 开户银行所在地区ID
-     * @param int         $data ['bankId'] 开户银行ID
-     * @param string      $data ['bankSubbranch'] 支行名称
-     * @param string      $data ['bankAccount'] 银行账号
-     * @param string      $data ['realName'] 银行账号
-     * @param string      $data ['phone'] 手机号
-     * @param int         $data ['isDefault'] 是否默认使用此卡：0 否 1 是
+     * @param int         $data['gbCode']        开户银行所在地区ID
+     * @param int         $data['bankId']        开户银行ID
+     * @param string      $data['bankSubbranch'] 支行名称
+     * @param string      $data['bankAccount']   银行账号
+     * @param string      $data['realName']      银行账号
+     * @param string      $data['phone']         手机号
+     * @param int         $data['isDefault']     是否默认使用此卡：0 否 1 是
      * @param UidDTO|null $user 用户信息
      *
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *
      * @return bool
-     * @requestExample({"pbId":1,"data":{"pbId": 1,"userId": 148086,"gbCode": 0,"bankId": 0,"bankSubbranch": "4541512","bankAccount": "62283625841236512354","realName": "molimoq","phone": "","isDefault": 0,"createdTime": "2015-04-02 15:18:53"}})
+     * @requestExample({
+     *     "pbId":1,
+     *     "data":{
+     *         "pbId": 1,
+     *         "userId": 148086,
+     *         "gbCode": 0,
+     *         "bankId": 0,
+     *         "bankSubbranch": "4541512",
+     *         "bankAccount": "62283625841236512354",
+     *         "realName": "molimoq",
+     *         "phone": "",
+     *         "isDefault": 0,
+     *         "createdTime": "1510156801"
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月20日
      */
     public function updateBankAsync(int $pbId, array $data, UidDTO $user = null)
@@ -234,14 +294,16 @@ class Bank implements BankInterface
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *
      * @return bool
-     * @requestExample({"pbId":1})
+     * @requestExample({
+     *     "pbId":1
+     * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月20日
+     * 
      * @Validation(
-     * @OperatorValidator(0,{message : "银行信息ID",operator:["gt",0]})
+     *     @OperatorValidator(0,{message : "银行信息ID",operator:["gt",0]})
      * )
      */
     public function deleteBank(int $pbId, UidDTO $user = null): bool
@@ -258,14 +320,16 @@ class Bank implements BankInterface
      * @throws \Eelly\SDK\Pay\Exception\BankException
      *
      * @return bool
-     * @requestExample({"pbId":1})
+     * @requestExample({
+     *     "pbId":1
+     * })
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年09月20日
+     * 
      * @Validation(
-     * @OperatorValidator(0,{message : "银行信息ID",operator:["gt",0]})
+     *     @OperatorValidator(0,{message : "银行信息ID",operator:["gt",0]})
      * )
      */
     public function deleteBankAsync(int $pbId, UidDTO $user = null)
@@ -275,6 +339,7 @@ class Bank implements BankInterface
 
     /**
      * 获取用户银行卡.
+     * 
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -293,11 +358,21 @@ class Bank implements BankInterface
      *
      * @return array
      * @requestExample()
-     * @returnExample({{"id":1,"userId":148086,"gbCode":"1","bankId":1,"bankSubbranch":"111"
-     * ,"bankAccount":"1111","realName":"molimoq","mobile":"","isDefault":0}})
+     * @returnExample({
+     *     {
+     *         "id":1,
+     *         "userId":148086,
+     *         "gbCode":"1",
+     *         "bankId":1,
+     *         "bankSubbranch":"111",
+     *         "bankAccount":"1111",
+     *         "realName":"molimoq",
+     *         "mobile":"",
+     *         "isDefault":0
+     *     }
+     * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年11月10日
      */
     public function getBankUser(UidDTO $user = null): array
@@ -307,6 +382,7 @@ class Bank implements BankInterface
 
     /**
      * 获取用户银行卡.
+     * 
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -325,11 +401,21 @@ class Bank implements BankInterface
      *
      * @return array
      * @requestExample()
-     * @returnExample({{"id":1,"userId":148086,"gbCode":"1","bankId":1,"bankSubbranch":"111"
-     * ,"bankAccount":"1111","realName":"molimoq","mobile":"","isDefault":0}})
+     * @returnExample({
+     *     {
+     *         "id":1,
+     *         "userId":148086,
+     *         "gbCode":"1",
+     *         "bankId":1,
+     *         "bankSubbranch":"111",
+     *         "bankAccount":"1111",
+     *         "realName":"molimoq",
+     *         "mobile":"",
+     *         "isDefault":0
+     *     }
+     * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2017年11月10日
      */
     public function getBankUserAsync(UidDTO $user = null)

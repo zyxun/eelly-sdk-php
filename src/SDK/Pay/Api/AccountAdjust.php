@@ -23,15 +23,25 @@ use Eelly\SDK\Pay\DTO\AccountAdjustDTO;
 class AccountAdjust implements AccountAdjustInterface
 {
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 根据账户资金核算主键id,获取对应的信息.
      *
-     * @param int $paaId 账户日资金核算主键id
+     * @param int $paaId 账户资金核算主键id
      *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return AccountAdjustDTO
-     * @requestExample({"aaId":1})
-     * @returnExample({"paaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
+     * @requestExample({
+     *     "paaId":1
+     * })
+     * @returnExample({
+     *     "paaId":3,
+     *     "paId":2,
+     *     "accountMoney":100,
+     *     "changeMoney":10,
+     *     "status":1,
+     *     "remark":"",
+     *     "createdTime":1510211720
+     * })
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      * @since  2017-11-22
@@ -42,15 +52,25 @@ class AccountAdjust implements AccountAdjustInterface
     }
 
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 根据账户资金核算主键id,获取对应的信息.
      *
-     * @param int $paaId 账户日资金核算主键id
+     * @param int $paaId 账户资金核算主键id
      *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return AccountAdjustDTO
-     * @requestExample({"aaId":1})
-     * @returnExample({"paaId":3,"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":"","createdTime":1510211720})
+     * @requestExample({
+     *     "paaId":1
+     * })
+     * @returnExample({
+     *     "paaId":3,
+     *     "paId":2,
+     *     "accountMoney":100,
+     *     "changeMoney":10,
+     *     "status":1,
+     *     "remark":"",
+     *     "createdTime":1510211720
+     * })
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      * @since  2017-11-22
@@ -61,9 +81,9 @@ class AccountAdjust implements AccountAdjustInterface
     }
 
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 新增账户资金核算记录.
      *
-     * @param array $data 账户日资金核算数据
+     * @param array $data 账户资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
      * @param int $data['changeMoney'] 帐户变更金额汇总
@@ -73,7 +93,15 @@ class AccountAdjust implements AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({
+     *     "data":{
+     *         "paId":2,
+     *         "accountMoney":100,
+     *         "changeMoney":10,
+     *         "status":1,
+     *         "remark":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -85,9 +113,9 @@ class AccountAdjust implements AccountAdjustInterface
     }
 
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 新增账户资金核算记录.
      *
-     * @param array $data 账户日资金核算数据
+     * @param array $data 账户资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
      * @param int $data['changeMoney'] 帐户变更金额汇总
@@ -97,7 +125,15 @@ class AccountAdjust implements AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({
+     *     "data":{
+     *         "paId":2,
+     *         "accountMoney":100,
+     *         "changeMoney":10,
+     *         "status":1,
+     *         "remark":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -109,10 +145,10 @@ class AccountAdjust implements AccountAdjustInterface
     }
 
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 更新账户资金核算记录.
      *
-     * @param int $paaId 账户日资金核算主键id
-     * @param array $data 账户日资金核算数据
+     * @param int $paaId 账户资金核算主键id
+     * @param array $data 账户资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
      * @param int $data['changeMoney'] 帐户变更金额汇总
@@ -122,7 +158,16 @@ class AccountAdjust implements AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"paaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({
+     *     "paaId":1,
+     *     "data":{
+     *         "paId":2,
+     *         "accountMoney":100,
+     *         "changeMoney":10,
+     *         "status":1,
+     *         "remark":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
@@ -134,10 +179,10 @@ class AccountAdjust implements AccountAdjustInterface
     }
 
     /**
-     * 根据账户日资金核算主键id,获取对应的信息.
+     * 更新账户资金核算记录.
      *
-     * @param int $paaId 账户日资金核算主键id
-     * @param array $data 账户日资金核算数据
+     * @param int $paaId 账户资金核算主键id
+     * @param array $data 账户资金核算数据
      * @param int $data['paId'] 账户id
      * @param int $data['accountMoney'] 帐户金额
      * @param int $data['changeMoney'] 帐户变更金额汇总
@@ -147,7 +192,16 @@ class AccountAdjust implements AccountAdjustInterface
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
      * @return bool
-     * @requestExample({"paaId":1,"data":{"paId":2,"accountMoney":100,"changeMoney":10,"status":1,"remark":""}})
+     * @requestExample({
+     *     "paaId":1,
+     *     "data":{
+     *         "paId":2,
+     *         "accountMoney":100,
+     *         "changeMoney":10,
+     *         "status":1,
+     *         "remark":""
+     *     }
+     * })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>

@@ -73,6 +73,59 @@ interface AccountInterface
     public function getAccount(int $paId): AccountDTO;
 
     /**
+     * 获取用户账户信息，或者店铺账户信息.
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------------|-------|--------------
+     * paId              |int    |账户ID，自增主键
+     * userId            |int    |用户ID：0 平台系统帐户
+     * storeId           |int    |店铺ID：0 买家帐户
+     * money             |int    |账户可用金额：单位为分
+     * frozenMoney       |int    |账户冻结金额：单位为分
+     * commissionRatio   |string |提现手续费率
+     * passwordPay       |string |支付密码
+     * status            |int    |状态：0 正常 1 风险监控 2 冻结提现 4 冻结支付
+     * alipayAccount     |string |支付宝账号
+     * wechatPurseOpenId |string |微信钱包绑定的微信账户open_id
+     * createdTime       |int    |添加时间
+     * passwordKey       |string |密码钥匙
+     * updateTime        |string |修改时间
+     *
+     * @param int         $storeId 店铺ID
+     * @param UidDTO|null $user    登录用户
+     *
+     * @return AccountDTO
+     * @requestExample({"storeId":148086})
+     * @returnExample({"paId":1,"userId":148086,"storeId":0,"money":1300,
+     *     "frozenMoney":200,"commissionRatio":"0.000", "passwordPay": "e10adc3949ba59abbe56e057f20f883e",
+     *     "status":2, "alipayAccount":"支付宝账户","wechatPurseOpenId":"微信钱包","createdTime":1510278091,"passwordKey":"密钥","updateTime":"2017-11-21 17:46:30"})
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2017年11月09日
+     */
+    public function getAccountUser(int $storeId = 0, UidDTO $user = null): AccountDTO;
+
+    /**
+     * 获取用户账户信息，或者店铺账户信息.
+     *
+     * @param array $data
+     * @param int   $data['storeId'] 店铺ID
+     * @param int   $data['userId']  登录用户
+     *
+     * @return array
+     * @requestExample({"data":{"userId":148086,"storeId":1122}})
+     * @returnExample()
+     *
+     * @author 张泽强 <zhangzeqiang@eelly.net>
+     *
+     * @since  2017年11月18日
+     */
+    public function getAccountUserInfo(array $data): array;
+
+    /**
      * 添加会员资金账户.
      *
      * @param array  $data 会员资金账户数据
