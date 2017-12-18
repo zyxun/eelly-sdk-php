@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK;
 
+use Eelly\Application\ApplicationConst;
 use Eelly\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
 use League\OAuth2\Client\Token\AccessToken;
@@ -149,6 +150,19 @@ class EellyClient
             self::$accessToken = $client->getAccessToken('client_credentials');
         }
         list($serviceName) = explode('/', $uri);
+        if ($sync && ApplicationConst::hasRuntimeEnv(ApplicationConst::RUNTIME_ENV_SWOOLE)) {
+            /* @var \Eelly\Network\TcpServer $server */
+            $tcpServer = Di::getDefault()->getShared('server');
+            $moduleClient = $tcpServer->getModuleClient($serviceName);
+            $moduleClient->sendJson([
+                'uri'    => '/'.$uri.'/'.$method,
+                'params' => $args,
+            ]);
+            $data = $moduleClient->recvJson();
+
+            return $client->bodyToObject($data['content']);
+        }
+
         $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
         $stream = new MultipartStream($client->paramsToMultipart($args));
         $provider = $client->getProvider();
@@ -165,7 +179,7 @@ class EellyClient
         if ($sync) {
             $response = $provider->getResponse($request);
 
-            return $client->responseToObject($response);
+            return $client->respoonseToObject($response);
         } else {
             $promise = $provider->getHttpClient()->sendAsync($request);
 
@@ -181,31 +195,37 @@ class EellyClient
 
                 public function wait()
                 {
-                    return $this->client->responseToObject($this->promise->wait());
+                    return $this->client->respoonseToObject($this->promise->wait());
                 }
             };
         }
     }
 
-    public function responseToObject(ResponseInterface $response)
+    public function respoonseToObject(ResponseInterface $response)
     {
-        $class = $response->getHeader('ReturnType');
-        if (!empty($class)) {
-            $returnType = $class[0];
-            if (class_exists($returnType)) {
-                $array = json_decode((string) $response->getBody(), true);
-                if (is_subclass_of($returnType, LogicException::class)) {
-                    throw new $returnType($array['error'], $array['context']);
+        return $this->bodyToObject(\GuzzleHttp\json_decode((string) $response->getBody(), true));
+    }
+
+    /**
+     * @param string $body
+     *
+     * @return mixed
+     */
+    public function bodyToObject($body)
+    {
+        if (isset($body['returnType'])) {
+            if (class_exists($body['returnType'])) {
+                if (is_subclass_of($body['returnType'], LogicException::class)) {
+                    throw new $body['returnType']($body['error'], $body['context']);
                 } else {
-                    $object = $returnType::hydractor($array['data']);
+                    $object = $body['returnType']::hydractor($body['data']);
                 }
             } else {
-                $object = json_decode((string) $response->getBody(), true);
-                $object = $object['data'];
-                settype($object, $returnType);
+                $object = $body['data'];
+                settype($object, $body['returnType']);
             }
         } else {
-            $object = (string) $response->getBody();
+            $object = (string) $body;
         }
 
         return $object;

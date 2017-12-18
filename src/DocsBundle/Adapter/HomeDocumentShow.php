@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle\Adapter;
 
+use Eelly\Application\ApplicationConst;
+
 /**
  * Class HomeDocumentShow.
  */
@@ -20,7 +22,7 @@ class HomeDocumentShow extends AbstractDocumentShow implements DocumentShowInter
 {
     public function setViewVars(): void
     {
-        if (defined('RUN_SWOOLE') && RUN_SWOOLE) {
+        if (ApplicationConst::hasRuntimeEnv(ApplicationConst::RUNTIME_ENV_SWOOLE)) {
             /* @var \Eelly\Network\HttpServer $server */
             $server = $this->getDI()->getShared('server');
             $moduleMap = $server->getModuleMap();

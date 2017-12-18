@@ -26,11 +26,19 @@ interface BenchmarkInterface
     public function helloWorld(): string;
 
     /**
-     * sleep.
+     * Sleep.
      *
-     * @param int $time
+     * @param int $time sleep seconds
      *
-     * @return string
+     * @return string string
      */
     public function sleep(int $time): string;
+
+    /**
+     * Echo request string.
+     *
+     * @param string $string  echo string
+     * @return string
+     */
+    public function echo(string $string): string;
 }
