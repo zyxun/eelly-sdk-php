@@ -75,7 +75,7 @@ interface BuyInterface
      *
      * @since 2017-09-23
      */
-    public function addBuy(array $data, UidDTO $user = null): bool;
+    public function addBuy(array $data, UidDTO $user = null): int;
 
     /**
      * 获取服务购买记录列表.
