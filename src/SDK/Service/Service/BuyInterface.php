@@ -62,7 +62,6 @@ interface BuyInterface
      * @param int    $data['salespersonId'] 销售员工ID
      * @param int    $data['expireTime']    服务到期时间
      * @param string $data['remark']        备注
-     * @param UidDTO $user                  登录用户对象
      *
      * @throws \Eelly\SDK\Service\Exception\BuyException
      *
@@ -75,7 +74,7 @@ interface BuyInterface
      *
      * @since 2017-09-23
      */
-    public function addBuy(array $data, UidDTO $user = null): int;
+    public function addBuy(array $data): int;
 
     /**
      * 获取服务购买记录列表.
