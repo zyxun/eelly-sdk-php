@@ -57,14 +57,12 @@ EOF;
                     </tbody>
                 </table>
                 <h3>Remote server</h3>
-                <?php if (isset($_ENV['PHP_VERSION'])): ?>
                     <h3>Version</h3>
                     <ul class="list-group">
-                        <li class="list-group-item">PHP_VERSION = <span class="badge badge-info"><?=$_ENV['PHP_VERSION']?></span></li>
-                        <li class="list-group-item">PHALCON_VERSION = <span class="badge badge-info"><?=$_ENV['PHALCON_VERSION']?></span></li>
-                        <li class="list-group-item">SWOOLE_VERSION = <span class="badge badge-info"><?=$_ENV['SWOOLE_VERSION']?></span></li>
+                        <li class="list-group-item">PHP_VERSION = <span class="badge badge-info"><?=phpversion()?></span></li>
+                        <li class="list-group-item">PHALCON_VERSION = <span class="badge badge-info"><?=phpversion('phalcon')?></span></li>
+                        <li class="list-group-item">SWOOLE_VERSION = <span class="badge badge-info"><?=phpversion('swoole')?></span></li>
                     </ul>
-                <?php endif;?>
             </article>
         </div>
 
