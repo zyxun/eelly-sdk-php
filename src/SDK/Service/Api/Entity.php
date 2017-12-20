@@ -90,7 +90,7 @@ class Entity implements EntityInterface
      * @returnExample(true)
      *
      * @author wujunhua<wujunhua@eelly.net>
-     *
+     * 
      * @since 2017-09-16
      */
     public function addEntity(array $data, UidDTO $user = null): bool
@@ -125,7 +125,7 @@ class Entity implements EntityInterface
      * @returnExample(true)
      *
      * @author wujunhua<wujunhua@eelly.net>
-     *
+     * 
      * @since 2017-09-16
      */
     public function addEntityAsync(array $data, UidDTO $user = null)
@@ -255,10 +255,7 @@ class Entity implements EntityInterface
      * 获取店铺实体认证地址.
      *
      * @param int $storeId      店铺id
-     * @param int $addressType 店铺地址格式类型,
-     *                         1:xx省xx市xx区xx商圈xx市场xx楼层xx号
-     *                         2:xx(省)xx(市)xx(区)xx市场xx楼层xx号
-     *                         3:xx省xx市xx区xx市场xx层xx号
+     * @param int $addressType 店铺地址格式类型, 1:xx省xx市xx区xx商圈xx市场xx楼层xx号, 2:xx(省)xx(市)xx(区)xx市场xx楼层xx号, 3:xx省xx市xx区xx市场xx层xx号
      *
      * @throws EntityException
      *
@@ -275,23 +272,89 @@ class Entity implements EntityInterface
     }
 
     /**
-     * 获取实体认证简介信息.
+     * 获取店铺实体认证地址.
      *
-     * @param int $storeId  店铺id
+     * @param int $storeId      店铺id
+     * @param int $addressType 店铺地址格式类型, 1:xx省xx市xx区xx商圈xx市场xx楼层xx号, 2:xx(省)xx(市)xx(区)xx市场xx楼层xx号, 3:xx省xx市xx区xx市场xx层xx号
      *
-     * @return array
-     * @requestExample({"storeId":1})
-     * @returnExample({"authName":"档口地址真实性认证","authRank":"中级认证","auditTime":1525107661,"expireTime":1538326861,"imagesArr":[]})
+     * @throws EntityException
+     *
+     * @return string
+     * @requestExample({"storeId":1,"addressType":1})
+     * @returnExample("xx省xx市xx区xx商圈xx市场xx层xx号")
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     * @since  2017年11月28日
-     * @validation(
-     *     @digit(0,{"message":"非法的店铺id类型"})
-     * )
+     * @since  2017年11月25日
      */
-    public function getEntityBase(int $storeId): array
+    public function getEntityAddressAsync(int $storeId, int $addressType)
     {
-        return EellyClient::request('service/entity', __FUNCTION__, true, $storeId);
+        return EellyClient::request('service/entity', __FUNCTION__, false, $storeId, $addressType);
+    }
+
+    /**
+     * 新增店铺实体认证数据.
+     *
+     * @param array  $data                新增数据
+     * @param int    $data['storeId']     店铺ID
+     * @param string $data['name']        真实姓名
+     * @param string $data['license']     身份证号码
+     * @param string $data['mobile']      手机号
+     * @param int    $data['gbCode']      地区编码
+     * @param int    $data['districtId']  商圈ID
+     * @param int    $data['marketId']    市场ID
+     * @param int    $data['floorId']     楼层ID
+     * @param string $data['stallName']   档口名称
+     * @param string $data['stallNumber'] 档口号：如 301、301A、301-A
+     * @param string $data['images']      租赁合同或使用权凭证照片：JSON格式
+     * @param int    $data['secId']       店铺实体自定义ID
+     * @param string $data['address']     街道地址
+     * @param UidDTO $user                登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\EntityException
+     *
+     * @return bool
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年12月11日
+     */
+    public function applyEntityData(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('service/entity', __FUNCTION__, true, $data, $user);
+    }
+
+    /**
+     * 新增店铺实体认证数据.
+     *
+     * @param array  $data                新增数据
+     * @param int    $data['storeId']     店铺ID
+     * @param string $data['name']        真实姓名
+     * @param string $data['license']     身份证号码
+     * @param string $data['mobile']      手机号
+     * @param int    $data['gbCode']      地区编码
+     * @param int    $data['districtId']  商圈ID
+     * @param int    $data['marketId']    市场ID
+     * @param int    $data['floorId']     楼层ID
+     * @param string $data['stallName']   档口名称
+     * @param string $data['stallNumber'] 档口号：如 301、301A、301-A
+     * @param string $data['images']      租赁合同或使用权凭证照片：JSON格式
+     * @param int    $data['secId']       店铺实体自定义ID
+     * @param string $data['address']     街道地址
+     * @param UidDTO $user                登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\EntityException
+     *
+     * @return bool
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年12月11日
+     */
+    public function applyEntityDataAsync(array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('service/entity', __FUNCTION__, false, $data, $user);
     }
 
     /**

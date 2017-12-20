@@ -18,7 +18,7 @@ use Eelly\SDK\Service\DTO\EntityDTO;
 
 /**
  * 实体认证.
- *
+ *  
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface EntityInterface
@@ -67,7 +67,7 @@ interface EntityInterface
      * @returnExample(true)
      *
      * @author wujunhua<wujunhua@eelly.net>
-     *
+     * 
      * @since 2017-09-16
      */
     public function addEntity(array $data, UidDTO $user = null): bool;
@@ -141,4 +141,34 @@ interface EntityInterface
      * @since  2017年11月25日
      */
     public function getEntityAddress(int $storeId, int $addressType): string;
+    
+    /**
+     * 新增店铺实体认证数据.
+     *
+     * @param array  $data                新增数据
+     * @param int    $data['storeId']     店铺ID
+     * @param string $data['name']        真实姓名
+     * @param string $data['license']     身份证号码
+     * @param string $data['mobile']      手机号
+     * @param int    $data['gbCode']      地区编码
+     * @param int    $data['districtId']  商圈ID
+     * @param int    $data['marketId']    市场ID
+     * @param int    $data['floorId']     楼层ID
+     * @param string $data['stallName']   档口名称
+     * @param string $data['stallNumber'] 档口号：如 301、301A、301-A
+     * @param string $data['images']      租赁合同或使用权凭证照片：JSON格式
+     * @param int    $data['secId']       店铺实体自定义ID
+     * @param string $data['address']     街道地址
+     * @param UidDTO $user                登录用户对象
+     *
+     * @throws \Eelly\SDK\Service\Exception\EntityException
+     *
+     * @return bool
+     * @requestExample()
+     * @returnExample()
+     *
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年12月11日
+     */
+    public function applyEntityData(array $data, UidDTO $user = null): bool;
 }
