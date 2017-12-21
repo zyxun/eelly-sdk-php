@@ -33,6 +33,7 @@ EOF;
         <div class="col-12 col-md-9">
             <article class="markdown-body">
                 <?=$markup($readmeMd)?>
+                <?php if(!empty($moduleMap)): ?>
                 <h3>Local server</h3>
                 <table class="table table-striped">
                     <thead>
@@ -56,8 +57,9 @@ EOF;
                     <?php endforeach;?>
                     </tbody>
                 </table>
-                <h3>Remote server</h3>
-                    <h3>Version</h3>
+                <?php endif ?>
+                <!--<h3>Remote server</h3>-->
+                <h3>Version</h3>
                     <ul class="list-group">
                         <li class="list-group-item">PHP_VERSION = <span class="badge badge-info"><?=phpversion()?></span></li>
                         <li class="list-group-item">PHALCON_VERSION = <span class="badge badge-info"><?=phpversion('phalcon')?></span></li>
