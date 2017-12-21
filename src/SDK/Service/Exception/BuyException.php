@@ -17,4 +17,7 @@ use Eelly\Exception\LogicException;
 
 class BuyException extends LogicException
 {
+    public const WAIT_CHECK_CERTIFICATION = '请等待认证审核完毕后再进行够买服务';
+
+    public const ADD_CERTIFICATION_FAIL   = '认证关联失败,请稍候再试';
 }
