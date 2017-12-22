@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle;
 
-use Eelly\Events\Listener\ApiLoggerListener;
+use Shadon\Events\Listener\ApiLoggerListener;
 use Phalcon\Di\Injectable;
 use Phalcon\Di\Service;
 use Phalcon\Events\Event;

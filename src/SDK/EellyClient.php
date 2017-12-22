@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK;
 
-use Eelly\Application\ApplicationConst;
+use Shadon\Application\ApplicationConst;
 use Eelly\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
 use League\OAuth2\Client\Token\AccessToken;

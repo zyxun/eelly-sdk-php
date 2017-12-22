@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle\Adapter;
 
-use Eelly\Application\ApplicationConst;
+use Shadon\Application\ApplicationConst;
 
 /**
  * Class HomeDocumentShow.

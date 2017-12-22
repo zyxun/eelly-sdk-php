@@ -17,8 +17,8 @@ use Eelly\DocsBundle\Adapter\ApiDocumentShow;
 use Eelly\DocsBundle\Adapter\HomeDocumentShow;
 use Eelly\DocsBundle\Adapter\ModuleDocumentShow;
 use Eelly\DocsBundle\Adapter\ServiceDocumentShow;
-use Eelly\Events\Listener\ValidateAccessTokenListener;
-use Eelly\Mvc\Controller;
+use Shadon\Events\Listener\ValidateAccessTokenListener;
+use Shadon\Mvc\Controller;
 use Phalcon\Mvc\View;
 use ReflectionClass;
 
