@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK;
 
 use Shadon\Application\ApplicationConst;
-use Eelly\OAuth2\Client\Provider\EellyProvider;
+use Shadon\OAuth2\Client\Provider\EellyProvider;
 use GuzzleHttp\Psr7\MultipartStream;
 use League\OAuth2\Client\Token\AccessToken;
 use LogicException;
@@ -92,7 +92,7 @@ class EellyClient
     }
 
     /**
-     * @return \Eelly\OAuth2\Client\Provider\EellyProvider
+     * @return \Shadon\OAuth2\Client\Provider\EellyProvider
      */
     public function getProvider()
     {
