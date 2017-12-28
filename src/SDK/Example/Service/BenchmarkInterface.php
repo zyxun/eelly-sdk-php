@@ -37,7 +37,8 @@ interface BenchmarkInterface
     /**
      * Echo request string.
      *
-     * @param string $string  echo string
+     * @param string $string echo string
+     *
      * @return string
      */
     public function echo(string $string): string;

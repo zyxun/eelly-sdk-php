@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle;
 
-use Shadon\Events\Listener\ApiLoggerListener;
 use Phalcon\Di\Injectable;
 use Phalcon\Di\Service;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Router;
 use Phalcon\Mvc\View;
+use Shadon\Events\Listener\ApiLoggerListener;
 
 class DocsBundle extends Injectable
 {

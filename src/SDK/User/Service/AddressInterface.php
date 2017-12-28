@@ -150,7 +150,7 @@ interface AddressInterface
     /**
      * 获取用户地址列表.
      *
-     * @param UidDTO $user     用户信息
+     * @param UidDTO $user 用户信息
      *
      * @throws UserException
      *
