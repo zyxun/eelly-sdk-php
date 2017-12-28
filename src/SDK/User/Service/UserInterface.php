@@ -54,13 +54,13 @@ interface UserInterface
      *
      * 字段|类型|说明
      * --|-------|--------------
-     * 0 |string    | -1:密码不符合规则;<2:密码过于简单值越大强度越高
+     * 0 |bool   | -1:密码不符合规则[现在直接报错了];<2:密码过于简单值越大强度越高
      *
      * @param string $password 密码
      *
      * @return int -1:密码不符合规则;<2:密码过于简单
      * @requestExample({"password":"!ab123456"})
-     * @returnExample({true})
+     * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -70,6 +70,11 @@ interface UserInterface
 
     /**
      * 更新用户数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --|-------|--------------
+     * 0 |bool   |返回值
      *
      * @param int   $userId 用户登录ID
      * @param array $data   需要更新的用户数据
@@ -90,17 +95,21 @@ interface UserInterface
 
     /**
      * 注册用户.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --|-------|--------------
+     * 0 |int    | 返回值用户ID
      *
      * @param array  $data 注册数据
-     * @param string $data ['mobile'] 注册数据
-     * @param string $data ['captcha'] 验证码
-     * @param string $data ['password'] 注册密码
+     * @param string $data["mobile"] 注册数据
+     * @param string $data["password"] 注册密码,可以不填，填了必须符合密码规则
      *
      * @throws \Eelly\Exception\LogicException
      *
      * @return int 用户ID
-     * @requestExample({'mobile':13512719787,'captcha':123456,'password':'123456'})
-     * @returnExample('accessToken')
+     * @requestExample({"mobile":13512719787,"password":"123456"})
+     * @returnExample(148086)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -128,6 +137,13 @@ interface UserInterface
 
     /**
      * 通过密码获取用户信息.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * uid      |int    |用户ID
+     * username |string |用户名
+     * mobile   |string |手机号
      *
      * 支持使用用户名加密码和用户名加手机获取
      *
@@ -148,6 +164,13 @@ interface UserInterface
 
     /**
      * 获取用户信息.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * uid      |int    |用户ID
+     * username |string |用户名
+     * mobile   |string |手机号
      *
      * @param UidDTO $user 登录用户
      *
@@ -190,15 +213,15 @@ interface UserInterface
     public function getListByUserIds(array $userIds): array;
 
     /**
-     * 添加用户.
+     * 添加用户=》基础接口.
      *
      * @param array  $data
-     * @param string $data ["username"]
-     * @param string $data ["password"]["old"]
-     * @param string $data ["password"]
-     * @param int    $data ["mobile"]
-     * @param string $data ["avatar"]
-     * @param int    $data ["status"]
+     * @param string $data ["username"] 用户名
+     * @param string $data ["passwordOld"] 旧密码以前平台的
+     * @param string $data ["password"] 新密码
+     * @param int    $data ["mobile"] 手机号
+     * @param string $data ["avatar"] 头像
+     * @param int    $data ["status"] 状态
      *
      * @throws UserException
      *
@@ -232,10 +255,19 @@ interface UserInterface
 
     /**
      * 根据传过来的用户id，获取对应的用户资料.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * userId   |string |用户ID
+     * mobile   |string |手机号码
+     * avatar   |string |头像
+     * realname |string |真实姓名
+     * username |string |用户帐号：帐号和昵称合并
      *
      * @param int $userId 用户id
      *
-     * @throws \Exception
+     * @throws \Eelly\Exception\LogicException
      *
      * @return array
      *
@@ -294,6 +326,19 @@ interface UserInterface
 
     /**
      * 查看用户绑定状态
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------------|-------|--------------
+     * isBindMobile   |bool   | 是否绑定手机号
+     * mobile         |string | 手机号，部分隐藏的
+     * phoneMob       |string | 手机号
+     * isBindQQ       |bool   | 是否绑定qq
+     * qqNickname     |string | qq昵称
+     * isBindWechat   |bool   | 是否绑定微信
+     * WechatNickname |string | 微信昵称
+     * isBindEmail    |bool   | 是否绑定邮箱
+     * email          |string | 邮箱
      *
      * @param int    $type 类型 1:手机 2:QQ 3:微信 4:全部(手机+QQ+微信+邮箱)
      * @param UidDTO $user 用户登录信息
@@ -302,7 +347,7 @@ interface UserInterface
      *
      * @return array
      * @requestExample({"type":4})
-     * @returnExample({"isBindMobile":"true", "mobile":"134****8648","phoneMob":"13430248648","isBindQQ":"true","qqNickname":"","isBindWechat":"false","WechatNickname":"","isBindEmail":"true","email":"molimoq@eelly.net"})
+     * @returnExample({"isBindMobile":true, "mobile":"134****8648","phoneMob":"13430248648","isBindQQ":true,"qqNickname":"","isBindWechat":false,"WechatNickname":"","isBindEmail":true,"email":"molimoq@eelly.net"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *
@@ -334,12 +379,19 @@ interface UserInterface
 
     /**
      * 判断用户是否已经绑定手机.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * -------------|-------|--------------
+     * isBindMobile |bool   | 是否绑定手机
+     * mobile       |string | 手机号码，有****的
+     * phoneMob     |string | 手机号码
      *
      * @param int $userId 用户id
      *
      * @return array
      * @requestExample({"userId":"148086"})
-     * @returnExample({"isBindMobile":1, "mobile":"134****5645","phoneMob":"13430245645"})
+     * @returnExample({"isBindMobile":true, "mobile":"134****5645","phoneMob":"13430245645"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *
@@ -349,6 +401,13 @@ interface UserInterface
 
     /**
      * 获取用户信息.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * uid      |int    |用户ID
+     * username |string |用户名
+     * mobile   |string |手机号
      *
      * @param int $uid 用户id
      *
