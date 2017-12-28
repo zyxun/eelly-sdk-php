@@ -13,28 +13,19 @@ declare(strict_types=1);
 
 namespace Eelly\SDK;
 
-use Shadon\Application\ApplicationConst;
-use Shadon\OAuth2\Client\Provider\EellyProvider;
-use GuzzleHttp\Psr7\MultipartStream;
-use League\OAuth2\Client\Token\AccessToken;
 use LogicException;
-use Phalcon\Di;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UploadedFileInterface;
+use Shadon\Client\ShadonSDKClient;
+use Shadon\OAuth2\Client\Provider\ShadonProvider;
 
 class EellyClient
 {
     /**
-     * @var string
-     */
-    public static $traceId;
-
-    /**
-     * 服务提供者默认地址
+     * server map.
      *
      * @var array
      */
-    private static $providerUri = [
+    private const SERVICE_MAP = [
         'logger'  => 'https://api.eelly.com',
         'example' => 'https://api.eelly.com',
         'oauth'   => 'https://api.eelly.com',
@@ -45,34 +36,32 @@ class EellyClient
         'message' => 'https://api.eelly.com',
     ];
 
-    private static $services = [];
-
     /**
-     * @var EellyProvider
+     * @var string
      */
-    private $provider;
+    public static $traceId;
 
     /**
-     * @var EellyClient
+     * @var ShadonSDKClient
+     */
+    private static $sdkClient;
+
+    /**
+     * @var static
      */
     private static $self;
-
-    /**
-     * @var \League\OAuth2\Client\Token\AccessToken
-     */
-    private static $accessToken;
 
     /**
      * EellyClient constructor.
      *
      * @param array $options
      * @param array $collaborators
-     * @param array $providerUri
+     * @param array $serviceMap
      */
-    private function __construct(array $options, array $collaborators = [], array $providerUri = [])
+    private function __construct(array $options, array $collaborators = [], array $serviceMap = [])
     {
-        self::$providerUri = array_replace(self::$providerUri, $providerUri);
-        $this->provider = new EellyProvider($options, $collaborators);
+        $provider = new ShadonProvider($options, $collaborators);
+        self::$sdkClient = ShadonSDKClient::fromProvider($provider, array_replace(self::SERVICE_MAP, $serviceMap));
     }
 
     /**
@@ -92,11 +81,11 @@ class EellyClient
     }
 
     /**
-     * @return \Shadon\OAuth2\Client\Provider\EellyProvider
+     * @return AbstractProvider
      */
     public function getProvider()
     {
-        return $this->provider;
+        return self::$sdkClient->getProvider();
     }
 
     /**
@@ -105,26 +94,6 @@ class EellyClient
     public function setTraceId(string $traceId): void
     {
         self::$traceId = $traceId;
-    }
-
-    /**
-     * @param mixed $grant
-     *
-     * @return \League\OAuth2\Client\Token\AccessToken
-     */
-    public function getAccessToken($grant, array $options = [])
-    {
-        return $this->provider->getAccessToken($grant, $options);
-    }
-
-    /**
-     * @param AccessToken $accessToken
-     *
-     * @return AccessToken
-     */
-    public function setAccessToken(AccessToken $accessToken)
-    {
-        return self::$accessToken = $accessToken;
     }
 
     /**
@@ -137,81 +106,23 @@ class EellyClient
      */
     public static function request(string $uri, string $method, bool $sync = true, ...$args)
     {
-        if (null === self::$self) {
-            $di = Di::getDefault();
-            if ($di->has('eellyClient')) {
-                $di->getShared('eellyClient');
-            } else {
-                throw new \ErrorException('eelly client initial fail');
-            }
-        }
-        $client = self::$self;
-        if (null === self::$accessToken || self::$accessToken->hasExpired()) {
-            self::$accessToken = $client->getAccessToken('client_credentials');
-        }
-        list($serviceName) = explode('/', $uri);
-        if ($sync && ApplicationConst::hasRuntimeEnv(ApplicationConst::RUNTIME_ENV_SWOOLE)) {
-            /* @var \Eelly\Network\TcpServer $server */
-            $tcpServer = Di::getDefault()->getShared('server');
-            $moduleClient = $tcpServer->getModuleClient($serviceName);
-            $moduleClient->sendJson([
-                'uri'    => '/'.$uri.'/'.$method,
-                'params' => $args,
-            ]);
-            $data = $moduleClient->recvJson();
-
-            return $client->bodyToObject($data['content']);
-        }
-
-        $uri = self::$providerUri[$serviceName].'/'.$uri.'/'.$method;
-        $stream = new MultipartStream($client->paramsToMultipart($args));
-        $provider = $client->getProvider();
-        $options = [
-            'body' => $stream,
-        ];
-        if (!empty(self::$traceId)) {
-            $options['headers'] = [
-                'traceId' => self::$traceId,
-            ];
-        }
-        $request = $provider->getAuthenticatedRequest(EellyProvider::METHOD_POST, $uri, self::$accessToken->getToken(), $options);
-
+        $paramArr = array_merge([$uri.'/'.$method], $args);
+        $promise = call_user_func_array([self::$sdkClient, 'requestAsync'], $paramArr);
         if ($sync) {
-            $response = $provider->getResponse($request);
+            $response = $promise->wait();
 
-            return $client->respoonseToObject($response);
-        } else {
-            $promise = $provider->getHttpClient()->sendAsync($request);
-
-            return new class($client, $promise) {
-                private $client;
-                private $promise;
-
-                public function __construct($client, $promise)
-                {
-                    $this->client = $client;
-                    $this->promise = $promise;
-                }
-
-                public function wait()
-                {
-                    return $this->client->respoonseToObject($this->promise->wait());
-                }
-            };
+            return self::$self->respoonseToObject($response);
         }
+
+        return $promise;
     }
 
-    public function respoonseToObject(ResponseInterface $response)
+    private function respoonseToObject(ResponseInterface $response)
     {
-        return $this->bodyToObject(\GuzzleHttp\json_decode((string) $response->getBody(), true));
+        return $this->bodyToObject(\GuzzleHttp\json_decode($response->getBody(), true));
     }
 
-    /**
-     * @param string $body
-     *
-     * @return mixed
-     */
-    public function bodyToObject($body)
+    private function bodyToObject(array $body)
     {
         if (isset($body['returnType'])) {
             if (class_exists($body['returnType'])) {
@@ -229,31 +140,5 @@ class EellyClient
         }
 
         return $object;
-    }
-
-    protected function paramsToMultipart($params, $prefix = null)
-    {
-        $multipart = [];
-        foreach ($params as $key => $value) {
-            $p = null === $prefix ? $key : $prefix.'['.$key.']';
-            if ($value instanceof UploadedFileInterface) {
-                $multipart[] = [
-                    'name'     => $p,
-                    'contents' => $value->getStream(),
-                ];
-            } elseif (is_array($value)) {
-                $parentMultipart = $this->paramsToMultipart($value, $p);
-                foreach ($parentMultipart as $part) {
-                    $multipart[] = $part;
-                }
-            } elseif (null !== $value) {
-                $multipart[] = [
-                    'name'     => $p,
-                    'contents' => $value,
-                ];
-            }
-        }
-
-        return $multipart;
     }
 }

@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\DocsBundle\Adapter;
 
-use Shadon\Di\Injectable;
 use phpDocumentor\Reflection\DocBlockFactory;
+use Shadon\Di\Injectable;
 use SplFileObject;
 
 /**

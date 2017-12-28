@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\AuthInterface;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\AuthDTO;
+use Eelly\SDK\User\Service\AuthInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Auth implements AuthInterface
@@ -140,11 +140,11 @@ class Auth implements AuthInterface
     /**
      * 获取用户/店铺认证信息.
      *
-     * @param array  $condition            条件数组
-     * @param int    $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string $condition['name']    真实姓名/企业名称,
-     * @param string $condition['license'] 身份证号码/营业执照号
-     * @param UidDTO|null $user 登录用户
+     * @param array       $condition            条件数组
+     * @param int         $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string      $condition['name']    真实姓名/企业名称,
+     * @param string      $condition['license'] 身份证号码/营业执照号
+     * @param UidDTO|null $user                 登录用户
      *
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
@@ -164,11 +164,11 @@ class Auth implements AuthInterface
     /**
      * 获取用户/店铺认证信息.
      *
-     * @param array  $condition            条件数组
-     * @param int    $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string $condition['name']    真实姓名/企业名称,
-     * @param string $condition['license'] 身份证号码/营业执照号
-     * @param UidDTO|null $user 登录用户
+     * @param array       $condition            条件数组
+     * @param int         $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string      $condition['name']    真实姓名/企业名称,
+     * @param string      $condition['license'] 身份证号码/营业执照号
+     * @param UidDTO|null $user                 登录用户
      *
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
@@ -189,9 +189,9 @@ class Auth implements AuthInterface
      * 添加个人实名认证|企业实名认证信息.
      *
      * @param array  $data
-     * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string $data['name']              真实姓名/企业名称,
-     * @param string $data['license']           身份证号码/营业执照号,
+     * @param int    $data['type']             认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string $data['name']             真实姓名/企业名称,
+     * @param string $data['license']          身份证号码/营业执照号,
      * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
      * @param int    $data['expiryDate']       证件到期时间,
      * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
@@ -200,7 +200,7 @@ class Auth implements AuthInterface
      * @param string $data['bankAccount']      银行账号,
      * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
      * @param string $data['cartReversed_pic'] 身份证反面照片,
-     * @param int    $data['remark']            备注,
+     * @param int    $data['remark']           备注,
      * @param UidDTO $user
      *
      * @throws AuthException
@@ -222,9 +222,9 @@ class Auth implements AuthInterface
      * 添加个人实名认证|企业实名认证信息.
      *
      * @param array  $data
-     * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string $data['name']              真实姓名/企业名称,
-     * @param string $data['license']           身份证号码/营业执照号,
+     * @param int    $data['type']             认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string $data['name']             真实姓名/企业名称,
+     * @param string $data['license']          身份证号码/营业执照号,
      * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
      * @param int    $data['expiryDate']       证件到期时间,
      * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
@@ -233,7 +233,7 @@ class Auth implements AuthInterface
      * @param string $data['bankAccount']      银行账号,
      * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
      * @param string $data['cartReversed_pic'] 身份证反面照片,
-     * @param int    $data['remark']            备注,
+     * @param int    $data['remark']           备注,
      * @param UidDTO $user
      *
      * @throws AuthException
@@ -255,19 +255,19 @@ class Auth implements AuthInterface
      * 更新个人实名认证|企业实名认证.
      *
      * @param array  $data
-     * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string $data['name']              真实姓名/企业名称,
-     * @param string $data['license']           身份证号码/营业执照号,
-     * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
-     * @param int    $data['expiryDate']       证件到期时间,
-     * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
-     * @param int    $data['gbCode']           开户银行所在地：：el_config->region_gb->gb_code,
-     * @param string $data['bankSubbranch']    支行名称,
-     * @param string $data['bankAccount']      银行账号,
-     * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
+     * @param int    $data['type']            认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string $data['name']            真实姓名/企业名称,
+     * @param string $data['license']         身份证号码/营业执照号,
+     * @param int    $data['idType']          证件有效期：0 有期限 1 长期,
+     * @param int    $data['expiryDate']      证件到期时间,
+     * @param int    $data['bankId']          开户银行ID：el_config->bank->bank_id,
+     * @param int    $data['gbCode']          开户银行所在地：：el_config->region_gb->gb_code,
+     * @param string $data['bankSubbranch']   支行名称,
+     * @param string $data['bankAccount']     银行账号,
+     * @param string $data['cartPic']         身份证正面照片/营业执照图片路径,
      * @param string $data['cartReversedPic'] 身份证反面照片,
-     * @param string $data['remark']            备注
-     * @param UidDTO $user                      登录用户
+     * @param string $data['remark']          备注
+     * @param UidDTO $user                    登录用户
      *
      * @throws AuthException
      *
@@ -288,19 +288,19 @@ class Auth implements AuthInterface
      * 更新个人实名认证|企业实名认证.
      *
      * @param array  $data
-     * @param int    $data['type']              认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string $data['name']              真实姓名/企业名称,
-     * @param string $data['license']           身份证号码/营业执照号,
-     * @param int    $data['idType']           证件有效期：0 有期限 1 长期,
-     * @param int    $data['expiryDate']       证件到期时间,
-     * @param int    $data['bankId']           开户银行ID：el_config->bank->bank_id,
-     * @param int    $data['gbCode']           开户银行所在地：：el_config->region_gb->gb_code,
-     * @param string $data['bankSubbranch']    支行名称,
-     * @param string $data['bankAccount']      银行账号,
-     * @param string $data['cartPic']          身份证正面照片/营业执照图片路径,
+     * @param int    $data['type']            认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string $data['name']            真实姓名/企业名称,
+     * @param string $data['license']         身份证号码/营业执照号,
+     * @param int    $data['idType']          证件有效期：0 有期限 1 长期,
+     * @param int    $data['expiryDate']      证件到期时间,
+     * @param int    $data['bankId']          开户银行ID：el_config->bank->bank_id,
+     * @param int    $data['gbCode']          开户银行所在地：：el_config->region_gb->gb_code,
+     * @param string $data['bankSubbranch']   支行名称,
+     * @param string $data['bankAccount']     银行账号,
+     * @param string $data['cartPic']         身份证正面照片/营业执照图片路径,
      * @param string $data['cartReversedPic'] 身份证反面照片,
-     * @param string $data['remark']            备注
-     * @param UidDTO $user                      登录用户
+     * @param string $data['remark']          备注
+     * @param UidDTO $user                    登录用户
      *
      * @throws AuthException
      *

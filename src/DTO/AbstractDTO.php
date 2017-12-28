@@ -57,6 +57,7 @@ class AbstractDTO implements \JsonSerializable
 
     /**
      * 数据库查询返回的对象 转DTO对象
+     *
      * @param \stdClass   $obj
      * @param AbstractDTO $dto
      */

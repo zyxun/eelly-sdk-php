@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\ExtendInterface;
-use Eelly\SDK\User\DTO\ExtendDTO;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\User\DTO\ExtendDTO;
+use Eelly\SDK\User\Service\ExtendInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Extend implements ExtendInterface

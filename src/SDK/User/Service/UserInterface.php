@@ -26,7 +26,7 @@ interface UserInterface
 {
     /**
      * 校验手机号码是否存在.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -50,7 +50,7 @@ interface UserInterface
 
     /**
      * 校验密码强度.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -66,7 +66,7 @@ interface UserInterface
      *
      * @since 2017年10月28日
      */
-    public function checkPasswordPowerRule(string $password): bool ;
+    public function checkPasswordPowerRule(string $password): bool;
 
     /**
      * 更新用户数据.
@@ -165,7 +165,7 @@ interface UserInterface
 
     /**
      * 批量获取用户基本信息.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ---------|-------|--------------
@@ -269,7 +269,7 @@ interface UserInterface
 
     /**
      * 根据用户id获取二维码数据.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -290,7 +290,7 @@ interface UserInterface
      *
      * @since 2017-11-06
      */
-    public function getCodeCardInfo(int $userId) : array;
+    public function getCodeCardInfo(int $userId): array;
 
     /**
      * 查看用户绑定状态

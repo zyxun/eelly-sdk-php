@@ -93,7 +93,7 @@ class Params implements ParamsInterface
      */
     public function throwException(): bool
     {
-        EellyClient::request('example/params', __FUNCTION__);
+        return EellyClient::request('example/params', __FUNCTION__);
     }
 
     /**

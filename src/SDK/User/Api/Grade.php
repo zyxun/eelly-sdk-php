@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,11 +14,10 @@ declare(strict_types=1);
 namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\GradeInterface;
 use Eelly\SDK\User\DTO\GradeDTO;
+use Eelly\SDK\User\Service\GradeInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Grade implements GradeInterface

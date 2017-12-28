@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,20 +13,19 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
+use Eelly\DTO\UidDTO;
+use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInterface;
-use Eelly\DTO\UserDTO;
-use Eelly\DTO\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class User implements UserInterface
 {
     /**
      * 校验手机号码是否存在.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -52,7 +52,7 @@ class User implements UserInterface
 
     /**
      * 校验手机号码是否存在.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -79,7 +79,7 @@ class User implements UserInterface
 
     /**
      * 校验密码强度.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -102,7 +102,7 @@ class User implements UserInterface
 
     /**
      * 校验密码强度.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -345,7 +345,7 @@ class User implements UserInterface
 
     /**
      * 批量获取用户基本信息.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ---------|-------|--------------
@@ -374,7 +374,7 @@ class User implements UserInterface
 
     /**
      * 批量获取用户基本信息.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ---------|-------|--------------
@@ -583,7 +583,7 @@ class User implements UserInterface
 
     /**
      * 根据用户id获取二维码数据.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -611,7 +611,7 @@ class User implements UserInterface
 
     /**
      * 根据用户id获取二维码数据.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ------------|-------|--------------

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\AddressInterface;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\UserAddressDTO;
+use Eelly\SDK\User\Service\AddressInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Address implements AddressInterface
@@ -302,7 +302,7 @@ class Address implements AddressInterface
     /**
      * 获取用户地址列表.
      *
-     * @param UidDTO $user     用户信息
+     * @param UidDTO $user 用户信息
      *
      * @throws UserException
      *
@@ -323,7 +323,7 @@ class Address implements AddressInterface
     /**
      * 获取用户地址列表.
      *
-     * @param UidDTO $user     用户信息
+     * @param UidDTO $user 用户信息
      *
      * @throws UserException
      *

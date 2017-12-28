@@ -47,4 +47,14 @@ class Benchmark implements BenchmarkInterface
     {
         return EellyClient::request('example/benchmark', 'sleep', false, $time);
     }
+
+    /**
+     * @param string $string
+     *
+     * @return string
+     */
+    public function echo(string $string): string
+    {
+        return EellyClient::request('example/benchmark', __FUNCTION__, true, $string);
+    }
 }

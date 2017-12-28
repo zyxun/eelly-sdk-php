@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,20 +13,19 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\SecurityInterface;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\SecurityDTO;
+use Eelly\SDK\User\Service\SecurityInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Security implements SecurityInterface
 {
     /**
      * 安全等级111666666.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * -----------|-------|--------------
@@ -37,12 +37,15 @@ class Security implements SecurityInterface
      * isBrush    |int    |是否刷单用户，1是
      *
      *
-     * @param int $storeId 店铺ID,纯用户则为空0
-     * @param UidDTO|null $user   登录用户
+     * @param int         $storeId 店铺ID,纯用户则为空0
+     * @param UidDTO|null $user    登录用户
+     *
      * @return array
      * @requestExample({"storeId":0})
      * @returnExample({"isPhone":1,"isEmail":1,"isSecret":1,"isRealName":0,"isIdentity":1,"isBrush":0})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年12月16日
      */
     public function getSecurityLevel(int $storeId = 0, UidDTO $user = null): array
@@ -52,7 +55,7 @@ class Security implements SecurityInterface
 
     /**
      * 安全等级111666666.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * -----------|-------|--------------
@@ -64,12 +67,15 @@ class Security implements SecurityInterface
      * isBrush    |int    |是否刷单用户，1是
      *
      *
-     * @param int $storeId 店铺ID,纯用户则为空0
-     * @param UidDTO|null $user   登录用户
+     * @param int         $storeId 店铺ID,纯用户则为空0
+     * @param UidDTO|null $user    登录用户
+     *
      * @return array
      * @requestExample({"storeId":0})
      * @returnExample({"isPhone":1,"isEmail":1,"isSecret":1,"isRealName":0,"isIdentity":1,"isBrush":0})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年12月16日
      */
     public function getSecurityLevelAsync(int $storeId = 0, UidDTO $user = null)
