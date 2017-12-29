@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace Eelly\SDK;
 
 use LogicException;
+use Phalcon\Cache\BackendInterface as CacheInterface;
 use Psr\Http\Message\ResponseInterface;
+use Shadon\Application\ApplicationConst;
 use Shadon\Client\ShadonSDKClient;
 use Shadon\OAuth2\Client\Provider\ShadonProvider;
 
@@ -81,7 +83,26 @@ class EellyClient
     }
 
     /**
-     * @return AbstractProvider
+     * initialze eelly client.
+     *
+     * @param array          $config
+     * @param CacheInterface $cache
+     */
+    public static function initialize(array $config, CacheInterface $cache): void
+    {
+        if (ApplicationConst::ENV_PRODUCTION === APP['env']) {
+            $eellyClient = self::init($config['options']);
+        } else {
+            $collaborators = [
+                'httpClient' => new \GuzzleHttp\Client(['verify' => false]),
+            ];
+            $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
+        }
+        $eellyClient->getProvider()->setAccessTokenCache($cache);
+    }
+
+    /**
+     * @return ShadonProvider
      */
     public function getProvider()
     {
