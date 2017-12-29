@@ -102,6 +102,14 @@ class EellyClient
     }
 
     /**
+     * @return ShadonSDKClient
+     */
+    public function getSdkClient()
+    {
+        return self::$sdkClient;
+    }
+
+    /**
      * @return ShadonProvider
      */
     public function getProvider()
