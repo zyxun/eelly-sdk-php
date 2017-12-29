@@ -15,7 +15,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Eelly\\":"src",
+			"Eelly\\":"src"
 		}
 	},
 	"config": {
