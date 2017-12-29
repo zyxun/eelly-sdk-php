@@ -15,7 +15,11 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Eelly\\":"src"
+			"Eelly\\DocsBundle\\":"src/DocsBundle",
+			"Eelly\\DTO\\":"src/DTO",
+			"Eelly\\Events\\":"src/Events",
+			"Eelly\\Exception\\":"src/Exception",
+			"Eelly\\SDK\\":"src/SDK"
 		}
 	},
 	"config": {
