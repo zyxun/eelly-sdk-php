@@ -23,6 +23,7 @@ use Phalcon\Events\Event;
 use Phalcon\Http\RequestInterface;
 use Shadon\Application\ApplicationConst;
 use Shadon\Dispatcher\ServiceDispatcher;
+use Shadon\Events\Listener\AbstractListener;
 
 /**
  * Class ValidateAccessTokenListener.
