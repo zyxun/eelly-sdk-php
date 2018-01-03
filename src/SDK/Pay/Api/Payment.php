@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\PaymentDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ment implements PaymentInterface
+class Payment implements PaymentInterface
 {
     /**
      * 根据交易号 获取支付交易流水.
@@ -55,7 +55,7 @@ class ment implements PaymentInterface
      */
     public function getPayment(string $billNo): PaymentDTO
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, true, $billNo);
+        return EellyClient::request('pay/payment', __FUNCTION__, true, $billNo);
     }
 
     /**
@@ -91,7 +91,7 @@ class ment implements PaymentInterface
      */
     public function getPaymentAsync(string $billNo)
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, false, $billNo);
+        return EellyClient::request('pay/payment', __FUNCTION__, false, $billNo);
     }
 
     /**
@@ -119,7 +119,7 @@ class ment implements PaymentInterface
      */
     public function addPayment(array $data): int
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/payment', __FUNCTION__, true, $data);
     }
 
     /**
@@ -147,7 +147,7 @@ class ment implements PaymentInterface
      */
     public function addPaymentAsync(array $data)
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/payment', __FUNCTION__, false, $data);
     }
 
     /**
@@ -171,7 +171,7 @@ class ment implements PaymentInterface
      */
     public function updatePayment(int $paymentId, array $data): bool
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, true, $paymentId, $data);
+        return EellyClient::request('pay/payment', __FUNCTION__, true, $paymentId, $data);
     }
 
     /**
@@ -195,7 +195,7 @@ class ment implements PaymentInterface
      */
     public function updatePaymentAsync(int $paymentId, array $data)
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, false, $paymentId, $data);
+        return EellyClient::request('pay/payment', __FUNCTION__, false, $paymentId, $data);
     }
 
     /**
@@ -203,7 +203,7 @@ class ment implements PaymentInterface
      */
     public function listPaymentPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/payment', __FUNCTION__, true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -211,7 +211,7 @@ class ment implements PaymentInterface
      */
     public function listPaymentPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/payment', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
     /**
@@ -263,7 +263,7 @@ class ment implements PaymentInterface
      */
     public function goPayment(array $data): array
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/payment', __FUNCTION__, true, $data);
     }
 
     /**
@@ -315,7 +315,7 @@ class ment implements PaymentInterface
      */
     public function goPaymentAsync(array $data)
     {
-        return EellyClient::request('pay/ment', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/payment', __FUNCTION__, false, $data);
     }
 
     /**
