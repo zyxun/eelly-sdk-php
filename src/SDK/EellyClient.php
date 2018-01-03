@@ -88,7 +88,7 @@ class EellyClient
      * @param array          $config
      * @param CacheInterface $cache
      */
-    public static function initialize(array $config, CacheInterface $cache): void
+    public static function initialize(array $config, CacheInterface $cache): self
     {
         if (ApplicationConst::ENV_PRODUCTION === APP['env']) {
             $eellyClient = self::init($config['options']);
@@ -99,6 +99,8 @@ class EellyClient
             $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
         }
         $eellyClient->getProvider()->setAccessTokenCache($cache);
+
+        return $eellyClient;
     }
 
     /**
