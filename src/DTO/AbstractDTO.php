@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\DTO;
 
-use Eelly\Mvc\Model;
+use Shadon\Mvc\Model;
 
 /**
  * @author hehui<hehui@eelly.net>

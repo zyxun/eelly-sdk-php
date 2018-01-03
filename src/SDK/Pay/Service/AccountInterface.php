@@ -125,6 +125,23 @@ interface AccountInterface
      */
     public function getAccountUserInfo(array $data): array;
 
+
+    /**
+     * 判断是否存在账号，没有执行创建.
+     *
+     * @param int $userId 用户ID
+     * @param int $storeId 店铺ID
+     * @return int
+     * @requestExample({"userId":148086,"storeId":148086})
+     * @returnExample(1)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月02日
+     * @Validation(
+     *  @OperatorValidator(0,{message:"用户ID",operator:["gt",0]})
+     *)
+     */
+    public function checkIsExistAccount(int $userId, int $storeId = 0): int;
+
     /**
      * 添加会员资金账户.
      *
