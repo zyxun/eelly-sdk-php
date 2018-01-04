@@ -129,11 +129,12 @@ class EellyClient
 
     private function responseToObject(ResponseInterface $response)
     {
-        $content = (string)$response->getBody();
+        $content = (string) $response->getBody();
         $object = null;
         if ('' !== $content) {
             $object = $this->bodyToObject(\GuzzleHttp\json_decode($content, true));
         }
+
         return $object;
     }
 
