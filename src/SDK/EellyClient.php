@@ -129,7 +129,13 @@ class EellyClient
 
     private function responseToObject(ResponseInterface $response)
     {
-        return $this->bodyToObject(\GuzzleHttp\json_decode($response->getBody(), true));
+        $content = (string) $response->getBody();
+        $object = null;
+        if ('' !== $content) {
+            $object = $this->bodyToObject(\GuzzleHttp\json_decode($content, true));
+        }
+
+        return $object;
     }
 
     private function bodyToObject(array $body)
@@ -137,7 +143,11 @@ class EellyClient
         if (isset($body['returnType'])) {
             if (class_exists($body['returnType'])) {
                 if (is_subclass_of($body['returnType'], LogicException::class)) {
-                    throw new $body['returnType']($body['error'], $body['context']);
+                    if (isset($body['context'])) {
+                        throw new $body['returnType']($body['error'], $body['context']);
+                    } else {
+                        throw new $body['returnType']($body['error']);
+                    }
                 } else {
                     $object = $body['returnType']::hydractor($body['data']);
                 }
