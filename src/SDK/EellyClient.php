@@ -39,11 +39,6 @@ class EellyClient
     ];
 
     /**
-     * @var string
-     */
-    public static $traceId;
-
-    /**
      * @var ShadonSDKClient
      */
     private static $sdkClient;
@@ -98,7 +93,7 @@ class EellyClient
             ];
             $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
         }
-        $eellyClient->getProvider()->setAccessTokenCache($cache);
+        $eellyClient->getSdkClient()->getProvider()->setAccessTokenCache($cache);
 
         return $eellyClient;
     }
@@ -106,25 +101,9 @@ class EellyClient
     /**
      * @return ShadonSDKClient
      */
-    public function getSdkClient()
+    public static function getSdkClient()
     {
         return self::$sdkClient;
-    }
-
-    /**
-     * @return ShadonProvider
-     */
-    public function getProvider()
-    {
-        return self::$sdkClient->getProvider();
-    }
-
-    /**
-     * @param string $traceId
-     */
-    public function setTraceId(string $traceId): void
-    {
-        self::$traceId = $traceId;
     }
 
     /**
@@ -142,13 +121,13 @@ class EellyClient
         if ($sync) {
             $response = $promise->wait();
 
-            return self::$self->respoonseToObject($response);
+            return self::$self->responseToObject($response);
         }
 
         return $promise;
     }
 
-    private function respoonseToObject(ResponseInterface $response)
+    private function responseToObject(ResponseInterface $response)
     {
         return $this->bodyToObject(\GuzzleHttp\json_decode($response->getBody(), true));
     }
