@@ -64,7 +64,7 @@ class Recharge implements RechargeInterface
      */
     public function getRecharge(string $billNo): RechargeDTO
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, true, $billNo);
+        return EellyClient::request('pay/recharge', 'getRecharge', true, $billNo);
     }
 
     /**
@@ -109,7 +109,7 @@ class Recharge implements RechargeInterface
      */
     public function getRechargeAsync(string $billNo)
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, false, $billNo);
+        return EellyClient::request('pay/recharge', 'getRecharge', false, $billNo);
     }
 
     /**
@@ -140,7 +140,7 @@ class Recharge implements RechargeInterface
      */
     public function addRecharge(array $data): int
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/recharge', 'addRecharge', true, $data);
     }
 
     /**
@@ -171,7 +171,7 @@ class Recharge implements RechargeInterface
      */
     public function addRechargeAsync(array $data)
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/recharge', 'addRecharge', false, $data);
     }
 
     /**
@@ -195,7 +195,7 @@ class Recharge implements RechargeInterface
      */
     public function updateRecharge(int $rechargeId, array $data): bool
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, true, $rechargeId, $data);
+        return EellyClient::request('pay/recharge', 'updateRecharge', true, $rechargeId, $data);
     }
 
     /**
@@ -219,7 +219,7 @@ class Recharge implements RechargeInterface
      */
     public function updateRechargeAsync(int $rechargeId, array $data)
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, false, $rechargeId, $data);
+        return EellyClient::request('pay/recharge', 'updateRecharge', false, $rechargeId, $data);
     }
 
     /**
@@ -227,7 +227,7 @@ class Recharge implements RechargeInterface
      */
     public function listRechargePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/recharge', 'listRechargePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -235,7 +235,7 @@ class Recharge implements RechargeInterface
      */
     public function listRechargePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/recharge', 'listRechargePage', false, $condition, $currentPage, $limit);
     }
 
     /**
@@ -284,7 +284,7 @@ class Recharge implements RechargeInterface
      */
     public function goRecharge(array $data): array
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/recharge', 'goRecharge', true, $data);
     }
 
     /**
@@ -333,7 +333,7 @@ class Recharge implements RechargeInterface
      */
     public function goRechargeAsync(array $data)
     {
-        return EellyClient::request('pay/recharge', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/recharge', 'goRecharge', false, $data);
     }
 
     /**

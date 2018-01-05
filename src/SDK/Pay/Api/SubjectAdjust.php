@@ -37,7 +37,7 @@ class SubjectAdjust implements SubjectAdjustInterface
      */
     public function getSubjectAdjust(string $subjectCode, string $workDate): SubjectAdjustDTO
     {
-        return EellyClient::request('pay/subjectAdjust', __FUNCTION__, true, $subjectCode, $workDate);
+        return EellyClient::request('pay/subjectAdjust', 'getSubjectAdjust', true, $subjectCode, $workDate);
     }
 
     /**
@@ -55,7 +55,7 @@ class SubjectAdjust implements SubjectAdjustInterface
      */
     public function getSubjectAdjustAsync(string $subjectCode, string $workDate)
     {
-        return EellyClient::request('pay/subjectAdjust', __FUNCTION__, false, $subjectCode, $workDate);
+        return EellyClient::request('pay/subjectAdjust', 'getSubjectAdjust', false, $subjectCode, $workDate);
     }
 
     /**
