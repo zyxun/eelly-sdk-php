@@ -60,7 +60,7 @@ class Withdraw implements WithdrawInterface
      */
     public function getWithdraw(string $billNo): WithdrawDTO
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, true, $billNo);
+        return EellyClient::request('pay/withdraw', 'getWithdraw', true, $billNo);
     }
 
     /**
@@ -100,7 +100,7 @@ class Withdraw implements WithdrawInterface
      */
     public function getWithdrawAsync(string $billNo)
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, false, $billNo);
+        return EellyClient::request('pay/withdraw', 'getWithdraw', false, $billNo);
     }
 
     /**
@@ -128,7 +128,7 @@ class Withdraw implements WithdrawInterface
      */
     public function addWithdraw(array $data, UidDTO $uidDTO = null): int
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, true, $data, $uidDTO);
+        return EellyClient::request('pay/withdraw', 'addWithdraw', true, $data, $uidDTO);
     }
 
     /**
@@ -156,7 +156,7 @@ class Withdraw implements WithdrawInterface
      */
     public function addWithdrawAsync(array $data, UidDTO $uidDTO = null)
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, false, $data, $uidDTO);
+        return EellyClient::request('pay/withdraw', 'addWithdraw', false, $data, $uidDTO);
     }
 
     /**
@@ -180,7 +180,7 @@ class Withdraw implements WithdrawInterface
      */
     public function updateWithdraw(int $pwId, array $data): bool
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, true, $pwId, $data);
+        return EellyClient::request('pay/withdraw', 'updateWithdraw', true, $pwId, $data);
     }
 
     /**
@@ -204,7 +204,7 @@ class Withdraw implements WithdrawInterface
      */
     public function updateWithdrawAsync(int $pwId, array $data)
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, false, $pwId, $data);
+        return EellyClient::request('pay/withdraw', 'updateWithdraw', false, $pwId, $data);
     }
 
     /**
@@ -279,7 +279,7 @@ class Withdraw implements WithdrawInterface
      */
     public function listWithdrawPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/withdraw', 'listWithdrawPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -354,7 +354,7 @@ class Withdraw implements WithdrawInterface
      */
     public function listWithdrawPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/withdraw', 'listWithdrawPage', false, $condition, $currentPage, $limit);
     }
 
     /**
@@ -394,7 +394,7 @@ class Withdraw implements WithdrawInterface
      */
     public function goWithdraw(array $data): array
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/withdraw', 'goWithdraw', true, $data);
     }
 
     /**
@@ -434,7 +434,7 @@ class Withdraw implements WithdrawInterface
      */
     public function goWithdrawAsync(array $data)
     {
-        return EellyClient::request('pay/withdraw', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/withdraw', 'goWithdraw', false, $data);
     }
 
     /**

@@ -42,7 +42,7 @@ class Subject implements SubjectInterface
      */
     public function addSubject(array $data): bool
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/subject', 'addSubject', true, $data);
     }
 
     /**
@@ -66,7 +66,7 @@ class Subject implements SubjectInterface
      */
     public function addSubjectAsync(array $data)
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/subject', 'addSubject', false, $data);
     }
 
     /**
@@ -87,7 +87,7 @@ class Subject implements SubjectInterface
      */
     public function updateSubject(string $subjectSn, array $data): bool
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, true, $subjectSn, $data);
+        return EellyClient::request('pay/subject', 'updateSubject', true, $subjectSn, $data);
     }
 
     /**
@@ -108,7 +108,7 @@ class Subject implements SubjectInterface
      */
     public function updateSubjectAsync(string $subjectSn, array $data)
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, false, $subjectSn, $data);
+        return EellyClient::request('pay/subject', 'updateSubject', false, $subjectSn, $data);
     }
 
     /**
@@ -129,7 +129,7 @@ class Subject implements SubjectInterface
      */
     public function getSubjectByWorkData(array $data): array
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/subject', 'getSubjectByWorkData', true, $data);
     }
 
     /**
@@ -150,7 +150,7 @@ class Subject implements SubjectInterface
      */
     public function getSubjectByWorkDataAsync(array $data)
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/subject', 'getSubjectByWorkData', false, $data);
     }
 
     /**
@@ -169,7 +169,7 @@ class Subject implements SubjectInterface
      */
     public function sumSujectByWorkDate(string $workDate): array
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, true, $workDate);
+        return EellyClient::request('pay/subject', 'sumSujectByWorkDate', true, $workDate);
     }
 
     /**
@@ -188,7 +188,7 @@ class Subject implements SubjectInterface
      */
     public function sumSujectByWorkDateAsync(string $workDate)
     {
-        return EellyClient::request('pay/subject', __FUNCTION__, false, $workDate);
+        return EellyClient::request('pay/subject', 'sumSujectByWorkDate', false, $workDate);
     }
 
     /**

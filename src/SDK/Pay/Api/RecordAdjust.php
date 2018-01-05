@@ -37,7 +37,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function getRecordAdjust(int $prId): RecordAdjustDTO
     {
-        return EellyClient::request('pay/recordAdjust', __FUNCTION__, true, $prId);
+        return EellyClient::request('pay/recordAdjust', 'getRecordAdjust', true, $prId);
     }
 
     /**
@@ -55,7 +55,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function getRecordAdjustAsync(int $prId)
     {
-        return EellyClient::request('pay/recordAdjust', __FUNCTION__, false, $prId);
+        return EellyClient::request('pay/recordAdjust', 'getRecordAdjust', false, $prId);
     }
 
     /**
@@ -74,7 +74,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function addRecordAdjust(int $prId, string $billNo, int $type): bool
     {
-        return EellyClient::request('pay/recordAdjust', __FUNCTION__, true, $prId, $billNo, $type);
+        return EellyClient::request('pay/recordAdjust', 'addRecordAdjust', true, $prId, $billNo, $type);
     }
 
     /**
@@ -93,7 +93,7 @@ class RecordAdjust implements RecordAdjustInterface
      */
     public function addRecordAdjustAsync(int $prId, string $billNo, int $type)
     {
-        return EellyClient::request('pay/recordAdjust', __FUNCTION__, false, $prId, $billNo, $type);
+        return EellyClient::request('pay/recordAdjust', 'addRecordAdjust', false, $prId, $billNo, $type);
     }
 
     /**

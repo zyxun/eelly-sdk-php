@@ -74,7 +74,7 @@ class Bank implements BankInterface
      */
     public function getBank(int $pbId, UidDTO $user = null): BankDTO
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, true, $pbId, $user);
+        return EellyClient::request('pay/bank', 'getBank', true, $pbId, $user);
     }
 
     /**
@@ -128,7 +128,7 @@ class Bank implements BankInterface
      */
     public function getBankAsync(int $pbId, UidDTO $user = null)
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, false, $pbId, $user);
+        return EellyClient::request('pay/bank', 'getBank', false, $pbId, $user);
     }
 
     /**
@@ -163,7 +163,7 @@ class Bank implements BankInterface
      */
     public function addBank(array $data): bool
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/bank', 'addBank', true, $data);
     }
 
     /**
@@ -198,7 +198,7 @@ class Bank implements BankInterface
      */
     public function addBankAsync(array $data)
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/bank', 'addBank', false, $data);
     }
 
     /**
@@ -240,7 +240,7 @@ class Bank implements BankInterface
      */
     public function updateBank(int $pbId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, true, $pbId, $data, $user);
+        return EellyClient::request('pay/bank', 'updateBank', true, $pbId, $data, $user);
     }
 
     /**
@@ -282,7 +282,7 @@ class Bank implements BankInterface
      */
     public function updateBankAsync(int $pbId, array $data, UidDTO $user = null)
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, false, $pbId, $data, $user);
+        return EellyClient::request('pay/bank', 'updateBank', false, $pbId, $data, $user);
     }
 
     /**
@@ -308,7 +308,7 @@ class Bank implements BankInterface
      */
     public function deleteBank(int $pbId, UidDTO $user = null): bool
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, true, $pbId, $user);
+        return EellyClient::request('pay/bank', 'deleteBank', true, $pbId, $user);
     }
 
     /**
@@ -334,7 +334,7 @@ class Bank implements BankInterface
      */
     public function deleteBankAsync(int $pbId, UidDTO $user = null)
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, false, $pbId, $user);
+        return EellyClient::request('pay/bank', 'deleteBank', false, $pbId, $user);
     }
 
     /**
@@ -377,7 +377,7 @@ class Bank implements BankInterface
      */
     public function getBankUser(UidDTO $user = null): array
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, true, $user);
+        return EellyClient::request('pay/bank', 'getBankUser', true, $user);
     }
 
     /**
@@ -420,7 +420,7 @@ class Bank implements BankInterface
      */
     public function getBankUserAsync(UidDTO $user = null)
     {
-        return EellyClient::request('pay/bank', __FUNCTION__, false, $user);
+        return EellyClient::request('pay/bank', 'getBankUser', false, $user);
     }
 
     /**

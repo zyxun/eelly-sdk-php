@@ -40,7 +40,7 @@ class Voucher implements VoucherInterface
      */
     public function addVoucher(array $data): bool
     {
-        return EellyClient::request('pay/voucher', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/voucher', 'addVoucher', true, $data);
     }
 
     /**
@@ -62,7 +62,7 @@ class Voucher implements VoucherInterface
      */
     public function addVoucherAsync(array $data)
     {
-        return EellyClient::request('pay/voucher', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/voucher', 'addVoucher', false, $data);
     }
 
     /**
@@ -81,7 +81,7 @@ class Voucher implements VoucherInterface
      */
     public function getVoucherByWorkData(array $data): array
     {
-        return EellyClient::request('pay/voucher', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/voucher', 'getVoucherByWorkData', true, $data);
     }
 
     /**
@@ -100,7 +100,7 @@ class Voucher implements VoucherInterface
      */
     public function getVoucherByWorkDataAsync(array $data)
     {
-        return EellyClient::request('pay/voucher', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/voucher', 'getVoucherByWorkData', false, $data);
     }
 
     /**

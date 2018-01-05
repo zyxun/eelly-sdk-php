@@ -27,7 +27,7 @@ class Refund implements RefundInterface
      */
     public function getRefund(int $refundId): RefundDTO
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, true, $refundId);
+        return EellyClient::request('pay/refund', 'getRefund', true, $refundId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Refund implements RefundInterface
      */
     public function getRefundAsync(int $refundId)
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, false, $refundId);
+        return EellyClient::request('pay/refund', 'getRefund', false, $refundId);
     }
 
     /**
@@ -43,7 +43,7 @@ class Refund implements RefundInterface
      */
     public function addRefund(array $data): bool
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/refund', 'addRefund', true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Refund implements RefundInterface
      */
     public function addRefundAsync(array $data)
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/refund', 'addRefund', false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class Refund implements RefundInterface
      */
     public function updateRefund(int $refundId, array $data): bool
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, true, $refundId, $data);
+        return EellyClient::request('pay/refund', 'updateRefund', true, $refundId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class Refund implements RefundInterface
      */
     public function updateRefundAsync(int $refundId, array $data)
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, false, $refundId, $data);
+        return EellyClient::request('pay/refund', 'updateRefund', false, $refundId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class Refund implements RefundInterface
      */
     public function deleteRefund(int $refundId): bool
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, true, $refundId);
+        return EellyClient::request('pay/refund', 'deleteRefund', true, $refundId);
     }
 
     /**
@@ -83,7 +83,7 @@ class Refund implements RefundInterface
      */
     public function deleteRefundAsync(int $refundId)
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, false, $refundId);
+        return EellyClient::request('pay/refund', 'deleteRefund', false, $refundId);
     }
 
     /**
@@ -91,7 +91,7 @@ class Refund implements RefundInterface
      */
     public function listRefundPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/refund', 'listRefundPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -99,7 +99,7 @@ class Refund implements RefundInterface
      */
     public function listRefundPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/refund', 'listRefundPage', false, $condition, $currentPage, $limit);
     }
 
     /**

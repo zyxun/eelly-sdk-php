@@ -52,7 +52,7 @@ class Order implements OrderInterface
      */
     public function addOrder(array $orderData, int $addrId, UidDTO $user = null): bool
     {
-        return EellyClient::request('order/order', __FUNCTION__, true, $orderData, $addrId, $user);
+        return EellyClient::request('order/order', 'addOrder', true, $orderData, $addrId, $user);
     }
 
     /**
@@ -85,7 +85,7 @@ class Order implements OrderInterface
      */
     public function addOrderAsync(array $orderData, int $addrId, UidDTO $user = null)
     {
-        return EellyClient::request('order/order', __FUNCTION__, false, $orderData, $addrId, $user);
+        return EellyClient::request('order/order', 'addOrder', false, $orderData, $addrId, $user);
     }
 
     /**
@@ -116,7 +116,7 @@ class Order implements OrderInterface
      */
     public function updateOrder(array $orderData, UidDTO $user = null): bool
     {
-        return EellyClient::request('order/order', __FUNCTION__, true, $orderData, $user);
+        return EellyClient::request('order/order', 'updateOrder', true, $orderData, $user);
     }
 
     /**
@@ -147,7 +147,7 @@ class Order implements OrderInterface
      */
     public function updateOrderAsync(array $orderData, UidDTO $user = null)
     {
-        return EellyClient::request('order/order', __FUNCTION__, false, $orderData, $user);
+        return EellyClient::request('order/order', 'updateOrder', false, $orderData, $user);
     }
 
     /**
@@ -171,7 +171,7 @@ class Order implements OrderInterface
      */
     public function deleteOrder(int $orderId, UidDTO $user = null): bool
     {
-        return EellyClient::request('order/order', __FUNCTION__, true, $orderId, $user);
+        return EellyClient::request('order/order', 'deleteOrder', true, $orderId, $user);
     }
 
     /**
@@ -195,7 +195,7 @@ class Order implements OrderInterface
      */
     public function deleteOrderAsync(int $orderId, UidDTO $user = null)
     {
-        return EellyClient::request('order/order', __FUNCTION__, false, $orderId, $user);
+        return EellyClient::request('order/order', 'deleteOrder', false, $orderId, $user);
     }
 
     /**
@@ -257,7 +257,7 @@ class Order implements OrderInterface
      */
     public function getOrderInfo(int $orderId): array
     {
-        return EellyClient::request('order/order', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/order', 'getOrderInfo', true, $orderId);
     }
 
     /**
@@ -319,28 +319,83 @@ class Order implements OrderInterface
      */
     public function getOrderInfoAsync(int $orderId)
     {
-        return EellyClient::request('order/order', __FUNCTION__, false, $orderId);
+        return EellyClient::request('order/order', 'getOrderInfo', false, $orderId);
     }
 
     /**
-     * 获取店铺订单的买家id.
+     * 校验是否能否能快速支付.
      *
-     * @param int $sellerId 卖家id
-     *
-     * @throws OrderException
-     *
-     * @requestExample()
-     * @returnExample()
-     *
-     * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     * @since  2017年12月1日
-     * @validation(
-     *     @digit(0, {message:"非法的卖家id"})
+     * @param int $orderId 订单ID
+     * @return bool 能返回true,不能返回false
+     * @requestExample({"orderId":5000001})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月05日
+     * @Validation(
+     * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]})
      * )
      */
-    public function getBuyerId(int $sellerId)
+    public function checkIsFast(int $orderId): bool
     {
-        return EellyClient::request('order/order', __FUNCTION__, true, $sellerId);
+        return EellyClient::request('order/order', 'checkIsFast', true, $orderId);
+    }
+
+    /**
+     * 校验是否能否能快速支付.
+     *
+     * @param int $orderId 订单ID
+     * @return bool 能返回true,不能返回false
+     * @requestExample({"orderId":5000001})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月05日
+     * @Validation(
+     * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]})
+     * )
+     */
+    public function checkIsFastAsync(int $orderId)
+    {
+        return EellyClient::request('order/order', 'checkIsFast', false, $orderId);
+    }
+
+    /**
+     * 更新订单标识.
+     *
+     * @param int $orderId 订单ID
+     * @param int $extension 订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
+     * @return bool
+     * @requestExample({"orderId":5000001,"extension":128})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月05日
+     * @Validation(
+     * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]}),
+     * @OperatorValidator(1, {message:"非法的订单标识",operator:[gte,0]})
+     * )
+     */
+    public function updateOrderExtension(int $orderId, int $extension = 0): bool
+    {
+        return EellyClient::request('order/order', 'updateOrderExtension', true, $orderId, $extension);
+    }
+
+    /**
+     * 更新订单标识.
+     *
+     * @param int $orderId 订单ID
+     * @param int $extension 订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
+     * @return bool
+     * @requestExample({"orderId":5000001,"extension":128})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月05日
+     * @Validation(
+     * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]}),
+     * @OperatorValidator(1, {message:"非法的订单标识",operator:[gte,0]})
+     * )
+     */
+    public function updateOrderExtensionAsync(int $orderId, int $extension = 0)
+    {
+        return EellyClient::request('order/order', 'updateOrderExtension', false, $orderId, $extension);
     }
 
     /**
