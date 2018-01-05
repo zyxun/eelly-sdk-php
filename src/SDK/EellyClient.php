@@ -85,7 +85,7 @@ class EellyClient
      */
     public static function initialize(array $config, CacheInterface $cache): self
     {
-        if (ApplicationConst::ENV_PRODUCTION === APP['env']) {
+        if (defined('APP') && ApplicationConst::ENV_PRODUCTION === APP['env']) {
             $eellyClient = self::init($config['options']);
         } else {
             $collaborators = [
