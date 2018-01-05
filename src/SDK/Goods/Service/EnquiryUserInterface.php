@@ -34,5 +34,17 @@ interface EnquiryUserInterface
      * @since 2017年01月04日
      */
     public function getOfferPriceCount(array $data): int;
+
+    /**
+     * 根据询价商品id，返回对应的商品信息
+     *
+     * @param array $goodsIds  询价商品id数组
+     * @param int   $buyerId   买家用户id
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.05
+     */
+    public function getGoodsInfoByIds(array $goodsIds, int $buyerId) : array;
     
 }
