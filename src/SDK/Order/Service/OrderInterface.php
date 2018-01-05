@@ -159,4 +159,47 @@ interface OrderInterface
      * @since 2017年10月25日
      */
     public function getOrderInfo(int $orderId): array;
+
+    /**
+     * 添加询价下单记录
+     *
+     * @param array   $data 询价下单数据
+     * @param int     $data['refType']     订单类型标识：0 店铺商品订单 1 询价商品订单
+     * @param int     $data['sellerId']    卖家id
+     * @param string  $data['sellerName']  卖家名称
+     * @param int     $data['buyerId']     买家id
+     * @param string  $data['buyerName']   买家名称
+     * @param int     $data['fromFlag']    订单来源
+     * @param int     $data['slId']        运费模板id
+     * @param string  $data['remark']      备注
+     * @param array   $data['orderData']   订单商品数据
+     * @return bool
+     *
+     * @requestExample({
+     *     "refType":3,
+     *     "sellerId":148086,
+     *     "sellerName":"molimoq",
+     *     "buyerId":1234,
+     *     "buyerName":"buyer"
+     *     "fromFlag":3,
+     *     "slId":2,
+     *     "remark":"",
+     *     "orderData":[
+     *         {
+     *             "goodsId":1,
+     *             "gesId":2,
+     *             "quantity":6
+     *         },
+     *         {
+     *             "goodsId":2,
+     *             "gesId":2,
+     *             "quantity":2
+     *         }
+     *     ]
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.04
+     */
+    public function addEnquiryOrder(array $data): bool;
 }
