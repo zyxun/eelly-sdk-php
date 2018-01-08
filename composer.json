@@ -23,6 +23,11 @@
 			"Eelly\\SDK\\":"src/SDK"
 		}
 	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0-dev"
+		}
+	},
 	"config": {
 		"sort-packages": true
 	}
