@@ -50,7 +50,7 @@ class Status implements StatusInterface
      */
     public function addStatus(array $statusData): bool
     {
-        return EellyClient::request('order/status', __FUNCTION__, true, $statusData);
+        return EellyClient::request('order/status', 'addStatus', true, $statusData);
     }
 
     /**
@@ -82,7 +82,7 @@ class Status implements StatusInterface
      */
     public function addStatusAsync(array $statusData)
     {
-        return EellyClient::request('order/status', __FUNCTION__, false, $statusData);
+        return EellyClient::request('order/status', 'addStatus', false, $statusData);
     }
 
     /**
@@ -116,7 +116,7 @@ class Status implements StatusInterface
      */
     public function updateStatus(array $statusData): bool
     {
-        return EellyClient::request('order/status', __FUNCTION__, true, $statusData);
+        return EellyClient::request('order/status', 'updateStatus', true, $statusData);
     }
 
     /**
@@ -150,7 +150,7 @@ class Status implements StatusInterface
      */
     public function updateStatusAsync(array $statusData)
     {
-        return EellyClient::request('order/status', __FUNCTION__, false, $statusData);
+        return EellyClient::request('order/status', 'updateStatus', false, $statusData);
     }
 
     /**
@@ -183,7 +183,7 @@ class Status implements StatusInterface
      */
     public function getStatus(int $statusId = 0, int $type = 0, int $code = 0): array
     {
-        return EellyClient::request('order/status', __FUNCTION__, true, $statusId, $type, $code);
+        return EellyClient::request('order/status', 'getStatus', true, $statusId, $type, $code);
     }
 
     /**
@@ -216,7 +216,7 @@ class Status implements StatusInterface
      */
     public function getStatusAsync(int $statusId = 0, int $type = 0, int $code = 0)
     {
-        return EellyClient::request('order/status', __FUNCTION__, false, $statusId, $type, $code);
+        return EellyClient::request('order/status', 'getStatus', false, $statusId, $type, $code);
     }
 
     /**

@@ -38,7 +38,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function getVoucherSubject(string $voucherCode)
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, true, $voucherCode);
+        return EellyClient::request('pay/voucherSubject', 'getVoucherSubject', true, $voucherCode);
     }
 
     /**
@@ -58,7 +58,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function getVoucherSubjectAsync(string $voucherCode)
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, false, $voucherCode);
+        return EellyClient::request('pay/voucherSubject', 'getVoucherSubject', false, $voucherCode);
     }
 
     /**
@@ -80,7 +80,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function addVoucherSubject(array $data): bool
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/voucherSubject', 'addVoucherSubject', true, $data);
     }
 
     /**
@@ -102,7 +102,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function addVoucherSubjectAsync(array $data)
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/voucherSubject', 'addVoucherSubject', false, $data);
     }
 
     /**
@@ -122,7 +122,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function updateVoucherSubject(string $voucherCode, array $data): bool
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, true, $voucherCode, $data);
+        return EellyClient::request('pay/voucherSubject', 'updateVoucherSubject', true, $voucherCode, $data);
     }
 
     /**
@@ -142,7 +142,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function updateVoucherSubjectAsync(string $voucherCode, array $data)
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, false, $voucherCode, $data);
+        return EellyClient::request('pay/voucherSubject', 'updateVoucherSubject', false, $voucherCode, $data);
     }
 
     /**
@@ -160,7 +160,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function deleteVoucherSubject(string $voucherCode): bool
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, true, $voucherCode);
+        return EellyClient::request('pay/voucherSubject', 'deleteVoucherSubject', true, $voucherCode);
     }
 
     /**
@@ -178,7 +178,7 @@ class VoucherSubject implements VoucherSubjectInterface
      */
     public function deleteVoucherSubjectAsync(string $voucherCode)
     {
-        return EellyClient::request('pay/voucherSubject', __FUNCTION__, false, $voucherCode);
+        return EellyClient::request('pay/voucherSubject', 'deleteVoucherSubject', false, $voucherCode);
     }
 
     /**

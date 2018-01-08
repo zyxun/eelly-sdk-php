@@ -27,7 +27,7 @@ class Record implements RecordInterface
      */
     public function getRecord(int $prId): RecordDTO
     {
-        return EellyClient::request('pay/record', __FUNCTION__, true, $prId);
+        return EellyClient::request('pay/record', 'getRecord', true, $prId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Record implements RecordInterface
      */
     public function getRecordAsync(int $prId)
     {
-        return EellyClient::request('pay/record', __FUNCTION__, false, $prId);
+        return EellyClient::request('pay/record', 'getRecord', false, $prId);
     }
 
     /**
@@ -62,7 +62,7 @@ class Record implements RecordInterface
      */
     public function addRecord(array $data): int
     {
-        return EellyClient::request('pay/record', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/record', 'addRecord', true, $data);
     }
 
     /**
@@ -89,7 +89,7 @@ class Record implements RecordInterface
      */
     public function addRecordAsync(array $data)
     {
-        return EellyClient::request('pay/record', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/record', 'addRecord', false, $data);
     }
 
     /**
