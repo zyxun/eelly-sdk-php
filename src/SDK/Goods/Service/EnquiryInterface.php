@@ -62,4 +62,20 @@ interface EnquiryInterface
      * @since 2018.01.05
      */
     public function calculateEnquiryOrderGoods(array $goodsInfo, int $buyerId): array;
+
+    /**
+     * 根据传过来的商品id，校验商品的状态是否正常
+     *
+     * @param array $goodsIds
+     * @return bool
+     * @requestExample({
+     *     "goodsIds":[
+     *         1, 2, 3
+     *     ]
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.08
+     */
+    public function validateGoodsInfo(array $goodsIds) : bool;
 }
