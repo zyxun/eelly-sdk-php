@@ -140,23 +140,29 @@ class EellyClient
 
     private function bodyToObject(array $body)
     {
-        if (isset($body['returnType'])) {
-            if (class_exists($body['returnType'])) {
-                if (is_subclass_of($body['returnType'], LogicException::class)) {
-                    if (isset($body['context'])) {
-                        throw new $body['returnType']($body['error'], $body['context']);
-                    } else {
-                        throw new $body['returnType']($body['error']);
-                    }
-                } else {
-                    $object = $body['returnType']::hydractor($body['data']);
-                }
-            } else {
+        $status = 1;
+        isset($body['returnType']) && $status <<= 1
+            && class_exists($body['returnType']) && $status <<= 1
+            && is_subclass_of($body['returnType'], LogicException::class) && $status <<= 1
+            && isset($body['context']) && $status <<= 1;
+
+        switch ($status) {
+            case 2:
                 $object = $body['data'];
                 settype($object, $body['returnType']);
-            }
-        } else {
-            $object = (string) $body;
+                break;
+            case 4:
+                $object = $body['returnType']::hydractor($body['data']);
+                break;
+            case 8:
+                throw new $body['returnType']($body['error']);
+                break;
+            case 16:
+                throw new $body['returnType']($body['error'], $body['context']);
+                break;
+            case 1:
+                $object = (string) $body;
+                break;
         }
 
         return $object;
