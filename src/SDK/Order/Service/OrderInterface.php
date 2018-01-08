@@ -192,4 +192,36 @@ interface OrderInterface
      * )
      */
     public function updateOrderExtension(int $orderId, int $extension = 0): bool;
+
+    /**
+     * 添加询价下单记录
+     *
+     * @param array   $data 询价下单数据
+     * @param int     $data['refType']     订单类型标识：0 店铺商品订单 1 询价商品订单
+     * @param int     $data['sellerId']    卖家id
+     * @param string  $data['sellerName']  卖家名称
+     * @param int     $data['buyerId']     买家id
+     * @param string  $data['buyerName']   买家名称
+     * @param int     $data['extension']   订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
+     * @param int     $data['freight']     订单运费
+     * @param int     $data['fromFlag']    订单来源
+     * @param string  $data['remark']      备注
+     * @return bool
+     *
+     * @requestExample({
+     *     "refType":3,
+     *     "sellerId":148086,
+     *     "sellerName":"molimoq",
+     *     "buyerId":1234,
+     *     "buyerName":"buyer",
+     *     "extension" :0,
+     *     "freight" : 10,
+     *     "fromFlag":3,
+     *     "remark":"",
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.08
+     */
+    public function addEnquiryOrder(array $data): int;
 }
