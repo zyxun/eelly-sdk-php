@@ -141,10 +141,10 @@ class EellyClient
     private function bodyToObject(array $body)
     {
         $status = 1;
-        isset($body['returnType']) && $status <<= 1
-            && class_exists($body['returnType']) && $status <<= 1
-            && is_subclass_of($body['returnType'], LogicException::class) && $status <<= 1
-            && isset($body['context']) && $status <<= 1;
+        isset($body['returnType']) && ($status <<= 1)
+            && class_exists($body['returnType']) && ($status <<= 1)
+            && is_subclass_of($body['returnType'], LogicException::class) && ($status <<= 1)
+            && isset($body['context']) && ($status <<= 1);
 
         switch ($status) {
             case 2:
