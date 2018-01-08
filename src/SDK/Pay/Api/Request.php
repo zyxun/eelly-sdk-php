@@ -53,7 +53,7 @@ class Request implements RequestInterface
      */
     public function getRequest(string $billNo): RequestDTO
     {
-        return EellyClient::request('pay/request', __FUNCTION__, true, $billNo);
+        return EellyClient::request('pay/request', 'getRequest', true, $billNo);
     }
 
     /**
@@ -87,7 +87,7 @@ class Request implements RequestInterface
      */
     public function getRequestAsync(string $billNo)
     {
-        return EellyClient::request('pay/request', __FUNCTION__, false, $billNo);
+        return EellyClient::request('pay/request', 'getRequest', false, $billNo);
     }
 
     /**
@@ -111,7 +111,7 @@ class Request implements RequestInterface
      */
     public function addRequest(array $data): bool
     {
-        return EellyClient::request('pay/request', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/request', 'addRequest', true, $data);
     }
 
     /**
@@ -135,7 +135,7 @@ class Request implements RequestInterface
      */
     public function addRequestAsync(array $data)
     {
-        return EellyClient::request('pay/request', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/request', 'addRequest', false, $data);
     }
 
     /**

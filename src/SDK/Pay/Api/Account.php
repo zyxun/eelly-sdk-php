@@ -71,7 +71,7 @@ class Account implements AccountInterface
      */
     public function getAccount(int $paId): AccountDTO
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $paId);
+        return EellyClient::request('pay/account', 'getAccount', true, $paId);
     }
 
     /**
@@ -122,7 +122,7 @@ class Account implements AccountInterface
      */
     public function getAccountAsync(int $paId)
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $paId);
+        return EellyClient::request('pay/account', 'getAccount', false, $paId);
     }
 
     /**
@@ -161,7 +161,7 @@ class Account implements AccountInterface
      */
     public function getAccountUser(int $storeId = 0, UidDTO $user = null): AccountDTO
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $storeId, $user);
+        return EellyClient::request('pay/account', 'getAccountUser', true, $storeId, $user);
     }
 
     /**
@@ -200,7 +200,7 @@ class Account implements AccountInterface
      */
     public function getAccountUserAsync(int $storeId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $storeId, $user);
+        return EellyClient::request('pay/account', 'getAccountUser', false, $storeId, $user);
     }
 
     /**
@@ -220,7 +220,7 @@ class Account implements AccountInterface
      */
     public function getAccountUserInfo(array $data): array
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/account', 'getAccountUserInfo', true, $data);
     }
 
     /**
@@ -240,7 +240,7 @@ class Account implements AccountInterface
      */
     public function getAccountUserInfoAsync(array $data)
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/account', 'getAccountUserInfo', false, $data);
     }
 
     /**
@@ -259,7 +259,7 @@ class Account implements AccountInterface
      */
     public function checkIsExistAccount(int $userId, int $storeId = 0): int
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $userId, $storeId);
+        return EellyClient::request('pay/account', 'checkIsExistAccount', true, $userId, $storeId);
     }
 
     /**
@@ -278,7 +278,7 @@ class Account implements AccountInterface
      */
     public function checkIsExistAccountAsync(int $userId, int $storeId = 0)
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $userId, $storeId);
+        return EellyClient::request('pay/account', 'checkIsExistAccount', false, $userId, $storeId);
     }
 
     /**
@@ -317,7 +317,7 @@ class Account implements AccountInterface
      */
     public function addAccount(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('pay/account', 'addAccount', true, $data, $user);
     }
 
     /**
@@ -356,7 +356,7 @@ class Account implements AccountInterface
      */
     public function addAccountAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('pay/account', 'addAccount', false, $data, $user);
     }
 
     /**
@@ -398,7 +398,7 @@ class Account implements AccountInterface
      */
     public function updateAccount(int $paId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $paId, $data, $user);
+        return EellyClient::request('pay/account', 'updateAccount', true, $paId, $data, $user);
     }
 
     /**
@@ -440,7 +440,7 @@ class Account implements AccountInterface
      */
     public function updateAccountAsync(int $paId, array $data, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $paId, $data, $user);
+        return EellyClient::request('pay/account', 'updateAccount', false, $paId, $data, $user);
     }
 
     /**
@@ -482,7 +482,7 @@ class Account implements AccountInterface
      */
     public function getAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $storeId, $user);
+        return EellyClient::request('pay/account', 'getAccountMoneyManage', true, $storeId, $user);
     }
 
     /**
@@ -524,7 +524,7 @@ class Account implements AccountInterface
      */
     public function getAccountMoneyManageAsync(int $storeId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $storeId, $user);
+        return EellyClient::request('pay/account', 'getAccountMoneyManage', false, $storeId, $user);
     }
 
     /**

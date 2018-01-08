@@ -37,7 +37,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function getCallbackAdjust(int $pcaId): CallbackAdjustDTO
     {
-        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, true, $pcaId);
+        return EellyClient::request('pay/callbackAdjust', 'getCallbackAdjust', true, $pcaId);
     }
 
     /**
@@ -55,7 +55,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function getCallbackAdjustAsync(int $pcaId)
     {
-        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, false, $pcaId);
+        return EellyClient::request('pay/callbackAdjust', 'getCallbackAdjust', false, $pcaId);
     }
 
     /**
@@ -73,7 +73,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function addCallBackAdjust(string $billNo, int $type): bool
     {
-        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, true, $billNo, $type);
+        return EellyClient::request('pay/callbackAdjust', 'addCallBackAdjust', true, $billNo, $type);
     }
 
     /**
@@ -91,7 +91,7 @@ class CallbackAdjust implements CallbackAdjustInterface
      */
     public function addCallBackAdjustAsync(string $billNo, int $type)
     {
-        return EellyClient::request('pay/callbackAdjust', __FUNCTION__, false, $billNo, $type);
+        return EellyClient::request('pay/callbackAdjust', 'addCallBackAdjust', false, $billNo, $type);
     }
 
     /**

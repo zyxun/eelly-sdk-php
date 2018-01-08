@@ -37,7 +37,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function getOneVoucherType(string $voucherCode): array
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, true, $voucherCode);
+        return EellyClient::request('pay/voucherType', 'getOneVoucherType', true, $voucherCode);
     }
 
     /**
@@ -56,7 +56,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function getOneVoucherTypeAsync(string $voucherCode)
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, false, $voucherCode);
+        return EellyClient::request('pay/voucherType', 'getOneVoucherType', false, $voucherCode);
     }
 
     /**
@@ -77,7 +77,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function addVoucherType(array $data): bool
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/voucherType', 'addVoucherType', true, $data);
     }
 
     /**
@@ -98,7 +98,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function addVoucherTypeAsync(array $data)
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/voucherType', 'addVoucherType', false, $data);
     }
 
     /**
@@ -121,7 +121,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function updateVoucherType(string $voucherCode, array $data): bool
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, true, $voucherCode, $data);
+        return EellyClient::request('pay/voucherType', 'updateVoucherType', true, $voucherCode, $data);
     }
 
     /**
@@ -144,7 +144,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function updateVoucherTypeAsync(string $voucherCode, array $data)
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, false, $voucherCode, $data);
+        return EellyClient::request('pay/voucherType', 'updateVoucherType', false, $voucherCode, $data);
     }
 
     /**
@@ -163,7 +163,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function deleteVoucherType(string $voucherCode): bool
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, true, $voucherCode);
+        return EellyClient::request('pay/voucherType', 'deleteVoucherType', true, $voucherCode);
     }
 
     /**
@@ -182,7 +182,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function deleteVoucherTypeAsync(string $voucherCode)
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, false, $voucherCode);
+        return EellyClient::request('pay/voucherType', 'deleteVoucherType', false, $voucherCode);
     }
 
     /**
@@ -202,7 +202,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function getVoucherTypeList(array $data): array
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/voucherType', 'getVoucherTypeList', true, $data);
     }
 
     /**
@@ -222,7 +222,7 @@ class VoucherType implements VoucherTypeInterface
      */
     public function getVoucherTypeListAsync(array $data)
     {
-        return EellyClient::request('pay/voucherType', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/voucherType', 'getVoucherTypeList', false, $data);
     }
 
     /**

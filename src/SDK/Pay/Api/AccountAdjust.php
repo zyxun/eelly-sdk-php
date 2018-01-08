@@ -48,7 +48,7 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function getAccountAdjust(int $paaId): AccountAdjustDTO
     {
-        return EellyClient::request('pay/accountAdjust', __FUNCTION__, true, $paaId);
+        return EellyClient::request('pay/accountAdjust', 'getAccountAdjust', true, $paaId);
     }
 
     /**
@@ -77,7 +77,7 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function getAccountAdjustAsync(int $paaId)
     {
-        return EellyClient::request('pay/accountAdjust', __FUNCTION__, false, $paaId);
+        return EellyClient::request('pay/accountAdjust', 'getAccountAdjust', false, $paaId);
     }
 
     /**
@@ -109,7 +109,7 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function addAccountAdjust(array $data): bool
     {
-        return EellyClient::request('pay/accountAdjust', __FUNCTION__, true, $data);
+        return EellyClient::request('pay/accountAdjust', 'addAccountAdjust', true, $data);
     }
 
     /**
@@ -141,7 +141,7 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function addAccountAdjustAsync(array $data)
     {
-        return EellyClient::request('pay/accountAdjust', __FUNCTION__, false, $data);
+        return EellyClient::request('pay/accountAdjust', 'addAccountAdjust', false, $data);
     }
 
     /**
@@ -175,7 +175,7 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function updateAccountAdjust(int $paaId, array $data): bool
     {
-        return EellyClient::request('pay/accountAdjust', __FUNCTION__, true, $paaId, $data);
+        return EellyClient::request('pay/accountAdjust', 'updateAccountAdjust', true, $paaId, $data);
     }
 
     /**
@@ -209,7 +209,7 @@ class AccountAdjust implements AccountAdjustInterface
      */
     public function updateAccountAdjustAsync(int $paaId, array $data)
     {
-        return EellyClient::request('pay/accountAdjust', __FUNCTION__, false, $paaId, $data);
+        return EellyClient::request('pay/accountAdjust', 'updateAccountAdjust', false, $paaId, $data);
     }
 
     /**

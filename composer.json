@@ -11,8 +11,8 @@
 	],
 	"require": {
 		"php": "^7.1.3",
-		"shadon/framework": "^v0.1.1",
-		"shadon/oauth2-client": "dev-master"
+		"shadon/framework": "^v0.1.6",
+		"shadon/oauth2-client": "^v0.1.0"
 	},
 	"autoload": {
 		"psr-4": {
@@ -21,6 +21,11 @@
 			"Eelly\\Events\\":"src/Events",
 			"Eelly\\Exception\\":"src/Exception",
 			"Eelly\\SDK\\":"src/SDK"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0-dev"
 		}
 	},
 	"config": {
