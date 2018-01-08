@@ -500,33 +500,4 @@ interface GoodsInterface
      * @since 2017年10月30日
      */
     public function calculateThePostage(array $goodsInfo): array;
-
-    /**
-     * 计算询价下单商品的邮费、总金额
-     *
-     * @param array $goodsInfo 商品信息
-     * @param int   $goodsInfo[0]["goodsId"]    商品id
-     * @param int   $goodsInfo[0]["gesId"]      商品规格id
-     * @param int   $goodsInfo[0]["quantity"]   数量
-     *
-     * @return array
-     * @requestExample({
-     *     "goodsInfo":[
-     *         {
-     *             "goodsId":1,
-     *             "gesId":2,
-     *             "quantity":6
-     *         },
-     *         {
-     *             "goodsId":2,
-     *             "gesId":2,
-     *             "quantity":2
-     *         }
-     *     ]
-     * })
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.01.05
-     */
-    public function calculateEnquiryOrderGoods(array $goodsInfo): array;
 }

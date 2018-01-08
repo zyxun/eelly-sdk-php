@@ -25,4 +25,6 @@ use Eelly\Exception\LogicException;
 class GoodsException extends LogicException
 {
     public const DATA_EXCEPTION = '数据异常';
+    public const GOODS_NOT_PRICE = '商品未报价，不可以下单';
+    public const GOODS_NOT_STOCK = '商品缺货停售，不可以下单';
 }
