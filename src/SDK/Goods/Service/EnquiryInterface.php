@@ -33,7 +33,7 @@ interface EnquiryInterface
     public function getGoodsEnquiryInfoByIds(array $geIds) : array;
 
     /**
-     * 计算询价下单商品的邮费、总金额
+     * 计算询价下单商品的详细信息、总金额
      *
      * @param array $goodsInfo 商品信息
      * @param int   $goodsInfo[0]["goodsId"]    商品id
@@ -78,4 +78,41 @@ interface EnquiryInterface
      * @since 2018.01.08
      */
     public function validateGoodsInfo(array $goodsIds) : bool;
+
+    /**
+     * 添加询价商品信息记录
+     *
+     * @param array  $data
+     * @param int    $data["itemType"]    询价类型(1.朋友圈商品; 2.店铺动态商品)
+     * @param string $data["itemId"]      询价动态id
+     * @param string $data["urlCover"]    询价商品封面图
+     * @param int    $data["sellerId"]    卖家ID
+     * @param int    $data["status"]      在售状态：0 缺货停售 1 在售（卖家设置）
+     *
+     * @return int
+     * @requestExample({
+     *    "data": {
+     *         "itemType":1,
+     *         "itemId":"591ba096a29ff70f7314e1f6",
+     *         "urlCover":"G01/M00/00/06/oYYBAFkboJWIXrI7AAAe9WlrlpgAAACVwDvSAIAAB8N049.jpg",
+     *         "sellerId":148086,
+     *         "status":1
+     *     }
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.10
+     */
+    public function addGoodsEnquiry(array $data) : int;
+
+    /**
+     * 根据传过来的where条件，删除对应的记录
+     *
+     * @param string $where  查询的where条件
+     * @return bool
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.10
+     */
+    public function deleteEnquiryData(string $where): bool;
 }
