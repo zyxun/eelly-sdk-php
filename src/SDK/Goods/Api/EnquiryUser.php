@@ -287,7 +287,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param int $data [0]["price"] 报价金额：单位为分
      * @param int $sellerId 卖家ID
      * @return bool
-     * @requestExample({"data":{{"geuId":1,"price":20},{"geuId":2,"price":30}},"sellerId":10086})
+     * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}},"sellerId":10086}])
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月11日
@@ -309,7 +309,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param int $data [0]["price"] 报价金额：单位为分
      * @param int $sellerId 卖家ID
      * @return bool
-     * @requestExample({"data":{{"geuId":1,"price":20},{"geuId":2,"price":30}},"sellerId":10086})
+     * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}},"sellerId":10086}])
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月11日
@@ -329,7 +329,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param array $geuIds  询价商品ID[1,2,3]
      * @param int $sellerId 卖家ID
      * @return bool
-     * @requestExample({"geuIds":{1,2}},"sellerId":10086})
+     * @requestExample({"geuIds":[1,2,3],"sellerId":10086})
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月11日
@@ -349,7 +349,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param array $geuIds  询价商品ID[1,2,3]
      * @param int $sellerId 卖家ID
      * @return bool
-     * @requestExample({"geuIds":{1,2}},"sellerId":10086})
+     * @requestExample({"geuIds":[1,2,3],"sellerId":10086})
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月11日
@@ -361,8 +361,9 @@ class EnquiryUser implements EnquiryUserInterface
     public function deleteUserPriceRecordAsync(array $geuIds, int $sellerId)
     {
         return EellyClient::request('goods/enquiryUser', 'deleteUserPriceRecord', false, $geuIds, $sellerId);
-    } 
-    /*
+    }
+
+    /**
      * 根据询价商品id，返回对应的商品信息
      *
      * @param array $goodsIds  询价商品id数组
@@ -370,7 +371,7 @@ class EnquiryUser implements EnquiryUserInterface
      * 
      * @return array
      * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
-     * @returnExample()
+     * @returnExample([{"geuId":"1","geId":"1","name":"","urlCover":"https:\/\/img01.eelly.com\/G06\/M00\/00\/21\/rIYBAFozihGIRo_tAAF6T7PoHfMAAANbADhPKYAAXpn452.jpg","price":"35","createdTime":"1515493062","status":"1","geStatus":"1","buyerId":"148086"},{"geuId":"2","geId":null,"name":null,"urlCover":null,"price":"36","createdTime":"1515493063","status":"1","geStatus":null,"buyerId":"148086"},{"geuId":"3","geId":null,"name":null,"urlCover":null,"price":"30","createdTime":"1515132209","status":"1","geStatus":null,"buyerId":"148086"}])
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2018年01月11日
@@ -388,7 +389,7 @@ class EnquiryUser implements EnquiryUserInterface
      * 
      * @return array
      * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
-     * @returnExample()
+     * @returnExample([{"geuId":"1","geId":"1","name":"","urlCover":"https:\/\/img01.eelly.com\/G06\/M00\/00\/21\/rIYBAFozihGIRo_tAAF6T7PoHfMAAANbADhPKYAAXpn452.jpg","price":"35","createdTime":"1515493062","status":"1","geStatus":"1","buyerId":"148086"},{"geuId":"2","geId":null,"name":null,"urlCover":null,"price":"36","createdTime":"1515493063","status":"1","geStatus":null,"buyerId":"148086"},{"geuId":"3","geId":null,"name":null,"urlCover":null,"price":"30","createdTime":"1515132209","status":"1","geStatus":null,"buyerId":"148086"}])
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2018年01月11日
@@ -396,6 +397,36 @@ class EnquiryUser implements EnquiryUserInterface
     public function getEnquiryInfoByIdsAsync(array $goodsIds, int $buyerId)
     {
         return EellyClient::request('goods/enquiryUser', 'getEnquiryInfoByIds', false, $goodsIds, $buyerId);
+    }
+
+    /**
+     * 获取5分钟内没有作出应答的卖家id和对应的买家id
+     * 
+     * @return array
+     * @requestExample({})
+     * @returnExample({"10086_148086"})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getOverTimeEnquiryInfo(): array
+    {
+        return EellyClient::request('goods/enquiryUser', 'getOverTimeEnquiryInfo', true);
+    }
+
+    /**
+     * 获取5分钟内没有作出应答的卖家id和对应的买家id
+     * 
+     * @return array
+     * @requestExample({})
+     * @returnExample({"10086_148086"})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getOverTimeEnquiryInfoAsync()
+    {
+        return EellyClient::request('goods/enquiryUser', 'getOverTimeEnquiryInfo', false);
     }
 
     /**
