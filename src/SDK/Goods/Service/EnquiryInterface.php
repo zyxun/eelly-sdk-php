@@ -103,7 +103,7 @@ interface EnquiryInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.10
      */
-    public function addGoodsEnquiry(array $data) : int;
+    //public function addGoodsEnquiry(array $data) : int;
 
     /**
      * 根据传过来的where条件，删除对应的记录
@@ -114,5 +114,19 @@ interface EnquiryInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.10
      */
-    public function deleteEnquiryData(string $where): bool;
+    //public function deleteEnquiryData(string $where): bool;
+    
+    /**
+     * 询价商品标记已缺货
+     * 
+     * @param int $geId 询价商品id
+     * @return array
+     * 
+     * @requestExample({"geId": 1})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function updateNoStockEnquiry(int $geId): bool;
 }

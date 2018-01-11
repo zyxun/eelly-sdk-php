@@ -81,7 +81,7 @@ interface EnquiryUserInterface
      * 
      * @return array
      * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
-     * @returnExample()
+     * @returnExample([{"geuId":"1","geId":"1","name":"","urlCover":"https:\/\/img01.eelly.com\/G06\/M00\/00\/21\/rIYBAFozihGIRo_tAAF6T7PoHfMAAANbADhPKYAAXpn452.jpg","price":"35","createdTime":"1515493062","status":"1","geStatus":"1","buyerId":"148086"},{"geuId":"2","geId":null,"name":null,"urlCover":null,"price":"36","createdTime":"1515493063","status":"1","geStatus":null,"buyerId":"148086"},{"geuId":"3","geId":null,"name":null,"urlCover":null,"price":"30","createdTime":"1515132209","status":"1","geStatus":null,"buyerId":"148086"}])
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2018年01月11日

@@ -156,89 +156,37 @@ class Enquiry implements EnquiryInterface
     }
 
     /**
-     * 添加询价商品信息记录
-     *
-     * @param array  $data
-     * @param int    $data["itemType"]    询价类型(1.朋友圈商品; 2.店铺动态商品)
-     * @param string $data["itemId"]      询价动态id
-     * @param string $data["urlCover"]    询价商品封面图
-     * @param int    $data["sellerId"]    卖家ID
-     * @param int    $data["status"]      在售状态：0 缺货停售 1 在售（卖家设置）
-     *
-     * @return int
-     * @requestExample({
-     *    "data": {
-     *         "itemType":1,
-     *         "itemId":"591ba096a29ff70f7314e1f6",
-     *         "urlCover":"G01/M00/00/06/oYYBAFkboJWIXrI7AAAe9WlrlpgAAACVwDvSAIAAB8N049.jpg",
-     *         "sellerId":148086,
-     *         "status":1
-     *     }
-     * })
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.01.10
+     * 询价商品标记已缺货
+     * 
+     * @param int $geId 询价商品id
+     * @return array
+     * 
+     * @requestExample({"geId": 1})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
      */
-    public function addGoodsEnquiry(array $data): int
+    public function updateNoStockEnquiry(int $geId): bool
     {
-        return EellyClient::request('goods/enquiry', 'addGoodsEnquiry', true, $data);
+        return EellyClient::request('goods/enquiry', 'updateNoStockEnquiry', true, $geId);
     }
 
     /**
-     * 添加询价商品信息记录
-     *
-     * @param array  $data
-     * @param int    $data["itemType"]    询价类型(1.朋友圈商品; 2.店铺动态商品)
-     * @param string $data["itemId"]      询价动态id
-     * @param string $data["urlCover"]    询价商品封面图
-     * @param int    $data["sellerId"]    卖家ID
-     * @param int    $data["status"]      在售状态：0 缺货停售 1 在售（卖家设置）
-     *
-     * @return int
-     * @requestExample({
-     *    "data": {
-     *         "itemType":1,
-     *         "itemId":"591ba096a29ff70f7314e1f6",
-     *         "urlCover":"G01/M00/00/06/oYYBAFkboJWIXrI7AAAe9WlrlpgAAACVwDvSAIAAB8N049.jpg",
-     *         "sellerId":148086,
-     *         "status":1
-     *     }
-     * })
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.01.10
+     * 询价商品标记已缺货
+     * 
+     * @param int $geId 询价商品id
+     * @return array
+     * 
+     * @requestExample({"geId": 1})
+     * @returnExample(true)
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
      */
-    public function addGoodsEnquiryAsync(array $data)
+    public function updateNoStockEnquiryAsync(int $geId)
     {
-        return EellyClient::request('goods/enquiry', 'addGoodsEnquiry', false, $data);
-    }
-
-    /**
-     * 根据传过来的where条件，删除对应的记录
-     *
-     * @param string $where  查询的where条件
-     * @return bool
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.01.10
-     */
-    public function deleteEnquiryData(string $where): bool
-    {
-        return EellyClient::request('goods/enquiry', 'deleteEnquiryData', true, $where);
-    }
-
-    /**
-     * 根据传过来的where条件，删除对应的记录
-     *
-     * @param string $where  查询的where条件
-     * @return bool
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.01.10
-     */
-    public function deleteEnquiryDataAsync(string $where)
-    {
-        return EellyClient::request('goods/enquiry', 'deleteEnquiryData', false, $where);
+        return EellyClient::request('goods/enquiry', 'updateNoStockEnquiry', false, $geId);
     }
 
     /**
