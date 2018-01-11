@@ -22,6 +22,42 @@ use Eelly\SDK\Goods\Service\EnquiryUserInterface;
 class EnquiryUser implements EnquiryUserInterface
 {
     /**
+     * 新增询价商品报价信息
+     *
+     * @param array $data 请求参数
+     * @param $data['geId'] 询价商品ID
+     * @param $data['buyerId'] 买家ID
+     * @param $data['price'] 买家ID
+     * @param $data['status'] 报价状态：0 未报价 1 已报价 4 删除（买家设置）
+     * @param $data['createdTime'] 添加时间
+     *
+     * @autohr wechan<liweiquan@eelly.net>
+     * @since 2018年1月03日
+     */
+    public function addEnquiryUser(array $data): bool
+    {
+        return EellyClient::request('goods/enquiryUser', 'addEnquiryUser', true, $data);
+    }
+
+    /**
+     * 新增询价商品报价信息
+     *
+     * @param array $data 请求参数
+     * @param $data['geId'] 询价商品ID
+     * @param $data['buyerId'] 买家ID
+     * @param $data['price'] 买家ID
+     * @param $data['status'] 报价状态：0 未报价 1 已报价 4 删除（买家设置）
+     * @param $data['createdTime'] 添加时间
+     *
+     * @autohr wechan<liweiquan@eelly.net>
+     * @since 2018年1月03日
+     */
+    public function addEnquiryUserAsync(array $data)
+    {
+        return EellyClient::request('goods/enquiryUser', 'addEnquiryUser', false, $data);
+    }
+
+    /**
      * 获取用户的在店铺报价记录数.
      * 
      * @param int $data['userId']  用户id (不为0时需要传type 为0时取全部店铺的报价记录)
@@ -325,6 +361,41 @@ class EnquiryUser implements EnquiryUserInterface
     public function deleteUserPriceRecordAsync(array $geuIds, int $sellerId)
     {
         return EellyClient::request('goods/enquiryUser', 'deleteUserPriceRecord', false, $geuIds, $sellerId);
+    } 
+    /*
+     * 根据询价商品id，返回对应的商品信息
+     *
+     * @param array $goodsIds  询价商品id数组
+     * @param int   $buyerId   买家用户id
+     * 
+     * @return array
+     * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getEnquiryInfoByIds(array $goodsIds, int $buyerId): array
+    {
+        return EellyClient::request('goods/enquiryUser', 'getEnquiryInfoByIds', true, $goodsIds, $buyerId);
+    }
+
+    /**
+     * 根据询价商品id，返回对应的商品信息
+     *
+     * @param array $goodsIds  询价商品id数组
+     * @param int   $buyerId   买家用户id
+     * 
+     * @return array
+     * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getEnquiryInfoByIdsAsync(array $goodsIds, int $buyerId)
+    {
+        return EellyClient::request('goods/enquiryUser', 'getEnquiryInfoByIds', false, $goodsIds, $buyerId);
     }
 
     /**
