@@ -122,31 +122,39 @@ class EnquiryUser implements EnquiryUserInterface
     }
 
     /**
-     * 根据传过来的where条件，删除对应的记录
+     * 根据询价商品id，返回对应的商品信息
      *
-     * @param string $where  查询的where条件
-     * @return bool
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.01.10
+     * @param array $goodsIds  询价商品id数组
+     * @param int   $buyerId   买家用户id
+     * 
+     * @return array
+     * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
      */
-    public function deleteEnquiryUserData(string $where): bool
+    public function getEnquiryInfoByIds(array $goodsIds, int $buyerId): array
     {
-        return EellyClient::request('goods/enquiryUser', 'deleteEnquiryUserData', true, $where);
+        return EellyClient::request('goods/enquiryUser', 'getEnquiryInfoByIds', true, $goodsIds, $buyerId);
     }
 
     /**
-     * 根据传过来的where条件，删除对应的记录
+     * 根据询价商品id，返回对应的商品信息
      *
-     * @param string $where  查询的where条件
-     * @return bool
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.01.10
+     * @param array $goodsIds  询价商品id数组
+     * @param int   $buyerId   买家用户id
+     * 
+     * @return array
+     * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
      */
-    public function deleteEnquiryUserDataAsync(string $where)
+    public function getEnquiryInfoByIdsAsync(array $goodsIds, int $buyerId)
     {
-        return EellyClient::request('goods/enquiryUser', 'deleteEnquiryUserData', false, $where);
+        return EellyClient::request('goods/enquiryUser', 'getEnquiryInfoByIds', false, $goodsIds, $buyerId);
     }
 
     /**

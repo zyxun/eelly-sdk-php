@@ -71,5 +71,20 @@ interface EnquiryUserInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.10
      */
-    public function deleteEnquiryUserData(string $where): bool;
+    //public function deleteEnquiryUserData(string $where): bool;
+    
+    /**
+     * 根据询价商品id，返回对应的商品信息
+     *
+     * @param array $goodsIds  询价商品id数组
+     * @param int   $buyerId   买家用户id
+     * 
+     * @return array
+     * @requestExample({"goodsId":[1,2,3,4,5],"buyerId":148086})
+     * @returnExample()
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getEnquiryInfoByIds(array $goodsIds, int $buyerId) : array;
 }
