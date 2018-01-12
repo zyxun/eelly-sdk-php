@@ -448,6 +448,35 @@ class EnquiryUser implements EnquiryUserInterface
     {
         return EellyClient::request('goods/enquiryUser', 'getUserEnquiryInfoByIds', false, $geuIds);
     }
+   /*
+     * 获取5分钟内没有作出应答的卖家id和对应的买家id
+     * 
+     * @return array
+     * @requestExample({})
+     * @returnExample({"10086_148086"})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getOverTimeEnquiryInfo(): array
+    {
+        return EellyClient::request('goods/enquiryUser', 'getOverTimeEnquiryInfo', true);
+    }
+
+    /**
+     * 获取5分钟内没有作出应答的卖家id和对应的买家id
+     * 
+     * @return array
+     * @requestExample({})
+     * @returnExample({"10086_148086"})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getOverTimeEnquiryInfoAsync()
+    {
+        return EellyClient::request('goods/enquiryUser', 'getOverTimeEnquiryInfo', false);
+    }
 
     /**
      * @return self
