@@ -287,7 +287,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param int $data [0]["price"] 报价金额：单位为分
      * @param int $sellerId 卖家ID
      * @return bool
-     * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}},"sellerId":10086}])
+     * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}],"sellerId":10086})
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月11日
@@ -309,7 +309,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param int $data [0]["price"] 报价金额：单位为分
      * @param int $sellerId 卖家ID
      * @return bool
-     * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}},"sellerId":10086}])
+     * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}],"sellerId":10086})
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月11日
@@ -400,6 +400,55 @@ class EnquiryUser implements EnquiryUserInterface
     }
 
     /**
+     * 厂+通过主键批量获取询价商品报价数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------------|-------|--------------
+     * 148086            |array  |key值
+     * 148086["geuId"]   |string |询价商品ID
+     * 148086["geId"]    |string |询价商品ID
+     * 148086["buyerId"] |string |买家ID
+     * 148086["price"]   |string |报价金额：单位为分
+     * 148086["status"]  |string |报价状态：0 未报价 1 已报价 4 删除（买家设置）
+     *
+     * @param array $geuIds 询价商品ID[1,2,3]
+     * @return array
+     * @requestExample({"geuIds":[1,2,3]})
+     * @returnExample({"148086":[{"geuId":"1","geId":"1","buyerId":"148086","price":"34","status":"4"},{"geuId":"2","geId":"2","buyerId":"148086","price":"36","status":"4"},{"geuId":"3","geId":"3","buyerId":"148086","price":"30","status":"1"}]})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getUserEnquiryInfoByIds(array $geuIds): array
+    {
+        return EellyClient::request('goods/enquiryUser', 'getUserEnquiryInfoByIds', true, $geuIds);
+    }
+
+    /**
+     * 厂+通过主键批量获取询价商品报价数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------------|-------|--------------
+     * 148086            |array  |key值
+     * 148086["geuId"]   |string |询价商品ID
+     * 148086["geId"]    |string |询价商品ID
+     * 148086["buyerId"] |string |买家ID
+     * 148086["price"]   |string |报价金额：单位为分
+     * 148086["status"]  |string |报价状态：0 未报价 1 已报价 4 删除（买家设置）
+     *
+     * @param array $geuIds 询价商品ID[1,2,3]
+     * @return array
+     * @requestExample({"geuIds":[1,2,3]})
+     * @returnExample({"148086":[{"geuId":"1","geId":"1","buyerId":"148086","price":"34","status":"4"},{"geuId":"2","geId":"2","buyerId":"148086","price":"36","status":"4"},{"geuId":"3","geId":"3","buyerId":"148086","price":"30","status":"1"}]})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月11日
+     */
+    public function getUserEnquiryInfoByIdsAsync(array $geuIds)
+    {
+        return EellyClient::request('goods/enquiryUser', 'getUserEnquiryInfoByIds', false, $geuIds);
+    }
+   /*
      * 获取5分钟内没有作出应答的卖家id和对应的买家id
      * 
      * @return array
