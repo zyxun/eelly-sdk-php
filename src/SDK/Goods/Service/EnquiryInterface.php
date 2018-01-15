@@ -85,6 +85,7 @@ interface EnquiryInterface
      * @param array  $data
      * @param int    $data["itemType"]    询价类型(1.朋友圈商品; 2.店铺动态商品)
      * @param string $data["itemId"]      询价动态id
+     * @param string $data["name"]        询价商品名称
      * @param string $data["urlCover"]    询价商品封面图
      * @param int    $data["sellerId"]    卖家ID
      * @param int    $data["status"]      在售状态：0 缺货停售 1 在售（卖家设置）
@@ -103,7 +104,7 @@ interface EnquiryInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.10
      */
-    //public function addGoodsEnquiry(array $data) : int;
+    public function addGoodsEnquiry(array $data) : int;
 
     /**
      * 根据传过来的where条件，删除对应的记录
@@ -114,7 +115,7 @@ interface EnquiryInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.10
      */
-    //public function deleteEnquiryData(string $where): bool;
+    public function deleteEnquiryData(string $where): bool;
     
     /**
      * 询价商品标记已缺货
