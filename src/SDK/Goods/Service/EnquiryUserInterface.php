@@ -155,21 +155,23 @@ interface EnquiryUserInterface
     public function addUserPriceRecord(array $data, int $sellerId): bool;
 
     /**
-     * 厂+批量删除报价信息.
+     * 厂+/店+批量删除报价信息.
      *
-     * @param array $geuIds  询价商品ID[1,2,3]
-     * @param int $sellerId 卖家ID
+     * @param array $geuIds 询价商品ID[1,2,3]
+     * @param int $userId 用户ID
+     * @param int $type 类型，1为买家，2为卖家
      * @return bool
-     * @requestExample({"geuIds":[1,2,3],"sellerId":10086})
+     * @requestExample({"geuIds":[1,2,3],"userId":148087,"type":1})
      * @returnExample(true)
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月11日
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"}),
-     *  @OperatorValidator(1,{message:"非法卖家ID",operator:["gt",0]})
+     *  @OperatorValidator(1,{message:"非法用户ID",operator:["gt",0]}),
+     *  @InclusionIn(1,{message : "非法的类型",domain:[1,2]}),
      *)
      */
-    public function deleteUserPriceRecord(array $geuIds, int $sellerId): bool;
+    public function deleteUserPriceRecord(array $geuIds, int $userId, int $type = 1): bool;
     /*
      * 根据传过来的where条件，删除对应的记录
      *
@@ -222,7 +224,7 @@ interface EnquiryUserInterface
      * 获取5分钟内没有作出应答的卖家id和对应的买家id
      * 
      * @return array
-     * @requestExample({})
+     * @requestExample()
      * @returnExample({"10086_148086"})
      * 
      * @author wechan<liweiquan@eelly.net>
