@@ -253,4 +253,22 @@ interface EnquiryUserInterface
      * @since 2018.01.12
      */
     public function getUserGoodsEnquiryList(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    
+    /**
+     * 根据用户id 批量更新询价商品发送状态
+     * 
+     * @param int $buyerId 买家id
+     * @return array
+     *
+     * @requestExample({"buyerId":148086})
+     * @returnExample({true})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月15日
+     * 
+     * @Validation(
+     *      @PresenceOf(0,{message : "数据不能为空"}),
+     * )
+     */
+    public function updateEnquiryMessageStatus(int $buyerId): bool;
 }
