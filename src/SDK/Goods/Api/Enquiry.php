@@ -280,8 +280,15 @@ class Enquiry implements EnquiryInterface
     /**
      * 根据传过来的条件，返回对应的数据信息
      *
-     * @param array $where
+     * @param array $where 查询条件
+     * @param array $where["itemIds"]  动态id
      * @return array
+     *
+     * @requestExample({
+     *    "where": {
+     *         "itemIds":["591ba096a29ff70f7314e1f6"]
+     *     }
+     * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.16
@@ -294,8 +301,15 @@ class Enquiry implements EnquiryInterface
     /**
      * 根据传过来的条件，返回对应的数据信息
      *
-     * @param array $where
+     * @param array $where 查询条件
+     * @param array $where["itemIds"]  动态id
      * @return array
+     *
+     * @requestExample({
+     *    "where": {
+     *         "itemIds":["591ba096a29ff70f7314e1f6"]
+     *     }
+     * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.16
