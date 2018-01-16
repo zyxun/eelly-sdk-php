@@ -130,4 +130,16 @@ interface EnquiryInterface
      * @since 2018年01月11日
      */
     public function updateNoStockEnquiry(int $geId): bool;
+
+    /**
+     * 根据传过来的条件，返回对应的数据信息
+     *
+     * @param array $where
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.16
+     */
+    public function getInfoByConditions(array $where): array;
+
 }

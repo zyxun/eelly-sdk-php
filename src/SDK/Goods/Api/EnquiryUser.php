@@ -534,6 +534,48 @@ class EnquiryUser implements EnquiryUserInterface
     }
 
     /**
+     * 根据用户id 批量更新询价商品发送状态
+     * 
+     * @param int $buyerId 买家id
+     * @return array
+     *
+     * @requestExample({"buyerId":148086})
+     * @returnExample({true})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月15日
+     * 
+     * @Validation(
+     *      @PresenceOf(0,{message : "数据不能为空"}),
+     * )
+     */
+    public function updateEnquiryMessageStatus(int $buyerId): bool
+    {
+        return EellyClient::request('goods/enquiryUser', 'updateEnquiryMessageStatus', true, $buyerId);
+    }
+
+    /**
+     * 根据用户id 批量更新询价商品发送状态
+     * 
+     * @param int $buyerId 买家id
+     * @return array
+     *
+     * @requestExample({"buyerId":148086})
+     * @returnExample({true})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月15日
+     * 
+     * @Validation(
+     *      @PresenceOf(0,{message : "数据不能为空"}),
+     * )
+     */
+    public function updateEnquiryMessageStatusAsync(int $buyerId)
+    {
+        return EellyClient::request('goods/enquiryUser', 'updateEnquiryMessageStatus', false, $buyerId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
