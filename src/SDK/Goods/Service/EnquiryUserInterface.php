@@ -159,7 +159,7 @@ interface EnquiryUserInterface
      *
      * @param array $geuIds 询价商品ID[1,2,3]
      * @param int $userId 用户ID
-     * @param int $type 类型，1为买家，2为卖家
+     * @param int $type 类型:1为买家，2为卖家
      * @return bool
      * @requestExample({"geuIds":[1,2,3],"userId":148087,"type":1})
      * @returnExample(true)
@@ -168,7 +168,7 @@ interface EnquiryUserInterface
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"}),
      *  @OperatorValidator(1,{message:"非法用户ID",operator:["gt",0]}),
-     *  @InclusionIn(1,{message : "非法的类型",domain:[1,2]}),
+     *  @InclusionIn(2,{message : "非法的类型",domain:[1,2]})
      *)
      */
     public function deleteUserPriceRecord(array $geuIds, int $userId, int $type = 1): bool;
