@@ -494,11 +494,11 @@ class EnquiryUser implements EnquiryUserInterface
      * @param int $condition ["buyerId"] 买家ID
      * @param int $condition ["status"] 报价状态：0 未报价 1 已报价 4 删除（买家设置）
      * @param int $condition ["noStatus"] 不等于某个报价状态的值
-     * @param int $condition ["lastGeuId"] 分页的最后一个商品报价ID
+     * @param int $condition ["ltCreatedTime"] 分页的最后一个商品报价时间
      * @param int $currentPage 第几页
      * @param int $limit 每页条数
      * @return array
-     * @requestExample({"sellerId":10086,"noStatus":4,"lastGeuId":1})
+     * @requestExample({"sellerId":10086,"noStatus":4,"ltCreatedTime":1516329631})
      * @returnExample({"items":{{"geuId":1,"urlCover":"https://img01.eelly.com/G06/M00/00/21/rIYBAFozihGIRo_tAAF6T7PoHfMAAANbADhPKYAAXpn452.jpg"
      * ,"price":20,"itemId": "591ba096a29ff70f7314e1f6","name":"test","sellerId":148086,"createdTime":"1515132209","geStatus":1}},"page":{"totalPages":1,"totalItems":2,"current":1,"limit":10}})
      *
@@ -519,11 +519,11 @@ class EnquiryUser implements EnquiryUserInterface
      * @param int $condition ["buyerId"] 买家ID
      * @param int $condition ["status"] 报价状态：0 未报价 1 已报价 4 删除（买家设置）
      * @param int $condition ["noStatus"] 不等于某个报价状态的值
-     * @param int $condition ["lastGeuId"] 分页的最后一个商品报价ID
+     * @param int $condition ["ltCreatedTime"] 分页的最后一个商品报价时间
      * @param int $currentPage 第几页
      * @param int $limit 每页条数
      * @return array
-     * @requestExample({"sellerId":10086,"noStatus":4,"lastGeuId":1})
+     * @requestExample({"sellerId":10086,"noStatus":4,"ltCreatedTime":1516329631})
      * @returnExample({"items":{{"geuId":1,"urlCover":"https://img01.eelly.com/G06/M00/00/21/rIYBAFozihGIRo_tAAF6T7PoHfMAAANbADhPKYAAXpn452.jpg"
      * ,"price":20,"itemId": "591ba096a29ff70f7314e1f6","name":"test","sellerId":148086,"createdTime":"1515132209","geStatus":1}},"page":{"totalPages":1,"totalItems":2,"current":1,"limit":10}})
      *
