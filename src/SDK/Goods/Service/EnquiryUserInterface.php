@@ -141,6 +141,7 @@ interface EnquiryUserInterface
      * @param array $data 报价信息
      * @param int $data [0]["geuId"] 询价商品ID
      * @param int $data [0]["price"] 报价金额：单位为分
+     * @param bool $isRecordPrice 是否需要报价，true需要报价，false不用报价
      * @param int $sellerId 卖家ID
      * @return bool
      * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}],"sellerId":10086})
@@ -149,10 +150,10 @@ interface EnquiryUserInterface
      * @since 2018年01月11日
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"}),
-     *  @OperatorValidator(1,{message:"非法卖家ID",operator:["gt",0]})
+     *  @OperatorValidator(2,{message:"非法卖家ID",operator:["gt",0]})
      *)
      */
-    public function addUserPriceRecord(array $data, int $sellerId): bool;
+    public function addUserPriceRecord(array $data, bool $isRecordPrice = false, int $sellerId): bool;
 
     /**
      * 厂+/店+批量删除报价信息.

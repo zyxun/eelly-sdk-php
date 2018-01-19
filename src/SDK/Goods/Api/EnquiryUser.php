@@ -285,6 +285,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param array $data 报价信息
      * @param int $data [0]["geuId"] 询价商品ID
      * @param int $data [0]["price"] 报价金额：单位为分
+     * @param bool $isRecordPrice 是否需要报价，true需要报价，false不用报价
      * @param int $sellerId 卖家ID
      * @return bool
      * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}],"sellerId":10086})
@@ -293,12 +294,12 @@ class EnquiryUser implements EnquiryUserInterface
      * @since 2018年01月11日
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"}),
-     *  @OperatorValidator(1,{message:"非法卖家ID",operator:["gt",0]})
+     *  @OperatorValidator(2,{message:"非法卖家ID",operator:["gt",0]})
      *)
      */
-    public function addUserPriceRecord(array $data, int $sellerId): bool
+    public function addUserPriceRecord(array $data, bool $isRecordPrice = false, int $sellerId): bool
     {
-        return EellyClient::request('goods/enquiryUser', 'addUserPriceRecord', true, $data, $sellerId);
+        return EellyClient::request('goods/enquiryUser', 'addUserPriceRecord', true, $data, $isRecordPrice, $sellerId);
     }
 
     /**
@@ -307,6 +308,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @param array $data 报价信息
      * @param int $data [0]["geuId"] 询价商品ID
      * @param int $data [0]["price"] 报价金额：单位为分
+     * @param bool $isRecordPrice 是否需要报价，true需要报价，false不用报价
      * @param int $sellerId 卖家ID
      * @return bool
      * @requestExample({"data":[{"geuId":1,"price":20},{"geuId":2,"price":30}],"sellerId":10086})
@@ -315,12 +317,12 @@ class EnquiryUser implements EnquiryUserInterface
      * @since 2018年01月11日
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"}),
-     *  @OperatorValidator(1,{message:"非法卖家ID",operator:["gt",0]})
+     *  @OperatorValidator(2,{message:"非法卖家ID",operator:["gt",0]})
      *)
      */
-    public function addUserPriceRecordAsync(array $data, int $sellerId)
+    public function addUserPriceRecordAsync(array $data, bool $isRecordPrice = false, int $sellerId)
     {
-        return EellyClient::request('goods/enquiryUser', 'addUserPriceRecord', false, $data, $sellerId);
+        return EellyClient::request('goods/enquiryUser', 'addUserPriceRecord', false, $data, $isRecordPrice, $sellerId);
     }
 
     /**
@@ -328,7 +330,7 @@ class EnquiryUser implements EnquiryUserInterface
      *
      * @param array $geuIds 询价商品ID[1,2,3]
      * @param int $userId 用户ID
-     * @param int $type 类型，1为买家，2为卖家
+     * @param int $type 类型:1为买家，2为卖家
      * @return bool
      * @requestExample({"geuIds":[1,2,3],"userId":148087,"type":1})
      * @returnExample(true)
@@ -337,7 +339,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"}),
      *  @OperatorValidator(1,{message:"非法用户ID",operator:["gt",0]}),
-     *  @InclusionIn(1,{message : "非法的类型",domain:[1,2]}),
+     *  @InclusionIn(2,{message : "非法的类型",domain:[1,2]})
      *)
      */
     public function deleteUserPriceRecord(array $geuIds, int $userId, int $type = 1): bool
@@ -350,7 +352,7 @@ class EnquiryUser implements EnquiryUserInterface
      *
      * @param array $geuIds 询价商品ID[1,2,3]
      * @param int $userId 用户ID
-     * @param int $type 类型，1为买家，2为卖家
+     * @param int $type 类型:1为买家，2为卖家
      * @return bool
      * @requestExample({"geuIds":[1,2,3],"userId":148087,"type":1})
      * @returnExample(true)
@@ -359,7 +361,7 @@ class EnquiryUser implements EnquiryUserInterface
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"}),
      *  @OperatorValidator(1,{message:"非法用户ID",operator:["gt",0]}),
-     *  @InclusionIn(1,{message : "非法的类型",domain:[1,2]}),
+     *  @InclusionIn(2,{message : "非法的类型",domain:[1,2]})
      *)
      */
     public function deleteUserPriceRecordAsync(array $geuIds, int $userId, int $type = 1)
