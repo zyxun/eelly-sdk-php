@@ -50,7 +50,6 @@ interface LiveInterface
      */
     public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
-
     /**
      * 直播管理列表.
      *
@@ -58,11 +57,11 @@ interface LiveInterface
      * @param array $condition['storeIds'] 店铺ID一维数据
      * @param array $condition['inStatus'] 查询状态
      * @param int $condition['scheduleDate'] 开播日期
-     * @param string $condition['order'] 排序下标
      * @param int $currentPage 第几页
      * @param int $limit 每页条数
+     * @param string $order 排序
      * @return array
-     * @requestExample({"data":["storeIds":[148086,148087],"inStatus":[0,1],"scheduleDate":"1516291200","order":"base"],"currentPage":1,"limit":10})
+     * @requestExample({"data":["storeIds":[148086,148087],"inStatus":[0,1],"scheduleDate":"1516291200"],"currentPage":1,"limit":10,"order":"base"})
      * @returnExample({"items":[{"liveId":1,"userId":2,"buyerId":148086,"storeId":148086,"title":"11","image":"1111","scheduleTime":1516353883,"sort":255,"status":0,"createdTime":1516204800,"userCount":2}],"page":{"totalPages":1,"totalItems":2,"current":1,"limit":10}})
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月22日
@@ -72,5 +71,5 @@ interface LiveInterface
      *  @OperatorValidator(2,{message:"非法每页条数",operator:["gt",0]})
      *)
      */
-    public function getLiveList(array $condition, int $currentPage = 1, int $limit = 10): array;
+    public function getLiveList(array $condition, int $currentPage = 1, int $limit = 10, string $order = 'base'): array;
 }
