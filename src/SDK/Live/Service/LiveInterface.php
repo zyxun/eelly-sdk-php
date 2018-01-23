@@ -72,4 +72,27 @@ interface LiveInterface
      *)
      */
     public function getLiveList(array $condition, int $currentPage = 1, int $limit = 10, string $order = 'base'): array;
+
+    /**
+     * 根据传过来的条件返回对应的数据
+     *
+     * @param array $condition 传递参数
+     * @param string $field  字段
+     * @param string $order  排序
+     * @return array
+     *
+     * @requestExample({
+     *         "condition":["gteScheduleTime":1516353823, "ltScheduleTime":1516353883],
+     *         "field":"base",
+     *         "order":"base"
+     * })
+     *
+     * @returnExample({
+     *   [{"liveId":"1","userId":"0","storeId":"148086","title":"11","image":"1111","region":"11","pushUrl":"111","share":"11","scheduleTime":"1516353883","startTime":"1421510400","endTime":"1516031999","sort":"1","status":"2","createdTime":"1516204800"}]
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.01.22
+     */
+    public function getLiveListByCondition(array $condition, string $field = 'base', string $order = 'base');
 }
