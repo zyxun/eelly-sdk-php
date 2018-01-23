@@ -113,6 +113,62 @@ class Live implements LiveInterface
     }
 
     /**
+<<<<<<< Updated upstream
+=======
+     * 获取各个状态的统计数据.
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * total    |int    |总数量
+     * pending  |int    |预告中数量
+     * occurred |int    |未开播数量
+     * progress |int    |直播中数量
+     * finished |int    |已结束数量
+     *
+     *
+     * @param array $condition 条件
+     * @param string $field 查询的key值
+     * @return array
+     * @requestExample({"field":"getStat"})
+     * @returnExample({"total":2,"pending":0,"occurred":1,"progress":1,"finished":0})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月23日
+     */
+    public function getStatistics(array $condition = [], string $field = 'getStat'): array
+    {
+        return EellyClient::request('live/live', 'getStatistics', true, $condition, $field);
+    }
+
+    /**
+     * 获取各个状态的统计数据.
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * total    |int    |总数量
+     * pending  |int    |预告中数量
+     * occurred |int    |未开播数量
+     * progress |int    |直播中数量
+     * finished |int    |已结束数量
+     *
+     *
+     * @param array $condition 条件
+     * @param string $field 查询的key值
+     * @return array
+     * @requestExample({"field":"getStat"})
+     * @returnExample({"total":2,"pending":0,"occurred":1,"progress":1,"finished":0})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月23日
+     */
+    public function getStatisticsAsync(array $condition = [], string $field = 'getStat')
+    {
+        return EellyClient::request('live/live', 'getStatistics', false, $condition, $field);
+    }
+
+    /**
      * 直播管理列表.
      *
      * @param array $condition 查询条件
@@ -123,7 +179,7 @@ class Live implements LiveInterface
      * @param int $limit 每页条数
      * @param string $order 排序
      * @return array
-     * @requestExample({"data":["storeIds":[148086,148087],"inStatus":[0,1],"scheduleDate":"1516291200"],"currentPage":1,"limit":10,"order":"base"})
+     * @requestExample({"condition":["storeIds":[148086,148087],"inStatus":[0,1],"scheduleDate":"1516291200"],"currentPage":1,"limit":10,"order":"base"})
      * @returnExample({"items":[{"liveId":1,"userId":2,"buyerId":148086,"storeId":148086,"title":"11","image":"1111","scheduleTime":1516353883,"sort":255,"status":0,"createdTime":1516204800,"userCount":2}],"page":{"totalPages":1,"totalItems":2,"current":1,"limit":10}})
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月22日
@@ -149,7 +205,7 @@ class Live implements LiveInterface
      * @param int $limit 每页条数
      * @param string $order 排序
      * @return array
-     * @requestExample({"data":["storeIds":[148086,148087],"inStatus":[0,1],"scheduleDate":"1516291200"],"currentPage":1,"limit":10,"order":"base"})
+     * @requestExample({"condition":["storeIds":[148086,148087],"inStatus":[0,1],"scheduleDate":"1516291200"],"currentPage":1,"limit":10,"order":"base"})
      * @returnExample({"items":[{"liveId":1,"userId":2,"buyerId":148086,"storeId":148086,"title":"11","image":"1111","scheduleTime":1516353883,"sort":255,"status":0,"createdTime":1516204800,"userCount":2}],"page":{"totalPages":1,"totalItems":2,"current":1,"limit":10}})
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年01月22日
@@ -214,6 +270,41 @@ class Live implements LiveInterface
     public function getLiveListByConditionAsync(array $condition, string $field = 'base', string $order = 'base')
     {
         return EellyClient::request('live/live', 'getLiveListByCondition', false, $condition, $field, $order);
+    }
+    /*
+     * 批量更新排序.
+     *
+     * @param array $sort [1=>4,2=>8]
+     * @return bool
+     * @requestExample({"sort":["1":4,"2":8]})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月23日
+     * @Validation(
+     *  @PresenceOf(0,{message : "数据不能为空"})
+     *)
+     */
+    public function updateSort(array $sort): bool
+    {
+        return EellyClient::request('live/live', 'updateSort', true, $sort);
+    }
+
+    /**
+     * 批量更新排序.
+     *
+     * @param array $sort [1=>4,2=>8]
+     * @return bool
+     * @requestExample({"sort":["1":4,"2":8]})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月23日
+     * @Validation(
+     *  @PresenceOf(0,{message : "数据不能为空"})
+     *)
+     */
+    public function updateSortAsync(array $sort)
+    {
+        return EellyClient::request('live/live', 'updateSort', false, $sort);
     }
 
     /**
