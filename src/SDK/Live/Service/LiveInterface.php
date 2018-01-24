@@ -133,4 +133,20 @@ interface LiveInterface
      *)
      */
     public function updateSort(array $sort): bool;
+    
+    /**
+     * 支付成功后插入空直播信息
+     * 
+     * @param $data 请求参数
+     * @param $data['count'] 场数
+     * @param $data['userId'] 用户ID
+     * @param $data['storeId'] 店铺ID
+     * 
+     * @requestExample({})
+     * @returnExample({true})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月23日
+     */
+    public function addReadyLive($data): bool;
 }

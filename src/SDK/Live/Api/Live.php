@@ -113,8 +113,6 @@ class Live implements LiveInterface
     }
 
     /**
-<<<<<<< Updated upstream
-=======
      * 获取各个状态的统计数据.
      *
      * ### 返回数据说明
@@ -271,40 +269,55 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'getLiveListByCondition', false, $condition, $field, $order);
     }
-    /*
-     * 批量更新排序.
-     *
-     * @param array $sort [1=>4,2=>8]
-     * @return bool
-     * @requestExample({"sort":["1":4,"2":8]})
-     * @returnExample(true)
-     * @author 肖俊明<xiaojunming@eelly.net>
-     * @since 2018年01月23日
-     * @Validation(
-     *  @PresenceOf(0,{message : "数据不能为空"})
-     *)
-     */
+
+    
     public function updateSort(array $sort): bool
     {
         return EellyClient::request('live/live', 'updateSort', true, $sort);
     }
 
-    /**
-     * 批量更新排序.
-     *
-     * @param array $sort [1=>4,2=>8]
-     * @return bool
-     * @requestExample({"sort":["1":4,"2":8]})
-     * @returnExample(true)
-     * @author 肖俊明<xiaojunming@eelly.net>
-     * @since 2018年01月23日
-     * @Validation(
-     *  @PresenceOf(0,{message : "数据不能为空"})
-     *)
-     */
+    
     public function updateSortAsync(array $sort)
     {
         return EellyClient::request('live/live', 'updateSort', false, $sort);
+    }
+
+    /**
+     * 支付成功后插入空直播信息
+     * 
+     * @param $data 请求参数
+     * @param $data['count'] 场数
+     * @param $data['userId'] 用户ID
+     * @param $data['storeId'] 店铺ID
+     * 
+     * @requestExample({})
+     * @returnExample({true})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月23日
+     */
+    public function addReadyLive($data): bool
+    {
+        return EellyClient::request('live/live', 'addReadyLive', true, $data);
+    }
+
+    /**
+     * 支付成功后插入空直播信息
+     * 
+     * @param $data 请求参数
+     * @param $data['count'] 场数
+     * @param $data['userId'] 用户ID
+     * @param $data['storeId'] 店铺ID
+     * 
+     * @requestExample({})
+     * @returnExample({true})
+     * 
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2018年01月23日
+     */
+    public function addReadyLiveAsync($data)
+    {
+        return EellyClient::request('live/live', 'addReadyLive', false, $data);
     }
 
     /**
