@@ -137,16 +137,23 @@ interface LiveInterface
     /**
      * 支付成功后插入空直播信息
      * 
-     * @param $data 请求参数
-     * @param $data['count'] 场数
-     * @param $data['userId'] 用户ID
-     * @param $data['storeId'] 店铺ID
+     * @param array $data 请求参数
+     * @param int $data['count'] 场数
+     * @param int $data['userId'] 用户ID
+     * @param int $data['storeId'] 店铺ID
      * 
-     * @requestExample({})
-     * @returnExample({true})
+     * @requestExample({
+        "data": {
+            "count": 1,
+            "userId": 148086,
+            "storeId": 148086
+        }
+     })
+     * @returnExample(true)
+     * @return bool
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2018年01月23日
      */
-    public function addReadyLive($data): bool;
+    public function addReadyLive(array $data): bool;
 }
