@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Live\Service;
 
-use \SDK\Live\DTO\LiveDTO;
+use Eelly\SDK\Live\DTO\LiveDTO;
 
 /**
  *
@@ -21,8 +21,20 @@ use \SDK\Live\DTO\LiveDTO;
 interface LiveInterface
 {
     /**
+     * 根据传过来的直播信息主键id，返回对应的直播信息.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param int $liveId 直播信息主键id
+     *
+     * @throws \Eelly\SDK\Live\Exception\LiveException
+     *
+     * @return LiveDTO
+     *
+     * @requestExample({"liveId":1})
+     * @returnExample({"liveId":1,"userId":148086, "storeId":148086,"title":"test","image":"bank_logo_shbank.gif","region":1,"pushUrl":"ddd",
+     *     "share":1,"scheduleTime":1503560249,"startTime":1503560249,"endTime":1503560249,"status":1,"sort":1,"createdTime":1503560249})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.01.24
      */
     public function getLive(int $liveId): LiveDTO;
 

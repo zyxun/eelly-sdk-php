@@ -14,7 +14,7 @@ namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\LiveInterface;
-use SDK\Live\DTO\LiveDTO;
+use Eelly\SDK\Live\DTO\LiveDTO;
 
 /**
  *
@@ -23,8 +23,20 @@ use SDK\Live\DTO\LiveDTO;
 class Live implements LiveInterface
 {
     /**
+     * 根据传过来的直播信息主键id，返回对应的直播信息.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param int $liveId 直播信息主键id
+     *
+     * @throws \Eelly\SDK\Live\Exception\LiveException
+     *
+     * @return LiveDTO
+     *
+     * @requestExample({"liveId":1})
+     * @returnExample({"liveId":1,"userId":148086, "storeId":148086,"title":"test","image":"bank_logo_shbank.gif","region":1,"pushUrl":"ddd",
+     *     "share":1,"scheduleTime":1503560249,"startTime":1503560249,"endTime":1503560249,"status":1,"sort":1,"createdTime":1503560249})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.01.24
      */
     public function getLive(int $liveId): LiveDTO
     {
@@ -32,8 +44,20 @@ class Live implements LiveInterface
     }
 
     /**
+     * 根据传过来的直播信息主键id，返回对应的直播信息.
      *
-     * @author eellytools<localhost.shell@gmail.com>
+     * @param int $liveId 直播信息主键id
+     *
+     * @throws \Eelly\SDK\Live\Exception\LiveException
+     *
+     * @return LiveDTO
+     *
+     * @requestExample({"liveId":1})
+     * @returnExample({"liveId":1,"userId":148086, "storeId":148086,"title":"test","image":"bank_logo_shbank.gif","region":1,"pushUrl":"ddd",
+     *     "share":1,"scheduleTime":1503560249,"startTime":1503560249,"endTime":1503560249,"status":1,"sort":1,"createdTime":1503560249})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.01.24
      */
     public function getLiveAsync(int $liveId)
     {
@@ -285,18 +309,25 @@ class Live implements LiveInterface
     /**
      * 支付成功后插入空直播信息
      * 
-     * @param $data 请求参数
-     * @param $data['count'] 场数
-     * @param $data['userId'] 用户ID
-     * @param $data['storeId'] 店铺ID
+     * @param array $data 请求参数
+     * @param int $data['count'] 场数
+     * @param int $data['userId'] 用户ID
+     * @param int $data['storeId'] 店铺ID
      * 
-     * @requestExample({})
-     * @returnExample({true})
+     * @requestExample({
+        "data": {
+            "count": 1,
+            "userId": 148086,
+            "storeId": 148086
+        }
+     })
+     * @returnExample(true)
+     * @return bool
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2018年01月23日
      */
-    public function addReadyLive($data): bool
+    public function addReadyLive(array $data): bool
     {
         return EellyClient::request('live/live', 'addReadyLive', true, $data);
     }
@@ -304,18 +335,25 @@ class Live implements LiveInterface
     /**
      * 支付成功后插入空直播信息
      * 
-     * @param $data 请求参数
-     * @param $data['count'] 场数
-     * @param $data['userId'] 用户ID
-     * @param $data['storeId'] 店铺ID
+     * @param array $data 请求参数
+     * @param int $data['count'] 场数
+     * @param int $data['userId'] 用户ID
+     * @param int $data['storeId'] 店铺ID
      * 
-     * @requestExample({})
-     * @returnExample({true})
+     * @requestExample({
+        "data": {
+            "count": 1,
+            "userId": 148086,
+            "storeId": 148086
+        }
+     })
+     * @returnExample(true)
+     * @return bool
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2018年01月23日
      */
-    public function addReadyLiveAsync($data)
+    public function addReadyLiveAsync(array $data)
     {
         return EellyClient::request('live/live', 'addReadyLive', false, $data);
     }
