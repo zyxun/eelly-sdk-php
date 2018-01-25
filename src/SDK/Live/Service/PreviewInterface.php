@@ -29,4 +29,44 @@ interface PreviewInterface
      * @return bool
      */
     public function setStartTime(int $liveId, int $time): bool;
+
+    /**
+     * 添加或删除商品.
+     *
+     * @param int   $liveId   直播id
+     * @param array $goodsIds 直播商品id
+     * @param bool  $delete   是否删除
+     *
+     * @return bool
+     */
+    public function addGoods(int $liveId, array $goodsIds, bool $delete = false): bool;
+
+    /**
+     * 设置直播标题.
+     *
+     * @param int    $liveId 直播id
+     * @param string $title  直播标题
+     *
+     * @return bool
+     */
+    public function setTitle(int $liveId, string $title): bool;
+
+    /**
+     * 设置直播封面.
+     *
+     * @param int    $liveId
+     * @param string $imgUrl
+     *
+     * @return bool
+     */
+    public function setImage(int $liveId, string $imgUrl): bool;
+
+    /**
+     * 获取直播中的商品.
+     *
+     * @param int $liveId
+     *
+     * @return array
+     */
+    public function getLiveGoods(int $liveId): array;
 }
