@@ -37,4 +37,23 @@ interface SubscribeInterface
      * @since 2018.01.25
      */
     public function getSubscribeList(array $condition = []): array;
+
+    public function deleteSubscribe(int $subscribeId): bool;
+
+    /**
+     * 通过用户获取直播的直播id频道.
+     *
+     * @param int $userId 用户ID
+     * @param array $liveIds 直播ID
+     * @return array
+     * @requestExample({"userId":148086,"liveIds":[1,2,3]})
+     * @returnExample({1,2,3})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月24日
+     * @Validation(
+     *  @OperatorValidator(0,{message:"非法用户ID",operator:["gt",0]})
+     *)
+     */
+    public function getUserSubscribeLiveIds(int $userId, array $liveIds = []): array;
+
 }
