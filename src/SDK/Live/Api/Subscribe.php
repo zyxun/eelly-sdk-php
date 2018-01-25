@@ -73,6 +73,56 @@ class Subscribe implements SubscribeInterface
         return EellyClient::request('live/subscribe', 'getSubscribeList', false, $condition);
     }
 
+    
+    public function deleteSubscribe(int $subscribeId): bool
+    {
+        return EellyClient::request('live/subscribe', 'deleteSubscribe', true, $subscribeId);
+    }
+
+    
+    public function deleteSubscribeAsync(int $subscribeId)
+    {
+        return EellyClient::request('live/subscribe', 'deleteSubscribe', false, $subscribeId);
+    }
+
+    /**
+     * 通过用户获取直播的直播id频道.
+     *
+     * @param int $userId 用户ID
+     * @param array $liveIds 直播ID
+     * @return array
+     * @requestExample({"userId":148086,"liveIds":[1,2,3]})
+     * @returnExample({1,2,3})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月24日
+     * @Validation(
+     *  @OperatorValidator(0,{message:"非法用户ID",operator:["gt",0]})
+     *)
+     */
+    public function getUserSubscribeLiveIds(int $userId, array $liveIds = []): array
+    {
+        return EellyClient::request('live/subscribe', 'getUserSubscribeLiveIds', true, $userId, $liveIds);
+    }
+
+    /**
+     * 通过用户获取直播的直播id频道.
+     *
+     * @param int $userId 用户ID
+     * @param array $liveIds 直播ID
+     * @return array
+     * @requestExample({"userId":148086,"liveIds":[1,2,3]})
+     * @returnExample({1,2,3})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月24日
+     * @Validation(
+     *  @OperatorValidator(0,{message:"非法用户ID",operator:["gt",0]})
+     *)
+     */
+    public function getUserSubscribeLiveIdsAsync(int $userId, array $liveIds = [])
+    {
+        return EellyClient::request('live/subscribe', 'getUserSubscribeLiveIds', false, $userId, $liveIds);
+    }
+
     /**
      * @return self
      */

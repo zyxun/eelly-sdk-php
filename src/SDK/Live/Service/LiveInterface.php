@@ -87,6 +87,92 @@ interface LiveInterface
     public function getStatistics(array $condition = [], string $field = 'getStat'): array;
 
     /**
+     * 厂+直播管理列表.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------------------|-------|--------------
+     * items                 |array  |列表数据
+     * items["liveId"]       |int    |直播信息ID
+     * items["userId"]       |int    |用户ID
+     * items["storeId"]      |int    |店铺ID
+     * items["title"]        |string |直播标题
+     * items["image"]        |string 直播封面
+     * items["scheduleTime"] |int    |预计视频开始时间
+     * items["startTime"]    |int    |视频开始时间
+     * items["endTime"]      |int    |视频结束时间
+     * items["sort"]         |int    |排序
+     * items["status"]       |int    |状态：0.直播未开始,1.直播中-进行中,12.直播中-暂停,13.直播中-异常暂停,2.正常结束,3.强制中止
+     * items["createdTime"]  |int    |添加时间
+     * items["goodsCount"]   |int    |直播商品数量
+     * page                  |array  |页数信息
+     * page["totalPages"]    |int    |总页数
+     * page["totalItems"]    |int    |总条数
+     * page["current"]       |int    |当前页
+     * page["limit"]         |int    |每页条数
+     *
+     * @param array $condition 查询条件
+     * @param int $currentPage 第几页
+     * @param int $limit 每页条数
+     * @return array
+     * @requestExample({"condition":["storeIds":[148086,148087],"inStatus":[0, 1, 12, 13]],"currentPage":1,"limit":10,"order":"base"})
+     * @returnExample({"items":[{"liveId":1,"userId":2,"storeId":148086,"title":"11","image":"1111","scheduleTime":1516353883,"startTime":0,"endTime":0,"sort":4,"status":0,"createdTime":1516204800,"goodsCount":2}],"page":{"totalPages":1,"totalItems":2,"current":1,"limit":10}})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月23日
+     * @Validation(
+     *  @PresenceOf(0,{message : "数据不能为空"}),
+     *  @OperatorValidator(1,{message:"非法第几页",operator:["gt",0]}),
+     *  @OperatorValidator(2,{message:"非法每页条数",operator:["gt",0]})
+     *)
+     */
+    public function getSellerLiveList(array $condition, int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 厂+直播管理列表.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------------------|-------|--------------
+     * items                 |array  |列表数据
+     * items["liveId"]       |int    |直播信息ID
+     * items["userId"]       |int    |用户ID
+     * items["storeId"]      |int    |店铺ID
+     * items["title"]        |string |直播标题
+     * items["image"]        |string 直播封面
+     * items["scheduleTime"] |int    |预计视频开始时间
+     * items["startTime"]    |int    |视频开始时间
+     * items["endTime"]      |int    |视频结束时间
+     * items["sort"]         |int    |排序
+     * items["status"]       |int    |状态：0.直播未开始,1.直播中-进行中,12.直播中-暂停,13.直播中-异常暂停,2.正常结束,3.强制中止
+     * items["createdTime"]  |int    |添加时间
+     * items["goodsCount"]   |int    |直播商品数量
+     * items["goodsList"]    |array  |直播商品列表
+     * page                  |array  |页数信息
+     * page["totalPages"]    |int    |总页数
+     * page["totalItems"]    |int    |总条数
+     * page["current"]       |int    |当前页
+     * page["limit"]         |int    |每页条数
+     *
+     * @param array $condition 查询条件
+     * @param array $condition['storeIds'] 店铺ID一维数据
+     * @param array $condition['inStatus'] 查询状态
+     * @param int $condition['lastSchedule'] 最后的播放日期,第一页不用传递，或者0
+     * @param int $currentPage 第几页
+     * @param int $limit 每页条数
+     * @return array
+     * @requestExample({"condition":["storeIds":[148086,148087],"inStatus":[1, 12, 13],"lastSchedule":"1516353883"],"currentPage":1,"limit":10,"order":"base"})
+     * @returnExample({"items":[{"liveId":1,"userId":2,"storeId":148086,"title":"11","image":"1111","scheduleTime":1516353883,"startTime":0,"endTime":0,"sort":4,"status":0,"createdTime":1516204800,"goodsCount":2,"goodsList":[1,2,3]}],"page":{"totalPages":1,"totalItems":2,"current":1,"limit":10}})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月23日
+     * @Validation(
+     *  @PresenceOf(0,{message : "数据不能为空"}),
+     *  @OperatorValidator(1,{message:"非法第几页",operator:["gt",0]}),
+     *  @OperatorValidator(2,{message:"非法每页条数",operator:["gt",0]})
+     *)
+     */
+    public function getProgressList(array $condition, int $currentPage = 1, int $limit = 10, string $order = 'progress'): array;
+
+    /**
      * 直播管理列表.
      *
      * @param array $condition 查询条件
