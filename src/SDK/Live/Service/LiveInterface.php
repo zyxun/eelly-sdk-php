@@ -42,22 +42,47 @@ interface LiveInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function addLive(array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateLive(int $liveId, array $data): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteLive(int $liveId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
     public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
+     *
+     * @param int $liveId 直播ID
+     * @return array
+     * @requestExample({"liveId":1})
+     * @returnExample({"live":{"storeId":"148086","title":"标1题123","image":"G01\/M00\/00\/06\/oYYBAFkboJWIXrI7AAAe9WlrlpgAAACVwDvSAIAAB8N049.jpg","scheduleTime":"1516793554","startTime":"0","endTime":"0","status":"0"},"goodsList":[{"liveId":"1","goodsId":"1"},{"liveId":"1","goodsId":"3"},{"liveId":"1","goodsId":"345"},{"liveId":"1","goodsId":"678"},{"liveId":"1","goodsId":"890"}]})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月25日
+     */
+    public function getLiveGoodsInfo(int $liveId): array;
+
+    /**
+     * @author eellytools<localhost.shell@gmail.com>
+     * 获取一个直播的统计数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------|-------|--------------
+     * liveId    |string |直播ID
+     * view      |string |总人数
+     * praise    |string |点赞数
+     * follow    |string |关注数
+     * orders    |string |订单数
+     * startTime |string |直播开始时间
+     * endTime   |string |直播结束时间
+     *
+     * @param int $liveId 直播ID
+     * @return array
+     * @requestExample({"liveId":1})
+     * @returnExample({"liveId":"1","view":"133","praise":"1","follow":"1","orders":"122","startTime":"0","endTime":"0"})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月29日
+     * @Validation(
+     *  @OperatorValidator(0,{message:"直播ID",operator:["gt",0]})
+     *)
+     */
+    public function getLiveStatsInfo(int $liveId): array;
 
     /**
      * 获取各个状态的统计数据.
