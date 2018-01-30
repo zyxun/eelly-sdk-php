@@ -108,4 +108,12 @@ interface ParamsInterface
      * @author hehui<hehui@eelly.net>
      */
     public function throwException(): bool;
+
+    /**
+     * 包含默认为null的参数.
+     *
+     * @param int|null $param
+     * @return bool
+     */
+    public function withNullDefault(int $param = null):bool;
 }

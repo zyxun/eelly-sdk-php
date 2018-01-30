@@ -97,6 +97,14 @@ class Params implements ParamsInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function withNullDefault(int $param = null): bool
+    {
+        return EellyClient::request('example/params', __FUNCTION__, true, $param);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance()
