@@ -48,6 +48,110 @@ class Preview implements PreviewInterface
     }
 
     /**
+     * 添加或删除商品.
+     *
+     * @param int   $liveId   直播id
+     * @param array $goodsIds 直播商品id
+     * @param bool  $delete   是否删除
+     *
+     * @return bool
+     */
+    public function addGoods(int $liveId, array $goodsIds, bool $delete = false): bool
+    {
+        return EellyClient::request('live/preview', 'addGoods', true, $liveId, $goodsIds, $delete);
+    }
+
+    /**
+     * 添加或删除商品.
+     *
+     * @param int   $liveId   直播id
+     * @param array $goodsIds 直播商品id
+     * @param bool  $delete   是否删除
+     *
+     * @return bool
+     */
+    public function addGoodsAsync(int $liveId, array $goodsIds, bool $delete = false)
+    {
+        return EellyClient::request('live/preview', 'addGoods', false, $liveId, $goodsIds, $delete);
+    }
+
+    /**
+     * 设置直播标题.
+     *
+     * @param int    $liveId 直播id
+     * @param string $title  直播标题
+     *
+     * @return bool
+     */
+    public function setTitle(int $liveId, string $title): bool
+    {
+        return EellyClient::request('live/preview', 'setTitle', true, $liveId, $title);
+    }
+
+    /**
+     * 设置直播标题.
+     *
+     * @param int    $liveId 直播id
+     * @param string $title  直播标题
+     *
+     * @return bool
+     */
+    public function setTitleAsync(int $liveId, string $title)
+    {
+        return EellyClient::request('live/preview', 'setTitle', false, $liveId, $title);
+    }
+
+    /**
+     * 设置直播封面.
+     *
+     * @param int    $liveId
+     * @param string $imgUrl
+     *
+     * @return bool
+     */
+    public function setImage(int $liveId, string $imgUrl): bool
+    {
+        return EellyClient::request('live/preview', 'setImage', true, $liveId, $imgUrl);
+    }
+
+    /**
+     * 设置直播封面.
+     *
+     * @param int    $liveId
+     * @param string $imgUrl
+     *
+     * @return bool
+     */
+    public function setImageAsync(int $liveId, string $imgUrl)
+    {
+        return EellyClient::request('live/preview', 'setImage', false, $liveId, $imgUrl);
+    }
+
+    /**
+     * 获取直播中的商品.
+     *
+     * @param int $liveId
+     *
+     * @return array
+     */
+    public function getLiveGoods(int $liveId, int $status = null): array
+    {
+        return EellyClient::request('live/preview', 'getLiveGoods', true, $liveId, $status);
+    }
+
+    /**
+     * 获取直播中的商品.
+     *
+     * @param int $liveId
+     *
+     * @return array
+     */
+    public function getLiveGoodsAsync(int $liveId, int $status = null)
+    {
+        return EellyClient::request('live/preview', 'getLiveGoods', false, $liveId, $status);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
