@@ -68,5 +68,5 @@ interface PreviewInterface
      *
      * @return array
      */
-    public function getLiveGoods(int $liveId): array;
+    public function getLiveGoods(int $liveId, int $status = null): array;
 }
