@@ -27,6 +27,8 @@ interface PreviewInterface
      * @param int $time   直播开始时间
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setStartTime(int $liveId, int $time): bool;
 
@@ -38,6 +40,8 @@ interface PreviewInterface
      * @param bool  $delete   是否删除
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function addGoods(int $liveId, array $goodsIds, bool $delete = false): bool;
 
@@ -48,6 +52,8 @@ interface PreviewInterface
      * @param string $title  直播标题
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setTitle(int $liveId, string $title): bool;
 
@@ -58,6 +64,8 @@ interface PreviewInterface
      * @param string $imgUrl
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setImage(int $liveId, string $imgUrl): bool;
 
@@ -67,6 +75,8 @@ interface PreviewInterface
      * @param int $liveId
      *
      * @return array
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function getLiveGoods(int $liveId, int $status = null): array;
 }

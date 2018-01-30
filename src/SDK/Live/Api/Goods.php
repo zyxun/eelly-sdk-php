@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -17,13 +18,11 @@ use Eelly\SDK\Live\Service\GoodsInterface;
 use SDK\Live\DTO\GoodsDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Goods implements GoodsInterface
 {
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getGoods(int $goodsId): GoodsDTO
@@ -32,7 +31,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function getGoodsAsync(int $goodsId)
@@ -41,7 +39,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addGoods(array $data): bool
@@ -50,7 +47,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function addGoodsAsync(array $data)
@@ -59,7 +55,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateGoods(int $goodsId, array $data): bool
@@ -68,7 +63,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function updateGoodsAsync(int $goodsId, array $data)
@@ -77,7 +71,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteGoods(int $goodsId): bool
@@ -86,7 +79,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function deleteGoodsAsync(int $goodsId)
@@ -95,7 +87,6 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listGoodsPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
@@ -104,12 +95,19 @@ class Goods implements GoodsInterface
     }
 
     /**
-     *
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listGoodsPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
         return EellyClient::request('live/goods', 'listGoodsPage', false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSort(int $liveGoodsId, int $sort): bool
+    {
+        return EellyClient::request('live/goods', __FUNCTION__, true, $sort);
     }
 
     /**
