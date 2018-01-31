@@ -54,4 +54,17 @@ interface StatsInterface
      *)
      */
     public function getStatsByLiveIds(array $liveIds): array;
+
+    /**
+     * 同步直播数据到统计表.
+     *
+     * @param int $liveId 直播ID
+     * @param array $data 更改的数据
+     * @return bool
+     * @requestExample({"liveId":1,"data":["follow":10,"orders":2]})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月31日
+     */
+    public function updateFinishStat(int $liveId, array $data);
 }

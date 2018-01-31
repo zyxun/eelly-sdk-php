@@ -83,6 +83,7 @@ class Live implements LiveInterface
     }
 
     /**
+     * @author eellytools<localhost.shell@gmail.com>
      * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
      *
      * @param int $liveId 直播ID
@@ -101,6 +102,7 @@ class Live implements LiveInterface
     }
 
     /**
+     * @author eellytools<localhost.shell@gmail.com>
      * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
      *
      * @param int $liveId 直播ID
@@ -119,14 +121,25 @@ class Live implements LiveInterface
     }
 
     /**
+     * @author eellytools<localhost.shell@gmail.com>
      * 获取一个直播的统计数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------|-------|--------------
+     * liveId    |string |直播ID
+     * view      |string |总人数
+     * praise    |string |点赞数
+     * follow    |string |关注数
+     * orders    |string |订单数
+     * startTime |string |直播开始时间
+     * endTime   |string |直播结束时间
      *
      * @param int $liveId 直播ID
      *
      * @return array
      * @requestExample({"liveId":1})
-     * @returnExample({"live":{"storeId":"1","title":"1111","image":"111","scheduleTime":"0","startTime":"0","endTime":"0","status":"0"},"stats":{"liveId":"1","view":"133","praise":"1","follow":"1","orders":"122"}})
-     *
+     * @returnExample({"liveId":"1","view":"133","praise":"1","follow":"1","orders":"122","startTime":"0","endTime":"0"})
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2018年01月29日
@@ -140,14 +153,25 @@ class Live implements LiveInterface
     }
 
     /**
+     * @author eellytools<localhost.shell@gmail.com>
      * 获取一个直播的统计数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ----------|-------|--------------
+     * liveId    |string |直播ID
+     * view      |string |总人数
+     * praise    |string |点赞数
+     * follow    |string |关注数
+     * orders    |string |订单数
+     * startTime |string |直播开始时间
+     * endTime   |string |直播结束时间
      *
      * @param int $liveId 直播ID
      *
      * @return array
      * @requestExample({"liveId":1})
-     * @returnExample({"live":{"storeId":"1","title":"1111","image":"111","scheduleTime":"0","startTime":"0","endTime":"0","status":"0"},"stats":{"liveId":"1","view":"133","praise":"1","follow":"1","orders":"122"}})
-     *
+     * @returnExample({"liveId":"1","view":"133","praise":"1","follow":"1","orders":"122","startTime":"0","endTime":"0"})
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2018年01月29日
@@ -596,12 +620,32 @@ class Live implements LiveInterface
         return EellyClient::request('live/live', 'addReadyLive', false, $data);
     }
 
-    /**
-     * {@inheritdoc}
+    /*
+     * 获取店铺的直播.
+     *
+     * @param int $storeId
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function getStoreLive(int $storeId): array
     {
-        return EellyClient::request('live/live', __FUNCTION__, true, $storeId);
+        return EellyClient::request('live/live', 'getStoreLive', true, $storeId);
+    }
+
+    /**
+     * 获取店铺的直播.
+     *
+     * @param int $storeId
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getStoreLiveAsync(int $storeId)
+    {
+        return EellyClient::request('live/live', 'getStoreLive', false, $storeId);
     }
 
     /**
