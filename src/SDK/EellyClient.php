@@ -28,14 +28,26 @@ class EellyClient
      * @var array
      */
     private const SERVICE_MAP = [
-        'logger'  => 'https://api.eelly.com',
-        'example' => 'https://api.eelly.com',
-        'oauth'   => 'https://api.eelly.com',
-        'user'    => 'https://api.eelly.com',
-        'store'   => 'https://api.eelly.com',
-        'pay'     => 'https://api.eelly.com',
-        'service' => 'https://api.eelly.com',
-        'message' => 'https://api.eelly.com',
+        'activity'  => 'https://api.eelly.com',
+        'cart'      => 'https://api.eelly.com',
+        'contact'   => 'https://api.eelly.com',
+        'data'      => 'https://api.eelly.com',
+        'elastic'   => 'https://api.eelly.com',
+        'example'   => 'https://api.eelly.com',
+        'goods'     => 'https://api.eelly.com',
+        'im'        => 'https://api.eelly.com',
+        'live'      => 'https://api.eelly.com',
+        'log'       => 'https://api.eelly.com',
+        'logger'    => 'https://api.eelly.com',
+        'message'   => 'https://api.eelly.com',
+        'moments'   => 'https://api.eelly.com',
+        'oauth'     => 'https://api.eelly.com',
+        'order'     => 'https://api.eelly.com',
+        'pay'       => 'https://api.eelly.com',
+        'service'   => 'https://api.eelly.com',
+        'store'     => 'https://api.eelly.com',
+        'system'    => 'https://api.eelly.com',
+        'user'      => 'https://api.eelly.com',
     ];
 
     /**
