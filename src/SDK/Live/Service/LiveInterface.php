@@ -304,4 +304,23 @@ interface LiveInterface
      * @author hehui<hehui@eelly.net>
      */
     public function getStoreLive(int $storeId): array;
+
+    /**
+     * 获取店铺已开启过的直播数
+     *
+     * @param array $storeIds 店铺id
+     * @return array
+     * @requestExample({
+     *     "storeIds":[148086]
+     * })
+     * @returnExample({
+     *     "148086":{
+     *         "store_id":148086,
+     *         "rowcount":1
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年2月1日
+     */
+    public function getOpenLiveNumber(array $storeIds): array;
 }

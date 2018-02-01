@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -14,10 +13,11 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Live\DTO\LiveDTO;
 use Eelly\SDK\Live\Service\LiveInterface;
+use Eelly\SDK\Live\DTO\LiveDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Live implements LiveInterface
@@ -646,6 +646,50 @@ class Live implements LiveInterface
     public function getStoreLiveAsync(int $storeId)
     {
         return EellyClient::request('live/live', 'getStoreLive', false, $storeId);
+    }
+
+    /**
+     * 获取店铺已开启过的直播数
+     *
+     * @param array $storeIds 店铺id
+     * @return array
+     * @requestExample({
+     *     "storeIds":[148086]
+     * })
+     * @returnExample({
+     *     "148086":{
+     *         "store_id":148086,
+     *         "rowcount":1
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年2月1日
+     */
+    public function getOpenLiveNumber(array $storeIds): array
+    {
+        return EellyClient::request('live/live', 'getOpenLiveNumber', true, $storeIds);
+    }
+
+    /**
+     * 获取店铺已开启过的直播数
+     *
+     * @param array $storeIds 店铺id
+     * @return array
+     * @requestExample({
+     *     "storeIds":[148086]
+     * })
+     * @returnExample({
+     *     "148086":{
+     *         "store_id":148086,
+     *         "rowcount":1
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年2月1日
+     */
+    public function getOpenLiveNumberAsync(array $storeIds)
+    {
+        return EellyClient::request('live/live', 'getOpenLiveNumber', false, $storeIds);
     }
 
     /**
