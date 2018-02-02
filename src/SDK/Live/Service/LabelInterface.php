@@ -15,40 +15,10 @@ namespace Eelly\SDK\Live\Service;
 use \SDK\Live\DTO\LabelDTO;
 
 /**
- *
+ * 暂时没有使用该表
  * @author shadonTools<localhost.shell@gmail.com>
  */
 interface LabelInterface
 {
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getLabel(int $labelId): LabelDTO;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function addLabel(array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function updateLabel(int $labelId, array $data): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteLabel(int $labelId): bool;
-
-    /**
-     *
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listLabelPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
-
 
 }

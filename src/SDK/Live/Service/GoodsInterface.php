@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Service;
 
 /**
+ * 视频直播商品关联
  * @author shadonTools<localhost.shell@gmail.com>
  */
 interface GoodsInterface

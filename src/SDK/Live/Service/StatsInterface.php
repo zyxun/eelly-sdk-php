@@ -15,8 +15,8 @@ namespace Eelly\SDK\Live\Service;
 use \SDK\Live\DTO\StatsDTO;
 
 /**
- *
- * @author shadonTools<localhost.shell@gmail.com>
+ * 直播统计
+ * @author @author 肖俊明<xiaojunming@eelly.net>
  */
 interface StatsInterface
 {
