@@ -45,7 +45,6 @@ interface LiveInterface
     public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
      * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
      *
      * @param int $liveId 直播ID
@@ -58,7 +57,6 @@ interface LiveInterface
     public function getLiveGoodsInfo(int $liveId): array;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
      * 获取一个直播的统计数据.
      * ### 返回数据说明
      *
@@ -187,6 +185,7 @@ interface LiveInterface
      * @param int   $condition['lastSchedule'] 最后的播放日期,第一页不用传递，或者0
      * @param int   $currentPage               第几页
      * @param int   $limit                     每页条数
+     * @param int   $order                     排序
      *
      * @return array
      * @requestExample({"condition":["storeIds":[148086,148087],"inStatus":[1, 12, 13],"lastSchedule":"1516353883"],"currentPage":1,"limit":10,"order":"base"})
@@ -254,19 +253,24 @@ interface LiveInterface
      */
     public function getLiveListByCondition(array $condition, string $field = 'base', string $order = 'base');
 
-    /*
-    * 批量更新排序.
-    *
-    * @param array $sort [1=>4,2=>8]
-    * @return bool
-    * @requestExample({"sort":["1":4,"2":8]})
-    * @returnExample(true)
-    * @author 肖俊明<xiaojunming@eelly.net>
-    * @since 2018年01月23日
-    * @Validation(
-    *  @PresenceOf(0,{message : "数据不能为空"})
-    *)
-    */
+    /**
+     * 批量更新排序.
+     *
+     * @param array  $sort 传递参数
+     *
+     * @return bool
+     *
+     * @requestExample({"sort":["1":4,"2":8]})
+     *
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年01月23日
+     * @Validation(
+     *  @PresenceOf(0,{message : "数据不能为空"})
+     *)
+     */
     public function updateSort(array $sort): bool;
 
     /**
