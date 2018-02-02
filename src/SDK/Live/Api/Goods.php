@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,18 +17,18 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\GoodsInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Goods implements GoodsInterface
 {
     /**
-     * 获取直播商品信息
+     * 获取直播商品信息.
      *
-     * @param array $condition 查询条件
-     * @param array $sort 排序信息
-     * @param int $currentPage 当前页
-     * @param int $limit 每页数量
+     * @param array $condition   查询条件
+     * @param array $sort        排序信息
+     * @param int   $currentPage 当前页
+     * @param int   $limit       每页数量
+     *
      * @return array 商品信息
      * @requestExample({
      *     "condition":{
@@ -58,7 +59,9 @@ class Goods implements GoodsInterface
      *         "limit":10
      *     }
      * })
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年1月30日
      */
     public function getLiveGoodsList(array $condition, array $sort = [], int $currentPage = 1, int $limit = 10): array
@@ -67,12 +70,13 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * 获取直播商品信息
+     * 获取直播商品信息.
      *
-     * @param array $condition 查询条件
-     * @param array $sort 排序信息
-     * @param int $currentPage 当前页
-     * @param int $limit 每页数量
+     * @param array $condition   查询条件
+     * @param array $sort        排序信息
+     * @param int   $currentPage 当前页
+     * @param int   $limit       每页数量
+     *
      * @return array 商品信息
      * @requestExample({
      *     "condition":{
@@ -103,7 +107,9 @@ class Goods implements GoodsInterface
      *         "limit":10
      *     }
      * })
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年1月30日
      */
     public function getLiveGoodsListAsync(array $condition, array $sort = [], int $currentPage = 1, int $limit = 10)
@@ -114,9 +120,9 @@ class Goods implements GoodsInterface
     /**
      * {@inheritdoc}
      */
-    public function setSort(int $liveGoodsId, int $sort): bool
+    public function setSort(int $liveId, int $goodsId, int $sort): bool
     {
-        return EellyClient::request('live/goods', __FUNCTION__, true, $sort);
+        return EellyClient::request('live/goods', __FUNCTION__, true, $liveId, $goodsId, $sort);
     }
 
     /**

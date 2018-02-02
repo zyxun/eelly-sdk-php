@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,18 +14,18 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Service;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 interface GoodsInterface
 {
     /**
-     * 获取直播商品信息
+     * 获取直播商品信息.
      *
-     * @param array $condition 查询条件
-     * @param array $sort 排序信息
-     * @param int $currentPage 当前页
-     * @param int $limit 每页数量
+     * @param array $condition   查询条件
+     * @param array $sort        排序信息
+     * @param int   $currentPage 当前页
+     * @param int   $limit       每页数量
+     *
      * @return array 商品信息
      * @requestExample({
      *     "condition":{
@@ -55,7 +56,9 @@ interface GoodsInterface
      *         "limit":10
      *     }
      * })
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年1月30日
      */
     public function getLiveGoodsList(array $condition, array $sort = [], int $currentPage = 1, int $limit = 10): array;
@@ -63,10 +66,11 @@ interface GoodsInterface
     /**
      * 设置直播商品的排序.
      *
-     * @param int $liveGoodsId 直播商品id
-     * @param int $sort        排序id
+     * @param int $liveId  直播id
+     * @param int $goodsId 商品id
+     * @param int $sort    排序id
      *
      * @return bool
      */
-    public function setSort(int $liveGoodsId, int $sort): bool;
+    public function setSort(int $liveId, int $goodsId, int $sort): bool;
 }
