@@ -73,4 +73,20 @@ interface GoodsInterface
      * @return bool
      */
     public function setSort(int $liveId, int $goodsId, int $sort): bool;
+
+    /**
+     * 设置直播间讲解商品
+     *
+     * @param int $liveId 直播id
+     * @param int $goodsId 商品id
+     * @return bool 设置结果
+     * @requestExample({
+     *     "liveId":1,
+     *     "goodsId":2
+     * })
+     * @returnExample(true)
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年2月2日
+     */
+    public function setLiveIntroduceGoods(int $liveId, int $goodsId): bool;
 }

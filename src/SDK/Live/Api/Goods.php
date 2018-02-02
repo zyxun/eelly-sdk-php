@@ -118,11 +118,69 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * {@inheritdoc}
+     * 设置直播商品的排序.
+     *
+     * @param int $liveId  直播id
+     * @param int $goodsId 商品id
+     * @param int $sort    排序id
+     *
+     * @return bool
      */
     public function setSort(int $liveId, int $goodsId, int $sort): bool
     {
-        return EellyClient::request('live/goods', __FUNCTION__, true, $liveId, $goodsId, $sort);
+        return EellyClient::request('live/goods', 'setSort', true, $liveId, $goodsId, $sort);
+    }
+
+    /**
+     * 设置直播商品的排序.
+     *
+     * @param int $liveId  直播id
+     * @param int $goodsId 商品id
+     * @param int $sort    排序id
+     *
+     * @return bool
+     */
+    public function setSortAsync(int $liveId, int $goodsId, int $sort)
+    {
+        return EellyClient::request('live/goods', 'setSort', false, $liveId, $goodsId, $sort);
+    }
+
+    /**
+     * 设置直播间讲解商品
+     *
+     * @param int $liveId 直播id
+     * @param int $goodsId 商品id
+     * @return bool 设置结果
+     * @requestExample({
+     *     "liveId":1,
+     *     "goodsId":2
+     * })
+     * @returnExample(true)
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年2月2日
+     */
+    public function setLiveIntroduceGoods(int $liveId, int $goodsId): bool
+    {
+        return EellyClient::request('live/goods', 'setLiveIntroduceGoods', true, $liveId, $goodsId);
+    }
+
+    /**
+     * 设置直播间讲解商品
+     *
+     * @param int $liveId 直播id
+     * @param int $goodsId 商品id
+     * @return bool 设置结果
+     * @requestExample({
+     *     "liveId":1,
+     *     "goodsId":2
+     * })
+     * @returnExample(true)
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年2月2日
+     */
+    public function setLiveIntroduceGoodsAsync(int $liveId, int $goodsId)
+    {
+        return EellyClient::request('live/goods', 'setLiveIntroduceGoods', false, $liveId, $goodsId);
     }
 
     /**
