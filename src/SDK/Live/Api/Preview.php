@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,7 +17,6 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\PreviewInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Preview implements PreviewInterface
@@ -149,6 +149,18 @@ class Preview implements PreviewInterface
     public function getLiveGoodsAsync(int $liveId, int $status = null)
     {
         return EellyClient::request('live/preview', 'getLiveGoods', false, $liveId, $status);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @param string|null $dateTime
+     *
+     * @return array
+     */
+    public function getTimeRange(string $dateTime = null): array
+    {
+        return EellyClient::request('live/preview', __FUNCTION__, true, $dateTime);
     }
 
     /**

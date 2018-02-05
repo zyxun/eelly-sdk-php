@@ -79,4 +79,15 @@ interface PreviewInterface
      * @author hehui<hehui@eelly.net>
      */
     public function getLiveGoods(int $liveId, int $status = null): array;
+
+    /**
+     * 获取直播时间段.
+     *
+     * @param string|null $dateTime
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getTimeRange(string $dateTime = null): array;
 }
