@@ -73,18 +73,6 @@ class Subscribe implements SubscribeInterface
         return EellyClient::request('live/subscribe', 'getSubscribeList', false, $condition);
     }
 
-    
-    public function deleteSubscribe(int $subscribeId): bool
-    {
-        return EellyClient::request('live/subscribe', 'deleteSubscribe', true, $subscribeId);
-    }
-
-    
-    public function deleteSubscribeAsync(int $subscribeId)
-    {
-        return EellyClient::request('live/subscribe', 'deleteSubscribe', false, $subscribeId);
-    }
-
     /**
      * 通过用户获取直播的直播id频道.
      *
@@ -121,6 +109,42 @@ class Subscribe implements SubscribeInterface
     public function getUserSubscribeLiveIdsAsync(int $userId, array $liveIds = [])
     {
         return EellyClient::request('live/subscribe', 'getUserSubscribeLiveIds', false, $userId, $liveIds);
+    }
+
+    /**
+     * 添加一条订阅记录
+     * @param array $data 订阅信息数据
+     * @param int $data["liveId"]  直播id
+     * @param int $data["userId"]  用户id
+     * @return bool
+     *
+     * @requestExample({"data":{"userId":148086,"liveId":1}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.02.06
+     */
+    public function addSubscribe(array $data): bool
+    {
+        return EellyClient::request('live/subscribe', 'addSubscribe', true, $data);
+    }
+
+    /**
+     * 添加一条订阅记录
+     * @param array $data 订阅信息数据
+     * @param int $data["liveId"]  直播id
+     * @param int $data["userId"]  用户id
+     * @return bool
+     *
+     * @requestExample({"data":{"userId":148086,"liveId":1}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.02.06
+     */
+    public function addSubscribeAsync(array $data)
+    {
+        return EellyClient::request('live/subscribe', 'addSubscribe', false, $data);
     }
 
     /**
