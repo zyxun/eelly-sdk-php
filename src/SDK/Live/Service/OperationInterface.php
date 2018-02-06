@@ -26,4 +26,15 @@ interface OperationInterface
      * @return array
      */
     public function startingLive(int $liveId): array;
+
+    /**
+     *  事件消息通知.
+     *
+     * @see https://cloud.tencent.com/document/product/267/5957
+     *
+     * @param string $jsonString
+     *
+     * @return array
+     */
+    public function eventNotify(string $jsonString): bool;
 }

@@ -25,4 +25,16 @@ class Operation implements OperationInterface
     {
         return EellyClient::request('live/operation', __FUNCTION__, true, $liveId);
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @param string $jsonString
+     *
+     * @return bool
+     */
+    public function eventNotify(string $jsonString): bool
+    {
+        return EellyClient::request('live/Operation', __FUNCTION__, false, $jsonString);
+    }
 }
