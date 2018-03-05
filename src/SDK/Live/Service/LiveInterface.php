@@ -327,4 +327,20 @@ interface LiveInterface
      * @since 2018年2月1日
      */
     public function getOpenLiveNumber(array $storeIds): array;
+
+    /**
+     * 根据直播id获取对应的直播url
+     *
+     * @param string $liveId 直播id
+     * @return array
+     *
+     * @requestExample({
+     *     "liveId":39
+     * })
+     * @returnExample({"RTMP":"rtmp:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39","FLV":"http:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39.flv","HLS":"http:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39.m3u8"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018年3月3日
+     */
+    public function getLivePlayUrl(string $liveId): array;
 }

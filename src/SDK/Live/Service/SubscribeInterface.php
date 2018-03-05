@@ -38,8 +38,6 @@ interface SubscribeInterface
      */
     public function getSubscribeList(array $condition = []): array;
 
-    public function deleteSubscribe(int $subscribeId): bool;
-
     /**
      * 通过用户获取直播的直播id频道.
      *
@@ -55,5 +53,20 @@ interface SubscribeInterface
      *)
      */
     public function getUserSubscribeLiveIds(int $userId, array $liveIds = []): array;
+
+    /**
+     * 添加一条订阅记录
+     * @param array $data 订阅信息数据
+     * @param int $data["liveId"]  直播id
+     * @param int $data["userId"]  用户id
+     * @return bool
+     *
+     * @requestExample({"data":{"userId":148086,"liveId":1}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.02.06
+     */
+    public function addSubscribe(array $data):bool;
 
 }

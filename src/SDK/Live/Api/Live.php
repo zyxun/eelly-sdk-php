@@ -83,17 +83,13 @@ class Live implements LiveInterface
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
      * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
      *
      * @param int $liveId 直播ID
-     *
      * @return array
      * @requestExample({"liveId":1})
      * @returnExample({"live":{"storeId":"148086","title":"标1题123","image":"G01\/M00\/00\/06\/oYYBAFkboJWIXrI7AAAe9WlrlpgAAACVwDvSAIAAB8N049.jpg","scheduleTime":"1516793554","startTime":"0","endTime":"0","status":"0"},"goodsList":[{"liveId":"1","goodsId":"1"},{"liveId":"1","goodsId":"3"},{"liveId":"1","goodsId":"345"},{"liveId":"1","goodsId":"678"},{"liveId":"1","goodsId":"890"}]})
-     *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2018年01月25日
      */
     public function getLiveGoodsInfo(int $liveId): array
@@ -102,17 +98,13 @@ class Live implements LiveInterface
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
      * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
      *
      * @param int $liveId 直播ID
-     *
      * @return array
      * @requestExample({"liveId":1})
      * @returnExample({"live":{"storeId":"148086","title":"标1题123","image":"G01\/M00\/00\/06\/oYYBAFkboJWIXrI7AAAe9WlrlpgAAACVwDvSAIAAB8N049.jpg","scheduleTime":"1516793554","startTime":"0","endTime":"0","status":"0"},"goodsList":[{"liveId":"1","goodsId":"1"},{"liveId":"1","goodsId":"3"},{"liveId":"1","goodsId":"345"},{"liveId":"1","goodsId":"678"},{"liveId":"1","goodsId":"890"}]})
-     *
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2018年01月25日
      */
     public function getLiveGoodsInfoAsync(int $liveId)
@@ -121,7 +113,6 @@ class Live implements LiveInterface
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
      * 获取一个直播的统计数据.
      * ### 返回数据说明
      *
@@ -136,12 +127,10 @@ class Live implements LiveInterface
      * endTime   |string |直播结束时间
      *
      * @param int $liveId 直播ID
-     *
      * @return array
      * @requestExample({"liveId":1})
      * @returnExample({"liveId":"1","view":"133","praise":"1","follow":"1","orders":"122","startTime":"0","endTime":"0"})
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2018年01月29日
      * @Validation(
      *  @OperatorValidator(0,{message:"直播ID",operator:["gt",0]})
@@ -153,7 +142,6 @@ class Live implements LiveInterface
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
      * 获取一个直播的统计数据.
      * ### 返回数据说明
      *
@@ -168,12 +156,10 @@ class Live implements LiveInterface
      * endTime   |string |直播结束时间
      *
      * @param int $liveId 直播ID
-     *
      * @return array
      * @requestExample({"liveId":1})
      * @returnExample({"liveId":"1","view":"133","praise":"1","follow":"1","orders":"122","startTime":"0","endTime":"0"})
      * @author 肖俊明<xiaojunming@eelly.net>
-     *
      * @since 2018年01月29日
      * @Validation(
      *  @OperatorValidator(0,{message:"直播ID",operator:["gt",0]})
@@ -370,6 +356,7 @@ class Live implements LiveInterface
      * @param int   $condition['lastSchedule'] 最后的播放日期,第一页不用传递，或者0
      * @param int   $currentPage               第几页
      * @param int   $limit                     每页条数
+     * @param int   $order                     排序
      *
      * @return array
      * @requestExample({"condition":["storeIds":[148086,148087],"inStatus":[1, 12, 13],"lastSchedule":"1516353883"],"currentPage":1,"limit":10,"order":"base"})
@@ -421,6 +408,7 @@ class Live implements LiveInterface
      * @param int   $condition['lastSchedule'] 最后的播放日期,第一页不用传递，或者0
      * @param int   $currentPage               第几页
      * @param int   $limit                     每页条数
+     * @param int   $order                     排序
      *
      * @return array
      * @requestExample({"condition":["storeIds":[148086,148087],"inStatus":[1, 12, 13],"lastSchedule":"1516353883"],"currentPage":1,"limit":10,"order":"base"})
@@ -554,11 +542,47 @@ class Live implements LiveInterface
         return EellyClient::request('live/live', 'getLiveListByCondition', false, $condition, $field, $order);
     }
 
+    /**
+     * 批量更新排序.
+     *
+     * @param array  $sort 传递参数
+     *
+     * @return bool
+     *
+     * @requestExample({"sort":["1":4,"2":8]})
+     *
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年01月23日
+     * @Validation(
+     *  @PresenceOf(0,{message : "数据不能为空"})
+     *)
+     */
     public function updateSort(array $sort): bool
     {
         return EellyClient::request('live/live', 'updateSort', true, $sort);
     }
 
+    /**
+     * 批量更新排序.
+     *
+     * @param array  $sort 传递参数
+     *
+     * @return bool
+     *
+     * @requestExample({"sort":["1":4,"2":8]})
+     *
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年01月23日
+     * @Validation(
+     *  @PresenceOf(0,{message : "数据不能为空"})
+     *)
+     */
     public function updateSortAsync(array $sort)
     {
         return EellyClient::request('live/live', 'updateSort', false, $sort);
@@ -620,7 +644,7 @@ class Live implements LiveInterface
         return EellyClient::request('live/live', 'addReadyLive', false, $data);
     }
 
-    /*
+    /**
      * 获取店铺的直播.
      *
      * @param int $storeId
@@ -690,6 +714,44 @@ class Live implements LiveInterface
     public function getOpenLiveNumberAsync(array $storeIds)
     {
         return EellyClient::request('live/live', 'getOpenLiveNumber', false, $storeIds);
+    }
+
+    /**
+     * 根据直播id获取对应的直播url
+     *
+     * @param string $liveId 直播id
+     * @return array
+     *
+     * @requestExample({
+     *     "liveId":39
+     * })
+     * @returnExample({"RTMP":"rtmp:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39","FLV":"http:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39.flv","HLS":"http:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39.m3u8"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018年3月3日
+     */
+    public function getLivePlayUrl(string $liveId): array
+    {
+        return EellyClient::request('live/live', 'getLivePlayUrl', true, $liveId);
+    }
+
+    /**
+     * 根据直播id获取对应的直播url
+     *
+     * @param string $liveId 直播id
+     * @return array
+     *
+     * @requestExample({
+     *     "liveId":39
+     * })
+     * @returnExample({"RTMP":"rtmp:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39","FLV":"http:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39.flv","HLS":"http:\/\/3344.liveplay.myqcloud.com\/live\/3344_dev_39.m3u8"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018年3月3日
+     */
+    public function getLivePlayUrlAsync(string $liveId)
+    {
+        return EellyClient::request('live/live', 'getLivePlayUrl', false, $liveId);
     }
 
     /**
