@@ -35,6 +35,6 @@ class Operation implements OperationInterface
      */
     public function eventNotify(string $jsonString): bool
     {
-        return EellyClient::request('live/Operation', __FUNCTION__, false, $jsonString);
+        return EellyClient::request('live/Operation', __FUNCTION__, true, $jsonString);
     }
 }
