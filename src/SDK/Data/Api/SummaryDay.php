@@ -27,7 +27,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function getSummaryDay(int $summaryDayId): SummaryDayDTO
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $summaryDayId);
+        return EellyClient::request('data/summaryDay', 'getSummaryDay', true, $summaryDayId);
     }
 
     /**
@@ -35,7 +35,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function getSummaryDayAsync(int $summaryDayId)
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $summaryDayId);
+        return EellyClient::request('data/summaryDay', 'getSummaryDay', false, $summaryDayId);
     }
 
     /**
@@ -43,7 +43,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function addSummaryDay(array $data): bool
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $data);
+        return EellyClient::request('data/summaryDay', 'addSummaryDay', true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function addSummaryDayAsync(array $data)
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $data);
+        return EellyClient::request('data/summaryDay', 'addSummaryDay', false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function updateSummaryDay(int $summaryDayId, array $data): bool
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $summaryDayId, $data);
+        return EellyClient::request('data/summaryDay', 'updateSummaryDay', true, $summaryDayId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function updateSummaryDayAsync(int $summaryDayId, array $data)
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $summaryDayId, $data);
+        return EellyClient::request('data/summaryDay', 'updateSummaryDay', false, $summaryDayId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function deleteSummaryDay(int $summaryDayId): bool
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $summaryDayId);
+        return EellyClient::request('data/summaryDay', 'deleteSummaryDay', true, $summaryDayId);
     }
 
     /**
@@ -83,7 +83,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function deleteSummaryDayAsync(int $summaryDayId)
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $summaryDayId);
+        return EellyClient::request('data/summaryDay', 'deleteSummaryDay', false, $summaryDayId);
     }
 
     /**
@@ -91,7 +91,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function listSummaryDayPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('data/summaryDay', 'listSummaryDayPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -99,7 +99,7 @@ class SummaryDay implements SummaryDayInterface
      */
     public function listSummaryDayPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('data/summaryDay', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('data/summaryDay', 'listSummaryDayPage', false, $condition, $currentPage, $limit);
     }
 
     /**

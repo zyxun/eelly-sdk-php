@@ -46,7 +46,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logUserFavorites(array $data): array
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, true, $data);
+        return EellyClient::request('data/eaTrack', 'logUserFavorites', true, $data);
     }
 
     /**
@@ -74,7 +74,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logUserFavoritesAsync(array $data)
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, false, $data);
+        return EellyClient::request('data/eaTrack', 'logUserFavorites', false, $data);
     }
 
     /**
@@ -102,7 +102,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logUserClick(array $data): array
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, true, $data);
+        return EellyClient::request('data/eaTrack', 'logUserClick', true, $data);
     }
 
     /**
@@ -130,7 +130,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logUserClickAsync(array $data)
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, false, $data);
+        return EellyClient::request('data/eaTrack', 'logUserClick', false, $data);
     }
 
     /**
@@ -158,7 +158,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logEcommerce(array $data): array
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, true, $data);
+        return EellyClient::request('data/eaTrack', 'logEcommerce', true, $data);
     }
 
     /**
@@ -186,7 +186,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logEcommerceAsync(array $data)
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, false, $data);
+        return EellyClient::request('data/eaTrack', 'logEcommerce', false, $data);
     }
 
     /**
@@ -214,7 +214,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logUserPageView(array $data): array
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, true, $data);
+        return EellyClient::request('data/eaTrack', 'logUserPageView', true, $data);
     }
 
     /**
@@ -242,7 +242,7 @@ class EaTrack implements EaTrackInterface
      */
     public function logUserPageViewAsync(array $data)
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, false, $data);
+        return EellyClient::request('data/eaTrack', 'logUserPageView', false, $data);
     }
 
     /**
@@ -270,7 +270,7 @@ class EaTrack implements EaTrackInterface
      */
     public function trackMarsEvent(array $data): array
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, true, $data);
+        return EellyClient::request('data/eaTrack', 'trackMarsEvent', true, $data);
     }
 
     /**
@@ -298,7 +298,7 @@ class EaTrack implements EaTrackInterface
      */
     public function trackMarsEventAsync(array $data)
     {
-        return EellyClient::request('data/eaTrack', __FUNCTION__, false, $data);
+        return EellyClient::request('data/eaTrack', 'trackMarsEvent', false, $data);
     }
 
     /**

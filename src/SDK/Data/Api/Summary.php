@@ -27,7 +27,7 @@ class Summary implements SummaryInterface
      */
     public function getSummary(int $summaryId): SummaryDTO
     {
-        return EellyClient::request('data/summary', __FUNCTION__, true, $summaryId);
+        return EellyClient::request('data/summary', 'getSummary', true, $summaryId);
     }
 
     /**
@@ -35,7 +35,7 @@ class Summary implements SummaryInterface
      */
     public function getSummaryAsync(int $summaryId)
     {
-        return EellyClient::request('data/summary', __FUNCTION__, false, $summaryId);
+        return EellyClient::request('data/summary', 'getSummary', false, $summaryId);
     }
 
     /**
@@ -43,7 +43,7 @@ class Summary implements SummaryInterface
      */
     public function addSummary(array $data): bool
     {
-        return EellyClient::request('data/summary', __FUNCTION__, true, $data);
+        return EellyClient::request('data/summary', 'addSummary', true, $data);
     }
 
     /**
@@ -51,7 +51,7 @@ class Summary implements SummaryInterface
      */
     public function addSummaryAsync(array $data)
     {
-        return EellyClient::request('data/summary', __FUNCTION__, false, $data);
+        return EellyClient::request('data/summary', 'addSummary', false, $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class Summary implements SummaryInterface
      */
     public function updateSummary(int $summaryId, array $data): bool
     {
-        return EellyClient::request('data/summary', __FUNCTION__, true, $summaryId, $data);
+        return EellyClient::request('data/summary', 'updateSummary', true, $summaryId, $data);
     }
 
     /**
@@ -67,7 +67,7 @@ class Summary implements SummaryInterface
      */
     public function updateSummaryAsync(int $summaryId, array $data)
     {
-        return EellyClient::request('data/summary', __FUNCTION__, false, $summaryId, $data);
+        return EellyClient::request('data/summary', 'updateSummary', false, $summaryId, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class Summary implements SummaryInterface
      */
     public function deleteSummary(int $summaryId): bool
     {
-        return EellyClient::request('data/summary', __FUNCTION__, true, $summaryId);
+        return EellyClient::request('data/summary', 'deleteSummary', true, $summaryId);
     }
 
     /**
@@ -83,7 +83,7 @@ class Summary implements SummaryInterface
      */
     public function deleteSummaryAsync(int $summaryId)
     {
-        return EellyClient::request('data/summary', __FUNCTION__, false, $summaryId);
+        return EellyClient::request('data/summary', 'deleteSummary', false, $summaryId);
     }
 
     /**
@@ -91,7 +91,7 @@ class Summary implements SummaryInterface
      */
     public function listSummaryPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('data/summary', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('data/summary', 'listSummaryPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -99,7 +99,7 @@ class Summary implements SummaryInterface
      */
     public function listSummaryPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('data/summary', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('data/summary', 'listSummaryPage', false, $condition, $currentPage, $limit);
     }
 
     /**
