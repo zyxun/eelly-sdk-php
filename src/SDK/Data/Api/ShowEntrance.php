@@ -84,7 +84,7 @@ class ShowEntrance implements ShowEntranceInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月17日
      */
-    public function getStoreView(array $storeIds = [], $date = '')
+    public function getStoreView(array $storeIds = [], string $date = '')
     {
         return EellyClient::request('data/showEntrance', 'getStoreView', true, $storeIds, $date);
     }
@@ -108,7 +108,7 @@ class ShowEntrance implements ShowEntranceInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月17日
      */
-    public function getStoreViewAsync(array $storeIds = [], $date = '')
+    public function getStoreViewAsync(array $storeIds = [], string $date = '')
     {
         return EellyClient::request('data/showEntrance', 'getStoreView', false, $storeIds, $date);
     }
@@ -125,7 +125,7 @@ class ShowEntrance implements ShowEntranceInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月13日
      */
-    public function statisticsTheViewOfDaily($date = '')
+    public function statisticsTheViewOfDaily(string $date = '')
     {
         return EellyClient::request('data/showEntrance', 'statisticsTheViewOfDaily', true, $date);
     }
@@ -142,7 +142,7 @@ class ShowEntrance implements ShowEntranceInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月13日
      */
-    public function statisticsTheViewOfDailyAsync($date = '')
+    public function statisticsTheViewOfDailyAsync(string $date = '')
     {
         return EellyClient::request('data/showEntrance', 'statisticsTheViewOfDaily', false, $date);
     }

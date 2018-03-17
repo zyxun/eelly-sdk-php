@@ -53,7 +53,7 @@ interface ShowEntranceInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月17日
      */
-    public function getStoreView(array $storeIds = [], $date = '');
+    public function getStoreView(array $storeIds = [], string $date = '');
 
     /**
      * 统计每日所有店铺展示入口数
@@ -67,7 +67,7 @@ interface ShowEntranceInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月13日
      */
-    public function statisticsTheViewOfDaily($date = '');
+    public function statisticsTheViewOfDaily(string $date = '');
 
     /**
      * 统计店铺本周展示入口数
