@@ -775,7 +775,7 @@ class Live implements LiveInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月17日
      */
-    public function getAlreadyLiveIdByStoreIds(array $storeIds, $startTime = 0, $endTime = 0): array
+    public function getAlreadyLiveIdByStoreIds(array $storeIds, int $startTime = 0, int $endTime = 0): array
     {
         return EellyClient::request('live/live', 'getAlreadyLiveIdByStoreIds', true, $storeIds, $startTime, $endTime);
     }
@@ -801,7 +801,7 @@ class Live implements LiveInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月17日
      */
-    public function getAlreadyLiveIdByStoreIdsAsync(array $storeIds, $startTime = 0, $endTime = 0)
+    public function getAlreadyLiveIdByStoreIdsAsync(array $storeIds, int $startTime = 0, int $endTime = 0)
     {
         return EellyClient::request('live/live', 'getAlreadyLiveIdByStoreIds', false, $storeIds, $startTime, $endTime);
     }
