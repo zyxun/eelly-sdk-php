@@ -755,6 +755,58 @@ class Live implements LiveInterface
     }
 
     /**
+     * 获取店铺已直播过的liveId
+     *
+     * @param array $storeIds 店铺id
+     * @param number $startTime 开始时间
+     * @param number $endTime 截止时间
+     * @return array
+     * @requestExample({
+     *     "storeIds":[1,2,3],
+     *     "startTime":1234567890,
+     *     "endTime":1234567890
+     * })
+     * @returnExample({
+     *     "148086":{
+     *         "storeId":148086,
+     *         "liveIds":[1,2,3]
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年3月17日
+     */
+    public function getAlreadyLiveIdByStoreIds(array $storeIds, $startTime = 0, $endTime = 0): array
+    {
+        return EellyClient::request('live/live', 'getAlreadyLiveIdByStoreIds', true, $storeIds, $startTime, $endTime);
+    }
+
+    /**
+     * 获取店铺已直播过的liveId
+     *
+     * @param array $storeIds 店铺id
+     * @param number $startTime 开始时间
+     * @param number $endTime 截止时间
+     * @return array
+     * @requestExample({
+     *     "storeIds":[1,2,3],
+     *     "startTime":1234567890,
+     *     "endTime":1234567890
+     * })
+     * @returnExample({
+     *     "148086":{
+     *         "storeId":148086,
+     *         "liveIds":[1,2,3]
+     *     }
+     * })
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年3月17日
+     */
+    public function getAlreadyLiveIdByStoreIdsAsync(array $storeIds, $startTime = 0, $endTime = 0)
+    {
+        return EellyClient::request('live/live', 'getAlreadyLiveIdByStoreIds', false, $storeIds, $startTime, $endTime);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
