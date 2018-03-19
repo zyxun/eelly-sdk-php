@@ -365,5 +365,5 @@ interface LiveInterface
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年3月17日
      */
-    public function getAlreadyLiveIdByStoreIds(array $storeIds, $startTime = 0, $endTime = 0): array;
+    public function getAlreadyLiveIdByStoreIds(array $storeIds, int $startTime = 0, int $endTime = 0): array;
 }
