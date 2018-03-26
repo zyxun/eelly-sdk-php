@@ -26,13 +26,12 @@ class Preview implements PreviewInterface
      *
      * @param int $liveId 直播id
      * @param int $time   直播开始时间
-     * @param int $lpId 直播场次id
      *
      * @return bool
      */
-    public function setStartTime(int $liveId, int $time, int $lpId = 0): bool
+    public function setStartTime(int $liveId, int $time): bool
     {
-        return EellyClient::request('live/preview', 'setStartTime', true, $liveId, $time, $lpId);
+        return EellyClient::request('live/preview', 'setStartTime', true, $liveId, $time);
     }
 
     /**
@@ -156,13 +155,12 @@ class Preview implements PreviewInterface
      * {@inheritdoc}
      *
      * @param string|null $dateTime
-     * @param bool $isPay 是否收费场次
      *
      * @return array
      */
-    public function getTimeRange(string $dateTime = null, bool $isPay = true): array
+    public function getTimeRange(string $dateTime = null): array
     {
-        return EellyClient::request('live/preview', __FUNCTION__, true, $dateTime, $isPay);
+        return EellyClient::request('live/preview', __FUNCTION__, true, $dateTime);
     }
 
     /**
