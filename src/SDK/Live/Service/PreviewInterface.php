@@ -25,12 +25,13 @@ interface PreviewInterface
      *
      * @param int $liveId 直播id
      * @param int $time   直播开始时间
+     * @param int $lpId 直播场次id
      *
      * @return bool
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function setStartTime(int $liveId, int $time): bool;
+    public function setStartTime(int $liveId, int $time, int $lpId = 0): bool;
 
     /**
      * 添加或删除商品.
@@ -83,11 +84,12 @@ interface PreviewInterface
     /**
      * 获取直播时间段.
      *
-     * @param string|null $dateTime
+     * @param string|null $dateTime 日期(例如: 2018-04-01)
+     * @param bool $isPay 是否收费场次
      *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function getTimeRange(string $dateTime = null): array;
+    public function getTimeRange(string $dateTime = null, bool $isPay = true): array;
 }
