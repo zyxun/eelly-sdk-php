@@ -157,12 +157,13 @@ class Preview implements PreviewInterface
      *
      * @param string|null $dateTime
      * @param bool $isPay 是否收费场次
+     * @param array $status 状态：0 未启用 1 启用
      *
      * @return array
      */
-    public function getTimeRange(string $dateTime = null, bool $isPay = true): array
+    public function getTimeRange(string $dateTime = null, bool $isPay = true, array $status = [1]): array
     {
-        return EellyClient::request('live/preview', __FUNCTION__, true, $dateTime, $isPay);
+        return EellyClient::request('live/preview', __FUNCTION__, true, $dateTime, $isPay, $status);
     }
 
     /**

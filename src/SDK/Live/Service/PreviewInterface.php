@@ -86,10 +86,11 @@ interface PreviewInterface
      *
      * @param string|null $dateTime 日期(例如: 2018-04-01)
      * @param bool $isPay 是否收费场次
+     * @param array $status 状态：0 未启用 1 启用
      *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function getTimeRange(string $dateTime = null, bool $isPay = true): array;
+    public function getTimeRange(string $dateTime = null, bool $isPay = true, array $status = [1]): array;
 }
