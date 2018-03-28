@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Live\Api;
 
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\LivePlanInterface;
 
 class LivePlan implements LivePlanInterface
