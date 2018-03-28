@@ -25,14 +25,15 @@ interface CartInterface
     /**
      * 添加进购物车.
      *
-     * @param int    $goodsId    商品id
-     * @param int    $quantity   商品数量
-     * @param int    $price      商品价格
-     * @param array  $attributes 额外参数
-     * @param int    $attributes ["spId"] 商品规格id
-     * @param array  $attributes ["color"] 颜色
-     * @param array  $attributes ["size"]  码数
-     * @param UidDTO $user       用户信息
+     * @param int $goodsId 商品id
+     * @param int $quantity 商品数量
+     * @param int $price 商品价格，单位为分
+     * @param array $attributes 额外参数
+     * @param int $attributes ["spId"] 商品规格id
+     * @param array $attributes ["color"] 颜色
+     * @param array $attributes ["size"]  码数
+     * @param int $userId 用户ID
+     * @param string $sessionId sessionId
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
@@ -48,10 +49,10 @@ interface CartInterface
      * @Validation(
      *  @OperatorValidator(0,{message:"商品ID必须大于0",operator:["gt",0]}),
      *  @OperatorValidator(1,{message:"商品数量必须大于0",operator:["gt",0]}),
-     *  @OperatorValidator(2,{message:"商品价格必须大于0",operator:["gt",0]})
+     *  @OperatorValidator(2,{message:"商品价格必须大于0",operator:["gt",0]}),
      *)
      */
-    public function addCart(int $goodsId, int $quantity, int $price, array $attributes = [], UidDTO $user = null): bool;
+    public function addCart(int $goodsId, int $quantity, int $price, array $attributes = [], int $userId = 0, string $sessionId = null): bool;
 
     /**
      * 清空购物车.
@@ -69,7 +70,7 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function clearCart(UidDTO $user = null): bool;
+    public function clearCart(int $userId = 0, string $sessionId = null): bool;
 
     /**
      * 获取购物车列表.
@@ -85,7 +86,7 @@ interface CartInterface
      *
      * @since 2017-7-31
      */
-    public function listCart(UidDTO $user): array;
+    public function listCart(int $userId = 0, string $sessionId): array;
 
     /**
      * 删除指定id购物车数据.
@@ -109,7 +110,7 @@ interface CartInterface
      *     @PresenceOf(0,{message :"非法购物车key值"})
      * )
      */
-    public function deleteCart(string $rawId, UidDTO $user): bool;
+    public function deleteCart(string $rawId, int $userId = 0, string $sessionId = null): bool;
 
     /**
      * 更新指定id购物车.
@@ -133,7 +134,7 @@ interface CartInterface
      *     @PresenceOf(0,{message :"非法购物车key值"})
      * )
      */
-    public function updateCart(string $rawId, array $data = [], UidDTO $user = null): bool;
+    public function updateCart(string $rawId, array $data = [], int $userId = 0, string $sessionId = null): bool;
 
     /**
      * 批量移除购物车.
@@ -155,5 +156,5 @@ interface CartInterface
      *     @PresenceOf(0,{message :"非法购物车key值"})
      * )
      */
-    public function deleteCartBatch(array $rawIds, UidDTO $user): bool;
+    public function deleteCartBatch(array $rawIds, int $userId = 0, string $sessionId = null): bool;
 }
