@@ -217,11 +217,66 @@ interface OrderInterface
      *     "extension" :0,
      *     "freight" : 10,
      *     "fromFlag":3,
-     *     "remark":"",
+     *     "remark":""
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.01.08
      */
     public function addEnquiryOrder(array $data): int;
+
+    /**
+     * 获取物流信息.
+     *
+     * @param string $trackingNo 物流好
+     * @param string $express 物流公司
+     * @return bool
+     * @requestExample({"trackingNo":"1202516745301","express":"auto"})
+     * @returnExample({{
+     *  "number": "1202237859178",
+     *  "type": "YUNDA",
+     *  "name": "韵达",
+     *  "letter": "Y",
+     *  "tel": "95546",
+     * "list": [{
+     *     "time": "2017-01-07 16:05:38",
+     *    "status": "湖南省炎陵县公司快件已被 已签收 签收"
+     *  },
+     *  {
+     *  "time": "2017-01-07 16:02:43",
+     *  "status": "湖南省炎陵县公司快件已被 已签收 签收"
+     *  }],
+     * "deliverystatus": "3",
+     * "issign": "1"
+     * }})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月09日
+     * @Validation(
+     * @PresenceOf(0, {message:"非法的物流号"})
+     * )
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------------|-------|--------------
+     * number         |string |订单号
+     * type           |string |要查询的快递公司代码
+     * name           |string |物流公司名称
+     * letter         |string |
+     * tel            |string |电话号码
+     * list           |array  |物流动态
+     * list["time"]   |string |动态时间
+     * list["status"] |string |动态状态
+     * deliverystatus |string |快递单当前的状态
+     * 0：在途，即货物处于运输过程中；
+     * 1：揽件，货物已由快递公司揽收并且产生了第一条跟踪信息；
+     * 2：疑难，货物寄送过程出了问题；
+     * 3：签收，收件人已签收；
+     * 4：退签，即货物由于用户拒签、超区等原因退回，而且发件人已经签收；
+     * 5：派件，即快递正在进行同城派件；
+     * 6：退回，货物正处于退回发件人的途中；
+     * issign         |string |
+     *
+     */
+    public function getExpressByTrackingNo(string $trackingNo, string $express = 'auto'): array;
 }
