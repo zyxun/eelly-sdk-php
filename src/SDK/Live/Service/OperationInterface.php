@@ -35,7 +35,7 @@ interface OperationInterface
      *
      * @param string $jsonString
      *
-     * @return array
+     * @return bool
      */
     public function eventNotify(string $jsonString): bool;
 }
