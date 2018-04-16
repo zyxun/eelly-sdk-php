@@ -54,7 +54,7 @@ class Operation implements OperationInterface
      *
      * @param string $jsonString
      *
-     * @return array
+     * @return bool
      */
     public function eventNotify(string $jsonString): bool
     {
@@ -68,7 +68,7 @@ class Operation implements OperationInterface
      *
      * @param string $jsonString
      *
-     * @return array
+     * @return bool
      */
     public function eventNotifyAsync(string $jsonString)
     {
