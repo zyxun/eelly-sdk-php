@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -16,25 +15,76 @@ namespace Eelly\SDK\Live\Api;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\OperationInterface;
 
+/**
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
+ */
 class Operation implements OperationInterface
 {
     /**
-     * {@inheritdoc}
+     * 启动直播.
+     *
+     * @param int $liveId
+     * @param bool $isOpenLive
+     *
+     * @return array
      */
-    public function startingLive(int $liveId): array
+    public function startingLive(int $liveId, bool $isOpenLive = false): array
     {
-        return EellyClient::request('live/operation', __FUNCTION__, true, $liveId);
+        return EellyClient::request('live/operation', 'startingLive', true, $liveId, $isOpenLive);
     }
 
     /**
-     * {@inheritdoc}
+     * 启动直播.
+     *
+     * @param int $liveId
+     * @param bool $isOpenLive
+     *
+     * @return array
+     */
+    public function startingLiveAsync(int $liveId, bool $isOpenLive = false)
+    {
+        return EellyClient::request('live/operation', 'startingLive', false, $liveId, $isOpenLive);
+    }
+
+    /**
+     *  事件消息通知.
+     *
+     * @see https://cloud.tencent.com/document/product/267/5957
      *
      * @param string $jsonString
      *
-     * @return bool
+     * @return array
      */
     public function eventNotify(string $jsonString): bool
     {
-        return EellyClient::request('live/Operation', __FUNCTION__, true, $jsonString);
+        return EellyClient::request('live/operation', 'eventNotify', true, $jsonString);
+    }
+
+    /**
+     *  事件消息通知.
+     *
+     * @see https://cloud.tencent.com/document/product/267/5957
+     *
+     * @param string $jsonString
+     *
+     * @return array
+     */
+    public function eventNotifyAsync(string $jsonString)
+    {
+        return EellyClient::request('live/operation', 'eventNotify', false, $jsonString);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
     }
 }
