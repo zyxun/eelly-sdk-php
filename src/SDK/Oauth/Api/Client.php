@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,11 +14,10 @@ declare(strict_types=1);
 namespace Eelly\SDK\Oauth\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Oauth\Service\ClientInterface;
 use Eelly\SDK\Oauth\DTO\ClientDTO;
+use Eelly\SDK\Oauth\Service\ClientInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Client implements ClientInterface
