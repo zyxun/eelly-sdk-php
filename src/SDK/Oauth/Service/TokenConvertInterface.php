@@ -26,7 +26,7 @@ interface TokenConvertInterface
      * qq 第三方认证.
      *
      * @param string $accessToken 第三方认证token
-     * @param int $type 认证登录类型：1为pc，2为wap，3 为app
+     * @param int    $type        认证登录类型：1为pc，2为wap，3 为app
      *
      * @return string
      * @requestExample({'accessToken':'ssssysyswowo','type':1})
@@ -41,7 +41,6 @@ interface TokenConvertInterface
      *   )
      */
     public function qqLogin(string $accessToken, int $type): array;
-
 
     /**
      * 微信 第三方认证.
@@ -63,12 +62,11 @@ interface TokenConvertInterface
      */
     public function wechatLogin(string $accessToken, string $openId): array;
 
-
     /**
      * 找回密码.
      *
      * @param string $accessToken 找回密码token
-     * @param int $checkCode 手机验证码
+     * @param int    $checkCode   手机验证码
      * @param string $password
      *
      * @return string
@@ -86,13 +84,12 @@ interface TokenConvertInterface
      */
     public function findPassword(string $accessToken, string $checkCode, string $password): array;
 
-
     /**
      * 手机登录=》可以快速登录|快速注册.
      *
-     * @param string $token 手机号token
-     * @param string $checkCode 手机验证码
-     * @param string|null $password 密码
+     * @param string      $token     手机号token
+     * @param string      $checkCode 手机验证码
+     * @param string|null $password  密码
      *
      * @return int
      * @requestExample({'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjkzODM3ZTRkMDQwOWE2NzJlYTcyNjAxYTVjMzY5ZDY5NGY0MTYxMjQ2ZTRkYzgyY2I4Y2FkMzkzYjg1OTEyNTQzODE4Zjg4M2NhOGU2YTQ4In0.eyJhdWQiOiJteWF3ZXNvbWVhcHAiLCJqdGkiOiI5MzgzN2U0ZDA0MDlhNjcyZWE3MjYwMWE1YzM2OWQ2OTRmNDE2MTI0NmU0ZGM4MmNiOGNhZDM5M2I4NTkxMjU0MzgxOGY4ODNjYThlNmE0OCIsImlhdCI6MTUwODgyMzExMSwibmJmIjoxNTA4ODIzMTExLCJleHAiOjE1MDg4MjY3MTEsInN1YiI6IiIsInNjb3BlcyI6W119.ZI9_5O6KObxU9a8-sssgiFiiHeXCOglvGGOdLjfhwbdZqSf6Sj9VM8rlK-VvCcKGt22K9DluOj1RxmaK8xkaSIY0P2WvrWdmy_h6a5ngUgCcum3KYzIFSuq96OaBUFAZ2gCsBts7fioq_GnzkJuYw3kKUSIRCcL2poZFYPsxhes','checkCode':123456})
@@ -107,4 +104,30 @@ interface TokenConvertInterface
      * )
      */
     public function mobileLogin(string $token, string $checkCode, string $password = null);
+
+    /**
+     * newmall 登录.
+     *
+     * @param string $accessToken
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function newMallLogin(string $accessToken): array;
+
+    /**
+     * 保存new mall token.
+     *
+     * @see newMallLogin
+     *
+     * @param string $accessToken access token
+     * @param array  $data        token内容
+     * @param int    $lifetime    有效时间
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function saveNewMallAccessToken(string $accessToken, array $data, int $lifetime = 2592000): bool;
 }
