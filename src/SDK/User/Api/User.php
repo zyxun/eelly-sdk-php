@@ -51,6 +51,14 @@ class User implements UserInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function addUcuser(array $userArray): bool
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $userArray);
+    }
+
+    /**
      * 校验手机号码是否存在.
      * ### 返回数据说明.
      *

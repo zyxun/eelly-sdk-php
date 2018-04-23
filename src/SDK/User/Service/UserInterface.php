@@ -243,6 +243,15 @@ interface UserInterface
     public function addUser(array $data): int;
 
     /**
+     * uc请求添加用户.
+     *
+     * @param array $userArray
+     *
+     * @return bool
+     */
+    public function addUcuser(array $userArray): bool;
+
+    /**
      * 获取会员搜索引擎所需数据.
      *
      * @param int $currentPage 当前页
