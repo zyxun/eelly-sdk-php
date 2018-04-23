@@ -22,10 +22,11 @@ interface OperationInterface
      * 启动直播.
      *
      * @param int $liveId
+     * @param bool $isOpenLive
      *
      * @return array
      */
-    public function startingLive(int $liveId): array;
+    public function startingLive(int $liveId, bool $isOpenLive = false): array;
 
     /**
      *  事件消息通知.
@@ -34,7 +35,7 @@ interface OperationInterface
      *
      * @param string $jsonString
      *
-     * @return array
+     * @return bool
      */
     public function eventNotify(string $jsonString): bool;
 }

@@ -67,6 +67,35 @@ interface TradeInterface
      * 微信回调校验.
      *
      * @param string $data XML 微信支付数据
+     * @return array
+     * @requestExample({"data":"<xml><appid><![CDATA[wxde31786ddb55f9a8]]></appid>
+<attach><![CDATA[paId%3D1%26userId%3D148086%26account%3Deelly.wap%26type%3D1%26transact%3D1%26platform%3DwechatPayNative]]></attach>
+    <bank_type><![CDATA[CFT]]></bank_type>
+    <cash_fee><![CDATA[10]]></cash_fee>
+    <fee_type><![CDATA[CNY]]></fee_type>
+    <is_subscribe><![CDATA[N]]></is_subscribe>
+    <mch_id><![CDATA[1220553101]]></mch_id>
+    <nonce_str><![CDATA[a1017eae7373f349a00381dbc161d95d]]></nonce_str>
+    <openid><![CDATA[oS3s7uBBGaftF4dxaEkELYO_L9JA]]></openid>
+    <out_trade_no><![CDATA[1288299229939202023322304]]></out_trade_no>
+    <result_code><![CDATA[SUCCESS]]></result_code>
+    <return_code><![CDATA[SUCCESS]]></return_code>
+    <sign><![CDATA[0EC8ACD8E0A75C6F287EC49B050BD38A]]></sign>
+    <time_end><![CDATA[20171122105959]]></time_end>
+    <total_fee>10</total_fee>
+    <trade_type><![CDATA[NATIVE]]></trade_type>
+    <transaction_id><![CDATA[4200000044201711226265317145]]></transaction_id>
+    </xml>"})
+     * @returnExample({"returnCode":"SUCCESS","return_msg":"OK"})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年01月03日
+     */
+    public function wechatPayNotify(string $data): array;
+
+    /**
+     * 微信回调校验.
+     *
+     * @param string $data XML 微信支付数据
      * @return bool
      * @requestExample({"data":"<xml><appid><![CDATA[wxde31786ddb55f9a8]]></appid>
 <attach><![CDATA[paId%3D1%26userId%3D148086%26account%3Deelly.wap%26type%3D1%26transact%3D1%26platform%3DwechatPayNative]]></attach>
