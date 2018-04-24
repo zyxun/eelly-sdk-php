@@ -13,6 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
+use Eelly\SDK\EellyClient;
+
 class BuyerOrder
 {
+    public function getAppletOrderList(int $uid, int $tab = 0, int $page = 0, int $limit = 20): array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $uid, $tab, $page, $limit);
+    }
 }
