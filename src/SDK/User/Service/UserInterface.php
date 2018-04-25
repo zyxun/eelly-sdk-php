@@ -26,7 +26,8 @@ interface UserInterface
 {
     /**
      * 校验手机号码是否存在.
-     * ### 返回数据说明.
+     *
+     * ### 返回数据说明
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -50,7 +51,8 @@ interface UserInterface
 
     /**
      * 校验密码强度.
-     * ### 返回数据说明.
+     *
+     * ### 返回数据说明
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -70,6 +72,7 @@ interface UserInterface
 
     /**
      * 更新用户数据.
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -95,14 +98,15 @@ interface UserInterface
 
     /**
      * 注册用户.
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
      * --|-------|--------------
      * 0 |int    | 返回值用户ID
      *
-     * @param array  $data 注册数据
-     * @param string $data["mobile"] 注册数据
+     * @param array  $data             注册数据
+     * @param string $data["mobile"]   注册数据
      * @param string $data["password"] 注册密码,可以不填，填了必须符合密码规则
      *
      * @throws \Eelly\Exception\LogicException
@@ -137,6 +141,7 @@ interface UserInterface
 
     /**
      * 通过密码获取用户信息.
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -164,6 +169,7 @@ interface UserInterface
 
     /**
      * 获取用户信息.
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -188,7 +194,8 @@ interface UserInterface
 
     /**
      * 批量获取用户基本信息.
-     * ### 返回数据说明.
+     *
+     * ### 返回数据说明
      *
      * 字段|类型|说明
      * ---------|-------|--------------
@@ -213,7 +220,7 @@ interface UserInterface
     public function getListByUserIds(array $userIds): array;
 
     /**
-     * 添加用户=》基础接口.
+     * 添加用户.
      *
      * @param array  $data
      * @param string $data ["username"] 用户名
@@ -236,6 +243,15 @@ interface UserInterface
     public function addUser(array $data): int;
 
     /**
+     * uc请求添加用户.
+     *
+     * @param array $userArray
+     *
+     * @return bool
+     */
+    public function addUcuser(array $userArray): bool;
+
+    /**
      * 获取会员搜索引擎所需数据.
      *
      * @param int $currentPage 当前页
@@ -255,6 +271,7 @@ interface UserInterface
 
     /**
      * 根据传过来的用户id，获取对应的用户资料.
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -301,7 +318,8 @@ interface UserInterface
 
     /**
      * 根据用户id获取二维码数据.
-     * ### 返回数据说明.
+     *
+     * ### 返回数据说明
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -326,6 +344,7 @@ interface UserInterface
 
     /**
      * 查看用户绑定状态
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -379,6 +398,7 @@ interface UserInterface
 
     /**
      * 判断用户是否已经绑定手机.
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -401,6 +421,7 @@ interface UserInterface
 
     /**
      * 获取用户信息.
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明

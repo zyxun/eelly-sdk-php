@@ -25,4 +25,12 @@ class LivePlan implements LivePlanInterface
     {
         return EellyClient::request('live/livePlan', __FUNCTION__, true, $planId, $status);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updatePlan(int $planId, int $isPay, int $roomSize): bool
+    {
+        return EellyClient::request('live/livePlan', __FUNCTION__, true, $planId, $isPay, $roomSize);
+    }
 }

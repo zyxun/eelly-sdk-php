@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,7 +17,6 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Oauth\Service\ModuleServiceInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class ModuleService implements ModuleServiceInterface

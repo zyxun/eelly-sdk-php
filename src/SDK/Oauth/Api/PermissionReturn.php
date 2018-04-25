@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,11 +13,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Oauth\Api;
 
-use Eelly\SDK\EellyClient;
 use Eelly\SDK\Oauth\Service\PermissionReturnInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class PermissionReturn implements PermissionReturnInterface

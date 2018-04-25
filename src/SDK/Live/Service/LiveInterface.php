@@ -280,6 +280,7 @@ interface LiveInterface
      * @param int   $data['count']   场数
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
+     * @param int   $data['isPay']   是否收费
      *
      * @requestExample({
         "data": {
