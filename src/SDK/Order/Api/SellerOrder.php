@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,6 +12,25 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-class SellerOrder
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\Order\Service\SellerOrderInterface;
+
+/**
+ *
+ * @author shadonTools<localhost.shell@gmail.com>
+ */
+class SellerOrder implements SellerOrderInterface
 {
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
+    }
 }
