@@ -46,4 +46,8 @@ class PaymentException extends LogicException
      *
      */
     public const ACCOUNT_DATA_MONEY_ENOUGH = '会员资金余额充足，请选用余额支付或纯第三方支付方式';
+
+
+    public const NO_FIND_THIRD_PAY_EXIT = '未发现第三方支付记录';
+
 }

@@ -40,6 +40,7 @@ class LogicException extends \LogicException
 
     public const PARAMETER_VALIDATION_ERROR = '校验传入参数错误';
 
+
     /**
      * @var array
      */
