@@ -288,4 +288,53 @@ interface OrderInterface
      * issign         |string |
      */
     public function getExpressByTrackingNo(string $trackingNo, string $express = 'auto'): array;
+
+    /**
+     * 新增订单和发起支付.
+     *
+     * @param array $orderData 订单信息
+     * @param array $userInfo 用户信息
+     * @param array $memoInfo 额外信息
+     * @requestExample({
+     * "orderData":[
+     * {
+     * "storeId":1,
+     * "goodsIds":[1, 2]
+     * }
+     * ],
+     * "addrId":3
+     * })
+     * @returnExample(true)
+     * @return array
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月19日
+     */
+    public function addMallOrderAndPay(array $orderData, array $userInfo, array $memoInfo = []): array;
+
+
+    /**
+     * 校验订单是否完成.
+     *
+     * @param array $orderSns 订单号
+     * @param string $billNo 交易号
+     * @return bool
+     * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月19日
+     */
+    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): bool;
+
+    /**
+     * 订单存在的情况下发起的支付.
+     *
+     * @param array $orderSns 多个订单Id
+     * @param string $openId 微信唯一标识
+     * @return array
+     * @requestExample({"orderSns":[1810802172,1810892762]})
+     * @returnExample({"platform":"wechatPayJs","billNo":"1804206f3430600Gbl","data":{"appId":"wx4570a3e7921ad847","package":"prepay_id=wx20092504076787ea261301530251393671","nonceStr":"ce40cc6e4eb37b4c6a5aed1af2bb0274","timeStamp":"1524187504","signType":"MD5","paySign":"079FC612EDF4E4D589334F41F15616C2"},"orderSn":[1810802172,1810892762]})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月20日
+     */
+    public function orderGoPay(array $orderSns, $type = 'wxSmall', $openId = ''): array;
 }

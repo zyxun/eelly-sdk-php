@@ -14,12 +14,43 @@ declare(strict_types=1);
 namespace Eelly\SDK\Order\Api;
 
 use Eelly\SDK\Order\Service\RefundInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Refund implements RefundInterface
 {
+    /**
+     * 快速退款，对外接口.
+     *
+     * @param int $orderId 订单ID
+     * @param int $money 退款金额
+     * @param UidDTO|null $uidDTO 登录的用户信息
+     * @return bool
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月24日
+     */
+    public function quickReturnMoney(int $orderId, int $money, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/refund', 'quickReturnMoney', true, $orderId, $money, $uidDTO);
+    }
+
+    /**
+     * 快速退款，对外接口.
+     *
+     * @param int $orderId 订单ID
+     * @param int $money 退款金额
+     * @param UidDTO|null $uidDTO 登录的用户信息
+     * @return bool
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月24日
+     */
+    public function quickReturnMoneyAsync(int $orderId, int $money, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/refund', 'quickReturnMoney', false, $orderId, $money, $uidDTO);
+    }
+
     /**
      * @return self
      */
