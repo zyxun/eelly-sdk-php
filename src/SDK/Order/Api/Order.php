@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,12 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\OrderInterface;
-use Eelly\DTO\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Order implements OrderInterface
@@ -326,10 +326,13 @@ class Order implements OrderInterface
      * 校验是否能否能快速支付.
      *
      * @param int $orderId 订单ID
+     *
      * @return bool 能返回true,不能返回false
      * @requestExample({"orderId":5000001})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月05日
      * @Validation(
      * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]})
@@ -344,10 +347,13 @@ class Order implements OrderInterface
      * 校验是否能否能快速支付.
      *
      * @param int $orderId 订单ID
+     *
      * @return bool 能返回true,不能返回false
      * @requestExample({"orderId":5000001})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月05日
      * @Validation(
      * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]})
@@ -361,12 +367,15 @@ class Order implements OrderInterface
     /**
      * 更新订单标识.
      *
-     * @param int $orderId 订单ID
+     * @param int $orderId   订单ID
      * @param int $extension 订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
+     *
      * @return bool
      * @requestExample({"orderId":5000001,"extension":128})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月05日
      * @Validation(
      * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]}),
@@ -381,12 +390,15 @@ class Order implements OrderInterface
     /**
      * 更新订单标识.
      *
-     * @param int $orderId 订单ID
+     * @param int $orderId   订单ID
      * @param int $extension 订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
+     *
      * @return bool
      * @requestExample({"orderId":5000001,"extension":128})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月05日
      * @Validation(
      * @OperatorValidator(0, {message:"非法的订单id",operator:[gt,0]}),
@@ -399,18 +411,19 @@ class Order implements OrderInterface
     }
 
     /**
-     * 添加询价下单记录
+     * 添加询价下单记录.
      *
-     * @param array   $data 询价下单数据
-     * @param int     $data['refType']     订单类型标识：0 店铺商品订单 1 询价商品订单
-     * @param int     $data['sellerId']    卖家id
-     * @param string  $data['sellerName']  卖家名称
-     * @param int     $data['buyerId']     买家id
-     * @param string  $data['buyerName']   买家名称
-     * @param int     $data['extension']   订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
-     * @param int     $data['freight']     订单运费
-     * @param int     $data['fromFlag']    订单来源
-     * @param string  $data['remark']      备注
+     * @param array  $data               询价下单数据
+     * @param int    $data['refType']    订单类型标识：0 店铺商品订单 1 询价商品订单
+     * @param int    $data['sellerId']   卖家id
+     * @param string $data['sellerName'] 卖家名称
+     * @param int    $data['buyerId']    买家id
+     * @param string $data['buyerName']  买家名称
+     * @param int    $data['extension']  订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
+     * @param int    $data['freight']    订单运费
+     * @param int    $data['fromFlag']   订单来源
+     * @param string $data['remark']     备注
+     *
      * @return bool
      *
      * @requestExample({
@@ -426,6 +439,7 @@ class Order implements OrderInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.01.08
      */
     public function addEnquiryOrder(array $data): int
@@ -434,18 +448,19 @@ class Order implements OrderInterface
     }
 
     /**
-     * 添加询价下单记录
+     * 添加询价下单记录.
      *
-     * @param array   $data 询价下单数据
-     * @param int     $data['refType']     订单类型标识：0 店铺商品订单 1 询价商品订单
-     * @param int     $data['sellerId']    卖家id
-     * @param string  $data['sellerName']  卖家名称
-     * @param int     $data['buyerId']     买家id
-     * @param string  $data['buyerName']   买家名称
-     * @param int     $data['extension']   订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
-     * @param int     $data['freight']     订单运费
-     * @param int     $data['fromFlag']    订单来源
-     * @param string  $data['remark']      备注
+     * @param array  $data               询价下单数据
+     * @param int    $data['refType']    订单类型标识：0 店铺商品订单 1 询价商品订单
+     * @param int    $data['sellerId']   卖家id
+     * @param string $data['sellerName'] 卖家名称
+     * @param int    $data['buyerId']    买家id
+     * @param string $data['buyerName']  买家名称
+     * @param int    $data['extension']  订单标识：0 普通订单 1 分销订单 2 包销订单(买家) 4 自营订单 8 云店订单 16 厂+订单 32 省邮区订单 64 包销期订单(卖家) 128 即时到帐订单（支付成功立即结算卖家）
+     * @param int    $data['freight']    订单运费
+     * @param int    $data['fromFlag']   订单来源
+     * @param string $data['remark']     备注
+     *
      * @return bool
      *
      * @requestExample({
@@ -461,6 +476,7 @@ class Order implements OrderInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.01.08
      */
     public function addEnquiryOrderAsync(array $data)
@@ -472,7 +488,8 @@ class Order implements OrderInterface
      * 获取物流信息.
      *
      * @param string $trackingNo 物流好
-     * @param string $express 物流公司
+     * @param string $express    物流公司
+     *
      * @return bool
      * @requestExample({"trackingNo":"1202516745301","express":"auto"})
      * @returnExample({{
@@ -492,7 +509,9 @@ class Order implements OrderInterface
      * "deliverystatus": "3",
      * "issign": "1"
      * }})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年04月09日
      * @Validation(
      * @PresenceOf(0, {message:"非法的物流号"})
@@ -519,7 +538,6 @@ class Order implements OrderInterface
      * 5：派件，即快递正在进行同城派件；
      * 6：退回，货物正处于退回发件人的途中；
      * issign         |string |
-     *
      */
     public function getExpressByTrackingNo(string $trackingNo, string $express = 'auto'): array
     {
@@ -530,7 +548,8 @@ class Order implements OrderInterface
      * 获取物流信息.
      *
      * @param string $trackingNo 物流好
-     * @param string $express 物流公司
+     * @param string $express    物流公司
+     *
      * @return bool
      * @requestExample({"trackingNo":"1202516745301","express":"auto"})
      * @returnExample({{
@@ -550,7 +569,9 @@ class Order implements OrderInterface
      * "deliverystatus": "3",
      * "issign": "1"
      * }})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年04月09日
      * @Validation(
      * @PresenceOf(0, {message:"非法的物流号"})
@@ -577,7 +598,6 @@ class Order implements OrderInterface
      * 5：派件，即快递正在进行同城派件；
      * 6：退回，货物正处于退回发件人的途中；
      * issign         |string |
-     *
      */
     public function getExpressByTrackingNoAsync(string $trackingNo, string $express = 'auto')
     {

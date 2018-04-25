@@ -13,6 +13,14 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-class BuyerOrder
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\Order\Service\BuyerOrderInterface;
+
+class BuyerOrder implements BuyerOrderInterface
 {
+    public function listAppletOrder(int $tab = 0, int $page = 0, int $limit = 20, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $tab, $page, $limit);
+    }
 }
