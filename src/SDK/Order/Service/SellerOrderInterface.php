@@ -185,5 +185,5 @@ interface SellerOrderInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function orderDetail(int $orderId, UidDTO $uidDTO = null): array;
+    public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
 }

@@ -38,7 +38,7 @@ class BuyerOrder implements BuyerOrderInterface
     /**
      * {@inheritdoc}
      */
-    public function orderDetail(int $orderId, UidDTO $uidDTO = null): array
+    public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array
     {
         return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
     }
