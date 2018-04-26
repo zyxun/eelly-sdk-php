@@ -19,8 +19,19 @@ use Eelly\SDK\Order\Service\BuyerOrderInterface;
 
 class BuyerOrder implements BuyerOrderInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function listAppletOrder(int $tab = 0, int $page = 0, int $limit = 20, UidDTO $uidDTO = null): array
     {
         return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $tab, $page, $limit);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function myAppletOrderStats(UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true);
     }
 }
