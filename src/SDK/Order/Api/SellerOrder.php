@@ -12,25 +12,19 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\SellerOrderInterface;
 
-/**
- *
- * @author shadonTools<localhost.shell@gmail.com>
- */
+
 class SellerOrder implements SellerOrderInterface
 {
     /**
-     * @return self
+     * @inheritDoc
      */
-    public static function getInstance(): self
+    public function myAppletOrders(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array
     {
-        static $instance;
-        if (null === $instance) {
-            $instance = new self();
-        }
-
-        return $instance;
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $tab, $page, $limit);
     }
+
 }
