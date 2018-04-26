@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Order\Service;
+
 use Eelly\DTO\UidDTO;
 
 /**
@@ -21,7 +22,6 @@ use Eelly\DTO\UidDTO;
  */
 interface SellerOrderInterface
 {
-
     /**
      * 我的小程序订单.
      *
@@ -66,6 +66,7 @@ interface SellerOrderInterface
      * @param int    $page   第几页
      * @param int    $limit  分页大小
      * @param UidDTO $uidDTO uid dto
+     *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
@@ -142,7 +143,6 @@ interface SellerOrderInterface
      *     ]
      * }
      * )
-     *
      */
     public function myAppletOrders(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
 
@@ -174,4 +174,16 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function myAppletOrderStats(UidDTO $uidDTO = null): array;
+
+    /**
+     * 订单详情.
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function orderDetail(int $orderId, UidDTO $uidDTO = null): array;
 }
