@@ -23,7 +23,7 @@ use Eelly\DTO\UidDTO;
 interface BuyerOrderInterface
 {
     /**
-     * 获取小程序订单列表.
+     * 获取小程序订单列表(买家).
      *
      * > 订单筛选值(tab)
      *
@@ -156,4 +156,33 @@ interface BuyerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function listAppletOrder(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+
+    /**
+     * 获取我的订单统计信息(买家).
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     *
+     * @param UidDTO|null $uidDTO uid dto(表示需要登录)
+     *
+     * @return array
+     *
+     * @returnExample(
+     * {
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0
+     * }
+     * )
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function myAppletOrderStats(UidDTO $uidDTO = null): array;
 }
