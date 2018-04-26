@@ -35,7 +35,7 @@ interface SellerOrderInterface
      * totalItems   | int    | 数据总量
      * items        | array  |当前数据
      * items[]['orderId']     | string | 订单id
-     * items[]['sellerName']  | string | 店铺名
+     * items[]['buyer_name']  | string | 买家名
      * items[]['orderStatus'] | int    | 订单状态
      * items[]['orderAmount'] | float | 实付
      * items[]['freight']     | float | 运费
