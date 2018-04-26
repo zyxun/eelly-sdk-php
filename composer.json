@@ -2,7 +2,7 @@
 	"name": "eelly/eelly-sdk-php",
 	"description": "eelly sdk for php",
 	"type": "library",
-	"license": "MPL2.0",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Eelly",
