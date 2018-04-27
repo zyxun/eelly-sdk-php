@@ -147,7 +147,7 @@ interface SellerOrderInterface
     public function myAppletOrders(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
 
     /**
-     * 获取我的订单统计信息(买家).
+     * 获取我的订单统计信息(卖家).
      *
      * > 返回数据说明
      *
