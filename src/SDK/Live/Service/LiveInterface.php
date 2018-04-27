@@ -381,11 +381,6 @@ interface LiveInterface
      * @author wechan
      * @since 2018年4月27日
      * 
-     * @Validation(
-     *  @PresenceOf(0,{message:"数据不能为空"}),
-     *  @PresenceOf(1,{message:"数据不能为空"}),
-     *  @PresenceOf(2,{message:"数据不能为空")
-     * )
      */
     public function updateShowFlag(int $liveId, array $flag, int $type): bool;
 }
