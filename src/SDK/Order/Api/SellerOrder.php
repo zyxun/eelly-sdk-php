@@ -42,4 +42,12 @@ class SellerOrder implements SellerOrderInterface
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function changeAppletOrderPrice(int $orderId, int $price, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $price);
+    }
 }
