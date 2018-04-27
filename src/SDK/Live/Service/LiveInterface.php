@@ -367,4 +367,25 @@ interface LiveInterface
      * @since 2018年3月17日
      */
     public function getAlreadyLiveIdByStoreIds(array $storeIds, int $startTime = 0, int $endTime = 0): array;
+    
+    /**
+     * 更新直播展示限制标志
+     * 
+     * @param int $liveId 直播id
+     * @param array $flag 限制标识 1 APP限制 2 PC限制 4 WAP限制 8 小程序限制
+     * @param int $type 0.屏蔽 1.展示
+     * 
+     * @requestExample({"liveId":"209","flag":[1,2,4],"type":1})
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年4月27日
+     * 
+     * @Validation(
+     *  @PresenceOf(0,{message:"数据不能为空"}),
+     *  @PresenceOf(1,{message:"数据不能为空"}),
+     *  @PresenceOf(2,{message:"数据不能为空")
+     * )
+     */
+    public function updateShowFlag(int $liveId, array $flag, int $type): bool;
 }
