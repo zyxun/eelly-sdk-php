@@ -17,11 +17,10 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\SellerOrderInterface;
 
-
 class SellerOrder implements SellerOrderInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function myAppletOrders(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array
     {
@@ -29,11 +28,18 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function myAppletOrderStats(UidDTO $uidDTO = null): array
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true);
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
+    }
 }

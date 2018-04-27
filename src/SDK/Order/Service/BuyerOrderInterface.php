@@ -185,4 +185,16 @@ interface BuyerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function myAppletOrderStats(UidDTO $uidDTO = null): array;
+
+    /**
+     * 订单详情.
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
 }
