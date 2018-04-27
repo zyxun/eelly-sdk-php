@@ -37,12 +37,12 @@ interface SellerOrderInterface
      * items[]['orderId']     | string | 订单id
      * items[]['buyer_name']  | string | 买家名
      * items[]['orderStatus'] | int    | 订单状态
-     * items[]['orderAmount'] | int | 实付
-     * items[]['freight']     | int | 运费
+     * items[]['orderAmount'] | int | 实付(分)
+     * items[]['freight']     | int | 运费(分)
      * items[]['createdDate'] | date | 订单日期
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
-     * items[]['goodsList'][]['price']        | int    | 商品价格
+     * items[]['goodsList'][]['price']        | int    | 商品价格(分)
      * items[]['goodsList'][]['quantity']     | int    | 商品数量
      * items[]['goodsList'][]['spec']         | string | 商品属性
      * items[]['goodsList'][]['goodsImage']   | string | 商品图片
@@ -189,11 +189,11 @@ interface SellerOrderInterface
      * address         | string   | 详细地址
      * remark          | string   | 买家留言
      * buyerName       | string   | 买家名称
-     * orderAmount     | int      | 实收
-     * initGoodsAmount | int      | 货款
-     * freight         | int      | 运费
-     * discountAmount  | int      | 优惠金额
-     * changePrice     | int      | 改价
+     * orderAmount     | int      | 实收(分)
+     * initGoodsAmount | int      | 货款(分)
+     * freight         | int      | 运费(分)
+     * discountAmount  | int      | 优惠金额(分)
+     * changePrice     | int      | 改价(分)
      * orderSn         | string   | 订单号
      * createdDatetime | Datetime | 下单日期时间
      * payDatetime     | Datetime | 支付日期时间
@@ -201,9 +201,10 @@ interface SellerOrderInterface
      * orderfrom       | string   | 订单来源
      * goodsCount      | int       | 商品款数
      * productCount    | int       | 商品总件数
+     * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
-     * goodsList[]['price']        | int    | 商品价格
+     * goodsList[]['price']        | int    | 商品价格(分)
      * goodsList[]['quantity']     | int    | 商品数量
      * goodsList[]['spec']         | string | 商品属性
      * goodsList[]['goodsImage']   | string | 商品图片
@@ -243,6 +244,7 @@ interface SellerOrderInterface
      *     "createdTime": 1524555994,
      *     "remark": "",
      *     "fromFlag": "0",
+     *     "extension": "0",
      *     "likes": "2",
      *     "evaluation": null,
      *     "initGoodsAmount": "2",
@@ -282,4 +284,21 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
+
+    /**
+     * 修改小程序订单价格.
+     *
+     * @param int         $orderId 订单id
+     * @param int         $price   修改金额(分)
+     * @param UidDTO|null $uidDTO
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
+     *
+     * @requestExample({"orderId": 160, "price": 250})
+     *
+     * @returnExample(true)
+     */
+    public function changeAppletOrderPrice(int $orderId, int $price, UidDTO $uidDTO = null): bool;
 }
