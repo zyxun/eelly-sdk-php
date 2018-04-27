@@ -194,6 +194,45 @@ interface BuyerOrderInterface
      *
      * @return array
      *
+     * @returnExample(
+     * {
+     *     "order_id": "160",
+     *     "order_sn": "1811370443",
+     *     "seller_name": "莫琼小店",
+     *     "os_id": "26",
+     *     "order_amount": "2",
+     *     "freight": "1",
+     *     "created_time": 1524555994,
+     *     "remark": "",
+     *     "likes": "2",
+     *     "evaluation": null,
+     *     "discount_amount": "0",
+     *     "init_amount": "0",
+     *     "consignee": "蓝厨卫",
+     *     "mobile": "11113131313",
+     *     "region_name": "山西省 晋城市 沁水县",
+     *     "address": "2222",
+     *     "orderStatus": 8,
+     *     "createdDatetime": "2018-04-24 07:46:34",
+     *     "goodsList": [
+     *         {
+     *             "og_id": "20000215",
+     *             "order_id": "160",
+     *             "goods_id": "1450168293",
+     *             "gs_id": "195022196",
+     *             "price": "1",
+     *             "quantity": "2",
+     *             "goods_name": "【莫琼小店】 2018新款 针织衫\/毛衣  包邮",
+     *             "goods_image": "https:\/\/img03.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *             "goods_number": "2",
+     *             "spec": "颜色:如图色,尺码:均码",
+     *             "created_time": "1524555994",
+     *             "update_time": "2018-04-24 15:46:32"
+     *         }
+     *     ]
+     * }
+     * )
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
