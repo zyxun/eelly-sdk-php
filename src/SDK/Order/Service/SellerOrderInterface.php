@@ -208,6 +208,21 @@ interface SellerOrderInterface
      * goodsList[]['spec']         | string | 商品属性
      * goodsList[]['goodsImage']   | string | 商品图片
      *
+     * > 订单状态(orderStatus)
+     *
+     * 值      |状态说明
+     * -------|----------
+     * 0      | 未知（错误值）
+     * 1      | 待付款
+     * 2      | 待分享
+     * 3      | 待发货
+     * 4      | 待收货
+     * 5      | 待评价
+     * 6      | 已评价
+     * 7      | 集赞失败,已退款
+     * 8      | 已退款, 交易取消
+     * 9      | 未付款, 交易取消
+     *
      * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO  uid dto
      *
