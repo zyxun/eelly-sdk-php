@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Service;
 
-use Eelly\DTO\UidDTO;
 /**
  * @author eellytools<localhost.shell@gmail.com>
  */
@@ -24,10 +23,10 @@ interface RefundInterface
      *
      * @param int $orderId 订单ID
      * @param int $money 退款金额
-     * @param UidDTO|null $uidDTO 登录的用户信息
-     * @return bool
+     * @param int $sellerId 卖家ID
+     * @return array
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月24日
      */
-    public function quickReturnMoney(int $orderId, int $money, UidDTO $uidDTO = null): bool;
+    public function quickReturnMoney(int $orderId, int $money, int $sellerId): array ;
 }
