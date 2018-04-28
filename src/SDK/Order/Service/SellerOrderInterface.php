@@ -450,4 +450,17 @@ interface SellerOrderInterface
      * )
      */
     public function myAppletMergerOrders(int $orderId, UidDTO $uidDTO = null): array;
+
+    /**             
+     * 添加物流信息.
+     * 
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo   送货单号
+     * @param array $orderIds   订单id列表
+     * @param UidDTO|null $uidDTO    uid dto
+     * @return bool
+     * @author hehui<hehui@eelly.net>
+     */
+    public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null):bool;
 }

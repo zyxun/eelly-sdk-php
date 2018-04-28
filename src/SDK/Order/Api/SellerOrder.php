@@ -58,4 +58,12 @@ class SellerOrder implements SellerOrderInterface
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $invoiceCode, $invoiceName, $invoiceNo, $orderIds);
+    }
 }
