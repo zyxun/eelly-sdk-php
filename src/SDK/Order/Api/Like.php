@@ -76,6 +76,40 @@ class Like implements LikeInterface
     }
 
     /**
+     * 获取订单点赞信息
+     * 
+     * @param $orderId 订单id
+     * @return array
+     * 
+     * @requestExample({"orderId":162})
+     * @returnExample([{"oliId":"4","orderId":"161","userId":"148086","createdTime":"1524899508","updateTime":"2018-04-28 15:11:31"},{"oliId":"5","orderId":"161","userId":"11","createdTime":"1524899533","updateTime":"2018-04-28 15:11:55"}])
+     * 
+     * @author wechan
+     * @since 2018年05月02日
+     */
+    public function getOrderLikeInfo(int $orderId): array
+    {
+        return EellyClient::request('order/like', 'getOrderLikeInfo', true, $orderId);
+    }
+
+    /**
+     * 获取订单点赞信息
+     * 
+     * @param $orderId 订单id
+     * @return array
+     * 
+     * @requestExample({"orderId":162})
+     * @returnExample([{"oliId":"4","orderId":"161","userId":"148086","createdTime":"1524899508","updateTime":"2018-04-28 15:11:31"},{"oliId":"5","orderId":"161","userId":"11","createdTime":"1524899533","updateTime":"2018-04-28 15:11:55"}])
+     * 
+     * @author wechan
+     * @since 2018年05月02日
+     */
+    public function getOrderLikeInfoAsync(int $orderId)
+    {
+        return EellyClient::request('order/like', 'getOrderLikeInfo', false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
