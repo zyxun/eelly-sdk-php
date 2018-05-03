@@ -31,4 +31,23 @@ interface GoodsInterface
      * @since 2018年05月02日
      */
     public function getOrderGoodsByIds(array $orderIds): array;
+    
+    /**
+     * 获取订单点赞信息(点赞没点赞各1条)
+     * 
+     * @param $goodsId 商品id
+     * @return array
+     * 
+     * @requestExample({"goodsId":1450168344})
+     * @returnExample([{
+	 *      "msg": "朋友帮他点赞成功了",
+	 *      "spellingTypeMsg": "集赞成功",
+	 *      "spellingType": "1",
+	 *      "buyerId": "148086"
+     *  }])
+     * 
+     * @author wechan
+     * @since 2018年05月02日
+     */
+    public function getGoodsLikeInfo($goodsId): array;
 }
