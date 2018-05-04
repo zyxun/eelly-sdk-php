@@ -98,10 +98,15 @@ interface InvoiceInterface
      * ### 返回数据说明
      *
      * 字段|类型|说明
-     * ------------|-------|--------------
+     * -------------|-------|--------------
      * invoiceCode |string |送货编码：快递公司对应的拼音
      * invoiceName |string |送货公司名称
      * invoiceNo   |string |送货单号,物流号
+     * orderSn     |string |订单号
+     * orderAmount |string |总金额
+     * consignee   |string |收货人姓名
+     * regionName  |string |地区名称
+     * address     |string |详细地址
      */
     public function editInvoiceData(int $orderId, UidDTO $uidDTO = null): array;
 
