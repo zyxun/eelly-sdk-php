@@ -282,4 +282,18 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
+
+    /**
+     * 修改价格.
+     *
+     * @param int $orderId 订单ID
+     * @param int $price 修改价格，单位为分
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     * @requestExample({"orderId":160,"price":1})
+     * @returnExample(true)
+     * @author hehui<hehui@eelly.net>
+     * @since 2018年05月04日
+     */
+    public function changeAppletOrderPrice(int $orderId, int $price, UidDTO $uidDTO = null): bool;
 }
