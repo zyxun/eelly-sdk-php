@@ -326,6 +326,32 @@ interface OrderInterface
     public function checkOrderIsPayed(array $orderSns, string $billNo = ''): bool;
 
     /**
+     * 需要自动结算货款.
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample([{"orderId":"116","orderSn":"1810837219","sellerId":"1762613","buyerId":"2108403","payTime":"1524130597","orderAmount":"19800","freight":"1","commission":"0","applyAmount":null,"returnAmount":null,"applyFreight":null,"returnFreight":null}])
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月05日
+     */
+    public function getNeedConfirmedList(): array;
+
+    /**
+     * 自动确认成功.
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return bool
+     * @requestExample({"orderId":116})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     */
+    public function operateFinishOrder(int $orderId): bool;
+
+    /**
      * 订单存在的情况下发起的支付.
      *
      * @param array $orderSns 多个订单Id

@@ -87,21 +87,27 @@ interface InvoiceInterface
      *
      * @return array
      * @requestExample({"orderId":160})
-     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301"})
+     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301","orderSn":"ssss","orderAmount":22,"consignee":"老王","regionName":"地区","address":"白云自"})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * -------------|-------|--------------
+     * invoiceCode |string |送货编码：快递公司对应的拼音
+     * invoiceName |string |送货公司名称
+     * invoiceNo   |string |送货单号,物流号
+     * orderSn     |string |订单号
+     * orderAmount |string |总金额
+     * consignee   |string |收货人姓名
+     * regionName  |string |地区名称
+     * address     |string |详细地址
      *
      * @since 2018年04月25日
      * @Validation(
      * @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]})
      * )
-     * ### 返回数据说明
-     *
-     * 字段|类型|说明
-     * ------------|-------|--------------
-     * invoiceCode |string |送货编码：快递公司对应的拼音
-     * invoiceName |string |送货公司名称
-     * invoiceNo   |string |送货单号,物流号
      */
     public function editInvoiceData(int $orderId, UidDTO $uidDTO = null): array;
 
