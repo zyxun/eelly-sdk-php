@@ -687,6 +687,46 @@ class Order implements OrderInterface
     }
 
     /**
+     * 回调订单支付.
+     *
+     * @param string $billNo 衣联交易号
+     * @requestExample({"billNo":"1711114177786cvA2s"})
+     * @returnExample()
+     * @Async
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     * @Validation(
+     * @OperatorValidator(0,{message:"数据不能为空"})
+     * )
+     */
+    public function setOrderPay(string $billNo): void
+    {
+        return EellyClient::request('order/order', 'setOrderPay', true, $billNo);
+    }
+
+    /**
+     * 回调订单支付.
+     *
+     * @param string $billNo 衣联交易号
+     * @requestExample({"billNo":"1711114177786cvA2s"})
+     * @returnExample()
+     * @Async
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     * @Validation(
+     * @OperatorValidator(0,{message:"数据不能为空"})
+     * )
+     */
+    public function setOrderPayAsync(string $billNo)
+    {
+        return EellyClient::request('order/order', 'setOrderPay', false, $billNo);
+    }
+
+    /**
      * 需要自动结算货款.
      *
      * @return array
