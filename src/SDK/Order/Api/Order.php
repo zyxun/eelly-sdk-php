@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,11 +12,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\OrderInterface;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Order implements OrderInterface
@@ -684,6 +684,70 @@ class Order implements OrderInterface
     public function checkOrderIsPayedAsync(array $orderSns, string $billNo = '')
     {
         return EellyClient::request('order/order', 'checkOrderIsPayed', false, $orderSns, $billNo);
+    }
+
+    /**
+     * 需要自动结算货款.
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample([{"orderId":"116","orderSn":"1810837219","sellerId":"1762613","buyerId":"2108403","payTime":"1524130597","orderAmount":"19800","freight":"1","commission":"0","applyAmount":null,"returnAmount":null,"applyFreight":null,"returnFreight":null}])
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月05日
+     */
+    public function getNeedConfirmedList(): array
+    {
+        return EellyClient::request('order/order', 'getNeedConfirmedList', true);
+    }
+
+    /**
+     * 需要自动结算货款.
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample([{"orderId":"116","orderSn":"1810837219","sellerId":"1762613","buyerId":"2108403","payTime":"1524130597","orderAmount":"19800","freight":"1","commission":"0","applyAmount":null,"returnAmount":null,"applyFreight":null,"returnFreight":null}])
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月05日
+     */
+    public function getNeedConfirmedListAsync()
+    {
+        return EellyClient::request('order/order', 'getNeedConfirmedList', false);
+    }
+
+    /**
+     * 自动确认成功.
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return bool
+     * @requestExample({"orderId":116})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     */
+    public function operateFinishOrder(int $orderId): bool
+    {
+        return EellyClient::request('order/order', 'operateFinishOrder', true, $orderId);
+    }
+
+    /**
+     * 自动确认成功.
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return bool
+     * @requestExample({"orderId":116})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     */
+    public function operateFinishOrderAsync(int $orderId)
+    {
+        return EellyClient::request('order/order', 'operateFinishOrder', false, $orderId);
     }
 
     /**
