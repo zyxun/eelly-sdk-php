@@ -37,12 +37,12 @@ interface SellerOrderInterface
      * items[]['orderId']     | string | 订单id
      * items[]['buyer_name']  | string | 买家名
      * items[]['orderStatus'] | int    | 订单状态
-     * items[]['orderAmount'] | int | 实付
-     * items[]['freight']     | int | 运费
+     * items[]['orderAmount'] | int | 实付(分)
+     * items[]['freight']     | int | 运费(分)
      * items[]['createdDate'] | date | 订单日期
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
-     * items[]['goodsList'][]['price']        | int    | 商品价格
+     * items[]['goodsList'][]['price']        | int    | 商品价格(分)
      * items[]['goodsList'][]['quantity']     | int    | 商品数量
      * items[]['goodsList'][]['spec']         | string | 商品属性
      * items[]['goodsList'][]['goodsImage']   | string | 商品图片
@@ -189,11 +189,11 @@ interface SellerOrderInterface
      * address         | string   | 详细地址
      * remark          | string   | 买家留言
      * buyerName       | string   | 买家名称
-     * orderAmount     | int      | 实收
-     * initGoodsAmount | int      | 货款
-     * freight         | int      | 运费
-     * discountAmount  | int      | 优惠金额
-     * changePrice     | int      | 改价
+     * orderAmount     | int      | 实收(分)
+     * initGoodsAmount | int      | 货款(分)
+     * freight         | int      | 运费(分)
+     * discountAmount  | int      | 优惠金额(分)
+     * changePrice     | int      | 改价(分)
      * orderSn         | string   | 订单号
      * createdDatetime | Datetime | 下单日期时间
      * payDatetime     | Datetime | 支付日期时间
@@ -201,9 +201,10 @@ interface SellerOrderInterface
      * orderfrom       | string   | 订单来源
      * goodsCount      | int       | 商品款数
      * productCount    | int       | 商品总件数
+     * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
-     * goodsList[]['price']        | int    | 商品价格
+     * goodsList[]['price']        | int    | 商品价格(分)
      * goodsList[]['quantity']     | int    | 商品数量
      * goodsList[]['spec']         | string | 商品属性
      * goodsList[]['goodsImage']   | string | 商品图片
@@ -243,6 +244,7 @@ interface SellerOrderInterface
      *     "createdTime": 1524555994,
      *     "remark": "",
      *     "fromFlag": "0",
+     *     "extension": "0",
      *     "likes": "2",
      *     "evaluation": null,
      *     "initGoodsAmount": "2",
@@ -284,16 +286,181 @@ interface SellerOrderInterface
     public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
 
     /**
-     * 修改价格.
+     * 修改小程序订单价格.
      *
-     * @param int $orderId 订单ID
-     * @param int $price 修改价格，单位为分
-     * @param UidDTO|null $uidDTO
+     * @param int         $orderId 订单id
+     * @param int         $price   修改金额(分)
+     * @param UidDTO|null $uidDTO  uid dto
+     *
      * @return bool
-     * @requestExample({"orderId":160,"price":1})
-     * @returnExample(true)
+     *
      * @author hehui<hehui@eelly.net>
-     * @since 2018年05月04日
+     *
+     * @requestExample({"orderId": 160, "price": 250})
+     *
+     * @returnExample(true)
      */
     public function changeAppletOrderPrice(int $orderId, int $price, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 获取合并订单列表.
+     *
+     * 通过订单id获取可合并的订单列表
+     *
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * [ ]orderId           |  int      | 订单id
+     * [ ]orderStatus       |  int      | 订单状态
+     * [ ]orderAmount       |  int      | 实收(分)
+     * [ ]goodsList         | array     | 商品列表
+     * [ ]goodsCount        | int       | 商品款数
+     * [ ]productCount      | int       | 商品总件数
+     * [ ]goodsList[]['goodsName']    | string | 商品名称
+     * [ ]goodsList[]['price']        | int    | 商品价格(分)
+     * [ ]goodsList[]['quantity']     | int    | 商品数量
+     * [ ]goodsList[]['spec']         | string | 商品属性
+     * [ ]goodsList[]['goodsImage']   | string | 商品图片
+     *
+     *
+     * > 订单状态(orderStatus)
+     *
+     * 值      |状态说明
+     * -------|----------
+     * 0      | 未知（错误值）
+     * 1      | 待付款
+     * 2      | 待分享
+     * 3      | 待发货
+     * 4      | 待收货
+     * 5      | 待评价
+     * 6      | 已评价
+     * 7      | 集赞失败,已退款
+     * 8      | 已退款, 交易取消
+     * 9      | 未付款, 交易取消
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return array 订单列表
+     *
+     * @author hehui<hehui@eelly.net>
+     *
+     * @requestExample({"orderId": 160})
+     *
+     * @returnExample(
+     * [
+     *     {
+     *         "orderId": "158",
+     *         "orderSn": "1811323254",
+     *         "refType": "0",
+     *         "fromFlag": "0",
+     *         "extension": "0",
+     *         "batchNumber": "0",
+     *         "chunkNumber": "0",
+     *         "sellerId": "1762254",
+     *         "sellerName": "莫琼小店",
+     *         "buyerId": "148086",
+     *         "buyerName": "juju12",
+     *         "osId": "2",
+     *         "payTime": "0",
+     *         "shipTime": "0",
+     *         "delayTime": "0",
+     *         "frozenTime": "0",
+     *         "finishedTime": "0",
+     *         "orderAmount": "2",
+     *         "freight": "1",
+     *         "commission": "0",
+     *         "returnFlag": "0",
+     *         "evaluateFlag": "0",
+     *         "deleteFlag": "0",
+     *         "remark": "",
+     *         "createdTime": 1524550060,
+     *         "updateTime": "2018-04-27 22:58:41",
+     *         "goodsList": [
+     *             {
+     *                 "ogId": "20000213",
+     *                 "orderId": "158",
+     *                 "goodsId": "1450168293",
+     *                 "gsId": "195022196",
+     *                 "price": "1",
+     *                 "quantity": "2",
+     *                 "goodsName": "【莫琼小店】 2018新款 针织衫\/毛衣  包邮",
+     *                 "goodsImage": "https:\/\/img03.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *                 "goodsNumber": "2",
+     *                 "spec": "颜色:如图色,尺码:均码",
+     *                 "createdTime": "1524550060",
+     *                 "updateTime": "2018-04-24 14:07:38"
+     *             }
+     *         ],
+     *         "orderStatus": 2,
+     *         "createdDate": "2018-04-24",
+     *         "goodsCount": 1,
+     *         "productCount": 2
+     *     },
+     *     {
+     *         "orderId": "159",
+     *         "orderSn": "1811345794",
+     *         "refType": "0",
+     *         "fromFlag": "0",
+     *         "extension": "0",
+     *         "batchNumber": "0",
+     *         "chunkNumber": "0",
+     *         "sellerId": "1762254",
+     *         "sellerName": "莫琼小店",
+     *         "buyerId": "148086",
+     *         "buyerName": "juju12",
+     *         "osId": "2",
+     *         "payTime": "1524550141",
+     *         "shipTime": "0",
+     *         "delayTime": "0",
+     *         "frozenTime": "0",
+     *         "finishedTime": "0",
+     *         "orderAmount": "2",
+     *         "freight": "1",
+     *         "commission": "0",
+     *         "returnFlag": "0",
+     *         "evaluateFlag": "0",
+     *         "deleteFlag": "0",
+     *         "remark": "",
+     *         "createdTime": 1524550065,
+     *         "updateTime": "2018-04-27 22:58:43",
+     *         "goodsList": [
+     *             {
+     *                 "ogId": "20000214",
+     *                 "orderId": "159",
+     *                 "goodsId": "1450168293",
+     *                 "gsId": "195022196",
+     *                 "price": "1",
+     *                 "quantity": "2",
+     *                 "goodsName": "【莫琼小店】 2018新款 针织衫\/毛衣  包邮",
+     *                 "goodsImage": "https:\/\/img03.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *                 "goodsNumber": "2",
+     *                 "spec": "颜色:如图色,尺码:均码",
+     *                 "createdTime": "1524550066",
+     *                 "updateTime": "2018-04-24 14:07:43"
+     *             }
+     *         ],
+     *         "orderStatus": 2,
+     *         "createdDate": "2018-04-24",
+     *         "goodsCount": 1,
+     *         "productCount": 2
+     *     }
+     * ]
+     * )
+     */
+    public function myAppletMergerOrders(int $orderId, UidDTO $uidDTO = null): array;
+
+    /**             
+     * 添加物流信息.
+     * 
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo   送货单号
+     * @param array $orderIds   订单id列表
+     * @param UidDTO|null $uidDTO    uid dto
+     * @return bool
+     * @author hehui<hehui@eelly.net>
+     */
+    public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null):bool;
 }

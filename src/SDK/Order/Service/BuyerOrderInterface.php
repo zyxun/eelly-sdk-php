@@ -48,13 +48,13 @@ interface BuyerOrderInterface
      * items[]['orderId']     | string | 订单id
      * items[]['sellerName']  | string | 店铺名
      * items[]['orderStatus'] | int    | 订单状态
-     * items[]['orderAmount'] | float | 实付
-     * items[]['freight']     | float | 运费
-     * items[]['createdDate'] | date | 订单日期
-     * items[]['goodsList']   | array | 商品列表
+     * items[]['orderAmount'] | int    | 实付
+     * items[]['freight']     | int    | 运费
+     * items[]['createdDate'] | date   | 订单日期
+     * items[]['goodsList']   | array  | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
-     * items[]['goodsList'][]['price']        | float | 商品价格
-     * items[]['goodsList'][]['quantity']     | float | 商品数量
+     * items[]['goodsList'][]['price']        | int    | 商品价格
+     * items[]['goodsList'][]['quantity']     | int    | 商品数量
      * items[]['goodsList'][]['spec']         | string | 商品属性
      * items[]['goodsList'][]['goodsImage']   | string | 商品图片
      *
@@ -210,8 +210,11 @@ interface BuyerOrderInterface
      * payDatetime     | Datetime | 支付日期时间
      * shipDatetime    | Datetime | 发货日期时间
      * orderfrom       | string   | 订单来源
+     * invoiceName     | stirng   | 送货公司名称
+     * logisticsName   | string   | 送货方式
      * goodsCount      | int       | 商品款数
      * productCount    | int       | 商品总件数
+     * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
      * goodsList[]['price']        | int    | 商品价格
@@ -233,7 +236,7 @@ interface BuyerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
-     * 
+     *
      * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO  uid dto
      *
@@ -263,6 +266,8 @@ interface BuyerOrderInterface
      *     "mobile": "11113131313",
      *     "regionName": "山西省 晋城市 沁水县",
      *     "address": "2222",
+     *     "invoiceName": "韵达1",
+     *     "logisticsName": ""
      *     "orderStatus": 8,
      *     "createdDatetime": "2018-04-24 07:46:34",
      *     "payDatetime": "2018-04-24 07:47:46",
