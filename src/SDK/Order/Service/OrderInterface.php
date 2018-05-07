@@ -326,6 +326,23 @@ interface OrderInterface
     public function checkOrderIsPayed(array $orderSns, string $billNo = ''): bool;
 
     /**
+     * 回调订单支付.
+     *
+     * @param string $billNo 衣联交易号
+     * @requestExample({"billNo":"1711114177786cvA2s"})
+     * @returnExample()
+     * @Async
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     * @Validation(
+     * @OperatorValidator(0,{message:"数据不能为空"})
+     * )
+     */
+    public function setOrderPay(string $billNo): void;
+
+    /**
      * 需要自动结算货款.
      *
      * @return array
