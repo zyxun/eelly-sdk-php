@@ -35,7 +35,8 @@ interface SellerOrderInterface
      * totalItems   | int    | 数据总量
      * items        | array  |当前数据
      * items[]['orderId']     | string | 订单id
-     * items[]['buyer_name']  | string | 买家名
+     * items[]['ordern']    | string | 订单编号
+     * items[]['buyerName']  | string | 买家名
      * items[]['orderStatus'] | int    | 订单状态
      * items[]['orderAmount'] | int | 实付(分)
      * items[]['freight']     | int | 运费(分)
@@ -86,6 +87,7 @@ interface SellerOrderInterface
      *     "items": [
      *         {
      *             "orderId": "160",
+     *             "orderSn": "1811370443",
      *             "sellerName": "莫琼小店",
      *             "osId": "26",
      *             "likes": 2,
@@ -114,6 +116,7 @@ interface SellerOrderInterface
      *         },
      *         {
      *             "orderId": "159",
+     *             "orderSn": "1811370443",
      *             "sellerName": "莫琼小店",
      *             "osId": "26",
      *             "likes": 0,
@@ -153,10 +156,12 @@ interface SellerOrderInterface
      *
      * key                | type    | value
      * ------------------ | ------- | --------
+     * all                | int     | 所有
      * needPay            | int     | 待付款
      * needShare          | int     | 待成团
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
+     * needReview         | int     | 待评价
      *
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
@@ -164,10 +169,12 @@ interface SellerOrderInterface
      *
      * @returnExample(
      * {
-     *     "needPay": 32,
-     *     "needShare": 8,
-     *     "needShipping": 0,
-     *     "needReceiving": 0
+     *     "all": "3",
+     *     "needPay": 0,
+     *     "needShare": 1,
+     *     "needShipping": 1,
+     *     "needReceiving": 0,
+     *     "needReview": 0
      * }
      * )
      *
