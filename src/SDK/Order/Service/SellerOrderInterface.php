@@ -35,7 +35,8 @@ interface SellerOrderInterface
      * totalItems   | int    | 数据总量
      * items        | array  |当前数据
      * items[]['orderId']     | string | 订单id
-     * items[]['buyer_name']  | string | 买家名
+     * items[]['ordern']    | string | 订单编号
+     * items[]['buyerName']  | string | 买家名
      * items[]['orderStatus'] | int    | 订单状态
      * items[]['orderAmount'] | int | 实付(分)
      * items[]['freight']     | int | 运费(分)
@@ -86,6 +87,7 @@ interface SellerOrderInterface
      *     "items": [
      *         {
      *             "orderId": "160",
+     *             "orderSn": "1811370443",
      *             "sellerName": "莫琼小店",
      *             "osId": "26",
      *             "likes": 2,
@@ -114,6 +116,7 @@ interface SellerOrderInterface
      *         },
      *         {
      *             "orderId": "159",
+     *             "orderSn": "1811370443",
      *             "sellerName": "莫琼小店",
      *             "osId": "26",
      *             "likes": 0,

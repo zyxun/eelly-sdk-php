@@ -215,6 +215,7 @@ interface BuyerOrderInterface
      * goodsCount      | int       | 商品款数
      * productCount    | int       | 商品总件数
      * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
+     * expressStatus   | string    | 物流信息
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
      * goodsList[]['price']        | int    | 商品价格
@@ -291,7 +292,8 @@ interface BuyerOrderInterface
      *             "createdTime": "1524555994",
      *             "updateTime": "2018-04-24 15:46:32"
      *         }
-     *     ]
+     *     ],
+     *     "expressStatus": "湖南省炎陵县公司快件已被 已签收 签收"
      * }
      * )
      *
