@@ -50,4 +50,27 @@ interface GoodsInterface
      * @since 2018年05月02日
      */
     public function getGoodsLikeInfo(int $goodsId): array;
+    
+    /**
+     * 获取商品下单总件数(取消订单和退款退货订单不减数).
+     *
+     * @param array $goodsIds
+     * @return array
+     * 
+     * @requestExample({"$goodsIds":[1450168344, 4452]})
+     * @returnExample({
+     *      "148086":{
+     *          "quantityCounts":22,
+     *          "goodsId":1450168344
+     *     },
+     *     "4452":{
+     *          "quantityCounts":189,
+     *          "goodsId":4452
+     *     }
+     * })
+     *
+     * @author wechan
+     * @since  2018年05月07日
+     */
+    public function countGoodsOrderGoodsQuantity(array $goodsIds): array;
 }

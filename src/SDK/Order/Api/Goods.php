@@ -58,21 +58,21 @@ class Goods implements GoodsInterface
     /**
      * 获取订单点赞信息(点赞没点赞各1条)
      * 
-     * @param $goodsId 商品id
+     * @param int $goodsId 商品id
      * @return array
      * 
      * @requestExample({"goodsId":1450168344})
      * @returnExample([{
-	 *      "msg": "朋友帮他点赞成功了",
-	 *      "spellingTypeMsg": "集赞成功",
-	 *      "spellingType": "1",
-	 *      "buyerId": "148086"
+     *      "msg": "朋友帮他点赞成功了",
+     *      "spellingTypeMsg": "集赞成功",
+     *      "spellingType": "1",
+     *      "buyerId": "148086"
      *  }])
      * 
      * @author wechan
      * @since 2018年05月02日
      */
-    public function getGoodsLikeInfo($goodsId): array
+    public function getGoodsLikeInfo(int $goodsId): array
     {
         return EellyClient::request('order/goods', 'getGoodsLikeInfo', true, $goodsId);
     }
@@ -80,23 +80,75 @@ class Goods implements GoodsInterface
     /**
      * 获取订单点赞信息(点赞没点赞各1条)
      * 
-     * @param $goodsId 商品id
+     * @param int $goodsId 商品id
      * @return array
      * 
      * @requestExample({"goodsId":1450168344})
      * @returnExample([{
-	 *      "msg": "朋友帮他点赞成功了",
-	 *      "spellingTypeMsg": "集赞成功",
-	 *      "spellingType": "1",
-	 *      "buyerId": "148086"
+     *      "msg": "朋友帮他点赞成功了",
+     *      "spellingTypeMsg": "集赞成功",
+     *      "spellingType": "1",
+     *      "buyerId": "148086"
      *  }])
      * 
      * @author wechan
      * @since 2018年05月02日
      */
-    public function getGoodsLikeInfoAsync($goodsId)
+    public function getGoodsLikeInfoAsync(int $goodsId)
     {
         return EellyClient::request('order/goods', 'getGoodsLikeInfo', false, $goodsId);
+    }
+
+    /**
+     * 获取商品下单总件数(取消订单和退款退货订单不减数).
+     *
+     * @param array $goodsIds
+     * @return array
+     * 
+     * @requestExample({"$goodsIds":[1450168344, 4452]})
+     * @returnExample({
+     *      "148086":{
+     *          "quantityCounts":22,
+     *          "goodsId":1450168344
+     *     },
+     *     "4452":{
+     *          "quantityCounts":189,
+     *          "goodsId":4452
+     *     }
+     * })
+     *
+     * @author wechan
+     * @since  2018年05月07日
+     */
+    public function countGoodsOrderGoodsQuantity(array $goodsIds): array
+    {
+        return EellyClient::request('order/goods', 'countGoodsOrderGoodsQuantity', true, $goodsIds);
+    }
+
+    /**
+     * 获取商品下单总件数(取消订单和退款退货订单不减数).
+     *
+     * @param array $goodsIds
+     * @return array
+     * 
+     * @requestExample({"$goodsIds":[1450168344, 4452]})
+     * @returnExample({
+     *      "148086":{
+     *          "quantityCounts":22,
+     *          "goodsId":1450168344
+     *     },
+     *     "4452":{
+     *          "quantityCounts":189,
+     *          "goodsId":4452
+     *     }
+     * })
+     *
+     * @author wechan
+     * @since  2018年05月07日
+     */
+    public function countGoodsOrderGoodsQuantityAsync(array $goodsIds)
+    {
+        return EellyClient::request('order/goods', 'countGoodsOrderGoodsQuantity', false, $goodsIds);
     }
 
     /**
