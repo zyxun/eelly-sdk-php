@@ -216,6 +216,13 @@ interface BuyerOrderInterface
      * productCount    | int       | 商品总件数
      * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
      * expressStatus   | string    | 物流信息
+     * countdown       | int       | 倒计时（秒），当orderStatus = 1 或 2 或 4 或 5
+     * timeList                       | array     | 时间列表
+     * timeList['createdTime']        | int       | 下单时间
+     * timeList['payTime']            | int       | 付款时间
+     * timeList['shareTime']          | int       | 集赞成功时间
+     * timeList['shipTime']           | int       | 发货时间
+     * timeList['receiveTime']        | int       | 收货时间
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
      * goodsList[]['price']        | int    | 商品价格
@@ -293,7 +300,15 @@ interface BuyerOrderInterface
      *             "updateTime": "2018-04-24 15:46:32"
      *         }
      *     ],
-     *     "expressStatus": "湖南省炎陵县公司快件已被 已签收 签收"
+     *     "expressStatus": "湖南省炎陵县公司快件已被 已签收 签收",
+     *     "countdown": 14586655,
+     *     "timeList": {
+     *         "createdTime": 1524555994,
+     *         "payTime": 1524556066",
+     *         "shareTime": 1524899478,
+     *         "shipTime": 0,
+     *         "receiveTime": 0
+     *      },
      * }
      * )
      *
