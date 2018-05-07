@@ -54,7 +54,7 @@ interface GoodsInterface
     /**
      * 获取商品下单总件数(取消订单和退款退货订单不减数).
      *
-     * @param array $goodsIds
+     * @param array $goodsIds 商品id
      * @return array
      * 
      * @requestExample({"$goodsIds":[1450168344, 4452]})
