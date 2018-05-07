@@ -316,12 +316,15 @@ interface BuyerOrderInterface
      */
     public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
 
-    /**                     
+    /**
      * 确认收货.
-     * 
+     *
      * @param int $orderId 订单id
      * @param int $uid 用户id
+     *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function confirmReceivedOrder(int $orderId, int $uid):bool;
 }
