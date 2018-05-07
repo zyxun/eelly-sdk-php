@@ -153,10 +153,12 @@ interface SellerOrderInterface
      *
      * key                | type    | value
      * ------------------ | ------- | --------
+     * all                | int     | 所有
      * needPay            | int     | 待付款
      * needShare          | int     | 待成团
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
+     * needReview         | int     | 待评价
      *
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
@@ -164,10 +166,12 @@ interface SellerOrderInterface
      *
      * @returnExample(
      * {
-     *     "needPay": 32,
-     *     "needShare": 8,
-     *     "needShipping": 0,
-     *     "needReceiving": 0
+     *     "all": "3",
+     *     "needPay": 0,
+     *     "needShare": 1,
+     *     "needShipping": 1,
+     *     "needReceiving": 0,
+     *     "needReview": 0
      * }
      * )
      *
