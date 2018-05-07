@@ -330,7 +330,9 @@ interface OrderInterface
      *
      * @param string $billNo 衣联交易号
      * @requestExample({"billNo":"1711114177786cvA2s"})
-     * @returnExample()
+     * @returnExample(true)
+     * @return bool
+     *
      * @Async
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -340,7 +342,7 @@ interface OrderInterface
      * @OperatorValidator(0,{message:"数据不能为空"})
      * )
      */
-    public function setOrderPay(string $billNo): void;
+    public function setOrderPay(string $billNo): bool ;
 
     /**
      * 需要自动结算货款.

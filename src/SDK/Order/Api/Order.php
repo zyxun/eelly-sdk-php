@@ -691,7 +691,9 @@ class Order implements OrderInterface
      *
      * @param string $billNo 衣联交易号
      * @requestExample({"billNo":"1711114177786cvA2s"})
-     * @returnExample()
+     * @returnExample(true)
+     * @return bool
+     *
      * @Async
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -701,7 +703,7 @@ class Order implements OrderInterface
      * @OperatorValidator(0,{message:"数据不能为空"})
      * )
      */
-    public function setOrderPay(string $billNo): void
+    public function setOrderPay(string $billNo): bool
     {
         return EellyClient::request('order/order', 'setOrderPay', true, $billNo);
     }
@@ -711,7 +713,9 @@ class Order implements OrderInterface
      *
      * @param string $billNo 衣联交易号
      * @requestExample({"billNo":"1711114177786cvA2s"})
-     * @returnExample()
+     * @returnExample(true)
+     * @return bool
+     *
      * @Async
      *
      * @author 肖俊明<xiaojunming@eelly.net>
