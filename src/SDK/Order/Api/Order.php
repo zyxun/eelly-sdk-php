@@ -700,7 +700,7 @@ class Order implements OrderInterface
      *
      * @since 2018年05月05日
      * @Validation(
-     * @OperatorValidator(0,{message:"数据不能为空"})
+     * @PresenceOf(0,{message:"数据不能为空"})
      * )
      */
     public function setOrderPay(string $billNo): bool
@@ -722,7 +722,7 @@ class Order implements OrderInterface
      *
      * @since 2018年05月05日
      * @Validation(
-     * @OperatorValidator(0,{message:"数据不能为空"})
+     * @PresenceOf(0,{message:"数据不能为空"})
      * )
      */
     public function setOrderPayAsync(string $billNo)
