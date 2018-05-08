@@ -595,6 +595,7 @@ class Live implements LiveInterface
      * @param int   $data['count']   场数
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
+     * @param int   $data['isPay']   是否收费
      *
      * @requestExample({
         "data": {
@@ -623,6 +624,7 @@ class Live implements LiveInterface
      * @param int   $data['count']   场数
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
+     * @param int   $data['isPay']   是否收费
      *
      * @requestExample({
         "data": {
@@ -804,6 +806,54 @@ class Live implements LiveInterface
     public function getAlreadyLiveIdByStoreIdsAsync(array $storeIds, int $startTime = 0, int $endTime = 0)
     {
         return EellyClient::request('live/live', 'getAlreadyLiveIdByStoreIds', false, $storeIds, $startTime, $endTime);
+    }
+
+    /**
+     * 更新直播展示限制标志
+     * 
+     * @param int $liveId 直播id
+     * @param array $flag 限制标识 1 APP限制 2 PC限制 4 WAP限制 8 小程序限制
+     * @param int $type 0.屏蔽 1.展示
+     * 
+     * @requestExample({"liveId":"209","flag":[1,2,4],"type":1})
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年4月27日
+     * 
+     * @Validation(
+     *  @PresenceOf(0,{message:"数据不能为空"}),
+     *  @PresenceOf(1,{message:"数据不能为空"}),
+     *  @PresenceOf(2,{message:"数据不能为空")
+     * )
+     */
+    public function updateShowFlag(int $liveId, array $flag, int $type): bool
+    {
+        return EellyClient::request('live/live', 'updateShowFlag', true, $liveId, $flag, $type);
+    }
+
+    /**
+     * 更新直播展示限制标志
+     * 
+     * @param int $liveId 直播id
+     * @param array $flag 限制标识 1 APP限制 2 PC限制 4 WAP限制 8 小程序限制
+     * @param int $type 0.屏蔽 1.展示
+     * 
+     * @requestExample({"liveId":"209","flag":[1,2,4],"type":1})
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年4月27日
+     * 
+     * @Validation(
+     *  @PresenceOf(0,{message:"数据不能为空"}),
+     *  @PresenceOf(1,{message:"数据不能为空"}),
+     *  @PresenceOf(2,{message:"数据不能为空")
+     * )
+     */
+    public function updateShowFlagAsync(int $liveId, array $flag, int $type)
+    {
+        return EellyClient::request('live/live', 'updateShowFlag', false, $liveId, $flag, $type);
     }
 
     /**

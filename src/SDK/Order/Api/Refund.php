@@ -21,6 +21,36 @@ use Eelly\SDK\Order\Service\RefundInterface;
 class Refund implements RefundInterface
 {
     /**
+     * 快速退款，对外接口.
+     *
+     * @param int $orderId 订单ID
+     * @param int $money 退款金额
+     * @param int $sellerId 卖家ID
+     * @return array
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月24日
+     */
+    public function quickReturnMoney(int $orderId, int $money, int $sellerId): array
+    {
+        return EellyClient::request('order/refund', 'quickReturnMoney', true, $orderId, $money, $sellerId);
+    }
+
+    /**
+     * 快速退款，对外接口.
+     *
+     * @param int $orderId 订单ID
+     * @param int $money 退款金额
+     * @param int $sellerId 卖家ID
+     * @return array
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月24日
+     */
+    public function quickReturnMoneyAsync(int $orderId, int $money, int $sellerId)
+    {
+        return EellyClient::request('order/refund', 'quickReturnMoney', false, $orderId, $money, $sellerId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

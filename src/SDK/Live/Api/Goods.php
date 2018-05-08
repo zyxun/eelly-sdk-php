@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -17,6 +16,7 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\GoodsInterface;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Goods implements GoodsInterface
