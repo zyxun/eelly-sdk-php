@@ -659,13 +659,13 @@ class Order implements OrderInterface
      *
      * @param array $orderSns 订单号
      * @param string $billNo 交易号
-     * @return bool
+     * @return array
      * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
-     * @returnExample(true)
+     * @returnExample([1,2,3])
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月19日
      */
-    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): bool
+    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): array
     {
         return EellyClient::request('order/order', 'checkOrderIsPayed', true, $orderSns, $billNo);
     }
@@ -675,9 +675,9 @@ class Order implements OrderInterface
      *
      * @param array $orderSns 订单号
      * @param string $billNo 交易号
-     * @return bool
+     * @return array
      * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
-     * @returnExample(true)
+     * @returnExample([1,2,3])
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月19日
      */
