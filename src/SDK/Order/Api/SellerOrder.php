@@ -28,6 +28,14 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function searchMyAppletOrders(string $keywords, int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $keywords, $tab, $page, $limit);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function myAppletOrderStats(UidDTO $uidDTO = null): array
