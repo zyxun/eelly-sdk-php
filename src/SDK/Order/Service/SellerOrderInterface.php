@@ -153,6 +153,24 @@ interface SellerOrderInterface
     public function myAppletOrders(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
 
     /**
+     * 搜索订单.
+     *
+     * > 返回数据参考[小程序订单列表](/order/sellerOrder/myAppletOrders)
+     * 
+     * @see myAppletOrders
+     *
+     * @param string $keywords 搜索的关键词
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $page   第几页
+     * @param int    $limit  分页大小
+     * @param UidDTO $uidDTO uid dto
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function searchMyAppletOrders(string $keywords, int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+
+    /**
      * 获取我的订单统计信息(卖家).
      *
      * > 返回数据说明
