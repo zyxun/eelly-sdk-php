@@ -41,6 +41,7 @@ interface SellerOrderInterface
      * items[]['orderAmount'] | int | 实付(分)
      * items[]['freight']     | int | 运费(分)
      * items[]['createdDate'] | date | 订单日期
+     * items[]['ifMerge']     | bool | 是否有可合并订单
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
      * items[]['goodsList'][]['price']        | int    | 商品价格(分)
@@ -97,6 +98,7 @@ interface SellerOrderInterface
      *             "createdTime": 1524555994,
      *             "orderStatus": 8,
      *             "createdDate": "2018-04-24",
+     *             "ifMerge": true,
      *             "goodsList": [
      *                 {
      *                     "ogId": "20000215",
@@ -126,6 +128,7 @@ interface SellerOrderInterface
      *             "createdTime": 1524550065,
      *             "orderStatus": 7,
      *             "createdDate": "2018-04-24",
+     *             "ifMerge": true,
      *             "goodsList": [
      *                 {
      *                     "ogId": "20000214",
@@ -209,6 +212,7 @@ interface SellerOrderInterface
      * goodsCount      | int       | 商品款数
      * productCount    | int       | 商品总件数
      * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
+     * ifMerge         | bool      | 是否有可合并订单
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
      * goodsList[]['price']        | int    | 商品价格(分)
@@ -269,6 +273,7 @@ interface SellerOrderInterface
      *     "orderfrom": "未知",
      *     "goodsCount": 1,
      *     "productCount": 0,
+     *     "ifMerge": true,
      *     "goodsList": [
      *         {
      *             "ogId": "20000215",
