@@ -319,7 +319,8 @@ interface SellerOrderInterface
      * 修改小程序订单价格.
      *
      * @param int         $orderId 订单id
-     * @param int         $price   修改金额(分)
+     * @param int         $price   修改货款金额(分)
+     * @param int         $freight 修改运费金额(分)
      * @param UidDTO|null $uidDTO  uid dto
      *
      * @return bool
@@ -330,7 +331,7 @@ interface SellerOrderInterface
      *
      * @returnExample(true)
      */
-    public function changeAppletOrderPrice(int $orderId, int $price, UidDTO $uidDTO = null): bool;
+    public function changeAppletOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool;
 
     /**
      * 获取合并订单列表.
