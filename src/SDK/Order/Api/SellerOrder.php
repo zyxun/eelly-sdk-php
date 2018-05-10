@@ -74,4 +74,12 @@ class SellerOrder implements SellerOrderInterface
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $invoiceCode, $invoiceName, $invoiceNo, $orderIds);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $startTime, $endTime, $sellerId, $type);
+    }
 }
