@@ -73,4 +73,18 @@ interface GoodsInterface
      * @since  2018年05月07日
      */
     public function countGoodsOrderGoodsQuantity(array $goodsIds): array;
+    
+    /**
+     * 根据商品获取订单点赞数
+     * 
+     * @param array $goodsId 商品id
+     * @return int
+     * 
+     * @requestExample({"$goodsIds":1450168344})
+     * @returnExample(4)
+     * 
+     * @author wechan
+     * @since  2018年05月10日
+     */
+    public function countGoodsOrderGoodsLike(int $goodsId): int;
 }
