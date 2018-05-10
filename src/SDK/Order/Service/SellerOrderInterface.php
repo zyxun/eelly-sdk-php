@@ -327,7 +327,7 @@ interface SellerOrderInterface
      *
      * @author hehui<hehui@eelly.net>
      *
-     * @requestExample({"orderId": 160, "price": 250})
+     * @requestExample({"orderId": 160, "price": 5000, "freight": 250})
      *
      * @returnExample(true)
      */
