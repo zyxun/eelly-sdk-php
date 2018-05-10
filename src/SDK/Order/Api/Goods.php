@@ -102,7 +102,7 @@ class Goods implements GoodsInterface
     /**
      * 获取商品下单总件数(取消订单和退款退货订单不减数).
      *
-     * @param array $goodsIds
+     * @param array $goodsIds 商品id
      * @return array
      * 
      * @requestExample({"$goodsIds":[1450168344, 4452]})
@@ -128,7 +128,7 @@ class Goods implements GoodsInterface
     /**
      * 获取商品下单总件数(取消订单和退款退货订单不减数).
      *
-     * @param array $goodsIds
+     * @param array $goodsIds 商品id
      * @return array
      * 
      * @requestExample({"$goodsIds":[1450168344, 4452]})
@@ -149,6 +149,40 @@ class Goods implements GoodsInterface
     public function countGoodsOrderGoodsQuantityAsync(array $goodsIds)
     {
         return EellyClient::request('order/goods', 'countGoodsOrderGoodsQuantity', false, $goodsIds);
+    }
+
+    /**
+     * 根据商品获取订单点赞数
+     * 
+     * @param array $goodsId 商品id
+     * @return int
+     * 
+     * @requestExample({"$goodsIds":1450168344})
+     * @returnExample(4)
+     * 
+     * @author wechan
+     * @since  2018年05月10日
+     */
+    public function countGoodsOrderGoodsLike(int $goodsId): int
+    {
+        return EellyClient::request('order/goods', 'countGoodsOrderGoodsLike', true, $goodsId);
+    }
+
+    /**
+     * 根据商品获取订单点赞数
+     * 
+     * @param array $goodsId 商品id
+     * @return int
+     * 
+     * @requestExample({"$goodsIds":1450168344})
+     * @returnExample(4)
+     * 
+     * @author wechan
+     * @since  2018年05月10日
+     */
+    public function countGoodsOrderGoodsLikeAsync(int $goodsId)
+    {
+        return EellyClient::request('order/goods', 'countGoodsOrderGoodsLike', false, $goodsId);
     }
 
     /**
