@@ -35,11 +35,13 @@ interface SellerOrderInterface
      * totalItems   | int    | 数据总量
      * items        | array  |当前数据
      * items[]['orderId']     | string | 订单id
-     * items[]['ordern']    | string | 订单编号
-     * items[]['buyerName']  | string | 买家名
+     * items[]['ordern']      | string | 订单编号
+     * items[]['buyerName']   | string | 买家名
      * items[]['orderStatus'] | int    | 订单状态
-     * items[]['orderAmount'] | int | 实付(分)
-     * items[]['freight']     | int | 运费(分)
+     * items[]['orderAmount'] | int    | 实付(分)
+     * items[]initGoodsAmount | int    | 原货款(分)
+     * items[]initFreight     | int    | 原运款(分)
+     * items[]['freight']     | int    | 运费(分)
      * items[]['createdDate'] | date | 订单日期
      * items[]['ifMerge']     | bool | 是否有可合并订单
      * items[]['productCount']| int  | 商品总件数
@@ -221,7 +223,8 @@ interface SellerOrderInterface
      * remark          | string   | 买家留言
      * buyerName       | string   | 买家名称
      * orderAmount     | int      | 实收(分)
-     * initGoodsAmount | int      | 货款(分)
+     * initGoodsAmount | int      | 原货款(分)
+     * initFreight     | int      | 原运费(分)
      * freight         | int      | 运费(分)
      * discountAmount  | int      | 优惠金额(分)
      * changePrice     | int      | 改价(分)
