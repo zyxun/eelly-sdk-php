@@ -42,6 +42,7 @@ interface SellerOrderInterface
      * items[]['freight']     | int | 运费(分)
      * items[]['createdDate'] | date | 订单日期
      * items[]['ifMerge']     | bool | 是否有可合并订单
+     * items[]['productCount']| int  | 商品总件数
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
      * items[]['goodsList'][]['price']        | int    | 商品价格(分)
@@ -99,6 +100,7 @@ interface SellerOrderInterface
      *             "orderStatus": 8,
      *             "createdDate": "2018-04-24",
      *             "ifMerge": true,
+     *             "productCount": 100,
      *             "goodsList": [
      *                 {
      *                     "ogId": "20000215",
@@ -129,6 +131,7 @@ interface SellerOrderInterface
      *             "orderStatus": 7,
      *             "createdDate": "2018-04-24",
      *             "ifMerge": true,
+     *             "productCount": 100,
      *             "goodsList": [
      *                 {
      *                     "ogId": "20000214",
@@ -494,4 +497,17 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null):bool;
+
+    /**
+     * 获取直播时间段的订单数据.
+     * 
+     * 
+     * @param int $startTime 直播开始时间戳
+     * @param int $endTime直播结束时间戳
+     * @param int $sellerId 卖家id
+     * @param int $type 类型 ( 1 待付款 2 已付款 )
+     * @return array
+     * @author hehui<hehui@eelly.net>
+     */
+    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array;
 }
