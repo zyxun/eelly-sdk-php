@@ -136,4 +136,31 @@ interface BindInterface
      * @since  2017/9/27
      */
     public function listBindPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 获取应用绑定信息.
+     *
+     * @param int $uid  用户id
+     * @param string $appId  app id
+     *
+     * @return array
+     *
+     * @requestExample({"uid":148086,"appId":"xxxx"})
+     *
+     * @returnExample({
+     *     "ubId": "1",
+     *     "userId": "148086",
+     *     "type": "1",
+     *     "nickname": "bW8=",
+     *     "unionId": "xxxx",
+     *     "openId": "xxxx",
+     *     "appId": "xxxx",
+     *     "status": "1",
+     *     "createdTime": "0",
+     *     "updateTime": "2017-11-03 15:30:00"
+     * })
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getBindInfo(int $uid, string $appId): array;
 }

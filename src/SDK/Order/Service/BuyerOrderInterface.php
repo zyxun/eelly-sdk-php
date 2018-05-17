@@ -49,11 +49,13 @@ interface BuyerOrderInterface
      * items[]['sellerName']  | string | 店铺名
      * items[]['orderStatus'] | int    | 订单状态
      * items[]['orderAmount'] | int    | 实付
-     * items[]['freight']     | int    | 运费
+     * items[]['initFreight'] | int    | 原运费(分)
+     * items[]['freight']     | int    | 运费(分)
+     * items[]['digAvatar']   | string | 点赞头像
      * items[]['createdDate'] | date   | 订单日期
      * items[]['goodsList']   | array  | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
-     * items[]['goodsList'][]['price']        | int    | 商品价格
+     * items[]['goodsList'][]['price']        | int    | 商品价格(分)
      * items[]['goodsList'][]['quantity']     | int    | 商品数量
      * items[]['goodsList'][]['spec']         | string | 商品属性
      * items[]['goodsList'][]['goodsImage']   | string | 商品图片
@@ -200,10 +202,11 @@ interface BuyerOrderInterface
      * address         | string   | 详细地址
      * remark          | string   | 买家留言
      * sellerName      | string   | 卖家名称
-     * orderAmount     | int      | 实收
-     * initGoodsAmount | int      | 货款
-     * freight         | int      | 运费
-     * discountAmount  | int      | 优惠金额
+     * orderAmount     | int      | 实收(分)
+     * initGoodsAmount | int      | 货款(分)
+     * freight         | int      | 运费(分)
+     * initFreight     | int      | 原运费(分)
+     * discountAmount  | int      | 优惠金额(分)
      * changePrice     | int      | 改价
      * orderSn         | string   | 订单号
      * createdDatetime | Datetime | 下单日期时间
@@ -215,7 +218,8 @@ interface BuyerOrderInterface
      * goodsCount      | int       | 商品款数
      * productCount    | int       | 商品总件数
      * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
-     * expressStatus   | string    | 物流信息
+     * expressStatus   | string    | 最新物流状态
+     * expressTime     | Datetime  | 最新物流时间
      * countdown       | int       | 倒计时（秒），当orderStatus = 1 或 2 或 4 或 5
      * timeList                       | array     | 时间列表
      * timeList['createdTime']        | int       | 下单时间
@@ -225,7 +229,7 @@ interface BuyerOrderInterface
      * timeList['receiveTime']        | int       | 收货时间
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
-     * goodsList[]['price']        | int    | 商品价格
+     * goodsList[]['price']        | int    | 商品价格(分)
      * goodsList[]['quantity']     | int    | 商品数量
      * goodsList[]['spec']         | string | 商品属性
      * goodsList[]['goodsImage']   | string | 商品图片

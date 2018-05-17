@@ -275,6 +275,14 @@ class Bind implements BindInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getBindInfo(int $uid, string $appId): array
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, true, $uid, $appId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
