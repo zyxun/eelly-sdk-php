@@ -827,6 +827,38 @@ class Order implements OrderInterface
     }
 
     /**
+     * 根据订单id，获取订单相关信息
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000214})
+     * @returnExample({"orderId":5000214,"orderSn":1813399100,"sellerId":148086,"buyerId":1762254,"buyerName":"test","orderAmount":1400,"created_time":1526292190})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.15
+     */
+    public function getOrderData(int $orderId):array
+    {
+        return EellyClient::request('order/order', 'getOrderData', true, $orderId);
+    }
+
+    /**
+     * 根据订单id，获取订单相关信息
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000214})
+     * @returnExample({"orderId":5000214,"orderSn":1813399100,"sellerId":148086,"buyerId":1762254,"buyerName":"test","orderAmount":1400,"created_time":1526292190})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.15
+     */
+    public function getOrderDataAsync(int $orderId):array
+    {
+        return EellyClient::request('order/order', 'getOrderData', false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
