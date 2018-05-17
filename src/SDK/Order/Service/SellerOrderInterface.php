@@ -35,11 +35,16 @@ interface SellerOrderInterface
      * totalItems   | int    | 数据总量
      * items        | array  |当前数据
      * items[]['orderId']     | string | 订单id
-     * items[]['buyer_name']  | string | 买家名
+     * items[]['ordern']      | string | 订单编号
+     * items[]['buyerName']   | string | 买家名
      * items[]['orderStatus'] | int    | 订单状态
-     * items[]['orderAmount'] | int | 实付(分)
-     * items[]['freight']     | int | 运费(分)
+     * items[]['orderAmount'] | int    | 实付(分)
+     * items[]initGoodsAmount | int    | 原货款(分)
+     * items[]initFreight     | int    | 原运款(分)
+     * items[]['freight']     | int    | 运费(分)
      * items[]['createdDate'] | date | 订单日期
+     * items[]['ifMerge']     | bool | 是否有可合并订单
+     * items[]['productCount']| int  | 商品总件数
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
      * items[]['goodsList'][]['price']        | int    | 商品价格(分)
@@ -86,6 +91,7 @@ interface SellerOrderInterface
      *     "items": [
      *         {
      *             "orderId": "160",
+     *             "orderSn": "1811370443",
      *             "sellerName": "莫琼小店",
      *             "osId": "26",
      *             "likes": 2,
@@ -95,6 +101,8 @@ interface SellerOrderInterface
      *             "createdTime": 1524555994,
      *             "orderStatus": 8,
      *             "createdDate": "2018-04-24",
+     *             "ifMerge": true,
+     *             "productCount": 100,
      *             "goodsList": [
      *                 {
      *                     "ogId": "20000215",
@@ -114,6 +122,7 @@ interface SellerOrderInterface
      *         },
      *         {
      *             "orderId": "159",
+     *             "orderSn": "1811370443",
      *             "sellerName": "莫琼小店",
      *             "osId": "26",
      *             "likes": 0,
@@ -123,6 +132,8 @@ interface SellerOrderInterface
      *             "createdTime": 1524550065,
      *             "orderStatus": 7,
      *             "createdDate": "2018-04-24",
+     *             "ifMerge": true,
+     *             "productCount": 100,
      *             "goodsList": [
      *                 {
      *                     "ogId": "20000214",
@@ -145,6 +156,24 @@ interface SellerOrderInterface
      * )
      */
     public function myAppletOrders(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+
+    /**
+     * 搜索订单.
+     *
+     * > 返回数据参考[小程序订单列表](/order/sellerOrder/myAppletOrders)
+     * 
+     * @see myAppletOrders
+     *
+     * @param string $keywords 搜索的关键词
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $page   第几页
+     * @param int    $limit  分页大小
+     * @param UidDTO $uidDTO uid dto
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function searchMyAppletOrders(string $keywords, int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
 
     /**
      * 获取我的订单统计信息(卖家).
@@ -194,7 +223,8 @@ interface SellerOrderInterface
      * remark          | string   | 买家留言
      * buyerName       | string   | 买家名称
      * orderAmount     | int      | 实收(分)
-     * initGoodsAmount | int      | 货款(分)
+     * initGoodsAmount | int      | 原货款(分)
+     * initFreight     | int      | 原运费(分)
      * freight         | int      | 运费(分)
      * discountAmount  | int      | 优惠金额(分)
      * changePrice     | int      | 改价(分)
@@ -206,6 +236,7 @@ interface SellerOrderInterface
      * goodsCount      | int       | 商品款数
      * productCount    | int       | 商品总件数
      * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
+     * ifMerge         | bool      | 是否有可合并订单
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
      * goodsList[]['price']        | int    | 商品价格(分)
@@ -266,6 +297,7 @@ interface SellerOrderInterface
      *     "orderfrom": "未知",
      *     "goodsCount": 1,
      *     "productCount": 0,
+     *     "ifMerge": true,
      *     "goodsList": [
      *         {
      *             "ogId": "20000215",
@@ -293,18 +325,19 @@ interface SellerOrderInterface
      * 修改小程序订单价格.
      *
      * @param int         $orderId 订单id
-     * @param int         $price   修改金额(分)
+     * @param int         $price   修改货款金额(分)
+     * @param int         $freight 修改运费金额(分)
      * @param UidDTO|null $uidDTO  uid dto
      *
      * @return bool
      *
      * @author hehui<hehui@eelly.net>
      *
-     * @requestExample({"orderId": 160, "price": 250})
+     * @requestExample({"orderId": 160, "price": 5000, "freight": 250})
      *
      * @returnExample(true)
      */
-    public function changeAppletOrderPrice(int $orderId, int $price, UidDTO $uidDTO = null): bool;
+    public function changeAppletOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool;
 
     /**
      * 获取合并订单列表.
@@ -467,4 +500,17 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null):bool;
+
+    /**
+     * 获取直播时间段的订单数据.
+     * 
+     * 
+     * @param int $startTime 直播开始时间戳
+     * @param int $endTime直播结束时间戳
+     * @param int $sellerId 卖家id
+     * @param int $type 类型 ( 1 待付款 2 已付款 )
+     * @return array
+     * @author hehui<hehui@eelly.net>
+     */
+    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array;
 }

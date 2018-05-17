@@ -45,4 +45,8 @@ class RechargeException extends LogicException
      * 会员资金账号不存在
      */
     public const ACCOUNT_DATA_NOT_FOUND = '会员资金账号不存在';
+
+    public const NOLY_SUPPORT_TYPE = '目前只支持微信小程序自动退款';
+
+    public const MAX_RETURN_MONEY = '退款金额已经超过支付金额';
 }

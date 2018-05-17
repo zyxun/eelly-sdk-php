@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -17,6 +16,7 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\PreviewInterface;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Preview implements PreviewInterface
@@ -29,6 +29,8 @@ class Preview implements PreviewInterface
      * @param int $lpId 直播场次id
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setStartTime(int $liveId, int $time, int $lpId = 0): bool
     {
@@ -40,12 +42,15 @@ class Preview implements PreviewInterface
      *
      * @param int $liveId 直播id
      * @param int $time   直播开始时间
+     * @param int $lpId 直播场次id
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
-    public function setStartTimeAsync(int $liveId, int $time)
+    public function setStartTimeAsync(int $liveId, int $time, int $lpId = 0)
     {
-        return EellyClient::request('live/preview', 'setStartTime', false, $liveId, $time);
+        return EellyClient::request('live/preview', 'setStartTime', false, $liveId, $time, $lpId);
     }
 
     /**
@@ -56,6 +61,8 @@ class Preview implements PreviewInterface
      * @param bool  $delete   是否删除
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function addGoods(int $liveId, array $goodsIds, bool $delete = false): bool
     {
@@ -70,6 +77,8 @@ class Preview implements PreviewInterface
      * @param bool  $delete   是否删除
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function addGoodsAsync(int $liveId, array $goodsIds, bool $delete = false)
     {
@@ -83,6 +92,8 @@ class Preview implements PreviewInterface
      * @param string $title  直播标题
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setTitle(int $liveId, string $title): bool
     {
@@ -96,6 +107,8 @@ class Preview implements PreviewInterface
      * @param string $title  直播标题
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setTitleAsync(int $liveId, string $title)
     {
@@ -109,6 +122,8 @@ class Preview implements PreviewInterface
      * @param string $imgUrl
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setImage(int $liveId, string $imgUrl): bool
     {
@@ -122,6 +137,8 @@ class Preview implements PreviewInterface
      * @param string $imgUrl
      *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setImageAsync(int $liveId, string $imgUrl)
     {
@@ -134,6 +151,8 @@ class Preview implements PreviewInterface
      * @param int $liveId
      *
      * @return array
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function getLiveGoods(int $liveId, int $status = null): array
     {
@@ -146,6 +165,8 @@ class Preview implements PreviewInterface
      * @param int $liveId
      *
      * @return array
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function getLiveGoodsAsync(int $liveId, int $status = null)
     {
@@ -153,17 +174,35 @@ class Preview implements PreviewInterface
     }
 
     /**
-     * {@inheritdoc}
+     * 获取直播时间段.
      *
-     * @param string|null $dateTime
+     * @param string|null $dateTime 日期(例如: 2018-04-01)
      * @param bool $isPay 是否收费场次
      * @param array $status 状态：0 未启用 1 启用
      *
      * @return array
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function getTimeRange(string $dateTime = null, bool $isPay = true, array $status = [1]): array
     {
-        return EellyClient::request('live/preview', __FUNCTION__, true, $dateTime, $isPay, $status);
+        return EellyClient::request('live/preview', 'getTimeRange', true, $dateTime, $isPay, $status);
+    }
+
+    /**
+     * 获取直播时间段.
+     *
+     * @param string|null $dateTime 日期(例如: 2018-04-01)
+     * @param bool $isPay 是否收费场次
+     * @param array $status 状态：0 未启用 1 启用
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getTimeRangeAsync(string $dateTime = null, bool $isPay = true, array $status = [1])
+    {
+        return EellyClient::request('live/preview', 'getTimeRange', false, $dateTime, $isPay, $status);
     }
 
     /**

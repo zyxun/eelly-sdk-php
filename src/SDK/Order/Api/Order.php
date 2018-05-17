@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,11 +12,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\OrderInterface;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Order implements OrderInterface
@@ -602,6 +602,228 @@ class Order implements OrderInterface
     public function getExpressByTrackingNoAsync(string $trackingNo, string $express = 'auto')
     {
         return EellyClient::request('order/order', 'getExpressByTrackingNo', false, $trackingNo, $express);
+    }
+
+    /**
+     * 新增订单和发起支付.
+     *
+     * @param array $orderData 订单信息
+     * @param array $userInfo 用户信息
+     * @param array $memoInfo 额外信息
+     * @requestExample({
+     * "orderData":[
+     * {
+     * "storeId":1,
+     * "goodsIds":[1, 2]
+     * }
+     * ],
+     * "addrId":3
+     * })
+     * @returnExample(true)
+     * @return array
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月19日
+     */
+    public function addMallOrderAndPay(array $orderData, array $userInfo, array $memoInfo = []): array
+    {
+        return EellyClient::request('order/order', 'addMallOrderAndPay', true, $orderData, $userInfo, $memoInfo);
+    }
+
+    /**
+     * 新增订单和发起支付.
+     *
+     * @param array $orderData 订单信息
+     * @param array $userInfo 用户信息
+     * @param array $memoInfo 额外信息
+     * @requestExample({
+     * "orderData":[
+     * {
+     * "storeId":1,
+     * "goodsIds":[1, 2]
+     * }
+     * ],
+     * "addrId":3
+     * })
+     * @returnExample(true)
+     * @return array
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月19日
+     */
+    public function addMallOrderAndPayAsync(array $orderData, array $userInfo, array $memoInfo = [])
+    {
+        return EellyClient::request('order/order', 'addMallOrderAndPay', false, $orderData, $userInfo, $memoInfo);
+    }
+
+    /**
+     * 校验订单是否完成.
+     *
+     * @param array $orderSns 订单号
+     * @param string $billNo 交易号
+     * @return array
+     * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
+     * @returnExample([1,2,3])
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月19日
+     */
+    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): array
+    {
+        return EellyClient::request('order/order', 'checkOrderIsPayed', true, $orderSns, $billNo);
+    }
+
+    /**
+     * 校验订单是否完成.
+     *
+     * @param array $orderSns 订单号
+     * @param string $billNo 交易号
+     * @return array
+     * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
+     * @returnExample([1,2,3])
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月19日
+     */
+    public function checkOrderIsPayedAsync(array $orderSns, string $billNo = '')
+    {
+        return EellyClient::request('order/order', 'checkOrderIsPayed', false, $orderSns, $billNo);
+    }
+
+    /**
+     * 回调订单支付.
+     *
+     * @param string $billNo 衣联交易号
+     * @requestExample({"billNo":"1711114177786cvA2s"})
+     * @returnExample(true)
+     * @return bool
+     *
+     * @Async
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     * @Validation(
+     * @PresenceOf(0,{message:"数据不能为空"})
+     * )
+     */
+    public function setOrderPay(string $billNo): bool
+    {
+        return EellyClient::request('order/order', 'setOrderPay', true, $billNo);
+    }
+
+    /**
+     * 回调订单支付.
+     *
+     * @param string $billNo 衣联交易号
+     * @requestExample({"billNo":"1711114177786cvA2s"})
+     * @returnExample(true)
+     * @return bool
+     *
+     * @Async
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     * @Validation(
+     * @PresenceOf(0,{message:"数据不能为空"})
+     * )
+     */
+    public function setOrderPayAsync(string $billNo)
+    {
+        return EellyClient::request('order/order', 'setOrderPay', false, $billNo);
+    }
+
+    /**
+     * 需要自动结算货款.
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample([{"orderId":"116","orderSn":"1810837219","sellerId":"1762613","buyerId":"2108403","payTime":"1524130597","orderAmount":"19800","freight":"1","commission":"0","applyAmount":null,"returnAmount":null,"applyFreight":null,"returnFreight":null}])
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月05日
+     */
+    public function getNeedConfirmedList(): array
+    {
+        return EellyClient::request('order/order', 'getNeedConfirmedList', true);
+    }
+
+    /**
+     * 需要自动结算货款.
+     *
+     * @return array
+     * @requestExample()
+     * @returnExample([{"orderId":"116","orderSn":"1810837219","sellerId":"1762613","buyerId":"2108403","payTime":"1524130597","orderAmount":"19800","freight":"1","commission":"0","applyAmount":null,"returnAmount":null,"applyFreight":null,"returnFreight":null}])
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月05日
+     */
+    public function getNeedConfirmedListAsync()
+    {
+        return EellyClient::request('order/order', 'getNeedConfirmedList', false);
+    }
+
+    /**
+     * 自动确认成功.
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return bool
+     * @requestExample({"orderId":116})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     */
+    public function operateFinishOrder(int $orderId): bool
+    {
+        return EellyClient::request('order/order', 'operateFinishOrder', true, $orderId);
+    }
+
+    /**
+     * 自动确认成功.
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return bool
+     * @requestExample({"orderId":116})
+     * @returnExample(true)
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月05日
+     */
+    public function operateFinishOrderAsync(int $orderId)
+    {
+        return EellyClient::request('order/order', 'operateFinishOrder', false, $orderId);
+    }
+
+    /**
+     * 订单存在的情况下发起的支付.
+     *
+     * @param array $orderSns 多个订单Id
+     * @param string $openId 微信唯一标识
+     * @return array
+     * @requestExample({"orderSns":[1810802172,1810892762]})
+     * @returnExample({"platform":"wechatPayJs","billNo":"1804206f3430600Gbl","data":{"appId":"wx4570a3e7921ad847","package":"prepay_id=wx20092504076787ea261301530251393671","nonceStr":"ce40cc6e4eb37b4c6a5aed1af2bb0274","timeStamp":"1524187504","signType":"MD5","paySign":"079FC612EDF4E4D589334F41F15616C2"},"orderSn":[1810802172,1810892762]})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月20日
+     */
+    public function orderGoPay(array $orderSns, $type = 'wxSmall', $openId = ''): array
+    {
+        return EellyClient::request('order/order', 'orderGoPay', true, $orderSns, $type, $openId);
+    }
+
+    /**
+     * 订单存在的情况下发起的支付.
+     *
+     * @param array $orderSns 多个订单Id
+     * @param string $openId 微信唯一标识
+     * @return array
+     * @requestExample({"orderSns":[1810802172,1810892762]})
+     * @returnExample({"platform":"wechatPayJs","billNo":"1804206f3430600Gbl","data":{"appId":"wx4570a3e7921ad847","package":"prepay_id=wx20092504076787ea261301530251393671","nonceStr":"ce40cc6e4eb37b4c6a5aed1af2bb0274","timeStamp":"1524187504","signType":"MD5","paySign":"079FC612EDF4E4D589334F41F15616C2"},"orderSn":[1810802172,1810892762]})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月20日
+     */
+    public function orderGoPayAsync(array $orderSns, $type = 'wxSmall', $openId = '')
+    {
+        return EellyClient::request('order/order', 'orderGoPay', false, $orderSns, $type, $openId);
     }
 
     /**

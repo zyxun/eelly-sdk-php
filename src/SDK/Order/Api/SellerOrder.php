@@ -28,6 +28,14 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function searchMyAppletOrders(string $keywords, int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $keywords, $tab, $page, $limit);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function myAppletOrderStats(UidDTO $uidDTO = null): array
@@ -46,9 +54,9 @@ class SellerOrder implements SellerOrderInterface
     /**
      * {@inheritdoc}
      */
-    public function changeAppletOrderPrice(int $orderId, int $price, UidDTO $uidDTO = null): bool
+    public function changeAppletOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $price);
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $price, $freight);
     }
 
     /**
@@ -65,5 +73,13 @@ class SellerOrder implements SellerOrderInterface
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $invoiceCode, $invoiceName, $invoiceNo, $orderIds);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $startTime, $endTime, $sellerId, $type);
     }
 }
