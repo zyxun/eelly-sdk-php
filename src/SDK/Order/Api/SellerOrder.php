@@ -130,7 +130,7 @@ class SellerOrder implements SellerOrderInterface
      *     "totalPages": 23,
      *     "totalItems": 45,
      *     "limit": 2,
-     *     "items":[{"orderId":5000214,"createdTime":1526292190,"goodsName":"test"}, {"orderId":5000215,"createdTime":1526292190,"goodsName":"demo"}]
+     *     "items":[{"orderId":5000214,"createdTime":1526292190,"goodsName":"test","buyerId":148086}, {"orderId":5000215,"createdTime":1526292190,"goodsName":"demo","buyerId":148086}]
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
