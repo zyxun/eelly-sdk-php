@@ -69,16 +69,16 @@ interface AuthorizationServerInterface
      * ```
      * grant_type:client_credentials
      * client_id:myawesomeapp
-     * client_secret:abc123
+     * client_secret:password
      * ```
      * > 密码模式(Resource owner password credentials grant)
      *
      * ```
      * grant_type:password
      * client_id:myawesomeapp
-     * client_secret:abc123
+     * client_secret:password
      * username:molimoq
-     * password:123456
+     * password:password
      * ```
      * > 更新令牌(Refresh token grant)
      *
@@ -86,7 +86,7 @@ interface AuthorizationServerInterface
      * grant_type:refresh_token
      * refresh_token:def50200ab4b466f8fc63758a5f59942954946bcebce0f7d44bf69aeeec4dac9b516847d59125597f6498df032b54b691457a95f0e56d3e0842d2705291707c5a6423f59f088016dc281b9cca2fad92e7e5f166c7ceaae383e5552fab66c9c7a4fc2b968882aa383d1cc47331e59e1b0f4d0520be4cb0d439a4413c6af83a1f0bb55a89550d75d0d5b6d5d9569d6c43e0fbfc57bcac66f08bc74d3db0069cbfaba2dfd7d930f30fedeb599250cace097a8e84be8bc25af0ee74d5483ac73f302d707c265eafef165bd6367793ef2ed0e644ecde0efe9b6a5a0caad72c38590d73cf240a52f134a14e297930a6f4dfc85ad652dc68e1727a034cce10cca1a0a8ad62b66686455cb0dae1e141de29119f19ab4fdc2ee23daa304d0944b7bc4bfbe7d63edab63586465821856ff0b911cae0838d632f18392c9d412fb22b9ae71f06ade9073b4fd12dd056e5049301ca8d24be2b5bbe18ab7a434e694fa4bdbea9cadb200efc37140a8e52a9843de04059afd
      * client_id:myawesomeapp
-     * client_secret:abc123
+     * client_secret:password
      * ```
      *
      * ### 参考

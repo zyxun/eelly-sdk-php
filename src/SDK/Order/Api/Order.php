@@ -659,13 +659,13 @@ class Order implements OrderInterface
      *
      * @param array $orderSns 订单号
      * @param string $billNo 交易号
-     * @return bool
+     * @return array
      * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
-     * @returnExample(true)
+     * @returnExample([1,2,3])
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月19日
      */
-    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): bool
+    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): array
     {
         return EellyClient::request('order/order', 'checkOrderIsPayed', true, $orderSns, $billNo);
     }
@@ -675,9 +675,9 @@ class Order implements OrderInterface
      *
      * @param array $orderSns 订单号
      * @param string $billNo 交易号
-     * @return bool
+     * @return array
      * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
-     * @returnExample(true)
+     * @returnExample([1,2,3])
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月19日
      */
@@ -824,6 +824,66 @@ class Order implements OrderInterface
     public function orderGoPayAsync(array $orderSns, $type = 'wxSmall', $openId = '')
     {
         return EellyClient::request('order/order', 'orderGoPay', false, $orderSns, $type, $openId);
+    }
+
+    /**
+     * 根据订单id，获取订单相关信息
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000214})
+     * @returnExample({"orderId":5000214,"orderSn":1813399100,"sellerId":148086,"buyerId":1762254,"buyerName":"test","orderAmount":1400,"created_time":1526292190})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.15
+     */
+    public function getOrderData(int $orderId):array
+    {
+        return EellyClient::request('order/order', 'getOrderData', true, $orderId);
+    }
+
+    /**
+     * 根据订单id，获取订单相关信息
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000214})
+     * @returnExample({"orderId":5000214,"orderSn":1813399100,"sellerId":148086,"buyerId":1762254,"buyerName":"test","orderAmount":1400,"created_time":1526292190})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.15
+     */
+    public function getOrderDataAsync(int $orderId):array
+    {
+        return EellyClient::request('order/order', 'getOrderData', false, $orderId);
+    }
+
+    /**
+     * 根据传过来的订单ID跟值，更新消息通知标识的值
+     *
+     * @param int $orderId 订单id
+     * @param int $noticeFlag 消息通知标识的值
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function updateOrderNoticeFlag(int $orderId, int $noticeFlag):bool
+    {
+        return EellyClient::request('order/order', 'updateOrderNoticeFlag', true, $orderId, $noticeFlag);
+    }
+
+    /**
+     * 根据传过来的订单ID跟值，更新消息通知标识的值
+     *
+     * @param int $orderId 订单id
+     * @param int $noticeFlag 消息通知标识的值
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function updateOrderNoticeFlagAsync(int $orderId, int $noticeFlag):bool
+    {
+        return EellyClient::request('order/order', 'updateOrderNoticeFlag', false, $orderId, $noticeFlag);
     }
 
     /**

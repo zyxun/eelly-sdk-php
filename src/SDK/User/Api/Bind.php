@@ -239,6 +239,14 @@ class Bind implements BindInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getBindInfo(int $uid, string $appId): array
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, true, $uid, $appId);
+    }
+
+    /**
      * 获取绑定的列表.
      *
      * @param array  $condition
