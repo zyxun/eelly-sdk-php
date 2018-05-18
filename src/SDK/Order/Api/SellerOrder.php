@@ -111,4 +111,33 @@ class SellerOrder implements SellerOrderInterface
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $tab, $page, $limit);
     }
+
+    /**
+     * 获取没有发送待付款订单消息的订单
+     *
+     * @param int    $page   第几页
+     * @param int    $limit  分页大小
+     *
+     * @return array
+     * @requestExample({"tab":1, "page":2, "limit":10})
+     * @returnExample(
+     * {
+     *     "first": 1,
+     *     "before": 1,
+     *     "current": 1,
+     *     "last": 23,
+     *     "next": 2,
+     *     "totalPages": 23,
+     *     "totalItems": 45,
+     *     "limit": 2,
+     *     "items":[{"orderId":5000214,"createdTime":1526292190,"goodsName":"test","buyerId":148086}, {"orderId":5000215,"createdTime":1526292190,"goodsName":"demo","buyerId":148086}]
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function listPendingPaymentOrderMessage(int $page, int $limit):array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $page, $limit);
+    }
 }
