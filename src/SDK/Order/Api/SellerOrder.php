@@ -82,4 +82,33 @@ class SellerOrder implements SellerOrderInterface
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $startTime, $endTime, $sellerId, $type);
     }
+
+    /**
+     * 获取店铺列表某种状态下的订单数量
+     *
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $page   第几页
+     * @param int    $limit  分页大小
+     *
+     * @return array
+     * @requestExample({"tab":1, "page":2, "limit":10})
+     * @returnExample(
+     * {
+     *     "first": 1,
+     *     "before": 1,
+     *     "current": 1,
+     *     "last": 23,
+     *     "next": 2,
+     *     "totalPages": 23,
+     *     "totalItems": 45,
+     *     "limit": 2,
+     *     "items":[{"sellerId":148086,"num":10}, {"sellerId":2108400,"num":1}]
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     */
+    public function listStoreOrdersNum(int $tab = 0, int $page = 1, int $limit = 20): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $tab, $page, $limit);
+    }
 }
