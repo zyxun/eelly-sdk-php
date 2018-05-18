@@ -513,4 +513,5 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array;
+    
 }

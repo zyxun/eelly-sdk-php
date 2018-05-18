@@ -36,5 +36,5 @@ interface SubjectVoucherAccountingInterface
      * @author wechan<liweiquan@eelly.net>
      * @since  2017年11月15日
      */
-    public function payAccounting(array $data) : void;
+    public function payAccounting(array $data) : bool;
 }
