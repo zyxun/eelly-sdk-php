@@ -136,4 +136,48 @@ interface BindInterface
      * @since  2017/9/27
      */
     public function listBindPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 获取应用绑定信息.
+     *
+     * @param int $uid  用户id
+     * @param string $appId  app id
+     *
+     * @return array
+     *
+     * @requestExample({"uid":148086,"appId":"xxxx"})
+     *
+     * @returnExample({
+     *     "ubId": "1",
+     *     "userId": "148086",
+     *     "type": "1",
+     *     "nickname": "bW8=",
+     *     "unionId": "xxxx",
+     *     "openId": "xxxx",
+     *     "appId": "xxxx",
+     *     "status": "1",
+     *     "createdTime": "0",
+     *     "updateTime": "2017-11-03 15:30:00"
+     * })
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getBindInfo(int $uid, string $appId): array;
+
+    /**
+     * 绑定第三方应用信息.
+     *
+     * @param int    $uid      用户ID
+     * @param int    $type     绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
+     * @param string $nickname 第三方平台昵称
+     * @param string $unionId  第三方平台union_id
+     * @param string $openId   第三方平台open_id
+     * @param string $appId    微信公众平台ID,对应mobile.mobile_wechat表appid字段
+     * @param int    $status   绑定状态：1 绑定状态 2 解绑状态
+     *
+     * @return bool
+     * 
+     * @author hehui<hehui@eelly.net>
+     */
+    public function bindUserAppInfo(int $uid, int $type, string $nickname, string $unionId, string $openId, string $appId, int $status): bool;
 }
