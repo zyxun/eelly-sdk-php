@@ -34,12 +34,13 @@ interface AppletPayRecordInterface
      *
      * @param int $storeId 店铺id
      * @param int $type 1.今日收入列表 2.累计收入列表 3.累计支出列表
+     * @param int $page 分页
      * @return array
      *
      * @author wechan
      * @since  2018年05月19日
      */
-    public function getSellerPayRecordsList($storeId, $type): array;
+    public function getSellerPayRecordsList(int $storeId, int $type, int $page = 1): array;
     
     
     /**
@@ -63,5 +64,5 @@ interface AppletPayRecordInterface
      * @author wechan
      * @since  2018年05月19日
      */
-    public function getSellerPayRecordsDetails($payRecordId): array;
+    public function getSellerPayRecordsDetails(int $payRecordId): array;
 }
