@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Pay\Service;
+use Eelly\DTO\UidDTO;
 
 /**
  * 小程序资金.
@@ -40,4 +41,14 @@ interface AppletAccountInterface
      * @author hehui<hehui@eelly.net>
      */
     public function statistics(UidDTO $uidDTO = null): array;
+
+    /**
+     * 获取我绑定的银行账户.
+     *
+     * @param UidDTO|null $uidDTO  uid dto
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function myBindBanks(UidDTO $uidDTO = null): array;
 }
