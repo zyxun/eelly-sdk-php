@@ -232,6 +232,22 @@ class Bank implements BankInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function listBanks(): array
+    {
+        return EellyClient::request('system/bank', __FUNCTION__, true);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function updateBankLogo(int $bankId, string $logo): bool
+    {
+        return EellyClient::request('system/bank', __FUNCTION__, true, $bankId, $logo);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
