@@ -29,7 +29,7 @@ interface ApplyWithdrawInterface
      *
      * key | type |  value
      * --- | ---- | -------
-     * pb                          | int    |  用户账户id(钱包Id)
+     * pbId                        | int    |  用户账户id(钱包Id)
      * commissionRatio             | float  |  提现手续费率
      * money                       | int    |  账户可用金额(分)
      * todayApplyTimes             | int    |  今日还可提现次数
