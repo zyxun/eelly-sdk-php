@@ -15,6 +15,11 @@ namespace Eelly\SDK\Pay\Service;
 
 use Eelly\DTO\UidDTO;
 
+/**
+ * 申请提现.
+ * 
+ * @author hehui<hehui@eelly.net>
+ */
 interface ApplyWithdrawInterface
 {
     /**
