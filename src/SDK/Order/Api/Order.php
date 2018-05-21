@@ -826,6 +826,41 @@ class Order implements OrderInterface
         return EellyClient::request('order/order', 'orderGoPay', false, $orderSns, $type, $openId);
     }
 
+
+    /**
+     * {@inheritdoc}.
+     * @param array $data 查询条件
+     * @param int $page  第几页
+     * @param int $limit 查询条数
+     * @param string $orderBy
+     * @return array
+     */
+    public function getManageOrder(array $data, int $page = 1, int $limit = 10, string $orderBy = 'created_time DESC'): array
+    {
+        return EellyClient::request('order/order', __FUNCTION__, true, $data, $page, $limit, $orderBy);
+    }
+
+    /**
+     * 获取管理后台统计数据.
+     * @param array $data 查询条件
+     * @return array
+     */
+    public function getManageOrderStat(array $data): array
+    {
+        return EellyClient::request('order/order', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * {@inheritdoc}.
+     * @param int $orderId 订单Id
+     * @return array
+     */
+    public function getManageOderInfo(int $orderId): array
+    {
+        return EellyClient::request('order/order', __FUNCTION__, true, $orderId);
+    }
+
+
     /**
      * 根据订单id，获取订单相关信息
      *
