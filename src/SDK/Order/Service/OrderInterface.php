@@ -384,7 +384,6 @@ interface OrderInterface
     public function orderGoPay(array $orderSns, $type = 'wxSmall', $openId = ''): array;
 
     /**
-<<<<<<< Updated upstream
      * 根据订单id，获取订单相关信息
      *
      * @param int $orderId 订单id
