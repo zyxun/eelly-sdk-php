@@ -579,4 +579,21 @@ interface SellerOrderInterface
      * @since 2018.05.19
      */
     public function getOrderMessageInfo(int $orderId):array;
+    
+    /**
+     * 获取等待结算订单金额(等待结算：包含等待卖家发货、等待买家收货、集赞中待分享、集赞成功等待发货、退货退款中)
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * sum | int  |  等待结算订单金额 
+     * 
+     * @param int $storeId 店铺id
+     * @return int
+     * 
+     * @author wechan
+     * @since 2018年
+     */
+    public function getWaitingSettlementOrderMoney(int $storeId):array;
 }
