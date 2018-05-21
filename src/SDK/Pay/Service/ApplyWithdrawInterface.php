@@ -33,7 +33,7 @@ interface ApplyWithdrawInterface
      * commissionRatio             | float  |  提现手续费率
      * money                       | int    |  账户可用金额(分)
      * todayApplyTimes             | int    |  今日还可提现次数
-     * defaultBank                 | map    |  默认银行信息
+     * defaultBank                 | map    |  默认银行信息(没设置默认返回null)
      * defaultBank['pbId']         | int    |  银行id
      * defaultBank['bankName']     | int    |  银行名称
      * defaultBank['bankAccount']  | int    |  银行账号
@@ -43,6 +43,29 @@ interface ApplyWithdrawInterface
      *
      * @return array
      *
+     * @requestExample({"storeId":148086})
+     *
+     * @returnExample(
+     * {
+     *     "paId": "3",
+     *     "commissionRatio": "0.000",
+     *     "money": "0",
+     *     "todayApplyTimes": 1,
+     *     "defaultBank": {
+     *         "pbId": "6",
+     *         "userId": "148086",
+     *         "gbCode": "0",
+     *         "bankId": "1",
+     *         "bankName": "中行上海分行",
+     *         "bankSubbranch": "",
+     *         "bankAccount": "9843010902492123",
+     *         "realName": "molimoq",
+     *         "phone": "13800138000",
+     *         "isDefault": "1",
+     *         "createdTime": "1510388565",
+     *         "updateTime": "2018-05-21 11:49:49"
+     *     }
+     * })
      * @author hehui<hehui@eelly.net>
      */
     public function prepareApplyForm(int $storeId, UidDTO $uidDTO = null): array;
