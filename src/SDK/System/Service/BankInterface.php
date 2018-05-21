@@ -127,9 +127,12 @@ interface BankInterface
     /**
      * 更新银行logo.
      *
-     * @param int $bankId
-     * @param string $logo
+     * @param int    $bankId 银行id
+     * @param string $logo   银行logo url
+     *
      * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function updateBankLogo(int $bankId, string $logo): bool;
 }

@@ -13,20 +13,19 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Service;
 
-
 /**
- * 系统相关信息
+ * 系统相关信息.
  *
  * @author zhangyingdi<zhangyingdi@eelly.net>
  */
 interface SystemInterface
 {
     /**
-     * 获取当前系统时间
+     * 获取当前系统时间.
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since   2018.01.31
      */
     public function getSystemTime(): int;
-
 }
