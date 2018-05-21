@@ -81,6 +81,15 @@ interface ApplyWithdrawInterface
      *
      * @return bool
      *
+     * @requestExample({
+     *      "paId": 3,
+     *      "pbId": 6,
+     *      "money": 10,
+     *      "payPassword": "123456"
+     * })
+     *
+     * @returnExample(true)
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function applyForBank(int $paId, int $pbId, int $money, string $payPassword, UidDTO $uidDTO = null): bool;
