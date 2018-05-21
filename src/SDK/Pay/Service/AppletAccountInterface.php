@@ -35,13 +35,14 @@ interface AppletAccountInterface
      * waitingSettlementMoney  | int    | 等待结算(分)
      * payingMoney             | int    | 累计支出(分)
      *
-     * @param UidDTO $uidDTO uid dto(该参数不需要，代表需要登录)
+     * @param int $storeId 店铺id
      *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
+     * @author wechan
      */
-    public function statistics(UidDTO $uidDTO = null): array;
+    public function statistics(int $storeId): array;
 
     /**
      * 获取我绑定的银行账户.
