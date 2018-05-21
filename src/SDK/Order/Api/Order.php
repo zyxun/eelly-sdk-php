@@ -859,6 +859,34 @@ class Order implements OrderInterface
     }
 
     /**
+     * 根据传过来的订单ID跟值，更新消息通知标识的值
+     *
+     * @param int $orderId 订单id
+     * @param int $noticeFlag 消息通知标识的值
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function updateOrderNoticeFlag(int $orderId, int $noticeFlag):bool
+    {
+        return EellyClient::request('order/order', 'updateOrderNoticeFlag', true, $orderId, $noticeFlag);
+    }
+
+    /**
+     * 根据传过来的订单ID跟值，更新消息通知标识的值
+     *
+     * @param int $orderId 订单id
+     * @param int $noticeFlag 消息通知标识的值
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function updateOrderNoticeFlagAsync(int $orderId, int $noticeFlag):bool
+    {
+        return EellyClient::request('order/order', 'updateOrderNoticeFlag', false, $orderId, $noticeFlag);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

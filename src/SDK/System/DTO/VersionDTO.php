@@ -21,14 +21,14 @@ use Eelly\DTO\AbstractDTO;
 class VersionDTO extends AbstractDTO
 {
     /**
-     * 版本ID，自增主键
+     * 版本ID，自增主键.
      *
      * @var int
      */
     public $versionId;
 
     /**
-     * 应用名称
+     * 应用名称.
      *
      * @var string
      */
@@ -42,35 +42,35 @@ class VersionDTO extends AbstractDTO
     public $downUrl;
 
     /**
-     * 版本号
+     * 版本号.
      *
      * @var string
      */
     public $version;
 
     /**
-     * 版本名称
+     * 版本名称.
      *
      * @var string
      */
     public $verName;
 
     /**
-     * 是否强制更新：0 否 1 是
+     * 是否强制更新：0 否 1 是.
      *
      * @var int
      */
     public $isForced;
 
     /**
-     * 备注
+     * 备注.
      *
      * @var string
      */
     public $remark;
 
     /**
-     * 添加时间
+     * 添加时间.
      *
      * @var int
      */
