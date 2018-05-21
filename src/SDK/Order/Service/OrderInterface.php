@@ -406,7 +406,8 @@ interface OrderInterface
      * @since 2018.05.18
      */
     public function updateOrderNoticeFlag(int $orderId, int $noticeFlag):bool;
-    /*
+
+    /**
      * 获取管理后台的数据列表.
      *
      * @param array $data 查询条件
