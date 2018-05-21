@@ -22,7 +22,6 @@ use Eelly\SDK\System\DTO\FloorDTO;
  */
 interface FloorInterface
 {
-
     /**
      * 获取楼层信息.
      *
@@ -50,6 +49,7 @@ interface FloorInterface
      * @returnExample({"floorId":"6397","marketId":"177","floorName":"1层","floorStores":"0","floorServer":"","category":"","sort":"65535","remark":"","createdTime":"0","updateTime":"2017-11-27 11:32:04"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017年11月27日
      *
      * @validation(
@@ -57,5 +57,4 @@ interface FloorInterface
      * )
      */
     public function getFloor(int $floorId): FloorDTO;
-
 }
