@@ -251,4 +251,21 @@ interface WithdrawInterface
      * @since 2018年05月22日
      */
     public function getApplyWidthDrawList(string $conditions = "", array $binds = [], int $page = 1, int $limit = 10):array;
+    
+    /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * count  | int    |  数量
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawListCount(string $conditions = "", array $binds = []):array;
 }
