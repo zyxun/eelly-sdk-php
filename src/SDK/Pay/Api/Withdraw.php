@@ -514,6 +514,46 @@ class Withdraw implements WithdrawInterface
     }
 
     /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * count  | int    |  数量
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawListCount(string $conditions = '', array $binds = []): array
+    {
+        return EellyClient::request('pay/withdraw', 'getApplyWidthDrawListCount', true, $conditions, $binds);
+    }
+
+    /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * count  | int    |  数量
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawListCountAsync(string $conditions = '', array $binds = [])
+    {
+        return EellyClient::request('pay/withdraw', 'getApplyWidthDrawListCount', false, $conditions, $binds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
