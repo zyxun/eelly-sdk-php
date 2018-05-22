@@ -215,4 +215,40 @@ interface WithdrawInterface
      * @since  2017年11月16日
      */
     public function goWithdraw(array $data): array ;
+    
+    
+    /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * pwId             | int    |  提现交易ID
+     * paId             | int    |  会员帐户ID
+     * money            | int    |  提现金额
+     * gbCode           | int    |  银行地区ID
+     * bankId           | int    |  银行地区ID
+     * bankName         | string |  提现银行名称
+     * bankSubbranch    | string |  支行名称
+     * bankAccount      | string |  银行账号/支付宝账号/微信绑定open_id
+     * billNo           | string |  衣联交易号
+     * thirdNo          | string |  第三方交易号(支付宝/微信/银联)
+     * status           | int    |  处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * remark           | string |  备注
+     * handleTime       | int    |  处理时间
+     * createdTime      | int    |  添加时间
+     * commissionRatio  | float  |  提现手续费率
+     * storeId          | int    |  店铺ID
+     * userId           | int    |  用户ID
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * @param int    $page       页数
+     * @param int    $limit      每页条数
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawList(string $conditions = "", array $binds = [], int $page = 1, int $limit = 10):array;
 }
