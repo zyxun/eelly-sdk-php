@@ -554,6 +554,50 @@ class Withdraw implements WithdrawInterface
     }
 
     /**
+     * 统计提现申请列表金额
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * sumMoney         | int    |  总提现金额
+     * commissionMoney  | int    |  提现佣金
+     * realMoney        | int    |  实际提现金额
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function statisticsApplyWidthDraw(string $conditions = '', array $binds = []): array
+    {
+        return EellyClient::request('pay/withdraw', 'statisticsApplyWidthDraw', true, $conditions, $binds);
+    }
+
+    /**
+     * 统计提现申请列表金额
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * sumMoney         | int    |  总提现金额
+     * commissionMoney  | int    |  提现佣金
+     * realMoney        | int    |  实际提现金额
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function statisticsApplyWidthDrawAsync(string $conditions = '', array $binds = [])
+    {
+        return EellyClient::request('pay/withdraw', 'statisticsApplyWidthDraw', false, $conditions, $binds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
