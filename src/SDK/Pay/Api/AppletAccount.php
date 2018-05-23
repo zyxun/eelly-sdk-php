@@ -22,9 +22,9 @@ class AppletAccount implements AppletAccountInterface
     /**
      * {@inheritdoc}
      */
-    public function statistics(UidDTO $uidDTO = null): array
+    public function statistics(int $storeId): array
     {
-        return EellyClient::request('pay/appletAccount', __FUNCTION__, true);
+        return EellyClient::request('pay/appletAccount', __FUNCTION__, true, $storeId);
     }
 
     /**

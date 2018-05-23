@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 
 /**
  * 申请提现.
- * 
+ *
  * @author hehui<hehui@eelly.net>
  */
 interface ApplyWithdrawInterface
@@ -66,6 +66,7 @@ interface ApplyWithdrawInterface
      *         "updateTime": "2018-05-21 11:49:49"
      *     }
      * })
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function prepareApplyForm(int $storeId, UidDTO $uidDTO = null): array;
@@ -93,4 +94,21 @@ interface ApplyWithdrawInterface
      * @author hehui<hehui@eelly.net>
      */
     public function applyForBank(int $paId, int $pbId, int $money, string $payPassword, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 更新提现状态.
+     *
+     * @param int    $pwId   提现交易ID
+     * @param int    $status 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * @param string $remark 备注
+     *
+     * @return bool
+     *
+     * @requestExample({"pwId":3, "status": 3})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function updateWithdrawStatus(int $pwId, int $status, string $remark = ''): bool;
 }

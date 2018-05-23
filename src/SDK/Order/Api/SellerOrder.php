@@ -28,7 +28,7 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function searchMyAppletOrders(string $keywords, int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array
     {
@@ -68,7 +68,7 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
     {
@@ -76,7 +76,7 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array
     {
@@ -84,11 +84,11 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取店铺列表某种状态下的订单数量
+     * 获取店铺列表某种状态下的订单数量.
      *
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
+     * @param int $tab   订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int $page  第几页
+     * @param int $limit 分页大小
      *
      * @return array
      * @requestExample({"tab":1, "page":2, "limit":10})
@@ -113,10 +113,10 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取没有发送待付款订单消息的订单
+     * 获取没有发送待付款订单消息的订单.
      *
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
+     * @param int $page  第几页
+     * @param int $limit 分页大小
      *
      * @return array
      * @requestExample({"tab":1, "page":2, "limit":10})
@@ -134,25 +134,28 @@ class SellerOrder implements SellerOrderInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.18
      */
-    public function listPendingPaymentOrderMessage(int $page, int $limit):array
+    public function listPendingPaymentOrderMessage(int $page, int $limit): array
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $page, $limit);
     }
 
     /**
-     * 根据传过来的订单ID，返回要发送消息相关数据
+     * 根据传过来的订单ID，返回要发送消息相关数据.
      *
-     * @param int $orderId  订单id
+     * @param int $orderId 订单id
+     *
      * @return array
      * @requestExample({"orderId":1})
      * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.19
      */
-    public function getOrderMessageInfo(int $orderId):array
+    public function getOrderMessageInfo(int $orderId): array
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
     }
