@@ -1001,7 +1001,6 @@ class SellerOrder implements SellerOrderInterface
      * @param UidDTO|null $uidDTO    uid dto
      * @return bool
      * @author hehui<hehui@eelly.net>
-=======
      * {@inheritdoc}
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
@@ -1207,8 +1206,6 @@ class SellerOrder implements SellerOrderInterface
      *
      * @since 2018.05.19
      */
-    public function getOrderMessageInfoAsync(int $orderId)
-      
     public function getOrderMessageInfo(int $orderId): array
     {
         return EellyClient::request('order/sellerOrder', 'getOrderMessageInfo', false, $orderId);
@@ -1514,8 +1511,6 @@ class SellerOrder implements SellerOrderInterface
      * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net
-     
-     
      *
      * @since 2018.05.19
      */
