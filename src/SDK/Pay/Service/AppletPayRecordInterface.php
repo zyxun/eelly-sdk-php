@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Eelly\SDK\Pay\Service;
 
 /**
- * 小程序.
+ * 会员核心交易数据
  *
  * @author wechan
  */
@@ -27,6 +27,7 @@ interface AppletPayRecordInterface
      *
      * key | type |  value
      * --- | ---- | -------
+     * prId          | int    | 交易ID
      * type          | int    | 明细类型:0.支出 1.收入
      * money         | int    | 金额
      * time          | int    | 时间戳

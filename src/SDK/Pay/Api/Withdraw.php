@@ -438,6 +438,166 @@ class Withdraw implements WithdrawInterface
     }
 
     /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * pwId             | int    |  提现交易ID
+     * paId             | int    |  会员帐户ID
+     * money            | int    |  提现金额
+     * gbCode           | int    |  银行地区ID
+     * bankId           | int    |  银行地区ID
+     * bankName         | string |  提现银行名称
+     * bankSubbranch    | string |  支行名称
+     * bankAccount      | string |  银行账号/支付宝账号/微信绑定open_id
+     * billNo           | string |  衣联交易号
+     * thirdNo          | string |  第三方交易号(支付宝/微信/银联)
+     * status           | int    |  处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * remark           | string |  备注
+     * handleTime       | int    |  处理时间
+     * createdTime      | int    |  添加时间
+     * commissionRatio  | float  |  提现手续费率
+     * storeId          | int    |  店铺ID
+     * userId           | int    |  用户ID
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * @param int    $page       页数
+     * @param int    $limit      每页条数
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawList(string $conditions = '', array $binds = [], int $page = 1, int $limit = 10): array
+    {
+        return EellyClient::request('pay/withdraw', 'getApplyWidthDrawList', true, $conditions, $binds, $page, $limit);
+    }
+
+    /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * pwId             | int    |  提现交易ID
+     * paId             | int    |  会员帐户ID
+     * money            | int    |  提现金额
+     * gbCode           | int    |  银行地区ID
+     * bankId           | int    |  银行地区ID
+     * bankName         | string |  提现银行名称
+     * bankSubbranch    | string |  支行名称
+     * bankAccount      | string |  银行账号/支付宝账号/微信绑定open_id
+     * billNo           | string |  衣联交易号
+     * thirdNo          | string |  第三方交易号(支付宝/微信/银联)
+     * status           | int    |  处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * remark           | string |  备注
+     * handleTime       | int    |  处理时间
+     * createdTime      | int    |  添加时间
+     * commissionRatio  | float  |  提现手续费率
+     * storeId          | int    |  店铺ID
+     * userId           | int    |  用户ID
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * @param int    $page       页数
+     * @param int    $limit      每页条数
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawListAsync(string $conditions = '', array $binds = [], int $page = 1, int $limit = 10)
+    {
+        return EellyClient::request('pay/withdraw', 'getApplyWidthDrawList', false, $conditions, $binds, $page, $limit);
+    }
+
+    /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * count  | int    |  数量
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawListCount(string $conditions = '', array $binds = []): array
+    {
+        return EellyClient::request('pay/withdraw', 'getApplyWidthDrawListCount', true, $conditions, $binds);
+    }
+
+    /**
+     * 获取提现申请列表
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * count  | int    |  数量
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function getApplyWidthDrawListCountAsync(string $conditions = '', array $binds = [])
+    {
+        return EellyClient::request('pay/withdraw', 'getApplyWidthDrawListCount', false, $conditions, $binds);
+    }
+
+    /**
+     * 统计提现申请列表金额
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * sumMoney         | int    |  总提现金额
+     * commissionMoney  | int    |  提现佣金
+     * realMoney        | int    |  实际提现金额
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function statisticsApplyWidthDraw(string $conditions = '', array $binds = []): array
+    {
+        return EellyClient::request('pay/withdraw', 'statisticsApplyWidthDraw', true, $conditions, $binds);
+    }
+
+    /**
+     * 统计提现申请列表金额
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * sumMoney         | int    |  总提现金额
+     * commissionMoney  | int    |  提现佣金
+     * realMoney        | int    |  实际提现金额
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * 
+     * @author wechan
+     * @since 2018年05月22日
+     */
+    public function statisticsApplyWidthDrawAsync(string $conditions = '', array $binds = [])
+    {
+        return EellyClient::request('pay/withdraw', 'statisticsApplyWidthDraw', false, $conditions, $binds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

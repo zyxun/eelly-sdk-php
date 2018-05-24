@@ -24,7 +24,7 @@ class ApplyWithdraw implements ApplyWithdrawInterface
      */
     public function prepareApplyForm(int $storeId, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('pay/applyWotjdraw', __FUNCTION__, true, $storeId);
+        return EellyClient::request('pay/applyWithdraw', __FUNCTION__, true, $storeId);
     }
 
     /**
@@ -32,6 +32,14 @@ class ApplyWithdraw implements ApplyWithdrawInterface
      */
     public function applyForBank(int $paId, int $pbId, int $money, string $payPassword, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('pay/applyWotjdraw', __FUNCTION__, true, $paId, $pbId, $money, $payPassword);
+        return EellyClient::request('pay/applyWithdraw', __FUNCTION__, true, $paId, $pbId, $money, $payPassword);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateWithdrawStatus(int $pwId, int $status, string $remark = ''): bool
+    {
+        return EellyClient::request('pay/applyWithdraw', __FUNCTION__, true, $pwId, $status, $remark);
     }
 }
