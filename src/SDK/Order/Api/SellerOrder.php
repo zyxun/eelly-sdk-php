@@ -1001,9 +1001,7 @@ class SellerOrder implements SellerOrderInterface
      * @param UidDTO|null $uidDTO    uid dto
      * @return bool
      * @author hehui<hehui@eelly.net>
-=======
      * {@inheritdoc}
->>>>>>> 316db817c8949f7e1d7983aeabe126946132a7ca
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
     {
@@ -1512,7 +1510,7 @@ class SellerOrder implements SellerOrderInterface
      * @requestExample({"orderId":1})
      * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
      *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net
      *
      * @since 2018.05.19
      */
