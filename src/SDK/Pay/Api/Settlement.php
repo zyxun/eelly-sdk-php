@@ -20,27 +20,8 @@ class Settlement implements SettlementInterface
     /**
      * {@inheritdoc}
      */
-    public function queryOrder(
-        int $storeId,
-        int $orderId,
-        string $orderSn,
-        int $orderAmount,
-        int $initGoodsAmount,
-        int $initFreight,
-        int $discountAmount,
-        int $returnAmount,
-        int $returnFreight
-    ): bool {
-        return EellyClient::request('pay/settlement', __FUNCTION__, true,
-            $storeId,
-            $orderId,
-            $orderSn,
-            $orderAmount,
-            $initGoodsAmount,
-            $initFreight,
-            $discountAmount,
-            $returnAmount,
-            $returnFreight
-        );
+    public function queryOrder(array $orderInfo): bool
+    {
+        return EellyClient::request('pay/settlement', __FUNCTION__, true, $orderInfo);
     }
 }
