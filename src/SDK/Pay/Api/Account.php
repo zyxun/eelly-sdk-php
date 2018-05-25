@@ -546,7 +546,7 @@ class Account implements AccountInterface
      */
     public function synchrodata(array $data, int $type): bool
     {
-        return EellyClient::request('pay/account', __FUNCTION__, false, $data, $type);
+        return EellyClient::request('pay/account', __FUNCTION__, true, $data, $type);
     }
 
     /**
