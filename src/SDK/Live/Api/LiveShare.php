@@ -66,4 +66,17 @@ class LiveShare implements LiveShareInterface
     {
         return EellyClient::request('live/liveShare', __FUNCTION__, true, $uniqueFlag, $type);
     }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
+    }
 }
