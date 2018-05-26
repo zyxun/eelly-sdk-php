@@ -38,7 +38,7 @@ class LiveShare implements LiveShareInterface
      */
     public function share(int $liveId, string $type = null, UidDTO $user = null)
     {
-        return EellyClient::request('live/liveShare', __FUNCTION__, true, $liveId, $type);
+        return EellyClient::request('live/liveShare', __FUNCTION__, true, $liveId, $type, $user);
     }
 
     /**
@@ -64,7 +64,7 @@ class LiveShare implements LiveShareInterface
      */
     public function shareFeedback(string $uniqueFlag, string $type = null, UidDTO $user = null)
     {
-        return EellyClient::request('live/liveShare', __FUNCTION__, true, $uniqueFlag, $type);
+        return EellyClient::request('live/liveShare', __FUNCTION__, true, $uniqueFlag, $type, $user);
     }
 
     /**
