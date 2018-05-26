@@ -33,23 +33,21 @@ class LiveShare implements LiveShareInterface
      * 
      * @requestExample({
      *     "liveId":1,
+     *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
      *     "type":"小程序-分享"
      * })
      * @returnExample({
      *     "code":200,
-     *     "msg":"分享信息记录成功",
-     *     "data":{
-     *      "uniqueFlag":"5b07c5b5b7490"
-     *    }
+     *     "msg":"分享信息记录成功"
      * })
      *
      * @author sunanzhi<sunanzhi@hotmail.com>
      *
      * @since 2018年5月25日
      */
-    public function share(int $liveId, string $type = null, UidDTO $user = null): string
+    public function share(int $liveId, string $uniqueFlag, string $type = null, UidDTO $user = null): string
     {
-        return EellyClient::request('live/liveShare', 'share', true, $liveId, $type, $user);
+        return EellyClient::request('live/liveShare', 'share', true, $liveId, $uniqueFlag, $type, $user);
     }
 
     /**
@@ -63,36 +61,34 @@ class LiveShare implements LiveShareInterface
      * 
      * @requestExample({
      *     "liveId":1,
+     *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
      *     "type":"小程序-分享"
      * })
      * @returnExample({
      *     "code":200,
-     *     "msg":"分享信息记录成功",
-     *     "data":{
-     *      "uniqueFlag":"5b07c5b5b7490"
-     *    }
+     *     "msg":"分享信息记录成功"
      * })
      *
      * @author sunanzhi<sunanzhi@hotmail.com>
      *
      * @since 2018年5月25日
      */
-    public function shareAsync(int $liveId, string $type = null, UidDTO $user = null)
+    public function shareAsync(int $liveId, string $uniqueFlag, string $type = null, UidDTO $user = null)
     {
-        return EellyClient::request('live/liveShare', 'share', false, $liveId, $type, $user);
+        return EellyClient::request('live/liveShare', 'share', false, $liveId, $uniqueFlag, $type, $user);
     }
 
     /**
      * 进入分享反馈.
      *
-     * @param string $uniqueFlag 直播间分享返回的唯一标识
+     * @param string $uniqueFlag 直播间分享提供的唯一标识
      * @param string $type       进入直播间的类型 [小程序进入、pc端进入]
      * @param UidDTO $user       当前登陆的用户
      *
      * @return string
      * 
      * @requestExample({
-     *     "uniqueFlag":"5b07c5b5b7490",
+     *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
      *     "type":"小程序进入"
      * })
      *
@@ -113,14 +109,14 @@ class LiveShare implements LiveShareInterface
     /**
      * 进入分享反馈.
      *
-     * @param string $uniqueFlag 直播间分享返回的唯一标识
+     * @param string $uniqueFlag 直播间分享提供的唯一标识
      * @param string $type       进入直播间的类型 [小程序进入、pc端进入]
      * @param UidDTO $user       当前登陆的用户
      *
      * @return string
      * 
      * @requestExample({
-     *     "uniqueFlag":"5b07c5b5b7490",
+     *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
      *     "type":"小程序进入"
      * })
      *
