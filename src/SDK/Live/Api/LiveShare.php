@@ -28,6 +28,9 @@ class LiveShare implements LiveShareInterface
      * @param int    $liveId 当前进入的直播间id
      * @param string $type   直播间的类型 [app-分享、pc端-分享、小程序-分享]
      * @param UidDTO $user   当前登陆的用户
+     * 
+     * @return string
+     * 
      * @requestExample({
      *     "liveId":1,
      *     "type":"小程序-分享"
@@ -44,7 +47,7 @@ class LiveShare implements LiveShareInterface
      *
      * @since 2018年5月25日
      */
-    public function share(int $liveId, string $type = null, UidDTO $user = null)
+    public function share(int $liveId, string $type = null, UidDTO $user = null): string
     {
         return EellyClient::request('live/liveShare', 'share', true, $liveId, $type, $user);
     }
@@ -55,6 +58,9 @@ class LiveShare implements LiveShareInterface
      * @param int    $liveId 当前进入的直播间id
      * @param string $type   直播间的类型 [app-分享、pc端-分享、小程序-分享]
      * @param UidDTO $user   当前登陆的用户
+     * 
+     * @return string
+     * 
      * @requestExample({
      *     "liveId":1,
      *     "type":"小程序-分享"
@@ -83,6 +89,8 @@ class LiveShare implements LiveShareInterface
      * @param string $type       进入直播间的类型 [小程序进入、pc端进入]
      * @param UidDTO $user       当前登陆的用户
      *
+     * @return string
+     * 
      * @requestExample({
      *     "uniqueFlag":"5b07c5b5b7490",
      *     "type":"小程序进入"
@@ -97,7 +105,7 @@ class LiveShare implements LiveShareInterface
      *
      * @since 2018年5月25日
      */
-    public function shareFeedback(string $uniqueFlag, string $type = null, UidDTO $user = null)
+    public function shareFeedback(string $uniqueFlag, string $type = null, UidDTO $user = null): string
     {
         return EellyClient::request('live/liveShare', 'shareFeedback', true, $uniqueFlag, $type, $user);
     }
@@ -109,6 +117,8 @@ class LiveShare implements LiveShareInterface
      * @param string $type       进入直播间的类型 [小程序进入、pc端进入]
      * @param UidDTO $user       当前登陆的用户
      *
+     * @return string
+     * 
      * @requestExample({
      *     "uniqueFlag":"5b07c5b5b7490",
      *     "type":"小程序进入"
