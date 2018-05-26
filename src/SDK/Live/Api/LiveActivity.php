@@ -14,7 +14,7 @@ namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\LiveActivityInterface;
-use Eelly\SDK\Live\Service\UidDTO;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -23,55 +23,175 @@ use Eelly\SDK\Live\Service\UidDTO;
 class LiveActivity implements LiveActivityInterface
 {
     /**
-     * 设置活动列表页
-     * 
-     * > 返回数据说明
-     * 
-     * key | type |  value
-     * --- | ---- | -------
-     * laId             |   int      |   直播活动ID
-     * title            |   string   |   直播活动标题
-     * taskRequired     |   string   |   任务要求
-     * awardType        |   array    |   奖励类型：1 送店铺商品 2 直播时主播公布
-     * status           |   int      |   状态：0 未开启 1 已开启
-     * awardTypeSelected|   int      |   默认选择的奖励类型
-     * awardNumber      |   int      |   默认选择的人数
-     * 
-     * 
-     * @param int $liveId 直播id
-     * 
-     * @author wechan
-     * @since 2018年05月25日
+     * 设置活动列表页.
+     *
+     * ## 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------------|-------|--------------
+     * title             |string |标题
+     * required          |string |任务要求
+     * colorRequire      |string |带颜色字体
+     * awardType         |array  |奖品类型
+     * awardTypeSelected |int    |选中类型
+     * status            |int    |活动状态，1开启，0表示关闭
+     * awardNumber       |int    |奖励人数
+     *
+     * @param int $liveId 直播ID
+     * @param UidDTO|null $uidDTO
+     * @return array
+     *
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月26日
+     * @requestExample({"liveId":1})
+     * @returnExample([
+     *   {
+     *       "title": "直播间引流活动 ①",
+     *       "required": "分享我的直播速度最快的前N名用户",
+     *       "colorRequire": "速度最快",
+     *       "awardType": [
+     *           {
+     *               "awardId": 1,
+     *               "name": "送店铺商品"
+     *           },
+     *           {
+     *               "awardId": 2,
+     *               "name": "直播时主播公布"
+     *           }
+     *       ],
+     *       "awardTypeSelected": 1,
+     *       "status": 0,
+     *       "awardNumber": 2
+     *   },
+     *   {
+     *       "title": "直播间引流活动 ②",
+     *       "required": "分享我的直播次数最多的前N名用户",
+     *       "colorRequire": "次数最多",
+     *       "awardType": [
+     *           {
+     *               "awardId": 1,
+     *               "name": "送店铺商品"
+     *           },
+     *           {
+     *               "awardId": 2,
+     *               "name": "直播时主播公布"
+     *           }
+     *       ],
+     *       "awardTypeSelected": 1,
+     *       "status": 0,
+     *       "awardNumber": 2
+     *   },
+     *   {
+     *       "title": "直播间引流活动 ③",
+     *       "required": "分享我的直播带来新观众最多的前N名用户",
+     *       "colorRequire": "新观众最多",
+     *       "awardType": [
+     *           {
+     *               "awardId": 1,
+     *               "name": "送店铺商品"
+     *           },
+     *           {
+     *               "awardId": 2,
+     *               "name": "直播时主播公布"
+     *           }
+     *       ],
+     *       "awardTypeSelected": 1,
+     *       "status": 0,
+     *       "awardNumber": 2
+     *   }
+     *])
+     *
      */
-    public function liveActivitySettingPage(int $liveId): array
+    public function liveActivitySettingPage(int $liveId, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('live/liveActivity', 'liveActivitySettingPage', true, $liveId);
+        return EellyClient::request('live/liveActivity', 'liveActivitySettingPage', true, $liveId, $uidDTO);
     }
 
     /**
-     * 设置活动列表页
-     * 
-     * > 返回数据说明
-     * 
-     * key | type |  value
-     * --- | ---- | -------
-     * laId             |   int      |   直播活动ID
-     * title            |   string   |   直播活动标题
-     * taskRequired     |   string   |   任务要求
-     * awardType        |   array    |   奖励类型：1 送店铺商品 2 直播时主播公布
-     * status           |   int      |   状态：0 未开启 1 已开启
-     * awardTypeSelected|   int      |   默认选择的奖励类型
-     * awardNumber      |   int      |   默认选择的人数
-     * 
-     * 
-     * @param int $liveId 直播id
-     * 
-     * @author wechan
-     * @since 2018年05月25日
+     * 设置活动列表页.
+     *
+     * ## 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------------|-------|--------------
+     * title             |string |标题
+     * required          |string |任务要求
+     * colorRequire      |string |带颜色字体
+     * awardType         |array  |奖品类型
+     * awardTypeSelected |int    |选中类型
+     * status            |int    |活动状态，1开启，0表示关闭
+     * awardNumber       |int    |奖励人数
+     *
+     * @param int $liveId 直播ID
+     * @param UidDTO|null $uidDTO
+     * @return array
+     *
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月26日
+     * @requestExample({"liveId":1})
+     * @returnExample([
+     *   {
+     *       "title": "直播间引流活动 ①",
+     *       "required": "分享我的直播速度最快的前N名用户",
+     *       "colorRequire": "速度最快",
+     *       "awardType": [
+     *           {
+     *               "awardId": 1,
+     *               "name": "送店铺商品"
+     *           },
+     *           {
+     *               "awardId": 2,
+     *               "name": "直播时主播公布"
+     *           }
+     *       ],
+     *       "awardTypeSelected": 1,
+     *       "status": 0,
+     *       "awardNumber": 2
+     *   },
+     *   {
+     *       "title": "直播间引流活动 ②",
+     *       "required": "分享我的直播次数最多的前N名用户",
+     *       "colorRequire": "次数最多",
+     *       "awardType": [
+     *           {
+     *               "awardId": 1,
+     *               "name": "送店铺商品"
+     *           },
+     *           {
+     *               "awardId": 2,
+     *               "name": "直播时主播公布"
+     *           }
+     *       ],
+     *       "awardTypeSelected": 1,
+     *       "status": 0,
+     *       "awardNumber": 2
+     *   },
+     *   {
+     *       "title": "直播间引流活动 ③",
+     *       "required": "分享我的直播带来新观众最多的前N名用户",
+     *       "colorRequire": "新观众最多",
+     *       "awardType": [
+     *           {
+     *               "awardId": 1,
+     *               "name": "送店铺商品"
+     *           },
+     *           {
+     *               "awardId": 2,
+     *               "name": "直播时主播公布"
+     *           }
+     *       ],
+     *       "awardTypeSelected": 1,
+     *       "status": 0,
+     *       "awardNumber": 2
+     *   }
+     *])
+     *
      */
-    public function liveActivitySettingPageAsync(int $liveId)
+    public function liveActivitySettingPageAsync(int $liveId, UidDTO $uidDTO = null)
     {
-        return EellyClient::request('live/liveActivity', 'liveActivitySettingPage', false, $liveId);
+        return EellyClient::request('live/liveActivity', 'liveActivitySettingPage', false, $liveId, $uidDTO);
     }
 
     /**
