@@ -29,6 +29,7 @@ class LiveActivity implements LiveActivityInterface
      *
      * 字段|类型|说明
      * ------------------|-------|--------------
+     * latId             |int    |直播活动类型ID
      * title             |string |标题
      * required          |string |任务要求
      * colorRequire      |string |带颜色字体
@@ -47,6 +48,7 @@ class LiveActivity implements LiveActivityInterface
      * @requestExample({"liveId":1})
      * @returnExample([
      *   {
+     *       "latId": 1,
      *       "title": "直播间引流活动 ①",
      *       "required": "分享我的直播速度最快的前N名用户",
      *       "colorRequire": "速度最快",
@@ -65,6 +67,7 @@ class LiveActivity implements LiveActivityInterface
      *       "awardNumber": 2
      *   },
      *   {
+     *       "latId": 2,
      *       "title": "直播间引流活动 ②",
      *       "required": "分享我的直播次数最多的前N名用户",
      *       "colorRequire": "次数最多",
@@ -83,6 +86,7 @@ class LiveActivity implements LiveActivityInterface
      *       "awardNumber": 2
      *   },
      *   {
+     *      "latId": 3,
      *       "title": "直播间引流活动 ③",
      *       "required": "分享我的直播带来新观众最多的前N名用户",
      *       "colorRequire": "新观众最多",
@@ -115,6 +119,7 @@ class LiveActivity implements LiveActivityInterface
      *
      * 字段|类型|说明
      * ------------------|-------|--------------
+     * latId             |int    |直播活动类型ID
      * title             |string |标题
      * required          |string |任务要求
      * colorRequire      |string |带颜色字体
@@ -133,6 +138,7 @@ class LiveActivity implements LiveActivityInterface
      * @requestExample({"liveId":1})
      * @returnExample([
      *   {
+     *       "latId": 1,
      *       "title": "直播间引流活动 ①",
      *       "required": "分享我的直播速度最快的前N名用户",
      *       "colorRequire": "速度最快",
@@ -151,6 +157,7 @@ class LiveActivity implements LiveActivityInterface
      *       "awardNumber": 2
      *   },
      *   {
+     *       "latId": 2,
      *       "title": "直播间引流活动 ②",
      *       "required": "分享我的直播次数最多的前N名用户",
      *       "colorRequire": "次数最多",
@@ -169,6 +176,7 @@ class LiveActivity implements LiveActivityInterface
      *       "awardNumber": 2
      *   },
      *   {
+     *      "latId": 3,
      *       "title": "直播间引流活动 ③",
      *       "required": "分享我的直播带来新观众最多的前N名用户",
      *       "colorRequire": "新观众最多",
@@ -195,41 +203,93 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 活动设置更新
-     * 
-     * @param int $data[]['laId'] 直播活动id
-     * @param int $data[]['awardType'] 奖励类型：1 送店铺商品 2 直播时主播公布
-     * @param int $data[]['status'] 状态：0 关闭 1 已开启
-     * @param int $data[]['awardNumber']  奖励人数
-     * 
-     * > 返回数据说明
+     * 活动设置更新.
+     *
+     * @param array $data                  活动设置参数
+     * @param int   $data[]['latId']       直播活动类型ID
+     * @param int   $data[]['liveId']      直播id
+     * @param int   $data[]['awardType']   奖励类型：1 送店铺商品 2 直播时主播公布
+     * @param int   $data[]['status']      状态：0 关闭 1 已开启
+     * @param int   $data[]['awardNumber'] 奖励人数
+     *
+     * @return bool
+     * @returnExample([
+     *   {
+     *     "latId": 1,
+     *     "liveId": 1,
+     *     "awardType": 1,
+     *     "awardNumber": 10,
+     *     "status": 1
+     *   },
+     *   {
+     *     "latId": 2,
+     *     "liveId": 1,
+     *     "awardType": 2,
+     *     "awardNumber": 20,
+     *     "status": 1
+     *   },
+     *   {
+     *     "latId": 3,
+     *     "liveId": 1,
+     *     "awardType": 2,
+     *     "awardNumber": 30,
+     *     "status": 0
+     *   }
+     *])
      * @returnExample(true)
-     * 
      * @author hehui
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月25日
      */
-    public function setLiveActivitySettingStatus(array $data): bool
+    public function setLiveActivitySettingStatus(array $data, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('live/liveActivity', 'setLiveActivitySettingStatus', true, $data);
+        return EellyClient::request('live/liveActivity', 'setLiveActivitySettingStatus', true, $data, $uidDTO);
     }
 
     /**
-     * 活动设置更新
-     * 
-     * @param int $data[]['laId'] 直播活动id
-     * @param int $data[]['awardType'] 奖励类型：1 送店铺商品 2 直播时主播公布
-     * @param int $data[]['status'] 状态：0 关闭 1 已开启
-     * @param int $data[]['awardNumber']  奖励人数
-     * 
-     * > 返回数据说明
+     * 活动设置更新.
+     *
+     * @param array $data                  活动设置参数
+     * @param int   $data[]['latId']       直播活动类型ID
+     * @param int   $data[]['liveId']      直播id
+     * @param int   $data[]['awardType']   奖励类型：1 送店铺商品 2 直播时主播公布
+     * @param int   $data[]['status']      状态：0 关闭 1 已开启
+     * @param int   $data[]['awardNumber'] 奖励人数
+     *
+     * @return bool
+     * @returnExample([
+     *   {
+     *     "latId": 1,
+     *     "liveId": 1,
+     *     "awardType": 1,
+     *     "awardNumber": 10,
+     *     "status": 1
+     *   },
+     *   {
+     *     "latId": 2,
+     *     "liveId": 1,
+     *     "awardType": 2,
+     *     "awardNumber": 20,
+     *     "status": 1
+     *   },
+     *   {
+     *     "latId": 3,
+     *     "liveId": 1,
+     *     "awardType": 2,
+     *     "awardNumber": 30,
+     *     "status": 0
+     *   }
+     *])
      * @returnExample(true)
-     * 
      * @author hehui
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月25日
      */
-    public function setLiveActivitySettingStatusAsync(array $data)
+    public function setLiveActivitySettingStatusAsync(array $data, UidDTO $uidDTO = null)
     {
-        return EellyClient::request('live/liveActivity', 'setLiveActivitySettingStatus', false, $data);
+        return EellyClient::request('live/liveActivity', 'setLiveActivitySettingStatus', false, $data, $uidDTO);
     }
 
     /**
