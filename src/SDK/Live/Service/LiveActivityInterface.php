@@ -16,13 +16,12 @@ namespace Eelly\SDK\Live\Service;
 use Eelly\DTO\UidDTO;
 
 /**
- * 直播间活动接口
- * 
+ * 直播间活动接口.
+ *
  * @author wechan
  */
 interface LiveActivityInterface
 {
-
     /**
      * 设置活动列表页.
      *
@@ -38,12 +37,13 @@ interface LiveActivityInterface
      * status            |int    |活动状态，1开启，0表示关闭
      * awardNumber       |int    |奖励人数
      *
-     * @param int $liveId 直播ID
+     * @param int         $liveId 直播ID
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      *
-     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月26日
      * @requestExample({"liveId":1})
      * @returnExample([
@@ -102,31 +102,31 @@ interface LiveActivityInterface
      *       "awardNumber": 2
      *   }
      *])
-     *
      */
     public function liveActivitySettingPage(int $liveId, UidDTO $uidDTO = null): array;
-    
+
     /**
-     * 活动设置更新
-     * 
-     * @param int $data[]['laId'] 直播活动id
-     * @param int $data[]['awardType'] 奖励类型：1 送店铺商品 2 直播时主播公布
-     * @param int $data[]['status'] 状态：0 关闭 1 已开启
-     * @param int $data[]['awardNumber']  奖励人数
-     * 
+     * 活动设置更新.
+     *
+     * @param int $data[]['laId']        直播活动id
+     * @param int $data[]['awardType']   奖励类型：1 送店铺商品 2 直播时主播公布
+     * @param int $data[]['status']      状态：0 关闭 1 已开启
+     * @param int $data[]['awardNumber'] 奖励人数
+     *
      * > 返回数据说明
      * @returnExample(true)
-     * 
+     *
      * @author hehui
+     *
      * @since 2018年05月25日
      */
-    public function setLiveActivitySettingStatus(array $data):bool;
-    
+    public function setLiveActivitySettingStatus(array $data): bool;
+
     /**
-     * 直播间福利活动页
-     * 
+     * 直播间福利活动页.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type |  value
      * --- | ---- | -------
      * title            |   string   |   直播活动标题
@@ -135,36 +135,38 @@ interface LiveActivityInterface
      * plusTime         |   int      |   倒计时时间
      * startTime        |   int      |   开始时间
      * endTime          |   int      |   开始时间
-     * 
+     *
      * @param int $liveId 直播ID
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年5月25日
      */
-    public function getLiveActivityList(int $liveId):array;
-    
+    public function getLiveActivityList(int $liveId): array;
+
     /**
-     * 发布直播活动
-     * 
-     * @param int $liveId 直播ID
-     * @param array $params 请求参数
-     * @param array $params['lasId'] 直播活动设置ID
-     * @param array $params['plusTime'] 倒计时时间
-     * 
-     * 
+     * 发布直播活动.
+     *
+     * @param int   $liveId             直播ID
+     * @param array $params             请求参数
+     * @param array $params['lasId']    直播活动设置ID
+     * @param array $params['plusTime'] 倒计时时间（秒）
+     *
+     *
      * > 返回数据说明
      * @returnExample(true)
-     * 
+     *
      * @author hehui
+     *
      * @since 2018年5月25日
      */
-    public function setLiveActivity(int $liveId, $params):bool;
-    
+    public function setLiveActivity(int $liveId, $params): bool;
+
     /**
-     * 直播活动奖励页
-     * 
+     * 直播活动奖励页.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type |  value
      * --- | ---- | -------
      * title            |   string   |   直播活动标题
@@ -172,12 +174,13 @@ interface LiveActivityInterface
      * awardNumber      |   int      |   奖励人数
      * status           |   int      |   状态: 0.已结束 1.进行中 2.即将开始
      * latId            |   int      |   平台级直播活动类型id 1.分享直播最快 2.分享最多 3分享有效最多
-     * count            |   int      |   统计次数 latId 1.为0  2.我分享的人数 3.我带来的人数 
-     * 
+     * count            |   int      |   统计次数 latId 1.为0  2.我分享的人数 3.我带来的人数
+     *
      * @param int $liveId 直播ID
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年5月25日
      */
-    public function getLiveActivityDoor(int $liveId, UidDTO $uidDTO = null):array;
+    public function getLiveActivityDoor(int $liveId, UidDTO $uidDTO = null): array;
 }
