@@ -429,6 +429,14 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function sendLiveActivityCountdownMsg(int $laId): bool
+    {
+        return EellyClient::request('live/liveActivity', __FUNCTION__, true, $laId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
