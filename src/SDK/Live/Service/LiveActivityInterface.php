@@ -202,12 +202,11 @@ interface LiveActivityInterface
      *
      * key | type |  value
      * --- | ---- | -------
-     * title            |   string   |   直播活动标题
      * awardTypeName    |   array    |   奖励类型名称
      * awardNumber      |   int      |   奖励人数
      * status           |   int      |   状态: 0.已结束 1.进行中 2.即将开始
      * latId            |   int      |   平台级直播活动类型id 1.分享直播最快 2.分享最多 3分享有效最多
-     * count            |   int      |   统计次数 latId 1.为0  2.我分享的人数 3.我带来的人数
+     * count            |   int      |   统计次数 latId 1.count>0为排名数,count为0时显示暂无排名 2.我分享的人数 3.我带来的人数
      *
      * @param int $liveId 直播ID
      *
