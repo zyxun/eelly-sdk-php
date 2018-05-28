@@ -1558,7 +1558,7 @@ class SellerOrder implements SellerOrderInterface
      */
     public function getOrderData(int $orderId):array
     {
-        return EellyClient::request('order/order', 'getOrderData', true, $orderId);
+        return EellyClient::request('order/sellerOrder', 'getOrderData', true, $orderId);
     }
 
     /**
@@ -1574,7 +1574,7 @@ class SellerOrder implements SellerOrderInterface
      */
     public function getOrderDataAsync(int $orderId):array
     {
-        return EellyClient::request('order/order', 'getOrderData', false, $orderId);
+        return EellyClient::request('order/sellerOrder', 'getOrderData', false, $orderId);
     }
 
 }
