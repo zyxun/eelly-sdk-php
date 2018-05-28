@@ -573,7 +573,7 @@ interface SellerOrderInterface
      * @param int $orderId  订单id
      * @return array
      * @requestExample({"orderId":1})
-     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
+     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086,"shipTime":1526381614,"invoiceName":"EMS"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.05.19

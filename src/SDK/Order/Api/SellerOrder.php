@@ -1484,16 +1484,14 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 根据传过来的订单ID，返回要发送消息相关数据.
+     * 根据传过来的订单ID，返回要发送消息相关数据
      *
-     * @param int $orderId 订单id
-     *
+     * @param int $orderId  订单id
      * @return array
      * @requestExample({"orderId":1})
-     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
+     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086,"shipTime":1526381614,"invoiceName":"EMS"})
      *
-     * @author zhangyingdi<zhangyingdi@eelly.net
-     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.05.19
      */
     public function getOrderMessageInfoAsync(int $orderId)
