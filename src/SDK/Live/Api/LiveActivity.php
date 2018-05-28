@@ -347,21 +347,9 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 发布直播活动
-     * 
-     * @param int $liveId 直播ID
-     * @param array $params 请求参数
-     * @param array $params['lasId'] 直播活动设置ID
-     * @param array $params['plusTime'] 倒计时时间
-     * 
-     * 
-     * > 返回数据说明
-     * @returnExample(true)
-     * 
-     * @author hehui
-     * @since 2018年5月25日
+     * @inheritDoc
      */
-    public function setLiveActivity(int $liveId, array $params): bool
+    public function setLiveActivity(int $liveId, array $params): int
     {
         return EellyClient::request('live/liveActivity', 'setLiveActivity', true, $liveId, $params);
     }

@@ -185,15 +185,21 @@ interface LiveActivityInterface
      * @param array $params['lasId']    直播活动设置ID
      * @param array $params['plusTime'] 倒计时时间（秒）
      *
+     * @return int 新发布的活动id
      *
-     * > 返回数据说明
-     * @returnExample(true)
+     * @requestExample({
+     *     "liveId": 123,
+     *     "params": {
+     *         "lasId": 4,
+     *         "plusTime": 60
+     *     }
+     * })
+     * 
+     * @returnExample(13)
      *
      * @author hehui<hehui@eelly.net>
-     *
-     * @since 2018年5月25日
      */
-    public function setLiveActivity(int $liveId, array $params): bool;
+    public function setLiveActivity(int $liveId, array $params): int;
 
     /**
      * 直播活动奖励页.
