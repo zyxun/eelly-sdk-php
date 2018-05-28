@@ -168,6 +168,7 @@ interface LiveActivityInterface
      * hasActivity      |   int      |   是否有发布过活动 0.否 1.是
      * lasId            |   int      |   直播活动设置ID
      * latId            |   int      |   直播活动类型ID
+     * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      * 
      * @param int $liveId 直播ID
      *
