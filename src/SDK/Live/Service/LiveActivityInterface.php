@@ -186,11 +186,11 @@ interface LiveActivityInterface
      * > 返回数据说明
      * @returnExample(true)
      *
-     * @author hehui
+     * @author hehui<hehui@eelly.net>
      *
      * @since 2018年5月25日
      */
-    public function setLiveActivity(int $liveId, $params): bool;
+    public function setLiveActivity(int $liveId, array $params): bool;
 
     /**
      * 直播活动奖励页.
@@ -217,7 +217,7 @@ interface LiveActivityInterface
     /**
      * 厂家发送活动10秒倒计时消息给店家.
      *
-     * @param int $laId
+     * @param int $laId  活动id
      *
      * @return bool
      *
