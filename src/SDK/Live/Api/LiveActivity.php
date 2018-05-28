@@ -361,7 +361,7 @@ class LiveActivity implements LiveActivityInterface
      * @author hehui
      * @since 2018年5月25日
      */
-    public function setLiveActivity(int $liveId, $params): bool
+    public function setLiveActivity(int $liveId, array $params): bool
     {
         return EellyClient::request('live/liveActivity', 'setLiveActivity', true, $liveId, $params);
     }
