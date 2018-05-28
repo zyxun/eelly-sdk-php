@@ -165,15 +165,18 @@ interface LiveActivityInterface
      * plusTime         |   int      |   倒计时时间
      * startTime        |   int      |   开始时间
      * endTime          |   int      |   开始时间
-     *
+     * hasActivity      |   int      |   是否有发布过活动 0.否 1.是
+     * lasId            |   int      |   直播活动设置ID
+     * latId            |   int      |   直播活动类型ID
+     * 
      * @param int $liveId 直播ID
      *
      * @author wechan
      *
      * @since 2018年5月25日
      */
-    public function getLiveActivityList(int $liveId): array;
-
+    public function getLiveActivityList(int $liveId, UidDTO $uidDTO = null):array;
+    
     /**
      * 发布直播活动.
      *
