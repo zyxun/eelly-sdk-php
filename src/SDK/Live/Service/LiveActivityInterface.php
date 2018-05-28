@@ -171,6 +171,7 @@ interface LiveActivityInterface
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      * 
      * @param int $liveId 直播ID
+     * @param UidDTO|null $uidDTO
      *
      * @author wechan
      *
@@ -216,6 +217,7 @@ interface LiveActivityInterface
      * count            |   int      |   统计次数 latId 1.count>0为排名数,count为0时显示暂无排名 2.我分享的人数 3.我带来的人数
      *
      * @param int $liveId 直播ID
+     * @param UidDTO|null $uidDTO
      *
      * @author wechan
      *
