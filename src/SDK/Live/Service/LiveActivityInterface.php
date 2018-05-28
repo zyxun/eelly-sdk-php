@@ -213,4 +213,19 @@ interface LiveActivityInterface
      * @since 2018年5月25日
      */
     public function getLiveActivityDoor(int $liveId, UidDTO $uidDTO = null): array;
+
+    /**
+     * 厂家发送活动10秒倒计时消息给店家.
+     *
+     * @param int $laId
+     *
+     * @return bool
+     *
+     * @requestExample({"laId":123})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function sendLiveActivityCountdownMsg(int $laId): bool;
 }
