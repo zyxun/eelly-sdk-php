@@ -310,6 +310,7 @@ class LiveActivity implements LiveActivityInterface
      * hasActivity      |   int      |   是否有发布过活动 0.否 1.是
      * lasId            |   int      |   直播活动设置ID
      * latId            |   int      |   直播活动类型ID
+     * laId             |   int      |   直播活动ID
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      * 
      * @param int $liveId 直播ID
@@ -340,6 +341,7 @@ class LiveActivity implements LiveActivityInterface
      * hasActivity      |   int      |   是否有发布过活动 0.否 1.是
      * lasId            |   int      |   直播活动设置ID
      * latId            |   int      |   直播活动类型ID
+     * laId             |   int      |   直播活动ID
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      * 
      * @param int $liveId 直播ID
@@ -415,22 +417,22 @@ class LiveActivity implements LiveActivityInterface
      *
      * key | type |  value
      * --- | ---- | -------
-     * awardTypeName    |   array    |   奖励类型名称
+     * awardTypeName    |   string   |   奖励类型名称
      * awardNumber      |   int      |   奖励人数
      * status           |   int      |   状态: 0.已结束 1.进行中 2.即将开始
      * latId            |   int      |   平台级直播活动类型id 1.分享直播最快 2.分享最多 3分享有效最多
      * count            |   int      |   统计次数 latId 1.count>0为排名数,count为0时显示暂无排名 2.我分享的人数 3.我带来的人数
      *
      * @param int $liveId 直播ID
-     * @param UidDTO|null $uidDTO
+     * @param int $userId 用户ID 若没登录时不穿,登录时需要传
      *
      * @author wechan
      *
      * @since 2018年5月25日
      */
-    public function getLiveActivityDoor(int $liveId, UidDTO $uidDTO = null): array
+    public function getLiveActivityDoor(int $liveId, int $userId = 0): array
     {
-        return EellyClient::request('live/liveActivity', 'getLiveActivityDoor', true, $liveId, $uidDTO);
+        return EellyClient::request('live/liveActivity', 'getLiveActivityDoor', true, $liveId, $userId);
     }
 
     /**
@@ -440,22 +442,22 @@ class LiveActivity implements LiveActivityInterface
      *
      * key | type |  value
      * --- | ---- | -------
-     * awardTypeName    |   array    |   奖励类型名称
+     * awardTypeName    |   string   |   奖励类型名称
      * awardNumber      |   int      |   奖励人数
      * status           |   int      |   状态: 0.已结束 1.进行中 2.即将开始
      * latId            |   int      |   平台级直播活动类型id 1.分享直播最快 2.分享最多 3分享有效最多
      * count            |   int      |   统计次数 latId 1.count>0为排名数,count为0时显示暂无排名 2.我分享的人数 3.我带来的人数
      *
      * @param int $liveId 直播ID
-     * @param UidDTO|null $uidDTO
+     * @param int $userId 用户ID 若没登录时不穿,登录时需要传
      *
      * @author wechan
      *
      * @since 2018年5月25日
      */
-    public function getLiveActivityDoorAsync(int $liveId, UidDTO $uidDTO = null)
+    public function getLiveActivityDoorAsync(int $liveId, int $userId = 0)
     {
-        return EellyClient::request('live/liveActivity', 'getLiveActivityDoor', false, $liveId, $uidDTO);
+        return EellyClient::request('live/liveActivity', 'getLiveActivityDoor', false, $liveId, $userId);
     }
 
     /**
@@ -528,6 +530,62 @@ class LiveActivity implements LiveActivityInterface
     public function getCountJoinActivityByLiveIdAsync(array $liveIds)
     {
         return EellyClient::request('live/liveActivity', 'getCountJoinActivityByLiveId', false, $liveIds);
+    }
+
+    /**
+     * 直播活动奖励页.
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * title                |   string   |   标题
+     * totalShareCount      |   int      |   总分享数
+     * awardNumber          |   int      |   奖励数
+     * awardType            |   int      |   奖励类型：1 送店铺商品 2 直播时主播公布
+     * latId                |   int      |   平台级直播活动类型id1.分享直播最快 2.分享最多 3分享有效最多
+     * required             |   string   |   任务要求
+     * colorRequire         |   string   |   带颜色字体
+     * awardList            |   array    |   奖励名单
+     *
+     * @param int $liveId 直播ID
+     * @param int $userId 用户ID
+     *
+     * @author wechan
+     *
+     * @since 2018年5月25日
+     */
+    public function getLiveAwardList(int $liveId, int $userId): array
+    {
+        return EellyClient::request('live/liveActivity', 'getLiveAwardList', true, $liveId, $userId);
+    }
+
+    /**
+     * 直播活动奖励页.
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * title                |   string   |   标题
+     * totalShareCount      |   int      |   总分享数
+     * awardNumber          |   int      |   奖励数
+     * awardType            |   int      |   奖励类型：1 送店铺商品 2 直播时主播公布
+     * latId                |   int      |   平台级直播活动类型id1.分享直播最快 2.分享最多 3分享有效最多
+     * required             |   string   |   任务要求
+     * colorRequire         |   string   |   带颜色字体
+     * awardList            |   array    |   奖励名单
+     *
+     * @param int $liveId 直播ID
+     * @param int $userId 用户ID
+     *
+     * @author wechan
+     *
+     * @since 2018年5月25日
+     */
+    public function getLiveAwardListAsync(int $liveId, int $userId)
+    {
+        return EellyClient::request('live/liveActivity', 'getLiveAwardList', false, $liveId, $userId);
     }
 
     /**
