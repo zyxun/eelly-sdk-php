@@ -164,7 +164,7 @@ interface LiveActivityInterface
      * awardNumber      |   int      |   奖励人数
      * plusTime         |   int      |   倒计时时间
      * startTime        |   int      |   开始时间
-     * endTime          |   int      |   开始时间
+     * endTime          |   int      |   结束时间
      * hasActivity      |   int      |   是否有发布过活动 0.否 1.是
      * lasId            |   int      |   直播活动设置ID
      * latId            |   int      |   直播活动类型ID
@@ -239,4 +239,19 @@ interface LiveActivityInterface
      * @author hehui<hehui@eelly.net>
      */
     public function sendLiveActivityCountdownMsg(int $laId): bool;
+    
+    /**
+     * 根据直播id返回该直播是参加活动数
+     * 
+     * > 返回数据说明
+     * @requestExample({"1":"2","2":"2"})
+     * 
+     * @param array $liveIds 直播id
+     * 
+     * @return array
+     * 
+     * @author wechan
+     * @since 2018年05月29日
+     */
+    public function getCountJoinActivityByLiveId(array $liveIds): array;
 }
