@@ -38,12 +38,13 @@ class LiveActivity implements LiveActivityInterface
      * status            |int    |活动状态，1开启，0表示关闭
      * awardNumber       |int    |奖励人数
      *
-     * @param int $liveId 直播ID
+     * @param int         $liveId 直播ID
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      *
-     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月26日
      * @requestExample({"liveId":1})
      * @returnExample([
@@ -105,7 +106,6 @@ class LiveActivity implements LiveActivityInterface
      *       "awardNumber": 2
      *   }
      *])
-     *
      */
     public function liveActivitySettingPage(int $liveId, UidDTO $uidDTO = null): array
     {
@@ -128,12 +128,13 @@ class LiveActivity implements LiveActivityInterface
      * status            |int    |活动状态，1开启，0表示关闭
      * awardNumber       |int    |奖励人数
      *
-     * @param int $liveId 直播ID
+     * @param int         $liveId 直播ID
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      *
-     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月26日
      * @requestExample({"liveId":1})
      * @returnExample([
@@ -195,7 +196,6 @@ class LiveActivity implements LiveActivityInterface
      *       "awardNumber": 2
      *   }
      *])
-     *
      */
     public function liveActivitySettingPageAsync(int $liveId, UidDTO $uidDTO = null)
     {
@@ -237,6 +237,7 @@ class LiveActivity implements LiveActivityInterface
      *   }
      *])
      * @returnExample(true)
+     *
      * @author hehui
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -282,6 +283,7 @@ class LiveActivity implements LiveActivityInterface
      *   }
      *])
      * @returnExample(true)
+     *
      * @author hehui
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -293,10 +295,10 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 直播间福利活动页
-     * 
+     * 直播间福利活动页.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type |  value
      * --- | ---- | -------
      * title            |   string   |   直播活动标题
@@ -304,14 +306,17 @@ class LiveActivity implements LiveActivityInterface
      * awardNumber      |   int      |   奖励人数
      * plusTime         |   int      |   倒计时时间
      * startTime        |   int      |   开始时间
-     * endTime          |   int      |   开始时间
+     * endTime          |   int      |   结束时间
      * hasActivity      |   int      |   是否有发布过活动 0.否 1.是
      * lasId            |   int      |   直播活动设置ID
      * latId            |   int      |   直播活动类型ID
+     * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      * 
      * @param int $liveId 直播ID
-     * 
+     * @param UidDTO|null $uidDTO
+     *
      * @author wechan
+     *
      * @since 2018年5月25日
      */
     public function getLiveActivityList(int $liveId, UidDTO $uidDTO = null): array
@@ -320,10 +325,10 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 直播间福利活动页
-     * 
+     * 直播间福利活动页.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type |  value
      * --- | ---- | -------
      * title            |   string   |   直播活动标题
@@ -331,14 +336,17 @@ class LiveActivity implements LiveActivityInterface
      * awardNumber      |   int      |   奖励人数
      * plusTime         |   int      |   倒计时时间
      * startTime        |   int      |   开始时间
-     * endTime          |   int      |   开始时间
+     * endTime          |   int      |   结束时间
      * hasActivity      |   int      |   是否有发布过活动 0.否 1.是
      * lasId            |   int      |   直播活动设置ID
      * latId            |   int      |   直播活动类型ID
+     * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      * 
      * @param int $liveId 直播ID
-     * 
+     * @param UidDTO|null $uidDTO
+     *
      * @author wechan
+     *
      * @since 2018年5月25日
      */
     public function getLiveActivityListAsync(int $liveId, UidDTO $uidDTO = null)
@@ -347,7 +355,26 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * @inheritDoc
+     * 发布直播活动.
+     *
+     * @param int   $liveId             直播ID
+     * @param array $params             请求参数
+     * @param array $params['lasId']    直播活动设置ID
+     * @param array $params['plusTime'] 倒计时时间（秒）
+     *
+     * @return int 新发布的活动id
+     *
+     * @requestExample({
+     *     "liveId": 123,
+     *     "params": {
+     *         "lasId": 4,
+     *         "plusTime": 60
+     *     }
+     * })
+     * 
+     * @returnExample(13)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function setLiveActivity(int $liveId, array $params): int
     {
@@ -355,42 +382,50 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 发布直播活动
+     * 发布直播活动.
+     *
+     * @param int   $liveId             直播ID
+     * @param array $params             请求参数
+     * @param array $params['lasId']    直播活动设置ID
+     * @param array $params['plusTime'] 倒计时时间（秒）
+     *
+     * @return int 新发布的活动id
+     *
+     * @requestExample({
+     *     "liveId": 123,
+     *     "params": {
+     *         "lasId": 4,
+     *         "plusTime": 60
+     *     }
+     * })
      * 
-     * @param int $liveId 直播ID
-     * @param array $params 请求参数
-     * @param array $params['lasId'] 直播活动设置ID
-     * @param array $params['plusTime'] 倒计时时间
-     * 
-     * 
-     * > 返回数据说明
-     * @returnExample(true)
-     * 
-     * @author hehui
-     * @since 2018年5月25日
+     * @returnExample(13)
+     *
+     * @author hehui<hehui@eelly.net>
      */
-    public function setLiveActivityAsync(int $liveId, $params)
+    public function setLiveActivityAsync(int $liveId, array $params)
     {
         return EellyClient::request('live/liveActivity', 'setLiveActivity', false, $liveId, $params);
     }
 
     /**
-     * 直播活动奖励页
-     * 
+     * 直播活动奖励页.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type |  value
      * --- | ---- | -------
-     * title            |   string   |   直播活动标题
      * awardTypeName    |   array    |   奖励类型名称
      * awardNumber      |   int      |   奖励人数
      * status           |   int      |   状态: 0.已结束 1.进行中 2.即将开始
      * latId            |   int      |   平台级直播活动类型id 1.分享直播最快 2.分享最多 3分享有效最多
-     * count            |   int      |   统计次数 latId 1.为0  2.我分享的人数 3.我带来的人数 
-     * 
+     * count            |   int      |   统计次数 latId 1.count>0为排名数,count为0时显示暂无排名 2.我分享的人数 3.我带来的人数
+     *
      * @param int $liveId 直播ID
-     * 
+     * @param UidDTO|null $uidDTO
+     *
      * @author wechan
+     *
      * @since 2018年5月25日
      */
     public function getLiveActivityDoor(int $liveId, UidDTO $uidDTO = null): array
@@ -399,22 +434,23 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 直播活动奖励页
-     * 
+     * 直播活动奖励页.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type |  value
      * --- | ---- | -------
-     * title            |   string   |   直播活动标题
      * awardTypeName    |   array    |   奖励类型名称
      * awardNumber      |   int      |   奖励人数
      * status           |   int      |   状态: 0.已结束 1.进行中 2.即将开始
      * latId            |   int      |   平台级直播活动类型id 1.分享直播最快 2.分享最多 3分享有效最多
-     * count            |   int      |   统计次数 latId 1.为0  2.我分享的人数 3.我带来的人数 
-     * 
+     * count            |   int      |   统计次数 latId 1.count>0为排名数,count为0时显示暂无排名 2.我分享的人数 3.我带来的人数
+     *
      * @param int $liveId 直播ID
-     * 
+     * @param UidDTO|null $uidDTO
+     *
      * @author wechan
+     *
      * @since 2018年5月25日
      */
     public function getLiveActivityDoorAsync(int $liveId, UidDTO $uidDTO = null)
@@ -423,11 +459,75 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * @inheritDoc
+     * 厂家发送活动10秒倒计时消息给店家.
+     *
+     * @param int $laId  活动id
+     *
+     * @return bool
+     *
+     * @requestExample({"laId":123})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function sendLiveActivityCountdownMsg(int $laId): bool
     {
-        return EellyClient::request('live/liveActivity', __FUNCTION__, true, $laId);
+        return EellyClient::request('live/liveActivity', 'sendLiveActivityCountdownMsg', true, $laId);
+    }
+
+    /**
+     * 厂家发送活动10秒倒计时消息给店家.
+     *
+     * @param int $laId  活动id
+     *
+     * @return bool
+     *
+     * @requestExample({"laId":123})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function sendLiveActivityCountdownMsgAsync(int $laId)
+    {
+        return EellyClient::request('live/liveActivity', 'sendLiveActivityCountdownMsg', false, $laId);
+    }
+
+    /**
+     * 根据直播id返回该直播是参加活动数
+     * 
+     * > 返回数据说明
+     * @requestExample({"1":"2","2":"2"})
+     * 
+     * @param array $liveIds 直播id
+     * 
+     * @return array
+     * 
+     * @author wechan
+     * @since 2018年05月29日
+     */
+    public function getCountJoinActivityByLiveId(array $liveIds): array
+    {
+        return EellyClient::request('live/liveActivity', 'getCountJoinActivityByLiveId', true, $liveIds);
+    }
+
+    /**
+     * 根据直播id返回该直播是参加活动数
+     * 
+     * > 返回数据说明
+     * @requestExample({"1":"2","2":"2"})
+     * 
+     * @param array $liveIds 直播id
+     * 
+     * @return array
+     * 
+     * @author wechan
+     * @since 2018年05月29日
+     */
+    public function getCountJoinActivityByLiveIdAsync(array $liveIds)
+    {
+        return EellyClient::request('live/liveActivity', 'getCountJoinActivityByLiveId', false, $liveIds);
     }
 
     /**
