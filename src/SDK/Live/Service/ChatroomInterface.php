@@ -21,12 +21,13 @@ interface ChatroomInterface
     /**
      * 修改直播间商品价格推送聊天室消息.
      *
-     * @param int   $liveId                直播id
-     * @param array $extBody               扩展消息体
-     * @param int   $extBody['goodsImage'] 商品图片
-     * @param int   $extBody['goodsName']  商品名
-     * @param int   $extBody['goodsPrice'] 商品价格（分）
-     * @param int   $extBody['minBuy']     起批量
+     * @param int    $liveId                直播id
+     * @param array  $extBody               扩展消息体
+     * @param int    $extBody['goodsId']    商品id
+     * @param string $extBody['goodsImage'] 商品图片
+     * @param string $extBody['goodsName']  商品名
+     * @param int    $extBody['goodsPrice'] 商品价格（分）
+     * @param int    $extBody['minBuy']     起批量
      *
      * @return bool
      *
