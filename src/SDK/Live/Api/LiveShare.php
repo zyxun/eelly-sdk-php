@@ -28,6 +28,7 @@ class LiveShare implements LiveShareInterface
      * @param int    $liveId     当前进入的直播间id
      * @param string $uniqueFlag 分享的唯一标识 
      * @param string $type       直播间的类型 [app-分享、pc端-分享、小程序-分享]
+     * @param int    $laId       活动id
      * @param UidDTO $user       当前登陆的用户 
      * 
      * @return string
@@ -35,7 +36,8 @@ class LiveShare implements LiveShareInterface
      * @requestExample({
      *     "liveId":1,
      *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
-     *     "type":"小程序-分享"
+     *     "type":"小程序-分享",
+     *     "laId":"4"
      * })
      * @returnExample({
      *     "code":200,
@@ -46,9 +48,9 @@ class LiveShare implements LiveShareInterface
      *
      * @since 2018年5月25日
      */
-    public function share(int $liveId, string $uniqueFlag, string $type = null, UidDTO $user = null): string
+    public function share(int $liveId, string $uniqueFlag, string $type, int $laId = 0, UidDTO $user = null): string
     {
-        return EellyClient::request('live/liveShare', 'share', true, $liveId, $uniqueFlag, $type, $user);
+        return EellyClient::request('live/liveShare', 'share', true, $liveId, $uniqueFlag, $type, $laId, $user);
     }
 
     /**
@@ -57,6 +59,7 @@ class LiveShare implements LiveShareInterface
      * @param int    $liveId     当前进入的直播间id
      * @param string $uniqueFlag 分享的唯一标识 
      * @param string $type       直播间的类型 [app-分享、pc端-分享、小程序-分享]
+     * @param int    $laId       活动id
      * @param UidDTO $user       当前登陆的用户 
      * 
      * @return string
@@ -64,7 +67,8 @@ class LiveShare implements LiveShareInterface
      * @requestExample({
      *     "liveId":1,
      *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
-     *     "type":"小程序-分享"
+     *     "type":"小程序-分享",
+     *     "laId":"4"
      * })
      * @returnExample({
      *     "code":200,
@@ -75,9 +79,9 @@ class LiveShare implements LiveShareInterface
      *
      * @since 2018年5月25日
      */
-    public function shareAsync(int $liveId, string $uniqueFlag, string $type = null, UidDTO $user = null)
+    public function shareAsync(int $liveId, string $uniqueFlag, string $type, int $laId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('live/liveShare', 'share', false, $liveId, $uniqueFlag, $type, $user);
+        return EellyClient::request('live/liveShare', 'share', false, $liveId, $uniqueFlag, $type, $laId, $user);
     }
 
     /**
@@ -85,12 +89,16 @@ class LiveShare implements LiveShareInterface
      *
      * @param string $uniqueFlag 直播间分享提供的唯一标识
      * @param string $type       进入直播间的类型 [小程序进入、pc端进入]
+     * @param string $clientInfo 客户端信息
+     * @param int    $laId       活动id 
      *
      * @return string
      * 
      * @requestExample({
      *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
-     *     "type":"小程序进入"
+     *     "type":"小程序进入",
+     *     "clientInfo":'{"ip":"127.0.0.1","brand":"apple", "model":"iphone x", "version":"6.42", "system":"os 12.01", "platform":"nothing"}',
+     *     "laId":"4"
      * })
      *
      * @returnExample({
@@ -102,9 +110,9 @@ class LiveShare implements LiveShareInterface
      *
      * @since 2018年5月25日
      */
-    public function shareFeedback(string $uniqueFlag, string $type = null): string
+    public function shareFeedback(string $uniqueFlag, string $type, string $clientInfo, int $laId = 0): string
     {
-        return EellyClient::request('live/liveShare', 'shareFeedback', true, $uniqueFlag, $type);
+        return EellyClient::request('live/liveShare', 'shareFeedback', true, $uniqueFlag, $type, $clientInfo, $laId);
     }
 
     /**
@@ -112,12 +120,16 @@ class LiveShare implements LiveShareInterface
      *
      * @param string $uniqueFlag 直播间分享提供的唯一标识
      * @param string $type       进入直播间的类型 [小程序进入、pc端进入]
+     * @param string $clientInfo 客户端信息
+     * @param int    $laId       活动id 
      *
      * @return string
      * 
      * @requestExample({
      *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
-     *     "type":"小程序进入"
+     *     "type":"小程序进入",
+     *     "clientInfo":'{"ip":"127.0.0.1","brand":"apple", "model":"iphone x", "version":"6.42", "system":"os 12.01", "platform":"nothing"}',
+     *     "laId":"4"
      * })
      *
      * @returnExample({
@@ -129,9 +141,9 @@ class LiveShare implements LiveShareInterface
      *
      * @since 2018年5月25日
      */
-    public function shareFeedbackAsync(string $uniqueFlag, string $type = null)
+    public function shareFeedbackAsync(string $uniqueFlag, string $type, string $clientInfo, int $laId = 0)
     {
-        return EellyClient::request('live/liveShare', 'shareFeedback', false, $uniqueFlag, $type);
+        return EellyClient::request('live/liveShare', 'shareFeedback', false, $uniqueFlag, $type, $clientInfo, $laId);
     }
 
     /**
