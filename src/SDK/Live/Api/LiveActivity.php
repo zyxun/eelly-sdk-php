@@ -312,7 +312,7 @@ class LiveActivity implements LiveActivityInterface
      * latId            |   int      |   直播活动类型ID
      * laId             |   int      |   直播活动ID
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
-     * 
+     *
      * @param int $liveId 直播ID
      * @param UidDTO|null $uidDTO
      *
@@ -343,7 +343,7 @@ class LiveActivity implements LiveActivityInterface
      * latId            |   int      |   直播活动类型ID
      * laId             |   int      |   直播活动ID
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
-     * 
+     *
      * @param int $liveId 直播ID
      * @param UidDTO|null $uidDTO
      *
@@ -373,7 +373,7 @@ class LiveActivity implements LiveActivityInterface
      *         "plusTime": 60
      *     }
      * })
-     * 
+     *
      * @returnExample(13)
      *
      * @author hehui<hehui@eelly.net>
@@ -400,7 +400,7 @@ class LiveActivity implements LiveActivityInterface
      *         "plusTime": 60
      *     }
      * })
-     * 
+     *
      * @returnExample(13)
      *
      * @author hehui<hehui@eelly.net>
@@ -498,14 +498,14 @@ class LiveActivity implements LiveActivityInterface
 
     /**
      * 根据直播id返回该直播是参加活动数
-     * 
+     *
      * > 返回数据说明
      * @requestExample({"1":"2","2":"2"})
-     * 
+     *
      * @param array $liveIds 直播id
-     * 
+     *
      * @return array
-     * 
+     *
      * @author wechan
      * @since 2018年05月29日
      */
@@ -516,14 +516,14 @@ class LiveActivity implements LiveActivityInterface
 
     /**
      * 根据直播id返回该直播是参加活动数
-     * 
+     *
      * > 返回数据说明
      * @requestExample({"1":"2","2":"2"})
-     * 
+     *
      * @param array $liveIds 直播id
-     * 
+     *
      * @return array
-     * 
+     *
      * @author wechan
      * @since 2018年05月29日
      */
@@ -534,7 +534,7 @@ class LiveActivity implements LiveActivityInterface
 
     /**
      * 直播活动奖励页.
-     * 
+     *
      * > 返回数据说明
      *
      * key | type |  value
@@ -563,7 +563,7 @@ class LiveActivity implements LiveActivityInterface
 
     /**
      * 直播活动奖励页.
-     * 
+     *
      * > 返回数据说明
      *
      * key | type |  value
@@ -588,6 +588,14 @@ class LiveActivity implements LiveActivityInterface
     public function getLiveAwardListAsync(int $liveId, int $userId, int $page = 1)
     {
         return EellyClient::request('live/liveActivity', 'getLiveAwardList', false, $liveId, $userId, $page);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getPendingLiveActivities(int $liveId): array
+    {
+        return EellyClient::request('live/liveActivity', __FUNCTION__, true, $liveId);
     }
 
     /**
