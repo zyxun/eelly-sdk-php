@@ -550,14 +550,15 @@ class LiveActivity implements LiveActivityInterface
      *
      * @param int $liveId 直播ID
      * @param int $userId 用户ID
+     * @param int $page 分页
      *
      * @author wechan
      *
      * @since 2018年5月25日
      */
-    public function getLiveAwardList(int $liveId, int $userId): array
+    public function getLiveAwardList(int $liveId, int $userId, int $page = 1): array
     {
-        return EellyClient::request('live/liveActivity', 'getLiveAwardList', true, $liveId, $userId);
+        return EellyClient::request('live/liveActivity', 'getLiveAwardList', true, $liveId, $userId, $page);
     }
 
     /**
@@ -578,14 +579,15 @@ class LiveActivity implements LiveActivityInterface
      *
      * @param int $liveId 直播ID
      * @param int $userId 用户ID
+     * @param int $page 分页
      *
      * @author wechan
      *
      * @since 2018年5月25日
      */
-    public function getLiveAwardListAsync(int $liveId, int $userId)
+    public function getLiveAwardListAsync(int $liveId, int $userId, int $page = 1)
     {
-        return EellyClient::request('live/liveActivity', 'getLiveAwardList', false, $liveId, $userId);
+        return EellyClient::request('live/liveActivity', 'getLiveAwardList', false, $liveId, $userId, $page);
     }
 
     /**
