@@ -513,4 +513,253 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array;
+
+    /**
+     * 获取店铺列表某种状态下的订单数量
+     *
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $page   第几页
+     * @param int    $limit  分页大小
+     *
+     * @return array
+     * @requestExample({"tab":1, "page":2, "limit":10})
+     * @returnExample(
+     * {
+     *     "first": 1,
+     *     "before": 1,
+     *     "current": 1,
+     *     "last": 23,
+     *     "next": 2,
+     *     "totalPages": 23,
+     *     "totalItems": 45,
+     *     "limit": 2,
+     *     "items":[{"sellerId":148086,"num":10}, {"sellerId":2108400,"num":1}]
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.16
+     */
+    public function listStoreOrdersNum(int $tab = 0, int $page = 1, int $limit = 20): array;
+
+    /**
+     * 获取没有发送待付款订单消息的订单
+     *
+     * @param int    $page   第几页
+     * @param int    $limit  分页大小
+     *
+     * @return array
+     * @requestExample({"tab":1, "page":2, "limit":10})
+     * @returnExample(
+     * {
+     *     "first": 1,
+     *     "before": 1,
+     *     "current": 1,
+     *     "last": 23,
+     *     "next": 2,
+     *     "totalPages": 23,
+     *     "totalItems": 45,
+     *     "limit": 2,
+     *     "items":[{"orderId":5000214,"createdTime":1526292190,"goodsName":"test","buyerId":148086}, {"orderId":5000215,"createdTime":1526292190,"goodsName":"demo","buyerId":148086}]
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function listPendingPaymentOrderMessage(int $page, int $limit):array;
+
+    /**
+     * 根据传过来的订单ID，返回要发送消息相关数据
+     *
+     * @param int $orderId  订单id
+     * @return array
+     * @requestExample({"orderId":1})
+     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.19
+     */
+    public function getOrderMessageInfo(int $orderId):array;
+
+    /**
+     * 我的小程序订单.
+     *
+     * > 返回数据说明
+     *
+     * key         | type    | value
+     * ------------ |------  | --------
+     * current      | int    | 当前页码
+     * last         | int    | 下一页页码
+     * totalPages   | int    | 总页码
+     * totalItems   | int    | 数据总量
+     * items        | array  |当前数据
+     * items[]['orderId']     | string | 订单id
+     * items[]['ordern']      | string | 订单编号
+     * items[]['buyerName']   | string | 买家名
+     * items[]['orderStatus'] | int    | 订单状态
+     * items[]['orderAmount'] | int    | 实付(分)
+     * items[]initGoodsAmount | int    | 原货款(分)
+     * items[]initFreight     | int    | 原运款(分)
+     * items[]['freight']     | int    | 运费(分)
+     * items[]['createdDate'] | date | 订单日期
+     * items[]['ifMerge']     | bool | 是否有可合并订单
+     * items[]['productCount']| int  | 商品总件数
+     * items[]['goodsList']   | array | 商品列表
+     * items[]['goodsList'][]['goodsName']    | string | 商品名称
+     * items[]['goodsList'][]['price']        | int    | 商品价格(分)
+     * items[]['goodsList'][]['quantity']     | int    | 商品数量
+     * items[]['goodsList'][]['spec']         | string | 商品属性
+     * items[]['goodsList'][]['goodsImage']   | string | 商品图片
+     *
+     * > 订单状态(orderStatus)
+     *
+     * 值      |状态说明
+     * -------|----------
+     * 0      | 未知（错误值）
+     * 1      | 待付款
+     * 2      | 待分享
+     * 3      | 待发货
+     * 4      | 待收货
+     * 5      | 待评价
+     * 6      | 已评价
+     * 7      | 集赞失败,已退款
+     * 8      | 已退款, 交易取消
+     * 9      | 未付款, 交易取消
+     *
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $page   第几页
+     * @param int    $limit  分页大小
+     * @param UidDTO $uidDTO uid dto
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     *
+     * @requestExample({"tab":1, "page":2})
+     *
+     * @returnExample(
+     * {
+     *     "first": 1,
+     *     "before": 1,
+     *     "current": 1,
+     *     "last": 23,
+     *     "next": 2,
+     *     "totalPages": 23,
+     *     "totalItems": 45,
+     *     "limit": 2,
+     *     "items": [
+     *         {
+     *             "orderId": "160",
+     *             "orderSn": "1811370443",
+     *             "sellerName": "莫琼小店",
+     *             "osId": "26",
+     *             "likes": 2,
+     *             "evaluation": null,
+     *             "orderAmount": "2",
+     *             "freight": "1",
+     *             "createdTime": 1524555994,
+     *             "orderStatus": 8,
+     *             "createdDate": "2018-04-24",
+     *             "ifMerge": true,
+     *             "productCount": 100,
+     *             "goodsList": [
+     *                 {
+     *                     "ogId": "20000215",
+     *                     "orderId": "160",
+     *                     "goodsId": "1450168293",
+     *                     "gsId": "195022196",
+     *                     "price": "1",
+     *                     "quantity": "2",
+     *                     "goodsName": "【莫琼小店】 2018新款 针织衫\/毛衣  包邮",
+     *                     "goodsImage": "https:\/\/img03.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *                     "goodsNumber": "2",
+     *                     "spec": "颜色:如图色,尺码:均码",
+     *                     "createdTime": "1524555994",
+     *                     "updateTime": "2018-04-24 15:46:32"
+     *                 }
+     *             ]
+     *         },
+     *         {
+     *             "orderId": "159",
+     *             "orderSn": "1811370443",
+     *             "sellerName": "莫琼小店",
+     *             "osId": "26",
+     *             "likes": 0,
+     *             "evaluation": null,
+     *             "orderAmount": "2",
+     *             "freight": "1",
+     *             "createdTime": 1524550065,
+     *             "orderStatus": 7,
+     *             "createdDate": "2018-04-24",
+     *             "ifMerge": true,
+     *             "productCount": 100,
+     *             "goodsList": [
+     *                 {
+     *                     "ogId": "20000214",
+     *                     "orderId": "159",
+     *                     "goodsId": "1450168293",
+     *                     "gsId": "195022196",
+     *                     "price": "1",
+     *                     "quantity": "2",
+     *                     "goodsName": "【莫琼小店】 2018新款 针织衫\/毛衣  包邮",
+     *                     "goodsImage": "https:\/\/img03.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *                     "goodsNumber": "2",
+     *                     "spec": "颜色:如图色,尺码:均码",
+     *                     "createdTime": "1524550066",
+     *                     "updateTime": "2018-04-24 14:07:43"
+     *                 }
+     *             ]
+     *         }
+     *     ]
+     * }
+     * )
+     */
+    public function searchMyAppletWaybillOrders(string $keywords = '', int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+    
+    /**
+     * 获取等待结算订单金额(等待结算：包含等待卖家发货、等待买家收货、集赞中待分享、集赞成功等待发货、退货退款中)
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * sum | int  |  等待结算订单金额 
+     * 
+     * @param int $storeId 店铺id
+     * @return int
+     * 
+     * @author wechan
+     * @since 2018年
+     */
+    public function getWaitingSettlementOrderMoney(int $storeId):array;
+    
+    /**
+     * 统计卖家小程序订单数
+     * 
+     * > 返回数据说明
+     * @returnExample(1)
+     * 
+     * @param int $storeId 店铺id
+     * @return int
+     * 
+     * @author wechan
+     * @since 2018年
+     */
+    public function getappletOrderCount(int $storeId):int;
+
+    /**
+     * 根据订单id，获取订单相关信息.
+     *
+     * @param int $orderId 订单id
+     *
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array
+     * @requestExample({"orderId":5000214})
+     * @returnExample({"orderId":5000214,"orderSn":1813399100,"sellerId":148086,"buyerId":1762254,"buyerName":"test","orderAmount":1400,"created_time":1526292190})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.05.28
+     */
+    public function getOrderData(int $orderId): array;
 }
