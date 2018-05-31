@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,12 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Live\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\LiveActivityInterface;
-use Eelly\DTO\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class LiveActivity implements LiveActivityInterface
@@ -313,7 +313,7 @@ class LiveActivity implements LiveActivityInterface
      * laId             |   int      |   直播活动ID
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      *
-     * @param int $liveId 直播ID
+     * @param int         $liveId 直播ID
      * @param UidDTO|null $uidDTO
      *
      * @author wechan
@@ -344,7 +344,7 @@ class LiveActivity implements LiveActivityInterface
      * laId             |   int      |   直播活动ID
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      *
-     * @param int $liveId 直播ID
+     * @param int         $liveId 直播ID
      * @param UidDTO|null $uidDTO
      *
      * @author wechan
@@ -463,7 +463,7 @@ class LiveActivity implements LiveActivityInterface
     /**
      * 厂家发送活动10秒倒计时消息给店家.
      *
-     * @param int $laId  活动id
+     * @param int $laId 活动id
      *
      * @return bool
      *
@@ -481,7 +481,7 @@ class LiveActivity implements LiveActivityInterface
     /**
      * 厂家发送活动10秒倒计时消息给店家.
      *
-     * @param int $laId  活动id
+     * @param int $laId 活动id
      *
      * @return bool
      *
@@ -497,9 +497,10 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 根据直播id返回该直播是参加活动数
+     * 根据直播id返回该直播是参加活动数.
      *
      * > 返回数据说明
+     *
      * @requestExample({"1":"2","2":"2"})
      *
      * @param array $liveIds 直播id
@@ -507,6 +508,7 @@ class LiveActivity implements LiveActivityInterface
      * @return array
      *
      * @author wechan
+     *
      * @since 2018年05月29日
      */
     public function getCountJoinActivityByLiveId(array $liveIds): array
@@ -515,9 +517,10 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * 根据直播id返回该直播是参加活动数
+     * 根据直播id返回该直播是参加活动数.
      *
      * > 返回数据说明
+     *
      * @requestExample({"1":"2","2":"2"})
      *
      * @param array $liveIds 直播id
@@ -525,6 +528,7 @@ class LiveActivity implements LiveActivityInterface
      * @return array
      *
      * @author wechan
+     *
      * @since 2018年05月29日
      */
     public function getCountJoinActivityByLiveIdAsync(array $liveIds)
@@ -550,7 +554,7 @@ class LiveActivity implements LiveActivityInterface
      *
      * @param int $liveId 直播ID
      * @param int $userId 用户ID
-     * @param int $page 分页
+     * @param int $page   分页
      *
      * @author wechan
      *
@@ -579,7 +583,7 @@ class LiveActivity implements LiveActivityInterface
      *
      * @param int $liveId 直播ID
      * @param int $userId 用户ID
-     * @param int $page 分页
+     * @param int $page   分页
      *
      * @author wechan
      *
@@ -591,11 +595,19 @@ class LiveActivity implements LiveActivityInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getPendingLiveActivities(int $liveId): array
     {
         return EellyClient::request('live/liveActivity', __FUNCTION__, true, $liveId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getOverLiveActivities(): array
+    {
+        return EellyClient::request('live/liveActivity', __FUNCTION__, true);
     }
 
     /**

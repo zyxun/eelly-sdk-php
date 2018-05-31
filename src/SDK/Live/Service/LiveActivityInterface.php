@@ -171,14 +171,14 @@ interface LiveActivityInterface
      * laId             |   int      |   直播活动ID
      * timeInterval     |   int      |   时间间隔(秒)：0 持续活动 >0 活动间隔X秒
      *
-     * @param int $liveId 直播ID
+     * @param int         $liveId 直播ID
      * @param UidDTO|null $uidDTO
      *
      * @author wechan
      *
      * @since 2018年5月25日
      */
-    public function getLiveActivityList(int $liveId, UidDTO $uidDTO = null):array;
+    public function getLiveActivityList(int $liveId, UidDTO $uidDTO = null): array;
 
     /**
      * 发布直播活动.
@@ -229,7 +229,7 @@ interface LiveActivityInterface
     /**
      * 厂家发送活动10秒倒计时消息给店家.
      *
-     * @param int $laId  活动id
+     * @param int $laId 活动id
      *
      * @return bool
      *
@@ -242,9 +242,10 @@ interface LiveActivityInterface
     public function sendLiveActivityCountdownMsg(int $laId): bool;
 
     /**
-     * 根据直播id返回该直播是参加活动数
+     * 根据直播id返回该直播是参加活动数.
      *
      * > 返回数据说明
+     *
      * @requestExample({"1":"2","2":"2"})
      *
      * @param array $liveIds 直播id
@@ -252,6 +253,7 @@ interface LiveActivityInterface
      * @return array
      *
      * @author wechan
+     *
      * @since 2018年05月29日
      */
     public function getCountJoinActivityByLiveId(array $liveIds): array;
@@ -274,7 +276,7 @@ interface LiveActivityInterface
      *
      * @param int $liveId 直播ID
      * @param int $userId 用户ID
-     * @param int $page 分页
+     * @param int $page   分页
      *
      * @author wechan
      *
@@ -292,4 +294,13 @@ interface LiveActivityInterface
      * @author hehui<hehui@eelly.net>
      */
     public function getPendingLiveActivities(int $liveId): array;
+
+    /**
+     * 获取未按时结束的活动.
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getOverLiveActivities(): array;
 }
