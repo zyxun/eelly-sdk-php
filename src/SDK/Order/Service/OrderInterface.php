@@ -606,4 +606,40 @@ interface OrderInterface
      * @since 2018年05月17日
      */
     public function getManageOderInfo(int $orderId): array;
+
+    /**
+     * 获取店铺的成交订单数，下单就算成交一笔，取消的订单也算入成交数,由商城迁移过来的.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --------------------|-------|--------------
+     * 148086              |array  |列表下标
+     * 148086["sellerId"]  |string |店铺ID
+     * 148086["addNum"]    |string |下单数
+     * 148086["addAmount"] |string |下单金额
+     * 148086["payAmount"] |string |支付金额
+     * 148086["payNum"]    |string |支付数
+     *
+     *
+     * @param array $storeIds  店铺id数组
+     * @param int   $startTime 开始时间
+     * @param int   $endTime   结束时间
+     *
+     * @requestExample({"storeIds":[148086],'startTime':1514739600,'endTime':1527746679})
+     * @returnExample({
+     *   "148086": {
+     *       "sellerId": "148086",
+     *       "addNum": "236",
+     *       "addAmount": "2889732",
+     *       "payAmount": "14359",
+     *       "payNum": "77"
+     *   }
+     *})
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since  2018年05月31日
+     */
+    public function getOrderCountsByStoreId(array $storeIds, int $startTime = 0, int $endTime = 0): array;
 }
