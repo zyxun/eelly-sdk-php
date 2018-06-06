@@ -19,15 +19,15 @@ namespace Eelly\SDK\Order\Service;
 interface RefundInterface
 {
     /**
-     * �����˿����ӿ�.
+     * 快速退款，对外接口. 
      *
-     * @param int $orderId ����ID
-     * @param int $money �˿���
-     * @param int $sellerId ���ID
-     * @param int $type ���������ͣ�0 ϵͳ�����Ա���� 1 ��Ҳ��� 2 ��Ҳ���
+     * @param int $orderId 订单ID
+     * @param int $money 退款金额
+     * @param int $sellerId 卖家ID
+     * @param int $type 操作者类型：0 系统或管理员操作 1 买家操作 2 卖家操作
      * @return array
-     * @author Ф����<xiaojunming@eelly.net>
-     * @since 2018��04��24��
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月24日
      */
     public function quickReturnMoney(int $orderId, int $money, int $sellerId, int $type = 0): array;
 }
