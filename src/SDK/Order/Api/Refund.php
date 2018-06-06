@@ -27,13 +27,14 @@ class Refund implements RefundInterface
      * @param int $orderId 订单ID
      * @param int $money 退款金额
      * @param int $sellerId 卖家ID
+     * @param int $type 操作者类型：0 系统或管理员操作 1 买家操作 2 卖家操作
      * @return array
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月24日
      */
-    public function quickReturnMoney(int $orderId, int $money, int $sellerId): array
+    public function quickReturnMoney(int $orderId, int $money, int $sellerId, int $type = 0): array
     {
-        return EellyClient::request('order/refund', 'quickReturnMoney', true, $orderId, $money, $sellerId);
+        return EellyClient::request('order/refund', 'quickReturnMoney', true, $orderId, $money, $sellerId, $type);
     }
 
     /**
@@ -42,13 +43,14 @@ class Refund implements RefundInterface
      * @param int $orderId 订单ID
      * @param int $money 退款金额
      * @param int $sellerId 卖家ID
+     * @param int $type 操作者类型：0 系统或管理员操作 1 买家操作 2 卖家操作
      * @return array
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月24日
      */
-    public function quickReturnMoneyAsync(int $orderId, int $money, int $sellerId)
+    public function quickReturnMoneyAsync(int $orderId, int $money, int $sellerId, int $type = 0)
     {
-        return EellyClient::request('order/refund', 'quickReturnMoney', false, $orderId, $money, $sellerId);
+        return EellyClient::request('order/refund', 'quickReturnMoney', false, $orderId, $money, $sellerId, $type);
     }
 
     /**
