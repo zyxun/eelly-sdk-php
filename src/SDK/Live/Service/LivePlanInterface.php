@@ -29,4 +29,15 @@ interface LivePlanInterface
      * @return bool
      */
     public function setStatus(int $planId, int $status): bool;
+
+    /**
+     * 更新是否收费和房间容量.
+     *
+     * @param int $planId
+     * @param int $isPay
+     * @param int $roomSize
+     *
+     * @return bool
+     */
+    public function updatePlan(int $planId, int $isPay, int $roomSize): bool;
 }

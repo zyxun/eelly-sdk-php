@@ -19,15 +19,15 @@ namespace Eelly\SDK\Order\Service;
 interface RefundInterface
 {
     /**
-     * ¿ìËÙÍË¿î£¬¶ÔÍâ½Ó¿Ú.
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿î£¬ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½.
      *
-     * @param int $orderId ¶©µ¥ID
-     * @param int $money ÍË¿î½ð¶î
-     * @param int $sellerId Âô¼ÒID
-     * @param int $type ²Ù×÷ÕßÀàÐÍ£º0 ÏµÍ³»ò¹ÜÀíÔ±²Ù×÷ 1 Âò¼Ò²Ù×÷ 2 Âô¼Ò²Ù×÷
+     * @param int $orderId ï¿½ï¿½ï¿½ï¿½ID
+     * @param int $money ï¿½Ë¿ï¿½ï¿½ï¿½
+     * @param int $sellerId ï¿½ï¿½ï¿½ID
+     * @param int $type ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½0 ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ 2 ï¿½ï¿½Ò²ï¿½ï¿½ï¿½
      * @return array
-     * @author Ð¤¿¡Ã÷<xiaojunming@eelly.net>
-     * @since 2018Äê04ÔÂ24ÈÕ
+     * @author Ð¤ï¿½ï¿½ï¿½ï¿½<xiaojunming@eelly.net>
+     * @since 2018ï¿½ï¿½04ï¿½ï¿½24ï¿½ï¿½
      */
     public function quickReturnMoney(int $orderId, int $money, int $sellerId, int $type = 0): array;
 }

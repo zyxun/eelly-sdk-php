@@ -39,4 +39,8 @@ class OrderException extends LogicException
     public const NO_PERMISSIONS = '没有该权限操作';
 
     public const PARAMETER_EMPTY = '参数不能为空';
+
+    public const MAX_RETURN_MONEY = '退款金额不可以大于订单金额';
+
+    public const STATUS_NOT_OPERATE = '订单当前状态不可操作';
 }

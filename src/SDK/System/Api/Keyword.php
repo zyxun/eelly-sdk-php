@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,11 +14,10 @@ declare(strict_types=1);
 namespace Eelly\SDK\System\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\SystemKeywordInterface;
 use Eelly\SDK\System\DTO\WordDTO;
+use Eelly\SDK\System\Service\SystemKeywordInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Keyword implements SystemKeywordInterface

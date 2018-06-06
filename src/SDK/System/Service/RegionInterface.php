@@ -151,16 +151,18 @@ interface RegionInterface
      * @since  2017-10-31
      */
     public function getUserAddressByGbCode(int $gbCode): array;
-    
+
     /**
-     * 根据上级编码，返回对应的下级数据 (不传值，默认返回省份的列表数据)
+     * 根据上级编码，返回对应的下级数据 (不传值，默认返回省份的列表数据).
      *
-     * @param int $parentCode  上级编码
+     * @param int $parentCode 上级编码
+     *
      * @return array
      * @requestExample({"parentCode":1})
      * @returnExample([{"gbCode":"1","areaName":"\u4e2d\u56fd","shortName":"\u4e2d\u56fd","parentCode":"0"},{"gbCode":"2","areaName":"\u6d77\u5916","shortName":"\u6d77\u5916","parentCode":"0"}])
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2017-12-09
      */
     public function getRegionListByParentCode(int $parentCode = 1): array;

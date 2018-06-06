@@ -14,7 +14,6 @@ namespace Eelly\SDK\Pay\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\RefundInterface;
-use Eelly\SDK\Pay\DTO\RefundDTO;
 
 /**
  *
@@ -23,31 +22,29 @@ use Eelly\SDK\Pay\DTO\RefundDTO;
 class Refund implements RefundInterface
 {
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 退款数据.
+     *
+     * @param array $data 新增的退款数据
+     * @return int
+     * @requestExample({"paId":"1","type":1,"itemId":10001,"billNo":"1804234444706cvAds","money":1})
+     * @returnExample(1)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月23日
      */
-    public function getRefund(int $refundId): RefundDTO
-    {
-        return EellyClient::request('pay/refund', 'getRefund', true, $refundId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getRefundAsync(int $refundId)
-    {
-        return EellyClient::request('pay/refund', 'getRefund', false, $refundId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function addRefund(array $data): bool
+    public function addRefund(array $data): int
     {
         return EellyClient::request('pay/refund', 'addRefund', true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 退款数据.
+     *
+     * @param array $data 新增的退款数据
+     * @return int
+     * @requestExample({"paId":"1","type":1,"itemId":10001,"billNo":"1804234444706cvAds","money":1})
+     * @returnExample(1)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月23日
      */
     public function addRefundAsync(array $data)
     {
@@ -55,51 +52,33 @@ class Refund implements RefundInterface
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 去退款.
+     *
+     * @param array $data 退款数据
+     * @return bool
+     * @requestExample({"userId":148086,"money":1,"itemId":10001,"type":1})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月23日
      */
-    public function updateRefund(int $refundId, array $data): bool
+    public function goRefundPay(array $data): bool
     {
-        return EellyClient::request('pay/refund', 'updateRefund', true, $refundId, $data);
+        return EellyClient::request('pay/refund', 'goRefundPay', true, $data);
     }
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 去退款.
+     *
+     * @param array $data 退款数据
+     * @return bool
+     * @requestExample({"userId":148086,"money":1,"itemId":10001,"type":1})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月23日
      */
-    public function updateRefundAsync(int $refundId, array $data)
+    public function goRefundPayAsync(array $data)
     {
-        return EellyClient::request('pay/refund', 'updateRefund', false, $refundId, $data);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteRefund(int $refundId): bool
-    {
-        return EellyClient::request('pay/refund', 'deleteRefund', true, $refundId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteRefundAsync(int $refundId)
-    {
-        return EellyClient::request('pay/refund', 'deleteRefund', false, $refundId);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listRefundPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
-    {
-        return EellyClient::request('pay/refund', 'listRefundPage', true, $condition, $currentPage, $limit);
-    }
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listRefundPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
-    {
-        return EellyClient::request('pay/refund', 'listRefundPage', false, $condition, $currentPage, $limit);
+        return EellyClient::request('pay/refund', 'goRefundPay', false, $data);
     }
 
     /**

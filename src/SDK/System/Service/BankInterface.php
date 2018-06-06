@@ -114,4 +114,25 @@ interface BankInterface
      * @since  2017-09-27
      */
     public function listBankPage(array $condition = [], int $currentPage = 1, int $limit = 20): array;
+
+    /**
+     * 返回所有银行数据.
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function listBanks(): array;
+
+    /**
+     * 更新银行logo.
+     *
+     * @param int    $bankId 银行id
+     * @param string $logo   银行logo url
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function updateBankLogo(int $bankId, string $logo): bool;
 }

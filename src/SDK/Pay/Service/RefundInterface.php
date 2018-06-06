@@ -21,28 +21,29 @@ use Eelly\SDK\Pay\DTO\RefundDTO;
  */
 interface RefundInterface
 {
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function getRefund(int $refundId): RefundDTO;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 退款数据.
+     *
+     * @param array $data 新增的退款数据
+     * @return int
+     * @requestExample({"paId":"1","type":1,"itemId":10001,"billNo":"1804234444706cvAds","money":1})
+     * @returnExample(1)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月23日
      */
-    public function addRefund(array $data): bool;
+    public function addRefund(array $data): int;
 
     /**
-     * @author eellytools<localhost.shell@gmail.com>
+     * 去退款.
+     *
+     * @param array $data 退款数据
+     * @return bool
+     * @requestExample({"userId":148086,"money":1,"itemId":10001,"type":1})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月23日
      */
-    public function updateRefund(int $refundId, array $data): bool;
+    public function goRefundPay(array $data): bool;
 
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function deleteRefund(int $refundId): bool;
-
-    /**
-     * @author eellytools<localhost.shell@gmail.com>
-     */
-    public function listRefundPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

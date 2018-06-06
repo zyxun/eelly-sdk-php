@@ -319,6 +319,36 @@ class Payment implements PaymentInterface
     }
 
     /**
+     * 多个订单扣款.
+     *
+     * @param array $data 扣款数据
+     * @return bool
+     * @requestExample({"userId":148086,"type":1,"order":[{"money":400,"itemId":10},{"money":500,"itemId":100}]})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月17日
+     */
+    public function batchConsumePayment(array $data): bool
+    {
+        return EellyClient::request('pay/payment', 'batchConsumePayment', true, $data);
+    }
+
+    /**
+     * 多个订单扣款.
+     *
+     * @param array $data 扣款数据
+     * @return bool
+     * @requestExample({"userId":148086,"type":1,"order":[{"money":400,"itemId":10},{"money":500,"itemId":100}]})
+     * @returnExample(true)
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月17日
+     */
+    public function batchConsumePaymentAsync(array $data)
+    {
+        return EellyClient::request('pay/payment', 'batchConsumePayment', false, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

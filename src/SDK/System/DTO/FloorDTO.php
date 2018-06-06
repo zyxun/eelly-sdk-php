@@ -21,28 +21,28 @@ use Eelly\DTO\AbstractDTO;
 class FloorDTO extends AbstractDTO
 {
     /**
-     * 记录ID
+     * 记录ID.
      *
      * @var int
      */
     public $floorId;
 
     /**
-     * 所属市场id
+     * 所属市场id.
      *
      * @var int
      */
     public $marketId;
 
     /**
-     * 楼层名称
+     * 楼层名称.
      *
      * @var string
      */
     public $floorName;
 
     /**
-     * 楼层店铺数
+     * 楼层店铺数.
      *
      * @var int
      */
@@ -56,35 +56,35 @@ class FloorDTO extends AbstractDTO
     public $floorServer;
 
     /**
-     * 楼层主营
+     * 楼层主营.
      *
      * @var string
      */
     public $category;
 
     /**
-     * 排序
+     * 排序.
      *
      * @var int
      */
     public $sort;
 
     /**
-     * 备注
+     * 备注.
      *
      * @var string
      */
     public $remark;
 
     /**
-     * 添加时间
+     * 添加时间.
      *
      * @var int
      */
     public $createdTime;
 
     /**
-     * 修改时间
+     * 修改时间.
      *
      * @var string
      */
