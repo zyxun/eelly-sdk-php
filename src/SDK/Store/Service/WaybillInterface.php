@@ -30,7 +30,9 @@ interface WaybillInterface
     /**
      * 更新默认的电子面单.
      *
-     * @param array $data
+     * @param int $userId 用户ID
+     * @param int $type   绑定类型：1 淘宝帐户 2 菜鸟帐户
+     * @param int $cpCode 快递编号
      *
      * @return bool
      *
@@ -42,7 +44,7 @@ interface WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function updateCpCode(string $userId, int $type, string $cpCode): bool;
+    public function updateCpCode(int $userId, int $type, string $cpCode): bool;
 
     /**
      * 解除授权.
