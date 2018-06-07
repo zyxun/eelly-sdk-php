@@ -70,7 +70,7 @@ class Waybill implements WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function updateCpCode(string $userId, int $type, string $cpCode): bool
+    public function updateCpCode(int $userId, int $type, string $cpCode): bool
     {
         return EellyClient::request('store/waybill', 'updateCpCode', true, $userId, $type, $cpCode);
     }
@@ -113,7 +113,7 @@ class Waybill implements WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function unbindToken(string $userId, int $type): bool
+    public function unbindToken(int $userId, int $type): bool
     {
         return EellyClient::request('store/waybill', 'unbindToken', true, $userId, $type);
     }
@@ -134,7 +134,7 @@ class Waybill implements WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function unbindTokenAsync(string $userId, int $type)
+    public function unbindTokenAsync(int $userId, int $type)
     {
         return EellyClient::request('store/waybill', 'unbindToken', false, $userId, $type);
     }

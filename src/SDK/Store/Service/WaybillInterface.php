@@ -62,7 +62,7 @@ interface WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function unbindToken(string $userId, int $type): bool;
+    public function unbindToken(int $userId, int $type): bool;
 
     /**
      * 用户店铺电子面单Token绑定获取.
