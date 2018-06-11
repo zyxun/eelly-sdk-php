@@ -731,6 +731,20 @@ interface SellerOrderInterface
      * @since 2018年
      */
     public function getWaitingSettlementOrderMoney(int $storeId):array;
+    
+    /**
+     * 统计卖家小程序订单数
+     * 
+     * > 返回数据说明
+     * @returnExample(1)
+     * 
+     * @param int $storeId 店铺id
+     * @return int
+     * 
+     * @author wechan
+     * @since 2018年
+     */
+    public function getappletOrderCount(int $storeId):int;
 
     /**
      * 根据订单id，获取订单相关信息.
