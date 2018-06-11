@@ -56,7 +56,9 @@ class Waybill implements WaybillInterface
     /**
      * 更新默认的电子面单.
      *
-     * @param array $data
+     * @param int $userId 用户ID
+     * @param int $type   绑定类型：1 淘宝帐户 2 菜鸟帐户
+     * @param int $cpCode 快递编号
      *
      * @return bool
      *
@@ -68,7 +70,7 @@ class Waybill implements WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function updateCpCode(string $userId, int $type, string $cpCode): bool
+    public function updateCpCode(int $userId, int $type, string $cpCode): bool
     {
         return EellyClient::request('store/waybill', 'updateCpCode', true, $userId, $type, $cpCode);
     }
@@ -76,7 +78,9 @@ class Waybill implements WaybillInterface
     /**
      * 更新默认的电子面单.
      *
-     * @param array $data
+     * @param int $userId 用户ID
+     * @param int $type   绑定类型：1 淘宝帐户 2 菜鸟帐户
+     * @param int $cpCode 快递编号
      *
      * @return bool
      *
@@ -88,7 +92,7 @@ class Waybill implements WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function updateCpCodeAsync(string $userId, int $type, string $cpCode)
+    public function updateCpCodeAsync(int $userId, int $type, string $cpCode)
     {
         return EellyClient::request('store/waybill', 'updateCpCode', false, $userId, $type, $cpCode);
     }
@@ -109,7 +113,7 @@ class Waybill implements WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function unbindToken(string $userId, int $type): bool
+    public function unbindToken(int $userId, int $type): bool
     {
         return EellyClient::request('store/waybill', 'unbindToken', true, $userId, $type);
     }
@@ -130,7 +134,7 @@ class Waybill implements WaybillInterface
      *      @InclusionIn(1,{message : "非法的绑定类型",domain:[1, 2]})
      * )
      */
-    public function unbindTokenAsync(string $userId, int $type)
+    public function unbindTokenAsync(int $userId, int $type)
     {
         return EellyClient::request('store/waybill', 'unbindToken', false, $userId, $type);
     }

@@ -300,4 +300,21 @@ interface CainiaoInterface
      * @since 2018年05月25日
      */
     public function sendCloudPrintCmdRender(string $printData, array $extends): array;
+
+    /**
+     * 测试打印效果.
+     *
+     * @return array
+     *
+     * @returnExample({
+     *       "waybillCode": "31920630202861",
+     *       "printData": "{\"data\":{\"cpCode\":\"FAST\",\"needEncrypt\":false,\"parent\":false,\"recipient\":{\"address\":{\"city\":\"市辖区\",\"detail\":\"2222\",\"province\":\"北京市\"},\"mobile\":\"13333333333\",\"name\":\"sss\"},\"routingInfo\":{\"consolidation\":{},\"origin\":{\"code\":\"FAST\"},\"sortation\":{}},\"sender\":{\"address\":{\"city\":\"北京市\",\"detail\":\"花家地社区卫生服务站\",\"province\":\"北京\",\"town\":\"望京街道\"},\"mobile\":\"13533333333\",\"name\":\"测试打印，请勿过来\",\"phone\":\"13533333333\"},\"shippingOption\":{\"code\":\"STANDARD_EXPRESS\",\"title\":\"标准快递\"},\"waybillCode\":\"31920630202861\"},\"signature\":\"MD:s7E4gCASc3iyVCv8lcl/3Q==\",\"templateURL\":\"http://cloudprint.cainiao.com/template/standard/74806/29\"}",
+     *       "objectId": "5000057"
+     * })
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月25日
+     */
+    public function createPrintDataExample(): array;
 }
