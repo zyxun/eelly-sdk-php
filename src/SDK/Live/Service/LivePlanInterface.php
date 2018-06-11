@@ -40,5 +40,5 @@ interface LivePlanInterface
      *
      * @return bool
      */
-    public function updatePlan(int $planId, int $isPay, int $roomSize, $liveType): bool;
+    public function updatePlan(int $planId, int $isPay, int $roomSize, int $liveType): bool;
 }
