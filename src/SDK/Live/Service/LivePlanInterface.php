@@ -36,9 +36,8 @@ interface LivePlanInterface
      * @param int $planId
      * @param int $isPay
      * @param int $roomSize
-     * @param int $liveType  直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
      *
      * @return bool
      */
-    public function updatePlan(int $planId, int $isPay, int $roomSize, int $liveType): bool;
+    public function updatePlan(int $planId, int $isPay, int $roomSize): bool;
 }
