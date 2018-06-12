@@ -681,6 +681,68 @@ class Cainiao implements CainiaoInterface
     }
 
     /**
+     * 获取订单数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * invoiceNo   |string |送货单号
+     * invoiceName |string |送货公司名称
+     * invoiceCode |string |快递公司对应的拼音
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return array
+     *
+     * @requestExample({"orderId":5000057})
+     *
+     * @returnExample({
+     *   "invoiceNo": "31920630202861",
+     *   "invoiceName": "快捷快递",
+     *   "invoiceCode": "FAST"
+     * })
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年06月12日
+     */
+    public function getWaybillInvoiceData(int $orderId): array
+    {
+        return EellyClient::request('order/cainiao', 'getWaybillInvoiceData', true, $orderId);
+    }
+
+    /**
+     * 获取订单数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * invoiceNo   |string |送货单号
+     * invoiceName |string |送货公司名称
+     * invoiceCode |string |快递公司对应的拼音
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return array
+     *
+     * @requestExample({"orderId":5000057})
+     *
+     * @returnExample({
+     *   "invoiceNo": "31920630202861",
+     *   "invoiceName": "快捷快递",
+     *   "invoiceCode": "FAST"
+     * })
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年06月12日
+     */
+    public function getWaybillInvoiceDataAsync(int $orderId)
+    {
+        return EellyClient::request('order/cainiao', 'getWaybillInvoiceData', false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
