@@ -179,7 +179,7 @@ class Preview implements PreviewInterface
      * @param string|null $dateTime 日期(例如: 2018-04-01)
      * @param bool $isPay 是否收费场次
      * @param array $status 状态：0 未启用 1 启用
-     * @param int $liveType 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
+     * @param int $liveType 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场)
      *
      * @return array
      *
@@ -196,14 +196,15 @@ class Preview implements PreviewInterface
      * @param string|null $dateTime 日期(例如: 2018-04-01)
      * @param bool $isPay 是否收费场次
      * @param array $status 状态：0 未启用 1 启用
+     * @param int $liveType 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场)
      *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function getTimeRangeAsync(string $dateTime = null, bool $isPay = true, array $status = [1])
+    public function getTimeRangeAsync(string $dateTime = null, bool $isPay = true, array $status = [1], int $liveType)
     {
-        return EellyClient::request('live/preview', 'getTimeRange', false, $dateTime, $isPay, $status);
+        return EellyClient::request('live/preview', 'getTimeRange', false, $dateTime, $isPay, $status, $liveType);
     }
 
     /**
