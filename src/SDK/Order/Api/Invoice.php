@@ -23,6 +23,19 @@ use Eelly\DTO\UidDTO;
 class Invoice implements InvoiceInterface
 {
     /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
+    }
+
+    /**
      * 新增订单物流及收货人信息记录.
      *
      * @param array  $data                  订单物流及收货人信息数据
@@ -376,16 +389,8 @@ class Invoice implements InvoiceInterface
         return EellyClient::request('order/invoice', 'getExpressByOrderId', false, $orderId, $uidDTO);
     }
 
-    /**
-     * @return self
-     */
-    public static function getInstance(): self
+    public function getOrderInvoiceRecord(int $sellerId): array
     {
-        static $instance;
-        if (null === $instance) {
-            $instance = new self();
-        }
-
-        return $instance;
+        return EellyClient::request('order/invoice', 'getOrderInvoiceRecord', true, $sellerId);
     }
 }
