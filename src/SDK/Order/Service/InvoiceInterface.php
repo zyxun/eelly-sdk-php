@@ -183,4 +183,16 @@ interface InvoiceInterface
      * )
      */
     public function getExpressByOrderId(int $orderId, UidDTO $uidDTO = null): array;
+
+    /**
+     * 店铺最近发货的5家物流
+     * @reqArgs
+     * @requestExample({"sellerId": 148086})
+     * @explain
+     * @returnExample({"中通","顺丰","韵达","圆通","申通"})
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018年06月14日
+     */
+    public function getOrderInvoiceRecord(int $sellerId): array ;
+
 }
