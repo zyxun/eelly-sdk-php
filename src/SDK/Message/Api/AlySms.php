@@ -106,8 +106,11 @@ class AlySms implements AlySmsInterface
      *
      * @param string $mobile 发送的手机号码
      * @param string $content 发送的参数内容
-     * @param integer $templateId 模版id @see http://url.com 
+     * @param integer $templateId 模版id @see https://api.eelly.local/message/alySms/showTemplate
      * @param integer $sendType 发送验证码的平台 1:android端，2:ios端，3:web端，4:其他
+     * @param int $senderId 发送者ID 0 系统消息
+     * @param int $receiveType 接收类型 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
+     * @param int $receiverId 接收者ID
      * 
      * @requestExample({"mobile":"18826237472", "content":'{"buyerName":"sunanzhi", "storeName":"衣联商城", "orderSn":"9854648958"}',"templateId":62, "sendType":1})
      * @returnExample('true')
@@ -116,9 +119,9 @@ class AlySms implements AlySmsInterface
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
-    public function sendSms(string $mobile, string $content, int $templateId, int $sendType): bool
+    public function sendSms(string $mobile, string $content, int $templateId, int $sendType, int $senderId = 0, int $receiveType = 0, int $receiverId = 0): bool
     {
-        return EellyClient::request('message/alySms', 'sendSms', true, $mobile, $content, $templateId, $sendType);
+        return EellyClient::request('message/alySms', 'sendSms', true, $mobile, $content, $templateId, $sendType, $senderId, $receiveType, $receiverId);
     }
 
     /**
@@ -126,8 +129,11 @@ class AlySms implements AlySmsInterface
      *
      * @param string $mobile 发送的手机号码
      * @param string $content 发送的参数内容
-     * @param integer $templateId 模版id @see http://url.com 
+     * @param integer $templateId 模版id @see https://api.eelly.local/message/alySms/showTemplate
      * @param integer $sendType 发送验证码的平台 1:android端，2:ios端，3:web端，4:其他
+     * @param int $senderId 发送者ID 0 系统消息
+     * @param int $receiveType 接收类型 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
+     * @param int $receiverId 接收者ID
      * 
      * @requestExample({"mobile":"18826237472", "content":'{"buyerName":"sunanzhi", "storeName":"衣联商城", "orderSn":"9854648958"}',"templateId":62, "sendType":1})
      * @returnExample('true')
@@ -136,9 +142,9 @@ class AlySms implements AlySmsInterface
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
-    public function sendSmsAsync(string $mobile, string $content, int $templateId, int $sendType)
+    public function sendSmsAsync(string $mobile, string $content, int $templateId, int $sendType, int $senderId = 0, int $receiveType = 0, int $receiverId = 0)
     {
-        return EellyClient::request('message/alySms', 'sendSms', false, $mobile, $content, $templateId, $sendType);
+        return EellyClient::request('message/alySms', 'sendSms', false, $mobile, $content, $templateId, $sendType, $senderId, $receiveType, $receiverId);
     }
 
     /**
