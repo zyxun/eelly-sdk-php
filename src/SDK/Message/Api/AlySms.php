@@ -119,7 +119,7 @@ class AlySms implements AlySmsInterface
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
-    public function sendSms(string $mobile, string $content, int $templateId, int $sendType, int $senderId = 0, int $receiveType = 0, int $receiverId = 0): bool
+    public function sendSms(string $mobile, string $content, int $templateId, int $sendType, int $senderId = 0, int $receiveType = 4, int $receiverId = 0): bool
     {
         return EellyClient::request('message/alySms', 'sendSms', true, $mobile, $content, $templateId, $sendType, $senderId, $receiveType, $receiverId);
     }
@@ -142,7 +142,7 @@ class AlySms implements AlySmsInterface
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
-    public function sendSmsAsync(string $mobile, string $content, int $templateId, int $sendType, int $senderId = 0, int $receiveType = 0, int $receiverId = 0)
+    public function sendSmsAsync(string $mobile, string $content, int $templateId, int $sendType, int $senderId = 0, int $receiveType = 4, int $receiverId = 0)
     {
         return EellyClient::request('message/alySms', 'sendSms', false, $mobile, $content, $templateId, $sendType, $senderId, $receiveType, $receiverId);
     }
@@ -156,13 +156,13 @@ class AlySms implements AlySmsInterface
      * ----------------| --------------   | ------------    |  -----------
      * 62              |  订单-退货退款完成  | 亲爱的${buyerName}店主，你好！你在店铺:${storeName}的订单${orderSn}的退货退款已完成。 | buyerName, storeName, orderSn
      * 
-     * >${{ 参数 } 内容是参数，严格要求一致，否则发送失败
+     * >${{ 参数 }} 内容是参数，严格要求一致，否则发送失败
      * 
      * @requestExample({})
      * @returnExample()
-     * @return void
+     * @return bool
      */
-    public function showTemplate(): void
+    public function showTemplate(): bool
     {
         return EellyClient::request('message/alySms', 'showTemplate', true);
     }
@@ -176,11 +176,11 @@ class AlySms implements AlySmsInterface
      * ----------------| --------------   | ------------    |  -----------
      * 62              |  订单-退货退款完成  | 亲爱的${buyerName}店主，你好！你在店铺:${storeName}的订单${orderSn}的退货退款已完成。 | buyerName, storeName, orderSn
      * 
-     * >${{ 参数 } 内容是参数，严格要求一致，否则发送失败
+     * >${{ 参数 }} 内容是参数，严格要求一致，否则发送失败
      * 
      * @requestExample({})
      * @returnExample()
-     * @return void
+     * @return bool
      */
     public function showTemplateAsync()
     {
