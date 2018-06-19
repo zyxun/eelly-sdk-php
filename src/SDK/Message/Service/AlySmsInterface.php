@@ -28,7 +28,7 @@ interface AlySmsInterface
      * @param string $code 校验的验证码
      * 
      * @requestExample({"mobile":"18826237472","templateId":95,"code":1234})
-     * @returnExample('true')
+     * @returnExample({true})
      * 
      * @return bool
      *
@@ -45,7 +45,7 @@ interface AlySmsInterface
      * @param integer $length 验证码的长度
      * 
      * @requestExample({"mobile":"188262637472", "templateId":95, "sendType":1, "code":1234})
-     * @returnExample('true')
+     * @returnExample({true})
      * 
      * @return bool
      *
@@ -66,7 +66,7 @@ interface AlySmsInterface
      * @param int $receiverId 接收者ID
      * 
      * @requestExample({"mobile":"18826237472", "content":'{"buyerName":"sunanzhi", "storeName":"衣联商城", "orderSn":"9854648958"}',"templateId":62, "sendType":1})
-     * @returnExample('true')
+     * @returnExample({true})
      * 
      * @return bool
      * 
@@ -85,8 +85,6 @@ interface AlySmsInterface
      * 
      * >${{ 参数 }} 内容是参数，严格要求一致，否则发送失败
      * 
-     * @requestExample({})
-     * @returnExample()
      * @return bool
      */
     public function showTemplate():bool;
