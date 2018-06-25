@@ -279,7 +279,7 @@ interface BuyerOrderInterface
      *     "regionName": "山西省 晋城市 沁水县",
      *     "address": "2222",
      *     "invoiceName": "韵达1",
-     *     "logisticsName": ""
+     *     "logisticsName": "",
      *     "orderStatus": 8,
      *     "createdDatetime": "2018-04-24 07:46:34",
      *     "payDatetime": "2018-04-24 07:47:46",
@@ -306,13 +306,13 @@ interface BuyerOrderInterface
      *     ],
      *     "expressStatus": "湖南省炎陵县公司快件已被 已签收 签收",
      *     "countdown": 14586655,
-     *     "timeList": {
+     *     "timeList": [{
      *         "createdTime": 1524555994,
-     *         "payTime": 1524556066",
+     *         "payTime": "1524556066",
      *         "shareTime": 1524899478,
      *         "shipTime": 0,
      *         "receiveTime": 0
-     *      },
+     *     }]
      * }
      * )
      *
@@ -331,4 +331,143 @@ interface BuyerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function confirmReceivedOrder(int $orderId, int $uid):bool;
+
+    /**
+     * 申请退货退款
+     *
+     * @param integer $type 退货退款类型 1:仅退款， 2:退货退款
+     * @param integer $orderId 订单id
+     * @param integer $remarkType 退款原因
+     * @param integer $price 退款金额
+     * @param string $desc 退款说明
+     * @param string $certificate 退款凭证 图片，多图用#拼接
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function orderRefund(int $type, int $orderId, int $remarkType, int $price, string $desc = '-', string $certificate = '-'):bool;
+
+    /**
+     * 退货退款详情
+     *
+     * @param integer $orderId 订单id
+     * @return array
+     * 
+     * @requestExample({"orderId":116})
+     * @returnExample({
+     *      "orderRefund":[{
+     *          "applyAmount":"10",
+     *          "applyFreight":"1",
+     *          "type":"2",
+     *          "remarkType":"卖家超时未发货",
+     *          "remark":"-",
+     *          "certificate":[{
+     *              "0":"-"
+     *          }]
+     *      }],
+     *      "orderDetail":[{
+     *          "orderSn":"1810837219",
+     *          "firstTime":"1529908563",
+     *          "lastTime":"1529913120"
+     *      }]
+     * })
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function orderDetail(int $orderId):array;
+
+    /**
+     * 协商记录
+     *
+     * @param integer $orderId 订单id
+     * @return array
+     * @requestExample({"orderId":116})
+     * @returnExample([
+     * {
+     *      "orl_id":"528459",
+     *      "order_id":"116",
+     *      "type":"1",
+     *      "handle_id":"2108403",
+     *      "handle_name":"买家名称",
+     *      "from_os_id":"0",
+     *      "to_os_id":"16",
+     *      "remark_type":"4",
+     *      "remark":"-",
+     *      "certificate":{
+     *          "order_id":116,
+     *          "os_id":16,
+     *          "type":2,
+     *          "phase":3,
+     *          "apply_amount":100,
+     *          "apply_freight":"1",
+     *          "certificate":{
+     *              "0":"-"
+     *          },
+     *          "remark_type":4,
+     *          "remark":"-",
+     *          "created_time":"1529908563"
+     *      },
+     *      "created_time":"1529908563",
+     *      "update_time":"2018-06-25 14:36:03",
+     *      "from_os_id_status":"null",
+     *      "to_os_id_status":"申请退货退款中",
+     *      "remarkType":"卖家超时未发货"
+     * },
+     * {
+     *      "orl_id":"528459",
+     *      "order_id":"116",
+     *      "type":"1",
+     *      "handle_id":"2108403",
+     *      "handle_name":"买家名称",
+     *      "from_os_id":"16",
+     *      "to_os_id":"26",
+     *      "remark_type":"4",
+     *      "remark":"-",
+     *      "certificate":{
+     *          "0":"null"
+     *      },
+     *      "created_time":"1529909281",
+     *      "update_time":"2018-06-25 14:48:01",
+     *      "from_os_id_status":"申请退货退款中",
+     *      "to_os_id_status":"交易取消",
+     *      "remarkType":"其他"
+     * }
+     * ])
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function orderRefundLog(int $orderId):array;
+
+    /**
+     * 撤销退款申请
+     *
+     * @param integer $orderId 订单id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function cancelOrderRefund(int $orderId):bool;
+
+
+    /**
+     * 退货
+     * 
+     * @param integer $orderId 订单id
+     * @param string $invoiceInfo 收件人信息 json格式
+     * @param string $invoiceCode 送货编码 快递公司拼音
+     * @param string $invoiceName 快递公司
+     * @param string $invoiceNo 订单编号
+     * @return boolean
+     * @requestExample(
+     * {
+     *      "orderId":"116",
+     *      "invoiceInfo":'{"consignee":"收件人姓名", "gbCode":"地区编号", "regionName":"广东省 广州市 越秀区","address":"白云大道北泰兴大厦","zipcode":"500001","mobile":"15267987854"}',
+     *      "invoiceCode":"shunfeng",
+     *      "invoiceName":"顺丰",
+     *      "invoiceNo":"123123"
+     * }
+     * )
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function orderRefundInvoice(int $orderId, string $invoiceInfo, string $invoiceCode, string $invoiceName, string $invoiceNo):bool;
 }
