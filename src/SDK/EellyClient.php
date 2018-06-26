@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK;
 
+use GuzzleHttp\Exception\ServerException;
 use LogicException;
 use Phalcon\Cache\BackendInterface as CacheInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -131,7 +132,15 @@ class EellyClient
         $paramArr = array_merge([$uri.'/'.$method], $args);
         $promise = call_user_func_array([self::$sdkClient, 'requestAsync'], $paramArr);
         if ($sync) {
-            $response = $promise->wait();
+            try {
+                $response = $promise->wait();
+            } catch (ServerException $e) {
+                $body = json_decode((string) $e->getResponse()->getBody(), true);
+                if (JSON_ERROR_NONE == json_last_error()) {
+                    throw new $body['returnType']($body['error']);
+                }
+                throw $e;
+            }
 
             return self::$self->responseToObject($response);
         }
@@ -154,7 +163,7 @@ class EellyClient
     {
         $status = 1;
         isset($body['returnType']) && ($status <<= 1)
-            && (!in_array($body['returnType'], [ 'integer', 'float', 'string', 'boolean', 'array']) && class_exists($body['returnType'])) && ($status <<= 1)
+            && (!in_array($body['returnType'], ['integer', 'float', 'string', 'boolean', 'array']) && class_exists($body['returnType'])) && ($status <<= 1)
             && is_subclass_of($body['returnType'], LogicException::class) && ($status <<= 1)
             && isset($body['context']) && ($status <<= 1);
 
