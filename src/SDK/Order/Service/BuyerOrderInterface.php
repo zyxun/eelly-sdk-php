@@ -350,6 +350,20 @@ interface BuyerOrderInterface
     /**
      * 退货退款详情
      *
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * applyAmount      | int      | 申请的金额
+     * applyFreight     | int      | 申请的运费 
+     * type             | int      | 操作类型 0:系统，1:买家，2:卖家 
+     * remarkType       | string   | 退货退款原因
+     * remark           | string   | 备注说明
+     * certificate      | int      | 凭证
+     * orderSn          | int      | 订单编号
+     * firstTime        | int      | 第一次发起的退货退款时间戳
+     * lastTime         | int      | 最后一次更新的时间
+     * 
      * @param integer $orderId 订单id
      * @return array
      * 
@@ -378,6 +392,35 @@ interface BuyerOrderInterface
 
     /**
      * 协商记录
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * orl_id       | int       | 退货退款日志记录
+     * order_id      | int      | 订单id
+     * type          | int      | 操作类型 0:系统，1:买家，2:卖家 
+     * handle_id     | int      | 买家id
+     * handle_name   | string   | 买家名称
+     * from_os_id    | int      | 原先状态id
+     * to_os_id      | int      | 至某种状态id
+     * remark_type   | int      | 退货原因
+     * remark        | int      | 备注说明
+     * created_time  | int      | 此记录的时间戳
+     * from_os_id_status   | string      | 跟 from_os_id 统一，中文解释
+     * to_os_id_status     | string      | 跟 to_os_id 统一，中文解释
+     * remarkType          | string      | 跟 remark_type 统一，中文解释
+     * certificate                | array    | 凭证数据 只有在用户发起退货退款才会存订单数据，或者卖家拒绝的凭证数据才会有，一般为null
+     * certificate - order_id     | int      | 订单id
+     * certificate - os_id        | int      | 订单状态
+     * certificate - type         | int      | 订单类型 1:退款 2:退货退款
+     * certificate - phase        | int      | 订单发货状态 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
+     * certificate - apply_amount | int      | 申请的退款金额
+     * certificate - apply_freight| int      | 申请的退款运费
+     * certificate - certificate  | array    | 图片凭证
+     * certificate - remark_type  | int      | 退货退款原因
+     * certificate - remark       | stirng   | 备注说明
+     * certificate - created_time | stirng   | 退货退款发出的时间戳
      *
      * @param integer $orderId 订单id
      * @return array
