@@ -98,14 +98,10 @@ class EellyClient
      */
     public static function initialize(array $config, CacheInterface $cache): self
     {
-        if (defined('APP') && ApplicationConst::ENV_PRODUCTION === APP['env']) {
-            $eellyClient = self::init($config['options']);
-        } else {
-            $collaborators = [
-                'httpClient' => new \GuzzleHttp\Client(['verify' => false]),
-            ];
-            $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
-        }
+        $collaborators = (defined('APP') && ApplicationConst::ENV_PRODUCTION === APP['env']) ? [] : [
+            'httpClient' => new \GuzzleHttp\Client(['verify' => false]),
+        ];
+        $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
         $eellyClient->getSdkClient()->getProvider()->setAccessTokenCache($cache);
 
         return $eellyClient;
