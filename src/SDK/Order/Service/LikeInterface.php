@@ -58,4 +58,29 @@ interface LikeInterface
      * @since 2018年05月02日
      */
     public function getOrderLikeInfo(int $orderId): array;
+
+    /**
+     * 新增订单点赞记录 (新版--自定义商品点赞数控制)
+     *
+     * @param array           $data                  订单点赞记录数据
+     * @param int             $orderData["orderId"]  订单id
+     * @param int             $orderData["userId"]   用户id
+     * @param int             $orderData["goodsId"]  商品id
+     *
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return bool 新增结果
+     * @requestExample({
+     *     "data":{
+     *             "orderId":123,
+     *             "userId":148086,
+     *             "goodsId":123
+     *     }
+     * })
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.06.28
+     */
+    public function addOrderLikeNew(array $data): bool;
 }
