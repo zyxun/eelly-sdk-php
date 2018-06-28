@@ -1586,4 +1586,72 @@ class SellerOrder implements SellerOrderInterface
         return EellyClient::request('order/sellerOrder', 'getOrderData', false, $orderId);
     }
 
+    /**
+     * 退货退款详情页
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000020})
+     * @returnExample({"orderId":"5000020","orderSn":"1812374549","buyerId":"2108403","buyerName":"\u5927\u5e08\u5085\u58eb\u5927\u592b\uff08yl_jn003778\uff09","applyAmount":"11","applyFreight":"0","refundType":"\u4ec5\u9000\u6b3e","refundReason":"\u5176\u4ed6","remark":"","certificate":"","createdTime":"1525780044","refundStatus":"\u7533\u8bf7\u9000\u6b3e\u4e2d","firstTime":"2018-05-08 19:47","newTime":"2018-06-06 13:38"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.06.22
+     */
+    public function orderRefundDetail(int $orderId): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * 退货退款详情页
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000020})
+     * @returnExample({"orderId":"5000020","orderSn":"1812374549","buyerId":"2108403","buyerName":"\u5927\u5e08\u5085\u58eb\u5927\u592b\uff08yl_jn003778\uff09","applyAmount":"11","applyFreight":"0","refundType":"\u4ec5\u9000\u6b3e","refundReason":"\u5176\u4ed6","remark":"","certificate":"","createdTime":"1525780044","refundStatus":"\u7533\u8bf7\u9000\u6b3e\u4e2d","firstTime":"2018-05-08 19:47","newTime":"2018-06-06 13:38"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.06.22
+     */
+    public function orderRefundDetailAsync(int $orderId): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId);
+    }
+
+    /**
+     * 获取退款页面相关数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000020})
+     * @returnExample({"orderAmount":"400","freight":"1","applyAmount":"11"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.06.27
+     */
+    public function getRefundMoneyInfo(int $orderId): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * 获取退款页面相关数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     * @throws \Eelly\SDK\Order\Exception\OrderException
+     * @requestExample({"orderId":5000020})
+     * @returnExample({"orderAmount":"400","freight":"1","applyAmount":"11"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.06.27
+     */
+    public function getRefundMoneyInfoAsync(int $orderId): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId);
+    }
+
 }
