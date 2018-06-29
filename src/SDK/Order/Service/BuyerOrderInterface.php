@@ -180,7 +180,8 @@ interface BuyerOrderInterface
      *     "needPay": 32,
      *     "needShare": 8,
      *     "needShipping": 0,
-     *     "needReceiving": 0
+     *     "needReceiving": 0,
+     *     "needRefund":2
      * }
      * )
      *
