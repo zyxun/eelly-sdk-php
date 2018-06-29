@@ -711,13 +711,15 @@ class BuyerOrder implements BuyerOrderInterface
      * --- | ---- | -------
      * applyAmount      | int      | 申请的金额
      * applyFreight     | int      | 申请的运费 
-     * type             | int      | 操作类型 0:系统，1:买家，2:卖家 
+     * type             | int      | 退货退款类型: 1 退款 2 退货 
      * remarkType       | string   | 退货退款原因
      * remark           | string   | 备注说明
      * certificate      | int      | 凭证
      * orderSn          | int      | 订单编号
      * firstTime        | int      | 第一次发起的退货退款时间戳
      * lastTime         | int      | 最后一次更新的时间
+     * statusContent    | string   | 详情文案信息
+     * status           | int      | 文案状态 1:申请退款中,2:申请退货中,3:卖家拒绝退款，等待我处理,4:卖家同意退货，等待我退货,5:卖家拒绝退货，等待我处理,6:我已发货，等待卖家发货,7:退货退款成功
      * 
      * @param integer $orderId 订单id
      * @return array
@@ -730,6 +732,8 @@ class BuyerOrder implements BuyerOrderInterface
      *          "type":"2",
      *          "remarkType":"卖家超时未发货",
      *          "remark":"-",
+     *          "statusContent":"退货退款成功",
+     *          "status":"7",
      *          "certificate":[{
      *              "0":"-"
      *          }]
@@ -737,7 +741,8 @@ class BuyerOrder implements BuyerOrderInterface
      *      "orderDetail":[{
      *          "orderSn":"1810837219",
      *          "firstTime":"1529908563",
-     *          "lastTime":"1529913120"
+     *          "lastTime":"1529913120"，
+     *          "time":"1529909281"
      *      }]
      * })
      * 
@@ -757,13 +762,15 @@ class BuyerOrder implements BuyerOrderInterface
      * --- | ---- | -------
      * applyAmount      | int      | 申请的金额
      * applyFreight     | int      | 申请的运费 
-     * type             | int      | 操作类型 0:系统，1:买家，2:卖家 
+     * type             | int      | 退货退款类型: 1 退款 2 退货 
      * remarkType       | string   | 退货退款原因
      * remark           | string   | 备注说明
      * certificate      | int      | 凭证
      * orderSn          | int      | 订单编号
      * firstTime        | int      | 第一次发起的退货退款时间戳
      * lastTime         | int      | 最后一次更新的时间
+     * statusContent    | string   | 详情文案信息
+     * status           | int      | 文案状态 1:申请退款中,2:申请退货中,3:卖家拒绝退款，等待我处理,4:卖家同意退货，等待我退货,5:卖家拒绝退货，等待我处理,6:我已发货，等待卖家发货,7:退货退款成功
      * 
      * @param integer $orderId 订单id
      * @return array
@@ -776,6 +783,8 @@ class BuyerOrder implements BuyerOrderInterface
      *          "type":"2",
      *          "remarkType":"卖家超时未发货",
      *          "remark":"-",
+     *          "statusContent":"退货退款成功",
+     *          "status":"7",
      *          "certificate":[{
      *              "0":"-"
      *          }]
@@ -783,7 +792,8 @@ class BuyerOrder implements BuyerOrderInterface
      *      "orderDetail":[{
      *          "orderSn":"1810837219",
      *          "firstTime":"1529908563",
-     *          "lastTime":"1529913120"
+     *          "lastTime":"1529913120"，
+     *          "time":"1529909281"
      *      }]
      * })
      * 
@@ -1056,6 +1066,88 @@ class BuyerOrder implements BuyerOrderInterface
     public function orderRefundInvoiceAsync(int $orderId, string $invoiceInfo, string $invoiceCode, string $invoiceName, string $invoiceNo)
     {
         return EellyClient::request('order/buyerOrder', 'orderRefundInvoice', false, $orderId, $invoiceInfo, $invoiceCode, $invoiceName, $invoiceNo);
+    }
+
+    /**
+     * 重新申请退货退款接口
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * order_id      | int      | 订单id
+     * apply_amount  | int       | 申请退款金额
+     * apply_freight | int       | 申请运费金额
+     * type          | int      | 退货退款类型: 1 退款 2 退货
+     * remark_type   | int      | 退货原因
+     * remark        | int      | 备注说明
+     * phase         | int       | 订单状态 1:未发货发起的退款，2:已发货发起的退款 3:已发货发起的退货退款
+     * os_id         | int       | 订单状态
+     * certificate   | array       | 凭证数据 只有type为2时才有有效数据
+     * 
+     * @param integer $orderId 订单id
+     * @return array
+     * @requestExample({"orderId":"116"})
+     * @returnExample({
+     *      "order_id":"116",
+     *      "apply_amount":"10",
+     *      "apply_freight":"1",
+     *      "type":"2",
+     *      "remark_type":"4",
+     *      "remark":"-",
+     *      "phase":"3",
+     *      "os_id":"26",
+     *      "certificate":[{
+     *          "0":"-"
+     *      }]
+     * })
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function orderRefundLogEdit(int $orderId): array
+    {
+        return EellyClient::request('order/buyerOrder', 'orderRefundLogEdit', true, $orderId);
+    }
+
+    /**
+     * 重新申请退货退款接口
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * order_id      | int      | 订单id
+     * apply_amount  | int       | 申请退款金额
+     * apply_freight | int       | 申请运费金额
+     * type          | int      | 退货退款类型: 1 退款 2 退货
+     * remark_type   | int      | 退货原因
+     * remark        | int      | 备注说明
+     * phase         | int       | 订单状态 1:未发货发起的退款，2:已发货发起的退款 3:已发货发起的退货退款
+     * os_id         | int       | 订单状态
+     * certificate   | array       | 凭证数据 只有type为2时才有有效数据
+     * 
+     * @param integer $orderId 订单id
+     * @return array
+     * @requestExample({"orderId":"116"})
+     * @returnExample({
+     *      "order_id":"116",
+     *      "apply_amount":"10",
+     *      "apply_freight":"1",
+     *      "type":"2",
+     *      "remark_type":"4",
+     *      "remark":"-",
+     *      "phase":"3",
+     *      "os_id":"26",
+     *      "certificate":[{
+     *          "0":"-"
+     *      }]
+     * })
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function orderRefundLogEditAsync(int $orderId)
+    {
+        return EellyClient::request('order/buyerOrder', 'orderRefundLogEdit', false, $orderId);
     }
 
     /**
