@@ -350,6 +350,34 @@ interface BuyerOrderInterface
 
     /**
      * 退货退款详情
+     * 
+     * > from_os_id 和 to_os_id 状态说明 
+     * 
+     *  key    |  value
+     *  ------ | -------
+     *  16     | 申请退货退款
+     *  17     | 同意退货 等待买家发货
+     *  18     | 发出退货 等待卖家收货
+     *  19     | 拒绝退货退款 看certificate - type 1:仅退款 2:退货退款
+     *  20     | 重新发起退货退款
+     *  21     | 确认退款
+     *  25     | 退货退款成功
+     *  26     | 交易取消
+     *  27     | 退款取消
+     * 
+     * > remark_type 退货原因状态
+     * 
+     *  key    |  value
+     *  ------ | -------
+     *  0      | 其他
+     *  3      | 商品质量不好 
+     *  4      | 卖家超时未发货 
+     *  5      | 卖家发错货
+     *  7      | 商品与描述不符
+     *  8      | 收到商品破损
+     *  11     | 商品缺货
+     *  12     | 与卖家协商一致退款
+     *  13     | 不想要了／拍错了
      *
      * > 返回数据说明
      *
@@ -361,9 +389,13 @@ interface BuyerOrderInterface
      * remarkType       | string   | 退货退款原因
      * remark           | string   | 备注说明
      * certificate      | int      | 凭证
+     * seller_id        | int      | 店铺id
+     * finished_time    | int      | 退货退款完成时间
+     * seller_name      | string   | 店铺名称
      * orderSn          | int      | 订单编号
      * firstTime        | int      | 第一次发起的退货退款时间戳
      * lastTime         | int      | 最后一次更新的时间
+     * time             | int      | 倒计时的时间
      * statusContent    | string   | 详情文案信息
      * status           | int      | 文案状态 1:申请退款中,2:申请退货中,3:卖家拒绝退款，等待我处理,4:卖家同意退货，等待我退货,5:卖家拒绝退货，等待我处理,6:我已发货，等待卖家发货,7:退货退款成功
      * 
@@ -372,24 +404,21 @@ interface BuyerOrderInterface
      * 
      * @requestExample({"orderId":116})
      * @returnExample({
-     *      "orderRefund":[{
-     *          "applyAmount":"10",
-     *          "applyFreight":"1",
-     *          "type":"2",
-     *          "remarkType":"卖家超时未发货",
-     *          "remark":"-",
-     *          "statusContent":"退货退款成功",
-     *          "status":"7",
-     *          "certificate":[{
-     *              "0":"-"
-     *          }]
-     *      }],
-     *      "orderDetail":[{
-     *          "orderSn":"1810837219",
-     *          "firstTime":"1529908563",
-     *          "lastTime":"1529913120",
-     *          "time":"1529909281"
-     *      }]
+     *      "applyAmount":"10",
+     *      "applyFreight":"1",
+     *      "type":"2",
+     *      "seller_id":"1761477",
+     *      "seller_name":"广东省广州市萌STYLE时尚童装店批发服装店细心",
+     *      "remarkType":"卖家超时未发货",
+     *      "remark":"-",
+     *      "statusContent":"退货退款成功",
+     *      "status":"7",
+     *      "certificate":"[]",
+     *      "orderSn":"1810837219",
+     *      "firstTime":"1529908563",
+     *      "finished_time":"1529908563",
+     *      "lastTime":"1529913120",
+     *      "time":"9281"
      * })
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
@@ -398,6 +427,34 @@ interface BuyerOrderInterface
 
     /**
      * 协商记录
+     * 
+     * > from_os_id 和 to_os_id 状态说明 
+     * 
+     *  key    |  value
+     *  ------ | -------
+     *  16     | 申请退货退款
+     *  17     | 同意退货 等待买家发货
+     *  18     | 发出退货 等待卖家收货
+     *  19     | 拒绝退货退款 看certificate - type 1:仅退款 2:退货退款
+     *  20     | 重新发起退货退款
+     *  21     | 确认退款
+     *  25     | 退货退款成功
+     *  26     | 交易取消
+     *  27     | 退款取消
+     * 
+     * > remark_type 退货原因状态
+     * 
+     *  key    |  value
+     *  ------ | -------
+     *  0      | 其他
+     *  3      | 商品质量不好 
+     *  4      | 卖家超时未发货 
+     *  5      | 卖家发错货
+     *  7      | 商品与描述不符
+     *  8      | 收到商品破损
+     *  11     | 商品缺货
+     *  12     | 与卖家协商一致退款
+     *  13     | 不想要了／拍错了
      * 
      * > 返回数据说明
      *
@@ -442,20 +499,18 @@ interface BuyerOrderInterface
      *      "to_os_id":"16",
      *      "remark_type":"4",
      *      "remark":"-",
-     *      "certificate":{
+     *      "certificate":[{
      *          "order_id":116,
      *          "os_id":16,
      *          "type":2,
      *          "phase":3,
      *          "apply_amount":100,
      *          "apply_freight":"1",
-     *          "certificate":{
-     *              "0":"-"
-     *          },
+     *          "certificate":"[]",
      *          "remark_type":4,
      *          "remark":"-",
      *          "created_time":"1529908563"
-     *      },
+     *      }],
      *      "created_time":"1529908563",
      *      "update_time":"2018-06-25 14:36:03",
      *      "from_os_id_status":"null",
@@ -472,9 +527,7 @@ interface BuyerOrderInterface
      *      "to_os_id":"26",
      *      "remark_type":"4",
      *      "remark":"-",
-     *      "certificate":{
-     *          "0":"null"
-     *      },
+     *      "certificate":"[]",
      *      "created_time":"1529909281",
      *      "update_time":"2018-06-25 14:48:01",
      *      "from_os_id_status":"申请退货退款中",
@@ -524,6 +577,34 @@ interface BuyerOrderInterface
     /**
      * 重新申请退货退款接口
      * 
+     * > from_os_id 和 to_os_id 状态说明 
+     * 
+     *  key    |  value
+     *  ------ | -------
+     *  16     | 申请退货退款
+     *  17     | 同意退货 等待买家发货
+     *  18     | 发出退货 等待卖家收货
+     *  19     | 拒绝退货退款 看certificate - type 1:仅退款 2:退货退款
+     *  20     | 重新发起退货退款
+     *  21     | 确认退款
+     *  25     | 退货退款成功
+     *  26     | 交易取消
+     *  27     | 退款取消
+     * 
+     * > remark_type 退货原因状态
+     * 
+     *  key    |  value
+     *  ------ | -------
+     *  0      | 其他
+     *  3      | 商品质量不好 
+     *  4      | 卖家超时未发货 
+     *  5      | 卖家发错货
+     *  7      | 商品与描述不符
+     *  8      | 收到商品破损
+     *  11     | 商品缺货
+     *  12     | 与卖家协商一致退款
+     *  13     | 不想要了／拍错了
+     * 
      * > 返回数据说明
      *
      * key | type |  value
@@ -550,9 +631,7 @@ interface BuyerOrderInterface
      *      "remark":"-",
      *      "phase":"3",
      *      "os_id":"26",
-     *      "certificate":[{
-     *          "0":"-"
-     *      }]
+     *      "certificate":"[]"
      * })
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
