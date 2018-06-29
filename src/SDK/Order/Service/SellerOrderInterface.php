@@ -66,7 +66,6 @@ interface SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
-     *
      * 11     | 买家申请退款
      * 12     | 买家申请退货退款
      * 13     | 等待买家退货
@@ -207,7 +206,8 @@ interface SellerOrderInterface
      *     "needShare": 1,
      *     "needShipping": 1,
      *     "needReceiving": 0,
-     *     "needReview": 0
+     *     "needReview": 0,
+     *     "needRefund":2
      * }
      * )
      *
@@ -265,7 +265,6 @@ interface SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
-     *
      * 11     | 买家申请退款
      * 12     | 买家申请退货退款
      * 13     | 等待买家退货
@@ -389,7 +388,6 @@ interface SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
-     *
      * 11     | 买家申请退款
      * 12     | 买家申请退货退款
      * 13     | 等待买家退货
@@ -645,7 +643,6 @@ interface SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
-     *
      * 11     | 买家申请退款
      * 12     | 买家申请退货退款
      * 13     | 等待买家退货
