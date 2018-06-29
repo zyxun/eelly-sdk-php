@@ -460,20 +460,15 @@ interface BuyerOrderInterface
      *
      * key | type |  value
      * --- | ---- | -------
-     * orl_id       | int       | 退货退款日志记录
      * order_id      | int      | 订单id
-     * type          | int      | 操作类型 0:系统，1:买家，2:卖家 
+     * type          | int      | 操作类型 1:买家，2:卖家 
      * handle_id     | int      | 买家id
      * handle_name   | string   | 买家名称
      * from_os_id    | int      | 原先状态id
      * to_os_id      | int      | 至某种状态id
-     * remark_type   | int      | 退货原因
-     * remark        | int      | 备注说明
+     * remark        | int      | 备注说明 这个说明是操作日志的说明
      * created_time  | int      | 此记录的时间戳
-     * from_os_id_status   | string      | 跟 from_os_id 统一，中文解释
-     * to_os_id_status     | string      | 跟 to_os_id 统一，中文解释
-     * remarkType          | string      | 跟 remark_type 统一，中文解释
-     * certificate                | array    | 凭证数据 只有在用户发起退货退款才会存订单数据，或者卖家拒绝的凭证数据才会有，一般为null
+     * certificate                | array    | 凭证数据
      * certificate - order_id     | int      | 订单id
      * certificate - os_id        | int      | 订单状态
      * certificate - type         | int      | 订单类型 1:退款 2:退货退款
@@ -482,23 +477,28 @@ interface BuyerOrderInterface
      * certificate - apply_freight| int      | 申请的退款运费
      * certificate - certificate  | array    | 图片凭证
      * certificate - remark_type  | int      | 退货退款原因
-     * certificate - remark       | stirng   | 备注说明
+     * certificate - remark       | stirng   | 备注说明 这个remark是申请时的说明
      * certificate - created_time | stirng   | 退货退款发出的时间戳
-     *
+     * address                    | array    | 退货地址
+     * address - phone            | string   | 手机号
+     * address - mobile           | string   | 手机号
+     * address - region_name      | string   | 地区
+     * address - address          | string   | 详细地址
+     * address - consignee        | string   | 收件人姓名
+     * 
      * @param integer $orderId 订单id
      * @return array
      * @requestExample({"orderId":116})
      * @returnExample([
      * {
-     *      "orl_id":"528459",
      *      "order_id":"116",
      *      "type":"1",
      *      "handle_id":"2108403",
      *      "handle_name":"买家名称",
      *      "from_os_id":"0",
      *      "to_os_id":"16",
-     *      "remark_type":"4",
-     *      "remark":"-",
+     *      "remark":"买家 买家名称 提交了 退货申请",
+     *      "created_time":"2018-06-29 19:42:24",
      *      "certificate":[{
      *          "order_id":116,
      *          "os_id":16,
@@ -510,29 +510,25 @@ interface BuyerOrderInterface
      *          "remark_type":4,
      *          "remark":"-",
      *          "created_time":"1529908563"
-     *      }],
-     *      "created_time":"1529908563",
-     *      "update_time":"2018-06-25 14:36:03",
-     *      "from_os_id_status":"null",
-     *      "to_os_id_status":"申请退货退款中",
-     *      "remarkType":"卖家超时未发货"
+     *      }]
      * },
      * {
-     *      "orl_id":"528459",
      *      "order_id":"116",
      *      "type":"1",
      *      "handle_id":"2108403",
      *      "handle_name":"买家名称",
-     *      "from_os_id":"16",
-     *      "to_os_id":"26",
-     *      "remark_type":"4",
+     *      "from_os_id":"20",
+     *      "to_os_id":"17",
+     *      "remark":"买家 买家名称 提交了 退货申请",
+     *      "created_time":"2018-06-29 19:42:24",
      *      "remark":"-",
-     *      "certificate":"[]",
-     *      "created_time":"1529909281",
-     *      "update_time":"2018-06-25 14:48:01",
-     *      "from_os_id_status":"申请退货退款中",
-     *      "to_os_id_status":"交易取消",
-     *      "remarkType":"其他"
+     *      "address":[{
+     *          "phone":116,
+     *          "mobile":16,
+     *          "region_name":2,
+     *          "address":3,
+     *          "consignee":100
+     *      }]
      * }
      * ])
      * 
