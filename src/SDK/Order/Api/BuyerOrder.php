@@ -323,7 +323,8 @@ class BuyerOrder implements BuyerOrderInterface
      *     "needPay": 32,
      *     "needShare": 8,
      *     "needShipping": 0,
-     *     "needReceiving": 0
+     *     "needReceiving": 0,
+     *     "needRefund":2
      * }
      * )
      *
@@ -355,7 +356,8 @@ class BuyerOrder implements BuyerOrderInterface
      *     "needPay": 32,
      *     "needShare": 8,
      *     "needShipping": 0,
-     *     "needReceiving": 0
+     *     "needReceiving": 0,
+     *     "needRefund":2
      * }
      * )
      *
@@ -741,7 +743,7 @@ class BuyerOrder implements BuyerOrderInterface
      *      "orderDetail":[{
      *          "orderSn":"1810837219",
      *          "firstTime":"1529908563",
-     *          "lastTime":"1529913120"，
+     *          "lastTime":"1529913120",
      *          "time":"1529909281"
      *      }]
      * })
@@ -792,7 +794,7 @@ class BuyerOrder implements BuyerOrderInterface
      *      "orderDetail":[{
      *          "orderSn":"1810837219",
      *          "firstTime":"1529908563",
-     *          "lastTime":"1529913120"，
+     *          "lastTime":"1529913120",
      *          "time":"1529909281"
      *      }]
      * })
