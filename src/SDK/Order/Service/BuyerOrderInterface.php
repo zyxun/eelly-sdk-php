@@ -387,7 +387,7 @@ interface BuyerOrderInterface
      *      "orderDetail":[{
      *          "orderSn":"1810837219",
      *          "firstTime":"1529908563",
-     *          "lastTime":"1529913120"，
+     *          "lastTime":"1529913120",
      *          "time":"1529909281"
      *      }]
      * })
