@@ -245,6 +245,7 @@ interface SellerOrderInterface
      * productCount    | int       | 商品总件数
      * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
      * ifMerge         | bool      | 是否有可合并订单
+     * ifRefund        | int       | 订单是否申请过退货退款 (1:有 0:没有)
      * goodsList       | array     | 商品列表
      * goodsList[]['goodsName']    | string | 商品名称
      * goodsList[]['price']        | int    | 商品价格(分)
