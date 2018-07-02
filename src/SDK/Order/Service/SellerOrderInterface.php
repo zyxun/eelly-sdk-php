@@ -45,6 +45,7 @@ interface SellerOrderInterface
      * items[]['createdDate'] | date | 订单日期
      * items[]['ifMerge']     | bool | 是否有可合并订单
      * items[]['productCount']| int  | 商品总件数
+     * items[]['ifRefund']    | int  | 订单是否申请过退货退款 (1:有 0:没有)
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
      * items[]['goodsList'][]['price']        | int    | 商品价格(分)
@@ -622,6 +623,7 @@ interface SellerOrderInterface
      * items[]['createdDate'] | date | 订单日期
      * items[]['ifMerge']     | bool | 是否有可合并订单
      * items[]['productCount']| int  | 商品总件数
+     * items[]['ifRefund']    | int  | 订单是否申请过退货退款 (1:有 0:没有)
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
      * items[]['goodsList'][]['price']        | int    | 商品价格(分)
