@@ -23,19 +23,6 @@ use Eelly\DTO\UidDTO;
 class Invoice implements InvoiceInterface
 {
     /**
-     * @return self
-     */
-    public static function getInstance(): self
-    {
-        static $instance;
-        if (null === $instance) {
-            $instance = new self();
-        }
-
-        return $instance;
-    }
-
-    /**
      * 新增订单物流及收货人信息记录.
      *
      * @param array  $data                  订单物流及收货人信息数据
@@ -281,6 +268,7 @@ class Invoice implements InvoiceInterface
      * 获取物流信息.
      *
      * @param int $orderId 订单ID
+     * @param int $type 1 发货物流 2 退货物流
      * @param UidDTO|null $uidDTO
      * @return array
      * @requestExample({"orderId":160})
@@ -325,18 +313,20 @@ class Invoice implements InvoiceInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月25日
      * @Validation(
-     * @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]})
+     *     @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]}),
+     *     @InclusionIn(1,{message:"非法的物流类型",domain:[1,2]}),
      * )
      */
-    public function getExpressByOrderId(int $orderId, UidDTO $uidDTO = null): array
+    public function getExpressByOrderId(int $orderId, int $type = 1, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/invoice', 'getExpressByOrderId', true, $orderId, $uidDTO);
+        return EellyClient::request('order/invoice', 'getExpressByOrderId', true, $orderId, $type, $uidDTO);
     }
 
     /**
      * 获取物流信息.
      *
      * @param int $orderId 订单ID
+     * @param int $type 1 发货物流 2 退货物流
      * @param UidDTO|null $uidDTO
      * @return array
      * @requestExample({"orderId":160})
@@ -381,16 +371,53 @@ class Invoice implements InvoiceInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月25日
      * @Validation(
-     * @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]})
+     *     @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]}),
+     *     @InclusionIn(1,{message:"非法的物流类型",domain:[1,2]}),
      * )
      */
-    public function getExpressByOrderIdAsync(int $orderId, UidDTO $uidDTO = null)
+    public function getExpressByOrderIdAsync(int $orderId, int $type = 1, UidDTO $uidDTO = null)
     {
-        return EellyClient::request('order/invoice', 'getExpressByOrderId', false, $orderId, $uidDTO);
+        return EellyClient::request('order/invoice', 'getExpressByOrderId', false, $orderId, $type, $uidDTO);
     }
 
+    /**
+     * 店铺最近发货的5家物流
+     * @reqArgs
+     * @requestExample({"sellerId": 148086})
+     * @explain
+     * @returnExample({"中通","顺丰","韵达","圆通","申通"})
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018年06月14日
+     */
     public function getOrderInvoiceRecord(int $sellerId): array
     {
         return EellyClient::request('order/invoice', 'getOrderInvoiceRecord', true, $sellerId);
+    }
+
+    /**
+     * 店铺最近发货的5家物流
+     * @reqArgs
+     * @requestExample({"sellerId": 148086})
+     * @explain
+     * @returnExample({"中通","顺丰","韵达","圆通","申通"})
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018年06月14日
+     */
+    public function getOrderInvoiceRecordAsync(int $sellerId)
+    {
+        return EellyClient::request('order/invoice', 'getOrderInvoiceRecord', false, $sellerId);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
     }
 }
