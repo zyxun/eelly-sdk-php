@@ -66,8 +66,14 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价 6:退货退款)
      * @param int    $page   第几页
      * @param int    $limit  分页大小
      * @param UidDTO $uidDTO uid dto
@@ -204,8 +210,14 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价 6:退货退款)
      * @param int    $page   第几页
      * @param int    $limit  分页大小
      * @param UidDTO $uidDTO uid dto
@@ -365,7 +377,8 @@ class SellerOrder implements SellerOrderInterface
      *     "needShare": 1,
      *     "needShipping": 1,
      *     "needReceiving": 0,
-     *     "needReview": 0
+     *     "needReview": 0,
+     *     "needRefund":2
      * }
      * )
      *
@@ -401,7 +414,8 @@ class SellerOrder implements SellerOrderInterface
      *     "needShare": 1,
      *     "needShipping": 1,
      *     "needReceiving": 0,
-     *     "needReview": 0
+     *     "needReview": 0,
+     *     "needRefund":2
      * }
      * )
      *
@@ -462,6 +476,12 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
      * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO  uid dto
@@ -578,6 +598,12 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
      * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO  uid dto
@@ -722,6 +748,12 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
      * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO  uid dto
@@ -874,6 +906,12 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
      * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO  uid dto
@@ -1178,7 +1216,7 @@ class SellerOrder implements SellerOrderInterface
      * @param int $orderId  订单id
      * @return array
      * @requestExample({"orderId":1})
-     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
+     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086,"shipTime":1526381614,"invoiceName":"EMS"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.05.19
@@ -1194,7 +1232,7 @@ class SellerOrder implements SellerOrderInterface
      * @param int $orderId  订单id
      * @return array
      * @requestExample({"orderId":1})
-     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086})
+     * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086,"shipTime":1526381614,"invoiceName":"EMS"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.05.19
@@ -1248,8 +1286,14 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价 6:退货退款)
      * @param int    $page   第几页
      * @param int    $limit  分页大小
      * @param UidDTO $uidDTO uid dto
@@ -1386,8 +1430,14 @@ class SellerOrder implements SellerOrderInterface
      * 7      | 集赞失败,已退款
      * 8      | 已退款, 交易取消
      * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
      *
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价 6:退货退款)
      * @param int    $page   第几页
      * @param int    $limit  分页大小
      * @param UidDTO $uidDTO uid dto
@@ -1555,33 +1605,41 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 根据订单id，获取订单相关信息
+     * 根据订单id，获取订单相关信息.
      *
      * @param int $orderId 订单id
-     * @return array
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array
      * @requestExample({"orderId":5000214})
      * @returnExample({"orderId":5000214,"orderSn":1813399100,"sellerId":148086,"buyerId":1762254,"buyerName":"test","orderAmount":1400,"created_time":1526292190})
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.28
      */
-    public function getOrderData(int $orderId):array
+    public function getOrderData(int $orderId): array
     {
         return EellyClient::request('order/sellerOrder', 'getOrderData', true, $orderId);
     }
 
     /**
-     * 根据订单id，获取订单相关信息
+     * 根据订单id，获取订单相关信息.
      *
      * @param int $orderId 订单id
-     * @return array
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array
      * @requestExample({"orderId":5000214})
      * @returnExample({"orderId":5000214,"orderSn":1813399100,"sellerId":148086,"buyerId":1762254,"buyerName":"test","orderAmount":1400,"created_time":1526292190})
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.28
      */
-    public function getOrderDataAsync(int $orderId):array
+    public function getOrderDataAsync(int $orderId)
     {
         return EellyClient::request('order/sellerOrder', 'getOrderData', false, $orderId);
     }
@@ -1600,7 +1658,7 @@ class SellerOrder implements SellerOrderInterface
      */
     public function orderRefundDetail(int $orderId): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/sellerOrder', 'orderRefundDetail', true, $orderId);
     }
 
     /**
@@ -1615,9 +1673,9 @@ class SellerOrder implements SellerOrderInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.22
      */
-    public function orderRefundDetailAsync(int $orderId): array
+    public function orderRefundDetailAsync(int $orderId)
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId);
+        return EellyClient::request('order/sellerOrder', 'orderRefundDetail', false, $orderId);
     }
 
     /**
@@ -1634,7 +1692,7 @@ class SellerOrder implements SellerOrderInterface
      */
     public function getRefundMoneyInfo(int $orderId): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/sellerOrder', 'getRefundMoneyInfo', true, $orderId);
     }
 
     /**
@@ -1649,9 +1707,53 @@ class SellerOrder implements SellerOrderInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.27
      */
-    public function getRefundMoneyInfoAsync(int $orderId): array
+    public function getRefundMoneyInfoAsync(int $orderId)
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId);
+        return EellyClient::request('order/sellerOrder', 'getRefundMoneyInfo', false, $orderId);
     }
 
+    /**
+     * 卖家取消订单
+     *
+     * @param integer $orderId 订单id
+     * @return boolean
+     * 
+     * @requestExample({"orderId":5000999})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.3
+     */
+    public function cancelOrder(int $orderId): bool
+    {
+        return EellyClient::request('order/sellerOrder', 'cancelOrder', true, $orderId);
+    }
+
+    /**
+     * 卖家取消订单
+     *
+     * @param integer $orderId 订单id
+     * @return boolean
+     * 
+     * @requestExample({"orderId":5000999})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.3
+     */
+    public function cancelOrderAsync(int $orderId)
+    {
+        return EellyClient::request('order/sellerOrder', 'cancelOrder', false, $orderId);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
+    }
 }
