@@ -815,4 +815,18 @@ interface SellerOrderInterface
      * @since 2018.06.27
      */
     public function getRefundMoneyInfo(int $orderId): array;
+
+
+    /**
+     * 卖家取消订单
+     *
+     * @param integer $orderId 订单id
+     * @return boolean
+     * 
+     * @requestExample({"orderId":5000999})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.3
+     */
+    public function cancelOrder(int $orderId):bool;
 }
