@@ -633,4 +633,71 @@ interface BuyerOrderInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function orderRefundLogEdit(int $orderId):array;
+
+
+    /**
+     * 修改退货信息
+     *
+     * @param integer $oiId 退货id
+     * @param integer $orderId 订单id
+     * @param string $invoiceCode 送货编号 快递公司对应的拼音
+     * @param string $invoiceName 送货公司的名称
+     * @param string $invoiceNo 送货单号
+     * @return boolean
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function editOrderRefundInvoice(int $oiId, int $orderId, string $invoiceCode, string $invoiceName, string $invoiceNo):bool;
+    
+
+    /**
+     * 获取退货信息
+     * 
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * oi_id      | int      | 退货id
+     * order_id      | int      | 订单id
+     * type  | int       | 物流类型：1 发货物流 2 退货物流
+     * consignee | string       | 收货人姓名
+     * gb_code          | int      | 地区ID
+     * region_name   | string      | 地区名称
+     * address        | string      | 收货详细地址'
+     * zipcode         | string       | 邮编
+     * phone         | string       | 手机号码
+     * mobile   | string       | 手机号码
+     * invoice_code   | string       | 送货编码：快递公司对应的拼音
+     * invoice_name   | string       | 送货公司名称
+     * invoice_no   | string       | 送货单号
+     * status   | int       | 物流状态：0 未查到 1 配送中 2 已送达
+     *
+     * @param integer $orderId 订单id
+     * @return array
+     * @requestExample({"orderId":"5000100"})
+     * @returnExample({
+     *      "oi_id":"285",
+     *      "order_id":"116",
+     *      "type":"2",
+     *      "consignee":"张三",
+     *      "gb_code":"440105",
+     *      "region_name":"广东省 广州市 海珠区",
+     *      "address":"新港中路397号",
+     *      "zipcode":"0",
+     *      "phone":"0",
+     *      "mobile":"20",
+     *      "sl_id":"1",
+     *      "logistics_name":"yiyiyiyi - 货运 - 运费到付",
+     *      "invoice_code":"shkd",
+     *      "invoice_name":"顺丰快递",
+     *      "invoice_no":"12312312321123123",
+     *      "status":"0",
+     *      "sign_time":"0",
+     *      "remark":"{}",
+     *      "created_time":"1525750592",
+     *      "update_time":"2018-07-04 18:00:18"
+     * })
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function getOrderRefundInvoice(int $orderId):array;
 }
