@@ -383,4 +383,15 @@ interface LiveInterface
      * 
      */
     public function updateShowFlag(int $liveId, array $flag, int $type): bool;
+    
+    /**
+     * 获取正在直播的店铺id
+     * 
+     * @requestExample()
+     * @returnExample(["148086","1760467","1761477"])
+     * 
+     * @author wechan
+     * @since 2018年07月07日
+     */
+    public function getOnLiveStoreId(): array;
 }
