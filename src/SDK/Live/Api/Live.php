@@ -854,6 +854,8 @@ class Live implements LiveInterface
     public function updateShowFlagAsync(int $liveId, array $flag, int $type)
     {
         return EellyClient::request('live/live', 'updateShowFlag', false, $liveId, $flag, $type);
+    }
+
     /**
      * 获取正在直播的店铺id
      * 
