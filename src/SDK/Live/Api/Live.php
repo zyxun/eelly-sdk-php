@@ -883,7 +883,7 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'getOnLiveStoreId', false);
     }
-    }
+
 
     /**
      * @return self
