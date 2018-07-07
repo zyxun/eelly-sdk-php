@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,11 +17,18 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\ActivityResultInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class ActivityResult implements ActivityResultInterface
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function updateActivityResult(int $laId): array
+    {
+        return EellyClient::request('live/activityResult', __FUNCTION__, true, $laId);
+    }
+
     /**
      * @return self
      */

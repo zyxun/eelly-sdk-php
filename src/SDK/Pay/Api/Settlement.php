@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\SettlementInterface;
 
 class Settlement implements SettlementInterface

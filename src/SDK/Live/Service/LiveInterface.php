@@ -281,6 +281,7 @@ interface LiveInterface
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
      * @param int   $data['isPay']   是否收费
+     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
      *
      * @requestExample({
         "data": {
@@ -394,4 +395,18 @@ interface LiveInterface
      * @since 2018年07月07日
      */
     public function getOnLiveStoreId(): array;
+
+    /**
+     * 取消直播预约
+     *
+     * @param int $liveId
+     * @return bool
+     *
+     * @requestExample({"liveId":209})
+     * @returnExample(true)
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018/06/29
+     */
+    public function cancelLive(int $liveId): bool;
 }

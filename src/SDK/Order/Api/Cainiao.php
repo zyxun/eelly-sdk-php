@@ -25,18 +25,13 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array $orderIds 订单ID
-     * @param array  $sender   发货人信息
-     * @param array  $sender["address"] 地址数据
-     * @param string $sender["address"]["city"] 城市
-     * @param string $sender["address"]["detail"] 具体地址
-     * @param string $sender["address"]["district"] 区
-     * @param string $sender["address"]["province"] 省
-     * @param string $sender["address"]["town"] 街道
+     * @param int    $storeId          店铺ID
+     * @param array  $orderIds         订单ID
+     * @param array  $sender           发货人信息
      * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param string $sender["phone"]  固定电话
+     * @param string $sender["name"]   姓名
+     *
      * @return array
      *
      * @requestExample({
@@ -45,13 +40,8 @@ class Cainiao implements CainiaoInterface
      *     "sender":{
      *        "mobile": 13533333333,
      *        "name": "测试打印，请勿过来",
-     *        "phone": 13533333333,
-     *        "address": {
-     *        "city": "北京市",
-     *        "detail": "花家地社区卫生服务站",
-     *        "province": "北京",
-     *        "town": "望京街道"
-     *   }}
+     *        "phone": 13533333333
+     *     }
      * })
      * @returnExample({
      *       "waybillCode": "31920630202861",
@@ -71,18 +61,13 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array $orderIds 订单ID
-     * @param array  $sender   发货人信息
-     * @param array  $sender["address"] 地址数据
-     * @param string $sender["address"]["city"] 城市
-     * @param string $sender["address"]["detail"] 具体地址
-     * @param string $sender["address"]["district"] 区
-     * @param string $sender["address"]["province"] 省
-     * @param string $sender["address"]["town"] 街道
+     * @param int    $storeId          店铺ID
+     * @param array  $orderIds         订单ID
+     * @param array  $sender           发货人信息
      * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param string $sender["phone"]  固定电话
+     * @param string $sender["name"]   姓名
+     *
      * @return array
      *
      * @requestExample({
@@ -91,13 +76,8 @@ class Cainiao implements CainiaoInterface
      *     "sender":{
      *        "mobile": 13533333333,
      *        "name": "测试打印，请勿过来",
-     *        "phone": 13533333333,
-     *        "address": {
-     *        "city": "北京市",
-     *        "detail": "花家地社区卫生服务站",
-     *        "province": "北京",
-     *        "town": "望京街道"
-     *   }}
+     *        "phone": 13533333333
+     *     }
      * })
      * @returnExample({
      *       "waybillCode": "31920630202861",
@@ -117,26 +97,20 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array  $orderInfo 订单数据
-     * @param string  $orderInfo["province"] 省
-     * @param string  $orderInfo["city"] 城市
-     * @param string  $orderInfo["address"] 具体地址
-     * @param string  $orderInfo["mobile"] 手机号码
-     * @param string  $orderInfo["phone"] 固定电话
-     * @param string  $orderInfo["consignee"] 收件人姓名
-     * @param array   $orderInfo["goodsList"] 商品信息
-     * @param array   $orderInfo["orderIds"] 订单ID
-     * @param array  $sender   发货人信息
-     * @param array  $sender["address"] 地址数据
-     * @param string $sender["address"]["city"] 城市
-     * @param string $sender["address"]["detail"] 具体地址
-     * @param string $sender["address"]["district"] 区
-     * @param string $sender["address"]["province"] 省
-     * @param string $sender["address"]["town"] 街道
-     * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param int    $storeId                店铺ID
+     * @param array  $orderInfo              订单数据
+     * @param string $orderInfo["province"]  省
+     * @param string $orderInfo["city"]      城市
+     * @param string $orderInfo["address"]   具体地址
+     * @param string $orderInfo["mobile"]    手机号码
+     * @param string $orderInfo["phone"]     固定电话
+     * @param string $orderInfo["consignee"] 收件人姓名
+     * @param array  $orderInfo["goodsList"] 商品信息
+     * @param array  $orderInfo["orderIds"]  订单ID
+     * @param array  $sender                 发货人信息
+     * @param string $sender["mobile"]       手机号码
+     * @param string $sender["phone"]        固定电话
+     * @param string $sender["name"]         姓名
      *
      * @requestExample({
      *     "storeId":148086,
@@ -164,13 +138,8 @@ class Cainiao implements CainiaoInterface
      *     "sender":{
      *        "mobile": 13533333333,
      *        "name": "测试打印，请勿过来",
-     *        "phone": 13533333333,
-     *        "address": {
-     *        "city": "北京市",
-     *        "detail": "花家地社区卫生服务站",
-     *        "province": "北京",
-     *        "town": "望京街道"
-     *   }}
+     *        "phone": 13533333333
+     *        }
      * })
      * @returnExample({
      *       "waybillCode": "31920630202861",
@@ -190,26 +159,20 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array  $orderInfo 订单数据
-     * @param string  $orderInfo["province"] 省
-     * @param string  $orderInfo["city"] 城市
-     * @param string  $orderInfo["address"] 具体地址
-     * @param string  $orderInfo["mobile"] 手机号码
-     * @param string  $orderInfo["phone"] 固定电话
-     * @param string  $orderInfo["consignee"] 收件人姓名
-     * @param array   $orderInfo["goodsList"] 商品信息
-     * @param array   $orderInfo["orderIds"] 订单ID
-     * @param array  $sender   发货人信息
-     * @param array  $sender["address"] 地址数据
-     * @param string $sender["address"]["city"] 城市
-     * @param string $sender["address"]["detail"] 具体地址
-     * @param string $sender["address"]["district"] 区
-     * @param string $sender["address"]["province"] 省
-     * @param string $sender["address"]["town"] 街道
-     * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param int    $storeId                店铺ID
+     * @param array  $orderInfo              订单数据
+     * @param string $orderInfo["province"]  省
+     * @param string $orderInfo["city"]      城市
+     * @param string $orderInfo["address"]   具体地址
+     * @param string $orderInfo["mobile"]    手机号码
+     * @param string $orderInfo["phone"]     固定电话
+     * @param string $orderInfo["consignee"] 收件人姓名
+     * @param array  $orderInfo["goodsList"] 商品信息
+     * @param array  $orderInfo["orderIds"]  订单ID
+     * @param array  $sender                 发货人信息
+     * @param string $sender["mobile"]       手机号码
+     * @param string $sender["phone"]        固定电话
+     * @param string $sender["name"]         姓名
      *
      * @requestExample({
      *     "storeId":148086,
@@ -237,13 +200,8 @@ class Cainiao implements CainiaoInterface
      *     "sender":{
      *        "mobile": 13533333333,
      *        "name": "测试打印，请勿过来",
-     *        "phone": 13533333333,
-     *        "address": {
-     *        "city": "北京市",
-     *        "detail": "花家地社区卫生服务站",
-     *        "province": "北京",
-     *        "town": "望京街道"
-     *   }}
+     *        "phone": 13533333333
+     *        }
      * })
      * @returnExample({
      *       "waybillCode": "31920630202861",
@@ -300,6 +258,12 @@ class Cainiao implements CainiaoInterface
 
     /**
      * 获取绑定数据.
+     * ### 返回数据说明.
+     *
+     * 字段|类型|说明
+     * -------|-------|--------------
+     * type   |int    |1 淘宝帐户 2 菜鸟帐户
+     * status |string |0表示未绑定，1表示绑定， 2 解绑状态
      *
      * @param UidDTO|null $uidDTO
      *
@@ -328,6 +292,12 @@ class Cainiao implements CainiaoInterface
 
     /**
      * 获取绑定数据.
+     * ### 返回数据说明.
+     *
+     * 字段|类型|说明
+     * -------|-------|--------------
+     * type   |int    |1 淘宝帐户 2 菜鸟帐户
+     * status |string |0表示未绑定，1表示绑定， 2 解绑状态
      *
      * @param UidDTO|null $uidDTO
      *
@@ -618,15 +588,16 @@ class Cainiao implements CainiaoInterface
      * @return array
      *
      * @requestExample({
-     *     "printData":"{"data":{"cpCode":"FAST","needEncrypt":false,"parent":false,"recipient":{"address":{"city":"市辖区","detail":"2222","province":"北京市"},"mobile":"13333333333","name":"sss"},"routingInfo":{"consolidation":{},"origin":{"code":"FAST"},"sortation":{}},"sender":{"address":{"city":"北京市","detail":"花家地社区卫生服务站","province":"北京","town":"望京街道"},"mobile":"13533333333","name":"测试打印，请勿过来","phone":"13533333333"},"shippingOption":{"code":"STANDARD_EXPRESS","title":"标准快递"},"waybillCode":"31920630202861"},"signature":"MD:s7E4gCASc3iyVCv8lcl/3Q==","templateURL":"http://cloudprint.cainiao.com/template/standard/74806/29"}",
+     *     "printData":"json",
      *     "extends":{"printerName":"KM-300S-EB13"}
      *     })
      * @returnExample({
-     *     "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
+     *    "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
      *     "success": "true",
      *     "cmdEncoding": "gzip",
      *     "errorCode": "0"
      * })
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2018年05月25日
@@ -650,15 +621,16 @@ class Cainiao implements CainiaoInterface
      * @return array
      *
      * @requestExample({
-     *     "printData":"{"data":{"cpCode":"FAST","needEncrypt":false,"parent":false,"recipient":{"address":{"city":"市辖区","detail":"2222","province":"北京市"},"mobile":"13333333333","name":"sss"},"routingInfo":{"consolidation":{},"origin":{"code":"FAST"},"sortation":{}},"sender":{"address":{"city":"北京市","detail":"花家地社区卫生服务站","province":"北京","town":"望京街道"},"mobile":"13533333333","name":"测试打印，请勿过来","phone":"13533333333"},"shippingOption":{"code":"STANDARD_EXPRESS","title":"标准快递"},"waybillCode":"31920630202861"},"signature":"MD:s7E4gCASc3iyVCv8lcl/3Q==","templateURL":"http://cloudprint.cainiao.com/template/standard/74806/29"}",
+     *     "printData":"json",
      *     "extends":{"printerName":"KM-300S-EB13"}
      *     })
      * @returnExample({
-     *     "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
+     *    "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
      *     "success": "true",
      *     "cmdEncoding": "gzip",
      *     "errorCode": "0"
      * })
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2018年05月25日
@@ -666,6 +638,108 @@ class Cainiao implements CainiaoInterface
     public function sendCloudPrintCmdRenderAsync(string $printData, array $extends)
     {
         return EellyClient::request('order/cainiao', 'sendCloudPrintCmdRender', false, $printData, $extends);
+    }
+
+    /**
+     * 测试打印效果.
+     *
+     * @return array
+     *
+     * @returnExample({
+     *       "waybillCode": "31920630202861",
+     *       "printData": "{\"data\":{\"cpCode\":\"FAST\",\"needEncrypt\":false,\"parent\":false,\"recipient\":{\"address\":{\"city\":\"市辖区\",\"detail\":\"2222\",\"province\":\"北京市\"},\"mobile\":\"13333333333\",\"name\":\"sss\"},\"routingInfo\":{\"consolidation\":{},\"origin\":{\"code\":\"FAST\"},\"sortation\":{}},\"sender\":{\"address\":{\"city\":\"北京市\",\"detail\":\"花家地社区卫生服务站\",\"province\":\"北京\",\"town\":\"望京街道\"},\"mobile\":\"13533333333\",\"name\":\"测试打印，请勿过来\",\"phone\":\"13533333333\"},\"shippingOption\":{\"code\":\"STANDARD_EXPRESS\",\"title\":\"标准快递\"},\"waybillCode\":\"31920630202861\"},\"signature\":\"MD:s7E4gCASc3iyVCv8lcl/3Q==\",\"templateURL\":\"http://cloudprint.cainiao.com/template/standard/74806/29\"}",
+     *       "objectId": "5000057"
+     * })
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月25日
+     */
+    public function createPrintDataExample(): array
+    {
+        return EellyClient::request('order/cainiao', 'createPrintDataExample', true);
+    }
+
+    /**
+     * 测试打印效果.
+     *
+     * @return array
+     *
+     * @returnExample({
+     *       "waybillCode": "31920630202861",
+     *       "printData": "{\"data\":{\"cpCode\":\"FAST\",\"needEncrypt\":false,\"parent\":false,\"recipient\":{\"address\":{\"city\":\"市辖区\",\"detail\":\"2222\",\"province\":\"北京市\"},\"mobile\":\"13333333333\",\"name\":\"sss\"},\"routingInfo\":{\"consolidation\":{},\"origin\":{\"code\":\"FAST\"},\"sortation\":{}},\"sender\":{\"address\":{\"city\":\"北京市\",\"detail\":\"花家地社区卫生服务站\",\"province\":\"北京\",\"town\":\"望京街道\"},\"mobile\":\"13533333333\",\"name\":\"测试打印，请勿过来\",\"phone\":\"13533333333\"},\"shippingOption\":{\"code\":\"STANDARD_EXPRESS\",\"title\":\"标准快递\"},\"waybillCode\":\"31920630202861\"},\"signature\":\"MD:s7E4gCASc3iyVCv8lcl/3Q==\",\"templateURL\":\"http://cloudprint.cainiao.com/template/standard/74806/29\"}",
+     *       "objectId": "5000057"
+     * })
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年05月25日
+     */
+    public function createPrintDataExampleAsync()
+    {
+        return EellyClient::request('order/cainiao', 'createPrintDataExample', false);
+    }
+
+    /**
+     * 获取订单数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * invoiceNo   |string |送货单号
+     * invoiceName |string |送货公司名称
+     * invoiceCode |string |快递公司对应的拼音
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return array
+     *
+     * @requestExample({"orderId":5000057})
+     *
+     * @returnExample({
+     *   "invoiceNo": "31920630202861",
+     *   "invoiceName": "快捷快递",
+     *   "invoiceCode": "FAST"
+     * })
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年06月12日
+     */
+    public function getWaybillInvoiceData(int $orderId): array
+    {
+        return EellyClient::request('order/cainiao', 'getWaybillInvoiceData', true, $orderId);
+    }
+
+    /**
+     * 获取订单数据.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * invoiceNo   |string |送货单号
+     * invoiceName |string |送货公司名称
+     * invoiceCode |string |快递公司对应的拼音
+     *
+     * @param int $orderId 订单ID
+     *
+     * @return array
+     *
+     * @requestExample({"orderId":5000057})
+     *
+     * @returnExample({
+     *   "invoiceNo": "31920630202861",
+     *   "invoiceName": "快捷快递",
+     *   "invoiceCode": "FAST"
+     * })
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年06月12日
+     */
+    public function getWaybillInvoiceDataAsync(int $orderId)
+    {
+        return EellyClient::request('order/cainiao', 'getWaybillInvoiceData', false, $orderId);
     }
 
     /**
