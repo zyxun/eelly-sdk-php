@@ -857,11 +857,44 @@ class Live implements LiveInterface
     }
 
     /**
+     * 取消直播预约
+     *
+     * @param int $liveId
+     * @return bool
+     *
+     * @requestExample({"liveId":209})
+     * @returnExample(true)
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018/06/29
+     */
+    public function cancelLive(int $liveId): bool
+    {
+        return EellyClient::request('live/live', 'cancelLive', true, $liveId);
+    }
+
+    /**
+     * 取消直播预约
+     *
+     * @param int $liveId
+     * @return bool
+     *
+     * @requestExample({"liveId":209})
+     * @returnExample(true)
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018/06/29
+     */
+    public function cancelLiveAsync(int $liveId)
+    {
+        return EellyClient::request('live/live', 'cancelLive', false, $liveId);
+    }
+    /**
      * 获取正在直播的店铺id
-     * 
+     *
      * @requestExample()
      * @returnExample()
-     * 
+     *
      * @author wechan
      * @since 2018年07月07日
      */
@@ -872,10 +905,10 @@ class Live implements LiveInterface
 
     /**
      * 获取正在直播的店铺id
-     * 
+     *
      * @requestExample()
      * @returnExample()
-     * 
+     *
      * @author wechan
      * @since 2018年07月07日
      */
@@ -883,8 +916,6 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'getOnLiveStoreId', false);
     }
-
-
     /**
      * @return self
      */
