@@ -180,4 +180,14 @@ interface BindInterface
      * @author hehui<hehui@eelly.net>
      */
     public function bindUserAppInfo(int $uid, int $type, string $nickname, string $unionId, string $openId, string $appId, int $status): bool;
+    
+    /**
+     * 获取第三方平台配置信息
+     * 
+     * @param string $thirdPartyName 第三方平台名字
+     * 
+     * @author wechan
+     * @since 2018年7月10日
+     */
+    public function getThirdTartyBingingConf(string $thirdPartyName): array;
 }
