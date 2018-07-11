@@ -401,6 +401,40 @@ class Bind implements BindInterface
     }
 
     /**
+     * 绑定用户手机号码
+     *
+     * @param int $userId  用户id
+     * @param string $mobile  手机号码
+     * @return bool
+     *
+     * @requestExample({"userId":148086,"mobile":"13430245645"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.11
+     */
+    public function bindUserMobile(int $userId, string $mobile): bool
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, true, $userId, $mobile);
+    }
+
+    /**
+     * 绑定用户手机号码
+     *
+     * @param int $userId  用户id
+     * @param string $mobile  手机号码
+     * @return bool
+     *
+     * @requestExample({"userId":148086,"mobile":"13430245645"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.11
+     */
+    public function bindUserMobileAsync(int $userId, string $mobile): bool
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, false, $userId, $mobile);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

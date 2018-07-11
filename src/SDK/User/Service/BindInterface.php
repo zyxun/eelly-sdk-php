@@ -180,7 +180,7 @@ interface BindInterface
      * @author hehui<hehui@eelly.net>
      */
     public function bindUserAppInfo(int $uid, int $type, string $nickname, string $unionId, string $openId, string $appId, int $status): bool;
-    
+
     /**
      * 获取第三方平台配置信息
      * 
@@ -190,4 +190,18 @@ interface BindInterface
      * @since 2018年7月10日
      */
     public function getThirdTartyBingingConf(string $thirdPartyName): array;
+
+    /**
+     * 绑定用户手机号码
+     *
+     * @param int $userId  用户id
+     * @param string $mobile  手机号码
+     * @return bool
+     *
+     * @requestExample({"userId":148086,"mobile":"13430245645"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.11
+     */
+    public function bindUserMobile(int $userId, string $mobile): bool;
 }
