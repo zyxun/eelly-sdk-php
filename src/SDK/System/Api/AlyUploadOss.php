@@ -82,7 +82,7 @@ class AlyUploadOss implements AlyUploadOssInterface
     /**
      * 删除oss资源文件
      *
-     * @param string $url 图片url 多图用url隔开
+     * @param string $url 图片url 多图用#隔开
      * @return boolean
      */
     public function delImg(string $url): bool
@@ -93,7 +93,7 @@ class AlyUploadOss implements AlyUploadOssInterface
     /**
      * 删除oss资源文件
      *
-     * @param string $url 图片url 多图用url隔开
+     * @param string $url 图片url 多图用#隔开
      * @return boolean
      */
     public function delImgAsync(string $url)
