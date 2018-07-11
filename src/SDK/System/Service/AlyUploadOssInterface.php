@@ -48,12 +48,12 @@ interface AlyUploadOssInterface
     /**
      * 删除oss资源文件
      *
-     * @param string $url 图片url 多图用url隔开
+     * @param string $url 图片url 多图用#隔开
      * @return boolean
      */
     public function delImg(string $url):bool;
 
-    
+
     /**
      * 第三方上传图片 微信／qq 登陆抓取头像上传
      * 
