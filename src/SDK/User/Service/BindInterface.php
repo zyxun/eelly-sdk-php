@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\User\DTO\UserBindDTO;
 use Eelly\SDK\User\Exception\BindException;
 
@@ -204,4 +205,18 @@ interface BindInterface
      * @since 2018.07.11
      */
     public function bindUserMobile(int $userId, string $mobile): bool;
+
+    /**
+     * 重置用户密码
+     *
+     * @param string $password  密码
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"password":"dfdfadfs"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.12
+     */
+    public function resetPassword(string $password, UidDTO $user = null): bool;
 }

@@ -435,6 +435,40 @@ class Bind implements BindInterface
     }
 
     /**
+     * 重置用户密码
+     *
+     * @param string $password  密码
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"password":"dfdfadfs"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.12
+     */
+    public function resetPassword(string $password, UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, true, $password);
+    }
+
+    /**
+     * 重置用户密码
+     *
+     * @param string $password  密码
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"password":"dfdfadfs"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.12
+     */
+    public function resetPasswordAsync(string $password, UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, false, $password);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
