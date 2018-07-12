@@ -190,4 +190,20 @@ interface BindInterface
      * @since 2018年7月10日
      */
     public function getThirdTartyBingingConf(string $thirdPartyName): array;
+    
+    /**
+     * 根据第三方平台openid,unionid 获取用户信息.
+     *
+     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param string $unionId 第三方平台用户信息
+     *
+     * @return array
+     * @requestExample({"type":1,"unionId":"122222"})
+     * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,"createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017/10/10
+     */
+    public function getByContact(int $type, string $unionId): array;
 }
