@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\User\DTO\UserBindDTO;
 use Eelly\SDK\User\Exception\BindException;
 
@@ -180,7 +181,7 @@ interface BindInterface
      * @author hehui<hehui@eelly.net>
      */
     public function bindUserAppInfo(int $uid, int $type, string $nickname, string $unionId, string $openId, string $appId, int $status): bool;
-    
+
     /**
      * 获取第三方平台配置信息
      * 
@@ -190,20 +191,32 @@ interface BindInterface
      * @since 2018年7月10日
      */
     public function getThirdTartyBingingConf(string $thirdPartyName): array;
-    
+
     /**
-     * 根据第三方平台openid,unionid 获取用户信息.
+     * 绑定用户手机号码
      *
-     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string $unionId 第三方平台用户信息
+     * @param int $userId  用户id
+     * @param string $mobile  手机号码
+     * @return bool
      *
-     * @return array
-     * @requestExample({"type":1,"unionId":"122222"})
-     * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,"createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
-     *
-     * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     *
-     * @since  2017/10/10
+     * @requestExample({"userId":148086,"mobile":"13430245645"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.11
      */
-    public function getByContact(int $type, string $unionId): array;
+    public function bindUserMobile(int $userId, string $mobile): bool;
+
+    /**
+     * 重置用户密码
+     *
+     * @param string $password  密码
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"password":"dfdfadfs"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.12
+     */
+    public function resetPassword(string $password, UidDTO $user = null): bool;
 }

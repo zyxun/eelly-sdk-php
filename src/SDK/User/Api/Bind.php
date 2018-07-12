@@ -401,41 +401,71 @@ class Bind implements BindInterface
     }
 
     /**
-     * 根据第三方平台openid,unionid 获取用户信息.
+     * 绑定用户手机号码
      *
-     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string $unionId 第三方平台用户信息
+     * @param int $userId  用户id
+     * @param string $mobile  手机号码
+     * @return bool
      *
-     * @return array
-     * @requestExample({"type":1,"unionId":"122222"})
-     * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,"createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
-     *
-     * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     *
-     * @since  2017/10/10
+     * @requestExample({"userId":148086,"mobile":"13430245645"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.11
      */
-    public function getByContact(int $type, string $unionId): array
+    public function bindUserMobile(int $userId, string $mobile): bool
     {
-        return EellyClient::request('user/bind', 'getByContact', true, $type, $unionId);
+        return EellyClient::request('user/bind', __FUNCTION__, true, $userId, $mobile);
     }
 
     /**
-     * 根据第三方平台openid,unionid 获取用户信息.
+     * 绑定用户手机号码
      *
-     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string $unionId 第三方平台用户信息
+     * @param int $userId  用户id
+     * @param string $mobile  手机号码
+     * @return bool
      *
-     * @return array
-     * @requestExample({"type":1,"unionId":"122222"})
-     * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,"createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
-     *
-     * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     *
-     * @since  2017/10/10
+     * @requestExample({"userId":148086,"mobile":"13430245645"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.11
      */
-    public function getByContactAsync(int $type, string $unionId)
+    public function bindUserMobileAsync(int $userId, string $mobile): bool
     {
-        return EellyClient::request('user/bind', 'getByContact', false, $type, $unionId);
+        return EellyClient::request('user/bind', __FUNCTION__, false, $userId, $mobile);
+    }
+
+    /**
+     * 重置用户密码
+     *
+     * @param string $password  密码
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"password":"dfdfadfs"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.12
+     */
+    public function resetPassword(string $password, UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, true, $password);
+    }
+
+    /**
+     * 重置用户密码
+     *
+     * @param string $password  密码
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"password":"dfdfadfs"})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.12
+     */
+    public function resetPasswordAsync(string $password, UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, false, $password);
     }
 
     /**
