@@ -15,6 +15,7 @@ namespace Eelly\SDK\User\Api;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\BindInterface;
 use Eelly\SDK\User\DTO\UserBindDTO;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -414,7 +415,7 @@ class Bind implements BindInterface
      */
     public function bindUserMobile(int $userId, string $mobile): bool
     {
-        return EellyClient::request('user/bind', __FUNCTION__, true, $userId, $mobile);
+        return EellyClient::request('user/bind', 'bindUserMobile', true, $userId, $mobile);
     }
 
     /**
@@ -429,9 +430,9 @@ class Bind implements BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.11
      */
-    public function bindUserMobileAsync(int $userId, string $mobile): bool
+    public function bindUserMobileAsync(int $userId, string $mobile)
     {
-        return EellyClient::request('user/bind', __FUNCTION__, false, $userId, $mobile);
+        return EellyClient::request('user/bind', 'bindUserMobile', false, $userId, $mobile);
     }
 
     /**
@@ -448,7 +449,7 @@ class Bind implements BindInterface
      */
     public function resetPassword(string $password, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/bind', __FUNCTION__, true, $password);
+        return EellyClient::request('user/bind', 'resetPassword', true, $password, $user);
     }
 
     /**
@@ -463,9 +464,47 @@ class Bind implements BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.12
      */
-    public function resetPasswordAsync(string $password, UidDTO $user = null): bool
+    public function resetPasswordAsync(string $password, UidDTO $user = null)
     {
-        return EellyClient::request('user/bind', __FUNCTION__, false, $password);
+        return EellyClient::request('user/bind', 'resetPassword', false, $password, $user);
+    }
+
+    /**
+     * 根据第三方平台openid,unionid 获取用户信息.
+     *
+     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param string $unionId 第三方平台用户信息
+     *
+     * @return array
+     * @requestExample({"type":1,"unionId":"122222"})
+     * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,"createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
+     *s
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017/10/10
+     */
+    public function getByContact(int $type, string $unionId): array
+    {
+        return EellyClient::request('user/bind', 'getByContact', true, $type, $unionId);
+    }
+
+    /**
+     * 根据第三方平台openid,unionid 获取用户信息.
+     *
+     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param string $unionId 第三方平台用户信息
+     *
+     * @return array
+     * @requestExample({"type":1,"unionId":"122222"})
+     * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,"createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
+     *s
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017/10/10
+     */
+    public function getByContactAsync(int $type, string $unionId)
+    {
+        return EellyClient::request('user/bind', 'getByContact', false, $type, $unionId);
     }
 
     /**
