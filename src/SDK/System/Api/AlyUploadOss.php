@@ -23,34 +23,72 @@ class AlyUploadOss implements AlyUploadOssInterface
 {
     /**
      * 签名url 
+     * 
+     * > 请求字段说明
+     * 
+     * 键值    | 类型    | 描述
+     * ------ | ------- | --------
+     * unique | string  | 唯一标识，如果是作为用户的头像则建议用userid，如果是直播间的分享二维码图建议用直播间的id，如果是多文件上传则建议用用户id拼接元素组成字符串来进行标识
+     * filename | string | 文件名称前缀，也是oss文件夹名称，头像用avatar，二维码用code
+     * type | string | 文件类型 png，jpg，txt等
+     * 
+     * > 返回说明：将返回时效性oss临时url，将用于客户端上传文件；
+     * 
+     * > 返回结果其中线上访问路径：http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png
      *
-     * @param integer $userId 用户id
-     * @param string $filename 文件前缀名字 默认 avatar
-     * @param string $dir 文件存储目录
+     * @param int $unique 用户 userId:上传用户头像的id， roomId：上传直播间的id
+     * @param string $filename 文件名称前缀 avatar:头像，code:二维码
+     * @param string $type 文件类型 png、jpg...
      * 
      * @return string
      * 
+     * @requestExample({
+     *      "id":"123123",
+     *      "filename":"avatar",
+     *      "type":"png"
+     * })
+     * @returnExample("http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png?OSSAccessKeyId=LTAISXGJbA2IXbhv&Expires=1531380457&Signature=S3Fl9Pmgf9mqfDF9aCcvaHFER0Y%3D")
+     * 
      * @author sunanzhi <sunanzhi@sunanzhi.com>
      */
-    public function signUrl(int $userId, string $filename = 'avatar', string $dir = null): string
+    public function signUrl(string $unique, string $filename = 'avatar', string $type = 'png'): string
     {
-        return EellyClient::request('system/alyUploadOss', 'signUrl', true, $userId, $filename, $dir);
+        return EellyClient::request('system/alyUploadOss', 'signUrl', true, $unique, $filename, $type);
     }
 
     /**
      * 签名url 
+     * 
+     * > 请求字段说明
+     * 
+     * 键值    | 类型    | 描述
+     * ------ | ------- | --------
+     * unique | string  | 唯一标识，如果是作为用户的头像则建议用userid，如果是直播间的分享二维码图建议用直播间的id，如果是多文件上传则建议用用户id拼接元素组成字符串来进行标识
+     * filename | string | 文件名称前缀，也是oss文件夹名称，头像用avatar，二维码用code
+     * type | string | 文件类型 png，jpg，txt等
+     * 
+     * > 返回说明：将返回时效性oss临时url，将用于客户端上传文件；
+     * 
+     * > 返回结果其中线上访问路径：http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png
      *
-     * @param integer $userId 用户id
-     * @param string $filename 文件前缀名字 默认 avatar
-     * @param string $dir 文件存储目录
+     * @param int $unique 用户 userId:上传用户头像的id， roomId：上传直播间的id
+     * @param string $filename 文件名称前缀 avatar:头像，code:二维码
+     * @param string $type 文件类型 png、jpg...
      * 
      * @return string
      * 
+     * @requestExample({
+     *      "id":"123123",
+     *      "filename":"avatar",
+     *      "type":"png"
+     * })
+     * @returnExample("http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png?OSSAccessKeyId=LTAISXGJbA2IXbhv&Expires=1531380457&Signature=S3Fl9Pmgf9mqfDF9aCcvaHFER0Y%3D")
+     * 
      * @author sunanzhi <sunanzhi@sunanzhi.com>
      */
-    public function signUrlAsync(int $userId, string $filename = 'avatar', string $dir = null)
+    public function signUrlAsync(string $unique, string $filename = 'avatar', string $type = 'png')
     {
-        return EellyClient::request('system/alyUploadOss', 'signUrl', false, $userId, $filename, $dir);
+        return EellyClient::request('system/alyUploadOss', 'signUrl', false, $unique, $filename, $type);
     }
 
     /**
