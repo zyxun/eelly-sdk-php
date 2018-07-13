@@ -37,6 +37,7 @@ class AlyUploadOss implements AlyUploadOssInterface
      * > 返回结果其中线上访问路径：http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png
      *
      * @param int $unique 用户 userId:上传用户头像的id， roomId：上传直播间的id
+     * @param string $contentType 上传文件的类型 例如 'image/jpeg' 具体参数： @see https://helpcdn.aliyun.com/knowledge_detail/39522.html
      * @param string $filename 文件名称前缀 avatar:头像，code:二维码
      * @param string $type 文件类型 png、jpg...
      * 
@@ -51,9 +52,9 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @author sunanzhi <sunanzhi@sunanzhi.com>
      */
-    public function signUrl(string $unique, string $filename = 'avatar', string $type = 'png'): string
+    public function signUrl(string $unique, string $contentType, string $filename = 'avatar', string $type = 'png'): string
     {
-        return EellyClient::request('system/alyUploadOss', 'signUrl', true, $unique, $filename, $type);
+        return EellyClient::request('system/alyUploadOss', 'signUrl', true, $unique, $contentType, $filename, $type);
     }
 
     /**
@@ -72,6 +73,7 @@ class AlyUploadOss implements AlyUploadOssInterface
      * > 返回结果其中线上访问路径：http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png
      *
      * @param int $unique 用户 userId:上传用户头像的id， roomId：上传直播间的id
+     * @param string $contentType 上传文件的类型 例如 'image/jpeg' 具体参数： @see https://helpcdn.aliyun.com/knowledge_detail/39522.html
      * @param string $filename 文件名称前缀 avatar:头像，code:二维码
      * @param string $type 文件类型 png、jpg...
      * 
@@ -86,9 +88,9 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @author sunanzhi <sunanzhi@sunanzhi.com>
      */
-    public function signUrlAsync(string $unique, string $filename = 'avatar', string $type = 'png')
+    public function signUrlAsync(string $unique, string $contentType, string $filename = 'avatar', string $type = 'png')
     {
-        return EellyClient::request('system/alyUploadOss', 'signUrl', false, $unique, $filename, $type);
+        return EellyClient::request('system/alyUploadOss', 'signUrl', false, $unique, $contentType, $filename, $type);
     }
 
     /**
