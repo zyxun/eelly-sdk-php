@@ -700,4 +700,17 @@ interface BuyerOrderInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function getOrderRefundInvoice(int $orderId):array;
+
+    /**
+     * 返回最多退款金额 和 运费
+     *
+     * @param integer $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":"5000100"})
+     * @returnExample({"returnAmount":1000, "freight":0})
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function orderRefundMoney(int $orderId):array;
 }
