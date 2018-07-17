@@ -27,9 +27,8 @@ class Sms implements SmsInterface
      * @param string $mobile 手机号码
      * @param int $templateId 模版id
      * @param int $length 验证码长度
-     * @param string $title 短信标题 template表的 group_name
      * 
-     * @requestExample({"mobile":"13512719887", "templateId":90, "length":4, "title":"验证码-绑定银行卡"})
+     * @requestExample({"mobile":"13512719887", "templateId":90, "length":4})
      * @returnExample(true)
      * 
      * @return boolean
@@ -37,9 +36,9 @@ class Sms implements SmsInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.7.17
      */
-    public function sendCode(string $mobile, int $templateId, int $length = 4, string $title = '短信验证码'): bool
+    public function sendCode(string $mobile, int $templateId, int $length = 4): bool
     {
-        return EellyClient::request('message/sms', 'sendCode', true, $mobile, $templateId, $length, $title);
+        return EellyClient::request('message/sms', 'sendCode', true, $mobile, $templateId, $length);
     }
 
     /**
@@ -48,9 +47,8 @@ class Sms implements SmsInterface
      * @param string $mobile 手机号码
      * @param int $templateId 模版id
      * @param int $length 验证码长度
-     * @param string $title 短信标题 template表的 group_name
      * 
-     * @requestExample({"mobile":"13512719887", "templateId":90, "length":4, "title":"验证码-绑定银行卡"})
+     * @requestExample({"mobile":"13512719887", "templateId":90, "length":4})
      * @returnExample(true)
      * 
      * @return boolean
@@ -58,9 +56,9 @@ class Sms implements SmsInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.7.17
      */
-    public function sendCodeAsync(string $mobile, int $templateId, int $length = 4, string $title = '短信验证码')
+    public function sendCodeAsync(string $mobile, int $templateId, int $length = 4)
     {
-        return EellyClient::request('message/sms', 'sendCode', false, $mobile, $templateId, $length, $title);
+        return EellyClient::request('message/sms', 'sendCode', false, $mobile, $templateId, $length);
     }
 
     /**
@@ -104,16 +102,15 @@ class Sms implements SmsInterface
      * @param integer $senderId 发送者id
      * @param integer $receiveType 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
      * @param integer $receiverId 接收者ID
-     * @param string $title 消息标题 template表的 group_name值
      * @return boolean
-     * @requestExample({"mobile":"13512719887","content":'{"day":"3"}',"templateId":80,"senderId":0,"receiveType":"4","receiverId":"12123", "title":"1元领取vip会员服务-领取vip资格"})
+     * @requestExample({"mobile":"13512719887","content":'{"day":"3"}',"templateId":80,"senderId":0,"receiveType":"4","receiverId":"12123"})
      * @returnExample(true)
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.7.17
      */
-    public function sendSms(string $mobile, string $content, int $templateId, int $senderId = 0, int $receiveType = 4, int $receiverId = 0, string $title = '系统消息'): bool
+    public function sendSms(string $mobile, string $content, int $templateId, int $senderId = 0, int $receiveType = 4, int $receiverId = 0): bool
     {
-        return EellyClient::request('message/sms', 'sendSms', true, $mobile, $content, $templateId, $senderId, $receiveType, $receiverId, $title);
+        return EellyClient::request('message/sms', 'sendSms', true, $mobile, $content, $templateId, $senderId, $receiveType, $receiverId);
     }
 
     /**
@@ -125,16 +122,15 @@ class Sms implements SmsInterface
      * @param integer $senderId 发送者id
      * @param integer $receiveType 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
      * @param integer $receiverId 接收者ID
-     * @param string $title 消息标题 template表的 group_name值
      * @return boolean
-     * @requestExample({"mobile":"13512719887","content":'{"day":"3"}',"templateId":80,"senderId":0,"receiveType":"4","receiverId":"12123", "title":"1元领取vip会员服务-领取vip资格"})
+     * @requestExample({"mobile":"13512719887","content":'{"day":"3"}',"templateId":80,"senderId":0,"receiveType":"4","receiverId":"12123"})
      * @returnExample(true)
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.7.17
      */
-    public function sendSmsAsync(string $mobile, string $content, int $templateId, int $senderId = 0, int $receiveType = 4, int $receiverId = 0, string $title = '系统消息')
+    public function sendSmsAsync(string $mobile, string $content, int $templateId, int $senderId = 0, int $receiveType = 4, int $receiverId = 0)
     {
-        return EellyClient::request('message/sms', 'sendSms', false, $mobile, $content, $templateId, $senderId, $receiveType, $receiverId, $title);
+        return EellyClient::request('message/sms', 'sendSms', false, $mobile, $content, $templateId, $senderId, $receiveType, $receiverId);
     }
 
     /**
