@@ -22,89 +22,119 @@ use Eelly\SDK\Message\Service\SmsInterface;
 class Sms implements SmsInterface
 {
     /**
-     * 校验验证码.
+     * 发送手机验证码.
      *
-     * @param string $token token即是mongodb没有加ObjectID($id)ID
-     * @param string $code  验证码
-     * @requestExample({'token':'124sd33ww2','code':1234})
-     * @returnExample('13512719887')
-     *
-     * @author 肖俊明<xiaojunming@eelly.net>
-     *
-     * @since 2017年11月01日
-     * @Validation(
-     *  @PresenceOf(0,{message : "非法的token"}),
-     *  @PresenceOf(1,{message : "非法的验证码"}),
-     *  @InclusionIn(2,{message : '非法类型',domain:[1,2,3]})
-     * )
+     * @param string $mobile 手机号码
+     * @param int $templateId 模版id
+     * @param int $length 验证码长度
+     * @param string $title 短信标题 template表的 group_name
+     * 
+     * @requestExample({"mobile":"13512719887", "templateId":90, "length":4, "title":"验证码-绑定银行卡"})
+     * @returnExample(true)
+     * 
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.17
      */
-    public function getMobileByToken(string $token, string $code, array $type): string
+    public function sendCode(string $mobile, int $templateId, int $length = 4, string $title = '短信验证码'): bool
     {
-        return EellyClient::request('message/sms', __FUNCTION__, true, $token, $code, $type);
-    }
-
-    /**
-     * 校验验证码.
-     *
-     * @param string $token token即是mongodb没有加ObjectID($id)ID
-     * @param string $code  验证码
-     * @requestExample({'token':'124sd33ww2','code':1234})
-     * @returnExample('13512719887')
-     *
-     * @author 肖俊明<xiaojunming@eelly.net>
-     *
-     * @since 2017年11月01日
-     * @Validation(
-     *  @PresenceOf(0,{message : "非法的token"}),
-     *  @PresenceOf(1,{message : "非法的验证码"}),
-     *  @InclusionIn(2,{message : '非法类型',domain:[1,2,3]})
-     * )
-     */
-    public function getMobileByTokenAsync(string $token, string $code, array $type)
-    {
-        return EellyClient::request('message/sms', __FUNCTION__, false, $token, $code, $type);
+        return EellyClient::request('message/sms', 'sendCode', true, $mobile, $templateId, $length, $title);
     }
 
     /**
      * 发送手机验证码.
      *
      * @param string $mobile 手机号码
-     * @param int $type 1:找回密码,2:快速登录,3:注册,4:手机绑定,5:手机修改密码,6:手机登陆店+,7:重置支付密码,8:绑定银行卡
+     * @param int $templateId 模版id
      * @param int $length 验证码长度
-     * @requestExample({"mobile":13512719887,"type":1,"length":4})
-     * @returnExample({"messageId":"59f95de6f31eea00055f90e9"})
-     * @author 肖俊明<xiaojunming@eelly.net>
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2017年10月31日
-     * @Validation(
-     *  @Regex(0,{pattern:" /^1[34578]\d{9}$/",message : 'phoneNumber字段不是不符合手机号码格式'}),
-     *  @InclusionIn(1,{message : '非法类型',domain:[1,2,3,4,5,6,7,8]})
-     * )
+     * @param string $title 短信标题 template表的 group_name
+     * 
+     * @requestExample({"mobile":"13512719887", "templateId":90, "length":4, "title":"验证码-绑定银行卡"})
+     * @returnExample(true)
+     * 
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.17
      */
-    public function sendSmsCode(string $mobile, int $type, int $length = 4): array
+    public function sendCodeAsync(string $mobile, int $templateId, int $length = 4, string $title = '短信验证码')
     {
-        return EellyClient::request('message/sms', __FUNCTION__, true, $mobile, $type, $length);
+        return EellyClient::request('message/sms', 'sendCode', false, $mobile, $templateId, $length, $title);
     }
 
     /**
-     * 发送手机验证码.
+     * 校验验证码
      *
-     * @param string $mobile 手机号码
-     * @param int $type 1:找回密码,2:快速登录,3:注册,4:手机绑定,5:手机修改密码,6:手机登陆店+,7:重置支付密码,8:绑定银行卡
-     * @param int $length 验证码长度
-     * @requestExample({"mobile":13512719887,"type":1,"length":4})
-     * @returnExample({"messageId":"59f95de6f31eea00055f90e9"})
-     * @author 肖俊明<xiaojunming@eelly.net>
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2017年10月31日
-     * @Validation(
-     *  @Regex(0,{pattern:" /^1[34578]\d{9}$/",message : 'phoneNumber字段不是不符合手机号码格式'}),
-     *  @InclusionIn(1,{message : '非法类型',domain:[1,2,3,4,5,6,7,8]})
-     * )
+     * @param string $mobile 手机号
+     * @param integer $code 验证码
+     * @param integer $templateId 模版id
+     * @return boolean
+     * @requestExample({"mobile":"13512719887","code":"2345","templateId":"90"})
+     * @returnExample(true)
+     * @author sunanzhi <sunanzhi@hotmail.com>
      */
-    public function sendSmsCodeAsync(string $mobile, int $type, int $length = 4): array
+    public function checkCode(string $mobile, int $code, int $templateId): bool
     {
-        return EellyClient::request('message/sms', __FUNCTION__, false, $mobile, $type, $length);
+        return EellyClient::request('message/sms', 'checkCode', true, $mobile, $code, $templateId);
+    }
+
+    /**
+     * 校验验证码
+     *
+     * @param string $mobile 手机号
+     * @param integer $code 验证码
+     * @param integer $templateId 模版id
+     * @return boolean
+     * @requestExample({"mobile":"13512719887","code":"2345","templateId":"90"})
+     * @returnExample(true)
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function checkCodeAsync(string $mobile, int $code, int $templateId)
+    {
+        return EellyClient::request('message/sms', 'checkCode', false, $mobile, $code, $templateId);
+    }
+
+    /**
+     * 发送短信消息
+     *
+     * @param string $mobile 手机号
+     * @param string $content 参数内容 json格式
+     * @param integer $templateId 模版id
+     * @param integer $senderId 发送者id
+     * @param integer $receiveType 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
+     * @param integer $receiverId 接收者ID
+     * @param string $title 消息标题 template表的 group_name值
+     * @return boolean
+     * @requestExample({"mobile":"13512719887","content":'{"day":"3"}',"templateId":80,"senderId":0,"receiveType":"4","receiverId":"12123", "title":"1元领取vip会员服务-领取vip资格"})
+     * @returnExample(true)
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.17
+     */
+    public function sendSms(string $mobile, string $content, int $templateId, int $senderId = 0, int $receiveType = 4, int $receiverId = 0, string $title = '系统消息'): bool
+    {
+        return EellyClient::request('message/sms', 'sendSms', true, $mobile, $content, $templateId, $senderId, $receiveType, $receiverId, $title);
+    }
+
+    /**
+     * 发送短信消息
+     *
+     * @param string $mobile 手机号
+     * @param string $content 参数内容 json格式
+     * @param integer $templateId 模版id
+     * @param integer $senderId 发送者id
+     * @param integer $receiveType 接收类型：1 全部用户(系统) 2 全部卖家(系统) 3 全部买家(系统) 4 指定用户
+     * @param integer $receiverId 接收者ID
+     * @param string $title 消息标题 template表的 group_name值
+     * @return boolean
+     * @requestExample({"mobile":"13512719887","content":'{"day":"3"}',"templateId":80,"senderId":0,"receiveType":"4","receiverId":"12123", "title":"1元领取vip会员服务-领取vip资格"})
+     * @returnExample(true)
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.17
+     */
+    public function sendSmsAsync(string $mobile, string $content, int $templateId, int $senderId = 0, int $receiveType = 4, int $receiverId = 0, string $title = '系统消息')
+    {
+        return EellyClient::request('message/sms', 'sendSms', false, $mobile, $content, $templateId, $senderId, $receiveType, $receiverId, $title);
     }
 
     /**
