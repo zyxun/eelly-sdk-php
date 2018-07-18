@@ -135,6 +135,7 @@ interface InvoiceInterface
      * 获取物流信息.
      *
      * @param int $orderId 订单ID
+     * @param int $type 1 发货物流 2 退货物流
      * @param UidDTO|null $uidDTO
      * @return array
      * @requestExample({"orderId":160})
@@ -179,10 +180,11 @@ interface InvoiceInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月25日
      * @Validation(
-     * @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]})
+     *     @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]}),
+     *     @InclusionIn(1,{message:"非法的物流类型",domain:[1,2]}),
      * )
      */
-    public function getExpressByOrderId(int $orderId, UidDTO $uidDTO = null): array;
+    public function getExpressByOrderId(int $orderId, int $type = 1, UidDTO $uidDTO = null): array;
 
     /**
      * 店铺最近发货的5家物流
