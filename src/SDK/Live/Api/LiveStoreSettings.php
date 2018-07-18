@@ -106,6 +106,52 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
     }
 
     /**
+     * 获取店铺的.
+     *
+     * @param int   $showFlag 修改为的值
+     *
+     * @return bool
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @requestExample({"showFlag":15})
+     * @returnExample({156298,2140195})
+     *
+     * @since 2018年07月11日
+     *
+     * @Validation(
+     *    @OperatorValidator(0,{message:"展示类型不能为空",operator:["gt",0]})
+     * )
+     */
+    public function getStoreIds(int $showFlag = 15): array
+    {
+        return EellyClient::request('live/liveStoreSettings', 'getStoreIds', true, $showFlag);
+    }
+
+    /**
+     * 获取店铺的.
+     *
+     * @param int   $showFlag 修改为的值
+     *
+     * @return bool
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @requestExample({"showFlag":15})
+     * @returnExample({156298,2140195})
+     *
+     * @since 2018年07月11日
+     *
+     * @Validation(
+     *    @OperatorValidator(0,{message:"展示类型不能为空",operator:["gt",0]})
+     * )
+     */
+    public function getStoreIdsAsync(int $showFlag = 15)
+    {
+        return EellyClient::request('live/liveStoreSettings', 'getStoreIds', false, $showFlag);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
