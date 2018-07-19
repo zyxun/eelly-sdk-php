@@ -20,7 +20,7 @@ namespace Eelly\SDK\Live\Service;
  *
  * @since 2018年07月11日
  */
-interface AppLetCreateQrCodeInterface
+interface AppletCreateQrCodeInterface
 {
     /**
      * 获取token数据.
