@@ -94,6 +94,50 @@ class AlyUploadOss implements AlyUploadOssInterface
     }
 
     /**
+     * 上传文件成功后记录数据到mongo
+     *
+     * @param string $url 请求的签名url
+     * @param string $fileName 文件名称前缀 avatar:头像，code:二维码
+     * @param string $type 文件类型 png、jpg...
+     * @return boolean
+     * 
+     * @requestExample({
+     *      "url":"http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png?OSSAccessKeyId=LTAISXGJbA2IXbhv&Expires=1531380457&Signature=S3Fl9Pmgf9mqfDF9aCcvaHFER0Y%3D",
+     *      "filename":"avatar",
+     *      "type":"png"
+     * })
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function uploadLog(string $url, string $fileName, string $type): bool
+    {
+        return EellyClient::request('system/alyUploadOss', 'uploadLog', true, $url, $fileName, $type);
+    }
+
+    /**
+     * 上传文件成功后记录数据到mongo
+     *
+     * @param string $url 请求的签名url
+     * @param string $fileName 文件名称前缀 avatar:头像，code:二维码
+     * @param string $type 文件类型 png、jpg...
+     * @return boolean
+     * 
+     * @requestExample({
+     *      "url":"http://eellyimg.oss-cn-shenzhen.aliyuncs.com/avatar/avatar_123123.png?OSSAccessKeyId=LTAISXGJbA2IXbhv&Expires=1531380457&Signature=S3Fl9Pmgf9mqfDF9aCcvaHFER0Y%3D",
+     *      "filename":"avatar",
+     *      "type":"png"
+     * })
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function uploadLogAsync(string $url, string $fileName, string $type)
+    {
+        return EellyClient::request('system/alyUploadOss', 'uploadLog', false, $url, $fileName, $type);
+    }
+
+    /**
      * 私有读取图片
      *
      * @param string $url 图片url
