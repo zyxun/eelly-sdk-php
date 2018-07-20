@@ -56,7 +56,7 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * 获取订单点赞信息(点赞没点赞各1条)
+     * 获取订单点赞信息(最新提交的XX笔订单)
      * 
      * @param int $goodsId 商品id
      * @return array
@@ -78,7 +78,7 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * 获取订单点赞信息(点赞没点赞各1条)
+     * 获取订单点赞信息(最新提交的XX笔订单)
      * 
      * @param int $goodsId 商品id
      * @return array
@@ -183,6 +183,40 @@ class Goods implements GoodsInterface
     public function countGoodsOrderGoodsLikeAsync(int $goodsId)
     {
         return EellyClient::request('order/goods', 'countGoodsOrderGoodsLike', false, $goodsId);
+    }
+
+    /**
+     * 根据订单id 获取订单的商品数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":50001701})
+     * @returnExample({"goods_id":"5578933","gs_id":"32090860","quantity":"1"})
+     *
+     * @author sunanzhi
+     * @since 2018.7.20
+     */
+    public function getOrderGoods(int $orderId): array
+    {
+        return EellyClient::request('order/goods', 'getOrderGoods', true, $orderId);
+    }
+
+    /**
+     * 根据订单id 获取订单的商品数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":50001701})
+     * @returnExample({"goods_id":"5578933","gs_id":"32090860","quantity":"1"})
+     *
+     * @author sunanzhi
+     * @since 2018.7.20
+     */
+    public function getOrderGoodsAsync(int $orderId)
+    {
+        return EellyClient::request('order/goods', 'getOrderGoods', false, $orderId);
     }
 
     /**
