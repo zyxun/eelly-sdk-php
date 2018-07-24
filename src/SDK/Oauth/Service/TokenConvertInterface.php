@@ -103,7 +103,22 @@ interface TokenConvertInterface
      *  @OperatorValidator(1,{message : "手机验证码"})
      * )
      */
-    public function mobileLogin(string $token, string $checkCode, string $password = null);
+    public function mobileLogin(string $token, string $checkCode, string $password = null): array;
+
+
+    /**
+     * 手机登陆注册
+     *
+     * @param string $mobile 手机号码
+     * @param integer $code 验证码
+     * @param integer $templateId 模版id
+     * @param string $password 密码
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.24
+     */
+    public function mobilePhoneLogin(string $mobile, int $code, int $templateId, string $password = null): array;
 
     /**
      * newmall 登录.
