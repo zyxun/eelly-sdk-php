@@ -235,4 +235,26 @@ interface BindInterface
      * @since  2017/10/10
      */
     public function getByContact(int $type, string $unionId): array;
+
+    /**
+     * 根据某字段值检查用户id是否存在.
+     *
+     * @param string $contactId
+     * @param int    $type      1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param string $fields    字段名称:union_id, open_id
+     *
+     * @return int
+     * @requestExample({"contactId":"xxxx","type":"122222","fields":"union_id"})
+     * @returnExample(12)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017/10/10
+     * @Validation(
+     *     @PresenceOf(0,{message : "第三方平台信息不能为空"}),
+     *     @InclusionIn(1,{message:"绑定类型错误",domain:[1,2,3,4]}),
+     *     @InclusionIn(2,{message:"绑定类型错误",domain:['union_id','open_id']})
+     * )
+     */
+    public function checkContact(string $contactId, int $type, string $fields): int;
 }
