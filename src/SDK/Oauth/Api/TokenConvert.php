@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -17,6 +16,7 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Oauth\Service\TokenConvertInterface;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class TokenConvert implements TokenConvertInterface
@@ -41,7 +41,7 @@ class TokenConvert implements TokenConvertInterface
      */
     public function qqLogin(string $accessToken, int $type): array
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, true, $accessToken, $type);
+        return EellyClient::request('oauth/tokenConvert', 'qqLogin', true, $accessToken, $type);
     }
 
     /**
@@ -64,7 +64,7 @@ class TokenConvert implements TokenConvertInterface
      */
     public function qqLoginAsync(string $accessToken, int $type)
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, false, $accessToken, $type);
+        return EellyClient::request('oauth/tokenConvert', 'qqLogin', false, $accessToken, $type);
     }
 
     /**
@@ -87,7 +87,7 @@ class TokenConvert implements TokenConvertInterface
      */
     public function wechatLogin(string $accessToken, string $openId): array
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, true, $accessToken, $openId);
+        return EellyClient::request('oauth/tokenConvert', 'wechatLogin', true, $accessToken, $openId);
     }
 
     /**
@@ -110,7 +110,7 @@ class TokenConvert implements TokenConvertInterface
      */
     public function wechatLoginAsync(string $accessToken, string $openId)
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, false, $accessToken, $openId);
+        return EellyClient::request('oauth/tokenConvert', 'wechatLogin', false, $accessToken, $openId);
     }
 
     /**
@@ -135,7 +135,7 @@ class TokenConvert implements TokenConvertInterface
      */
     public function findPassword(string $accessToken, string $checkCode, string $password): array
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, true, $accessToken, $checkCode, $password);
+        return EellyClient::request('oauth/tokenConvert', 'findPassword', true, $accessToken, $checkCode, $password);
     }
 
     /**
@@ -160,7 +160,7 @@ class TokenConvert implements TokenConvertInterface
      */
     public function findPasswordAsync(string $accessToken, string $checkCode, string $password)
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, false, $accessToken, $checkCode, $password);
+        return EellyClient::request('oauth/tokenConvert', 'findPassword', false, $accessToken, $checkCode, $password);
     }
 
     /**
@@ -182,9 +182,9 @@ class TokenConvert implements TokenConvertInterface
      *  @OperatorValidator(1,{message : "手机验证码"})
      * )
      */
-    public function mobileLogin(string $token, string $checkCode, string $password = null)
+    public function mobileLogin(string $token, string $checkCode, string $password = null): array
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, true, $token, $checkCode, $password);
+        return EellyClient::request('oauth/tokenConvert', 'mobileLogin', true, $token, $checkCode, $password);
     }
 
     /**
@@ -208,23 +208,105 @@ class TokenConvert implements TokenConvertInterface
      */
     public function mobileLoginAsync(string $token, string $checkCode, string $password = null)
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, false, $token, $checkCode, $password);
+        return EellyClient::request('oauth/tokenConvert', 'mobileLogin', false, $token, $checkCode, $password);
     }
 
     /**
-     * {@inheritdoc}
+     * 手机登陆注册
+     *
+     * @param string $mobile 手机号码
+     * @param integer $code 验证码
+     * @param integer $templateId 模版id
+     * @param string $password 密码
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.24
+     */
+    public function mobilePhoneLogin(string $mobile, int $code, int $templateId, string $password = null): array
+    {
+        return EellyClient::request('oauth/tokenConvert', 'mobilePhoneLogin', true, $mobile, $code, $templateId, $password);
+    }
+
+    /**
+     * 手机登陆注册
+     *
+     * @param string $mobile 手机号码
+     * @param integer $code 验证码
+     * @param integer $templateId 模版id
+     * @param string $password 密码
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.24
+     */
+    public function mobilePhoneLoginAsync(string $mobile, int $code, int $templateId, string $password = null)
+    {
+        return EellyClient::request('oauth/tokenConvert', 'mobilePhoneLogin', false, $mobile, $code, $templateId, $password);
+    }
+
+    /**
+     * newmall 登录.
+     *
+     * @param string $accessToken
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function newMallLogin(string $accessToken): array
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, true, $accessToken);
+        return EellyClient::request('oauth/tokenConvert', 'newMallLogin', true, $accessToken);
     }
 
     /**
-     * {@inheritdoc}
+     * newmall 登录.
+     *
+     * @param string $accessToken
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function newMallLoginAsync(string $accessToken)
+    {
+        return EellyClient::request('oauth/tokenConvert', 'newMallLogin', false, $accessToken);
+    }
+
+    /**
+     * 保存new mall token.
+     *
+     * @see newMallLogin
+     *
+     * @param string $accessToken access token
+     * @param array  $data        token内容
+     * @param int    $lifetime    有效时间
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function saveNewMallAccessToken(string $accessToken, array $data, int $lifetime = 2592000): bool
     {
-        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, true, $accessToken, $data, $lifetime);
+        return EellyClient::request('oauth/tokenConvert', 'saveNewMallAccessToken', true, $accessToken, $data, $lifetime);
+    }
+
+    /**
+     * 保存new mall token.
+     *
+     * @see newMallLogin
+     *
+     * @param string $accessToken access token
+     * @param array  $data        token内容
+     * @param int    $lifetime    有效时间
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function saveNewMallAccessTokenAsync(string $accessToken, array $data, int $lifetime = 2592000)
+    {
+        return EellyClient::request('oauth/tokenConvert', 'saveNewMallAccessToken', false, $accessToken, $data, $lifetime);
     }
 
     /**
