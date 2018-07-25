@@ -91,12 +91,13 @@ class Bind implements BindInterface
      * 添加绑定.
      *
      * @param array  $data
-     * @param int    $data['userId']  绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param int    $data['type']    绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string $data['unionId'] 第三方平台union_id
-     * @param string $data['openId']  第三方平台open_id
-     * @param string $data['appId']   微信公众平台ID,对应mobile.mobile_wechat表appid字段
-     * @param int    $data['status']  绑定状态：1 绑定状态 2 解绑状态
+     * @param int    $data['userId']   用户id
+     * @param int    $data['type']     绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
+     * @param string $data['nickname'] 第三方平台昵称
+     * @param string $data['unionId']  第三方平台union_id
+     * @param string $data['openId']   第三方平台open_id
+     * @param string $data['appId']    微信公众平台ID,对应mobile.mobile_wechat表appid字段
+     * @param int    $data['status']   绑定状态：1 绑定状态 2 解绑状态
      *
      * @return bool
      * @requestExample({"type":"1","union_id":"xxxx","open_id":"xxxx","app_id":"xxxx","status":"1"})
@@ -115,12 +116,13 @@ class Bind implements BindInterface
      * 添加绑定.
      *
      * @param array  $data
-     * @param int    $data['userId']  绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param int    $data['type']    绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string $data['unionId'] 第三方平台union_id
-     * @param string $data['openId']  第三方平台open_id
-     * @param string $data['appId']   微信公众平台ID,对应mobile.mobile_wechat表appid字段
-     * @param int    $data['status']  绑定状态：1 绑定状态 2 解绑状态
+     * @param int    $data['userId']   用户id
+     * @param int    $data['type']     绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
+     * @param string $data['nickname'] 第三方平台昵称
+     * @param string $data['unionId']  第三方平台union_id
+     * @param string $data['openId']   第三方平台open_id
+     * @param string $data['appId']    微信公众平台ID,对应mobile.mobile_wechat表appid字段
+     * @param int    $data['status']   绑定状态：1 绑定状态 2 解绑状态
      *
      * @return bool
      * @requestExample({"type":"1","union_id":"xxxx","open_id":"xxxx","app_id":"xxxx","status":"1"})
@@ -508,53 +510,31 @@ class Bind implements BindInterface
     }
 
     /**
-     * 根据某字段值检查用户id是否存在.
+     * 根据传过来的条件，判断是否绑定第三方应用
      *
-     * @param string $contactId
-     * @param int    $type      1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string $fields    字段名称:union_id, open_id
-     *
-     * @return int
-     * @requestExample({"contactId":"xxxx","type":"122222","fields":"union_id"})
-     * @returnExample(12)
-     *
-     * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     *
-     * @since  2017/10/10
-     * @Validation(
-     *     @PresenceOf(0,{message : "第三方平台信息不能为空"}),
-     *     @InclusionIn(1,{message:"绑定类型错误",domain:[1,2,3,4]}),
-     *     @InclusionIn(2,{message:"绑定类型错误",domain:['union_id','open_id']})
-     * )
+     * @param string $condition 查询条件
+     * @param array $binds  绑定的参数
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.25
      */
-    public function checkContact(string $contactId, int $type, string $fields): int
+    public function checkIfBind(string $condition, array $binds):bool
     {
-        return EellyClient::request('user/bind', __FUNCTION__, true, $contactId, $type, $fields);
+        return EellyClient::request('user/bind', __FUNCTION__, true, $condition, $binds);
     }
 
     /**
-     * 根据某字段值检查用户id是否存在.
+     * 根据传过来的条件，判断是否绑定第三方应用
      *
-     * @param string $contactId
-     * @param int    $type      1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
-     * @param string $fields    字段名称:union_id, open_id
-     *
-     * @return int
-     * @requestExample({"contactId":"xxxx","type":"122222","fields":"union_id"})
-     * @returnExample(12)
-     *
-     * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     *
-     * @since  2017/10/10
-     * @Validation(
-     *     @PresenceOf(0,{message : "第三方平台信息不能为空"}),
-     *     @InclusionIn(1,{message:"绑定类型错误",domain:[1,2,3,4]}),
-     *     @InclusionIn(2,{message:"绑定类型错误",domain:['union_id','open_id']})
-     * )
+     * @param string $condition 查询条件
+     * @param array $binds  绑定的参数
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.25
      */
-    public function checkContactAsync(string $contactId, int $type, string $fields): int
+    public function checkIfBindAsync(string $condition, array $binds):bool
     {
-        return EellyClient::request('user/bind', __FUNCTION__, false, $contactId, $type, $fields);
+        return EellyClient::request('user/bind', __FUNCTION__, false, $condition, $binds);
     }
 
     /**
