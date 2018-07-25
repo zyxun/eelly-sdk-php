@@ -37,7 +37,7 @@ interface BindInterface
      * ------------|-------|--------------
      * ubId        |int    | 绑定ID
      * userId      |string | 用户Id
-     * type        |int    | 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * type        |int    | 绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * unionId     |string | 第三方平台union_id
      * openId      |string | 第三方平台open_id
      * appId       |string | 微信公众平台ID
@@ -224,7 +224,7 @@ interface BindInterface
     /**
      * 根据第三方平台openid,unionid 获取用户信息.
      *
-     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param int    $type    1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * @param string $unionId 第三方平台用户信息
      *
      * @return array
