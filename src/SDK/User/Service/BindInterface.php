@@ -243,8 +243,25 @@ interface BindInterface
      * @param string $condition 查询条件
      * @param array $binds  绑定的参数
      * @return bool
+     *
+     * @requestExample({"condition":"open_id = :openId:", "binds":{"openId":"ogGal5OPHyn608PChXuDxHyl69eY"}})
+     * @returnExample(true)
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.25
      */
     public function checkIfBind(string $condition, array $binds):bool;
+
+    /**
+     * 根据传过来的where条件更新数据
+     *
+     * @param array $where
+     * @param array $data
+     * @return bool
+     *
+     * @requestExample({"where":{"user_id":148086}, "data":{"status":2}})
+     * @returnExample(true)
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.25
+     */
+    public function updateBindInfo(array $where, array $data):bool;
 }

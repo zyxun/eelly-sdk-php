@@ -310,6 +310,40 @@ class TokenConvert implements TokenConvertInterface
     }
 
     /**
+     * 获取微信用户信息
+     *
+     * @param string $accessToken 第三方认证token
+     * @param string $openId      用户唯一标识
+     * @return array
+     *
+     * @requestExample({"accessToken":"12_gQpeRmqEfZIEp", "openId":"KJmxv4kOna9NDb"})
+     * @returnExample({"openid":"oKJmxv4kOna9NDb_Zevi_fEmFO9M","nickname":"Andy","sex":1,"language":"en","city":"\u5e7f\u5dde","province":"\u5e7f\u4e1c","country":"\u4e2d\u56fd","headimgurl":"http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/icIYw4yO5ZwXao4gtRpEwseJlSyjxstVhDhNSxb0MdSpKR2rIPKT03LLQmlY4Uv17ZV1mK6jFRoXbBX3k7jrGPA\/132","privilege":[],"unionid":"oldRYuKuC2iwlCKhsQeks4bxDrXI"})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.25
+     */
+    public function getWechatUserInfo(string $accessToken, string $openId):array
+    {
+        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, true, $accessToken, $openId);
+    }
+
+    /**
+     * 获取微信用户信息
+     *
+     * @param string $accessToken 第三方认证token
+     * @param string $openId      用户唯一标识
+     * @return array
+     *
+     * @requestExample({"accessToken":"12_gQpeRmqEfZIEp", "openId":"KJmxv4kOna9NDb"})
+     * @returnExample({"openid":"oKJmxv4kOna9NDb_Zevi_fEmFO9M","nickname":"Andy","sex":1,"language":"en","city":"\u5e7f\u5dde","province":"\u5e7f\u4e1c","country":"\u4e2d\u56fd","headimgurl":"http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/icIYw4yO5ZwXao4gtRpEwseJlSyjxstVhDhNSxb0MdSpKR2rIPKT03LLQmlY4Uv17ZV1mK6jFRoXbBX3k7jrGPA\/132","privilege":[],"unionid":"oldRYuKuC2iwlCKhsQeks4bxDrXI"})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.25
+     */
+    public function getWechatUserInfoAsync(string $accessToken, string $openId):array
+    {
+        return EellyClient::request('oauth/tokenConvert', __FUNCTION__, false, $accessToken, $openId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
