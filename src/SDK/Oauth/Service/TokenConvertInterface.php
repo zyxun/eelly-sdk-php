@@ -159,4 +159,18 @@ interface TokenConvertInterface
      * @since 2018.07.25
      */
     public function getWechatUserInfo(string $accessToken, string $openId):array;
+
+    /**
+     * 获取QQ用户信息
+     *
+     * @param string $accessToken 第三方认证token
+     * @param int    $type        认证登录类型：1为pc，2为wap，3 为app
+     * @return array
+     *
+     * @requestExample({"accessToken":"12_gQpeRmqEfZIEp", "type":1})
+     * @returnExample({"openid":"A2DF82A0051D7689EE88EDD86FB5AEB2","nickname":"Andy","gender":"\u7537","province":"\u5e7f\u4e1c","city":"\u5e7f\u5dde","headImage":"http:\/\/qzapp.qlogo.cn\/qzapp\/101118568\/A2DF82A0051D7689EE88EDD86FB5AEB2\/30"})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.26
+     */
+    public function getQqUserInfo(string $accessToken, int $type):array;
 }
