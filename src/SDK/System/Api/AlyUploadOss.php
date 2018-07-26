@@ -224,7 +224,7 @@ class AlyUploadOss implements AlyUploadOssInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.7.26
      */
-    public function getPolicy(string $fileName = '', int $timeout = 3600)
+    public function getPolicy(string $fileName = '', int $timeout = 3600): string
     {
         return EellyClient::request('system/alyUploadOss', 'getPolicy', true, $fileName, $timeout);
     }
