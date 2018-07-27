@@ -238,20 +238,6 @@ interface BindInterface
     public function getByContact(int $type, string $unionId): array;
 
     /**
-     * 根据传过来的条件，判断是否绑定第三方应用
-     *
-     * @param string $condition 查询条件
-     * @param array $binds  绑定的参数
-     * @return bool
-     *
-     * @requestExample({"condition":"open_id = :openId:", "binds":{"openId":"ogGal5OPHyn608PChXuDxHyl69eY"}})
-     * @returnExample(true)
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.07.25
-     */
-    public function checkIfBind(string $condition, array $binds):bool;
-
-    /**
      * 根据传过来的where条件更新数据
      *
      * @param array $where
@@ -264,4 +250,18 @@ interface BindInterface
      * @since 2018.07.25
      */
     public function updateBindInfo(array $where, array $data):bool;
+
+    /**
+     * 根据传过来的条件，获取一条绑定记录信息
+     *
+     * @param string $condition 查询条件
+     * @param array $binds  绑定的参数
+     * @return array
+     *
+     * @requestExample({"condition":"open_id = :openId:", "binds":{"openId":"ogGal5OPHyn608PChXuDxHyl69eY"}})
+     * @returnExample({"userId":"148086","nickname":"QW5keQ==","type":"1","status":"1"})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.27
+     */
+    public function getBindInfoData(string $condition, array $binds):array;
 }
