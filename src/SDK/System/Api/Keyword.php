@@ -432,42 +432,45 @@ class Keyword implements KeywordInterface
     /**
      * 获取敏感词sqlite文件
      *
+     * @param  array $data
      * @return array
      *
      * @requestExample([{"id": 1, "version": 2, "db_name": "ecm_filter_word.db"}])
-     * @returnExample
+     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip"}])
      *
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function getSqliteFile(): array
+    public function getSqliteFile(array $data): array
     {
-        return EellyClient::request('system/keyword', 'getSqliteFile', true);
+        return EellyClient::request('system/keyword', 'getSqliteFile', true, $data);
     }
 
     /**
      * 获取敏感词sqlite文件
      *
+     * @param  array $data
      * @return array
      *
      * @requestExample([{"id": 1, "version": 2, "db_name": "ecm_filter_word.db"}])
-     * @returnExample
+     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip"}])
      *
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function getSqliteFileAsync()
+    public function getSqliteFileAsync(array $data)
     {
-        return EellyClient::request('system/keyword', 'getSqliteFile', false);
+        return EellyClient::request('system/keyword', 'getSqliteFile', false, $data);
     }
 
     /**
      * 存储敏感聊天记录
      *
-     * @param string $ip       发送人IP
-     * @param string $deviceNo 设备号
-     * @param string $content  聊天内容
-     * @param int    $time     聊天时间
+     * @param array  $data              敏感词记录内容
+     * @param string $data['ip']        发送人IP
+     * @param string $data【'deviceNo'] 设备号
+     * @param string $data['content']   聊天内容
+     * @param int    $data['time']      聊天时间
      * @param UidDTO|null $user
      * @return bool
      *
@@ -477,18 +480,19 @@ class Keyword implements KeywordInterface
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function saveIllegalLog(string $ip, string $deviceNo, string $content, int $time, UidDTO $user = null): bool
+    public function saveIllegalLog(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/keyword', 'saveIllegalLog', true, $ip, $deviceNo, $content, $time, $user);
+        return EellyClient::request('system/keyword', 'saveIllegalLog', true, $data, $user);
     }
 
     /**
      * 存储敏感聊天记录
      *
-     * @param string $ip       发送人IP
-     * @param string $deviceNo 设备号
-     * @param string $content  聊天内容
-     * @param int    $time     聊天时间
+     * @param array  $data              敏感词记录内容
+     * @param string $data['ip']        发送人IP
+     * @param string $data【'deviceNo'] 设备号
+     * @param string $data['content']   聊天内容
+     * @param int    $data['time']      聊天时间
      * @param UidDTO|null $user
      * @return bool
      *
@@ -498,9 +502,9 @@ class Keyword implements KeywordInterface
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function saveIllegalLogAsync(string $ip, string $deviceNo, string $content, int $time, UidDTO $user = null)
+    public function saveIllegalLogAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('system/keyword', 'saveIllegalLog', false, $ip, $deviceNo, $content, $time, $user);
+        return EellyClient::request('system/keyword', 'saveIllegalLog', false, $data, $user);
     }
 
     /**

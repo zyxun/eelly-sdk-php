@@ -203,25 +203,27 @@ interface KeywordInterface
     public function listWordPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
     /**
-     * 获取敏感词sqlite文件
+     * 获取敏感词数据下载链接
      *
+     * @param $data
      * @return array
      *
      * @requestExample([{"id": 1, "version": 2, "db_name": "ecm_filter_word.db"}])
-     * @returnExample
+     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip"}])
      *
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function getSqliteFile(): array;
+    public function getSqliteFile(array $data): array;
 
     /**
      * 存储敏感聊天记录
      *
-     * @param string $ip       发送人IP
-     * @param string $deviceNo 设备号
-     * @param string $content  聊天内容
-     * @param int    $time     聊天时间
+     * @param array  $data              敏感词记录内容
+     * @param string $data['ip']        发送人IP
+     * @param string $data【'deviceNo'] 设备号
+     * @param string $data['content']   聊天内容
+     * @param int    $data['time']      聊天时间
      * @param UidDTO|null $user
      * @return bool
      *
@@ -231,7 +233,7 @@ interface KeywordInterface
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function saveIllegalLog(string $ip, string $deviceNo, string $content, int $time, UidDTO $user = null): bool;
+    public function saveIllegalLog(array $data, UidDTO $user = null): bool;
 
     /**
      * 生成敏感词sqlite文件
