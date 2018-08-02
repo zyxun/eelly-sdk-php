@@ -205,11 +205,12 @@ interface KeywordInterface
     /**
      * 获取敏感词数据下载链接
      *
-     * @param $data
+     * @param array  $data 请求参数
+     * @param string $data[0]['db_name'] ecm_filter_word_0(1,2,4,8), 0 全部范围 1 商品名称 2 店主咨询 4 商品评论 8 IM聊天
      * @return array
      *
-     * @requestExample([{"id": 1, "version": 2, "db_name": "ecm_filter_word.db"}])
-     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip"}])
+     * @requestExample([{"db_name": "ecm_filter_word_0"}, {"db_name": "ecm_filter_word_1"}])
+     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip", "db_name": "ecm_filter_word_0"},{"url": "https://data.eelly.com/download/file/data/7d5c4e790c7d63d48382767fd19ee35f.zip", "db_name": "ecm_filter_word_1"}])
      *
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
@@ -221,7 +222,7 @@ interface KeywordInterface
      *
      * @param array  $data              敏感词记录内容
      * @param string $data['ip']        发送人IP
-     * @param string $data【'deviceNo'] 设备号
+     * @param string $data['deviceNo']  设备号
      * @param string $data['content']   聊天内容
      * @param int    $data['time']      聊天时间
      * @param UidDTO|null $user
