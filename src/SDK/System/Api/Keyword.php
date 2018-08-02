@@ -271,7 +271,115 @@ class Keyword implements SystemKeywordInterface
      */
     public function listWordPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('system/keyword', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('system/keyword', 'listWordPage', false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 获取敏感词数据下载链接
+     *
+     * @param array  $data 请求参数
+     * @param string $data[0]['db_name'] ecm_filter_word_0(1,2,4,8), 0 全部范围 1 商品名称 2 店主咨询 4 商品评论 8 IM聊天
+     * @return array
+     *
+     * @requestExample([{"db_name": "ecm_filter_word_0"}, {"db_name": "ecm_filter_word_1"}])
+     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip", "db_name": "ecm_filter_word_0"},{"url": "https://data.eelly.com/download/file/data/7d5c4e790c7d63d48382767fd19ee35f.zip", "db_name": "ecm_filter_word_1"}])
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function getSqliteFile(array $data): array
+    {
+        return EellyClient::request('system/keyword', 'getSqliteFile', true, $data);
+    }
+
+    /**
+     * 获取敏感词数据下载链接
+     *
+     * @param array  $data 请求参数
+     * @param string $data[0]['db_name'] ecm_filter_word_0(1,2,4,8), 0 全部范围 1 商品名称 2 店主咨询 4 商品评论 8 IM聊天
+     * @return array
+     *
+     * @requestExample([{"db_name": "ecm_filter_word_0"}, {"db_name": "ecm_filter_word_1"}])
+     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip", "db_name": "ecm_filter_word_0"},{"url": "https://data.eelly.com/download/file/data/7d5c4e790c7d63d48382767fd19ee35f.zip", "db_name": "ecm_filter_word_1"}])
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function getSqliteFileAsync(array $data)
+    {
+        return EellyClient::request('system/keyword', 'getSqliteFile', false, $data);
+    }
+
+    /**
+     * 存储敏感聊天记录
+     *
+     * @param array  $data              敏感词记录内容
+     * @param string $data['ip']        发送人IP
+     * @param string $data【'deviceNo'] 设备号
+     * @param string $data['content']   聊天内容
+     * @param int    $data['time']      聊天时间
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"ip": "127.0.0.1", "device_no": "e31nxd2d009a", "content": "敏感词", "time": 1532929978})
+     * @returnExample(true)
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function saveIllegalLog(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('system/keyword', 'saveIllegalLog', true, $data, $user);
+    }
+
+    /**
+     * 存储敏感聊天记录
+     *
+     * @param array  $data              敏感词记录内容
+     * @param string $data['ip']        发送人IP
+     * @param string $data【'deviceNo'] 设备号
+     * @param string $data['content']   聊天内容
+     * @param int    $data['time']      聊天时间
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"ip": "127.0.0.1", "device_no": "e31nxd2d009a", "content": "敏感词", "time": 1532929978})
+     * @returnExample(true)
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function saveIllegalLogAsync(array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('system/keyword', 'saveIllegalLog', false, $data, $user);
+    }
+
+    /**
+     * 生成敏感词sqlite文件
+     *
+     * @param int $type  敏感词类型：1 商品标题 2 店主咨询 4 商品评论 8 IM聊天
+     * @return bool
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function createSqliteDb(int $type): bool
+    {
+        return EellyClient::request('system/keyword', 'createSqliteDb', true, $type);
+    }
+
+    /**
+     * 生成敏感词sqlite文件
+     *
+     * @param int $type  敏感词类型：1 商品标题 2 店主咨询 4 商品评论 8 IM聊天
+     * @return bool
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function createSqliteDbAsync(int $type)
+    {
+        return EellyClient::request('system/keyword', 'createSqliteDb', false, $type);
     }
 
     /**
