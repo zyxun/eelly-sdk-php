@@ -190,11 +190,13 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @param integer $userId 用户id
      * @param string $url 头像url
+     * @param string $type 类型 qq、wechat
+     * @param string $folder 文件夹 默认avatar：头像
      * @return boolean
      */
-    public function thirdPartUploadImg(int $userId, string $url): bool
+    public function thirdPartUploadImg(int $userId, string $url, string $type, string $folder = 'avatar'): bool
     {
-        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', true, $userId, $url);
+        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', true, $userId, $url, $type, $folder);
     }
 
     /**
@@ -202,11 +204,13 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @param integer $userId 用户id
      * @param string $url 头像url
+     * @param string $type 类型 qq、wechat
+     * @param string $folder 文件夹 默认avatar：头像
      * @return boolean
      */
-    public function thirdPartUploadImgAsync(int $userId, string $url)
+    public function thirdPartUploadImgAsync(int $userId, string $url, string $type, string $folder = 'avatar')
     {
-        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', false, $userId, $url);
+        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', false, $userId, $url, $type, $folder);
     }
 
     /**
