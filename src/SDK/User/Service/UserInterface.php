@@ -442,4 +442,25 @@ interface UserInterface
      * @since 2017-11-06
      */
     public function getUser(int $uid): UserDTO;
+
+    /**
+     * 通过QQ token获取用户信息.
+     *
+     * * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * uid      |int    |用户ID
+     * username |string |用户名
+     * mobile   |string |手机号
+     *
+     * @param string $accessToken QQ's access token
+     *
+     * @return UserDTO
+     * @requestExample({"accessToken":"4E338C9700B3CAEE6017C15001BB7ACD"})
+     * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getUserByQQAccessToken(string $accessToken): UserDTO;
 }
