@@ -51,7 +51,7 @@ interface OauthUserInterface
     public function getUserByPassword(string $username, string $password): UserDTO;
 
     /**
-     * 获取用户信息.
+     * 通过uid获取用户信息.
      *
      * ### 返回数据说明
      *
@@ -72,7 +72,7 @@ interface OauthUserInterface
      *
      * @since 2017-11-06
      */
-    public function getUser(int $uid): UserDTO;
+    public function getUserByUid(int $uid): UserDTO;
 
     /**
      * 通过QQ token获取用户信息.

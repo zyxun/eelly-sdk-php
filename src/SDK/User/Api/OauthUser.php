@@ -30,7 +30,7 @@ class OauthUser implements OauthUserInterface
     /**
      * {@inheritdoc}
      */
-    public function getUser(int $uid): UserDTO
+    public function getUserByUid(int $uid): UserDTO
     {
         return EellyClient::request('user/user', __FUNCTION__, true, $uid);
     }
