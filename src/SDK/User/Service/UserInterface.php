@@ -164,6 +164,8 @@ interface UserInterface
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      *
      * @author hehui<hehui@eelly.net>
+     *
+     * @deprecated
      */
     public function getUserByPassword(string $username, string $password): UserDTO;
 
@@ -440,13 +442,14 @@ interface UserInterface
      * @author hehui<hehui@eelly.net>
      *
      * @since 2017-11-06
+     * @deprecated
      */
     public function getUser(int $uid): UserDTO;
 
     /**
      * 通过QQ token获取用户信息.
      *
-     * * ### 返回数据说明
+     * ### 返回数据说明
      *
      * 字段|类型|说明
      * ---------|-------|--------------
@@ -461,6 +464,8 @@ interface UserInterface
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      *
      * @author hehui<hehui@eelly.net>
+     *
+     * @deprecated
      */
     public function getUserByQQAccessToken(string $accessToken): UserDTO;
 }
