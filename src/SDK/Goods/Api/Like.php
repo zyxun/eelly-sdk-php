@@ -140,23 +140,27 @@ class Like implements LikeInterface
     /**
      * 统计推广商品的数量
      * 
+     * @param string $conditions sql where条件
+     * 
      * @author wechan
      * @since 2018年8月7日
      */
-    public function countGoodsLike(): int
+    public function countGoodsLike(string $conditions = ''): int
     {
-        return EellyClient::request('goods/like', 'countGoodsLike', true);
+        return EellyClient::request('goods/like', 'countGoodsLike', true, $conditions);
     }
 
     /**
      * 统计推广商品的数量
      * 
+     * @param string $conditions sql where条件
+     * 
      * @author wechan
      * @since 2018年8月7日
      */
-    public function countGoodsLikeAsync()
+    public function countGoodsLikeAsync(string $conditions = '')
     {
-        return EellyClient::request('goods/like', 'countGoodsLike', false);
+        return EellyClient::request('goods/like', 'countGoodsLike', false, $conditions);
     }
 
     /**

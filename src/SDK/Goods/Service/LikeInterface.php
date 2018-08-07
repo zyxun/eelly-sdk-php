@@ -73,8 +73,10 @@ interface LikeInterface
     /**
      * 统计推广商品的数量
      * 
+     * @param string $conditions sql where条件
+     * 
      * @author wechan
      * @since 2018年8月7日
      */
-    public function countGoodsLike(): int;
+    public function countGoodsLike(string $conditions = ""): int;
 }
