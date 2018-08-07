@@ -69,4 +69,12 @@ interface LikeInterface
      * @since 2018年08月06日
      */
     public function setGoodsLikeList(int $goodsId, array $data): bool;
+    
+    /**
+     * 统计推广商品的数量
+     * 
+     * @author wechan
+     * @since 2018年8月7日
+     */
+    public function countGoodsLike(): int;
 }

@@ -138,6 +138,28 @@ class Like implements LikeInterface
     }
 
     /**
+     * 统计推广商品的数量
+     * 
+     * @author wechan
+     * @since 2018年8月7日
+     */
+    public function countGoodsLike(): int
+    {
+        return EellyClient::request('goods/like', 'countGoodsLike', true);
+    }
+
+    /**
+     * 统计推广商品的数量
+     * 
+     * @author wechan
+     * @since 2018年8月7日
+     */
+    public function countGoodsLikeAsync()
+    {
+        return EellyClient::request('goods/like', 'countGoodsLike', false);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
