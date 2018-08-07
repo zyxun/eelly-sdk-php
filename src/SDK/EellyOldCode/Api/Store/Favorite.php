@@ -14,8 +14,9 @@ declare(strict_types=1);
 namespace Eelly\SDK\EellyOldCode\Api\Store;
 
 /**
- * Class Favorite
- * var/eelly-old-code/modules/Store/Service/FavoriteService.php.
+ * Class Favorite.
+ *
+ * var/eelly-old-code/modules/Store/Service/FavoriteService.php
  */
 class Favorite
 {
