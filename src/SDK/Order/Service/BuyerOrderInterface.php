@@ -714,4 +714,19 @@ interface BuyerOrderInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function orderRefundMoney(int $orderId):array;
+
+    /**
+     * 买家催发货
+     *
+     * @param int         $orderId
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": "5000100"})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-08-08
+     */
+    public function remindExpress(int $orderId, UidDTO $uidDTO = null): bool;
 }

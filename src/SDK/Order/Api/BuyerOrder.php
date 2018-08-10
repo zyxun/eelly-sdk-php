@@ -1479,6 +1479,42 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * 买家催发货
+     *
+     * @param int         $orderId
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": "5000100"})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-08-08
+     */
+    public function remindExpress(int $orderId, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/buyerOrder', 'remindExpress', true, $orderId, $uidDTO);
+    }
+
+    /**
+     * 买家催发货
+     *
+     * @param int         $orderId
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": "5000100"})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-08-08
+     */
+    public function remindExpressAsync(int $orderId, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/buyerOrder', 'remindExpress', false, $orderId, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
