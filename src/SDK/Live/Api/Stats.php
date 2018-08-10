@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,7 +17,6 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\StatsInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Stats implements StatsInterface
@@ -25,10 +25,13 @@ class Stats implements StatsInterface
      * 添加点赞数.
      *
      * @param array $data 点赞数据
+     *
      * @return bool
      * @requestExample({"liveId":1,"praise":1})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月26日
      */
     public function addStatsPraise(array $data): bool
@@ -40,10 +43,13 @@ class Stats implements StatsInterface
      * 添加点赞数.
      *
      * @param array $data 点赞数据
+     *
      * @return bool
      * @requestExample({"liveId":1,"praise":1})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月26日
      */
     public function addStatsPraiseAsync(array $data)
@@ -53,7 +59,7 @@ class Stats implements StatsInterface
 
     /**
      * 多用户获取统计信息.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * -------|-------|--------------
@@ -63,10 +69,13 @@ class Stats implements StatsInterface
      * follow |string |订单笔数：统计直播时间段店铺下单数
      *
      * @param array $liveIds 多个直播ID
+     *
      * @return array
      * @requestExample({"liveIds":[1,3,4,5]})
      * @returnExample({{"liveId":"1","view":"133","praise":"1","follow":"1"},{"liveId":"2","view":"222","praise":"1","follow":"1"}})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月29日
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"})
@@ -79,7 +88,7 @@ class Stats implements StatsInterface
 
     /**
      * 多用户获取统计信息.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * -------|-------|--------------
@@ -89,10 +98,13 @@ class Stats implements StatsInterface
      * follow |string |订单笔数：统计直播时间段店铺下单数
      *
      * @param array $liveIds 多个直播ID
+     *
      * @return array
      * @requestExample({"liveIds":[1,3,4,5]})
      * @returnExample({{"liveId":"1","view":"133","praise":"1","follow":"1"},{"liveId":"2","view":"222","praise":"1","follow":"1"}})
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月29日
      * @Validation(
      *  @PresenceOf(0,{message : "数据不能为空"})
@@ -106,12 +118,15 @@ class Stats implements StatsInterface
     /**
      * 同步直播数据到统计表.
      *
-     * @param int $liveId 直播ID
-     * @param array $data 更改的数据
+     * @param int   $liveId 直播ID
+     * @param array $data   更改的数据
+     *
      * @return bool
      * @requestExample({"liveId":1,"data":["follow":10,"orders":2]})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月31日
      */
     public function updateFinishStat(int $liveId, array $data)
@@ -122,17 +137,28 @@ class Stats implements StatsInterface
     /**
      * 同步直播数据到统计表.
      *
-     * @param int $liveId 直播ID
-     * @param array $data 更改的数据
+     * @param int   $liveId 直播ID
+     * @param array $data   更改的数据
+     *
      * @return bool
      * @requestExample({"liveId":1,"data":["follow":10,"orders":2]})
      * @returnExample(true)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月31日
      */
     public function updateFinishStatAsync(int $liveId, array $data)
     {
         return EellyClient::request('live/stats', 'updateFinishStat', false, $liveId, $data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRealTimeStats(int $liveId): array
+    {
+        return EellyClient::request('live/stats', __FUNCTION__, true, $liveId);
     }
 
     /**

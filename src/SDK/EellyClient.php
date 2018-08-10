@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK;
 
+use GuzzleHttp\Exception\ServerException;
 use LogicException;
 use Phalcon\Cache\BackendInterface as CacheInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -28,26 +29,27 @@ class EellyClient
      * @var array
      */
     private const SERVICE_MAP = [
-        'activity'  => 'https://api.eelly.com',
-        'cart'      => 'https://api.eelly.com',
-        'contact'   => 'https://api.eelly.com',
-        'data'      => 'https://api.eelly.com',
-        'elastic'   => 'https://api.eelly.com',
-        'example'   => 'https://api.eelly.com',
-        'goods'     => 'https://api.eelly.com',
-        'im'        => 'https://api.eelly.com',
-        'live'      => 'https://api.eelly.com',
-        'log'       => 'https://api.eelly.com',
-        'logger'    => 'https://api.eelly.com',
-        'message'   => 'https://api.eelly.com',
-        'moments'   => 'https://api.eelly.com',
-        'oauth'     => 'https://api.eelly.com',
-        'order'     => 'https://api.eelly.com',
-        'pay'       => 'https://api.eelly.com',
-        'service'   => 'https://api.eelly.com',
-        'store'     => 'https://api.eelly.com',
-        'system'    => 'https://api.eelly.com',
-        'user'      => 'https://api.eelly.com',
+        'activity'       => 'https://api.eelly.com',
+        'cart'           => 'https://api.eelly.com',
+        'contact'        => 'https://api.eelly.com',
+        'data'           => 'https://api.eelly.com',
+        'elastic'        => 'https://api.eelly.com',
+        'eellyOldCode'   => 'https://api.eelly.com',
+        'example'        => 'https://api.eelly.com',
+        'goods'          => 'https://api.eelly.com',
+        'im'             => 'https://api.eelly.com',
+        'live'           => 'https://api.eelly.com',
+        'log'            => 'https://api.eelly.com',
+        'logger'         => 'https://logger_api.eelly.com',
+        'message'        => 'https://api.eelly.com',
+        'moments'        => 'https://api.eelly.com',
+        'oauth'          => 'https://api.eelly.com',
+        'order'          => 'https://api.eelly.com',
+        'pay'            => 'https://api.eelly.com',
+        'service'        => 'https://api.eelly.com',
+        'store'          => 'https://api.eelly.com',
+        'system'         => 'https://api.eelly.com',
+        'user'           => 'https://api.eelly.com',
     ];
 
     /**
@@ -97,14 +99,10 @@ class EellyClient
      */
     public static function initialize(array $config, CacheInterface $cache): self
     {
-        if (defined('APP') && ApplicationConst::ENV_PRODUCTION === APP['env']) {
-            $eellyClient = self::init($config['options']);
-        } else {
-            $collaborators = [
-                'httpClient' => new \GuzzleHttp\Client(['verify' => false]),
-            ];
-            $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
-        }
+        $collaborators = (defined('APP') && ApplicationConst::ENV_PRODUCTION === APP['env']) ? [] : [
+            'httpClient' => new \GuzzleHttp\Client(['verify' => false]),
+        ];
+        $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
         $eellyClient->getSdkClient()->getProvider()->setAccessTokenCache($cache);
 
         return $eellyClient;
@@ -131,7 +129,15 @@ class EellyClient
         $paramArr = array_merge([$uri.'/'.$method], $args);
         $promise = call_user_func_array([self::$sdkClient, 'requestAsync'], $paramArr);
         if ($sync) {
-            $response = $promise->wait();
+            try {
+                $response = $promise->wait();
+            } catch (ServerException $e) {
+                $body = json_decode((string) $e->getResponse()->getBody(), true);
+                if (JSON_ERROR_NONE == json_last_error()) {
+                    throw new \ErrorException($body['error']);
+                }
+                throw $e;
+            }
 
             return self::$self->responseToObject($response);
         }
@@ -154,7 +160,7 @@ class EellyClient
     {
         $status = 1;
         isset($body['returnType']) && ($status <<= 1)
-            && (!in_array($body['returnType'], [ 'integer', 'float', 'string', 'boolean', 'array']) && class_exists($body['returnType'])) && ($status <<= 1)
+            && (!in_array($body['returnType'], ['integer', 'float', 'string', 'boolean', 'array']) && class_exists($body['returnType'])) && ($status <<= 1)
             && is_subclass_of($body['returnType'], LogicException::class) && ($status <<= 1)
             && isset($body['context']) && ($status <<= 1);
 

@@ -37,6 +37,7 @@ interface ApplyWithdrawInterface
      * defaultBank['pbId']         | int    |  银行id
      * defaultBank['bankName']     | int    |  银行名称
      * defaultBank['bankAccount']  | int    |  银行账号
+     * defaultBank['bankLogo']     | string |  银行logo
      *
      * @param int         $storeId 店铺id
      * @param UidDTO|null $uidDTO  uid dto
@@ -62,6 +63,7 @@ interface ApplyWithdrawInterface
      *         "realName": "molimoq",
      *         "phone": "13800138000",
      *         "isDefault": "1",
+     *         "bankLogo": "https://img.eelly.test/G02/M00/00/03/ooYBAFsAKMqINMbUAAAlgu1EpR0AAABgwCtjPEAACWa292.png",
      *         "createdTime": "1510388565",
      *         "updateTime": "2018-05-21 11:49:49"
      *     }
