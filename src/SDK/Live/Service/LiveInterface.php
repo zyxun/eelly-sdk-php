@@ -409,4 +409,20 @@ interface LiveInterface
      * @since 2018/06/29
      */
     public function cancelLive(int $liveId): bool;
+
+    /**
+     * 随机取直播数据
+     *
+     * @param array $data
+     * @param array $data['condition'] 查询条件，可选
+     * @param array $data['num'] 查询数量，默认1
+     * @return array
+     *
+     * @requestExample({ "condition":{"storeIds":[148086,148087], "inStatus":[1, 12, 13], "lastSchedule":"1516353883"}, "num": 1 })
+     * @returnExample({ {"liveId":1, "title":"11", "image":"1111", "view":168} })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-10
+     */
+    public function getRandomLive(array $data): array;
 }
