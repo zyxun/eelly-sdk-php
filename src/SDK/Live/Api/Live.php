@@ -911,9 +911,8 @@ class Live implements LiveInterface
     /**
      * 随机取直播数据
      *
-     * @param array $data
-     * @param array $data['condition'] 查询条件，可选
-     * @param array $data['num'] 查询数量，默认1
+     * @param array $condition 查询条件，可选
+     * @param int   $num       查询数量，默认1
      * @return array
      *
      * @requestExample({ "condition":{"storeIds":[148086,148087], "inStatus":[1, 12, 13], "lastSchedule":"1516353883"}, "num": 1 })
@@ -922,17 +921,16 @@ class Live implements LiveInterface
      * @author zhangyangxun
      * @since 2018-08-10
      */
-    public function getRandomLive(array $data): array
+    public function getRandomLive(array $condition = [], int $num = 1): array
     {
-        return EellyClient::request('live/live', 'getRandomLive', true, $data);
+        return EellyClient::request('live/live', 'getRandomLive', true, $condition, $num);
     }
 
     /**
      * 随机取直播数据
      *
-     * @param array $data
-     * @param array $data['condition'] 查询条件，可选
-     * @param array $data['num'] 查询数量，默认1
+     * @param array $condition 查询条件，可选
+     * @param int   $num       查询数量，默认1
      * @return array
      *
      * @requestExample({ "condition":{"storeIds":[148086,148087], "inStatus":[1, 12, 13], "lastSchedule":"1516353883"}, "num": 1 })
@@ -941,9 +939,9 @@ class Live implements LiveInterface
      * @author zhangyangxun
      * @since 2018-08-10
      */
-    public function getRandomLiveAsync(array $data)
+    public function getRandomLiveAsync(array $condition = [], int $num = 1)
     {
-        return EellyClient::request('live/live', 'getRandomLive', false, $data);
+        return EellyClient::request('live/live', 'getRandomLive', false, $condition, $num);
     }
 
     /**
