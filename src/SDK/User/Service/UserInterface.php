@@ -164,6 +164,8 @@ interface UserInterface
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      *
      * @author hehui<hehui@eelly.net>
+     *
+     * @deprecated
      */
     public function getUserByPassword(string $username, string $password): UserDTO;
 
@@ -440,6 +442,43 @@ interface UserInterface
      * @author hehui<hehui@eelly.net>
      *
      * @since 2017-11-06
+     * @deprecated
      */
     public function getUser(int $uid): UserDTO;
+
+    /**
+     * 忘记密码
+     *
+     * @param string $mobile 手机号码
+     * @param string $password 新密码
+     * @param string $confirmPassword 确认密码
+     * @return boolean
+     * 
+     * @requestExample({"mobile":"18826237472","password":"testPassword+1","confrimPassword":"testPassword+1"})
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.30
+     */
+    public function forgetPassword(string $mobile, string $password, string $confirmPassword):bool;
+    
+    /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function setLoginErrorCount(string $ip):bool;
+    
+    /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function getLoginErrorCount(string $ip):int;
 }

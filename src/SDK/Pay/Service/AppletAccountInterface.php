@@ -34,6 +34,7 @@ interface AppletAccountInterface
      * gainingsMoney           | int    | 累计收入(分)
      * waitingSettlementMoney  | int    | 等待结算(分)
      * payingMoney             | int    | 累计支出(分)
+     * orderCount              | int    | 小程序订单数
      *
      * @param int $storeId 店铺id
      *

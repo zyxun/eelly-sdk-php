@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 
 /**
  * 申请提现.
- * 
+ *
  * @author hehui<hehui@eelly.net>
  */
 interface ApplyWithdrawInterface
@@ -37,6 +37,7 @@ interface ApplyWithdrawInterface
      * defaultBank['pbId']         | int    |  银行id
      * defaultBank['bankName']     | int    |  银行名称
      * defaultBank['bankAccount']  | int    |  银行账号
+     * defaultBank['bankLogo']     | string |  银行logo
      *
      * @param int         $storeId 店铺id
      * @param UidDTO|null $uidDTO  uid dto
@@ -62,10 +63,12 @@ interface ApplyWithdrawInterface
      *         "realName": "molimoq",
      *         "phone": "13800138000",
      *         "isDefault": "1",
+     *         "bankLogo": "https://img.eelly.test/G02/M00/00/03/ooYBAFsAKMqINMbUAAAlgu1EpR0AAABgwCtjPEAACWa292.png",
      *         "createdTime": "1510388565",
      *         "updateTime": "2018-05-21 11:49:49"
      *     }
      * })
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function prepareApplyForm(int $storeId, UidDTO $uidDTO = null): array;
@@ -93,4 +96,21 @@ interface ApplyWithdrawInterface
      * @author hehui<hehui@eelly.net>
      */
     public function applyForBank(int $paId, int $pbId, int $money, string $payPassword, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 更新提现状态.
+     *
+     * @param int    $pwId   提现交易ID
+     * @param int    $status 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * @param string $remark 备注
+     *
+     * @return bool
+     *
+     * @requestExample({"pwId":3, "status": 3})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function updateWithdrawStatus(int $pwId, int $status, string $remark = ''): bool;
 }

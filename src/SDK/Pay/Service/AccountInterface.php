@@ -20,13 +20,14 @@ use Eelly\SDK\Pay\DTO\AccountDTO;
  * 会员资金账户.
  *
  * @author 肖俊明<xiaojunming@eelly.net>
+ *
  * @since  2017年09月15日
  */
 interface AccountInterface
 {
     /**
      * 根据帐户主键id获取账户信息.
-     * 
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -64,8 +65,9 @@ interface AccountInterface
      * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年11月15日
-     * 
+     *
      * @Validation(
      *     @OperatorValidator(0,{message:"账户ID",operator:["gt",0]})
      * )
@@ -125,16 +127,18 @@ interface AccountInterface
      */
     public function getAccountUserInfo(array $data): array;
 
-
     /**
      * 判断是否存在账号，没有执行创建.
      *
-     * @param int $userId 用户ID
+     * @param int $userId  用户ID
      * @param int $storeId 店铺ID
+     *
      * @return int
      * @requestExample({"userId":148086,"storeId":148086})
      * @returnExample(1)
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年01月02日
      * @Validation(
      *  @OperatorValidator(0,{message:"用户ID",operator:["gt",0]})
@@ -145,7 +149,7 @@ interface AccountInterface
     /**
      * 添加会员资金账户.
      *
-     * @param array  $data 会员资金账户数据
+     * @param array  $data                      会员资金账户数据
      * @param int    $data['userId']            用户ID
      * @param int    $data['storeId']           店铺I
      * @param float  $data['money']             账户金额
@@ -156,7 +160,7 @@ interface AccountInterface
      * @param string $data['wechatPurseOpenId'] 微信钱包绑定的微信账户open_id
      * @param string $data['passwordKey']       密码钥匙
      * @param string $data['passwordPay']       支付密码
-     * @param UidDTO $user 用户信息
+     * @param UidDTO $user                      用户信息
      *
      * @throws \Eelly\SDK\Pay\Exception\AccountException
      *
@@ -174,6 +178,7 @@ interface AccountInterface
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年09月21日
      */
     public function addAccount(array $data, UidDTO $user = null): bool;
@@ -181,8 +186,8 @@ interface AccountInterface
     /**
      * 更新会员资金账户信息.
      *
-     * @param int         $paId 账户ID
-     * @param array       $data 需要更新的账号信息
+     * @param int         $paId                      账户ID
+     * @param array       $data                      需要更新的账号信息
      * @param int         $data['money']             账户金额
      * @param float       $data['commissionRatio']   提现手续费率
      * @param int         $data['status']            状态：0 正常 1 风险监控 2 冻结提现 4 冻结支付
@@ -190,15 +195,15 @@ interface AccountInterface
      * @param string      $data['wechatPurseOpenId'] 微信钱包绑定的微信账户open_id
      * @param string      $data['passwordKey']       密码钥匙
      * @param string      $data['passwordPay']       支付密码
-     * @param UidDTO|null $user 登录的用户信息
+     * @param UidDTO|null $user                      登录的用户信息
      *
      * @return bool
      * @requestExample({
      *     "paId":1,
      *     "data":{
-     *         "userId":1, 
-     *         "storeId":2, 
-     *         "money":2, 
+     *         "userId":1,
+     *         "storeId":2,
+     *         "money":2,
      *         "commissionRatio":3,
      *         "status":1,
      *         "alipayAccount":"",
@@ -208,8 +213,9 @@ interface AccountInterface
      * @returnExample(true)
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年09月21日
-     * 
+     *
      * @Validation(
      *     @OperatorValidator(0,{message:"账号Id",operator:["gt",0]}),
      *     @OperatorValidator(1,{message:"数据不能为空"})
@@ -219,7 +225,7 @@ interface AccountInterface
 
     /**
      * 我的余额，管理=》app资金管理.
-     * 
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -252,7 +258,20 @@ interface AccountInterface
      * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2017年11月09日
      */
     public function getAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array;
+
+    /**
+     * 同步数据.
+     *
+     * @param array $data
+     * @param int   $type
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function synchrodata(array $data, int $type): bool;
 }
