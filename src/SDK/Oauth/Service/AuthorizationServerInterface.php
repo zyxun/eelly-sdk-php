@@ -42,7 +42,7 @@ interface AuthorizationServerInterface
      *         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY5NDRhMWRkNDc1MmU0MWE5MDI3ZGJlMDdhZWVjNTdlM2YzYjMzY2UwN2IyMzMyMzc4M2Q3YzRiOWE1NTYxZGY1YTMyMjA3M2Y0ODBmNjk4In0.eyJhdWQiOiJteWF3ZXNvbWVhcHAiLCJqdGkiOiJmOTQ0YTFkZDQ3NTJlNDFhOTAyN2RiZTA3YWVlYzU3ZTNmM2IzM2NlMDdiMjMzMjM3ODNkN2M0YjlhNTU2MWRmNWEzMjIwNzNmNDgwZjY5OCIsImlhdCI6MTUwMzU1OTMzMCwibmJmIjoxNTAzNTU5MzMwLCJleHAiOjE1MDYyMzc3MzAsInN1YiI6IiIsInNjb3BlcyI6W119.sS-MktfOaghz5kRDMHa0YKS4LRIestAXdO7SvtpCp-jItGrOkKCPF6AYhvaoaswc6OZ7_QkP3cF4d_y_zVU0szatR6_OOuKCBu-JYjeSLn08Bo1_a6tXkCk_xMhXhWHM4cQ99s-4WtNqWP2OezikkCNwbArO_t4ZZqPS1BKV408"
      *     }
      * ```
-     * - 密码模式
+     * - 密码模式 或 QQ模式 或 微信模式 或 手机模式
      * ```
      *     {
      *          "token_type": "Bearer",
@@ -59,9 +59,11 @@ interface AuthorizationServerInterface
      * grant_type    |string  |否       |       |认证模式
      * client_id     |string  |否       |       |客户端id
      * client_secret |string  |否       |       |客户端秘钥
-     * username      |string  |是       |       |用户名
+     * username      |string  |是       |       |用户名(手机号)
      * password      |string  |是       |       |用户密码
      * refresh_token |string  |是       |       |刷新令牌
+     * access_token  |string  |是       |       |访问token(grant_type=qq)
+     * code          |string  |是       |       |临时票据(grant_type=wechat或mobile)
      *
      * ### 请求示例
      * > 客户端模式(Client credentials grant)
@@ -89,10 +91,41 @@ interface AuthorizationServerInterface
      * client_secret:password
      * ```
      *
+     * > QQ模式(QQ token grant)
+     *
+     * ```
+     * grant_type:qq
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * access_token:4E338C9700B3CAEE6017C15001BB7ACD
+     * ```
+     *
+     * > 微信模式(Wechat token grant)
+     *
+     * ```
+     * grant_type:wechat
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * code:E338C9700B3CAEE6017C15001BB7ACD
+     * ```
+     *
+     * > 手机模式(Mobile token grant)
+     *
+     * ```
+     * grant_type:mobile
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * username:13800138000
+     * code:123456
+     * ```
+     *
      * ### 参考
      * ![oauth 2.0](https://oauth.net/images/oauth-2-sm.png)
      * - [阮一峰的理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
      * - [oauth2.0](https://oauth.net/2/)
+     * - [QQ登录](http://wiki.open.qq.com/wiki/website/OAuth2.0%E7%AE%80%E4%BB%8B)
+     * - [微信登录](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317851&token=&lang=zh_CN)
+     *
      *
      * @throws \Exception
      *
