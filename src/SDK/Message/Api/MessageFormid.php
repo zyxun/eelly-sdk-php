@@ -104,7 +104,7 @@ class MessageFormid implements MessageFormidInterface
      *
      * @since 2018.05.21
      */
-    public function sendSuccessOrderAsync(array $orderId)
+    public function sendSuccessOrderAsync(int $orderId)
     {
         return EellyClient::request('message/messageFormid', 'sendSuccessOrder', false, $orderId);
     }
