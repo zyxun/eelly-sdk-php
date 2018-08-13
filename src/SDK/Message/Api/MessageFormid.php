@@ -84,29 +84,29 @@ class MessageFormid implements MessageFormidInterface
     /**
      * 发送订单支付成功通知消息.
      *
-     * @param array $orderIds 订单ID
+     * @param array $orderId 订单ID
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * @since 2018.05.21
      */
-    public function sendSuccessOrder(array $orderIds): bool
+    public function sendSuccessOrder(int $orderId): bool
     {
-        return EellyClient::request('message/messageFormid', 'sendSuccessOrder', true, $orderIds);
+        return EellyClient::request('message/messageFormid', 'sendSuccessOrder', true, $orderId);
     }
 
     /**
      * 发送订单支付成功通知消息.
      *
-     * @param array $orderIds 订单ID
+     * @param int $orderId 订单ID
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * @since 2018.05.21
      */
-    public function sendSuccessOrderAsync(array $orderIds)
+    public function sendSuccessOrderAsync(array $orderId)
     {
-        return EellyClient::request('message/messageFormid', 'sendSuccessOrder', false, $orderIds);
+        return EellyClient::request('message/messageFormid', 'sendSuccessOrder', false, $orderId);
     }
 
     /**

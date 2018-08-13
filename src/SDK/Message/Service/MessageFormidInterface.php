@@ -45,13 +45,13 @@ interface MessageFormidInterface
     /**
      * 发送订单支付成功通知消息.
      *
-     * @param array $orderIds 订单ID
+     * @param int $orderId 订单ID
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * @since 2018.05.21
      */
-    public function sendSuccessOrder(array $orderIds): bool;
+    public function sendSuccessOrder(int $orderId): bool;
 
     /**
      * 发送订单发货通知.
