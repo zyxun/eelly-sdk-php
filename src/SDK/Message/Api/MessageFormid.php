@@ -84,7 +84,7 @@ class MessageFormid implements MessageFormidInterface
     /**
      * 发送订单支付成功通知消息.
      *
-     * @param array $orderId 订单ID
+     * @param int $orderId 订单ID
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *
