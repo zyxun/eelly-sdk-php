@@ -42,7 +42,7 @@ interface LiveInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base'): array;
 
     /**
      * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
