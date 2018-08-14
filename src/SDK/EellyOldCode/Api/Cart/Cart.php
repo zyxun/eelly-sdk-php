@@ -31,6 +31,6 @@ class Cart
      */
     public function getGoodsInfo(array $goodsIds)
     {
-        return EellyClient::request('eellyOldCode/cart/getGoodsInfo', __FUNCTION__, true, $goodsIds);
+        return EellyClient::request('eellyOldCode/cart/cart', __FUNCTION__, true, $goodsIds);
     }
 }
