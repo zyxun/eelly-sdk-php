@@ -69,17 +69,17 @@ class Live implements LiveInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base'): array
     {
-        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit, $order);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base')
     {
-        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit, $order);
     }
 
     /**
