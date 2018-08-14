@@ -945,6 +945,40 @@ class Live implements LiveInterface
     }
 
     /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStat(int $day): array
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', true, $day);
+    }
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStatAsync(int $day)
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', false, $day);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
