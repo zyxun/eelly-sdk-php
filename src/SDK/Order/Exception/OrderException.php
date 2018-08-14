@@ -43,4 +43,6 @@ class OrderException extends LogicException
     public const MAX_RETURN_MONEY = '退款金额不可以大于订单金额';
 
     public const STATUS_NOT_OPERATE = '订单当前状态不可操作';
+    
+    public const CART_OVER_LIMIT = '进货车商品数量超出限制';
 }
