@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\MarketInterface;
-use Eelly\SDK\System\DTO\MarketDTO;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\System\DTO\MarketDTO;
+use Eelly\SDK\System\Service\MarketInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Market implements MarketInterface

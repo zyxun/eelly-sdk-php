@@ -13,19 +13,21 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\UidDTO;
-use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInterface;
+use Eelly\DTO\UserDTO;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class User implements UserInterface
 {
     /**
      * 校验手机号码是否存在.
-     * ### 返回数据说明.
+     *
+     * ### 返回数据说明
      *
      * 字段|类型|说明
      * --|-------|--------------
@@ -810,6 +812,18 @@ class User implements UserInterface
     {
         return EellyClient::request('user/user', __FUNCTION__, false, $uid);
     }
+
+    // 代码兼容 过渡代码 上线后再去除
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUserByUid(int $uid): UserDTO
+    {
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $uid);
+    }
+
+    // 代码兼容 过渡代码 上线后再去除
 
     /**
      * @return self

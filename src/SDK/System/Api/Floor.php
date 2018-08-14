@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -17,7 +18,6 @@ use Eelly\SDK\System\DTO\FloorDTO;
 use Eelly\SDK\System\Service\FloorInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Floor implements FloorInterface
@@ -47,6 +47,7 @@ class Floor implements FloorInterface
      * @returnExample({"floorId":"6397","marketId":"177","floorName":"1层","floorStores":"0","floorServer":"","category":"","sort":"65535","remark":"","createdTime":"0","updateTime":"2017-11-27 11:32:04"})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017年11月27日
      *
      * @validation(

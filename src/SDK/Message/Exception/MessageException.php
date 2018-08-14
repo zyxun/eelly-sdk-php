@@ -41,4 +41,13 @@ class MessageException extends LogicException
     public const  UNKNOW_ERROR = '验证码已经失效';
 
     public const  CODE_NOT_EXIT = '验证码不存在';
+
+    public const CODE_ERROR = '验证码错误';
+
+    public const PHONE_ERROR = '手机格式不对';
+
+    public const SEND_FREQUENCTY = '请勿频繁发送验证码';
+
+    public const TEMPLATE_NOT_EXIT = '模版不存在';
+    public const SEND_CONTENT_FREQUENCTY = '内容发送太频繁，请稍后再试';
 }

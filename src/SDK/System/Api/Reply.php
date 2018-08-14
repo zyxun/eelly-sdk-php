@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,12 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
+use Eelly\DTO\ReplyDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\Service\ReplyInterface;
-use Eelly\DTO\ReplyDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Reply implements ReplyInterface

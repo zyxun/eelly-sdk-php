@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\BankInterface;
-use Eelly\SDK\System\DTO\BankDTO;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
+use Eelly\SDK\System\DTO\BankDTO;
+use Eelly\SDK\System\Service\BankInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Bank implements BankInterface
@@ -229,6 +229,22 @@ class Bank implements BankInterface
     public function listBankPageAsync(array $condition = [], int $currentPage = 1, int $limit = 20)
     {
         return EellyClient::request('system/bank', __FUNCTION__, false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function listBanks(): array
+    {
+        return EellyClient::request('system/bank', __FUNCTION__, true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateBankLogo(int $bankId, string $logo): bool
+    {
+        return EellyClient::request('system/bank', __FUNCTION__, true, $bankId, $logo);
     }
 
     /**

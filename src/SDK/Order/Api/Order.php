@@ -837,7 +837,7 @@ class Order implements OrderInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.05.15
      */
-    public function getOrderData(int $orderId):array
+    public function getOrderData(int $orderId): array
     {
         return EellyClient::request('order/order', 'getOrderData', true, $orderId);
     }
@@ -853,9 +853,533 @@ class Order implements OrderInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.05.15
      */
-    public function getOrderDataAsync(int $orderId):array
+    public function getOrderDataAsync(int $orderId)
     {
         return EellyClient::request('order/order', 'getOrderData', false, $orderId);
+    }
+
+    /**
+     * 根据传过来的订单ID跟值，更新消息通知标识的值
+     *
+     * @param int $orderId 订单id
+     * @param int $noticeFlag 消息通知标识的值
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function updateOrderNoticeFlag(int $orderId, int $noticeFlag): bool
+    {
+        return EellyClient::request('order/order', 'updateOrderNoticeFlag', true, $orderId, $noticeFlag);
+    }
+
+    /**
+     * 根据传过来的订单ID跟值，更新消息通知标识的值
+     *
+     * @param int $orderId 订单id
+     * @param int $noticeFlag 消息通知标识的值
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.05.18
+     */
+    public function updateOrderNoticeFlagAsync(int $orderId, int $noticeFlag)
+    {
+        return EellyClient::request('order/order', 'updateOrderNoticeFlag', false, $orderId, $noticeFlag);
+    }
+
+    /**
+     * 获取管理后台的数据列表.
+     *
+     * @param array $data 查询条件
+     * @param int $page  第几页
+     * @param int $limit 查询条数
+     * @param string $orderBy
+     * @return array
+     * @requestExample({"data":["storeId":148086,"extension":1]})
+     * @returnExample({
+     *   "items": [
+     *       {
+     *           "orderId": "5000205",
+     *           "orderSn": "1813016929",
+     *           "extension": "0",
+     *           "batchNumber": "0",
+     *           "chunkNumber": "0",
+     *           "sellerId": "148086",
+     *           "sellerName": "莫琼小店",
+     *           "buyerId": "2108403",
+     *           "buyerName": "yl_jn003778(yl_jn003778)",
+     *           "osId": "15",
+     *           "payTime": "0",
+     *           "shipTime": "0",
+     *           "delayTime": "0",
+     *           "frozenTime": "0",
+     *           "finishedTime": "0",
+     *           "orderAmount": "4800",
+     *           "freight": "1800",
+     *           "commission": "0",
+     *           "returnFlag": "0",
+     *           "evaluateFlag": "0",
+     *           "deleteFlag": "0",
+     *           "fromFlag": "3",
+     *           "createdTime": "1526024934",
+     *           "updateTime": "2018-05-15 20:28:59"
+     *       },
+     *       {
+     *           "orderId": "5000204",
+     *           "orderSn": "1813035805",
+     *           "extension": "0",
+     *           "batchNumber": "0",
+     *           "chunkNumber": "0",
+     *           "sellerId": "148086",
+     *           "sellerName": "莫琼小店",
+     *           "buyerId": "2108403",
+     *           "buyerName": "yl_jn003778(yl_jn003778)",
+     *           "osId": "15",
+     *           "payTime": "0",
+     *           "shipTime": "0",
+     *           "delayTime": "259200",
+     *           "frozenTime": "0",
+     *           "finishedTime": "0",
+     *           "orderAmount": "3800",
+     *           "freight": "1100",
+     *           "commission": "0",
+     *           "returnFlag": "0",
+     *           "evaluateFlag": "0",
+     *           "deleteFlag": "0",
+     *           "fromFlag": "3",
+     *           "createdTime": "1526024871",
+     *           "updateTime": "2018-05-15 20:28:59"
+     *       }
+     *   ],
+     *   "page": {
+     *       "totalPages": 54,
+     *       "totalItems": 107,
+     *       "current": 1,
+     *       "limit": 2
+     *   }
+     * })
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月15日
+     */
+    public function getManageOrder(array $data, int $page = 1, int $limit = 10, string $orderBy = 'created_time DESC'): array
+    {
+        return EellyClient::request('order/order', 'getManageOrder', true, $data, $page, $limit, $orderBy);
+    }
+
+    /**
+     * 获取管理后台的数据列表.
+     *
+     * @param array $data 查询条件
+     * @param int $page  第几页
+     * @param int $limit 查询条数
+     * @param string $orderBy
+     * @return array
+     * @requestExample({"data":["storeId":148086,"extension":1]})
+     * @returnExample({
+     *   "items": [
+     *       {
+     *           "orderId": "5000205",
+     *           "orderSn": "1813016929",
+     *           "extension": "0",
+     *           "batchNumber": "0",
+     *           "chunkNumber": "0",
+     *           "sellerId": "148086",
+     *           "sellerName": "莫琼小店",
+     *           "buyerId": "2108403",
+     *           "buyerName": "yl_jn003778(yl_jn003778)",
+     *           "osId": "15",
+     *           "payTime": "0",
+     *           "shipTime": "0",
+     *           "delayTime": "0",
+     *           "frozenTime": "0",
+     *           "finishedTime": "0",
+     *           "orderAmount": "4800",
+     *           "freight": "1800",
+     *           "commission": "0",
+     *           "returnFlag": "0",
+     *           "evaluateFlag": "0",
+     *           "deleteFlag": "0",
+     *           "fromFlag": "3",
+     *           "createdTime": "1526024934",
+     *           "updateTime": "2018-05-15 20:28:59"
+     *       },
+     *       {
+     *           "orderId": "5000204",
+     *           "orderSn": "1813035805",
+     *           "extension": "0",
+     *           "batchNumber": "0",
+     *           "chunkNumber": "0",
+     *           "sellerId": "148086",
+     *           "sellerName": "莫琼小店",
+     *           "buyerId": "2108403",
+     *           "buyerName": "yl_jn003778(yl_jn003778)",
+     *           "osId": "15",
+     *           "payTime": "0",
+     *           "shipTime": "0",
+     *           "delayTime": "259200",
+     *           "frozenTime": "0",
+     *           "finishedTime": "0",
+     *           "orderAmount": "3800",
+     *           "freight": "1100",
+     *           "commission": "0",
+     *           "returnFlag": "0",
+     *           "evaluateFlag": "0",
+     *           "deleteFlag": "0",
+     *           "fromFlag": "3",
+     *           "createdTime": "1526024871",
+     *           "updateTime": "2018-05-15 20:28:59"
+     *       }
+     *   ],
+     *   "page": {
+     *       "totalPages": 54,
+     *       "totalItems": 107,
+     *       "current": 1,
+     *       "limit": 2
+     *   }
+     * })
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月15日
+     */
+    public function getManageOrderAsync(array $data, int $page = 1, int $limit = 10, string $orderBy = 'created_time DESC')
+    {
+        return EellyClient::request('order/order', 'getManageOrder', false, $data, $page, $limit, $orderBy);
+    }
+
+    /**
+     * 获取管理后台统计数据.
+     * @param array $data 查询条件
+     * @return array
+     * @requestExample({"data":["storeId":148086,"extension":1]})
+     * @returnExample({
+     *   "total": "36808",
+     *   "totalAmount": "716691664",
+     *   "totalGoods": "896767",
+     *   "totalReturnAmount": "554528",
+     *   "spillCount": "0",
+     *   "spillAmount": "0",
+     *   "spillGoods": "0",
+     *   "spillReturnAmount": "0"
+     * })
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月15日
+     */
+    public function getManageOrderStat(array $data): array
+    {
+        return EellyClient::request('order/order', 'getManageOrderStat', true, $data);
+    }
+
+    /**
+     * 获取管理后台统计数据.
+     * @param array $data 查询条件
+     * @return array
+     * @requestExample({"data":["storeId":148086,"extension":1]})
+     * @returnExample({
+     *   "total": "36808",
+     *   "totalAmount": "716691664",
+     *   "totalGoods": "896767",
+     *   "totalReturnAmount": "554528",
+     *   "spillCount": "0",
+     *   "spillAmount": "0",
+     *   "spillGoods": "0",
+     *   "spillReturnAmount": "0"
+     * })
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月15日
+     */
+    public function getManageOrderStatAsync(array $data)
+    {
+        return EellyClient::request('order/order', 'getManageOrderStat', false, $data);
+    }
+
+    /**
+     * 获取订单详情.
+     *
+     * @param int $orderId 订单ID
+     * @return array
+     * @requestExample({"orderId":161})
+     * @returnExample({
+     *  "orderId": "161",
+     *  "orderSn": "1811635308",
+     *  "orderAmount": "2",
+     *  "remark": "",
+     *  "createdTime": "1524830823",
+     *  "payTime": "0",
+     *  "buyerId": "2108403",
+     *  "freight": "1",
+     *  "osId": "15",
+     *  "extension": "0",
+     *  "finishedTime": "0",
+     *  "buyerName": "juju12",
+     *  "sellerName": "莫琼小店",
+     *  "regionName": "山西省 晋城市 沁水县",
+     *  "address": "2222",
+     *  "invoiceNo": "",
+     *  "consignee": "蓝厨卫",
+     *  "mobile": "11113131313",
+     *  "invoiceName": "",
+     *  "returnAmount": null,
+     *  "likeTime": "1524899508",
+     *  "goodsList": [
+     *      {
+     *          "ogId": "20000216",
+     *          "orderId": "161",
+     *          "goodsId": "1450168344",
+     *          "gsId": "195022196",
+     *          "price": "1",
+     *          "quantity": "2",
+     *          "goodsName": "【莫琼小店】 2018新款 针织衫/毛衣  包邮",
+     *          "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *          "goodsNumber": "2",
+     *          "spec": "颜色:如图色,尺码:均码",
+     *          "createdTime": "1524830823",
+     *          "updateTime": "2018-05-02 15:17:18"
+     *      },
+     *      {
+     *          "ogId": "20000472",
+     *          "orderId": "161",
+     *          "goodsId": "1450168344",
+     *          "gsId": "195022196",
+     *          "price": "1",
+     *          "quantity": "2",
+     *          "goodsName": "【莫琼小店】 2018新款 针织衫/毛衣  包邮",
+     *          "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *          "goodsNumber": "2",
+     *          "spec": "颜色:如图色,尺码:均码",
+     *          "createdTime": "1524830823",
+     *          "updateTime": "2018-05-02 15:17:18"
+     *      },
+     *      {
+     *          "ogId": "20000473",
+     *          "orderId": "161",
+     *          "goodsId": "1450168344",
+     *          "gsId": "195022196",
+     *          "price": "1",
+     *          "quantity": "2",
+     *          "goodsName": "【莫琼小店】 2018新款 针织衫/毛衣  包邮",
+     *          "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *          "goodsNumber": "2",
+     *          "spec": "颜色:如图色,尺码:均码",
+     *          "createdTime": "1524830823",
+     *          "updateTime": "2018-05-02 15:17:18"
+     *      }
+     *  ],
+     *"orderLog": [
+     *  {
+     *      "olId": "428",
+     *      "orderId": "161",
+     *      "type": "0",
+     *      "handleId": "0",
+     *      "handleName": "系统管理员",
+     *      "fromOsId": "2",
+     *      "toOsId": "15",
+     *      "remark": "买家24小时内未支付",
+     *      "createdTime": "1525851517",
+     *      "updateTime": "2018-05-09 15:38:32"
+     *  },
+     *  {
+     *      "olId": "162",
+     *      "orderId": "161",
+     *      "type": "0",
+     *      "handleId": "0",
+     *      "handleName": "",
+     *      "fromOsId": "0",
+     *      "toOsId": "1",
+     *      "remark": "新下单",
+     *      "createdTime": "1524830823",
+     *      "updateTime": "2018-04-27 20:06:57"
+     *  }
+     * ]
+     *})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月17日
+     */
+    public function getManageOderInfo(int $orderId): array
+    {
+        return EellyClient::request('order/order', 'getManageOderInfo', true, $orderId);
+    }
+
+    /**
+     * 获取订单详情.
+     *
+     * @param int $orderId 订单ID
+     * @return array
+     * @requestExample({"orderId":161})
+     * @returnExample({
+     *  "orderId": "161",
+     *  "orderSn": "1811635308",
+     *  "orderAmount": "2",
+     *  "remark": "",
+     *  "createdTime": "1524830823",
+     *  "payTime": "0",
+     *  "buyerId": "2108403",
+     *  "freight": "1",
+     *  "osId": "15",
+     *  "extension": "0",
+     *  "finishedTime": "0",
+     *  "buyerName": "juju12",
+     *  "sellerName": "莫琼小店",
+     *  "regionName": "山西省 晋城市 沁水县",
+     *  "address": "2222",
+     *  "invoiceNo": "",
+     *  "consignee": "蓝厨卫",
+     *  "mobile": "11113131313",
+     *  "invoiceName": "",
+     *  "returnAmount": null,
+     *  "likeTime": "1524899508",
+     *  "goodsList": [
+     *      {
+     *          "ogId": "20000216",
+     *          "orderId": "161",
+     *          "goodsId": "1450168344",
+     *          "gsId": "195022196",
+     *          "price": "1",
+     *          "quantity": "2",
+     *          "goodsName": "【莫琼小店】 2018新款 针织衫/毛衣  包邮",
+     *          "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *          "goodsNumber": "2",
+     *          "spec": "颜色:如图色,尺码:均码",
+     *          "createdTime": "1524830823",
+     *          "updateTime": "2018-05-02 15:17:18"
+     *      },
+     *      {
+     *          "ogId": "20000472",
+     *          "orderId": "161",
+     *          "goodsId": "1450168344",
+     *          "gsId": "195022196",
+     *          "price": "1",
+     *          "quantity": "2",
+     *          "goodsName": "【莫琼小店】 2018新款 针织衫/毛衣  包邮",
+     *          "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *          "goodsNumber": "2",
+     *          "spec": "颜色:如图色,尺码:均码",
+     *          "createdTime": "1524830823",
+     *          "updateTime": "2018-05-02 15:17:18"
+     *      },
+     *      {
+     *          "ogId": "20000473",
+     *          "orderId": "161",
+     *          "goodsId": "1450168344",
+     *          "gsId": "195022196",
+     *          "price": "1",
+     *          "quantity": "2",
+     *          "goodsName": "【莫琼小店】 2018新款 针织衫/毛衣  包邮",
+     *          "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *          "goodsNumber": "2",
+     *          "spec": "颜色:如图色,尺码:均码",
+     *          "createdTime": "1524830823",
+     *          "updateTime": "2018-05-02 15:17:18"
+     *      }
+     *  ],
+     *"orderLog": [
+     *  {
+     *      "olId": "428",
+     *      "orderId": "161",
+     *      "type": "0",
+     *      "handleId": "0",
+     *      "handleName": "系统管理员",
+     *      "fromOsId": "2",
+     *      "toOsId": "15",
+     *      "remark": "买家24小时内未支付",
+     *      "createdTime": "1525851517",
+     *      "updateTime": "2018-05-09 15:38:32"
+     *  },
+     *  {
+     *      "olId": "162",
+     *      "orderId": "161",
+     *      "type": "0",
+     *      "handleId": "0",
+     *      "handleName": "",
+     *      "fromOsId": "0",
+     *      "toOsId": "1",
+     *      "remark": "新下单",
+     *      "createdTime": "1524830823",
+     *      "updateTime": "2018-04-27 20:06:57"
+     *  }
+     * ]
+     *})
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年05月17日
+     */
+    public function getManageOderInfoAsync(int $orderId)
+    {
+        return EellyClient::request('order/order', 'getManageOderInfo', false, $orderId);
+    }
+
+    /**
+     * 获取店铺的成交订单数，下单就算成交一笔，取消的订单也算入成交数,由商城迁移过来的.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --------------------|-------|--------------
+     * 148086              |array  |列表下标
+     * 148086["sellerId"]  |string |店铺ID
+     * 148086["addNum"]    |string |下单数
+     * 148086["addAmount"] |string |下单金额
+     * 148086["payAmount"] |string |支付金额
+     * 148086["payNum"]    |string |支付数
+     *
+     *
+     * @param array $storeIds  店铺id数组
+     * @param int   $startTime 开始时间
+     * @param int   $endTime   结束时间
+     *
+     * @requestExample({"storeIds":[148086],'startTime':1514739600,'endTime':1527746679})
+     * @returnExample({
+     *   "148086": {
+     *       "sellerId": "148086",
+     *       "addNum": "236",
+     *       "addAmount": "2889732",
+     *       "payAmount": "14359",
+     *       "payNum": "77"
+     *   }
+     *})
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since  2018年05月31日
+     */
+    public function getOrderCountsByStoreId(array $storeIds, int $startTime = 0, int $endTime = 0): array
+    {
+        return EellyClient::request('order/order', 'getOrderCountsByStoreId', true, $storeIds, $startTime, $endTime);
+    }
+
+    /**
+     * 获取店铺的成交订单数，下单就算成交一笔，取消的订单也算入成交数,由商城迁移过来的.
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --------------------|-------|--------------
+     * 148086              |array  |列表下标
+     * 148086["sellerId"]  |string |店铺ID
+     * 148086["addNum"]    |string |下单数
+     * 148086["addAmount"] |string |下单金额
+     * 148086["payAmount"] |string |支付金额
+     * 148086["payNum"]    |string |支付数
+     *
+     *
+     * @param array $storeIds  店铺id数组
+     * @param int   $startTime 开始时间
+     * @param int   $endTime   结束时间
+     *
+     * @requestExample({"storeIds":[148086],'startTime':1514739600,'endTime':1527746679})
+     * @returnExample({
+     *   "148086": {
+     *       "sellerId": "148086",
+     *       "addNum": "236",
+     *       "addAmount": "2889732",
+     *       "payAmount": "14359",
+     *       "payNum": "77"
+     *   }
+     *})
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since  2018年05月31日
+     */
+    public function getOrderCountsByStoreIdAsync(array $storeIds, int $startTime = 0, int $endTime = 0)
+    {
+        return EellyClient::request('order/order', 'getOrderCountsByStoreId', false, $storeIds, $startTime, $endTime);
     }
 
     /**
