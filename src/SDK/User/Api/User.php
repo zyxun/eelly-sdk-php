@@ -977,6 +977,18 @@ class User implements UserInterface
         return EellyClient::request('user/user', 'getUser', false, $uid);
     }
 
+    // 代码兼容 过渡代码 上线后再去除
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUserByUid(int $uid): UserDTO
+    {
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $uid);
+    }
+
+    // 代码兼容 过渡代码 上线后再去除
+
     /**
      * 忘记密码
      *
