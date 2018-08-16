@@ -714,4 +714,5 @@ interface BuyerOrderInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function orderRefundMoney(int $orderId):array;
+
 }
