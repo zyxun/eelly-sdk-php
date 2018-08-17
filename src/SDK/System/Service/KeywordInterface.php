@@ -66,6 +66,26 @@ interface KeywordInterface
     public function addWord(array $data, UidDTO $user = null): bool;
 
     /**
+     * 添加敏感词.
+     *
+     * @param array  $data           敏感词内容
+     * @param string $data['word']   敏感词名称
+     * @param int    $data['type']   敏感词类型／1 商品标题 2 店主咨询 4 商品评论 ……
+     * @param int    $data['mode']   处理方式：（1：警告  2：屏蔽  3：替换）
+     * @param string $data['reword'] 替换词
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @return bool
+     * @requestExample([{"word":"敏感词示例","type":"1","mode":"3","reword":"我是替换词"}])
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018.07.31
+     */
+    public function addWordManage(array $data): bool;
+
+    /**
      * 修改敏感词.
      *
      * @param int 敏感词id
@@ -92,6 +112,31 @@ interface KeywordInterface
     public function updateWord(int $wordId, array $data, UidDTO $user = null): bool;
 
     /**
+     * 修改敏感词.
+     *
+     * @param int 敏感词id
+     * @param array  $data           敏感词内容
+     * @param string $data['word']   敏感词名称
+     * @param int    $data['type']   敏感词类型／1 商品标题 2 店主咨询 4 商品评论 ……
+     * @param int    $data['mode']   处理方式：（1：警告  2：屏蔽  3：替换）
+     * @param string $data['reword'] 替换词
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @return bool
+     * @requestExample([1,{"word": "敏感词示例","type": "1","mode":"3","reword":"我是替换词"}])
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     *
+     * @since 2018.07.31
+     * @Validation(
+     *   @OperatorValidator(0,{message:"非法的敏感词id",operator:["gt",0]})
+     * )
+     */
+    public function updateWordManage(int $wordId, array $data): bool;
+
+    /**
      * 删除敏感词.
      *
      * @param int 敏感词id
@@ -111,6 +156,26 @@ interface KeywordInterface
      * )
      */
     public function deleteWord(int $wordId, UidDTO $user = null): bool;
+
+    /**
+     * 删除敏感词.
+     *
+     * @param int 敏感词id
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @return bool
+     * @requestExample([1])
+     * @returnExample(true)
+     *
+     * @author zhoujiansheng<zhoujiansheng@eelly.net>
+     *
+     * @since 2017-08-26
+     * @Validation(
+     *   @OperatorValidator(0,{message:"非法的敏感词id",operator:["gt",0]})
+     * )
+     */
+    public function deleteWordManage(int $wordId): bool;
 
     /**
      * 分页获取敏感词.
@@ -175,10 +240,13 @@ interface KeywordInterface
      * 生成敏感词sqlite文件
      *
      * @param int $type  敏感词类型：1 商品标题 2 店主咨询 4 商品评论 8 IM聊天
-     * @return bool
+     * @return array  压缩包链接
+     *
+     * @requestExample({"type": 1})
+     * @returnExample({"url": "https://data.eelly.com/download/file/data/54bed14356bc0fdba5d86d1be25f30ab.zip"})
      *
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function createSqliteDb(int $type): bool;
+    public function createSqliteDb(int $type): array;
 }
