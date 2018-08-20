@@ -16,7 +16,7 @@ namespace Eelly\SDK\EellyOldCode\Api\Messages;
 use Eelly\SDK\EellyClient;
 
 /**
- * Class Profile.
+ * Class Messages.
  *
  * var/eelly-old-code/modules/Messages/Service/MessagesService.php
  *
