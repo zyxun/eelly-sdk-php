@@ -16,7 +16,7 @@ namespace Eelly\SDK\EellyOldCode\Api\Customer;
 use Eelly\SDK\EellyClient;
 
 /**
- * Class Profile.
+ * Class Contacts.
  *
  * var/eelly-old-code/modules/Customer/Service/ContactsService.php
  *
