@@ -69,17 +69,17 @@ class Live implements LiveInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base'): array
     {
-        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit, $order);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base')
     {
-        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit, $order);
     }
 
     /**
@@ -942,6 +942,40 @@ class Live implements LiveInterface
     public function getRandomLiveAsync(array $condition = [], int $num = 1)
     {
         return EellyClient::request('live/live', 'getRandomLive', false, $condition, $num);
+    }
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStat(int $day): array
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', true, $day);
+    }
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStatAsync(int $day)
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', false, $day);
     }
 
     /**

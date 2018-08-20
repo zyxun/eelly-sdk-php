@@ -29,6 +29,7 @@ class Profile
      * @param $role
      * @param $paramType
      * @param $type
+     *
      * @return mixed
      */
     public function getUserCommonInfo($userIds, $role, $paramType = [1], $type = 3)
