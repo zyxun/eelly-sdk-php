@@ -42,7 +42,7 @@ interface LiveInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base'): array;
 
     /**
      * 通过直播ID获取直播数据和直播下面的商品，不做分页区分.
@@ -424,4 +424,18 @@ interface LiveInterface
      * @since 2018-08-10
      */
     public function getRandomLive(array $condition = [], int $num = 1): array;
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStat(int $day): array;
 }
