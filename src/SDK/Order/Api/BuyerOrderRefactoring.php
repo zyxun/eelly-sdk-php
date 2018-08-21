@@ -60,6 +60,9 @@ class BuyerOrderRefactoring implements BuyerOrderRefactoringInterface
      * 4      | 待收货
      * 5      | 待评价
      * 6      | 已评价
+     * 7      | 集赞失败,已退款
+     * 8      | 已退款, 交易取消
+     * 9      | 未付款, 交易取消
      * 10     | 申请退货退款
      * 11     | 重新申请退货退款
      * 12     | 卖家拒绝退款
@@ -192,6 +195,9 @@ class BuyerOrderRefactoring implements BuyerOrderRefactoringInterface
      * 4      | 待收货
      * 5      | 待评价
      * 6      | 已评价
+     * 7      | 集赞失败,已退款
+     * 8      | 已退款, 交易取消
+     * 9      | 未付款, 交易取消
      * 10     | 申请退货退款
      * 11     | 重新申请退货退款
      * 12     | 卖家拒绝退款
@@ -200,7 +206,7 @@ class BuyerOrderRefactoring implements BuyerOrderRefactoringInterface
      * 15     | 买家已发货，等待卖家收退货
      *
      *
-     * @requestExample({"params":{"client":"wap","tab":0,"keyword":"","page":1,"limit":20}})
+     * @requestExample({"params":{"client":"wap","tab":0,"keywords":{"orderSn":"123345"},"page":1,"limit":20}})
      * @returnExample(
      * {
      *     "first": 1,
