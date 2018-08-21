@@ -94,4 +94,18 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
     }
+
+    /**
+     * 获取店铺已经通过的认证类型与服务
+     *
+     * @param array $storeIds
+     * @return array
+     * @author 郭凯<guokai@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.08.21
+     */
+    public function getCreditMarkByStoreIds(array $storeIds)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
+    }
 }
