@@ -421,11 +421,12 @@ interface CartInterface
      * 3 | 数量或金额不满足商家混批规则
      *
      * @param array $uniqueIds 指定购物车key值数组，userId _ goodsId, 数据格式中md5值 
-     * @param UidDTO $user 当前登陆的用户
+     * @param int   $userId    用户id
      * @return array
      * 
      * @requestExample({
-     *   "f54a532d0f2b60071cfec2149476f1c3","372f86e3539ef75e5b49f393e98decc7","701eb18b6a9bec5e13973101df32b8c8"
+     *   "uniqueIds":[{"f54a532d0f2b60071cfec2149476f1c3","372f86e3539ef75e5b49f393e98decc7","701eb18b6a9bec5e13973101df32b8c8"}],
+     *   "userId":"123456789"
      * })
      * @returnExample({
      *   [{"uniqueId":"f54a532d0f2b60071cfec2149476f1c3","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi1120\u80d6mm\u5927\u7801\u5973\u88c5\u6625\u88c5 \u649e\u8272\u53e3\u888b\u8fde\u5e3d2015\u4f11\u95f2\u5957\u88c5\u6625\u5b63\u8fd0\u52a8\u5957\u88c5\u5973","goodsId":5155477,"quantity":1,"price":"74.00","attributes":[{"spId":28738538,"color":"\u7d2b\u8272","size":"xl","quantity":1,"loseSpec":false},{"spId":28738538111,"color":"\u7d2b\u8272","size":"xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"5155477","store_id":"159771","price_type":1,"price_lower":"74.00","price_upper":"89.00","price_data":[{"lower_limit":"3","upper_limit":"4","price":"89.00","type":"1"},{"lower_limit":"5","upper_limit":"9","price":"79.00","type":"2"},{"lower_limit":"10","upper_limit":"0","price":"74.00","type":"3"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534817709,"updateTime":1534903157,"useful":false,"colorSum":1,"sizeSum":1},{"uniqueId":"372f86e3539ef75e5b49f393e98decc7","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi\u6b63\u54c1\u26069568\u65f6\u5c1a\u5178\u96c5\u6cd5\u5f0f\u957f\u5927\u8863","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"\u9ec4\u8272","size":"4xl","quantity":5,"loseSpec":false},{"spId":9521391,"color":"\u9ec4\u8272","size":"4xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534733379,"updateTime":1534903158,"useful":false,"colorSum":2,"sizeSum":2},{"uniqueId":"701eb18b6a9bec5e13973101df32b8c8","storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","goodsName":"19\u5757\u94b1\u7279\u4ef7","goodsId":5578934,"quantity":3,"price":"55.50","attributes":[{"spId":32090859,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578934","store_id":"1760467","price_type":2001,"price_lower":"20.00","price_upper":"20.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"20.00","type":"1"}],"price_pay":"18.50","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578934","nums":"0","mbr_buy_limit":"0","price":"18.50","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913638}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817561,"updateTime":1534903157,"useful":true,"colorSum":1,"sizeSum":1}]
@@ -434,5 +435,5 @@ interface CartInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.8.22
      */
-    public function getCartBatch(array $uniqueIds, UidDTO $user = null): array;
+    public function getCartBatch(array $uniqueIds, int $userId): array;
 }
