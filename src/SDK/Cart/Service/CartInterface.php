@@ -50,6 +50,7 @@ interface CartInterface
      * key | type | value
      * --- | ---- | -----
      * uniqueId             | string | 购物车唯一识别
+     * storeId              | int    | 店铺id
      * goodsName            | string | 商品名称
      * goodsId              | int    | 商品id
      * quantity             | int    | 商品数量
@@ -170,6 +171,7 @@ interface CartInterface
      * key | type | value
      * --- | ---- | -----
      * uniqueId             | string | 购物车唯一识别
+     * storeId              | int    | 店铺id
      * goodsName            | string | 商品名称
      * goodsId              | int    | 商品id
      * quantity             | int    | 商品数量
