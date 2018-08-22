@@ -658,4 +658,55 @@ interface OrderInterface
      * @since 2018-08-08
      */
     public function getUnshippedInfo(int $page = 1, int $limit = 10): array;
+    
+    /**
+     *  购物车确认下单列表
+     *
+     * >请求数据说明
+     * 
+     * >data['goods']['spec'] 商品规格字段数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * quantity | int | 购买数量
+     * specId | int | 规格ID
+     * 
+     * >返回数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * storeId | int | 店铺ID
+     * storeName | string | 店铺名
+     * goodsInfo | array  | 商品信息
+     * 
+     * >goodsInfo 字段数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * goodsId | int | 商品id
+     * totalPrice | float | 商品总价
+     * goodsNumber | string | 商品货号
+     * goodsImage | string | 商品图片地址
+     * goodsName | string | 商品名称
+     * specInfo | array | 规格信息
+     * priceData | array | 价格信息
+     * 
+     * @param array $data 请求参数
+     * @param array $data['isFrom'] 下单平台 1.pc 2.wap 3.app
+     * @param array $data['type'] 下单类型 1.购物车下单 2.立即下单
+     * @param array $data['goods'] 商品信息(立即下单必传,购物车下单传空)
+     * @param int $data['goods'][0]['goodsId']  选中的商品ID
+     * @param int $data['goods'][0]['storeId']  选中的店铺ID
+     * @param int $data['goods'][0]['spec']     选中的商品规格
+     * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
+     * @param array $data['unique'][] 购物车商品主键id (购物车下单必传,立即下单传空)
+     * 
+     * 
+     * 
+     * @param UidDTO $user
+     * 
+     * @author wechan
+     * @since 2018年08月22日
+     */
+    public function cartConfirmOrderList(array $data, UidDTO $user = null):array;
 }
