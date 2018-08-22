@@ -29,12 +29,13 @@ class Cart
 {
     /**
      * @param array $goodsIds 商品id
+     * @param int $userId 用户id
      *
      * @return mixed
      */
-    public function getGoodsInfo(array $goodsIds)
+    public function getGoodsInfo(array $goodsIds, int $userId = 0)
     {
-        return EellyClient::request('eellyOldCode/cart/cart', __FUNCTION__, true, $goodsIds);
+        return EellyClient::request('eellyOldCode/cart/cart', __FUNCTION__, true, $goodsIds, $userId);
     }
     
      /**
