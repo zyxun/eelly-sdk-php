@@ -108,4 +108,31 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
     }
+    
+        /**
+     * 获取运费和重量>>小程序需求.
+     *
+     * @param array $data 获取
+     * @param $data[0]['goodsId']     |array  |商品ID
+     * @param $data[0]['quantity']    |array  |商品数量
+     * @param $regionId               |int    |地区ID
+     *
+     * @return array
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月26日
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------------|-------|--------------
+     * name           |float  |选择的快递类型
+     * shippingId     |float  |快递模板ID
+     * expressSelect  |float  |快递类型
+     * freight        |float  |重量
+     * weight         |float  |重量
+     */
+    public function getFreightAndWeight(array $data, int $regionId = 0): array
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $data, $regionId);
+    }
 }
