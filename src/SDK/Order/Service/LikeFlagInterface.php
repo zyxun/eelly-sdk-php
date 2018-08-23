@@ -28,4 +28,15 @@ interface LikeFlagInterface
      * @since 2018年08月23日
      */
     public function countLikeFlagOrder(array $goodsIds):array;
+    
+    /**
+     * 获取推广商品活动剩余库存
+     * 
+     * @param int $goodsId
+     * @return array
+     * 
+     * @author wechan
+     * @since 2018年8月23日
+     */
+    public function getRestLikeFlagStock(int $goodsId): int;
 }
