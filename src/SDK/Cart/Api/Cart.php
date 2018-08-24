@@ -262,7 +262,7 @@ class Cart implements CartInterface
      * 添加购物车.
      *
      * @param int   $goodsId    商品id
-     * @param array $attributes 其他属性
+     * @param array $attributes 其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
      * @param array $attributes['spId'] 规格属性Id
      * @param array $attributes['color'] 颜色
      * @param array $attributes['size'] 尺寸
@@ -290,7 +290,7 @@ class Cart implements CartInterface
      * 添加购物车.
      *
      * @param int   $goodsId    商品id
-     * @param array $attributes 其他属性
+     * @param array $attributes 其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
      * @param array $attributes['spId'] 规格属性Id
      * @param array $attributes['color'] 颜色
      * @param array $attributes['size'] 尺寸
