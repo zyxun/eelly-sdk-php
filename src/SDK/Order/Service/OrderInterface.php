@@ -658,4 +658,15 @@ interface OrderInterface
      * @since 2018-08-08
      */
     public function getUnshippedInfo(int $page = 1, int $limit = 10): array;
+
+    /**
+     * 查询app消息列表商品信息
+     *
+     * @param array $condition
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getAppMessageOrder(array $condition): array;
 }
