@@ -1449,6 +1449,40 @@ class Order implements OrderInterface
     }
 
     /**
+     * 查询买家在某店铺的最后下单时间
+     *
+     * @param array $condition 查询条件
+     * @return array
+     *
+     * @requestExample({ "condition": {"storeId": 1760467, "buyerIds": [1762341, 1762342]} })
+     * @returnExample([ {"1762341": {"buyerId": 1762341, "lastTime": 1516389648}}, {"1762342": {"buyerId": 1762342, "lastTime": 1516389648}} ])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getLastOrderTime(array $condition): array
+    {
+        return EellyClient::request('order/order', 'getLastOrderTime', true, $condition);
+    }
+
+    /**
+     * 查询买家在某店铺的最后下单时间
+     *
+     * @param array $condition 查询条件
+     * @return array
+     *
+     * @requestExample({ "condition": {"storeId": 1760467, "buyerIds": [1762341, 1762342]} })
+     * @returnExample([ {"1762341": {"buyerId": 1762341, "lastTime": 1516389648}}, {"1762342": {"buyerId": 1762342, "lastTime": 1516389648}} ])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getLastOrderTimeAsync(array $condition)
+    {
+        return EellyClient::request('order/order', 'getLastOrderTime', false, $condition);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
