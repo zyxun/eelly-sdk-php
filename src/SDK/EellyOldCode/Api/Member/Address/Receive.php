@@ -21,7 +21,7 @@ use Eelly\SDK\EellyClient;
  * var/eelly-old-code/modules/Member/Service/Address/ProfileService.php
  *
  */
-class Profile
+class Receive
 {
     /**
      * 获取小程序用户默认地址
