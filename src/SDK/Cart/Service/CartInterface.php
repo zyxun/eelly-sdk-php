@@ -125,6 +125,17 @@ interface CartInterface
      * 2 | 该商品规格发生变更，请重新选择
      * 3 | 数量或金额不满足商家混批规则
      *
+     * > 价格类型说明 price_type
+     * key | type | value
+     * --- | ---- | -----
+     * 1001 | int | 'Distributor' 一件代发价
+     * 2001 | int | 'MarketActivity' 平台活动价(平台店铺活动报名没有特价)
+     * 2002 | int | 'ClearanceActivity' 首页限时特惠
+     * 3001 | int | 'StoreActivity' 店铺活动价
+     * 1002 | int | 'Customer' crm会员价
+     * 1    | int | 'Ladder' 阶梯价------最基础的价格，必需有-------
+     * 2    | int | 'Spec' 规格报价
+     * 
      * @param UidDTO $user 用户信息
      *
      * @return array
@@ -162,6 +173,54 @@ interface CartInterface
      * @since 2018.8.16
      */
     public function addCart(int $goodsId, array $attributes, UidDTO $user = null): bool;
+
+    /**
+     * 获取指定商品来更新购物车
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * spec_id         | int    | 规格id
+     * goods_id        | int    | 商品id
+     * spec_1          | string | 规格颜色
+     * spec_2          | string | 规格码数
+     * color_rgb       | string | rgb颜色
+     * price           | float  | 规格价
+     * stock           | int    | 规格库存
+     * sku             | string | 未知
+     * selQuantity     | int    | 选中的数量 默认为0
+     * showQuantity    | int    | 初始展示的数量 默认为库存一致
+     * 
+     * > 返回数据 priceInfo 说明 https://api.eelly.test/cart/cart/listCart
+     * 
+     * @param integer $goodsId 商品id
+     * @param UidDTO $user  用户
+     * @return array
+     * 
+     * @requestExample({
+     *      "goodsId":"5155477"
+     * })
+     * @returnExample({
+     *      "data":[{
+     *          "spec_id":"28738542",
+     *          "goods_id":"5155477",
+     *          "spec_1":"蓝色",
+     *          "spec_2":"xxl",
+     *          "color_rgb":"",
+     *          "price":"0.00",
+     *          "stock":"20",
+     *          "sku":"",
+     *          "selQuantity":"0",
+     *          "showQuantity":"20"
+     *      }],
+     *      "priceInfo":"具体看说明"
+     * })
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.8.27
+     */
+    public function getCart(int $goodsId, UidDTO $user = null): array;
+
 
     /**
      * 更新购物车.
