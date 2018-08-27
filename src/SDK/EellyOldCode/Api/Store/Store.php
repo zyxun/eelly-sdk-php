@@ -16,9 +16,9 @@ namespace Eelly\SDK\EellyOldCode\Api\Store;
 use Eelly\SDK\EellyClient;
 
 /**
- * Class Goods.
+ * Class Store.
  *
- * var/eelly-old-code/modules/Goods/Service/GoodsService.php
+ * var/eelly-old-code/modules/Store/Service/StoreService.php
  *
  * @author hehui<hehui@eelly.net>
  */
@@ -140,5 +140,17 @@ class Store
     public function getFreightAndWeight(array $data, int $regionId = 0): array
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $data, $regionId);
+    }
+
+    /*
+     * @param $storeId
+     *
+     * @throws \ErrorException
+     *
+     * @return mixed
+     */
+    public function sellerStoreIndexForV1($storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
 }
