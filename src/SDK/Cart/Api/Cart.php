@@ -286,17 +286,14 @@ class Cart implements CartInterface
      * @param int   $goodsId    商品id
      * @param array $attributes 其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
      * @param array $attributes['spId'] 规格属性Id
-     * @param array $attributes['color'] 颜色
-     * @param array $attributes['size'] 尺寸
      * @param array $attributes[‘quantity’] 属性购买数量
-     * @param array $attributes['price'] 属性价格
      * @param UidDTO $user  用户
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
      * @return bool 返回bool值
      * @requestExample({
-     *   "goodsId":27767,"attributes":[{"spId":9521387,"color":"紫色","size":"xl","quantity":3},{"spId":9521390,"color":"黄色","size":"xl","quantity":5}]
+     *   "goodsId":27767,"attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
      * })
      * @returnExample(true)
      *
@@ -314,17 +311,14 @@ class Cart implements CartInterface
      * @param int   $goodsId    商品id
      * @param array $attributes 其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
      * @param array $attributes['spId'] 规格属性Id
-     * @param array $attributes['color'] 颜色
-     * @param array $attributes['size'] 尺寸
      * @param array $attributes[‘quantity’] 属性购买数量
-     * @param array $attributes['price'] 属性价格
      * @param UidDTO $user  用户
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
      * @return bool 返回bool值
      * @requestExample({
-     *   "goodsId":27767,"attributes":[{"spId":9521387,"color":"紫色","size":"xl","quantity":3},{"spId":9521390,"color":"黄色","size":"xl","quantity":5}]
+     *   "goodsId":27767,"attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
      * })
      * @returnExample(true)
      *
@@ -526,7 +520,7 @@ class Cart implements CartInterface
      *
      * @return bool
      * @requestExample({
-     *   "uniqueId":"372f86e3539ef75e5b49f393e98decc7","attributes":[{"spId":9521387,"color":"紫色","size":"xl","quantity":3},{"spId":9521390,"color":"黄色","size":"xl","quantity":5}]
+     *   "uniqueId":"372f86e3539ef75e5b49f393e98decc7","attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
      * })
      * @returnExample({
      *   "uniqueId":"372f86e3539ef75e5b49f393e98decc7","goodsName":"ioeoi正品☆9568时尚典雅法式长大衣","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"紫色","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"黄色","size":"xl","quantity":5,"loseSpec":false}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"该商品规格发生变更，请重新选择","createdTime":1534408722,"updateTime":1534413098,"useful":false,"colorSum":2,"sizeSum":1
@@ -630,7 +624,7 @@ class Cart implements CartInterface
      *
      * @return bool
      * @requestExample({
-     *   "uniqueId":"372f86e3539ef75e5b49f393e98decc7","attributes":[{"spId":9521387,"color":"紫色","size":"xl","quantity":3},{"spId":9521390,"color":"黄色","size":"xl","quantity":5}]
+     *   "uniqueId":"372f86e3539ef75e5b49f393e98decc7","attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
      * })
      * @returnExample({
      *   "uniqueId":"372f86e3539ef75e5b49f393e98decc7","goodsName":"ioeoi正品☆9568时尚典雅法式长大衣","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"紫色","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"黄色","size":"xl","quantity":5,"loseSpec":false}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"该商品规格发生变更，请重新选择","createdTime":1534408722,"updateTime":1534413098,"useful":false,"colorSum":2,"sizeSum":1
