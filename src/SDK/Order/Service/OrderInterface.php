@@ -658,4 +658,113 @@ interface OrderInterface
      * @since 2018-08-08
      */
     public function getUnshippedInfo(int $page = 1, int $limit = 10): array;
+    
+    /**
+     *  购物车确认下单列表
+     *
+     * >请求数据说明
+     * 
+     * >data['goods']['spec'] 商品规格字段数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * quantity | int | 购买数量
+     * specId | int | 规格ID
+     * 
+     * >返回数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * storeId | int | 店铺ID
+     * storeName | string | 店铺名
+     * goodsInfo | array  | 商品信息
+     * couponInfo| array  | 优惠券信息
+     * expressWay| array  | 配送方式
+     * defaultAddress | array | 默认收货地址
+     * 
+     * >goodsInfo 字段数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * goodsId | int | 商品id
+     * totalPrice | float | 商品总价
+     * goodsNumber | string | 商品货号
+     * goodsImage | string | 商品图片地址
+     * goodsName | string | 商品名称
+     * specInfo | array | 规格信息
+     * priceData | array | 价格信息
+     * 
+     * >couponInfo 字段数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * 
+     *    
+     * 
+     * >expressWay 字段数据说明
+     * 
+     * key | type | value
+     * --   | ---- | -----
+     * name | string |  快递名称
+     * shippingId | int | 快递id
+     * freight | float | 运费
+     * weight  | float | 重量
+     * expressType | int | 是否可以到付 (0.支付 1.不支持)
+     * expressSelect | int | 快递类型 (1：货运；2：快递；3：EMS)
+     * 
+     * >defaultAddress 字段数据说明
+     * 
+     * key | type | value
+     * --   | ---- | -----
+     * addrId | int | 地址id
+     * userName | string | 名字
+     * telNumber | string | 收货电话
+     * detailInfo | string | 收货地址
+     * default   | int | 是否默认
+     * regionId | int | 地区id
+     *  
+     * 
+     * @param array $data 请求参数
+     * @param array $data['isFrom'] 下单平台 1.pc 2.wap 3.app
+     * @param array $data['type'] 下单类型 1.购物车下单 2.立即下单
+     * @param array $data['goods'] 商品信息(立即下单必传,购物车下单传空)
+     * @param int $data['goods'][0]['goodsId']  选中的商品ID
+     * @param int $data['goods'][0]['storeId']  选中的店铺ID
+     * @param int $data['goods'][0]['spec']     选中的商品规格
+     * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
+     * @param array $data['unique'][] 购物车商品主键id (购物车下单必传,立即下单传空)
+     * 
+     * 
+     * 
+     * @param UidDTO $user
+     * 
+     * @author wechan
+     * @since 2018年08月22日
+     */
+    public function cartConfirmOrderList(array $data, UidDTO $user = null):array;
+
+    /**
+     * 查询app消息列表商品信息
+     *
+     * @param array $condition
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getAppMessageOrder(array $condition): array;
+
+    /**
+     * 查询买家在某店铺的最后下单时间
+     *
+     * @param array $condition 查询条件
+     * @return array
+     *
+     * @requestExample({ "condition": {"storeId": 1760467, "buyerIds": [1762341, 1762342]} })
+     * @returnExample([ {"1762341": {"buyerId": 1762341, "lastTime": 1516389648}}, {"1762342": {"buyerId": 1762342, "lastTime": 1516389648}} ])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getLastOrderTime(array $condition): array;
 }
