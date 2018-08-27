@@ -59,6 +59,34 @@ class StoreRefactoring implements StoreRefactoringInterface
     }
 
     /**
+     * 根据传过来的店铺id，返回订单详情页店铺相关信息
+     *
+     * @param int $storeId 店铺id
+     * @return array
+     *
+     * @requestExample({"storeId":148086})
+     * @returnExample({
+     *          "userName":"molimoq",
+     *          "phoneMob":"13430245645"
+     * })
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.23
+     */
+    public function getStoreOrderDetailInfo(int $storeId):array
+    {
+        return EellyClient::request('store/storeRefactoring', __FUNCTION__, true, $storeId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStoreOrderDetailInfoAsync(int $storeId):array
+    {
+        return EellyClient::request('store/storeRefactoring', __FUNCTION__, false, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

@@ -19,16 +19,16 @@ use Eelly\SDK\EellyClient;
  * Class CouponService.
  *
  * var/eelly-old-code/modules/Active/Service/CouponService.php
- *
  */
 class Coupon
 {
     /**
-     * 根据传过来的订单id，返回对应可以使用的优惠卷列表 (小程序)
+     * 根据传过来的订单id，返回对应可以使用的优惠卷列表 (小程序).
      *
-     * @param float $money  订单金额
-     * @param int $storeId 店铺id
-     * @param int $userId 登录的用户ID
+     * @param float $money   订单金额
+     * @param int   $storeId 店铺id
+     * @param int   $userId  登录的用户ID
+     *
      * @return array
      *
      * @since 2018.04.13

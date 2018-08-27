@@ -25,7 +25,7 @@ class Receive
 {
     /**
      * 获取小程序用户默认地址
-     * 
+     *
      * @param int $userId 用户id
      *
      * @return array

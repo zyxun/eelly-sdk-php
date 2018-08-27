@@ -29,6 +29,7 @@ class Contacts
      * @param     $type
      * @param     $userType
      * @param int $dataType
+     *
      * @return mixed
      */
     public function getContactsNames($userListId, $type, $userType, $dataType = 1)
