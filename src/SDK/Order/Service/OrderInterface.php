@@ -678,6 +678,9 @@ interface OrderInterface
      * storeId | int | 店铺ID
      * storeName | string | 店铺名
      * goodsInfo | array  | 商品信息
+     * couponInfo| array  | 优惠券信息
+     * expressWay| array  | 配送方式
+     * defaultAddress | array | 默认收货地址
      * 
      * >goodsInfo 字段数据说明
      * 
@@ -690,6 +693,36 @@ interface OrderInterface
      * goodsName | string | 商品名称
      * specInfo | array | 规格信息
      * priceData | array | 价格信息
+     * 
+     * >couponInfo 字段数据说明
+     * 
+     * key | type | value
+     * -- | ---- | -----
+     * 
+     *    
+     * 
+     * >expressWay 字段数据说明
+     * 
+     * key | type | value
+     * --   | ---- | -----
+     * name | string |  快递名称
+     * shippingId | int | 快递id
+     * freight | float | 运费
+     * weight  | float | 重量
+     * expressType | int | 是否可以到付 (0.支付 1.不支持)
+     * expressSelect | int | 快递类型 (1：货运；2：快递；3：EMS)
+     * 
+     * >defaultAddress 字段数据说明
+     * 
+     * key | type | value
+     * --   | ---- | -----
+     * addrId | int | 地址id
+     * userName | string | 名字
+     * telNumber | string | 收货电话
+     * detailInfo | string | 收货地址
+     * default   | int | 是否默认
+     * regionId | int | 地区id
+     *  
      * 
      * @param array $data 请求参数
      * @param array $data['isFrom'] 下单平台 1.pc 2.wap 3.app
