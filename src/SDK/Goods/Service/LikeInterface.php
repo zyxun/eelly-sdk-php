@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Goods\Service;
 
+use Eelly\DTO\UidDTO;
+
 
 /**
  * 商品点赞配置接口.
@@ -92,4 +94,76 @@ interface LikeInterface
      * @since 2018年08月14日
      */
     public function changeStock(int $goodsId, int $num, string $action = '-'): bool;
+
+
+    /**
+     * 获取活动页的一元商品.
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * --------------|-------|--------------
+     * specialPrice  |int    |点赞价格
+     * goodsId       |int    |商品ID
+     * storeId       |int    |店铺ID
+     * goodsName     |string |商品名称
+     * originalPrice |double |原价
+     * goodsStatus   |int    |状态
+     * goodsImg      |string |商品图
+     * addTime       |string |添加时间
+     * isVideo       |int    |是否是视频
+     * videoUrl      |string |视频地址
+     * saleStock     |int    |库存
+     * requireLikes  |int    |需要集赞数量
+     * isSubscribe   |bool   |是否订阅，true是，false否
+     * gliId         |int    |商品点赞ID
+     *
+     *
+     * @param int         $status 1为正在上架的，0为第二期的
+     * @param int         $page   第几页
+     * @param int         $limit  页数
+     * @param UidDTO|null $uidDTO
+     *
+     * @returnExample([
+     * {
+     *      "specialPrice": 1,
+     *      "goodsId": "5578939",
+     *      "storeId": "1760244",
+     *      "goodsName": "运费",
+     *      "originalPrice": 0.02,
+     *      "goodsStatus": 0,
+     *      "goodsImg": "https:\/\/img.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFtMOZWIGOgHAAGL_sMz2wAAAACagKbTqgAAYwW358.jpg",
+     *      "addTime": "1531693335",
+     *      "isVideo": 0,
+     *      "videoUrl": "",
+     *      "saleStock": 2,
+     *      "requireLikes": 12,
+     *      "isSubscribe": false,
+     *      "gliId":1
+     *  }, 
+     *  {
+     *      "specialPrice": 0.03,
+     *      "goodsId": "5578945",
+     *      "storeId": "1760467",
+     *      "goodsName": "测试物流",
+     *      "originalPrice": 0.02,
+     *      "goodsStatus": 0,
+     *      "goodsImg": "https:\/\/img.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFtj9v-IMrTHAAGaI_vzPwkAAABhAGNYDoAAZo7382.jpg",
+     *      "addTime": "1533249154",
+     *      "isVideo": 0,
+     *      "videoUrl": "",
+     *      "saleStock": 4,
+     *      "requireLikes": 12,
+     *      "isSubscribe": false,
+     *      "gliId":1
+     *  }
+     * ])
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月24日
+     */
+    public function getOneyuanData(int $status = 1, int $page = 1, int $limit = 10, UidDTO $uidDTO = null): array;
 }
