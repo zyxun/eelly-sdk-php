@@ -1483,6 +1483,14 @@ class Order implements OrderInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function cartConfirmOrderList(array $data, UidDTO $user = null): array
+    {
+        return EellyClient::request('order/order', __FUNCTION__, true, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

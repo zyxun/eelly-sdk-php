@@ -24,9 +24,8 @@ use Eelly\SDK\EellyClient;
  */
 class Store
 {
-
     /**
-     * 获取店铺基本信息
+     * 获取店铺基本信息.
      *
      * ###使用示例
      *
@@ -87,7 +86,9 @@ class Store
      *   is_behalfof         |    string  一件代发
      *
      * @return array
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function getInfoByStoreIds(array $storeIds)
@@ -99,17 +100,20 @@ class Store
      * 获取店铺已经通过的认证类型与服务
      *
      * @param array $storeIds
+     *
      * @return array
+     *
      * @author 郭凯<guokai@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.08.21
      */
     public function getCreditMarkByStoreIds(array $storeIds)
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
     }
-    
-        /**
+
+    /**
      * 获取运费和重量>>小程序需求.
      *
      * @param array $data 获取
@@ -118,7 +122,9 @@ class Store
      * @param $regionId               |int    |地区ID
      *
      * @return array
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年04月26日
      *
      * ### 返回数据说明

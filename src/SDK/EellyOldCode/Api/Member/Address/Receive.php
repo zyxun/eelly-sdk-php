@@ -19,13 +19,12 @@ use Eelly\SDK\EellyClient;
  * Class Profile.
  *
  * var/eelly-old-code/modules/Member/Service/Address/ProfileService.php
- *
  */
 class Receive
 {
     /**
      * 获取小程序用户默认地址
-     * 
+     *
      * @param int $userId 用户id
      *
      * @return array

@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\EellyOldCode\Api\Cart;
 
-
-
-
 use Eelly\SDK\EellyClient;
 
 /**
@@ -29,7 +26,7 @@ class Cart
 {
     /**
      * @param array $goodsIds 商品id
-     * @param int $userId 用户id
+     * @param int   $userId   用户id
      *
      * @return mixed
      */
@@ -37,16 +34,18 @@ class Cart
     {
         return EellyClient::request('eellyOldCode/cart/cart', __FUNCTION__, true, $goodsIds, $userId);
     }
-    
-     /**
-     * 获取商品信息
+
+    /**
+     * 获取商品信息.
      *
-     * @param   array   $priceInfo  商品的价格信息
-     * @param   number  $specId     规格id
-     * @param   number  $quantity   购买量
-     * @return  number
+     * @param array  $priceInfo 商品的价格信息
+     * @param number $specId    规格id
+     * @param number $quantity  购买量
+     *
+     * @return number
      *
      * @author  何砚文<heyanwen@eelly.net>
+     *
      * @since   2015-6-10
      */
     public function getGoodsPrice($priceInfo, $specId, $quantity)
