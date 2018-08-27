@@ -11,14 +11,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\EellyOldCode\Api\Member\Profile;
+namespace Eelly\SDK\EellyOldCode\Api\Member\Address;
 
 use Eelly\SDK\EellyClient;
 
 /**
- * Class Profile.
+ * Class Receive.
  *
- * var/eelly-old-code/modules/Member/Service/Address/ProfileService.php
+ * var/eelly-old-code/modules/Member/Service/Address/ReceiveService.php
+ *
  */
 class Receive
 {
