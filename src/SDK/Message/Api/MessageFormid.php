@@ -172,6 +172,31 @@ class MessageFormid implements MessageFormidInterface
     }
 
     /**
+     * 发送拼团成功消息通知
+     *
+     * @param int $orderId 订单id
+     * @return bool
+     *
+     * @requestExample({"orderId":"50001707"})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.28
+     */
+    public function sendGroupSuccess(int $orderId):bool
+    {
+        return EellyClient::request('message/messageFormid', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sendGroupSuccessAsync(int $orderId):bool
+    {
+        return EellyClient::request('message/messageFormid', __FUNCTION__, false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

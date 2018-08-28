@@ -78,4 +78,18 @@ interface MessageFormidInterface
      */
     public function sendReceiveRedPackage(array $data, string $fromFlag, int $userId): bool;
 
+    /**
+     * 发送拼团成功消息通知
+     *
+     * @param int $orderId 订单id
+     * @return bool
+     *
+     * @requestExample({"orderId":"50001707"})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.28
+     */
+    public function sendGroupSuccess(int $orderId):bool;
+
 }
