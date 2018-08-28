@@ -118,6 +118,37 @@ interface OauthUserInterface
     public function getUserByWechatCode(string $clientId, string $code): UserDTO;
 
     /**
+     * 通过微信code获取用户信息(微信小程序).
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * uid      |int    |用户ID
+     * username |string |用户名
+     * mobile   |string |手机号
+     *
+     * @param string $clientId      衣联客户端id
+     * @param string $code          登录时获取的code
+     * @param string $encryptedData 包括敏感数据在内的完整用户信息的加密数据
+     * @param string $iv            加密算法的初始向量
+     * @param string $rawData       不包括敏感信息的原始数据字符串，用于计算签名
+     * @param string $signature     使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息
+     *
+     * @return UserDTO
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getUserByWechatJscode(
+        string $clientId,
+        string $code,
+        string $encryptedData,
+        string $iv,
+        string $rawData,
+        string $signature
+    ): UserDTO;
+
+    /**
      * 通过微信code获取用户信息.
      *
      * ### 返回数据说明
