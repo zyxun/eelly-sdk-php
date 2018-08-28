@@ -36,9 +36,18 @@ interface LivePlanInterface
      * @param int $planId
      * @param int $isPay
      * @param int $roomSize
-     * @param int $liveType  直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场)
+     * @param int $liveType  直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场 6.普通场)
      *
      * @return bool
      */
     public function updatePlan(int $planId, int $isPay, int $roomSize, int $liveType): bool;
+
+    /**
+     * 返回直播各个场次对应的时间文本内容
+     *
+     * @return string
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.22
+     */
+    public function getLivePlanContent(): string;
 }

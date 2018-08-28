@@ -67,4 +67,24 @@ class LivePlan implements LivePlanInterface
     {
         return EellyClient::request('live/livePlan', __FUNCTION__, true, $planId, $isPay, $roomSize, $liveType);
     }
+
+    /**
+     * 返回直播各个场次对应的时间文本内容
+     *
+     * @return string
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.22
+     */
+    public function getLivePlanContent(): string
+    {
+        return EellyClient::request('live/livePlan', __FUNCTION__, true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLivePlanContentAsync(): string
+    {
+        return EellyClient::request('live/livePlan', __FUNCTION__, false);
+    }
 }
