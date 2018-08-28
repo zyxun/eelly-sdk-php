@@ -14,7 +14,6 @@ namespace Eelly\SDK\Goods\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Goods\Service\LikeInterface;
-use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -219,6 +218,7 @@ class Like implements LikeInterface
      * gliId         |int    |商品点赞ID
      *
      *
+     * @param int         $userId 登录的用户ID
      * @param int         $status 1为正在上架的，0为第二期的
      * @param int         $page   第几页
      * @param int         $limit  页数
@@ -265,9 +265,9 @@ class Like implements LikeInterface
      *
      * @since 2018年08月24日
      */
-    public function getOneyuanData(int $status = 1, int $page = 1, int $limit = 10, UidDTO $uidDTO = null): array
+    public function getOneyuanData(int $userId = 0, int $status = 1, int $page = 1, int $limit = 10): array
     {
-        return EellyClient::request('goods/like', 'getOneyuanData', true, $status, $page, $limit, $uidDTO);
+        return EellyClient::request('goods/like', 'getOneyuanData', true, $userId, $status, $page, $limit);
     }
 
     /**
@@ -293,6 +293,7 @@ class Like implements LikeInterface
      * gliId         |int    |商品点赞ID
      *
      *
+     * @param int         $userId 登录的用户ID
      * @param int         $status 1为正在上架的，0为第二期的
      * @param int         $page   第几页
      * @param int         $limit  页数
@@ -339,9 +340,9 @@ class Like implements LikeInterface
      *
      * @since 2018年08月24日
      */
-    public function getOneyuanDataAsync(int $status = 1, int $page = 1, int $limit = 10, UidDTO $uidDTO = null)
+    public function getOneyuanDataAsync(int $userId = 0, int $status = 1, int $page = 1, int $limit = 10)
     {
-        return EellyClient::request('goods/like', 'getOneyuanData', false, $status, $page, $limit, $uidDTO);
+        return EellyClient::request('goods/like', 'getOneyuanData', false, $userId, $status, $page, $limit);
     }
 
     /**

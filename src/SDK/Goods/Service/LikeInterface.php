@@ -119,6 +119,7 @@ interface LikeInterface
      * gliId         |int    |商品点赞ID
      *
      *
+     * @param int         $userId 登录的用户ID
      * @param int         $status 1为正在上架的，0为第二期的
      * @param int         $page   第几页
      * @param int         $limit  页数
@@ -165,5 +166,5 @@ interface LikeInterface
      *
      * @since 2018年08月24日
      */
-    public function getOneyuanData(int $status = 1, int $page = 1, int $limit = 10, UidDTO $uidDTO = null): array;
+    public function getOneyuanData(int $userId = 0, int $status = 1, int $page = 1, int $limit = 10): array;
 }
