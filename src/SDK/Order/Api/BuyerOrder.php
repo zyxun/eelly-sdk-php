@@ -1490,7 +1490,7 @@ class BuyerOrder implements BuyerOrderInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.08.28
      */
-    public function orderCollectionNotEnough(int $limit = 50):array
+    public function listOrderCollectionNotEnough(int $limit = 50):array
     {
         return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $limit);
     }
@@ -1498,7 +1498,7 @@ class BuyerOrder implements BuyerOrderInterface
     /**
      * {@inheritdoc}
      */
-    public function orderCollectionNotEnoughAsync(int $limit = 50):array
+    public function listOrderCollectionNotEnoughAsync(int $limit = 50):array
     {
         return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $limit);
     }

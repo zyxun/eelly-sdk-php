@@ -197,6 +197,57 @@ class MessageFormid implements MessageFormidInterface
     }
 
     /**
+     *
+     * 根据传过来的订单id，发送拼团失败消息通知
+     *
+     * @param int $orderId  订单id
+     * @return bool
+     *
+     * @requestExample({"orderId":"50001707"})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.29
+     */
+    public function sendGroupFail(int $orderId):bool
+    {
+        return EellyClient::request('message/messageFormid', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sendGroupFailAsync(int $orderId):bool
+    {
+        return EellyClient::request('message/messageFormid', __FUNCTION__, false, $orderId);
+    }
+
+    /**
+     * 根据传过来的订单id，推送激活成功通知
+     *
+     * @param int $orderId 订单id
+     * @return bool
+     *
+     * @requestExample({"orderId":"50001707"})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.29
+     */
+    public function sendActivationSuccess(int $orderId):bool
+    {
+        return EellyClient::request('message/messageFormid', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sendActivationSuccessAsync(int $orderId):bool
+    {
+        return EellyClient::request('message/messageFormid', __FUNCTION__, false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
