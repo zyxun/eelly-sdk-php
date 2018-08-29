@@ -90,6 +90,72 @@ class Applet implements AppletInterface
     }
 
     /**
+     * 获取一元订单列表数据.
+     *
+     * @param array $orderIds 订单ID
+     *
+     * @requestExample({
+     *     "orderIds":[117,116]
+     * })
+     *
+     * @returnExample([
+     *   {
+     *       "orderId": "117",
+     *       "orderSn": "1810805377",
+     *       "createdTime": "1524119511"
+     *   },
+     *   {
+     *       "orderId": "116",
+     *       "orderSn": "1810837219",
+     *       "createdTime": "1524119510"
+     *   }
+     * ])
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月28日
+     */
+    public function getOrderOneyuanData(array $orderIds): array
+    {
+        return EellyClient::request('order/applet', 'getOrderOneyuanData', true, $orderIds);
+    }
+
+    /**
+     * 获取一元订单列表数据.
+     *
+     * @param array $orderIds 订单ID
+     *
+     * @requestExample({
+     *     "orderIds":[117,116]
+     * })
+     *
+     * @returnExample([
+     *   {
+     *       "orderId": "117",
+     *       "orderSn": "1810805377",
+     *       "createdTime": "1524119511"
+     *   },
+     *   {
+     *       "orderId": "116",
+     *       "orderSn": "1810837219",
+     *       "createdTime": "1524119510"
+     *   }
+     * ])
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月28日
+     */
+    public function getOrderOneyuanDataAsync(array $orderIds)
+    {
+        return EellyClient::request('order/applet', 'getOrderOneyuanData', false, $orderIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
