@@ -1479,6 +1479,57 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * 集赞不足人数提醒 (支付后22小时未集赞成功，则立刻发送提醒通知)
+     *
+     * @param int $limit 每次处理的数量
+     * @return  array
+     *
+     * @requestExample({"limit":"50"})
+     * @returnExample([{"orderId":"50001659","buyerId":"2108412","requireLikes":"1","payTime":"1531724066","likes":"0"},{"orderId":"50001706","buyerId":"2848170","requireLikes":"1","payTime":"1532066230","likes":null}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.28
+     */
+    public function listOrderCollectionNotEnough(int $limit = 50):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $limit);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function listOrderCollectionNotEnoughAsync(int $limit = 50):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $limit);
+    }
+
+    /**
+     * 更新订单的消息通知标志
+     *
+     * @param int $orderId 订单id
+     * @param int $noticeFlag 消息通知标志
+     * @return bool
+     *
+     * @requestExample({"orderId":"50001707", "noticeFlag":8})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.28
+     */
+    public function updateOrderNoticeFlag(int $orderId, int $noticeFlag):bool
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId, $noticeFlag);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateOrderNoticeFlagAsync(int $orderId, int $noticeFlag):bool
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $orderId, $noticeFlag);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

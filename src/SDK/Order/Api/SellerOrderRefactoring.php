@@ -375,7 +375,9 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * needShare          | int     | 待成团
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
-     * needReview         | int     | 待评价
+     * needFinish         | int     | 已完成
+     * needRefund         | int     | 退货退款
+     * needCancel         | int     | 已取消
      *
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
@@ -388,8 +390,9 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *     "needShare": 1,
      *     "needShipping": 1,
      *     "needReceiving": 0,
-     *     "needReview": 0,
-     *     "needRefund":2
+     *     "needFinish": 0,
+     *     "needRefund":2,
+     *     "needCancel":3
      * }
      * )
      *
@@ -433,8 +436,8 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * payDatetime     | Datetime | 支付日期时间
      * shipDatetime    | Datetime | 发货日期时间
      * orderfrom       | string   | 订单来源
-     * goodsCount      | int       | 商品款数
-     * productCount    | int       | 商品总件数
+     * styleCount      | int       | 商品款数
+     * totalCount      | int       | 商品总件数
      * extension       | int       | 订单业务标识：0 普通订单  1 团购订单
      * ifMerge         | bool      | 是否有可合并订单
      * ifRefund        | int       | 订单是否申请过退货退款 (1:有 0:没有)
@@ -502,8 +505,8 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *     "shipDatetime": "1970-01-01 00:00:00",
      *     "changePrice": 1,
      *     "orderfrom": "未知",
-     *     "goodsCount": 1,
-     *     "productCount": 0,
+     *     "styleCount": 1,
+     *     "totalCount": 0,
      *     "ifMerge": true,
      *     "goodsList": [
      *         {
@@ -540,7 +543,171 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
         return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId, $uidDTO);
     }
 
+    /**
+     * 获取合并订单列表.
+     *
+     * 通过订单id获取可合并的订单列表
+     *
+     * > 返回数据说明
+     *
+     * key | type |  value
+     * --- | ---- | -------
+     * [ ]orderId           |  int      | 订单id
+     * [ ]orderStatus       |  int      | 订单状态
+     * [ ]orderAmount       |  int      | 实收(分)
+     * [ ]styleCount        | int       | 商品款数
+     * [ ]totalCount        | int       | 商品总件数
+     * [ ]goodsList         | array     | 商品列表
+     * [ ]goodsList[]['goodsName']    | string | 商品名称
+     * [ ]goodsList[]['price']        | int    | 商品价格(分)
+     * [ ]goodsList[]['quantity']     | int    | 商品数量
+     * [ ]goodsList[]['spec']         | string | 商品属性
+     * [ ]goodsList[]['goodsImage']   | string | 商品图片
+     *
+     *
+     * > 订单状态(orderStatus)
+     *
+     * 值      |状态说明
+     * -------|----------
+     * 0      | 未知（错误值）
+     * 1      | 待付款
+     * 2      | 待分享
+     * 3      | 待发货
+     * 4      | 待收货
+     * 5      | 待评价
+     * 6      | 已评价
+     * 7      | 集赞失败,已退款
+     * 8      | 已退款, 交易取消
+     * 9      | 未付款, 交易取消
+     * 11     | 买家申请退款
+     * 12     | 买家申请退货退款
+     * 13     | 等待买家退货
+     * 14     | 等待我收退货
+     * 15     | 我已拒绝退款
+     * 16     | 我已拒绝退货
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return array 订单列表
+     *
+     * @author hehui<hehui@eelly.net>
+     *
+     * @requestExample({"orderId": 160})
+     *
+     * @returnExample(
+     * [
+     *     {
+     *         "orderId": "158",
+     *         "orderSn": "1811323254",
+     *         "refType": "0",
+     *         "fromFlag": "0",
+     *         "extension": "0",
+     *         "batchNumber": "0",
+     *         "chunkNumber": "0",
+     *         "sellerId": "1762254",
+     *         "sellerName": "莫琼小店",
+     *         "buyerId": "148086",
+     *         "buyerName": "juju12",
+     *         "osId": "2",
+     *         "payTime": "0",
+     *         "shipTime": "0",
+     *         "delayTime": "0",
+     *         "frozenTime": "0",
+     *         "finishedTime": "0",
+     *         "orderAmount": "2",
+     *         "freight": "1",
+     *         "commission": "0",
+     *         "returnFlag": "0",
+     *         "evaluateFlag": "0",
+     *         "deleteFlag": "0",
+     *         "remark": "",
+     *         "createdTime": 1524550060,
+     *         "updateTime": "2018-04-27 22:58:41",
+     *         "goodsList": [
+     *             {
+     *                 "ogId": "20000213",
+     *                 "orderId": "158",
+     *                 "goodsId": "1450168293",
+     *                 "gsId": "195022196",
+     *                 "price": "1",
+     *                 "quantity": "2",
+     *                 "goodsName": "【莫琼小店】 2018新款 针织衫\/毛衣  包邮",
+     *                 "goodsImage": "https:\/\/img03.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *                 "goodsNumber": "2",
+     *                 "spec": "颜色:如图色,尺码:均码",
+     *                 "createdTime": "1524550060",
+     *                 "updateTime": "2018-04-24 14:07:38"
+     *             }
+     *         ],
+     *         "orderStatus": 2,
+     *         "createdDate": "2018-04-24",
+     *         "styleCount": 1,
+     *         "totalCount": 2
+     *     },
+     *     {
+     *         "orderId": "159",
+     *         "orderSn": "1811345794",
+     *         "refType": "0",
+     *         "fromFlag": "0",
+     *         "extension": "0",
+     *         "batchNumber": "0",
+     *         "chunkNumber": "0",
+     *         "sellerId": "1762254",
+     *         "sellerName": "莫琼小店",
+     *         "buyerId": "148086",
+     *         "buyerName": "juju12",
+     *         "osId": "2",
+     *         "payTime": "1524550141",
+     *         "shipTime": "0",
+     *         "delayTime": "0",
+     *         "frozenTime": "0",
+     *         "finishedTime": "0",
+     *         "orderAmount": "2",
+     *         "freight": "1",
+     *         "commission": "0",
+     *         "returnFlag": "0",
+     *         "evaluateFlag": "0",
+     *         "deleteFlag": "0",
+     *         "remark": "",
+     *         "createdTime": 1524550065,
+     *         "updateTime": "2018-04-27 22:58:43",
+     *         "goodsList": [
+     *             {
+     *                 "ogId": "20000214",
+     *                 "orderId": "159",
+     *                 "goodsId": "1450168293",
+     *                 "gsId": "195022196",
+     *                 "price": "1",
+     *                 "quantity": "2",
+     *                 "goodsName": "【莫琼小店】 2018新款 针织衫\/毛衣  包邮",
+     *                 "goodsImage": "https:\/\/img03.eelly.test\/G02\/M00\/00\/03\/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
+     *                 "goodsNumber": "2",
+     *                 "spec": "颜色:如图色,尺码:均码",
+     *                 "createdTime": "1524550066",
+     *                 "updateTime": "2018-04-24 14:07:43"
+     *             }
+     *         ],
+     *         "orderStatus": 2,
+     *         "createdDate": "2018-04-24",
+     *         "styleCount": 1,
+     *         "totalCount": 2
+     *     }
+     * ]
+     * )
+     */
+    public function listMergerOrders(int $orderId, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $uidDTO);
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function listMergerOrdersAsync(int $orderId, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId, $uidDTO);
+    }
 
     /**
      * @return self
