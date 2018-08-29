@@ -14,6 +14,7 @@ namespace Eelly\SDK\Activity\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Activity\Service\ActivityOneyuanInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -70,6 +71,8 @@ class ActivityOneyuan implements ActivityOneyuanInterface
      *
      * @param int $userId
      *
+     *
+     *
      * @return int
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -86,6 +89,8 @@ class ActivityOneyuan implements ActivityOneyuanInterface
      *
      * @param int $userId
      *
+     *
+     *
      * @return int
      *
      * @author 肖俊明<xiaojunming@eelly.net>
@@ -95,6 +100,152 @@ class ActivityOneyuan implements ActivityOneyuanInterface
     public function getActivityTimesAsync(int $userId)
     {
         return EellyClient::request('activity/activityOneyuan', 'getActivityTimes', false, $userId);
+    }
+
+    /**
+     * 获取一元领取和使用数量统计.
+     *
+     * @param UidDTO|null $uidDTO
+     *
+     * @returnExample({
+     *   "totalTimes": 3,
+     *   "useTimes": -3,
+     *   "unclaimedTimes": 0
+     * })
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月28日
+     */
+    public function getOneyuanDetailTimes(UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('activity/activityOneyuan', 'getOneyuanDetailTimes', true, $uidDTO);
+    }
+
+    /**
+     * 获取一元领取和使用数量统计.
+     *
+     * @param UidDTO|null $uidDTO
+     *
+     * @returnExample({
+     *   "totalTimes": 3,
+     *   "useTimes": -3,
+     *   "unclaimedTimes": 0
+     * })
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月28日
+     */
+    public function getOneyuanDetailTimesAsync(UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('activity/activityOneyuan', 'getOneyuanDetailTimes', false, $uidDTO);
+    }
+
+    /**
+     * 用户一元拼团次数变列表.
+     *
+     * @param int         $page   页码
+     * @param int         $limit  每页条数
+     * @param UidDTO|null $uidDTO
+     *
+     * @returnExample([
+     *   {
+     *       "aoId": "4",
+     *       "userId": "148086",
+     *       "type": "2",
+     *       "times": "-1",
+     *       "remark": "订单: 007",
+     *       "number": "0",
+     *       "createdTime": "1535355662",
+     *       "updateTime": "2018-08-28 18:22:12"
+     *   },
+     *   {
+     *       "aoId": "3",
+     *       "userId": "148086",
+     *       "type": "2",
+     *       "times": "-1",
+     *       "remark": "订单: 007",
+     *       "number": "0",
+     *       "createdTime": "1535355660",
+     *       "updateTime": "2018-08-28 18:22:11"
+     *   },
+     *   {
+     *       "aoId": "2",
+     *       "userId": "148086",
+     *       "type": "2",
+     *       "times": "-1",
+     *       "remark": "订单: 007",
+     *       "number": "0",
+     *       "createdTime": "1535355659",
+     *       "updateTime": "2018-08-28 18:22:10"
+     *   }
+     * ])
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月28日
+     */
+    public function getUseOneyuanListData(int $page = 1, int $limit = 10, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('activity/activityOneyuan', 'getUseOneyuanListData', true, $page, $limit, $uidDTO);
+    }
+
+    /**
+     * 用户一元拼团次数变列表.
+     *
+     * @param int         $page   页码
+     * @param int         $limit  每页条数
+     * @param UidDTO|null $uidDTO
+     *
+     * @returnExample([
+     *   {
+     *       "aoId": "4",
+     *       "userId": "148086",
+     *       "type": "2",
+     *       "times": "-1",
+     *       "remark": "订单: 007",
+     *       "number": "0",
+     *       "createdTime": "1535355662",
+     *       "updateTime": "2018-08-28 18:22:12"
+     *   },
+     *   {
+     *       "aoId": "3",
+     *       "userId": "148086",
+     *       "type": "2",
+     *       "times": "-1",
+     *       "remark": "订单: 007",
+     *       "number": "0",
+     *       "createdTime": "1535355660",
+     *       "updateTime": "2018-08-28 18:22:11"
+     *   },
+     *   {
+     *       "aoId": "2",
+     *       "userId": "148086",
+     *       "type": "2",
+     *       "times": "-1",
+     *       "remark": "订单: 007",
+     *       "number": "0",
+     *       "createdTime": "1535355659",
+     *       "updateTime": "2018-08-28 18:22:10"
+     *   }
+     * ])
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月28日
+     */
+    public function getUseOneyuanListDataAsync(int $page = 1, int $limit = 10, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('activity/activityOneyuan', 'getUseOneyuanListData', false, $page, $limit, $uidDTO);
     }
 
     /**
