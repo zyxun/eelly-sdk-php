@@ -49,4 +49,11 @@ class BankException extends LogicException
      * 交易号生成失败
      */
     public const GENERATE_BILLNO_ERROR = '交易号生成失败';
+
+    /**
+     * 微信钱包已被绑定
+     */
+    public const WECHAT_PURSE_EXIST = '微信钱包已被绑定';
+
+    
 }
