@@ -45,7 +45,8 @@ interface SellerOrderRefactoringInterface
      * items[]['freight']     | int    | 运费(分)
      * items[]['createdDate'] | date | 订单日期
      * items[]['ifMerge']     | bool | 是否有可合并订单
-     * items[]['productCount']| int  | 商品总件数
+     * items[]['totalCount']| int  | 商品总件数
+     * items[]['styleCount']| int  | 商品总款数
      * items[]['ifRefund']    | int  | 订单是否申请过退货退款 (1:有 0:没有)
      * items[]['goodsList']   | array | 商品列表
      * items[]['goodsList'][]['goodsName']    | string | 商品名称
@@ -53,6 +54,7 @@ interface SellerOrderRefactoringInterface
      * items[]['goodsList'][]['quantity']     | int    | 商品数量
      * items[]['goodsList'][]['spec']         | string | 商品属性
      * items[]['goodsList'][]['goodsImage']   | string | 商品图片
+     * items[]['goodsList'][]['goodsNumber']  | string | 商品货号
      *
      *
      * > 选项栏(tab)
@@ -74,9 +76,9 @@ interface SellerOrderRefactoringInterface
      * -------|----------
      * 0      | 未知（错误值）
      * 1      | 待付款
-     * 2      | 待分享
-     * 3      | 待发货
-     * 4      | 待收货
+     * 2      | 待成团
+     * 3      | 等待我发货
+     * 4      | 等待买家收货
      * 5      | 待评价
      * 6      | 已评价
      * 7      | 集赞失败,已退款
@@ -355,7 +357,9 @@ interface SellerOrderRefactoringInterface
      * needShare          | int     | 待成团
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
-     * needReview         | int     | 待评价
+     * needFinish         | int     | 已完成
+     * needRefund         | int     | 退货退款
+     * needCancel         | int     | 已取消
      *
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
@@ -368,8 +372,9 @@ interface SellerOrderRefactoringInterface
      *     "needShare": 1,
      *     "needShipping": 1,
      *     "needReceiving": 0,
-     *     "needReview": 0,
-     *     "needRefund":2
+     *     "needFinish": 0,
+     *     "needRefund":2,
+     *     "needCancel":3
      * }
      * )
      *

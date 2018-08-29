@@ -375,7 +375,9 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * needShare          | int     | 待成团
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
-     * needReview         | int     | 待评价
+     * needFinish         | int     | 已完成
+     * needRefund         | int     | 退货退款
+     * needCancel         | int     | 已取消
      *
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
@@ -388,8 +390,9 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *     "needShare": 1,
      *     "needShipping": 1,
      *     "needReceiving": 0,
-     *     "needReview": 0,
-     *     "needRefund":2
+     *     "needFinish": 0,
+     *     "needRefund":2,
+     *     "needCancel":3
      * }
      * )
      *
