@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\DTO\AuthDTO;
 use Eelly\SDK\User\Service\AuthInterface;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\User\DTO\AuthDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Auth implements AuthInterface
@@ -55,7 +55,7 @@ class Auth implements AuthInterface
      */
     public function addUserAuth(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/auth', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('user/auth', 'addUserAuth', true, $data, $user);
     }
 
     /**
@@ -90,7 +90,7 @@ class Auth implements AuthInterface
      */
     public function addUserAuthAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('user/auth', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('user/auth', 'addUserAuth', false, $data, $user);
     }
 
     /**
@@ -112,7 +112,7 @@ class Auth implements AuthInterface
      */
     public function getUserAuth(int $type, UidDTO $user = null): AuthDTO
     {
-        return EellyClient::request('user/auth', __FUNCTION__, true, $type, $user);
+        return EellyClient::request('user/auth', 'getUserAuth', true, $type, $user);
     }
 
     /**
@@ -134,7 +134,7 @@ class Auth implements AuthInterface
      */
     public function getUserAuthAsync(int $type, UidDTO $user = null)
     {
-        return EellyClient::request('user/auth', __FUNCTION__, false, $type, $user);
+        return EellyClient::request('user/auth', 'getUserAuth', false, $type, $user);
     }
 
     /**
@@ -158,7 +158,7 @@ class Auth implements AuthInterface
      */
     public function getAuth(array $condition = [], UidDTO $user = null): array
     {
-        return EellyClient::request('user/auth', __FUNCTION__, true, $condition, $user);
+        return EellyClient::request('user/auth', 'getAuth', true, $condition, $user);
     }
 
     /**
@@ -182,7 +182,7 @@ class Auth implements AuthInterface
      */
     public function getAuthAsync(array $condition = [], UidDTO $user = null)
     {
-        return EellyClient::request('user/auth', __FUNCTION__, false, $condition, $user);
+        return EellyClient::request('user/auth', 'getAuth', false, $condition, $user);
     }
 
     /**
@@ -215,7 +215,7 @@ class Auth implements AuthInterface
      */
     public function addAuth(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/auth', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('user/auth', 'addAuth', true, $data, $user);
     }
 
     /**
@@ -248,7 +248,7 @@ class Auth implements AuthInterface
      */
     public function addAuthAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('user/auth', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('user/auth', 'addAuth', false, $data, $user);
     }
 
     /**
@@ -281,7 +281,7 @@ class Auth implements AuthInterface
      */
     public function updateAuth(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/auth', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('user/auth', 'updateAuth', true, $data, $user);
     }
 
     /**
@@ -314,7 +314,83 @@ class Auth implements AuthInterface
      */
     public function updateAuthAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('user/auth', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('user/auth', 'updateAuth', false, $data, $user);
+    }
+
+    /**
+     * 检查用户是否实名认证
+     *
+     * @param integer $userId 用户id
+     * @return boolean
+     * 
+     * @requestExample({"userId":148086})
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.8.29
+     */
+    public function checkAuthUser(int $userId): bool
+    {
+        return EellyClient::request('user/auth', 'checkAuthUser', true, $userId);
+    }
+
+    /**
+     * 检查用户是否实名认证
+     *
+     * @param integer $userId 用户id
+     * @return boolean
+     * 
+     * @requestExample({"userId":148086})
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.8.29
+     */
+    public function checkAuthUserAsync(int $userId)
+    {
+        return EellyClient::request('user/auth', 'checkAuthUser', false, $userId);
+    }
+
+    /**
+     * 获取用户/店铺认证信息.
+     *
+     * @param array       $condition            条件数组
+     * @param int         $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string      $condition['name']    真实姓名/企业名称,
+     * @param string      $condition['license'] 身份证号码/营业执照号
+     * @param integer     $userId               登录用户id
+     *
+     * @return array
+     * @requestExample({"condition":{"type":1},"userId":"148086"})
+     * @returnExample()
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.8.29
+     */
+    public function getAuthNotDTO(array $condition = [], int $userId): array
+    {
+        return EellyClient::request('user/auth', 'getAuthNotDTO', true, $condition, $userId);
+    }
+
+    /**
+     * 获取用户/店铺认证信息.
+     *
+     * @param array       $condition            条件数组
+     * @param int         $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string      $condition['name']    真实姓名/企业名称,
+     * @param string      $condition['license'] 身份证号码/营业执照号
+     * @param integer     $userId               登录用户id
+     *
+     * @return array
+     * @requestExample({"condition":{"type":1},"userId":"148086"})
+     * @returnExample()
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.8.29
+     */
+    public function getAuthNotDTOAsync(array $condition = [], int $userId)
+    {
+        return EellyClient::request('user/auth', 'getAuthNotDTO', false, $condition, $userId);
     }
 
     /**

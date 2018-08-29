@@ -154,4 +154,37 @@ interface AuthInterface
      * @since  2017/9/12
      */
     public function updateAuth(array $data, UidDTO $user = null): bool;
+
+
+    /**
+     * 检查用户是否实名认证
+     *
+     * @param integer $userId 用户id
+     * @return boolean
+     * 
+     * @requestExample({"userId":148086})
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.8.29
+     */
+    public function checkAuthUser(int $userId): bool;
+
+    /**
+     * 获取用户/店铺认证信息.
+     *
+     * @param array       $condition            条件数组
+     * @param int         $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string      $condition['name']    真实姓名/企业名称,
+     * @param string      $condition['license'] 身份证号码/营业执照号
+     * @param integer     $userId               登录用户id
+     *
+     * @return array
+     * @requestExample({"condition":{"type":1},"userId":"148086"})
+     * @returnExample()
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.8.29
+     */
+    public function getAuthNotDTO(array $condition = [], int $userId): array;
 }
