@@ -352,7 +352,9 @@ class Like implements LikeInterface
      *
      * 字段|类型|说明
      * ---------------------------------|-------|--------------
-     * advertImg                        |string |广告图
+     * advert                           |array  |广告部分数据
+     * advert["advertImg"]              |string |广告图
+     * advert["ruleDescription"]        |string |规则图
      * orderLikeSuccessList             |array  |动态数据
      * orderLikeSuccessList["likes"]    |int    |点赞数量
      * orderLikeSuccessList["orderId"]  |int    |订单号
@@ -365,7 +367,10 @@ class Like implements LikeInterface
      *
      *
      * @returnExample({
-     *   "advertImg": "https://eellytest.eelly.com/system/system_34Yy1VDNNVUCAf0RliDv_icon.png",
+     *   "advert": {
+     *      "advertImg": "https://img03.eelly.test/G01/M00/00/06/oYYBAFqc2PKIGCPDAAASIYpcvVQAAACaALZDQEAABI5697.png",
+     *      "ruleDescription": "https://eellytest.eelly.com/system/system_34Yy1VDNNVUCAf0RliDv_icon.png"
+     *   },
      *   "orderLikeSuccessList": [
      *       {
      *           "likes": "1",
@@ -430,7 +435,9 @@ class Like implements LikeInterface
      *
      * 字段|类型|说明
      * ---------------------------------|-------|--------------
-     * advertImg                        |string |广告图
+     * advert                           |array  |广告部分数据
+     * advert["advertImg"]              |string |广告图
+     * advert["ruleDescription"]        |string |规则图
      * orderLikeSuccessList             |array  |动态数据
      * orderLikeSuccessList["likes"]    |int    |点赞数量
      * orderLikeSuccessList["orderId"]  |int    |订单号
@@ -443,7 +450,10 @@ class Like implements LikeInterface
      *
      *
      * @returnExample({
-     *   "advertImg": "https://eellytest.eelly.com/system/system_34Yy1VDNNVUCAf0RliDv_icon.png",
+     *   "advert": {
+     *      "advertImg": "https://img03.eelly.test/G01/M00/00/06/oYYBAFqc2PKIGCPDAAASIYpcvVQAAACaALZDQEAABI5697.png",
+     *      "ruleDescription": "https://eellytest.eelly.com/system/system_34Yy1VDNNVUCAf0RliDv_icon.png"
+     *   },
      *   "orderLikeSuccessList": [
      *       {
      *           "likes": "1",
@@ -499,6 +509,34 @@ class Like implements LikeInterface
     public function getAppletRecommendDataAsync()
     {
         return EellyClient::request('goods/like', 'getAppletRecommendData', false);
+    }
+
+    /**
+     * 删除拼团推广商品
+     * 
+     * @param int $goodsId
+     * @return bool
+     * 
+     * @author wechan
+     * @since 2018年08月30日
+     */
+    public function deleteGoodsLike(int $goodsId): bool
+    {
+        return EellyClient::request('goods/like', 'deleteGoodsLike', true, $goodsId);
+    }
+
+    /**
+     * 删除拼团推广商品
+     * 
+     * @param int $goodsId
+     * @return bool
+     * 
+     * @author wechan
+     * @since 2018年08月30日
+     */
+    public function deleteGoodsLikeAsync(int $goodsId)
+    {
+        return EellyClient::request('goods/like', 'deleteGoodsLike', false, $goodsId);
     }
 
     /**
