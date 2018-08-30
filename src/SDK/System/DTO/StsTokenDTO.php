@@ -49,4 +49,11 @@ class StsTokenDTO extends AbstractDTO
      * @var string
      */
     public $securityToken;
+
+    /**
+     * 业务强制使用的目录.
+     *
+     * @var string
+     */
+    public $dir;
 }

@@ -23,8 +23,8 @@ class Oss implements OssInterface
     /**
      * {@inheritdoc}
      */
-    public function stsToken(UidDTO $uidDTO = null): StsTokenDTO
+    public function stsToken(string $bizName, string $bizId = '', UidDTO $uidDTO = null): StsTokenDTO
     {
-        return EellyClient::request('system/oss', __FUNCTION__, true);
+        return EellyClient::request('system/oss', __FUNCTION__, true, $bizName, $bizId);
     }
 }
