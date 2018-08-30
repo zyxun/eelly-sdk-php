@@ -48,4 +48,14 @@ class AccountException extends LogicException
      * 会员核心交易数据插入失败
      */
     public const RECORD_INSERT_ERROR = '会员核心交易数据插入失败';
+
+    /**
+     * 账号不存在
+     */
+    public const ACCOUNT_NOT_EXIST = '账号不存在';
+
+    /**
+     * 还未进行实名认证
+     */
+    public const NOT_VERIFIED = '还未进行实名认证';
 }

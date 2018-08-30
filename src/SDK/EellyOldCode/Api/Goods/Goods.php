@@ -68,4 +68,38 @@ class Goods
     {
         return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $searchParams, $type);
     }
+
+    /**
+     * 获取商品数据.
+     *
+     * @param array $where 条件
+     * @param int   $page  页码
+     * @param int   $limit 条数
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年06月13日
+     */
+    public function getGoodsData(array $where, int $page = 1, int $limit = 10): array
+    {
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $where, $page, $limit);
+    }
+
+    /**
+     * 小程序零售化 获取推荐商品.
+     *
+     * @param array $goodsIds 商品ID
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since  2018年08月24日
+     */
+    public function getRememberGoodsData(array $goodsIds): array
+    {
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds);
+    }
 }
