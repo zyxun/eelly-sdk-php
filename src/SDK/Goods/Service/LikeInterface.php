@@ -95,7 +95,6 @@ interface LikeInterface
      */
     public function changeStock(int $goodsId, int $num, string $action = '-'): bool;
 
-
     /**
      * 获取活动页的一元商品.
      *
@@ -247,4 +246,15 @@ interface LikeInterface
      * @Cache(lifetime=300)
      */
     public function getAppletRecommendData(): array;
+    
+    /**
+     * 删除拼团推广商品
+     * 
+     * @param int $goodsId
+     * @return bool
+     * 
+     * @author wechan
+     * @since 2018年08月30日
+     */
+    public function deleteGoodsLike(int $goodsId): bool;
 }
