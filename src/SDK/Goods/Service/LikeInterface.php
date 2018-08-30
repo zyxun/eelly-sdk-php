@@ -250,7 +250,6 @@ interface LikeInterface
     /**
      * 删除拼团推广商品
      * 
-     * 
      * @param int $goodsId
      * @return bool
      * 
