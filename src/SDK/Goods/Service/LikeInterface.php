@@ -175,7 +175,9 @@ interface LikeInterface
      *
      * 字段|类型|说明
      * ---------------------------------|-------|--------------
-     * advertImg                        |string |广告图
+     * advert                           |array  |广告部分数据
+     * advert["advertImg"]              |string |广告图
+     * advert["ruleDescription"]        |string |规则图
      * orderLikeSuccessList             |array  |动态数据
      * orderLikeSuccessList["likes"]    |int    |点赞数量
      * orderLikeSuccessList["orderId"]  |int    |订单号
@@ -188,7 +190,10 @@ interface LikeInterface
      *
      *
      * @returnExample({
-     *   "advertImg": "https://eellytest.eelly.com/system/system_34Yy1VDNNVUCAf0RliDv_icon.png",
+     *   "advert": {
+     *      "advertImg": "https://img03.eelly.test/G01/M00/00/06/oYYBAFqc2PKIGCPDAAASIYpcvVQAAACaALZDQEAABI5697.png",
+     *      "ruleDescription": "https://eellytest.eelly.com/system/system_34Yy1VDNNVUCAf0RliDv_icon.png"
+     *   },
      *   "orderLikeSuccessList": [
      *       {
      *           "likes": "1",
