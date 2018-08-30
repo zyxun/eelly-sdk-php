@@ -92,4 +92,16 @@ interface LikeInterface
      * @since 2018年08月14日
      */
     public function changeStock(int $goodsId, int $num, string $action = '-'): bool;
+    
+    /**
+     * 删除拼团推广商品
+     * 
+     * 
+     * @param int $goodsId
+     * @return bool
+     * 
+     * @author wechan
+     * @since 2018年08月30日
+     */
+    public function deleteGoodsLike(int $goodsId): bool;
 }

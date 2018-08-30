@@ -196,6 +196,36 @@ class Like implements LikeInterface
     }
 
     /**
+     * 删除拼团推广商品
+     * 
+     * 
+     * @param int $goodsId
+     * @return bool
+     * 
+     * @author wechan
+     * @since 2018年08月30日
+     */
+    public function deleteGoodsLike(int $goodsId): bool
+    {
+        return EellyClient::request('goods/like', 'deleteGoodsLike', true, $goodsId);
+    }
+
+    /**
+     * 删除拼团推广商品
+     * 
+     * 
+     * @param int $goodsId
+     * @return bool
+     * 
+     * @author wechan
+     * @since 2018年08月30日
+     */
+    public function deleteGoodsLikeAsync(int $goodsId)
+    {
+        return EellyClient::request('goods/like', 'deleteGoodsLike', false, $goodsId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
