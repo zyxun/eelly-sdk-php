@@ -710,6 +710,35 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 卖家修改订单价格
+     *
+     * @param int $orderId 订单id
+     * @param int $price  修改后的订单价格
+     * @param int $freight 修改后的运费
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": 160, "price":1000, "freight":10})
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.31
+     */
+    public function changeOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $price, $freight, $uidDTO);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function changeOrderPriceAsync(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId, $price, $freight, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
