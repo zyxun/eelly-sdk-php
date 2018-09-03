@@ -78,4 +78,14 @@ class AccountException extends LogicException
      * 支付密码错误
      */
     public const PAY_PASSWORD_FAIL = '支付密码错误';
+
+    /**
+     * 账号余额少于50，因此必须一次性提完
+     */
+    public const PAY_ACCOUNT_LESS_THAN_FIFTY = '账号余额少于50.00，需一次性提完';
+
+    /**
+     * 单日单笔限额2000.00元
+     */
+    public const WITHDRAW_MONEY_NOT_HIGHER_TWO_THOUSAND = '单日单笔限额2000.00元';
 }
