@@ -113,4 +113,27 @@ interface ApplyWithdrawInterface
      * @author hehui<hehui@eelly.net>
      */
     public function updateWithdrawStatus(int $pwId, int $status, string $remark = ''): bool;
+
+    /**
+     * 申请微信钱包提现
+     * 
+     * > data 数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * money | float | 提现的金额 分单位
+     * paId  | int   | 账号id
+     * password | string | 支付密码
+     *      
+     * @param array $data 申请体现的数据
+     * @param UidDTO $uidDTO 当前登陆的用户信息
+     * @return boolean
+     * 
+     * @requestExample({"data":[{"money":100,"paId":2,"password":"123456"}]})
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function applyWechatPurse(array $data, UidDTO $uidDTO = null): bool;
+
 }
