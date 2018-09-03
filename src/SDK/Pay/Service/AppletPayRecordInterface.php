@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
+use Eelly\DTO\UidDTO;
+
 /**
  * 会员核心交易数据
  *
@@ -41,7 +43,7 @@ interface AppletPayRecordInterface
      * @author wechan
      * @since  2018年05月19日
      */
-    public function getSellerPayRecordsList(int $storeId, int $type, int $page = 1): array;
+    public function getSellerPayRecordsList(int $storeId, int $type, int $page = 1, UidDTO $user = null): array;
     
     
     /**
