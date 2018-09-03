@@ -55,5 +55,13 @@ class BankException extends LogicException
      */
     public const WECHAT_PURSE_EXIST = '微信钱包已被绑定';
 
-    
+    /**
+     * 绑定微信钱包失败
+     */
+    public const SAVE_WECHAT_PURSE_FAIL = '绑定微信钱包失败';
+
+    /**
+     * 微信钱包信息不存在
+     */
+    public const WECHAT_PURSE_NOT_EXIST = '微信钱包信息不存在';
 }

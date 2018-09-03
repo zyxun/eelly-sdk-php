@@ -274,4 +274,34 @@ interface AccountInterface
      * @author hehui<hehui@eelly.net>
      */
     public function synchrodata(array $data, int $type): bool;
+
+    /**
+     * 绑定微信钱包
+     * 
+     * > data数据说明
+     * key | type | value 
+     * --- | ---- | ----
+     * openId | string | 微信公众平台id
+     * nickname | string | 微信昵称
+     * unionId | string | 微信公众平台唯一id
+     * appId | string | 微信平台appId
+     * token | string | token(未使用)
+     * 
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * nickname | string | 微信昵称
+     * 
+     * @param array $data 请求所需数据
+     * @param integer $paId 账号id
+     * @param UidDTO $user 登陆的账号
+     * @return boolean
+     * 
+     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickanem":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]},"paId":2})
+     * @returnExample("hello world")
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function bindWechat(array $data, int $paId,  UidDTO $user = null): string;
 }

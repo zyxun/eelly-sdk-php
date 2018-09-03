@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Pay\DTO\AccountDTO;
 use Eelly\SDK\Pay\Service\AccountInterface;
+use Eelly\SDK\Pay\DTO\AccountDTO;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Account implements AccountInterface
@@ -542,11 +542,99 @@ class Account implements AccountInterface
     }
 
     /**
-     * {@inheritdoc}
+     * 同步数据.
+     *
+     * @param array $data
+     * @param int   $type
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function synchrodata(array $data, int $type): bool
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $data, $type);
+        return EellyClient::request('pay/account', 'synchrodata', true, $data, $type);
+    }
+
+    /**
+     * 同步数据.
+     *
+     * @param array $data
+     * @param int   $type
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function synchrodataAsync(array $data, int $type)
+    {
+        return EellyClient::request('pay/account', 'synchrodata', false, $data, $type);
+    }
+
+    /**
+     * 绑定微信钱包
+     * 
+     * > data数据说明
+     * key | type | value 
+     * --- | ---- | ----
+     * openId | string | 微信公众平台id
+     * nickname | string | 微信昵称
+     * unionId | string | 微信公众平台唯一id
+     * appId | string | 微信平台appId
+     * token | string | token(未使用)
+     * 
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * nickname | string | 微信昵称
+     * 
+     * @param array $data 请求所需数据
+     * @param integer $paId 账号id
+     * @param UidDTO $user 登陆的账号
+     * @return boolean
+     * 
+     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickanem":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]},"paId":2})
+     * @returnExample("hello world")
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function bindWechat(array $data, int $paId, UidDTO $user = null): string
+    {
+        return EellyClient::request('pay/account', 'bindWechat', true, $data, $paId, $user);
+    }
+
+    /**
+     * 绑定微信钱包
+     * 
+     * > data数据说明
+     * key | type | value 
+     * --- | ---- | ----
+     * openId | string | 微信公众平台id
+     * nickname | string | 微信昵称
+     * unionId | string | 微信公众平台唯一id
+     * appId | string | 微信平台appId
+     * token | string | token(未使用)
+     * 
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * nickname | string | 微信昵称
+     * 
+     * @param array $data 请求所需数据
+     * @param integer $paId 账号id
+     * @param UidDTO $user 登陆的账号
+     * @return boolean
+     * 
+     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickanem":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]},"paId":2})
+     * @returnExample("hello world")
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function bindWechatAsync(array $data, int $paId, UidDTO $user = null)
+    {
+        return EellyClient::request('pay/account', 'bindWechat', false, $data, $paId, $user);
     }
 
     /**

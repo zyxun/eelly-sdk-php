@@ -58,4 +58,24 @@ class AccountException extends LogicException
      * 还未进行实名认证
      */
     public const NOT_VERIFIED = '还未进行实名认证';
+
+    /**
+     * 未设置支付密码
+     */
+    public const NOT_SET_PAY_PASSWORD = '未设置支付密码';
+
+    /**
+     * 账号更新数据失败
+     */
+    public const ACCOUNT_UPDATE_FAIL = '账号更新数据失败';
+
+    /**
+     * 申请提现数据插入失败
+     */
+    public const PAY_WITHDRAW_INSERT_FAIL = '申请提现数据插入失败';
+
+    /**
+     * 支付密码错误
+     */
+    public const PAY_PASSWORD_FAIL = '支付密码错误';
 }
