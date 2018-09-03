@@ -456,89 +456,53 @@ class Account implements AccountInterface
     }
 
     /**
-     * 我的余额，管理=》app资金管理.
+     * 我的余额，管理 app资金管理.
      *
      * ### 返回数据说明
      *
-     * 字段|类型|说明
-     * ---------------------|-------|--------------
-     * money                |string |账户可用金额：单位为元
-     * frozenMoney          |string |账户冻结金额：单位为元
-     * isWechatBindPurse    |string |是否绑定微信钱包（FALSE.否，TRUE.是）
-     * wechatNickname       |string |微信昵称
-     * bindMobile           |bool   |绑定的手机号（FALSE.否，TRUE.是）
-     * isSetPayPwd          |bool   |是否设置密码（FALSE.否，TRUE.是）
-     * isCapitalFreeze      |bool   |是否资金被冻结（FALSE.否，TRUE.是）
-     * limitedFunctionality |bool   |提现是否受限 （FALSE.不受限，TRUE.受限）
-     *
-     * @param int         $storeId 店铺ID,如果是店铺ID
+     * key | type | value
+     * --- | ---- | -----
+     * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
+     * nickname     | string | 微信昵称 isBindWechat为true才出现
+     * money        | float  | 账号余额
+     * frozenMoney  | float  | 账号冻结金额
+     * 
+     * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
      *
      * @return array
-     * @requestExample({
-     *     "storeId":1
-     * })
-     * @returnExample({
-     *     "money":"0.02",
-     *     "frozenMoney":"0.01",
-     *     "isWechatBindPurse":"true",
-     *     "wechatNickname":"molimoq",
-     *     "bindMobile":"13800138000",
-     *     "isSetPayPwd":true,
-     *     "isCapitalFreeze":true,
-     *     "limitedFunctionality": true
-     * })
      *
-     * @author 肖俊明<xiaojunming@eelly.net>
-     *
-     * @since 2017年11月09日
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
      */
-    public function getAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array
+    public function accountMoneyManage(int $storeId = 0, UidDTO $user = null): array
     {
-        return EellyClient::request('pay/account', 'getAccountMoneyManage', true, $storeId, $user);
+        return EellyClient::request('pay/account', 'accountMoneyManage', true, $storeId, $user);
     }
 
     /**
-     * 我的余额，管理=》app资金管理.
+     * 我的余额，管理 app资金管理.
      *
      * ### 返回数据说明
      *
-     * 字段|类型|说明
-     * ---------------------|-------|--------------
-     * money                |string |账户可用金额：单位为元
-     * frozenMoney          |string |账户冻结金额：单位为元
-     * isWechatBindPurse    |string |是否绑定微信钱包（FALSE.否，TRUE.是）
-     * wechatNickname       |string |微信昵称
-     * bindMobile           |bool   |绑定的手机号（FALSE.否，TRUE.是）
-     * isSetPayPwd          |bool   |是否设置密码（FALSE.否，TRUE.是）
-     * isCapitalFreeze      |bool   |是否资金被冻结（FALSE.否，TRUE.是）
-     * limitedFunctionality |bool   |提现是否受限 （FALSE.不受限，TRUE.受限）
-     *
-     * @param int         $storeId 店铺ID,如果是店铺ID
+     * key | type | value
+     * --- | ---- | -----
+     * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
+     * nickname     | string | 微信昵称 isBindWechat为true才出现
+     * money        | float  | 账号余额
+     * frozenMoney  | float  | 账号冻结金额
+     * 
+     * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
      *
      * @return array
-     * @requestExample({
-     *     "storeId":1
-     * })
-     * @returnExample({
-     *     "money":"0.02",
-     *     "frozenMoney":"0.01",
-     *     "isWechatBindPurse":"true",
-     *     "wechatNickname":"molimoq",
-     *     "bindMobile":"13800138000",
-     *     "isSetPayPwd":true,
-     *     "isCapitalFreeze":true,
-     *     "limitedFunctionality": true
-     * })
      *
-     * @author 肖俊明<xiaojunming@eelly.net>
-     *
-     * @since 2017年11月09日
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
      */
-    public function getAccountMoneyManageAsync(int $storeId = 0, UidDTO $user = null)
+    public function accountMoneyManageAsync(int $storeId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', 'getAccountMoneyManage', false, $storeId, $user);
+        return EellyClient::request('pay/account', 'accountMoneyManage', false, $storeId, $user);
     }
 
     /**
