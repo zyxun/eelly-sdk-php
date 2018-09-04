@@ -182,7 +182,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listOrderData(array $params, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $params, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $params, $uidDTO);
     }
 
     /**
@@ -190,7 +190,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listOrderDataAsync(array $params, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $params, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $params, $uidDTO);
     }
 
     /**
@@ -352,7 +352,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listPcOrderData(array $params, UidDTO $uidDTO = null):array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $params, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $params, $uidDTO);
     }
 
     /**
@@ -360,7 +360,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listPcOrderDataAsync(array $params, UidDTO $uidDTO = null):array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $params, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $params, $uidDTO);
     }
 
     /**
@@ -400,7 +400,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listOrderStatusNum(UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $uidDTO);
     }
 
     /**
@@ -408,7 +408,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listOrderStatusNumAsync(UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $uidDTO);
     }
 
     /**
@@ -532,7 +532,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function getOrderDetail(int $orderId, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $uidDTO);
     }
 
     /**
@@ -540,7 +540,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function getOrderDetailAsync(int $orderId, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $uidDTO);
     }
 
     /**
@@ -698,7 +698,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listMergerOrders(int $orderId, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $uidDTO);
     }
 
     /**
@@ -706,7 +706,36 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      */
     public function listMergerOrdersAsync(int $orderId, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, false, $orderId, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $uidDTO);
+    }
+
+    /**
+     * 卖家修改订单价格
+     *
+     * @param int $orderId 订单id
+     * @param int $price  修改后的订单价格
+     * @param int $freight 修改后的运费
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": 160, "price":1000, "freight":10})
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.31
+     */
+    public function changeOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $price, $freight, $uidDTO);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function changeOrderPriceAsync(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $price, $freight, $uidDTO);
     }
 
     /**
