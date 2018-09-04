@@ -27,8 +27,12 @@ class Count implements CountInterface
      * 根据传过来的订单ID，返回对应的订单统计数据
      *
      * @param int $orderId  订单id
+     * @throws \Eelly\SDK\Order\Exception\OrderException
      * @return array
-     *
+     * @requestExample({
+     *     "orderId": 1
+     * })
+     * @returnExample({"ocId":"5","orderId":"163","shares":"2","likes":"0","createdTime":"1524879825"})
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.04.28
      */
@@ -41,8 +45,12 @@ class Count implements CountInterface
      * 根据传过来的订单ID，返回对应的订单统计数据
      *
      * @param int $orderId  订单id
+     * @throws \Eelly\SDK\Order\Exception\OrderException
      * @return array
-     *
+     * @requestExample({
+     *     "orderId": 1
+     * })
+     * @returnExample({"ocId":"5","orderId":"163","shares":"2","likes":"0","createdTime":"1524879825"})
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.04.28
      */
@@ -122,9 +130,117 @@ class Count implements CountInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.04.28
      */
-    public function listIfOrderLikeSuccessAsync(array $orderIds): array
+    public function listIfOrderLikeSuccessAsync(array $orderIds)
     {
         return EellyClient::request('order/count', 'listIfOrderLikeSuccess', false, $orderIds);
+    }
+
+    /**
+     * 获取集赞成功的商品.
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * likes    |int    |点赞数量
+     * orderId  |int    |订单号
+     * buyerId  |int    |用户ID
+     * price    |int    |价格，单位分
+     * quantity |int    |商品数量
+     * userName |string |用户名
+     * portrait |string |头像
+     * content  |string |内容
+     *
+     *
+     * @param int $page  第几页
+     * @param int $limit 条数
+     *
+     * @returnExample([
+     *   {
+     *       "likes": "1",
+     *       "orderId": "50001717",
+     *       "buyerId": "2108412",
+     *       "price": "980",
+     *       "quantity": "1",
+     *       "userName": "",
+     *       "portrait": "https://uc.eelly.test/images/noavatar_small.png",
+     *       "content": "成功集赞1个，用9.8元成功领了1件衣服"
+     *   },
+     *   {
+     *       "likes": "1",
+     *       "orderId": "50001708",
+     *       "buyerId": "2108483",
+     *       "price": "1",
+     *       "quantity": "1",
+     *       "userName": "龚",
+     *       "portrait": "https://uc.eelly.test/images/noavatar_small.png",
+     *       "content": "成功集赞1个，用0.01元成功领了1件衣服"
+     *   }
+     * ])
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月27日
+     */
+    public function getNewOrderLikeSuccessList(int $page = 1, int $limit = 30): array
+    {
+        return EellyClient::request('order/count', 'getNewOrderLikeSuccessList', true, $page, $limit);
+    }
+
+    /**
+     * 获取集赞成功的商品.
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * likes    |int    |点赞数量
+     * orderId  |int    |订单号
+     * buyerId  |int    |用户ID
+     * price    |int    |价格，单位分
+     * quantity |int    |商品数量
+     * userName |string |用户名
+     * portrait |string |头像
+     * content  |string |内容
+     *
+     *
+     * @param int $page  第几页
+     * @param int $limit 条数
+     *
+     * @returnExample([
+     *   {
+     *       "likes": "1",
+     *       "orderId": "50001717",
+     *       "buyerId": "2108412",
+     *       "price": "980",
+     *       "quantity": "1",
+     *       "userName": "",
+     *       "portrait": "https://uc.eelly.test/images/noavatar_small.png",
+     *       "content": "成功集赞1个，用9.8元成功领了1件衣服"
+     *   },
+     *   {
+     *       "likes": "1",
+     *       "orderId": "50001708",
+     *       "buyerId": "2108483",
+     *       "price": "1",
+     *       "quantity": "1",
+     *       "userName": "龚",
+     *       "portrait": "https://uc.eelly.test/images/noavatar_small.png",
+     *       "content": "成功集赞1个，用0.01元成功领了1件衣服"
+     *   }
+     * ])
+     *
+     * @return array
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年08月27日
+     */
+    public function getNewOrderLikeSuccessListAsync(int $page = 1, int $limit = 30)
+    {
+        return EellyClient::request('order/count', 'getNewOrderLikeSuccessList', false, $page, $limit);
     }
 
     /**
