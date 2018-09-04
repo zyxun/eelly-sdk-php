@@ -30,7 +30,7 @@ interface ConfirmWithdrawInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function acceptForWechat(int $pwId): bool;
+    public function acceptWithdraw(int $pwId): bool;
 
     /**
      * 确认提现到微信.
@@ -48,14 +48,26 @@ interface ConfirmWithdrawInterface
     public function confirmForWechat(int $pwId, string $account = 'eelly.app'): bool;
 
     /**
+     * 确认提现到银行
+     *
+     * @param integer $pwId 申请交易的id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.4
+     */
+    public function confirmForBank(int $pwId): bool;
+
+    /**
      * 驳回提现申请.
      * 
      * @param integer $paId 提现交易id
+     * @param string $remark 驳回理由
      * 
      * @return boolean
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function closeWithdraw(int $pwId): bool;
+    public function closeWithdraw(int $pwId, string $remark = ''): bool;
 }
