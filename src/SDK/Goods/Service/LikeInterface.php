@@ -45,4 +45,51 @@ interface LikeInterface
      * @since 2018年6月28日
      */
     public function getGoodsLikeSettingInfoById(int $goodsId): array;
+    
+    /**
+     * 获取拼团商品列表
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * @param int    $page       页数
+     * @param int    $limit      每页条数
+     *
+     * @author wechan
+     *
+     * @since 2018年08月06日
+     */
+    public function getGoodsLikeList(string $conditions = '', array $binds = [], int $page = 1, int $limit = 10): array;
+    
+    /**
+     * 获取拼团商品列表
+     * 
+     * @param $data 请求参数
+     *
+     * @author wechan
+     * @since 2018年08月06日
+     */
+    public function setGoodsLikeList(int $goodsId, array $data): bool;
+    
+    /**
+     * 统计推广商品的数量
+     * 
+     * @param string $conditions sql where条件
+     * 
+     * @author wechan
+     * @since 2018年8月7日
+     */
+    public function countGoodsLike(string $conditions = ""): int;
+    
+    /**
+     * 修改拼团商品活动库存
+     * 
+     * @param array $goodsId 商品id
+     * @param int $num 数量
+     * @param string $action 操作类型 -:减 +:加
+     * 
+     * 
+     * @author wechan
+     * @since 2018年08月14日
+     */
+    public function changeStock(int $goodsId, int $num, string $action = '-'): bool;
 }

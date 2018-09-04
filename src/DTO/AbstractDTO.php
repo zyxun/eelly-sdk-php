@@ -28,6 +28,8 @@ class AbstractDTO implements \JsonSerializable
      * 数组转对象
      *
      * @param array $array
+     *
+     * @return static
      */
     public static function hydractor(array $array)
     {
@@ -38,7 +40,7 @@ class AbstractDTO implements \JsonSerializable
             $key = preg_replace_callback('/(_)([a-z])/i', function ($matches) {
                 return ucfirst($matches[2]);
             }, $key);
-            is_array($value) and $value = Model::arrayToHump($value);
+            \is_array($value) and $value = Model::arrayToHump($value);
             $object->$key = $value;
         }
 
@@ -63,6 +65,6 @@ class AbstractDTO implements \JsonSerializable
      */
     public static function hydarctorObj($obj)
     {
-        return is_object($obj) ? self::hydractor($obj->toArray()) : self::hydractor([]);
+        return \is_object($obj) ? self::hydractor($obj->toArray()) : self::hydractor([]);
     }
 }

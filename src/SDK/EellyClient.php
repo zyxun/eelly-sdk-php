@@ -14,15 +14,30 @@ declare(strict_types=1);
 namespace Eelly\SDK;
 
 use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Middleware;
 use LogicException;
 use Phalcon\Cache\BackendInterface as CacheInterface;
+use Phalcon\Http\Request;
+use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Shadon\Application\ApplicationConst;
 use Shadon\Client\ShadonSDKClient;
 use Shadon\OAuth2\Client\Provider\ShadonProvider;
 
+/**
+ * 衣联sdk客户端.
+ *
+ * @author hehui<hehui@eelly.net>
+ */
 class EellyClient
 {
+    /**
+     * 跟踪客户端ip的header.
+     *
+     * @var string
+     */
+    public const TRACE_HEADER_IP = 'TRACE-IP';
+
     /**
      * server map.
      *
@@ -40,7 +55,7 @@ class EellyClient
         'im'             => 'https://api.eelly.com',
         'live'           => 'https://api.eelly.com',
         'log'            => 'https://api.eelly.com',
-        'logger'         => 'http://logger.api.eelly.com',
+        'logger'         => 'https://logger_api.eelly.com',
         'message'        => 'https://api.eelly.com',
         'moments'        => 'https://api.eelly.com',
         'oauth'          => 'https://api.eelly.com',
@@ -104,6 +119,15 @@ class EellyClient
         ];
         $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
         $eellyClient->getSdkClient()->getProvider()->setAccessTokenCache($cache);
+        self::getSdkClient()->getHandlerStack()->push(Middleware::mapRequest(function (RequestInterface $request) {
+            $clientRequest = new Request();
+            if (!$clientRequest->hasHeader(self::TRACE_HEADER_IP)) {
+                $ip = $clientRequest->getClientAddress();
+                $request = $request->withHeader(self::TRACE_HEADER_IP, $ip);
+            }
+
+            return $request;
+        }));
 
         return $eellyClient;
     }
@@ -134,7 +158,7 @@ class EellyClient
             } catch (ServerException $e) {
                 $body = json_decode((string) $e->getResponse()->getBody(), true);
                 if (JSON_ERROR_NONE == json_last_error()) {
-                    throw new $body['returnType']($body['error']);
+                    throw new \ErrorException($body['error']);
                 }
                 throw $e;
             }

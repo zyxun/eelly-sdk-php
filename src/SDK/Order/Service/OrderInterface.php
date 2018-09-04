@@ -333,7 +333,6 @@ interface OrderInterface
      * @returnExample(true)
      * @return bool
      *
-     * @Async
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -642,4 +641,35 @@ interface OrderInterface
      * @since  2018年05月31日
      */
     public function getOrderCountsByStoreId(array $storeIds, int $startTime = 0, int $endTime = 0): array;
+
+    /**
+     * 获取各卖家未发货订单数量
+     *
+     * @param int $page  当前页数
+     * @param int $limit 每页数量
+     * @return array
+     *
+     * @requestExample({"page": 1, "limit": 1000})
+     * @returnExample({
+     *     "148086": {"orderCount": 8, "sellerId": 148086}
+     * })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-08
+     */
+    public function getUnshippedInfo(int $page = 1, int $limit = 10): array;
+
+    /**
+     * 查询买家在某店铺的最后下单时间
+     *
+     * @param array $condition 查询条件
+     * @return array
+     *
+     * @requestExample({ "condition": {"storeId": 1760467, "buyerIds": [1762341, 1762342]} })
+     * @returnExample([ {"1762341": {"buyerId": 1762341, "lastTime": 1516389648}}, {"1762342": {"buyerId": 1762342, "lastTime": 1516389648}} ])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getLastOrderTime(array $condition): array;
 }

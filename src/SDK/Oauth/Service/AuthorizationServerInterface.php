@@ -42,7 +42,7 @@ interface AuthorizationServerInterface
      *         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY5NDRhMWRkNDc1MmU0MWE5MDI3ZGJlMDdhZWVjNTdlM2YzYjMzY2UwN2IyMzMyMzc4M2Q3YzRiOWE1NTYxZGY1YTMyMjA3M2Y0ODBmNjk4In0.eyJhdWQiOiJteWF3ZXNvbWVhcHAiLCJqdGkiOiJmOTQ0YTFkZDQ3NTJlNDFhOTAyN2RiZTA3YWVlYzU3ZTNmM2IzM2NlMDdiMjMzMjM3ODNkN2M0YjlhNTU2MWRmNWEzMjIwNzNmNDgwZjY5OCIsImlhdCI6MTUwMzU1OTMzMCwibmJmIjoxNTAzNTU5MzMwLCJleHAiOjE1MDYyMzc3MzAsInN1YiI6IiIsInNjb3BlcyI6W119.sS-MktfOaghz5kRDMHa0YKS4LRIestAXdO7SvtpCp-jItGrOkKCPF6AYhvaoaswc6OZ7_QkP3cF4d_y_zVU0szatR6_OOuKCBu-JYjeSLn08Bo1_a6tXkCk_xMhXhWHM4cQ99s-4WtNqWP2OezikkCNwbArO_t4ZZqPS1BKV408"
      *     }
      * ```
-     * - 密码模式
+     * - 密码模式 或 QQ模式 或 微信模式 或 手机模式
      * ```
      *     {
      *          "token_type": "Bearer",
@@ -59,9 +59,15 @@ interface AuthorizationServerInterface
      * grant_type    |string  |否       |       |认证模式
      * client_id     |string  |否       |       |客户端id
      * client_secret |string  |否       |       |客户端秘钥
-     * username      |string  |是       |       |用户名
+     * username      |string  |是       |       |用户名(手机号)
      * password      |string  |是       |       |用户密码
      * refresh_token |string  |是       |       |刷新令牌
+     * access_token  |string  |是       |       |访问token(grant_type=qq)
+     * code          |string  |是       |       |临时票据(grant_type=wechat或mobile)
+     * encryptedData |string  |是       |       |包括敏感数据在内的完整用户信息的加密数据(grant_type=wechat)
+     * iv            |string  |是       |       |加密算法的初始向量(grant_type=wechat)
+     * rawData       |string  |是       |       |不包括敏感信息的原始数据字符串，用于计算签名(grant_type=wechat)
+     * signature     |string  |是       |       |使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息(grant_type=wechat)
      *
      * ### 请求示例
      * > 客户端模式(Client credentials grant)
@@ -89,10 +95,54 @@ interface AuthorizationServerInterface
      * client_secret:password
      * ```
      *
+     * > QQ模式(QQ token grant)
+     *
+     * ```
+     * grant_type:qq
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * access_token:4E338C9700B3CAEE6017C15001BB7ACD
+     * ```
+     *
+     * > 微信模式(Wechat token grant for app)
+     *
+     * ```
+     * grant_type:wechat
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * code:E338C9700B3CAEE6017C15001BB7ACD
+     * ```
+     *
+     * > 微信模式(Wechat token grant for applet)
+     *
+     * ```
+     * grant_type:wechat
+     * client_id:5b7cddb169d7690cd7772a81
+     * client_secret:w27ZHicLrtoo5hxSDemd97KZLksU0D9v
+     * code:023uWTdf2f9EAB0JYpdf2cFIdf2uWTdE
+     * encryptedData:t+FRkw9k5n+V5wirOdh/Zq1T05kjmaDjZUbL6oaeem/Ia6l4Do4eXIW3G3WD+u3ZPpbpaU+0yj5Gqe1MOkzIJEFIo2uPLTEAdyy6dOQNNjRMJ3tQtMr34DkTyqvZ828yl2wLtkGVs9eWuP3Po9wZIQamrewdc8J6wAeMbVzuqMjhPpOTM8LORNaHePXTqC7JCTle7EWNR48BHjtrlK5ZjkB+DxDDKXUZVe98SQo3bL2GaIyYimKdOAjRFWwqjMy5sgBgMsiy6ieCApTLioW+S7kV1dcP5/W7cFoS7kn7ycKsmIvrSzqdJkHHaM9+At7QtkqzOnyH11P4KB8uK8y/G+AEKRpp0+9FtMvGicz7SfMz62FqZ0kmSx56/qEq1QXDf30h+rLOJ5d6Q/0bAN69U5MC24zVwURK9dpWwg0EmQFdAXVZWgWo8PQypHLurYdwTPcm7+Zd6QzkapI09NIpjPrlo3bfrMm54vtkdprww+IReduev3mygkH4Rbrub5q0ajIEyuHVkthPi8O23KXO1w==
+     * iv:zszQssx0DjD6TdR0Wgl5FA==
+     * rawData:{"nickName":"heui","gender":1,"language":"zh_CN","city":"Guangzhou","province":"Guangdong","country":"China","avatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/q13pI6KWje2vNbB0YbgO1iaoVElPxYwGpjUkEWhH7U5PZqMG1oFzK4hGtycibhlzqsTYn1iaB3mekTj2ySdsAmLMg/132"}
+     * signature:9a9ac88bed15364b53ed7fc6e5c438215b918809
+     * ```
+     *
+     * > 手机模式(Mobile token grant)
+     *
+     * ```
+     * grant_type:mobile
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * username:13800138000
+     * code:123456
+     * ```
+     *
      * ### 参考
      * ![oauth 2.0](https://oauth.net/images/oauth-2-sm.png)
      * - [阮一峰的理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
      * - [oauth2.0](https://oauth.net/2/)
+     * - [QQ登录](http://wiki.open.qq.com/wiki/website/OAuth2.0%E7%AE%80%E4%BB%8B)
+     * - [微信登录](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317851&token=&lang=zh_CN)
+     *
      *
      * @throws \Exception
      *

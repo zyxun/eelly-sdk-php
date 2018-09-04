@@ -186,6 +186,92 @@ class Goods implements GoodsInterface
     }
 
     /**
+     * 根据多个商品获取订单点赞数
+     *
+     * @param array $goodsIds
+     * @return array
+     *
+     * @requestExample({"goodsIds":[5578933, 1450164457]})
+     * @returnExample({
+     *      "5578933":{
+     *          "likeCount":6,
+     *          "goodsId":5578933
+     *     },
+     *     "1450164457":{
+     *          "likeCount":21,
+     *          "goodsId":1450164457
+     *     }
+     * })
+     *
+     * @author zhangyangxun
+     * @since 2018.08.10
+     */
+    public function countOrderGoodsLike(array $goodsIds): array
+    {
+        return EellyClient::request('order/goods', 'countOrderGoodsLike', true, $goodsIds);
+    }
+
+    /**
+     * 根据多个商品获取订单点赞数
+     *
+     * @param array $goodsIds
+     * @return array
+     *
+     * @requestExample({"goodsIds":[5578933, 1450164457]})
+     * @returnExample({
+     *      "5578933":{
+     *          "likeCount":6,
+     *          "goodsId":5578933
+     *     },
+     *     "1450164457":{
+     *          "likeCount":21,
+     *          "goodsId":1450164457
+     *     }
+     * })
+     *
+     * @author zhangyangxun
+     * @since 2018.08.10
+     */
+    public function countOrderGoodsLikeAsync(array $goodsIds)
+    {
+        return EellyClient::request('order/goods', 'countOrderGoodsLike', false, $goodsIds);
+    }
+
+    /**
+     * 根据订单id 获取订单的商品数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":50001701})
+     * @returnExample({"goods_id":"5578933","gs_id":"32090860","quantity":"1"})
+     *
+     * @author sunanzhi
+     * @since 2018.7.20
+     */
+    public function getOrderGoods(int $orderId): array
+    {
+        return EellyClient::request('order/goods', 'getOrderGoods', true, $orderId);
+    }
+
+    /**
+     * 根据订单id 获取订单的商品数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":50001701})
+     * @returnExample({"goods_id":"5578933","gs_id":"32090860","quantity":"1"})
+     *
+     * @author sunanzhi
+     * @since 2018.7.20
+     */
+    public function getOrderGoodsAsync(int $orderId)
+    {
+        return EellyClient::request('order/goods', 'getOrderGoods', false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
