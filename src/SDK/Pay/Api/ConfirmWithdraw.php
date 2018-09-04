@@ -30,9 +30,9 @@ class ConfirmWithdraw implements ConfirmWithdrawInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function acceptForWechat(int $pwId): bool
+    public function acceptWithdraw(int $pwId): bool
     {
-        return EellyClient::request('pay/confirmWithdraw', 'acceptForWechat', true, $pwId);
+        return EellyClient::request('pay/confirmWithdraw', 'acceptWithdraw', true, $pwId);
     }
 
     /**
@@ -44,9 +44,9 @@ class ConfirmWithdraw implements ConfirmWithdrawInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function acceptForWechatAsync(int $pwId)
+    public function acceptWithdrawAsync(int $pwId)
     {
-        return EellyClient::request('pay/confirmWithdraw', 'acceptForWechat', false, $pwId);
+        return EellyClient::request('pay/confirmWithdraw', 'acceptWithdraw', false, $pwId);
     }
 
     /**
@@ -86,33 +86,63 @@ class ConfirmWithdraw implements ConfirmWithdrawInterface
     }
 
     /**
-     * 驳回提现申请.
-     * 
-     * @param integer $paId 提现交易id
-     * 
+     * 确认提现到银行
+     *
+     * @param integer $pwId 申请交易的id
      * @return boolean
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2018.9.3
+     * @since 2018.9.4
      */
-    public function closeWithdraw(int $pwId): bool
+    public function confirmForBank(int $pwId): bool
     {
-        return EellyClient::request('pay/confirmWithdraw', 'closeWithdraw', true, $pwId);
+        return EellyClient::request('pay/confirmWithdraw', 'confirmForBank', true, $pwId);
+    }
+
+    /**
+     * 确认提现到银行
+     *
+     * @param integer $pwId 申请交易的id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.4
+     */
+    public function confirmForBankAsync(int $pwId)
+    {
+        return EellyClient::request('pay/confirmWithdraw', 'confirmForBank', false, $pwId);
     }
 
     /**
      * 驳回提现申请.
      * 
      * @param integer $paId 提现交易id
+     * @param string $remark 驳回理由
      * 
      * @return boolean
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function closeWithdrawAsync(int $pwId)
+    public function closeWithdraw(int $pwId, string $remark = ''): bool
     {
-        return EellyClient::request('pay/confirmWithdraw', 'closeWithdraw', false, $pwId);
+        return EellyClient::request('pay/confirmWithdraw', 'closeWithdraw', true, $pwId, $remark);
+    }
+
+    /**
+     * 驳回提现申请.
+     * 
+     * @param integer $paId 提现交易id
+     * @param string $remark 驳回理由
+     * 
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function closeWithdrawAsync(int $pwId, string $remark = '')
+    {
+        return EellyClient::request('pay/confirmWithdraw', 'closeWithdraw', false, $pwId, $remark);
     }
 
     /**
