@@ -69,17 +69,17 @@ class Live implements LiveInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base'): array
     {
-        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit, $order);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base')
     {
-        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit, $order);
     }
 
     /**
@@ -821,11 +821,6 @@ class Live implements LiveInterface
      * @author wechan
      * @since 2018年4月27日
      * 
-     * @Validation(
-     *  @PresenceOf(0,{message:"数据不能为空"}),
-     *  @PresenceOf(1,{message:"数据不能为空"}),
-     *  @PresenceOf(2,{message:"数据不能为空")
-     * )
      */
     public function updateShowFlag(int $liveId, array $flag, int $type): bool
     {
@@ -845,17 +840,40 @@ class Live implements LiveInterface
      * @author wechan
      * @since 2018年4月27日
      * 
-     * @Validation(
-     *  @PresenceOf(0,{message:"数据不能为空"}),
-     *  @PresenceOf(1,{message:"数据不能为空"}),
-     *  @PresenceOf(2,{message:"数据不能为空")
-     * )
      */
     public function updateShowFlagAsync(int $liveId, array $flag, int $type)
     {
         return EellyClient::request('live/live', 'updateShowFlag', false, $liveId, $flag, $type);
     }
 
+    /**
+     * 获取正在直播的店铺id
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan
+     * @since 2018年07月07日
+     */
+    public function getOnLiveStoreId(): array
+    {
+        return EellyClient::request('live/live', 'getOnLiveStoreId', true);
+    }
+
+    /**
+     * 获取正在直播的店铺id
+     * 
+     * @requestExample()
+     * @returnExample()
+     * 
+     * @author wechan
+     * @since 2018年07月07日
+     */
+    public function getOnLiveStoreIdAsync()
+    {
+        return EellyClient::request('live/live', 'getOnLiveStoreId', false);
+    }
+  
     /**
      * 取消直播预约
      *
@@ -889,33 +907,77 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'cancelLive', false, $liveId);
     }
+
     /**
-     * 获取正在直播的店铺id
+     * 随机取直播数据
      *
-     * @requestExample()
-     * @returnExample()
+     * @param array $condition 查询条件，可选
+     * @param int   $num       查询数量，默认1
+     * @return array
      *
-     * @author wechan
-     * @since 2018年07月07日
+     * @requestExample({ "condition":{"storeIds":[148086,148087], "inStatus":[1, 12, 13], "lastSchedule":"1516353883"}, "num": 1 })
+     * @returnExample({ {"liveId":1, "title":"11", "image":"1111", "view":168} })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-10
      */
-    public function getOnLiveStoreId(): array
+    public function getRandomLive(array $condition = [], int $num = 1): array
     {
-        return EellyClient::request('live/live', 'getOnLiveStoreId', true);
+        return EellyClient::request('live/live', 'getRandomLive', true, $condition, $num);
     }
 
     /**
-     * 获取正在直播的店铺id
+     * 随机取直播数据
      *
-     * @requestExample()
-     * @returnExample()
+     * @param array $condition 查询条件，可选
+     * @param int   $num       查询数量，默认1
+     * @return array
      *
-     * @author wechan
-     * @since 2018年07月07日
+     * @requestExample({ "condition":{"storeIds":[148086,148087], "inStatus":[1, 12, 13], "lastSchedule":"1516353883"}, "num": 1 })
+     * @returnExample({ {"liveId":1, "title":"11", "image":"1111", "view":168} })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-10
      */
-    public function getOnLiveStoreIdAsync()
+    public function getRandomLiveAsync(array $condition = [], int $num = 1)
     {
-        return EellyClient::request('live/live', 'getOnLiveStoreId', false);
+        return EellyClient::request('live/live', 'getRandomLive', false, $condition, $num);
     }
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStat(int $day): array
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', true, $day);
+    }
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStatAsync(int $day)
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', false, $day);
+    }
+
     /**
      * @return self
      */

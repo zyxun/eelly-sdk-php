@@ -16,24 +16,21 @@ namespace Eelly\SDK\EellyOldCode\Api\Sem;
 use Eelly\SDK\EellyClient;
 
 /**
- * Class Wd.
+ * Class Cate.
  *
- * var/eelly-old-code/modules/Sem/Service/WdService.php
+ * var/eelly-old-code/modules/Sem/Service/CateService.php
  *
  * @author hehui<hehui@eelly.net>
  */
-class Wd
+class Cate
 {
     /**
-     * @param $wdId
-     * @param $model
-     *
-     * @throws \ErrorException
+     * @param int $type
      *
      * @return mixed
      */
-    public function getCikuInfoById($wdId, $model)
+    public function getCategory($type = 0)
     {
-        return EellyClient::request('eellyOldCode/sem/wd', __FUNCTION__, true, $wdId, $model);
+        return EellyClient::request('eellyOldCode/sem/cate', __FUNCTION__, true, $type);
     }
 }

@@ -11,29 +11,28 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\EellyOldCode\Api\Sem;
+namespace Eelly\SDK\EellyOldCode\Api\Store;
 
 use Eelly\SDK\EellyClient;
 
 /**
- * Class Wd.
+ * Class Store.
  *
- * var/eelly-old-code/modules/Sem/Service/WdService.php
+ * var/eelly-old-code/modules/Store/Service/StoreService.php
  *
  * @author hehui<hehui@eelly.net>
  */
-class Wd
+class Store
 {
     /**
-     * @param $wdId
-     * @param $model
+     * @param $storeId
      *
      * @throws \ErrorException
      *
      * @return mixed
      */
-    public function getCikuInfoById($wdId, $model)
+    public function sellerStoreIndexForV1($storeId)
     {
-        return EellyClient::request('eellyOldCode/sem/wd', __FUNCTION__, true, $wdId, $model);
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
 }

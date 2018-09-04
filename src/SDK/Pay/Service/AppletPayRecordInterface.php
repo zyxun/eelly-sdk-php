@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
+use Eelly\DTO\UidDTO;
+
 /**
  * 会员核心交易数据
  *
@@ -34,14 +36,14 @@ interface AppletPayRecordInterface
      * handleStatus  | int    | 处理状态 0.未完成 1.已完成
      *
      * @param int $storeId 店铺id
-     * @param int $type 1.今日收入列表 2.累计收入列表 3.累计支出列表
+     * @param int $type 1.今日收入列表 2.累计收入列表 3.累计支出列表 4.累计收入支出列表(全部)
      * @param int $page 分页
      * @return array
      *
      * @author wechan
      * @since  2018年05月19日
      */
-    public function getSellerPayRecordsList(int $storeId, int $type, int $page = 1): array;
+    public function getSellerPayRecordsList(int $storeId, int $type, int $page = 1, UidDTO $user = null): array;
     
     
     /**

@@ -64,6 +64,10 @@ interface AuthorizationServerInterface
      * refresh_token |string  |是       |       |刷新令牌
      * access_token  |string  |是       |       |访问token(grant_type=qq)
      * code          |string  |是       |       |临时票据(grant_type=wechat或mobile)
+     * encryptedData |string  |是       |       |包括敏感数据在内的完整用户信息的加密数据(grant_type=wechat)
+     * iv            |string  |是       |       |加密算法的初始向量(grant_type=wechat)
+     * rawData       |string  |是       |       |不包括敏感信息的原始数据字符串，用于计算签名(grant_type=wechat)
+     * signature     |string  |是       |       |使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息(grant_type=wechat)
      *
      * ### 请求示例
      * > 客户端模式(Client credentials grant)
@@ -100,13 +104,26 @@ interface AuthorizationServerInterface
      * access_token:4E338C9700B3CAEE6017C15001BB7ACD
      * ```
      *
-     * > 微信模式(Wechat token grant)
+     * > 微信模式(Wechat token grant for app)
      *
      * ```
      * grant_type:wechat
      * client_id:myawesomeapp
      * client_secret:abc123
      * code:E338C9700B3CAEE6017C15001BB7ACD
+     * ```
+     *
+     * > 微信模式(Wechat token grant for applet)
+     *
+     * ```
+     * grant_type:wechat
+     * client_id:5b7cddb169d7690cd7772a81
+     * client_secret:w27ZHicLrtoo5hxSDemd97KZLksU0D9v
+     * code:023uWTdf2f9EAB0JYpdf2cFIdf2uWTdE
+     * encryptedData:t+FRkw9k5n+V5wirOdh/Zq1T05kjmaDjZUbL6oaeem/Ia6l4Do4eXIW3G3WD+u3ZPpbpaU+0yj5Gqe1MOkzIJEFIo2uPLTEAdyy6dOQNNjRMJ3tQtMr34DkTyqvZ828yl2wLtkGVs9eWuP3Po9wZIQamrewdc8J6wAeMbVzuqMjhPpOTM8LORNaHePXTqC7JCTle7EWNR48BHjtrlK5ZjkB+DxDDKXUZVe98SQo3bL2GaIyYimKdOAjRFWwqjMy5sgBgMsiy6ieCApTLioW+S7kV1dcP5/W7cFoS7kn7ycKsmIvrSzqdJkHHaM9+At7QtkqzOnyH11P4KB8uK8y/G+AEKRpp0+9FtMvGicz7SfMz62FqZ0kmSx56/qEq1QXDf30h+rLOJ5d6Q/0bAN69U5MC24zVwURK9dpWwg0EmQFdAXVZWgWo8PQypHLurYdwTPcm7+Zd6QzkapI09NIpjPrlo3bfrMm54vtkdprww+IReduev3mygkH4Rbrub5q0ajIEyuHVkthPi8O23KXO1w==
+     * iv:zszQssx0DjD6TdR0Wgl5FA==
+     * rawData:{"nickName":"heui","gender":1,"language":"zh_CN","city":"Guangzhou","province":"Guangdong","country":"China","avatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/q13pI6KWje2vNbB0YbgO1iaoVElPxYwGpjUkEWhH7U5PZqMG1oFzK4hGtycibhlzqsTYn1iaB3mekTj2ySdsAmLMg/132"}
+     * signature:9a9ac88bed15364b53ed7fc6e5c438215b918809
      * ```
      *
      * > 手机模式(Mobile token grant)
