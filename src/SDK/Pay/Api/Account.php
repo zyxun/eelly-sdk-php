@@ -602,6 +602,38 @@ class Account implements AccountInterface
     }
 
     /**
+     * 校验密码是否正确.
+     *
+     * @param integer $paId 账号id
+     * @param string $payPassword 支付密码
+     * @param integer $userId 用户的id
+     * @return bool
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.5
+     */
+    public function checkPayPassword(int $paId, string $payPassword, int $userId): bool
+    {
+        return EellyClient::request('pay/account', 'checkPayPassword', true, $paId, $payPassword, $userId);
+    }
+
+    /**
+     * 校验密码是否正确.
+     *
+     * @param integer $paId 账号id
+     * @param string $payPassword 支付密码
+     * @param integer $userId 用户的id
+     * @return bool
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.5
+     */
+    public function checkPayPasswordAsync(int $paId, string $payPassword, int $userId)
+    {
+        return EellyClient::request('pay/account', 'checkPayPassword', false, $paId, $payPassword, $userId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

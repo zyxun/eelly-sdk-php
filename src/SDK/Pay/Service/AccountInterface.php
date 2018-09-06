@@ -286,4 +286,18 @@ interface AccountInterface
      * @since 2018.9.3
      */
     public function bindWechat(array $data, int $paId,  UidDTO $user = null): string;
+
+
+    /**
+     * 校验密码是否正确.
+     *
+     * @param integer $paId 账号id
+     * @param string $payPassword 支付密码
+     * @param integer $userId 用户的id
+     * @return bool
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.5
+     */
+    public function checkPayPassword(int $paId, string $payPassword, int $userId): bool;
 }
