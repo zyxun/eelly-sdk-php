@@ -64,4 +64,29 @@ class BankException extends LogicException
      * 微信钱包信息不存在
      */
     public const WECHAT_PURSE_NOT_EXIST = '微信钱包信息不存在';
+
+    /**
+     * 添加银行卡错误
+     */
+    public const ADD_BANK_ERROR = '添加银行卡错误';
+
+    /**
+     * 更新银行卡信息错误
+     */
+    public const UPDATE_BANK_ERROR = '更新银行卡信息错误';
+
+    /**
+     * 设置默认银行卡错误
+     */
+    public const SET_DEFAULT_ERROR = '设置默认银行卡错误';
+
+    /**
+     * 银行账号信息不存在
+     */
+    public const PAY_BANK_NOT_EXIST = '银行账号信息不存在';
+
+    /**
+     * 解绑银行卡失败
+     */
+    public const UNTIED_PAY_BANK_FAIL = '解绑银行卡失败';
 }
