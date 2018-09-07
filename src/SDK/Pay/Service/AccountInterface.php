@@ -224,7 +224,7 @@ interface AccountInterface
     public function updateAccount(int $paId, array $data, UidDTO $user = null): bool;
 
     /**
-     * 我的余额，管理 app资金管理.
+     * 获取店+账号资金管理
      *
      * ### 返回数据说明
      *
@@ -243,7 +243,7 @@ interface AccountInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function accountMoneyManage(int $storeId = 0, UidDTO $user = null): array;
+    public function getBuyerAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array;
 
     /**
      * 同步数据.

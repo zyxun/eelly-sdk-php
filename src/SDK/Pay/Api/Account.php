@@ -456,7 +456,7 @@ class Account implements AccountInterface
     }
 
     /**
-     * 我的余额，管理 app资金管理.
+     * 获取店+账号资金管理
      *
      * ### 返回数据说明
      *
@@ -475,13 +475,13 @@ class Account implements AccountInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function accountMoneyManage(int $storeId = 0, UidDTO $user = null): array
+    public function getBuyerAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array
     {
-        return EellyClient::request('pay/account', 'accountMoneyManage', true, $storeId, $user);
+        return EellyClient::request('pay/account', 'getBuyerAccountMoneyManage', true, $storeId, $user);
     }
 
     /**
-     * 我的余额，管理 app资金管理.
+     * 获取店+账号资金管理
      *
      * ### 返回数据说明
      *
@@ -500,9 +500,9 @@ class Account implements AccountInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function accountMoneyManageAsync(int $storeId = 0, UidDTO $user = null)
+    public function getBuyerAccountMoneyManageAsync(int $storeId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', 'accountMoneyManage', false, $storeId, $user);
+        return EellyClient::request('pay/account', 'getBuyerAccountMoneyManage', false, $storeId, $user);
     }
 
     /**
