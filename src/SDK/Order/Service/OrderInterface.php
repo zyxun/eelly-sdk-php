@@ -789,8 +789,6 @@ interface OrderInterface
      * @param int $data['fromFlag'] 0 PC 1 WAP 2 店+APP 3 衣联小程序 4 快应用 5 联美小程序 6 市场小程序
      * @param int $data['isSpelling']  是否拼团订单
      * 
-     * 
-     * @param array $order
      * @return array
      * 
      * @author wechan
