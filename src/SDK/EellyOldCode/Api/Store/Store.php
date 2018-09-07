@@ -153,4 +153,20 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
+
+    /**
+     * 根据店铺Id数组查店铺实体认证信息.
+     *
+     * @param array $storeIds
+     *
+     * @return array
+     *
+     * @author wuhao <wuhao@eelly.net>
+     *
+     * @since 2015-11-21
+     */
+    public function getRegionInfoByStoreIds(array $storeIds)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
+    }
 }
