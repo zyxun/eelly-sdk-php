@@ -51,4 +51,13 @@ class Order
     {
         return EellyClient::request('eellyOldCode/order/order', __FUNCTION__, true, $money, $userId, $storeId, $couponsId);
     }
+    
+    /**
+     * 更改订单商品库存
+     * 
+     */
+    public function changeOrderGoodsStock(array $data, string $operation = '-')
+    {
+        return EellyClient::request('eellyOldCode/order/order', __FUNCTION__, true, $data, $operation);
+    }
 }
