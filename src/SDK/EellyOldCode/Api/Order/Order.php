@@ -54,7 +54,16 @@ class Order
     
     /**
      * 更改订单商品库存
+     *
+     * @param array $data          商品获取其他信息
+     * @param int $data[0]['storeId']  店铺ID
+     * @param int $data[0]['goods'][0]['goodsId']  商品ID
+     * @param int $data[0]['goods'][0]['spec']  商品规格
+     * @param int $data[0]['goods'][0]['spec'][0]['quantity'] 商品数量
+     * @param int $data[0]['goods'][0]['spec'][0]['specId'] 规格ID
+     * @param string $operation  操作(下单减库存,取消订单加库存)
      * 
+     *
      */
     public function changeOrderGoodsStock(array $data, string $operation = '-')
     {

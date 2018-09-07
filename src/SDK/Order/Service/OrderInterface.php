@@ -795,6 +795,38 @@ interface OrderInterface
      * 
      * @author wechan
      * @since 2018年09月04日
+     * 
      */
     public function saveMallOrder(array $data): bool;
+    
+    /**
+     * 获取快递方式和运费价格
+     * 
+     * @param array $goods 购物车商品列表
+     * @param int $goods[0]['goodsId']  选中的商品ID
+     * @param int $goods['spec']     选中的商品规格
+     * @param int $goods['spec'][0]['quantity']    选中的商品规格
+     * @param int $goods['spec'][0]['specId']    选中的商品规格
+     * @param int $regionId 地区id
+     * 
+     * @returnExample([{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}])
+     * 
+     * @author wechan
+     * @since 2018年08月23日
+     */
+    public function getExpressWay(array $goods, int $regionId): array;
+    
+    /**
+     * 根据传过来的订单id，返回对应可以使用的优惠卷列表
+     *
+     * @param float $money   订单金额
+     * @param int   $storeId 店铺id
+     * @param int   $userId  用户id
+     *
+     * @returnExample([{"couponId": 1450168327,"couponNo": "1450168327SS","startTime":1525329993,"endTime":1525329993,"recId":111}])
+     * 
+     * @return array
+     *
+     */
+    public function getOrderCouponList(float $money, int $storeId, int $userId):array;
 }
