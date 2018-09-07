@@ -809,6 +809,8 @@ interface OrderInterface
      * @param int $goods['spec'][0]['specId']    选中的商品规格
      * @param int $regionId 地区id
      * 
+     * @returnExample([{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}])
+     * 
      * @author wechan
      * @since 2018年08月23日
      */
