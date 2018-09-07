@@ -767,4 +767,34 @@ interface OrderInterface
      * @since 2018-08-24
      */
     public function getLastOrderTime(array $condition): array;
+    
+    /**
+     * 订单下单接口
+     * 
+     * @param array $data 订单信息
+     * @param array $data['orderInfo'] 商品信息
+     * @param int $data['orderInfo'][0]['storeId']  店铺ID
+     * @param int $data['orderInfo'][0]['shippingId']  快递模板id
+     * @param int $data['orderInfo'][0]['expressSelect']  快递类型
+     * @param int $data['orderInfo'][0]['expressType']  是否可以到付,需要判断店铺是否设置了到付
+     * @param int $data['orderInfo'][0]['isFreeShipping']  是否免运费
+     * @param int $data['orderInfo'][0]['remark']  订单备注
+     * @param int $data['orderInfo'][0]['couponId'] 优惠券Id
+     * @param int $data['orderInfo'][0]['goods'][0]['goodsId']  商品ID
+     * @param int $data['orderInfo'][0]['goods'][0]['spec']  商品规格
+     * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['quantity'] 商品数量
+     * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['specId'] 规格ID
+     * @param int $data['addressId'] 收货地址id
+     * @param int $data['userId'] 用户id
+     * @param int $data['fromFlag'] 0 PC 1 WAP 2 店+APP 3 衣联小程序 4 快应用 5 联美小程序 6 市场小程序
+     * @param int $data['isSpelling']  是否拼团订单
+     * 
+     * 
+     * @param array $order
+     * @return array
+     * 
+     * @author wechan
+     * @since 2018年09月04日
+     */
+    public function saveMallOrder(array $data): bool;
 }
