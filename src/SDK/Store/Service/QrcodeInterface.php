@@ -20,7 +20,7 @@ namespace Eelly\SDK\Store\Service;
  *
  * @author wechan
  */
-interface StoreQrcodeInterface
+interface QrcodeInterface
 {
     /**
      * 通过二维码编号,返回已经绑定状态的店铺id
