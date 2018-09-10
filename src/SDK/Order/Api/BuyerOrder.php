@@ -24,6 +24,14 @@ use Eelly\DTO\UidDTO;
 class BuyerOrder implements BuyerOrderInterface
 {
     /**
+     * @inheritDoc
+     */
+    public function myOrderPage(int $tab = 0, int $page = 1, int $limit = 20, array $searchParams = [], UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $tab, $page, $limit, $searchParams);
+    }
+
+    /**
      * 获取小程序订单列表(买家).
      *
      * > 订单筛选值(tab)

@@ -18,10 +18,32 @@ use Eelly\DTO\UidDTO;
 /**
  * 买家订单功能.
  *
- * @author hehui<hehui@eelly.com>
+ * @author hehui<hehui@eelly.net>
  */
 interface BuyerOrderInterface
 {
+    /**
+     * 买家订单页面.
+     *
+     * @param int $tab  订单状态筛选值(0: 全部订单 1: 代付款 2: 待发货 3: 待收货 4: 待评价 5: 退货退款中)
+     * @param int $page 第几页
+     * @param int $limit  分页大小
+     * @param array $searchParams  搜索参数
+     * @param string $searchParams['ordersn']  订单号
+     * @param string $searchParams['storename']  店铺名或卖家用户名
+     * @param string $searchParams['consignee']    收货人
+     * @param string $searchParams['goodsname']  商品名或货号
+     * @param int $searchParams['ordertimeStart']  下单开始时间戳
+     * @param int $searchParams['ordertimeEnd'] 下单结束时间戳
+     *
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function myOrderPage(int $tab = 0, int $page = 1, int $limit = 20, array $searchParams = [], UidDTO $uidDTO = null):array;
+
     /**
      * 获取小程序订单列表(买家).
      *
