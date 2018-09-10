@@ -169,4 +169,18 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
     }
+
+    /**
+     * 店铺起批数量
+     *
+     * @param integer $storeId 店铺id
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.10
+     */
+    public function getQuantity(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
+    }
 }
