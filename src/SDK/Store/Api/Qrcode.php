@@ -13,13 +13,13 @@ declare(strict_types=1);
 namespace Eelly\SDK\Store\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Store\Service\StoreQrcodeInterface;
+use Eelly\SDK\Store\Service\QrcodeInterface;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class StoreQrcode implements StoreQrcodeInterface
+class Qrcode implements QrcodeInterface
 {
     /**
      * 通过二维码编号,返回已经绑定状态的店铺id
@@ -32,7 +32,7 @@ class StoreQrcode implements StoreQrcodeInterface
      */
     public function getStoreIdByQrCode(string $qrcode): int
     {
-        return EellyClient::request('store/storeQrcode', 'getStoreIdByQrCode', true, $qrcode);
+        return EellyClient::request('store/qrcode', 'getStoreIdByQrCode', true, $qrcode);
     }
 
     /**
@@ -46,7 +46,7 @@ class StoreQrcode implements StoreQrcodeInterface
      */
     public function getStoreIdByQrCodeAsync(string $qrcode)
     {
-        return EellyClient::request('store/storeQrcode', 'getStoreIdByQrCode', false, $qrcode);
+        return EellyClient::request('store/qrcode', 'getStoreIdByQrCode', false, $qrcode);
     }
 
     /**
