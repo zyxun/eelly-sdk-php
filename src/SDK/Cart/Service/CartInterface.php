@@ -195,6 +195,7 @@ interface CartInterface
      * isMix                | int    | 是否混批 0:否， 1:是
      * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
      * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
+     * storeQuantity        | int    | 店铺起批数量
      * 
      * > goodsInfo 数据说明
      * key | type | value
@@ -227,7 +228,7 @@ interface CartInterface
      *      "goodsId":"5155477"
      * })
      * @returnExample({
-     *      "storeInfo":{"isMix":"1","mixMoney":"100","mixNum":"2"},
+     *      "storeInfo":{"isMix":"1","mixMoney":"100","mixNum":"2","storeQuantity":"1'},
      *      "goodsInfo":{"ifShow":"2","close":"0","unit":"件"},
      *      "data":[{
      *          "spec_id":"28738542",
