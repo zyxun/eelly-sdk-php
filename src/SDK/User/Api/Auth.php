@@ -394,6 +394,44 @@ class Auth implements AuthInterface
     }
 
     /**
+     * 获取实名认证类型
+     * 
+     * > 返回数据类型说明
+     * key | type | value
+     * --- | ---- | ----
+     * type | int | 认证类型 -1:没有认证 0:个人认证 1:企业认证
+     * 
+     * @param UidDTO $user
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.10
+     */
+    public function getAuthType(UidDTO $user = null): int
+    {
+        return EellyClient::request('user/auth', 'getAuthType', true, $user);
+    }
+
+    /**
+     * 获取实名认证类型
+     * 
+     * > 返回数据类型说明
+     * key | type | value
+     * --- | ---- | ----
+     * type | int | 认证类型 -1:没有认证 0:个人认证 1:企业认证
+     * 
+     * @param UidDTO $user
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.10
+     */
+    public function getAuthTypeAsync(UidDTO $user = null)
+    {
+        return EellyClient::request('user/auth', 'getAuthType', false, $user);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

@@ -187,4 +187,20 @@ interface AuthInterface
      * @since 2018.8.29
      */
     public function getAuthNotDTO(array $condition = [], int $userId): array;
+
+    /**
+     * 获取实名认证类型
+     * 
+     * > 返回数据类型说明
+     * key | type | value
+     * --- | ---- | ----
+     * type | int | 认证类型 -1:没有认证 0:个人认证 1:企业认证
+     * 
+     * @param UidDTO $user
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.10
+     */
+    public function getAuthType(UidDTO $user = null):int;
 }
