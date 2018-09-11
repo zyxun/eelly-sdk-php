@@ -765,6 +765,35 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 立即发货，添加物流信息
+     *
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo  送货单号
+     * @param array $orderIds  订单id列表
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"invoiceCode": "sf", "invoiceName":"顺丰", "invoiceNo":"12334454", "orderIds":[116,117]})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.11
+     */
+    public function immediateDeliveryOrder(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $invoiceCode, $invoiceName, $invoiceNo, $orderIds, $uidDTO);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function immediateDeliveryOrderAsync(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $invoiceCode, $invoiceName, $invoiceNo, $orderIds, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
