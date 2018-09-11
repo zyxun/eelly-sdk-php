@@ -375,7 +375,7 @@ interface CartInterface
      * 删除指定id购物车数据.
      *
      *
-     * @param string $rawId 指定购物车key值，goods+商品id+规格id,数据格式中md5值
+     * @param string $uniqueId 指定购物车key值 列表中存在
      * @param UidDTO $user 用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -394,7 +394,7 @@ interface CartInterface
     /**
      * 批量移除购物车.
      *
-     * @param array  $rawIds 购物车key值id数组
+     * @param array  $uniqueIds 购物车key值id数组
      * @param UidDTO $user   用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
