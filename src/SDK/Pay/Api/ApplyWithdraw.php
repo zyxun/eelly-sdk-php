@@ -231,14 +231,14 @@ class ApplyWithdraw implements ApplyWithdrawInterface
      * key | type | value
      * --- | ---- | -----
      * money | float | 提现的金额 分单位
-     * storeId  | int   | 店铺id 0:店+ 非0:厂家
+     * storeId  | int   | 店铺id 默认0，非0代表厂+
      * password | string | 支付密码
      *      
      * @param array $data 申请体现的数据
      * @param UidDTO $uidDTO 当前登陆的用户信息
      * @return boolean
      * 
-     * @requestExample({"data":[{"money":100,"paId":2,"password":"123456"}]})
+     * @requestExample({"data":[{"money":100,"storeId":"148086","password":"123456"}]})
      * @returnExample(true)
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
@@ -256,14 +256,14 @@ class ApplyWithdraw implements ApplyWithdrawInterface
      * key | type | value
      * --- | ---- | -----
      * money | float | 提现的金额 分单位
-     * paId  | int   | 账号id
+     * storeId  | int   | 店铺id 默认0，非0代表厂+
      * password | string | 支付密码
      *      
      * @param array $data 申请体现的数据
      * @param UidDTO $uidDTO 当前登陆的用户信息
      * @return boolean
      * 
-     * @requestExample({"data":[{"money":100,"paId":2,"password":"123456"}]})
+     * @requestExample({"data":[{"money":100,"storeId":"148086","password":"123456"}]})
      * @returnExample(true)
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
@@ -272,6 +272,62 @@ class ApplyWithdraw implements ApplyWithdrawInterface
     public function applyWechatPurseAsync(array $data, UidDTO $uidDTO = null)
     {
         return EellyClient::request('pay/applyWithdraw', 'applyWechatPurse', false, $data, $uidDTO);
+    }
+
+    /**
+     * 用户提现金额限制
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * extractName      | string | 提现账号
+     * maxExtractMoney  | int    | 当日最大累计可提现金额，单位：分
+     * oneMaxExtractMoney | int  | 当日一次可提现金额，单位：分
+     * mayExtractMoney   | int   | 当日可提现金额,单位：分
+     * mayExtractCount   | int   | 当日可提现次数
+     * money             | int   | 用户余额 单位：分
+     * 
+     * @param integer $storeId 店铺id 默认0:店+ 非0:厂家（调用小程序接口：https://api.eelly.test/pay/applyWithdraw/prepareApplyForm）
+     * @param UidDTO $uidDTO 当前登陆的用户
+     * @return array
+     * 
+     * @requestExample({"storeId":"0"})
+     * @returnExample({"extractName":"nickname","maxExtractMoney":"2000000","oneMaxExtractMoney":"200000","mayExtractMoney":"200000","mayExtractCount":"1","money":"0"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.11
+     */
+    public function getMayExtractMoneyData(int $storeId = 0, UidDTO $user = null): array
+    {
+        return EellyClient::request('pay/applyWithdraw', 'getMayExtractMoneyData', true, $storeId, $user);
+    }
+
+    /**
+     * 用户提现金额限制
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * extractName      | string | 提现账号
+     * maxExtractMoney  | int    | 当日最大累计可提现金额，单位：分
+     * oneMaxExtractMoney | int  | 当日一次可提现金额，单位：分
+     * mayExtractMoney   | int   | 当日可提现金额,单位：分
+     * mayExtractCount   | int   | 当日可提现次数
+     * money             | int   | 用户余额 单位：分
+     * 
+     * @param integer $storeId 店铺id 默认0:店+ 非0:厂家（调用小程序接口：https://api.eelly.test/pay/applyWithdraw/prepareApplyForm）
+     * @param UidDTO $uidDTO 当前登陆的用户
+     * @return array
+     * 
+     * @requestExample({"storeId":"0"})
+     * @returnExample({"extractName":"nickname","maxExtractMoney":"2000000","oneMaxExtractMoney":"200000","mayExtractMoney":"200000","mayExtractCount":"1","money":"0"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.11
+     */
+    public function getMayExtractMoneyDataAsync(int $storeId = 0, UidDTO $user = null)
+    {
+        return EellyClient::request('pay/applyWithdraw', 'getMayExtractMoneyData', false, $storeId, $user);
     }
 
     /**
