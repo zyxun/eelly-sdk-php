@@ -291,13 +291,13 @@ interface AccountInterface
     /**
      * 校验密码是否正确.
      *
-     * @param integer $paId 账号id
-     * @param string $payPassword 支付密码
      * @param integer $userId 用户的id
+     * @param string $payPassword 支付密码
+     * @param integer $storeId 店铺id 默认0:店家 非0:厂家
      * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.5
      */
-    public function checkPayPassword(int $paId, string $payPassword, int $userId): bool;
+    public function checkPayPassword(int $userId, string $payPassword, int $storeId = 0): bool;
 }
