@@ -462,6 +462,11 @@ class Account implements AccountInterface
      *
      * key | type | value
      * --- | ---- | -----
+     * withdrawCapitalFreeze    | bool      | 冻结提现 true:是，false:否
+     * limitedFunctionality     | int       | 提现受限
+     * auditStatus              | int       | 是否实名认证 0:否，1:通过
+     * setPayPassword           | bool      | 是否设置了支付密码
+     * mobile                   | string    | 绑定的手机号码
      * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
      * nickname     | string | 微信昵称 isBindWechat为true才出现
      * money        | float  | 账号余额
@@ -469,8 +474,10 @@ class Account implements AccountInterface
      * 
      * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
-     *
      * @return array
+     * 
+     * @requestExample({"storeId":"0"})
+     * @returnExample({"withdrawCapitalFreeze":"false","limitedFunctionality":"0","auditStatus":"1","setPayPassword":"true","mobile":"15018759997","isBindWechat":"true","nickname":"nickname","money":"0.00","frozenMoney":"0.00"})
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
@@ -487,6 +494,11 @@ class Account implements AccountInterface
      *
      * key | type | value
      * --- | ---- | -----
+     * withdrawCapitalFreeze    | bool      | 冻结提现 true:是，false:否
+     * limitedFunctionality     | int       | 提现受限
+     * auditStatus              | int       | 是否实名认证 0:否，1:通过
+     * setPayPassword           | bool      | 是否设置了支付密码
+     * mobile                   | string    | 绑定的手机号码
      * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
      * nickname     | string | 微信昵称 isBindWechat为true才出现
      * money        | float  | 账号余额
@@ -494,8 +506,10 @@ class Account implements AccountInterface
      * 
      * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
-     *
      * @return array
+     * 
+     * @requestExample({"storeId":"0"})
+     * @returnExample({"withdrawCapitalFreeze":"false","limitedFunctionality":"0","auditStatus":"1","setPayPassword":"true","mobile":"15018759997","isBindWechat":"true","nickname":"nickname","money":"0.00","frozenMoney":"0.00"})
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
@@ -553,19 +567,19 @@ class Account implements AccountInterface
      * nickname | string | 微信昵称
      * 
      * @param array $data 请求所需数据
-     * @param integer $paId 账号id
+     * @param integer $storeId 店铺id 0:店+ 非0:厂家
      * @param UidDTO $user 登陆的账号
      * @return boolean
      * 
-     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickanem":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]},"paId":2})
+     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickname":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]}})
      * @returnExample("hello world")
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function bindWechat(array $data, int $paId, UidDTO $user = null): string
+    public function bindWechat(array $data, int $storeId = 0, UidDTO $user = null): string
     {
-        return EellyClient::request('pay/account', 'bindWechat', true, $data, $paId, $user);
+        return EellyClient::request('pay/account', 'bindWechat', true, $data, $storeId, $user);
     }
 
     /**
@@ -586,51 +600,51 @@ class Account implements AccountInterface
      * nickname | string | 微信昵称
      * 
      * @param array $data 请求所需数据
-     * @param integer $paId 账号id
+     * @param integer $storeId 店铺id 0:店+ 非0:厂家
      * @param UidDTO $user 登陆的账号
      * @return boolean
      * 
-     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickanem":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]},"paId":2})
+     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickname":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]}})
      * @returnExample("hello world")
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function bindWechatAsync(array $data, int $paId, UidDTO $user = null)
+    public function bindWechatAsync(array $data, int $storeId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', 'bindWechat', false, $data, $paId, $user);
+        return EellyClient::request('pay/account', 'bindWechat', false, $data, $storeId, $user);
     }
 
     /**
      * 校验密码是否正确.
      *
-     * @param integer $paId 账号id
-     * @param string $payPassword 支付密码
      * @param integer $userId 用户的id
+     * @param string $payPassword 支付密码
+     * @param integer $storeId 店铺id 默认0:店家 非0:厂家
      * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.5
      */
-    public function checkPayPassword(int $paId, string $payPassword, int $userId): bool
+    public function checkPayPassword(int $userId, string $payPassword, int $storeId = 0): bool
     {
-        return EellyClient::request('pay/account', 'checkPayPassword', true, $paId, $payPassword, $userId);
+        return EellyClient::request('pay/account', 'checkPayPassword', true, $userId, $payPassword, $storeId);
     }
 
     /**
      * 校验密码是否正确.
      *
-     * @param integer $paId 账号id
-     * @param string $payPassword 支付密码
      * @param integer $userId 用户的id
+     * @param string $payPassword 支付密码
+     * @param integer $storeId 店铺id 默认0:店家 非0:厂家
      * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.5
      */
-    public function checkPayPasswordAsync(int $paId, string $payPassword, int $userId)
+    public function checkPayPasswordAsync(int $userId, string $payPassword, int $storeId = 0)
     {
-        return EellyClient::request('pay/account', 'checkPayPassword', false, $paId, $payPassword, $userId);
+        return EellyClient::request('pay/account', 'checkPayPassword', false, $userId, $payPassword, $storeId);
     }
 
     /**

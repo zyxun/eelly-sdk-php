@@ -50,6 +50,76 @@ class Qrcode implements QrcodeInterface
     }
 
     /**
+     * 添加店铺二维码
+     *
+     * @param int   $storeId 店铺ID
+     * @param array $data  二维码数据
+     * @return bool
+     *
+     * @requestExample({"storeId": 8888, "data": {"qrcodeId": 10000, "status": 1}})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018年09月11日
+     */
+    public function saveStoreQrCode(int $storeId, array $data): bool
+    {
+        return EellyClient::request('store/qrcode', 'saveStoreQrCode', true, $storeId, $data);
+    }
+
+    /**
+     * 添加店铺二维码
+     *
+     * @param int   $storeId 店铺ID
+     * @param array $data  二维码数据
+     * @return bool
+     *
+     * @requestExample({"storeId": 8888, "data": {"qrcodeId": 10000, "status": 1}})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018年09月11日
+     */
+    public function saveStoreQrCodeAsync(int $storeId, array $data)
+    {
+        return EellyClient::request('store/qrcode', 'saveStoreQrCode', false, $storeId, $data);
+    }
+
+    /**
+     * 删除店铺二维码
+     *
+     * @param int   $storeId 店铺ID
+     * @return bool
+     *
+     * @requestExample({"storeId": 8888})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018年09月11日
+     */
+    public function dropStoreQrcode(int $storeId): bool
+    {
+        return EellyClient::request('store/qrcode', 'dropStoreQrcode', true, $storeId);
+    }
+
+    /**
+     * 删除店铺二维码
+     *
+     * @param int   $storeId 店铺ID
+     * @return bool
+     *
+     * @requestExample({"storeId": 8888})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018年09月11日
+     */
+    public function dropStoreQrcodeAsync(int $storeId)
+    {
+        return EellyClient::request('store/qrcode', 'dropStoreQrcode', false, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

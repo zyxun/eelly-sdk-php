@@ -196,11 +196,54 @@ interface AuthInterface
      * --- | ---- | ----
      * type | int | 认证类型 -1:没有认证 0:个人认证 1:企业认证
      * 
-     * @param UidDTO $user
+     * @param UidDTO $user 当前登陆的用户
      * @return integer
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.10
      */
     public function getAuthType(UidDTO $user = null):int;
+
+    /**
+     * 获取实名认证 企业和个人 eelly_old_code
+     * 
+     * > 返回数据说明 个人
+     * key | type | value
+     * --- | ---- | -----
+     * user_id   | int    | 用户id
+     * add_time  | int    | 申请时间
+     * audite_fail  | string | 认证失败原因
+     * verfity_time | int    | 审核时间
+     * audit_name   | int    | 审核人
+     * real_name    | string | 真实姓名
+     * id_card      | string | 身份证号码
+     * id_extended  | int    | 身份证是否长期有效 0:有期限 1:长期
+     * cart_validity | int   | 身份证到期时间
+     * cart_pic     | string | 身份证正面照片
+     * cart_reversed_pic  | string | 身份证背面照片
+     * bank_dic  | int | 开户银行
+     * bank_region_id | int | 开户银行所在地
+     * bank_account | string | 银行账号
+     * 
+     * > 返回数据 企业
+     * key | type | value
+     * --- | ---- | -----
+     * ent_name         | string | 企业名称
+     * name_audite_fail | stirng | 审核失败原因
+     * ent_license      | string | 营业执照正面照
+     * ent_bank         | int    | 开户银行
+     * add_time         | int    | 申请时间
+     * ent_account      | string | 银行账号
+     *
+     * @param integer $userId 用户id
+     * @param integer $type 类型 -1:系统调用返回信息(推荐),0:获取个人认证信息，1:企业认证信息
+     * @return array
+     * @requestExample({"userId":"148086","type":"-1"})
+     * @returnExample({"user_id":"148086","add_time":"1467150996","audite_fail":"无法核对身份","verfity_time":"1467150996","audit_name":"955330","real_name":"莫琼","id_card":"741258963214","is_extended":"1","cart_validity":"0","cart_pic":"http://img.eelly.com/G01/M00/00/75/o4YBAFRqpISIJVtWAAWTTU6zwW0AAAttAEa9J0ABZNl726.jpg","cart_reversed_pic":"http://img.eelly.com/G01/M00/00/75/o4YBAFRqpISIJVtWAAWTTU6zwW0AAAttAEa9J0ABZNl726.jpg","bank_dic":"41","bank_region_id":"120184","bank_account":"78451236987456987"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.10
+     */
+    public function getAuthBoth(int $userId, int $type = -1): array;
+
 }
