@@ -183,4 +183,19 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
+
+    /**
+     * 更新店铺佣金比率
+     *
+     * @param int   $storeId        店铺ID
+     * @param float $commissionRate 佣金比率
+     * @return mixed
+     *
+     * @author zhangyangxun
+     * @since 2018-09-11
+     */
+    public function saveStoreCommissionRate(int $storeId, float $commissionRate)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $commissionRate);
+    }
 }

@@ -37,7 +37,7 @@ interface QrcodeInterface
      * 添加店铺二维码
      *
      * @param int   $storeId 店铺ID
-     * @param array $qrcode  二维码数据
+     * @param array $data  二维码数据
      * @return bool
      *
      * @requestExample({"storeId": 8888, "qrcode": {"qrcodeId": 10000, "status": 1}})
@@ -46,7 +46,7 @@ interface QrcodeInterface
      * @author zhangyangxun
      * @since 2018年09月11日
      */
-    public function saveStoreQrCode(int $storeId, array $qrcode): bool;
+    public function saveStoreQrCode(int $storeId, array $data): bool;
 
     /**
      * 删除店铺二维码

@@ -53,36 +53,36 @@ class Qrcode implements QrcodeInterface
      * 添加店铺二维码
      *
      * @param int   $storeId 店铺ID
-     * @param array $qrcode  二维码数据
+     * @param array $data  二维码数据
      * @return bool
      *
-     * @requestExample({"storeId": 8888, "qrcode": {"qrcodeId": 10000, "status": 1}})
+     * @requestExample({"storeId": 8888, "data": {"qrcodeId": 10000, "status": 1}})
      * @returnExample(true)
      *
      * @author zhangyangxun
      * @since 2018年09月11日
      */
-    public function saveStoreQrCode(int $storeId, array $qrcode): bool
+    public function saveStoreQrCode(int $storeId, array $data): bool
     {
-        return EellyClient::request('store/qrcode', 'saveStoreQrCode', true, $storeId, $qrcode);
+        return EellyClient::request('store/qrcode', 'saveStoreQrCode', true, $storeId, $data);
     }
 
     /**
      * 添加店铺二维码
      *
      * @param int   $storeId 店铺ID
-     * @param array $qrcode  二维码数据
+     * @param array $data  二维码数据
      * @return bool
      *
-     * @requestExample({"storeId": 8888, "qrcode": {"qrcodeId": 10000, "status": 1}})
+     * @requestExample({"storeId": 8888, "data": {"qrcodeId": 10000, "status": 1}})
      * @returnExample(true)
      *
      * @author zhangyangxun
      * @since 2018年09月11日
      */
-    public function saveStoreQrCodeAsync(int $storeId, array $qrcode)
+    public function saveStoreQrCodeAsync(int $storeId, array $data)
     {
-        return EellyClient::request('store/qrcode', 'saveStoreQrCode', false, $storeId, $qrcode);
+        return EellyClient::request('store/qrcode', 'saveStoreQrCode', false, $storeId, $data);
     }
 
     /**
