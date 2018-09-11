@@ -732,7 +732,7 @@ interface OrderInterface
      * @param int $data['goods'][0]['storeId']  选中的店铺ID
      * @param int $data['goods'][0]['spec']     选中的商品规格
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
-     * @param array $data['unique'][] 购物车商品主键id (购物车下单必传,立即下单传空)
+     * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
      * @returnExample([{"storeId":"148086","storeName":"莫琼小店","goodsInfo":[{"goodsId":5578943,"totalPrice":1,"goodsNumber":2,"goodsSn":"","goodsImage":"https:\/\/img..IMAGE_URL\/G01\/M00\/00\/06\/small_oYYBAFtPIdWIQXkkAACxI44zhKEAAACawAA7QcAALE7968.jpg","goodsName":"5","specInfo":[{"specId":null,"price":"0.50","originalPrice":"0.00","quantity":2,"color":null,"size":null,"stock":0}],"priceData":{"goodsId":"5578943","storeId":"148086","priceType":1,"priceLower":"0.50","priceUpper":"0.50","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"0.50","type":"1"}]}}],"couponInfo":[{"couponId":1450168327,"couponNo":"1450168327SS","startTime":1525329993,"endTime":1525329993,"recId":111}],"expressWay":[{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}],"defaultAddress":{"addrId":"547435","userName":"hahhahah","telNumber":"13232343244","detailInfo":"北京市 市辖区 东城区 sdhfjkdfhkdjsfhdsfdf","default":"1","regionId":"110101"}}])
      * 
