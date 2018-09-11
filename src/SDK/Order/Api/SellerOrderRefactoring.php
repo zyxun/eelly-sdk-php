@@ -592,6 +592,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * @return array 订单列表
      *
      * @author hehui<hehui@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * @requestExample({"orderId": 160})
      *
@@ -736,6 +737,31 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     public function changeOrderPriceAsync(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $price, $freight, $uidDTO);
+    }
+
+    /**
+     * 卖家取消订单
+     *
+     * @param int $orderId  订单id
+     * @return bool
+     *
+     * @requestExample({"orderId": 160})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.11
+     */
+    public function cancelOrder(int $orderId):bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function cancelOrderAsync(int $orderId):bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId);
     }
 
     /**
