@@ -179,7 +179,7 @@ interface BuyerOrderInterface
      * }
      * )
      */
-    public function listAppletOrder(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+    public function listOrder(int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
 
     /**
      * 获取我的订单统计信息(买家).
@@ -209,7 +209,7 @@ interface BuyerOrderInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function myAppletOrderStats(UidDTO $uidDTO = null): array;
+    public function myOrderStats(UidDTO $uidDTO = null): array;
 
     /**
      * 小程序订单详情(买家).
@@ -341,7 +341,7 @@ interface BuyerOrderInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function appletOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
+    public function myOrderDetail(int $orderId, UidDTO $uidDTO = null): array;
 
     /**
      * 确认收货.
