@@ -231,7 +231,7 @@ class ApplyWithdraw implements ApplyWithdrawInterface
      * key | type | value
      * --- | ---- | -----
      * money | float | 提现的金额 分单位
-     * paId  | int   | 账号id
+     * storeId  | int   | 店铺id 0:店+ 非0:厂家
      * password | string | 支付密码
      *      
      * @param array $data 申请体现的数据
