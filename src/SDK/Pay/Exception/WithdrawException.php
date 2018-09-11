@@ -112,4 +112,19 @@ class WithdrawException extends LogicException
      * 更新账号信息失败
      */
     public const PAY_UPDATE_ERROR = '更新账号信息失败';
+
+    /**
+     * 提现记录不存在
+     */
+    public const WITHDRAW_NOT_EXIST = '提现记录不存在';
+
+    /**
+     * 微信钱包信息错误
+     */
+    public const WECHAT_PURSE_BIND_ERROR = '微信钱包信息错误';
+
+    /**
+     * 银行卡信息错误
+     */
+    public const BANK_BIND_ERROR = '银行卡信息错误';
 }

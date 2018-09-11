@@ -45,7 +45,7 @@ interface BankInterface
      * > data 数据说明
      * key | type | value
      * --- | ---- | -----
-     * paId        | int    | 资金账号ID
+     * storeId     | int    | 店铺id 0:店+ 非0:厂家
      * bankAccount | string | 银行卡账号
      * bankSubbranch | string | 支行名称 通过个人认证类型type来进行可选判断 0:个人，不需要；1:企业，对公账号，需要
      * gbCode      | int    | 国标地区唯一id
@@ -58,7 +58,7 @@ interface BankInterface
      * @param UidDTO $user 登录用户
      * @return bool
      *
-     * @requestExample({"paId":2,"gbCode":"1234","bankId":"46","bankName":"中信银行","bankSubbranch":"广东省广州市","bankAccount":"1234123123123","phone":"12345678901","isDefault":"1","payPassword":"123456"})
+     * @requestExample({"storeId":"148086","gbCode":"1234","bankId":"46","bankName":"中信银行","bankSubbranch":"广东省广州市","bankAccount":"1234123123123","phone":"12345678901","isDefault":"1","payPassword":"123456"})
      * @returnExample(true)
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
