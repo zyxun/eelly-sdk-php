@@ -126,15 +126,15 @@ interface ApplyWithdrawInterface
      *      
      * @param array $data 申请体现的数据
      * @param UidDTO $uidDTO 当前登陆的用户信息
-     * @return boolean
+     * @return integer
      * 
      * @requestExample({"data":[{"money":100,"storeId":"148086","password":"123456"}]})
-     * @returnExample(true)
+     * @returnExample(36)
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.3
      */
-    public function applyWechatPurse(array $data, UidDTO $uidDTO = null): bool;
+    public function applyWechatPurse(array $data, UidDTO $uidDTO = null): int;
 
     /**
      * 用户提现金额限制
