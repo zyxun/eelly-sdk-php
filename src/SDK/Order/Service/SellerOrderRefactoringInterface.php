@@ -19,7 +19,7 @@ use Eelly\DTO\UidDTO;
  * 卖家订单功能.(重构)
  *
  * @author hehui<hehui@eelly.com>
- * @author hehui<zhangyingdi@eelly.com>
+ * @author zhangyingdi<zhangyingdi@eelly.com>
  */
 interface SellerOrderRefactoringInterface
 {
@@ -553,6 +553,7 @@ interface SellerOrderRefactoringInterface
      * @return array 订单列表
      *
      * @author hehui<hehui@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * @requestExample({"orderId": 160})
      *
@@ -676,4 +677,18 @@ interface SellerOrderRefactoringInterface
      * @since 2018.08.31
      */
     public function changeOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 卖家取消订单
+     *
+     * @param int $orderId  订单id
+     * @return bool
+     *
+     * @requestExample({"orderId": 160})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.11
+     */
+    public function cancelOrder(int $orderId):bool;
 }
