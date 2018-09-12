@@ -147,7 +147,7 @@ class Cart implements CartInterface
      * @return array
      * @requestExample()
      * @returnExample({
-     *   "useful":[{"isMix":0,"storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"price":0.03,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"b547767c68d674539b946327ecfdeddf","storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","defaultImage":"G03/M00/00/B0/small_pYYBAFUvareIVSLaAAYKRm6bJisAABFIAIv_CQABgpe928.jpg","goodsName":"\u8fd0\u8d39","goodsNumber":"1234513","goodsId":5578939,"quantity":3,"price":"0.03","attributes":[{"spId":32090865,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578939","store_id":"1760244","price_type":2001,"price_lower":"0.01","price_upper":"0.01","price_data":[{"lower_limit":"1","upper_limit":"0","price":"0.01","type":"1"}],"price_pay":"0.01","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578939","nums":"0","mbr_buy_limit":"0","price":"0.01","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913726}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817474,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]},{"isMix":0,"storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"price":55.5,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"701eb18b6a9bec5e13973101df32b8c8","storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","goodsName":"19\u5757\u94b1\u7279\u4ef7","goodsNumber":"1234513","goodsId":5578934,"quantity":3,"price":"55.50","attributes":[{"spId":32090859,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578934","store_id":"1760467","price_type":2001,"price_lower":"20.00","price_upper":"20.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"20.00","type":"1"}],"price_pay":"18.50","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578934","nums":"0","mbr_buy_limit":"0","price":"18.50","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913638}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817561,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]}],"unuseful":[{"isMix":1,"storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"price":538,"quantity":9,"tipReason":"\u6b63\u5e38\u60c5\u51b5","mixMoney":100,"mixNum":2,"storeCart":[{"uniqueId":"f54a532d0f2b60071cfec2149476f1c3","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi1120\u80d6mm\u5927\u7801\u5973\u88c5\u6625\u88c5 \u649e\u8272\u53e3\u888b\u8fde\u5e3d2015\u4f11\u95f2\u5957\u88c5\u6625\u5b63\u8fd0\u52a8\u5957\u88c5\u5973","goodsNumber":"1234513","goodsId":5155477,"quantity":1,"price":"74.00","attributes":[{"spId":28738538,"color":"\u7d2b\u8272","size":"xl","quantity":1,"loseSpec":false},{"spId":28738538111,"color":"\u7d2b\u8272","size":"xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"5155477","store_id":"159771","price_type":1,"price_lower":"74.00","price_upper":"89.00","price_data":[{"lower_limit":"3","upper_limit":"4","price":"89.00","type":"1"},{"lower_limit":"5","upper_limit":"9","price":"79.00","type":"2"},{"lower_limit":"10","upper_limit":"0","price":"74.00","type":"3"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534817709,"updateTime":1534849131,"useful":false,"mixMoney":100,"mixNum":2,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"},{"uniqueId":"372f86e3539ef75e5b49f393e98decc7","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi\u6b63\u54c1\u26069568\u65f6\u5c1a\u5178\u96c5\u6cd5\u5f0f\u957f\u5927\u8863","goodsNumber":"1234513","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"\u9ec4\u8272","size":"4xl","quantity":5,"loseSpec":false},{"spId":9521391,"color":"\u9ec4\u8272","size":"4xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534733379,"updateTime":1534849131,"useful":false,"colorSum":2,"sizeSum":2,"unit":"件","ifShow":"1","close":"0"}]}]
+     *   "useful":[{"isMix":0,"storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"batchQuantity":"2","price":0.03,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"b547767c68d674539b946327ecfdeddf","storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","defaultImage":"G03/M00/00/B0/small_pYYBAFUvareIVSLaAAYKRm6bJisAABFIAIv_CQABgpe928.jpg","goodsName":"\u8fd0\u8d39","goodsNumber":"1234513","goodsId":5578939,"quantity":3,"price":"0.03","attributes":[{"spId":32090865,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578939","store_id":"1760244","price_type":2001,"price_lower":"0.01","price_upper":"0.01","price_data":[{"lower_limit":"1","upper_limit":"0","price":"0.01","type":"1"}],"price_pay":"0.01","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578939","nums":"0","mbr_buy_limit":"0","price":"0.01","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913726}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817474,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]},{"isMix":0,"storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"batchQuantity":"2","price":55.5,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"701eb18b6a9bec5e13973101df32b8c8","storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","goodsName":"19\u5757\u94b1\u7279\u4ef7","goodsNumber":"1234513","goodsId":5578934,"quantity":3,"price":"55.50","attributes":[{"spId":32090859,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578934","store_id":"1760467","price_type":2001,"price_lower":"20.00","price_upper":"20.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"20.00","type":"1"}],"price_pay":"18.50","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578934","nums":"0","mbr_buy_limit":"0","price":"18.50","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913638}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817561,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]}],"unuseful":[{"isMix":1,"storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"batchQuantity":"2","price":538,"quantity":9,"tipReason":"\u6b63\u5e38\u60c5\u51b5","mixMoney":100,"mixNum":2,"storeCart":[{"uniqueId":"f54a532d0f2b60071cfec2149476f1c3","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi1120\u80d6mm\u5927\u7801\u5973\u88c5\u6625\u88c5 \u649e\u8272\u53e3\u888b\u8fde\u5e3d2015\u4f11\u95f2\u5957\u88c5\u6625\u5b63\u8fd0\u52a8\u5957\u88c5\u5973","goodsNumber":"1234513","goodsId":5155477,"quantity":1,"price":"74.00","attributes":[{"spId":28738538,"color":"\u7d2b\u8272","size":"xl","quantity":1,"loseSpec":false},{"spId":28738538111,"color":"\u7d2b\u8272","size":"xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"5155477","store_id":"159771","price_type":1,"price_lower":"74.00","price_upper":"89.00","price_data":[{"lower_limit":"3","upper_limit":"4","price":"89.00","type":"1"},{"lower_limit":"5","upper_limit":"9","price":"79.00","type":"2"},{"lower_limit":"10","upper_limit":"0","price":"74.00","type":"3"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534817709,"updateTime":1534849131,"useful":false,"mixMoney":100,"mixNum":2,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"},{"uniqueId":"372f86e3539ef75e5b49f393e98decc7","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi\u6b63\u54c1\u26069568\u65f6\u5c1a\u5178\u96c5\u6cd5\u5f0f\u957f\u5927\u8863","goodsNumber":"1234513","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"\u9ec4\u8272","size":"4xl","quantity":5,"loseSpec":false},{"spId":9521391,"color":"\u9ec4\u8272","size":"4xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534733379,"updateTime":1534849131,"useful":false,"colorSum":2,"sizeSum":2,"unit":"件","ifShow":"1","close":"0"}]}]
      * })
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
@@ -283,7 +283,7 @@ class Cart implements CartInterface
      * @return array
      * @requestExample()
      * @returnExample({
-     *   "useful":[{"isMix":0,"storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"price":0.03,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"b547767c68d674539b946327ecfdeddf","storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","defaultImage":"G03/M00/00/B0/small_pYYBAFUvareIVSLaAAYKRm6bJisAABFIAIv_CQABgpe928.jpg","goodsName":"\u8fd0\u8d39","goodsNumber":"1234513","goodsId":5578939,"quantity":3,"price":"0.03","attributes":[{"spId":32090865,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578939","store_id":"1760244","price_type":2001,"price_lower":"0.01","price_upper":"0.01","price_data":[{"lower_limit":"1","upper_limit":"0","price":"0.01","type":"1"}],"price_pay":"0.01","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578939","nums":"0","mbr_buy_limit":"0","price":"0.01","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913726}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817474,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]},{"isMix":0,"storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"price":55.5,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"701eb18b6a9bec5e13973101df32b8c8","storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","goodsName":"19\u5757\u94b1\u7279\u4ef7","goodsNumber":"1234513","goodsId":5578934,"quantity":3,"price":"55.50","attributes":[{"spId":32090859,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578934","store_id":"1760467","price_type":2001,"price_lower":"20.00","price_upper":"20.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"20.00","type":"1"}],"price_pay":"18.50","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578934","nums":"0","mbr_buy_limit":"0","price":"18.50","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913638}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817561,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]}],"unuseful":[{"isMix":1,"storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"price":538,"quantity":9,"tipReason":"\u6b63\u5e38\u60c5\u51b5","mixMoney":100,"mixNum":2,"storeCart":[{"uniqueId":"f54a532d0f2b60071cfec2149476f1c3","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi1120\u80d6mm\u5927\u7801\u5973\u88c5\u6625\u88c5 \u649e\u8272\u53e3\u888b\u8fde\u5e3d2015\u4f11\u95f2\u5957\u88c5\u6625\u5b63\u8fd0\u52a8\u5957\u88c5\u5973","goodsNumber":"1234513","goodsId":5155477,"quantity":1,"price":"74.00","attributes":[{"spId":28738538,"color":"\u7d2b\u8272","size":"xl","quantity":1,"loseSpec":false},{"spId":28738538111,"color":"\u7d2b\u8272","size":"xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"5155477","store_id":"159771","price_type":1,"price_lower":"74.00","price_upper":"89.00","price_data":[{"lower_limit":"3","upper_limit":"4","price":"89.00","type":"1"},{"lower_limit":"5","upper_limit":"9","price":"79.00","type":"2"},{"lower_limit":"10","upper_limit":"0","price":"74.00","type":"3"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534817709,"updateTime":1534849131,"useful":false,"mixMoney":100,"mixNum":2,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"},{"uniqueId":"372f86e3539ef75e5b49f393e98decc7","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi\u6b63\u54c1\u26069568\u65f6\u5c1a\u5178\u96c5\u6cd5\u5f0f\u957f\u5927\u8863","goodsNumber":"1234513","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"\u9ec4\u8272","size":"4xl","quantity":5,"loseSpec":false},{"spId":9521391,"color":"\u9ec4\u8272","size":"4xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534733379,"updateTime":1534849131,"useful":false,"colorSum":2,"sizeSum":2,"unit":"件","ifShow":"1","close":"0"}]}]
+     *   "useful":[{"isMix":0,"storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"batchQuantity":"2","price":0.03,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"b547767c68d674539b946327ecfdeddf","storeId":1760244,"storeName":"\u5973\u88c5\u5927\u5927","defaultImage":"G03/M00/00/B0/small_pYYBAFUvareIVSLaAAYKRm6bJisAABFIAIv_CQABgpe928.jpg","goodsName":"\u8fd0\u8d39","goodsNumber":"1234513","goodsId":5578939,"quantity":3,"price":"0.03","attributes":[{"spId":32090865,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578939","store_id":"1760244","price_type":2001,"price_lower":"0.01","price_upper":"0.01","price_data":[{"lower_limit":"1","upper_limit":"0","price":"0.01","type":"1"}],"price_pay":"0.01","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578939","nums":"0","mbr_buy_limit":"0","price":"0.01","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913726}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817474,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]},{"isMix":0,"storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"batchQuantity":"2","price":55.5,"quantity":3,"tipReason":"\u6b63\u5e38\u60c5\u51b5","storeCart":[{"uniqueId":"701eb18b6a9bec5e13973101df32b8c8","storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","goodsName":"19\u5757\u94b1\u7279\u4ef7","goodsNumber":"1234513","goodsId":5578934,"quantity":3,"price":"55.50","attributes":[{"spId":32090859,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578934","store_id":"1760467","price_type":2001,"price_lower":"20.00","price_upper":"20.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"20.00","type":"1"}],"price_pay":"18.50","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578934","nums":"0","mbr_buy_limit":"0","price":"18.50","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913638}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817561,"updateTime":1534849131,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]}],"unuseful":[{"isMix":1,"storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","storeAddress":"广东 广州 十三行商圈的 十三行新中国大厦","tipType":0,"batchQuantity":"2","price":538,"quantity":9,"tipReason":"\u6b63\u5e38\u60c5\u51b5","mixMoney":100,"mixNum":2,"storeCart":[{"uniqueId":"f54a532d0f2b60071cfec2149476f1c3","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi1120\u80d6mm\u5927\u7801\u5973\u88c5\u6625\u88c5 \u649e\u8272\u53e3\u888b\u8fde\u5e3d2015\u4f11\u95f2\u5957\u88c5\u6625\u5b63\u8fd0\u52a8\u5957\u88c5\u5973","goodsNumber":"1234513","goodsId":5155477,"quantity":1,"price":"74.00","attributes":[{"spId":28738538,"color":"\u7d2b\u8272","size":"xl","quantity":1,"loseSpec":false},{"spId":28738538111,"color":"\u7d2b\u8272","size":"xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"5155477","store_id":"159771","price_type":1,"price_lower":"74.00","price_upper":"89.00","price_data":[{"lower_limit":"3","upper_limit":"4","price":"89.00","type":"1"},{"lower_limit":"5","upper_limit":"9","price":"79.00","type":"2"},{"lower_limit":"10","upper_limit":"0","price":"74.00","type":"3"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534817709,"updateTime":1534849131,"useful":false,"mixMoney":100,"mixNum":2,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"},{"uniqueId":"372f86e3539ef75e5b49f393e98decc7","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi\u6b63\u54c1\u26069568\u65f6\u5c1a\u5178\u96c5\u6cd5\u5f0f\u957f\u5927\u8863","goodsNumber":"1234513","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"\u9ec4\u8272","size":"4xl","quantity":5,"loseSpec":false},{"spId":9521391,"color":"\u9ec4\u8272","size":"4xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534733379,"updateTime":1534849131,"useful":false,"colorSum":2,"sizeSum":2,"unit":"件","ifShow":"1","close":"0"}]}]
      * })
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
@@ -300,7 +300,7 @@ class Cart implements CartInterface
      * @param int   $goodsId    商品id
      * @param array $attributes 其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
      * @param array $attributes['spId'] 规格属性Id
-     * @param array $attributes[‘quantity’] 属性购买数量
+     * @param array $attributes['quantity'] 属性购买数量
      * @param UidDTO $user  用户
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -325,7 +325,7 @@ class Cart implements CartInterface
      * @param int   $goodsId    商品id
      * @param array $attributes 其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
      * @param array $attributes['spId'] 规格属性Id
-     * @param array $attributes[‘quantity’] 属性购买数量
+     * @param array $attributes['quantity'] 属性购买数量
      * @param UidDTO $user  用户
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -361,6 +361,7 @@ class Cart implements CartInterface
      * isMix                | int    | 是否混批 0:否， 1:是
      * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
      * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
+     * storeQuantity        | int    | 店铺起批数量
      * 
      * > goodsInfo 数据说明
      * key | type | value
@@ -368,6 +369,7 @@ class Cart implements CartInterface
      * ifShow | int     | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
      * close  | int     | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
      * unit   | string  | 商品单位 例如：件
+     * goodsImage | string | 商品图片
      * 
      * > data 数据说明
      * key | type | value
@@ -393,8 +395,8 @@ class Cart implements CartInterface
      *      "goodsId":"5155477"
      * })
      * @returnExample({
-     *      "storeInfo":{"isMix":"1","mixMoney":"100","mixNum":"2"},
-     *      "goodsInfo":{"ifShow":"2","close":"0","unit":"件"},
+     *      "storeInfo":{"isMix":"1","mixMoney":"100","mixNum":"2","storeQuantity":"1"},
+     *      "goodsInfo":{"ifShow":"2","close":"0","unit":"件","goodsImage":"G03/M08/00/11/small_usauiblsiiwhnf_dhjahi.jpg"},
      *      "data":[{
      *          "spec_id":"28738542",
      *          "goods_id":"5155477",
@@ -435,6 +437,7 @@ class Cart implements CartInterface
      * isMix                | int    | 是否混批 0:否， 1:是
      * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
      * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
+     * storeQuantity        | int    | 店铺起批数量
      * 
      * > goodsInfo 数据说明
      * key | type | value
@@ -442,6 +445,7 @@ class Cart implements CartInterface
      * ifShow | int     | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
      * close  | int     | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
      * unit   | string  | 商品单位 例如：件
+     * goodsImage | string | 商品图片
      * 
      * > data 数据说明
      * key | type | value
@@ -467,8 +471,8 @@ class Cart implements CartInterface
      *      "goodsId":"5155477"
      * })
      * @returnExample({
-     *      "storeInfo":{"isMix":"1","mixMoney":"100","mixNum":"2"},
-     *      "goodsInfo":{"ifShow":"2","close":"0","unit":"件"},
+     *      "storeInfo":{"isMix":"1","mixMoney":"100","mixNum":"2","storeQuantity":"1"},
+     *      "goodsInfo":{"ifShow":"2","close":"0","unit":"件","goodsImage":"G03/M08/00/11/small_usauiblsiiwhnf_dhjahi.jpg"},
      *      "data":[{
      *          "spec_id":"28738542",
      *          "goods_id":"5155477",
@@ -748,7 +752,7 @@ class Cart implements CartInterface
      * 删除指定id购物车数据.
      *
      *
-     * @param string $rawId 指定购物车key值，goods+商品id+规格id,数据格式中md5值
+     * @param string $uniqueId 指定购物车key值 列表中存在
      * @param UidDTO $user 用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -771,7 +775,7 @@ class Cart implements CartInterface
      * 删除指定id购物车数据.
      *
      *
-     * @param string $rawId 指定购物车key值，goods+商品id+规格id,数据格式中md5值
+     * @param string $uniqueId 指定购物车key值 列表中存在
      * @param UidDTO $user 用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -793,7 +797,7 @@ class Cart implements CartInterface
     /**
      * 批量移除购物车.
      *
-     * @param array  $rawIds 购物车key值id数组
+     * @param array  $uniqueIds 购物车key值id数组
      * @param UidDTO $user   用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
@@ -815,7 +819,7 @@ class Cart implements CartInterface
     /**
      * 批量移除购物车.
      *
-     * @param array  $rawIds 购物车key值id数组
+     * @param array  $uniqueIds 购物车key值id数组
      * @param UidDTO $user   用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
