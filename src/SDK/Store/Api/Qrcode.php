@@ -120,6 +120,38 @@ class Qrcode implements QrcodeInterface
     }
 
     /**
+     * 分页获取店铺二维码列表
+     *
+     * @param array $condition
+     * @param int   $currentPage
+     * @param int   $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-09-11
+     */
+    public function listStoreQrcodePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    {
+        return EellyClient::request('store/qrcode', 'listStoreQrcodePage', true, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 分页获取店铺二维码列表
+     *
+     * @param array $condition
+     * @param int   $currentPage
+     * @param int   $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-09-11
+     */
+    public function listStoreQrcodePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    {
+        return EellyClient::request('store/qrcode', 'listStoreQrcodePage', false, $condition, $currentPage, $limit);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
