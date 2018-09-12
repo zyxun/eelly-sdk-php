@@ -51,4 +51,6 @@ class OrderException extends LogicException
     public const DIFF_ORDER_USER = '订单的用户不相同，请分开支付!';
     
     public const ORDER_PAY_TYPE_ERROR = '订单支付类型错误';
+    
+    public const ORDER_GOODS_DATA_NOT_EXIT = '订单商品不存在';
 }
