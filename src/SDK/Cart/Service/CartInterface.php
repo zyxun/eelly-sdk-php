@@ -203,6 +203,8 @@ interface CartInterface
      * ifShow | int     | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
      * close  | int     | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
      * unit   | string  | 商品单位 例如：件
+     * goodsImage | string | 商品图片
+     * uniqueId   | string | 购物车唯一标识
      * 
      * > data 数据说明
      * key | type | value
@@ -229,7 +231,7 @@ interface CartInterface
      * })
      * @returnExample({
      *      "storeInfo":{"isMix":"1","mixMoney":"100","mixNum":"2","storeQuantity":"1"},
-     *      "goodsInfo":{"ifShow":"2","close":"0","unit":"件"},
+     *      "goodsInfo":{"ifShow":"2","close":"0","unit":"件","goodsImage":"G03/M08/00/11/small_usauiblsiiwhnf_dhjahi.jpg","uniqueId":"372f86e3539ef75e5b49f393e98decc7"},
      *      "data":[{
      *          "spec_id":"28738542",
      *          "goods_id":"5155477",
