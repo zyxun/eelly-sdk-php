@@ -43,7 +43,7 @@ class BuyerOrder implements BuyerOrderInterface
      */
     public function confirmReceivedOrder(int $orderId, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/buyerOrder', '__FUNCTION__', true, $orderId);
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
     }
 
     /**
@@ -51,7 +51,7 @@ class BuyerOrder implements BuyerOrderInterface
      */
     public function notifySendProducts(int $orderId, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/buyerOrder', '__FUNCTION__', true, $orderId);
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
     }
 
     /**
@@ -59,7 +59,7 @@ class BuyerOrder implements BuyerOrderInterface
      */
     public function cancelOrder(int $orderId, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/buyerOrder', '__FUNCTION__', true, $orderId);
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
     }
 
     /**
