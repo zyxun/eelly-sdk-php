@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Profile.
  *
- * var/eelly-old-code/modules/Member/Service/Profile/ProfileService.php
+ *  modules/Member/Service/Profile/ProfileService.php
  *
  * @author hehui<hehui@eelly.net>
  */

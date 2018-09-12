@@ -707,6 +707,7 @@ class Withdraw implements WithdrawInterface
      * remark          | string | 备注
      * 
      * @param integer $pwId 申请id
+     * @param integer $userId 用户id
      * @return array
      * 
      * @requestExample({"pwId":"35"})
@@ -715,9 +716,9 @@ class Withdraw implements WithdrawInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.11
      */
-    public function getWithdrawDetail(int $pwId): array
+    public function getWithdrawDetail(int $pwId, int $userId): array
     {
-        return EellyClient::request('pay/withdraw', 'getWithdrawDetail', true, $pwId);
+        return EellyClient::request('pay/withdraw', 'getWithdrawDetail', true, $pwId, $userId);
     }
 
     /**
@@ -734,6 +735,7 @@ class Withdraw implements WithdrawInterface
      * remark          | string | 备注
      * 
      * @param integer $pwId 申请id
+     * @param integer $userId 用户id
      * @return array
      * 
      * @requestExample({"pwId":"35"})
@@ -742,9 +744,9 @@ class Withdraw implements WithdrawInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.11
      */
-    public function getWithdrawDetailAsync(int $pwId)
+    public function getWithdrawDetailAsync(int $pwId, int $userId)
     {
-        return EellyClient::request('pay/withdraw', 'getWithdrawDetail', false, $pwId);
+        return EellyClient::request('pay/withdraw', 'getWithdrawDetail', false, $pwId, $userId);
     }
 
     /**

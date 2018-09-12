@@ -40,7 +40,7 @@ interface QrcodeInterface
      * @param array $data  二维码数据
      * @return bool
      *
-     * @requestExample({"storeId": 8888, "qrcode": {"qrcodeId": 10000, "status": 1}})
+     * @requestExample({"storeId": 8888, "data": {"qrcodeId": 10000, "status": 1}})
      * @returnExample(true)
      *
      * @author zhangyangxun
@@ -61,4 +61,17 @@ interface QrcodeInterface
      * @since 2018年09月11日
      */
     public function dropStoreQrcode(int $storeId): bool;
+
+    /**
+     * 分页获取店铺二维码列表
+     *
+     * @param array $condition
+     * @param int   $currentPage
+     * @param int   $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-09-11
+     */
+    public function listStoreQrcodePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }

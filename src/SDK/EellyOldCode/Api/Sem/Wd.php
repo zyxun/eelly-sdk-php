@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Wd.
  *
- * var/eelly-old-code/modules/Sem/Service/WdService.php
+ *  modules/Sem/Service/WdService.php
  *
  * @author hehui<hehui@eelly.net>
  */

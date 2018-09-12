@@ -743,25 +743,51 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * 卖家取消订单
      *
      * @param int $orderId  订单id
+     * @param UidDTO|null $uidDTO
      * @return bool
-     *
-     * @requestExample({"orderId": 160})
-     * @returnExample(true)
-     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.11
      */
-    public function cancelOrder(int $orderId):bool
+    public function cancelOrder(int $orderId, UidDTO $uidDTO):bool
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $uidDTO);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function cancelOrderAsync(int $orderId):bool
+    public function cancelOrderAsync(int $orderId, UidDTO $uidDTO):bool
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $uidDTO);
+    }
+
+    /**
+     * 添加物流信息跟修改物流信息接口
+     *
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo  送货单号
+     * @param array $orderIds  订单id列表
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"invoiceCode": "sf", "invoiceName":"顺丰", "invoiceNo":"12334454", "orderIds":[116,117]})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.11
+     */
+    public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $invoiceCode, $invoiceName, $invoiceNo, $orderIds, $uidDTO);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateLogisticsInfoAsync(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $invoiceCode, $invoiceName, $invoiceNo, $orderIds, $uidDTO);
     }
 
     /**

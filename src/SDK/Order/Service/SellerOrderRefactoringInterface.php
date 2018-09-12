@@ -682,13 +682,28 @@ interface SellerOrderRefactoringInterface
      * 卖家取消订单
      *
      * @param int $orderId  订单id
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.11
+     */
+    public function cancelOrder(int $orderId, UidDTO $uidDTO):bool;
+
+    /**
+     * 添加物流信息跟修改物流信息接口
+     *
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo  送货单号
+     * @param array $orderIds  订单id列表
+     * @param UidDTO|null $uidDTO
      * @return bool
      *
-     * @requestExample({"orderId": 160})
+     * @requestExample({"invoiceCode": "sf", "invoiceName":"顺丰", "invoiceNo":"12334454", "orderIds":[116,117]})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.11
      */
-    public function cancelOrder(int $orderId):bool;
+    public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool;
 }

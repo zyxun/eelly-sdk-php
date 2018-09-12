@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Member.
  *
- * var/eelly-old-code/modules/Member/Service/MemberService.php
+ *  modules/Member/Service/MemberService.php
  *
  * @author zhangyangxun
  */
