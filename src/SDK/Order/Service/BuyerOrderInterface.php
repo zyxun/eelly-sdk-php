@@ -46,66 +46,66 @@ interface BuyerOrderInterface
      * })
      *
      * @returnExample({
-     *     "orderStats": {
-     *         "needPay": 0,
-     *         "needShare": "2",
-     *         "needShipping": "0",
-     *         "needReceiving": 0,
-     *         "needRefund": 0,
-     *         "needEvaluate": 0
-     *     },
-     *     "page": {
-     *         "first": 1,
-     *         "before": 1,
-     *         "current": 1,
-     *         "last": 1,
-     *         "next": 1,
-     *         "total_pages": 1,
-     *         "total_items": 2,
-     *         "limit": 20,
-     *         "items": [
-     *              {
-     *                  "order_id": "50001725",
-     *                  "order_sn": "1820789598",
-     *                  "seller_name": "liping415",
-     *                  "os_id": "2",
-     *                  "seller_id": 1762483,
-     *                  "require_likes": "3",
-     *                  "likes": 0,
-     *                  "evaluation": null,
-     *                  "order_amount": "1",
-     *                  "extension": "1",
-     *                  "freight": "0",
-     *                  "created_time": 1532679483,
-     *                  "init_goods_amount": "1",
-     *                  "init_freight": "0",
-     *                  "ord_os_id": null,
-     *                  "ord_type": null,
-     *                  "apply_amount": null,
-     *                  "phase": null,
-     *                  "avatar": "https://img01.eelly.test/",
-     *                  "orderStatus": 2,
-     *                  "createdDate": "2018-07-27",
-     *                  "goodsList": [
-     *                      {
-     *                          "og_id": "20001404",
-     *                          "order_id": "50001725",
-     *                          "goods_id": 1450168318,
-     *                          "gs_id": "195023188",
-     *                          "price": "1",
-     *                          "quantity": "1",
-     *                          "goods_name": "新款",
-     *                          "goods_image": "https://img04.eelly.test/G02/M00/00/03/small_ooYBAFs178uIZh3DAAHO_47QgP8AAABgwMQlfcAAc8X589.jpg",
-     *                          "goods_number": "",
-     *                          "spec": "颜色:如图色,尺码:均码",
-     *                          "created_time": "1532679483",
-     *                          "update_time": "2018-07-27 16:18:03"
-     *                      }
-     *                  ],
-     *                  "ifRefund": 0
-     *              }
-     *          ]
-     *      }
+     *    "orderStats": {
+     *        "needPay": 0,
+     *        "needShare": "2",
+     *        "needShipping": "0",
+     *        "needReceiving": 0,
+     *        "needRefund": 0,
+     *        "needEvaluate": 0
+     *    },
+     *    "page": {
+     *        "first": 1,
+     *        "before": 1,
+     *        "current": 1,
+     *        "last": 1,
+     *        "next": 1,
+     *        "totalPages": 1,
+     *        "totalItems": 2,
+     *        "limit": 20,
+     *        "items": [
+     *            {
+     *                "orderId": "50001725",
+     *                "orderSn": "1820789598",
+     *                "sellerName": "liping415",
+     *                "osId": "2",
+     *                "sellerId": 1762483,
+     *                "requireLikes": "3",
+     *                "likes": 0,
+     *                "evaluation": null,
+     *                "orderAmount": "1",
+     *                "extension": "1",
+     *                "freight": "0",
+     *                "createdTime": 1532679483,
+     *                "initGoodsAmount": "1",
+     *                "initFreight": "0",
+     *                "ordOsId": null,
+     *                "ordType": null,
+     *                "applyAmount": null,
+     *                "phase": null,
+     *                "avatar": "https://img01.eelly.test/",
+     *                "orderStatus": 2,
+     *                "createdDate": "2018-07-27",
+     *                "goodsList": [
+     *                    {
+     *                        "ogId": "20001404",
+     *                        "orderId": "50001725",
+     *                        "goodsId": 1450168318,
+     *                        "gsId": "195023188",
+     *                        "price": "1",
+     *                        "quantity": "1",
+     *                        "goodsName": "新款",
+     *                        "goodsImage": "https://img04.eelly.test/G02/M00/00/03/small_ooYBAFs178uIZh3DAAHO_47QgP8AAABgwMQlfcAAc8X589.jpg",
+     *                        "goodsNumber": "",
+     *                        "spec": "颜色:如图色,尺码:均码",
+     *                        "createdTime": "1532679483",
+     *                        "updateTime": "2018-07-27 16:18:03"
+     *                    }
+     *                ],
+     *                "ifRefund": 0
+     *            }
+     *        ]
+     *    }
      *  })
      *
      * @author hehui<hehui@eelly.net>
