@@ -347,6 +347,7 @@ interface WithdrawInterface
      * remark          | string | 备注
      * 
      * @param integer $pwId 申请id
+     * @param integer $userId 用户id
      * @return array
      * 
      * @requestExample({"pwId":"35"})
@@ -355,5 +356,5 @@ interface WithdrawInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.11
      */
-    public function getWithdrawDetail(int $pwId):array;
+    public function getWithdrawDetail(int $pwId, int $userId):array;
 }
