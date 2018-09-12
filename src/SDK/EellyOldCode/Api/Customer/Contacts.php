@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Contacts.
  *
- * var/eelly-old-code/modules/Customer/Service/ContactsService.php
+ *  modules/Customer/Service/ContactsService.php
  *
  * @author zhangyangxun
  */

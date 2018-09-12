@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Cart.
  *
- * var/eelly-old-code/modules/Cart/Service/CartService.php
+ *  modules/Cart/Service/CartService.php
  *
  * @author wechan
  */

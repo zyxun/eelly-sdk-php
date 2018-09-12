@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Cate.
  *
- * var/eelly-old-code/modules/Sem/Service/CateService.php
+ *  modules/Sem/Service/CateService.php
  *
  * @author hehui<hehui@eelly.net>
  */

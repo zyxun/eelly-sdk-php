@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Goods.
  *
- * var/eelly-old-code/modules/Goods/Service/GoodsService.php
+ *  modules/Goods/Service/GoodsService.php
  *
  * @author hehui<hehui@eelly.net>
  */

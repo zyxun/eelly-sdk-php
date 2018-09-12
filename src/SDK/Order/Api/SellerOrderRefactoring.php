@@ -743,25 +743,22 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * 卖家取消订单
      *
      * @param int $orderId  订单id
+     * @param UidDTO|null $uidDTO
      * @return bool
-     *
-     * @requestExample({"orderId": 160})
-     * @returnExample(true)
-     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.11
      */
-    public function cancelOrder(int $orderId):bool
+    public function cancelOrder(int $orderId, UidDTO $uidDTO):bool
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $uidDTO);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function cancelOrderAsync(int $orderId):bool
+    public function cancelOrderAsync(int $orderId, UidDTO $uidDTO):bool
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId);
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $uidDTO);
     }
 
     /**

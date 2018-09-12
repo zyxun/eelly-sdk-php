@@ -16,7 +16,7 @@ namespace Eelly\SDK\EellyOldCode\Api\Store;
 /**
  * Class Favorite.
  *
- * var/eelly-old-code/modules/Store/Service/FavoriteService.php
+ *  modules/Store/Service/FavoriteService.php
  *
  * @author hehui<hehui@eelly.net>
  */

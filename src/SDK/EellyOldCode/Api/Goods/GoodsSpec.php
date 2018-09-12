@@ -16,22 +16,23 @@ namespace Eelly\SDK\EellyOldCode\Api\Goods;
 use Eelly\SDK\EellyClient;
 
 /**
- * Class GoodsFaq.
+ * Class GoodsSpec.
  *
- *  modules/Goods/Service/GoodsFaqService.php
+ *  modules/Goods/Service/GoodsSpecService.php
  *
- * @author hehui<hehui@eelly.net>
+ * @author zhangyingdi<zhangyingdi@eelly.net>
  */
-class GoodsFaq
+class GoodsSpec
 {
     /**
-     * @param $goodsIds
-     * @param bool $isapp
+     * 小程序订单的库存修改.
+     *
+     * @param $orderId 订单id
      *
      * @return mixed
      */
-    public function statisticsFaq($goodsIds, $isapp = false)
+    public function appletUpdateStock($orderId)
     {
-        return EellyClient::request('eellyOldCode/goods/goodsFaq', __FUNCTION__, true, $goodsIds, $isapp);
+        return EellyClient::request('eellyOldCode/goods/goodsSpec', __FUNCTION__, true, $orderId);
     }
 }

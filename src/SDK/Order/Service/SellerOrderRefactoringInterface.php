@@ -682,15 +682,12 @@ interface SellerOrderRefactoringInterface
      * 卖家取消订单
      *
      * @param int $orderId  订单id
+     * @param UidDTO|null $uidDTO
      * @return bool
-     *
-     * @requestExample({"orderId": 160})
-     * @returnExample(true)
-     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.11
      */
-    public function cancelOrder(int $orderId):bool;
+    public function cancelOrder(int $orderId, UidDTO $uidDTO):bool;
 
     /**
      * 添加物流信息跟修改物流信息接口
