@@ -693,7 +693,7 @@ interface SellerOrderRefactoringInterface
     public function cancelOrder(int $orderId):bool;
 
     /**
-     * 立即发货，添加物流信息
+     * 添加物流信息跟修改物流信息接口
      *
      * @param string $invoiceCode  送货编码：快递公司对应的拼音
      * @param string $invoiceName  送货公司名称
@@ -708,5 +708,5 @@ interface SellerOrderRefactoringInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.11
      */
-    public function immediateDeliveryOrder(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool;
+    public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool;
 }
