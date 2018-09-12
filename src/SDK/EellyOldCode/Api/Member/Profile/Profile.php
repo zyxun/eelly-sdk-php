@@ -36,4 +36,16 @@ class Profile
     {
         return EellyClient::request('eellyOldCode/member/profile/profile', __FUNCTION__, true, $userIds, $role, $paramType, $type);
     }
+
+    /**
+     * @param $userId
+     *
+     * @throws \ErrorException
+     *
+     * @return mixed
+     */
+    public function myInfoIndex($userId)
+    {
+        return EellyClient::request('eellyOldCode/member/profile/profile', __FUNCTION__, true, $userId);
+    }
 }

@@ -28,6 +28,7 @@ class Member
      * 获取用户绑定的手机.
      *
      * @param array $userIds
+     *
      * @return mixed
      */
     public function getUserBoundMobile(array $userIds)

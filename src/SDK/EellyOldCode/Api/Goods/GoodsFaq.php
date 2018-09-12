@@ -34,4 +34,17 @@ class GoodsFaq
     {
         return EellyClient::request('eellyOldCode/goods/goodsFaq', __FUNCTION__, true, $goodsIds, $isapp);
     }
+
+    /**
+     * @param array $condition
+     * @param $limit
+     *
+     * @throws \ErrorException
+     *
+     * @return mixed
+     */
+    public function getList(array $condition, $limit)
+    {
+        return EellyClient::request('eellyOldCode/goods/goodsFaq', __FUNCTION__, true, $condition, $limit);
+    }
 }

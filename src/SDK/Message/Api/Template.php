@@ -25,93 +25,79 @@ class Template implements TemplateInterface
     /**
      * 添加信息模板.
      *
-     * @param int    $type    消息模板类型：1 站内消息 2 邮件 4 手机短信
-     * @param string $name    消息模板名称
-     * @param string $content 消息模板内容
+     * @param array $template 消息模板内容
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return int 返回消息id
-     * @requestExample({"type":1,"name":"模板名称","content":"模板内容"})
+     * @requestExample({"template":{"type":1,"name":"模板名称","content":"模板内容"}})
      * @returnExample(1)
      *
-     * @author liangxinyi<liangxinyi@eelly.net>
-     *
-     * @since 2017-7-28
+     * @author zhangyangxun
+     * @since 2018-08-31
      */
-    public function addTemplate(int $type, string $name, string $content): int
+    public function addTemplate(array $template): int
     {
-        return EellyClient::request('message/template', __FUNCTION__, true, $type, $name, $content);
+        return EellyClient::request('message/template', 'addTemplate', true, $template);
     }
 
     /**
      * 添加信息模板.
      *
-     * @param int    $type    消息模板类型：1 站内消息 2 邮件 4 手机短信
-     * @param string $name    消息模板名称
-     * @param string $content 消息模板内容
+     * @param array $template 消息模板内容
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return int 返回消息id
-     * @requestExample({"type":1,"name":"模板名称","content":"模板内容"})
+     * @requestExample({"template":{"type":1,"name":"模板名称","content":"模板内容"}})
      * @returnExample(1)
      *
-     * @author liangxinyi<liangxinyi@eelly.net>
-     *
-     * @since 2017-7-28
+     * @author zhangyangxun
+     * @since 2018-08-31
      */
-    public function addTemplateAsync(int $type, string $name, string $content)
+    public function addTemplateAsync(array $template)
     {
-        return EellyClient::request('message/template', __FUNCTION__, false, $type, $name, $content);
+        return EellyClient::request('message/template', 'addTemplate', false, $template);
     }
 
     /**
      * 编辑指定id消息模板.
      *
      * @param int    $mtId    消息模板id
-     * @param int    $type    消息模板类型：1 站内消息 2 邮件 4 手机短信
-     * @param string $name    消息模板名称
-     * @param string $content 消息模板内容
-     * @param int    $status  状态：0 未启用 1 启用
+     * @param array  $template    更新的数据
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample({"mtId":1,"type":1,"name":"模板名称","content":"模板内容")
+     * @requestExample({"mtId":1, "emplate":{"type":1,"name":"模板名称","content":"模板内容"}})
      * @returnExample(true)
      *
-     * @author liangxinyi<liangxinyi@eelly.net>
-     *
-     * @since 2017-7-28
+     * @author zhangyangxun
+     * @since 2018-08-31
      */
-    public function updateTemplate(int $mtId, int $type, string $name, string $content, int $status): bool
+    public function updateTemplate(int $mtId, array $template): bool
     {
-        return EellyClient::request('message/template', __FUNCTION__, true, $mtId, $type, $name, $content, $status);
+        return EellyClient::request('message/template', 'updateTemplate', true, $mtId, $template);
     }
 
     /**
      * 编辑指定id消息模板.
      *
      * @param int    $mtId    消息模板id
-     * @param int    $type    消息模板类型：1 站内消息 2 邮件 4 手机短信
-     * @param string $name    消息模板名称
-     * @param string $content 消息模板内容
-     * @param int    $status  状态：0 未启用 1 启用
+     * @param array  $template    更新的数据
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample({"mtId":1,"type":1,"name":"模板名称","content":"模板内容")
+     * @requestExample({"mtId":1, "emplate":{"type":1,"name":"模板名称","content":"模板内容"}})
      * @returnExample(true)
      *
-     * @author liangxinyi<liangxinyi@eelly.net>
-     *
-     * @since 2017-7-28
+     * @author zhangyangxun
+     * @since 2018-08-31
      */
-    public function updateTemplateAsync(int $mtId, int $type, string $name, string $content, int $status)
+    public function updateTemplateAsync(int $mtId, array $template)
     {
-        return EellyClient::request('message/template', __FUNCTION__, false, $mtId, $type, $name, $content, $status);
+        return EellyClient::request('message/template', 'updateTemplate', false, $mtId, $template);
     }
 
     /**
@@ -137,7 +123,7 @@ class Template implements TemplateInterface
      */
     public function listTemplatePage(array $where = null, int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('message/template', __FUNCTION__, true, $where, $currentPage, $limit);
+        return EellyClient::request('message/template', 'listTemplatePage', true, $where, $currentPage, $limit);
     }
 
     /**
@@ -163,7 +149,7 @@ class Template implements TemplateInterface
      */
     public function listTemplatePageAsync(array $where = null, int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('message/template', __FUNCTION__, false, $where, $currentPage, $limit);
+        return EellyClient::request('message/template', 'listTemplatePage', false, $where, $currentPage, $limit);
     }
 
     /**
@@ -184,7 +170,7 @@ class Template implements TemplateInterface
      */
     public function updateTemplateStatus(int $mtId, int $status): bool
     {
-        return EellyClient::request('message/template', __FUNCTION__, true, $mtId, $status);
+        return EellyClient::request('message/template', 'updateTemplateStatus', true, $mtId, $status);
     }
 
     /**
@@ -205,7 +191,7 @@ class Template implements TemplateInterface
      */
     public function updateTemplateStatusAsync(int $mtId, int $status)
     {
-        return EellyClient::request('message/template', __FUNCTION__, false, $mtId, $status);
+        return EellyClient::request('message/template', 'updateTemplateStatus', false, $mtId, $status);
     }
 
     /**
@@ -226,7 +212,7 @@ class Template implements TemplateInterface
      */
     public function updateTemplateStatusBatch(array $mtIds, int $status): bool
     {
-        return EellyClient::request('message/template', __FUNCTION__, true, $mtIds, $status);
+        return EellyClient::request('message/template', 'updateTemplateStatusBatch', true, $mtIds, $status);
     }
 
     /**
@@ -247,7 +233,7 @@ class Template implements TemplateInterface
      */
     public function updateTemplateStatusBatchAsync(array $mtIds, int $status)
     {
-        return EellyClient::request('message/template', __FUNCTION__, false, $mtIds, $status);
+        return EellyClient::request('message/template', 'updateTemplateStatusBatch', false, $mtIds, $status);
     }
 
     /**
@@ -261,7 +247,7 @@ class Template implements TemplateInterface
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return TemplateDTO
-     * @requestExample({"mtId":1,"parameter":{"key":"value"})
+     * @requestExample({"mtId":1,"parameter":{"key":"value"}})
      * @returnExample({"mt_id":"1","type":"1","name":"\u6d4b\u8bd5\u6a21\u677f\u6d88\u606f","content":"\u4f60\u597ddddd\uff0c\u6d4b\u8bd5sss\uff0c\u6b63\u786e\u4e48ddddu","status":"1","created_time":"0","update_time":"2017-08-02 11:35:55"})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
@@ -270,7 +256,7 @@ class Template implements TemplateInterface
      */
     public function getTemplateContent(int $mtId, array $parameter = null): TemplateDTO
     {
-        return EellyClient::request('message/template', __FUNCTION__, true, $mtId, $parameter);
+        return EellyClient::request('message/template', 'getTemplateContent', true, $mtId, $parameter);
     }
 
     /**
@@ -284,7 +270,7 @@ class Template implements TemplateInterface
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return TemplateDTO
-     * @requestExample({"mtId":1,"parameter":{"key":"value"})
+     * @requestExample({"mtId":1,"parameter":{"key":"value"}})
      * @returnExample({"mt_id":"1","type":"1","name":"\u6d4b\u8bd5\u6a21\u677f\u6d88\u606f","content":"\u4f60\u597ddddd\uff0c\u6d4b\u8bd5sss\uff0c\u6b63\u786e\u4e48ddddu","status":"1","created_time":"0","update_time":"2017-08-02 11:35:55"})
      *
      * @author liangxinyi<liangxinyi@eelly.net>
@@ -293,7 +279,85 @@ class Template implements TemplateInterface
      */
     public function getTemplateContentAsync(int $mtId, array $parameter = null)
     {
-        return EellyClient::request('message/template', __FUNCTION__, false, $mtId, $parameter);
+        return EellyClient::request('message/template', 'getTemplateContent', false, $mtId, $parameter);
+    }
+
+    /**
+     * 传过来的条件返回一条对应的信息记录
+     *
+     * @param string $conditions  搜索条件
+     * @param array $bind  绑定参数
+     * @return array
+     *
+     * @requestExample({
+     *     "conditions":"type=:type:",
+     *     "bind":{"type":1}
+     * })
+     * @returnExample({"mtId":"1","type":"1","name":"\u62fc\u56e2\u6210\u529f\u901a\u77e5","group_name": "activation_activity","content":"\u60a8\u7684\u597d\u53cb\u5df2\u5e2e\u60a8\u70b9\u8d5e\u5566\uff0c\u6210\u529f\u7701\u4e86XX\u5143\u54e6~?\u670d\u88c5\u6279\u53d1\u8d27\u6e90\uff0c\u4f4e\u81f39.9\u5143\uff0c\u5feb\u6765\u770b\u770b\uff01","status":"1","createdTime":"0"})
+     * @author zhangyangxun
+     * @since 2018-09-05
+     */
+    public function getTemplateByCondition($conditions, $bind): array
+    {
+        return EellyClient::request('message/template', 'getTemplateByCondition', true, $conditions, $bind);
+    }
+
+    /**
+     * 传过来的条件返回一条对应的信息记录
+     *
+     * @param string $conditions  搜索条件
+     * @param array $bind  绑定参数
+     * @return array
+     *
+     * @requestExample({
+     *     "conditions":"type=:type:",
+     *     "bind":{"type":1}
+     * })
+     * @returnExample({"mtId":"1","type":"1","name":"\u62fc\u56e2\u6210\u529f\u901a\u77e5","group_name": "activation_activity","content":"\u60a8\u7684\u597d\u53cb\u5df2\u5e2e\u60a8\u70b9\u8d5e\u5566\uff0c\u6210\u529f\u7701\u4e86XX\u5143\u54e6~?\u670d\u88c5\u6279\u53d1\u8d27\u6e90\uff0c\u4f4e\u81f39.9\u5143\uff0c\u5feb\u6765\u770b\u770b\uff01","status":"1","createdTime":"0"})
+     * @author zhangyangxun
+     * @since 2018-09-05
+     */
+    public function getTemplateByConditionAsync($conditions, $bind)
+    {
+        return EellyClient::request('message/template', 'getTemplateByCondition', false, $conditions, $bind);
+    }
+
+    /**
+     * 删除指定id消息模板.
+     *
+     * @param int    $mtId    消息模板id
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
+     * @return bool
+     * @requestExample({"mtId":1})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-08-31
+     */
+    public function deleteTemplate(int $mtId): bool
+    {
+        return EellyClient::request('message/template', 'deleteTemplate', true, $mtId);
+    }
+
+    /**
+     * 删除指定id消息模板.
+     *
+     * @param int    $mtId    消息模板id
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
+     * @return bool
+     * @requestExample({"mtId":1})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-08-31
+     */
+    public function deleteTemplateAsync(int $mtId)
+    {
+        return EellyClient::request('message/template', 'deleteTemplate', false, $mtId);
     }
 
     /**

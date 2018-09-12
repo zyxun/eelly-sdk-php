@@ -45,4 +45,10 @@ class OrderException extends LogicException
     public const STATUS_NOT_OPERATE = '订单当前状态不可操作';
     
     public const CART_OVER_LIMIT = '进货车商品数量超出限制';
+    
+    public const CART_SPELLING_GOODS_ERROR = '团购商品不能加入购物车';
+    
+    public const DIFF_ORDER_USER = '订单的用户不相同，请分开支付!';
+    
+    public const ORDER_PAY_TYPE_ERROR = '订单支付类型错误';
 }

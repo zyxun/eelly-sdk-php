@@ -28,6 +28,8 @@ class Wd
      * @param $wdId
      * @param $model
      *
+     * @throws \ErrorException
+     *
      * @return mixed
      */
     public function getCikuInfoById($wdId, $model)
