@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Messages.
  *
- * var/eelly-old-code/modules/Messages/Service/MessagesService.php
+ *  modules/Messages/Service/MessagesService.php
  *
  * @author zhangyangxun
  */
