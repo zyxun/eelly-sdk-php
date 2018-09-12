@@ -89,4 +89,9 @@ class BankException extends LogicException
      * 解绑银行卡失败
      */
     public const UNTIED_PAY_BANK_FAIL = '解绑银行卡失败';
+
+    /**
+     * 银行卡已经解绑
+     */
+    public const PAY_BANK_UNTIED = '银行卡已经解绑';
 }
