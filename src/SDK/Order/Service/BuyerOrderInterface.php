@@ -273,7 +273,7 @@ interface BuyerOrderInterface
      *
      * @param int $orderId 订单id
      * @param string $password 支付密码
-     * @param int $uid     用户id
+     * @param  UidDTO|null $uidDTO  uid dto
      *
      * @return bool
      *
