@@ -272,13 +272,14 @@ interface BuyerOrderInterface
      * 确认收货.
      *
      * @param int $orderId 订单id
+     * @param string $password 支付密码
      * @param int $uid     用户id
      *
      * @return bool
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function confirmReceivedOrder(int $orderId, UidDTO $uidDTO = null): bool;
+    public function confirmReceivedOrder(int $orderId, string $password, UidDTO $uidDTO = null): bool;
 
     /**
      * 申请退货退款.
