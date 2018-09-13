@@ -91,6 +91,7 @@ interface CartInterface
      * attributes[]['color']    | string | 规格颜色
      * attributes[]['size']     | string | 规格尺寸
      * attributes[]['quantity'] | int    | 规格数量
+     * attributes[]['sourceQuantity'] | int    | 商品现有的规格数量
      * attributes[]['loseSpec'] | bool   | 是否不存在该规格 true 是， false， 否
      *
      * > priceInfo['price_data'] 数据说明
@@ -301,6 +302,7 @@ interface CartInterface
      * attributes[]['color']    | string | 规格颜色
      * attributes[]['size']     | string | 规格尺寸
      * attributes[]['quantity'] | int    | 规格数量
+     * attributes[]['sourceQuantity'] | int    | 商品现有的规格数量
      * attributes[]['loseSpec'] | bool   | 是否不存在该规格 true 是， false， 否
      *
      * > priceInfo['price_data'] 数据说明
@@ -483,6 +485,7 @@ interface CartInterface
      * attributes[]['color']    | string | 规格颜色
      * attributes[]['size']     | string | 规格尺寸
      * attributes[]['quantity'] | int    | 规格数量
+     * attributes[]['sourceQuantity'] | int    | 商品现有的规格数量
      * attributes[]['loseSpec'] | bool   | 是否不存在该规格 true 是， false， 否
      *
      * > priceInfo['price_data'] 数据说明
