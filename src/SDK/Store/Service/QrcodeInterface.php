@@ -32,4 +32,46 @@ interface QrcodeInterface
      * 
      */
     public function getStoreIdByQrCode(string $qrcode):int;
+
+    /**
+     * 添加店铺二维码
+     *
+     * @param int   $storeId 店铺ID
+     * @param array $data  二维码数据
+     * @return bool
+     *
+     * @requestExample({"storeId": 8888, "data": {"qrcodeId": 10000, "status": 1}})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018年09月11日
+     */
+    public function saveStoreQrCode(int $storeId, array $data): bool;
+
+    /**
+     * 删除店铺二维码
+     *
+     * @param int   $storeId 店铺ID
+     * @return bool
+     *
+     * @requestExample({"storeId": 8888})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018年09月11日
+     */
+    public function dropStoreQrcode(int $storeId): bool;
+
+    /**
+     * 分页获取店铺二维码列表
+     *
+     * @param array $condition
+     * @param int   $currentPage
+     * @param int   $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-09-11
+     */
+    public function listStoreQrcodePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 }
