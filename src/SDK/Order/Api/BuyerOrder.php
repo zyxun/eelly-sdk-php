@@ -41,9 +41,9 @@ class BuyerOrder implements BuyerOrderInterface
     /**
      * {@inheritdoc}
      */
-    public function confirmReceivedOrder(int $orderId, UidDTO $uidDTO = null): bool
+    public function confirmReceivedOrder(int $orderId, string $password, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId, $password);
     }
 
     /**
