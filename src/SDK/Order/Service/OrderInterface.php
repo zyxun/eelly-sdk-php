@@ -707,6 +707,8 @@ interface OrderInterface
      * >storeId | int | 店铺id
      * >storeName | int | 店铺名
      * >creditValue | int | 信誉值
+     * >totalQuantity | int | 总件数
+     * >totalWeight | int | 商品总重量
      * >goodsInfo | array | 商品信息
      * >couponInfo | array | 优惠券信息
      * >expressWay | array | 快递信息
