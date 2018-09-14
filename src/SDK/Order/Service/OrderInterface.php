@@ -662,66 +662,120 @@ interface OrderInterface
     /**
      *  购物车确认下单列表
      *
+     * ### 请求参数
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * data | array |请求参数
+     * array $data['isFrom'] | int | 下单类型 1.购物车下单 2.立即下单
+     * $data['goods'] | array | 商品信息(立即下单必传,购物车下单传空)
+     * $data['goods'][0]['goodsId'] | int | 选中的商品ID
+     * $data['goods'][0]['storeId'] | int | 选中的店铺ID
+     * $data['goods'][0]['isSpelling'] | int | 是否拼团商品
+     * $data['goods'][0]['spec'] | array | 选中的商品规格
+     * $data['uniqueIds'][] | array | 购物车商品主键id (购物车下单必传,立即下单传空)
      * >请求数据说明
-     * 
      * >data['goods']['spec'] 商品规格字段数据说明
+     * >字段名 | 类型 |描述
+     * >--- | ---- | -----
+     * >quantity | int | 购买数量
+     * >specId | int | 规格ID
+     * > ---
      * 
-     * key | type | value
-     * -- | ---- | -----
-     * quantity | int | 购买数量
-     * specId | int | 规格ID
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * defaultAddress | array | 默认收货地址
+     * storeOrderGoods | array | 用户下单数据
+     * freePostCard | array  |包邮卡信息
      * 
      * >返回数据说明
      * 
-     * key | type | value
-     * -- | ---- | -----
-     * storeId | int | 店铺ID
-     * storeName | string | 店铺名
-     * goodsInfo | array  | 商品信息
-     * couponInfo| array  | 优惠券信息
-     * expressWay| array  | 配送方式
-     * defaultAddress | array | 默认收货地址
+     * >defaultAddress 默认收货地址返回字段说明
      * 
-     * >goodsInfo 字段数据说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >addrId | int | 收货地址id
+     * >userName | string | 收货人名称
+     * >telNumber | string | 收货人电话
+     * >detailInfo | string | 收货人详细地址
+     * >default | int | 是否为默认收货地址
+     * >regionId | int | 地区id
      * 
-     * key | type | value
-     * -- | ---- | -----
-     * goodsId | int | 商品id
-     * totalPrice | float | 商品总价
-     * goodsNumber | string | 商品货号
-     * goodsImage | string | 商品图片地址
-     * goodsName | string | 商品名称
-     * specInfo | array | 规格信息
-     * priceData | array | 价格信息
+     * >storeOrderGoods 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >storeId | int | 店铺id
+     * >storeName | int | 店铺名
+     * >creditValue | int | 信誉值
+     * >goodsInfo | array | 商品信息
+     * >couponInfo | array | 优惠券信息
+     * >expressWay | array | 快递信息
      * 
-     * >couponInfo 字段数据说明
+     *
+     * >storeOrderGoods[]['goodsInfo'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >goodsId | int | 商品id
+     * >totalPrice | float | 商品总价
+     * >goodsNumber | string | 商品货号
+     * >goodsImage | string | 商品图片地址
+     * >goodsName | string | 商品名称
+     * >specInfo | array | 规格信息
+     * >priceData | array | 价格信息
      * 
-     * key | type | value
-     * -- | ---- | -----
+     * >storeOrderGoods[]['goodsInfo']['specInfo'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >specId | int | 规格id
+     * >price | float | 价格
+     * >quantity | int | 数量
+     * >color | string | 颜色
+     * >size | string | 尺寸
+     * >stock | int | 库存
+     *
+     * >storeOrderGoods[]['priceData'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >goodsId | int | 商品id
+     * >storeId | int | 店铺id
+     * >priceType | int | 价格类型 
+     * >priceLower | float | 最低价
+     * >priceUpper | float | 最高价
+     * >priceData  | array | 起批价格区间
+     *
+     * >storeOrderGoods[]['priceData']['priceData'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >lowerLimit | int | 最低起批量
+     * >upperLimit | int | 最高起批量
+     * >price | float | 起批价
+     * >type | int | 价格类型
+     *
+     * >storeOrderGoods[]['couponInfo'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >couponId | int | 优惠券id
+     * >couponNo | string | 优惠券编号
+     * >startTime | int | 开始时间
+     * >endTime | int | 结束时间
+     *
+     * >storeOrderGoods[]['expressWay'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >name | string | 快递名称
+     * >shippingId | int | 快递id
+     * >freight | float | 运费
+     * >weight  | float | 重量
+     * >expressType | int | 是否可以到付 (0.支付 1.不支持)
+     * >expressSelect | int | 快递类型 (1：货运；2：快递；3：EMS)
      * 
-     *    
+     * >返回数据说明
+     * >freePostCard 默认收货地址返回字段说明
      * 
-     * >expressWay 字段数据说明
-     * 
-     * key | type | value
-     * --   | ---- | -----
-     * name | string |  快递名称
-     * shippingId | int | 快递id
-     * freight | float | 运费
-     * weight  | float | 重量
-     * expressType | int | 是否可以到付 (0.支付 1.不支持)
-     * expressSelect | int | 快递类型 (1：货运；2：快递；3：EMS)
-     * 
-     * >defaultAddress 字段数据说明
-     * 
-     * key | type | value
-     * --   | ---- | -----
-     * addrId | int | 地址id
-     * userName | string | 名字
-     * telNumber | string | 收货电话
-     * detailInfo | string | 收货地址
-     * default   | int | 是否默认
-     * regionId | int | 地区id
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     *
+     *
      *  
      * 
      * @param array $data 请求参数
@@ -734,7 +788,7 @@ interface OrderInterface
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
      * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
-     * @returnExample({"defaultAddress":{"addrId":"547435","userName":"hahhahah","telNumber":"13232343244","detailInfo":"北京市 市辖区 东城区 sdhfjkdfhkdjsfhdsfdf","default":"1","regionId":"110101"},"storeOrderGoods":[{"storeId":"16777306","storeName":"新店6","goodsInfo":[{"goodsId":5578748,"totalPrice":1860,"goodsNumber":155,"goodsSn":"港湾123","goodsImage":"https:\/\/img02.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFmJIJCIVphJAAEbJKKDQNIAAACZALBulgAARs8034.jpg","goodsName":"十三行女装流行风格","specInfo":[{"specId":"32090625","price":"12.00","originalPrice":"12.00","quantity":107,"color":"黑色","size":"XXS","stock":99998}],"priceData":{"goodsId":"5578748","storeId":"16777306","priceType":1,"priceLower":"12.00","priceUpper":"12.00","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"12.00","type":"1"}]}}],"couponInfo":[{"couponId":1450168327,"couponNo":"1450168327SS","startTime":1525329993,"endTime":1525329993,"recId":111}],"expressWay":[{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}]}],"freePostCard":["暂时给个默认值"]})
+     * @returnExample({"defaultAddress":{"addrId":"547435","userName":"hahhahah","telNumber":"13232343244","detailInfo":"北京市 市辖区 东城区 sdhfjkdfhkdjsfhdsfdf","default":"1","regionId":"110101"},"storeOrderGoods":[{"storeId":"16777306","storeName":"新店6","goodsInfo":[{"goodsId":5578748,"totalPrice":1860,"goodsNumber":155,"goodsSn":"港湾123","goodsImage":"https:\/\/img02.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFmJIJCIVphJAAEbJKKDQNIAAACZALBulgAARs8034.jpg","goodsName":"十三行女装流行风格","specInfo":[{"specId":"32090625","price":"12.00","originalPrice":"12.00","quantity":107,"color":"黑色","size":"XXS","stock":99998}],"priceData":{"goodsId":"5578748","storeId":"16777306","priceType":1,"priceLower":"12.00","priceUpper":"12.00","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"12.00","type":"1"}]}}],"couponInfo":[{"couponId":1450168327,"couponNo":"1450168327SS","startTime":1525329993,"endTime":1525329993,"recId":111}],"expressWay":[{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}]}],"freePostCard":["暂时给个"]})
      * 
      * @param UidDTO $user
      * 
@@ -838,7 +892,7 @@ interface OrderInterface
      * 
      * @return array
      * 
-     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809110166529825\",\"total_amount\":0.04,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12634%26userId%3D2108412%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-11 18:28:49","version":"1.0","sign":"Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD\/aXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8\/hYN14MnadBaBxiXI=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809110166529825%22%2C%22total_amount%22%3A0.04%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253 D12634%2526userId%253D2108412%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-11+18%3A28%3A49&version=1.0&sign=Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD%2FaXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8%2FhYN14MnadBaBxiXI%3D"},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809110166529825\",\"total_amount\":0.04,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12634%26userId%3D2108412%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-11 18:28:49","version":"1.0","sign":"Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD\/aXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8\/hYN14MnadBaBxiXI=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809110166529825%22%2C%22total_amount%22%3A0.04%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12634%2526userId%253D2108412%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-11+18%3A28%3A49&version=1.0&sign=Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD%2FaXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8%2FhYN14MnadBaBxiXI%3D"},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
      *
      * @author wechan
      * @since 2018年09月10日
