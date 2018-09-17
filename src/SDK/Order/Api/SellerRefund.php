@@ -72,7 +72,7 @@ class SellerRefund implements SellerRefundInterface
      */
     public function agreeRefundMoneyAsync(int $orderId, UidDTO $uidDTO): bool
     {
-        return EellyClient::request('order/sellerRefund', __FUNCTION__, true, $orderId, $uidDTO);
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, false, $orderId, $uidDTO);
     }
 
     /**
@@ -100,7 +100,7 @@ class SellerRefund implements SellerRefundInterface
      */
     public function refusedRefundAsync(int $orderId, string $reason, string $images, UidDTO $uidDTO): bool
     {
-        return EellyClient::request('order/sellerRefund', __FUNCTION__, true, $orderId, $reason, $images, $uidDTO);
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, false, $orderId, $reason, $images, $uidDTO);
     }
 
     /**
@@ -156,6 +156,83 @@ class SellerRefund implements SellerRefundInterface
     public function agreeReturnGoodsAsync(int $orderId, array $addressData = [], UidDTO $uidDTO): bool
     {
         return EellyClient::request('order/sellerRefund', __FUNCTION__, false, $orderId, $addressData, $uidDTO);
+    }
+
+    /**
+     * 卖家撤销客服介入
+     *
+     * @param int $orderId 订单id
+     * @param UidDTO $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId":5000214})
+     * @returnExample({true})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.17
+     */
+    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO):bool
+    {
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, true, $orderId, $uidDTO);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function cancelSellerApplyServiceAsync(int $orderId, UidDTO $uidDTO):bool
+    {
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, false, $orderId, $uidDTO);
+    }
+
+    /**
+     * 卖家确认收到退货
+     *
+     * @param int $orderId  订单id
+     * @param UidDTO $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId":5000214})
+     * @returnExample({true})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.17
+     */
+    public function confirmRefundGoods(int $orderId, UidDTO $uidDTO): bool
+    {
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, true, $orderId, $uidDTO);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function confirmRefundGoodsAsync(int $orderId, UidDTO $uidDTO): bool
+    {
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, false, $orderId, $uidDTO);
+    }
+
+    /**
+     * 卖家退货退款详情页
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":5000020})
+     * @returnExample({"orderId":"5000020","orderSn":"1812374549","buyerId":"2108403","buyerName":"\u5927\u5e08\u5085\u58eb\u5927\u592b\uff08yl_jn003778\uff09","applyAmount":"11","applyFreight":"0","refundType":"\u4ec5\u9000\u6b3e","refundReason":"\u5176\u4ed6","remark":"","certificate":"","createdTime":"1525780044","refundStatus":"\u7533\u8bf7\u9000\u6b3e\u4e2d","firstTime":"2018-05-08 19:47","newTime":"2018-06-06 13:38"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.17
+     */
+    public function orderRefundDetail(int $orderId): array
+    {
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function orderRefundDetailAsync(int $orderId): array
+    {
+        return EellyClient::request('order/sellerRefund', __FUNCTION__, false, $orderId);
     }
 
     /**
