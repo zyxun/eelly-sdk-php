@@ -102,4 +102,34 @@ interface SellerRefundInterface
      * @since 2018.09.14
      */
     public function agreeReturnGoods(int $orderId, array $addressData = [], UidDTO $uidDTO): bool;
+
+    /**
+     * 卖家撤销客服介入
+     *
+     * @param int $orderId 订单id
+     * @param UidDTO $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId":5000214})
+     * @returnExample({true})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.17
+     */
+    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO):bool;
+
+    /**
+     * 卖家确认收到退货
+     *
+     * @param int $orderId  订单id
+     * @param UidDTO $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId":5000214})
+     * @returnExample({true})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.17
+     */
+    public function confirmRefundGoods(int $orderId, UidDTO $uidDTO): bool;
 }
