@@ -34,4 +34,58 @@ class Receive
     {
         return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId);
     }
+    
+    /**
+     * 小程序用户删除收货地址
+     *
+     * @param int $userId 用户id
+     * @param int $addrId 收货地址id
+     *
+     * @return array
+     * 
+     */
+    public function deleteUserAddress(int $userId, int $addrId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId, $addrId);
+    }
+    
+    /**
+     * 设置默认收货地址
+     *
+     * @param int $userId 用户id
+     * @param int $addrId 收货地址id
+     *
+     * @return array
+     *
+     */
+    public function setUserDefaultAddress(int $userId, int $addrId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId, $addrId);
+    }
+    
+    /**
+     * 添加/编辑收货地址 (编辑的时候传addrId).
+     *
+     * @param array $data 添加的数据
+     *
+     * @return array
+     *
+     */
+    public function saveUserAddress($data, $userId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $data, $userId);
+    }
+    
+    /**
+     * 获取小程序用户收货地址列表.
+     *
+     * @param int $userId 用户id
+     * 
+     * @return array
+     *
+     */
+    public function getUserAddressList($userId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId);
+    }
 }

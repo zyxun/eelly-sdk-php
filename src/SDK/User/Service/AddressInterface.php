@@ -187,4 +187,68 @@ interface AddressInterface
      * @since  2017/9/9
      */
     public function listAddressPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array;
+    
+    /**
+     * 
+     * 删除收货地址
+     * 
+     * @param int $addrId 地址id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * 
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function deleteUserAddress(int $addrId, UidDTO $user = null): bool;
+    
+    /**
+     * 
+     * 小程序设置默认收货地址
+     * 
+     * @param int $addrId 地址id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function setUserDefaultAddress(int $addrId, UidDTO $user = null): bool;
+    
+    /**
+     * 添加/编辑收货地址 (编辑的时候传addrId).
+     *
+     * @param array $data 添加的数据
+     * @param int $data['addrId'] 收货地址id
+     * @param string $data['userName'] 收货人名字
+     * @param string  $data['detailInfo'] 收货详细地址
+     * @param string  $data['telNumber'] 收货人手机号码
+     * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
+     * @param string  $data['regionId'] 地区id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * @returnExample(true)
+     *
+     * @author wechan
+     * @since 2018年09月18日     
+     */
+    public function saveUserAddress(array $data, UidDTO $user = null): bool;
+    
+    /**
+     * 获取小程序用户收货地址列表
+     * 
+     * @param UidDTO $user 用户信息
+     * 
+     * @return array
+     * @returnExample([{"addrId":"392285","userName":"moq7","telNumber":"15713886412","detailInfo":"北京市 市辖区 西城区广州大道中","default":"1"},{"addrId":"393920","userName":"ad","telNumber":"13430245645","detailInfo":"广东省 广州市 天河区广州大道中559号太行商业大厦","default":"0"},{"addrId":"393487","userName":"张三1","telNumber":"13456791245","detailInfo":"广东省 广州市 越秀区棠下上社胡岗新村dd","default":"0"},{"addrId":"392481","userName":"张三4","telNumber":"13456791245","detailInfo":"湖北省 武汉市 市辖区棠下上社胡岗新村","default":"0"},{"addrId":"392463","userName":"moq5","telNumber":"13113886417","detailInfo":"上海市 市辖区 徐汇区广州大道中a","default":"0"},{"addrId":"392417","userName":"adsf6","telNumber":"11111111111","detailInfo":"广东省 广州市 海珠区fasdfasdf","default":"0"}])
+     *
+     * @author wechan
+     * @since 2018年09月18日  
+     */
+    public function getUserAddressList(UidDTO $user = null): array;
 }
