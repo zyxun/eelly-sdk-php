@@ -849,6 +849,32 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 卖家延长收货时间
+     *
+     * @param int $orderId  订单id
+     * @param UidDTO $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": 50001744 })
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.18
+     */
+    function extendReceiptTime(int $orderId, UidDTO $uidDTO):bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $uidDTO);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    function extendReceiptTimeAsync(int $orderId, UidDTO $uidDTO):bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

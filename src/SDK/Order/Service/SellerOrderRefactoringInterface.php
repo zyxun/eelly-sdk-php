@@ -742,4 +742,19 @@ interface SellerOrderRefactoringInterface
      * @since 2018.09.18
      */
     public function updateOrderInvoiceData(int $orderId, array $invoiceData, UidDTO $uidDTO):bool;
+
+    /**
+     * 卖家延长收货时间
+     *
+     * @param int $orderId  订单id
+     * @param UidDTO $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": 50001744 })
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.18
+     */
+    function extendReceiptTime(int $orderId, UidDTO $uidDTO):bool;
 }
