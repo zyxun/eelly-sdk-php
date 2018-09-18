@@ -18,46 +18,43 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Messages.
  *
- * var/eelly-old-code/modules/Messages/Service/MessagesService.php
+ *  modules/Messages/Service/MessagesService.php
  *
  * @author zhangyangxun
  */
 class Messages
 {
     /**
-     * @param       $tplIndex
-     * @param       $receiver
-     * @param array $data
-     * @param int   $userId
-     *
+     * @param string $tplIndex
+     * @param int    $receiver
+     * @param array  $data
+     * @param int    $userId
      * @return mixed
      */
-    public function sendInfo($tplIndex, $receiver, array $data, $userId = 0)
+    public function sendInfo(string $tplIndex, int $receiver, array $data, int $userId = 0)
     {
         return EellyClient::request('eellyOldCode/messages/messages', __FUNCTION__, true, $tplIndex, $receiver, $data, $userId);
     }
 
     /**
-     * @param       $tplIndex
-     * @param       $receiver
-     * @param array $data
-     *
+     * @param string $tplIndex
+     * @param int    $receiver
+     * @param array  $data
      * @return mixed
      */
-    public function sendAppInfo($tplIndex, $receiver, array $data)
+    public function sendAppInfo(string $tplIndex, int $receiver, array $data)
     {
         return EellyClient::request('eellyOldCode/messages/messages', __FUNCTION__, true, $tplIndex, $receiver, $data);
     }
 
     /**
-     * @param       $tplIndex
-     * @param       $receiver
-     * @param array $data
-     * @param int   $userId
-     *
+     * @param string $tplIndex
+     * @param int    $receiver
+     * @param array  $data
+     * @param int    $userId
      * @return mixed
      */
-    public function sendSms($tplIndex, $receiver, array $data, $userId = 0)
+    public function sendSms(string $tplIndex, int $receiver, array $data, int $userId = 0)
     {
         return EellyClient::request('eellyOldCode/messages/messages', __FUNCTION__, true, $tplIndex, $receiver, $data, $userId);
     }

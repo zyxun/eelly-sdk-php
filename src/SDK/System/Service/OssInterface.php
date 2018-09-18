@@ -31,11 +31,12 @@ interface OssInterface
      *
      * 业务名称          |  bizName            | bizId               |  dir示例(服务端)                          | 文件名示例(客户端)
      * ---------------- | ------------------- | --------------------| --------------------------------------   |------------
-     * 用户头像          |  avatar             | 无                  |  user148086/avatar                       | user148086/avatar/logo.png (qq.png或wechat.png)
-     * 店铺logo         | store_logo          | 店铺id               | user148086/store12378                    | user148086/store12378/logo.png
-     * 商品图片          | goods              | 店铺id               | user148086/store12378/goods/20180901      | user148086/store12378/goods/20180901/5421000613151.png (反转毫秒的时间戳)
-     * 动态             | zone               | 无                   | user148086/zone/20180901                  | user148086/zone/20180901/5421000613151.png
-     * 反馈             | feedback           | 无                   | user148086/feedback/20180901              |user148086/feedback/20180901/5421000613151.png
+     * 用户头像          |  avatar             | 无                  |  user148086                              | user148086/avatar.png (qq.png或wechat.png)
+     * 店铺logo         | store_logo          | 店铺id               | store12378                               | store12378/logo.png
+     * 反馈             | feedback           | 无                   | user148086/feedback                       |user148086/feedback/5421000613151.png
+     * 用户动态          | uzone               | 无                   | user148086/uzone/20180901                | user148086/uzone/20180901/5421000613151.png
+     * 商品图片          | goods              | 店铺id               | store12378/goods/20180901                | store12378/goods/20180901/5421000613151.png (反转毫秒的时间戳)
+     * 店铺动态          | szone               | 店铺id               | store148086/szone/20180901                  | store148086/szone/20180901/5421000613151.png
      *
      *
      * 参考：<https://help.aliyun.com/document_detail/64945.html>

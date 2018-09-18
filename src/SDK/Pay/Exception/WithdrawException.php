@@ -45,4 +45,86 @@ class WithdrawException extends LogicException
      * 会员资金账号不存在
      */
     public const ACCOUNT_DATA_NOT_FOUND = '会员资金账号不存在';
+
+    /**
+     * 申请交易账号不存在
+     */
+    public const PAY_WITHDRAW_NOT_EXIST = '申请交易账号不存在';
+
+    /**
+     * 进行重复状态的操作
+     * 请勿重复进行操作
+     */
+    public const REPEAT_HANDLE_ACTION = '请勿重复进行操作';
+
+    /**
+     * 授权的微信账号数据不存在
+     */
+    public const WECHAT_PURSE_INFO_NOT_EXIST = '授权的微信账号数据不存在';
+
+    /**
+     * 提现账号和现有的账号不匹配
+     */
+    public const PAY_ACCOUNT_BANK_ACCOUNT_NOT_EQ = '提现账号和现有的账号不匹配';
+
+    /**
+     * 提现次数上限
+     */
+    public const MAXIMUM_NUMBER_OF_WITHDRAWALS = '提现次数上限';
+
+    /**
+     * 提现状态发现变更
+     */
+    public const PAY_WITHDRAW_STATUS_CHANGE = '提现状态已发生变更';
+
+    /**
+     * 保存请求数据错误
+     */
+    public const PAY_REQUEST_ERROR = '保存请求数据错误';
+
+    /**
+     * 保存回调数据错误
+     */
+    public const PAY_CALLBACK_ERROR = '保存回调数据错误';
+
+    /**
+     * 提现金额和冻结金额有误
+     */
+    public const PAY_WITHDRAW_MONEY_NOT_EQ = '提现金额和冻结金额有误';
+
+    /**
+     * 提现失败
+     */
+    public const PAY_WITHDRAW_ERROR = '提现失败';
+
+    /**
+     * 添加交易数据记录失败
+     */
+    public const ADD_RECORD_ERROR = '添加交易数据记录失败';
+
+
+    /**
+     * 添加账号资金变更记录失败
+     */
+    public const ADD_ACCOUNT_LOG = '添加账号资金变更记录失败';
+
+    /**
+     * 更新账号信息失败
+     */
+    public const PAY_UPDATE_ERROR = '更新账号信息失败';
+
+    /**
+     * 提现记录不存在
+     */
+    public const WITHDRAW_NOT_EXIST = '提现记录不存在';
+
+    /**
+     * 微信钱包信息错误
+     */
+    public const WECHAT_PURSE_BIND_ERROR = '微信钱包信息错误';
+
+    /**
+     * 银行卡信息错误
+     */
+    public const BANK_BIND_ERROR = '银行卡信息错误';
 }

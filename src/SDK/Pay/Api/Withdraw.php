@@ -382,10 +382,10 @@ class Withdraw implements WithdrawInterface
      * @return array
      * @requestExample({"pwId":1,"paId":1,"userId":148086,"channel":1,"subject":"提现交易","account":"126mail.pc","platform":"ALIPAY_WAP"})
      * @returnExample({
-     *     "platform": 'alipayWap',
-     *     'data':{
-     *          'platform=alipayWap:url地址','platform=alipayWap:url地址',
-     *          'platform=alipayApp:返回是订单ID'
+     *     "platform": "alipayWap",
+     *     "data":{
+     *          "platform=alipayWap":"url地址",
+     *          "platform=alipayApp":"返回是订单ID"
      *     }
      * })
      *
@@ -422,10 +422,10 @@ class Withdraw implements WithdrawInterface
      * @return array
      * @requestExample({"pwId":1,"paId":1,"userId":148086,"channel":1,"subject":"提现交易","account":"126mail.pc","platform":"ALIPAY_WAP"})
      * @returnExample({
-     *     "platform": 'alipayWap',
-     *     'data':{
-     *          'platform=alipayWap:url地址','platform=alipayWap:url地址',
-     *          'platform=alipayApp:返回是订单ID'
+     *     "platform": "alipayWap",
+     *     "data":{
+     *          "platform=alipayWap":"url地址",
+     *          "platform=alipayApp":"返回是订单ID"
      *     }
      * })
      *
@@ -595,6 +595,158 @@ class Withdraw implements WithdrawInterface
     public function statisticsApplyWidthDrawAsync(string $conditions = '', array $binds = [])
     {
         return EellyClient::request('pay/withdraw', 'statisticsApplyWidthDraw', false, $conditions, $binds);
+    }
+
+    /**
+     * 用户获取提现明细
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * allMoney     | int    | 单月提现总额
+     * month        | string | 年月份
+     * data         | array  | 当前月数据
+     * 
+     * > data 数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * pwId         | int    | 申请提现id
+     * paId         | int    | 资金账号id
+     * commissionRatio | float  | 提现手续费率
+     * money           | int    | 提现金额
+     * gbCode          | int    | 银行地区id
+     * bankId          | int    | 提现银行id
+     * bankName        | string | 提现银行名称
+     * bankSubbranch   | string | 支行名称
+     * billNo          | string | 交易号
+     * thirdNo         | string | 第三方交易号(支付宝/微信/银联)
+     * status          | int    | 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * remark          | string | 备注
+     * adminRemark     | string | 系统及管理员备注
+     * handleTime      | int    | 处理时间
+     * createdTime     | int    | 创建时间
+     * updateTime      | string | 更新时间
+     * handling        | int    | 手续费
+     * 
+     * @param integer $userId 当前登陆的账号id
+     * @param integer $storeId 店铺id 0:店+ 非0:厂家
+     * @param integer $page 分页页码 默认 1
+     * @param integer $limit 数据单页数量
+     * @return array
+     * 
+     * @requestExample({"userId":"148086","storeId":"148086","page":"1","limit":"50"})
+     * @returnExample({"allMoney":"1899","month":"2018-9","data":[{"pwId":"35","paId":"2","commissionRation":"0.008","money":"129","gbCode":"0","bankId":"186","bankName":"微信","bankSubbranch":"","bankAccount":"oW-yJwJS5QW2mb-JvNtwbHcgpk74","billNo":"201809040261074056","thirdNo":"","status":"1","remark":"用户微信提现1.30元","adminRemark":"提现成功","handleTime":"1536051543","createdTime":"1536051543","updateTime":"2018-09-04 16:59:10","handling":"1.0"}]})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.11
+     */
+    public function getWithdrawList(int $userId, int $storeId, int $page = 1, int $limit = 50): array
+    {
+        return EellyClient::request('pay/withdraw', 'getWithdrawList', true, $userId, $storeId, $page, $limit);
+    }
+
+    /**
+     * 用户获取提现明细
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * allMoney     | int    | 单月提现总额
+     * month        | string | 年月份
+     * data         | array  | 当前月数据
+     * 
+     * > data 数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * pwId         | int    | 申请提现id
+     * paId         | int    | 资金账号id
+     * commissionRatio | float  | 提现手续费率
+     * money           | int    | 提现金额
+     * gbCode          | int    | 银行地区id
+     * bankId          | int    | 提现银行id
+     * bankName        | string | 提现银行名称
+     * bankSubbranch   | string | 支行名称
+     * billNo          | string | 交易号
+     * thirdNo         | string | 第三方交易号(支付宝/微信/银联)
+     * status          | int    | 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * remark          | string | 备注
+     * adminRemark     | string | 系统及管理员备注
+     * handleTime      | int    | 处理时间
+     * createdTime     | int    | 创建时间
+     * updateTime      | string | 更新时间
+     * handling        | int    | 手续费
+     * 
+     * @param integer $userId 当前登陆的账号id
+     * @param integer $storeId 店铺id 0:店+ 非0:厂家
+     * @param integer $page 分页页码 默认 1
+     * @param integer $limit 数据单页数量
+     * @return array
+     * 
+     * @requestExample({"userId":"148086","storeId":"148086","page":"1","limit":"50"})
+     * @returnExample({"allMoney":"1899","month":"2018-9","data":[{"pwId":"35","paId":"2","commissionRation":"0.008","money":"129","gbCode":"0","bankId":"186","bankName":"微信","bankSubbranch":"","bankAccount":"oW-yJwJS5QW2mb-JvNtwbHcgpk74","billNo":"201809040261074056","thirdNo":"","status":"1","remark":"用户微信提现1.30元","adminRemark":"提现成功","handleTime":"1536051543","createdTime":"1536051543","updateTime":"2018-09-04 16:59:10","handling":"1.0"}]})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.11
+     */
+    public function getWithdrawListAsync(int $userId, int $storeId, int $page = 1, int $limit = 50)
+    {
+        return EellyClient::request('pay/withdraw', 'getWithdrawList', false, $userId, $storeId, $page, $limit);
+    }
+
+    /**
+     * 用户获取记录详情
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * username     | string | 用户名
+     * bankName     | string | 提现钱包
+     * handling     | int    | 手续费
+     * withdrawMoney | int   | 提现金额
+     * status       | int    | 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * remark          | string | 备注
+     * 
+     * @param integer $pwId 申请id
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @requestExample({"pwId":"35"})
+     * @returnExample({"username":"nickanme","bankName":"微信钱包","handling":"1","withdrawMoney":"129","status":"1","remark":"用户提现1.30元"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.11
+     */
+    public function getWithdrawDetail(int $pwId, int $userId): array
+    {
+        return EellyClient::request('pay/withdraw', 'getWithdrawDetail', true, $pwId, $userId);
+    }
+
+    /**
+     * 用户获取记录详情
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * username     | string | 用户名
+     * bankName     | string | 提现钱包
+     * handling     | int    | 手续费
+     * withdrawMoney | int   | 提现金额
+     * status       | int    | 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * remark          | string | 备注
+     * 
+     * @param integer $pwId 申请id
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @requestExample({"pwId":"35"})
+     * @returnExample({"username":"nickanme","bankName":"微信钱包","handling":"1","withdrawMoney":"129","status":"1","remark":"用户提现1.30元"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.11
+     */
+    public function getWithdrawDetailAsync(int $pwId, int $userId)
+    {
+        return EellyClient::request('pay/withdraw', 'getWithdrawDetail', false, $pwId, $userId);
     }
 
     /**

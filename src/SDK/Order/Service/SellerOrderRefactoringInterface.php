@@ -19,7 +19,7 @@ use Eelly\DTO\UidDTO;
  * 卖家订单功能.(重构)
  *
  * @author hehui<hehui@eelly.com>
- * @author hehui<zhangyingdi@eelly.com>
+ * @author zhangyingdi<zhangyingdi@eelly.com>
  */
 interface SellerOrderRefactoringInterface
 {
@@ -553,6 +553,7 @@ interface SellerOrderRefactoringInterface
      * @return array 订单列表
      *
      * @author hehui<hehui@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * @requestExample({"orderId": 160})
      *
@@ -658,4 +659,51 @@ interface SellerOrderRefactoringInterface
      * )
      */
     public function listMergerOrders(int $orderId, UidDTO $uidDTO = null): array;
+
+    /**
+     * 卖家修改订单价格
+     *
+     * @param int $orderId 订单id
+     * @param int $price  修改后的订单价格
+     * @param int $freight 修改后的运费
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": 160, "price":1000, "freight":10})
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.08.31
+     */
+    public function changeOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 卖家取消订单
+     *
+     * @param int $orderId  订单id
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.11
+     */
+    public function cancelOrder(int $orderId, UidDTO $uidDTO):bool;
+
+    /**
+     * 添加物流信息跟修改物流信息接口
+     *
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo  送货单号
+     * @param array $orderIds  订单id列表
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"invoiceCode": "sf", "invoiceName":"顺丰", "invoiceNo":"12334454", "orderIds":[116,117]})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.11
+     */
+    public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool;
 }

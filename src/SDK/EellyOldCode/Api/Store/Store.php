@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class Store.
  *
- * var/eelly-old-code/modules/Store/Service/StoreService.php
+ *  modules/Goods/Service/GoodsService.php
  *
  * @author hehui<hehui@eelly.net>
  */
@@ -152,5 +152,50 @@ class Store
     public function sellerStoreIndexForV1($storeId)
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
+    }
+
+    /**
+     * 根据店铺Id数组查店铺实体认证信息.
+     *
+     * @param array $storeIds
+     *
+     * @return array
+     *
+     * @author wuhao <wuhao@eelly.net>
+     *
+     * @since 2015-11-21
+     */
+    public function getRegionInfoByStoreIds(array $storeIds)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
+    }
+
+    /**
+     * 店铺起批数量
+     *
+     * @param integer $storeId 店铺id
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.10
+     */
+    public function getQuantity(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
+    }
+
+    /**
+     * 更新店铺佣金比率
+     *
+     * @param int   $storeId        店铺ID
+     * @param float $commissionRate 佣金比率
+     * @return mixed
+     *
+     * @author zhangyangxun
+     * @since 2018-09-11
+     */
+    public function saveStoreCommissionRate(int $storeId, float $commissionRate)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $commissionRate);
     }
 }

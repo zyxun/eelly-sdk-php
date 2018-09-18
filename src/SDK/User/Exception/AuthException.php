@@ -39,4 +39,9 @@ class AuthException extends LogicException
     public const NO_PERMISSIONS = '没有该权限操作';
 
     public const PARAMETER_EMPTY = '参数不能为空';
+
+    /**
+     * 未实名认证
+     */
+    public const NOT_VERIFIED = '未实名认证';
 }

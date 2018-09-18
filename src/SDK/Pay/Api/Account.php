@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Pay\DTO\AccountDTO;
 use Eelly\SDK\Pay\Service\AccountInterface;
+use Eelly\SDK\Pay\DTO\AccountDTO;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Account implements AccountInterface
@@ -456,97 +456,195 @@ class Account implements AccountInterface
     }
 
     /**
-     * 我的余额，管理=》app资金管理.
+     * 获取店+账号资金管理
      *
      * ### 返回数据说明
      *
-     * 字段|类型|说明
-     * ---------------------|-------|--------------
-     * money                |string |账户可用金额：单位为元
-     * frozenMoney          |string |账户冻结金额：单位为元
-     * isWechatBindPurse    |string |是否绑定微信钱包（FALSE.否，TRUE.是）
-     * wechatNickname       |string |微信昵称
-     * bindMobile           |bool   |绑定的手机号（FALSE.否，TRUE.是）
-     * isSetPayPwd          |bool   |是否设置密码（FALSE.否，TRUE.是）
-     * isCapitalFreeze      |bool   |是否资金被冻结（FALSE.否，TRUE.是）
-     * limitedFunctionality |bool   |提现是否受限 （FALSE.不受限，TRUE.受限）
-     *
-     * @param int         $storeId 店铺ID,如果是店铺ID
+     * key | type | value
+     * --- | ---- | -----
+     * withdrawCapitalFreeze    | bool      | 冻结提现 true:是，false:否
+     * limitedFunctionality     | int       | 提现受限
+     * auditStatus              | int       | 是否实名认证 0:否，1:通过
+     * setPayPassword           | bool      | 是否设置了支付密码
+     * mobile                   | string    | 绑定的手机号码
+     * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
+     * nickname     | string | 微信昵称 isBindWechat为true才出现
+     * money        | float  | 账号余额
+     * frozenMoney  | float  | 账号冻结金额
+     * 
+     * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
-     *
      * @return array
-     * @requestExample({
-     *     "storeId":1
-     * })
-     * @returnExample({
-     *     "money":"0.02",
-     *     "frozenMoney":"0.01",
-     *     "isWechatBindPurse":"true",
-     *     "wechatNickname":"molimoq",
-     *     "bindMobile":"13800138000",
-     *     "isSetPayPwd":true,
-     *     "isCapitalFreeze":true,
-     *     "limitedFunctionality": true
-     * })
+     * 
+     * @requestExample({"storeId":"0"})
+     * @returnExample({"withdrawCapitalFreeze":"false","limitedFunctionality":"0","auditStatus":"1","setPayPassword":"true","mobile":"15018759997","isBindWechat":"true","nickname":"nickname","money":"0.00","frozenMoney":"0.00"})
      *
-     * @author 肖俊明<xiaojunming@eelly.net>
-     *
-     * @since 2017年11月09日
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
      */
-    public function getAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array
+    public function getBuyerAccountMoneyManage(int $storeId = 0, UidDTO $user = null): array
     {
-        return EellyClient::request('pay/account', 'getAccountMoneyManage', true, $storeId, $user);
+        return EellyClient::request('pay/account', 'getBuyerAccountMoneyManage', true, $storeId, $user);
     }
 
     /**
-     * 我的余额，管理=》app资金管理.
+     * 获取店+账号资金管理
      *
      * ### 返回数据说明
      *
-     * 字段|类型|说明
-     * ---------------------|-------|--------------
-     * money                |string |账户可用金额：单位为元
-     * frozenMoney          |string |账户冻结金额：单位为元
-     * isWechatBindPurse    |string |是否绑定微信钱包（FALSE.否，TRUE.是）
-     * wechatNickname       |string |微信昵称
-     * bindMobile           |bool   |绑定的手机号（FALSE.否，TRUE.是）
-     * isSetPayPwd          |bool   |是否设置密码（FALSE.否，TRUE.是）
-     * isCapitalFreeze      |bool   |是否资金被冻结（FALSE.否，TRUE.是）
-     * limitedFunctionality |bool   |提现是否受限 （FALSE.不受限，TRUE.受限）
-     *
-     * @param int         $storeId 店铺ID,如果是店铺ID
+     * key | type | value
+     * --- | ---- | -----
+     * withdrawCapitalFreeze    | bool      | 冻结提现 true:是，false:否
+     * limitedFunctionality     | int       | 提现受限
+     * auditStatus              | int       | 是否实名认证 0:否，1:通过
+     * setPayPassword           | bool      | 是否设置了支付密码
+     * mobile                   | string    | 绑定的手机号码
+     * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
+     * nickname     | string | 微信昵称 isBindWechat为true才出现
+     * money        | float  | 账号余额
+     * frozenMoney  | float  | 账号冻结金额
+     * 
+     * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
-     *
      * @return array
-     * @requestExample({
-     *     "storeId":1
-     * })
-     * @returnExample({
-     *     "money":"0.02",
-     *     "frozenMoney":"0.01",
-     *     "isWechatBindPurse":"true",
-     *     "wechatNickname":"molimoq",
-     *     "bindMobile":"13800138000",
-     *     "isSetPayPwd":true,
-     *     "isCapitalFreeze":true,
-     *     "limitedFunctionality": true
-     * })
+     * 
+     * @requestExample({"storeId":"0"})
+     * @returnExample({"withdrawCapitalFreeze":"false","limitedFunctionality":"0","auditStatus":"1","setPayPassword":"true","mobile":"15018759997","isBindWechat":"true","nickname":"nickname","money":"0.00","frozenMoney":"0.00"})
      *
-     * @author 肖俊明<xiaojunming@eelly.net>
-     *
-     * @since 2017年11月09日
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
      */
-    public function getAccountMoneyManageAsync(int $storeId = 0, UidDTO $user = null)
+    public function getBuyerAccountMoneyManageAsync(int $storeId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('pay/account', 'getAccountMoneyManage', false, $storeId, $user);
+        return EellyClient::request('pay/account', 'getBuyerAccountMoneyManage', false, $storeId, $user);
     }
 
     /**
-     * {@inheritdoc}
+     * 同步数据.
+     *
+     * @param array $data
+     * @param int   $type
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function synchrodata(array $data, int $type): bool
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $data, $type);
+        return EellyClient::request('pay/account', 'synchrodata', true, $data, $type);
+    }
+
+    /**
+     * 同步数据.
+     *
+     * @param array $data
+     * @param int   $type
+     *
+     * @return bool
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function synchrodataAsync(array $data, int $type)
+    {
+        return EellyClient::request('pay/account', 'synchrodata', false, $data, $type);
+    }
+
+    /**
+     * 绑定微信钱包
+     * 
+     * > data数据说明
+     * key | type | value 
+     * --- | ---- | ----
+     * openId | string | 微信公众平台id
+     * nickname | string | 微信昵称
+     * unionId | string | 微信公众平台唯一id
+     * appId | string | 微信平台appId
+     * token | string | token(未使用)
+     * 
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * nickname | string | 微信昵称
+     * 
+     * @param array $data 请求所需数据
+     * @param integer $storeId 店铺id 0:店+ 非0:厂家
+     * @param UidDTO $user 登陆的账号
+     * @return boolean
+     * 
+     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickname":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]}})
+     * @returnExample("hello world")
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function bindWechat(array $data, int $storeId = 0, UidDTO $user = null): string
+    {
+        return EellyClient::request('pay/account', 'bindWechat', true, $data, $storeId, $user);
+    }
+
+    /**
+     * 绑定微信钱包
+     * 
+     * > data数据说明
+     * key | type | value 
+     * --- | ---- | ----
+     * openId | string | 微信公众平台id
+     * nickname | string | 微信昵称
+     * unionId | string | 微信公众平台唯一id
+     * appId | string | 微信平台appId
+     * token | string | token(未使用)
+     * 
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * nickname | string | 微信昵称
+     * 
+     * @param array $data 请求所需数据
+     * @param integer $storeId 店铺id 0:店+ 非0:厂家
+     * @param UidDTO $user 登陆的账号
+     * @return boolean
+     * 
+     * @requestExample({"data":{["openId":"qwertyuiopsdfghj","nickname":"hello world","unionId":"oldRYuK7MV6d8uyEO3q16cdav3jo","appId":"wxdd557bb66b43f811"]}})
+     * @returnExample("hello world")
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function bindWechatAsync(array $data, int $storeId = 0, UidDTO $user = null)
+    {
+        return EellyClient::request('pay/account', 'bindWechat', false, $data, $storeId, $user);
+    }
+
+    /**
+     * 校验密码是否正确.
+     *
+     * @param integer $userId 用户的id
+     * @param string $payPassword 支付密码
+     * @param integer $storeId 店铺id 默认0:店家 非0:厂家
+     * @return bool
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.5
+     */
+    public function checkPayPassword(int $userId, string $payPassword, int $storeId = 0): bool
+    {
+        return EellyClient::request('pay/account', 'checkPayPassword', true, $userId, $payPassword, $storeId);
+    }
+
+    /**
+     * 校验密码是否正确.
+     *
+     * @param integer $userId 用户的id
+     * @param string $payPassword 支付密码
+     * @param integer $storeId 店铺id 默认0:店家 非0:厂家
+     * @return bool
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.5
+     */
+    public function checkPayPasswordAsync(int $userId, string $payPassword, int $storeId = 0)
+    {
+        return EellyClient::request('pay/account', 'checkPayPassword', false, $userId, $payPassword, $storeId);
     }
 
     /**

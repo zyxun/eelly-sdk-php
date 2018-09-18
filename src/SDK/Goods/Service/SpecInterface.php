@@ -186,4 +186,19 @@ interface SpecInterface
      * @since 2017年11月3日
      */
     public function updateStock(array $goodsData): bool;
+
+    /**
+     * 根据订单ID，取消订单对应的商品库存
+     *
+     * @param int $orderId 订单id
+     * @param int $sellerId 卖家id
+     * @return bool
+     *
+     * @requestExample({"orderId":5000034,"sellerId":148086})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.12
+     */
+    public function updateGoodsStock(int $orderId, int $sellerId):bool;
 }
