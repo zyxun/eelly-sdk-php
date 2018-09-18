@@ -706,4 +706,40 @@ interface SellerOrderRefactoringInterface
      * @since 2018.09.11
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 根据订单id获取订单收货地址信息
+     *
+     * @param int $orderId 订单id
+     * @param UidDTO|null $uidDTO
+     * @return array
+     *
+     * @requestExample({"orderId": 50001744 })
+     * @returnExample({"orderId":"2","consignee":"test","gbCode":"510000","regionName":"\u5e7f\u4e1c","address":"test","zipcode":"123456","mobile":"","phone":"13430245645"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.18
+     */
+    public function getOrderInvoiceData(int $orderId, UidDTO $uidDTO):array;
+
+    /**
+     * 卖家更新买家的收货地址信息
+     *
+     * @param int $orderId  订单id
+     * @param array $invoiceData 收货地址信息
+     * @param string $invoiceData["regionName"] 省市区中文
+     * @param string $invoiceData["address"] 详细地址
+     * @param string $invoiceData["mobile"] 手机号码
+     * @param string $invoiceData["consignee"] 收货人姓名
+     * @param string $invoiceData["gbCode"] 地区编码id
+     * @param UidDTO $uidDTO
+     * @return bool
+     *
+     * @requestExample({"orderId": 50001744, "invoiceData":{"regionName":"广东省 广州市 越秀区","address":"test","mobile":"13430245645","consignee":"demo","gbCode":"440104"}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.18
+     */
+    public function updateOrderInvoiceData(int $orderId, array $invoiceData, UidDTO $uidDTO):bool;
 }
