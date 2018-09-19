@@ -25,7 +25,39 @@ interface BuyerOrderInterface
     /**
      * 订单分页(买家).
      *
-     * @param int          $tab                            订单状态筛选值(0: 全部订单 1: 代付款 2: 待分享 3: 待发货 4: 待收货 5: 待评价 6: 退货退款中)
+     * > 返回数据(orderStats 订单统计数据)说明
+     *
+     * 参数     | 类型 | 说明
+     * -------- | -------- |-----
+     * needPay |  int | 待付款
+     * needShare | int | 待分享
+     * needShipping | int | 待发货
+     * needReceiving | int | 待收货
+     * needReview     | int | 待评价
+     * refunding    | int | 退货退款中
+     *
+     * > 返回数据(page 分页数据)说明
+     *
+     * 参数     | 类型 | 说明
+     * -------- | -------- |-----
+     *  first  | int | 首页
+     *  before | int | 上一页
+     * current | int   |  当前页
+     * next |int | 下一页
+     *  totalPages | int | 总页数
+     * totalItems | int | 总记录数
+     * limit |int | 分页大小
+     * items | list | 订单数据列表
+     *
+     * > 返回数据(page.items[] 订单数据列表)说明
+     *
+     *  参数     | 类型 | 说明
+     * -------- | -------- |-----
+     * goodsList | list  | 订单商品列表
+     * bizData   | map   | <http://runphp.net/api.eelly.com/order-status.html>
+     *
+     *
+     * @param int          $tab                            订单状态筛选值(0: 全部订单 1: 待付款 2: 待分享 3: 待发货 4: 待收货 5: 待评价 6: 退货退款中)
      * @param int          $page                           第几页
      * @param int          $limit                          分页大小
      * @param array|string $searchParams                   搜索参数(类型为array时进行精确搜索)
@@ -47,12 +79,12 @@ interface BuyerOrderInterface
      *
      * @returnExample({
      *    "orderStats": {
-     *        "needPay": 0,
-     *        "needShare": "2",
-     *        "needShipping": "0",
-     *        "needReceiving": 0,
-     *        "needRefund": 0,
-     *        "needEvaluate": 0
+     *         "needPay": 55,
+     *         "needShare": "7",
+     *         "needShipping": "28",
+     *         "needReceiving": 16,
+     *         "needReview": 44,
+     *         "refunding": 25
      *    },
      *    "page": {
      *        "first": 1,
