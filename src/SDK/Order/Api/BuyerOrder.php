@@ -25,9 +25,9 @@ class BuyerOrder implements BuyerOrderInterface
     /**
      * {@inheritdoc}
      */
-    public function orderPage(int $tab = 0, int $page = 1, int $limit = 20, $searchParams = null, UidDTO $uidDTO = null): array
+    public function orderPage(int $tab = 0, int $page = 1, int $limit = 20, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $tab, $page, $limit, $searchParams);
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $tab, $page, $limit, $searchParams, $orderBy);
     }
 
     /**
