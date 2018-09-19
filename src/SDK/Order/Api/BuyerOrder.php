@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -71,7 +72,7 @@ class BuyerOrder implements BuyerOrderInterface
      * @param string $desc        退款说明
      * @param string $certificate 退款凭证 图片，多图用#拼接
      *
-     * @return boolean
+     * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
@@ -90,7 +91,7 @@ class BuyerOrder implements BuyerOrderInterface
      * @param string $desc        退款说明
      * @param string $certificate 退款凭证 图片，多图用#拼接
      *
-     * @return boolean
+     * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
@@ -498,7 +499,7 @@ class BuyerOrder implements BuyerOrderInterface
      *
      * @param int $orderId 订单id
      *
-     * @return boolean
+     * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
@@ -512,7 +513,7 @@ class BuyerOrder implements BuyerOrderInterface
      *
      * @param int $orderId 订单id
      *
-     * @return boolean
+     * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
@@ -530,7 +531,7 @@ class BuyerOrder implements BuyerOrderInterface
      * @param string $invoiceName 快递公司
      * @param string $invoiceNo   订单编号
      *
-     * @return boolean
+     * @return bool
      * @requestExample(
      * {
      *      "orderId":"116",
@@ -557,7 +558,7 @@ class BuyerOrder implements BuyerOrderInterface
      * @param string $invoiceName 快递公司
      * @param string $invoiceNo   订单编号
      *
-     * @return boolean
+     * @return bool
      * @requestExample(
      * {
      *      "orderId":"116",
@@ -720,7 +721,7 @@ class BuyerOrder implements BuyerOrderInterface
      * @param string $invoiceName 送货公司的名称
      * @param string $invoiceNo   送货单号
      *
-     * @return boolean
+     * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
@@ -738,7 +739,7 @@ class BuyerOrder implements BuyerOrderInterface
      * @param string $invoiceName 送货公司的名称
      * @param string $invoiceNo   送货单号
      *
-     * @return boolean
+     * @return bool
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
@@ -891,116 +892,6 @@ class BuyerOrder implements BuyerOrderInterface
     public function orderRefundMoneyAsync(int $orderId)
     {
         return EellyClient::request('order/buyerOrder', 'orderRefundMoney', false, $orderId);
-    }
-
-    /**
-     * 集赞不足人数提醒 (支付后22小时未集赞成功，则立刻发送提醒通知).
-     *
-     * @param int $limit 每次处理的数量
-     *
-     * @return array
-     *
-     * @requestExample({"limit":"50"})
-     * @returnExample([{"orderId":"50001659","buyerId":"2108412","requireLikes":"1","payTime":"1531724066","likes":"0"},{"orderId":"50001706","buyerId":"2848170","requireLikes":"1","payTime":"1532066230","likes":null}])
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     *
-     * @since 2018.08.28
-     */
-    public function listOrderCollectionNotEnough(int $limit = 50): array
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $limit);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function listOrderCollectionNotEnoughAsync(int $limit = 50): array
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $limit);
-    }
-
-    /**
-     * 更新订单的消息通知标志.
-     *
-     * @param int $orderId    订单id
-     * @param int $noticeFlag 消息通知标志
-     *
-     * @return bool
-     *
-     * @requestExample({"orderId":"50001707", "noticeFlag":8})
-     * @returnExample(true)
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     *
-     * @since 2018.08.28
-     */
-    public function updateOrderNoticeFlag(int $orderId, int $noticeFlag): bool
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId, $noticeFlag);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function updateOrderNoticeFlagAsync(int $orderId, int $noticeFlag): bool
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $orderId, $noticeFlag);
-    }
-
-    /**
-     * 集赞不足人数提醒 (支付后22小时未集赞成功，则立刻发送提醒通知).
-     *
-     * @param int $limit 每次处理的数量
-     *
-     * @return array
-     *
-     * @requestExample({"limit":"50"})
-     * @returnExample([{"orderId":"50001659","buyerId":"2108412","requireLikes":"1","payTime":"1531724066","likes":"0"},{"orderId":"50001706","buyerId":"2848170","requireLikes":"1","payTime":"1532066230","likes":null}])
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     *
-     * @since 2018.08.28
-     */
-    public function listOrderCollectionNotEnough(int $limit = 50): array
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $limit);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function listOrderCollectionNotEnoughAsync(int $limit = 50): array
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $limit);
-    }
-
-    /**
-     * 更新订单的消息通知标志.
-     *
-     * @param int $orderId    订单id
-     * @param int $noticeFlag 消息通知标志
-     *
-     * @return bool
-     *
-     * @requestExample({"orderId":"50001707", "noticeFlag":8})
-     * @returnExample(true)
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     *
-     * @since 2018.08.28
-     */
-    public function updateOrderNoticeFlag(int $orderId, int $noticeFlag): bool
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId, $noticeFlag);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function updateOrderNoticeFlagAsync(int $orderId, int $noticeFlag): bool
-    {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $orderId, $noticeFlag);
     }
 
     /**
