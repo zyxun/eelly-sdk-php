@@ -95,7 +95,7 @@ interface SellerRefundInterface
      * @param UidDTO $uidDTO
      * @return bool
      *
-     * @requestExample({"orderId":5000214, "addressData":{"address":"test","consignee":"demo","phone":"13430245645","mobile":"","region_name":"gz","code":"510000"}})
+     * @requestExample({"orderId":5000214, "addressData":{"address":"test","consignee":"demo","phone":"13430245645","mobile":"","regionName":"gz","code":"510000"}})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
