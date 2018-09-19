@@ -35,6 +35,8 @@ interface AppletAccountInterface
      * waitingSettlementMoney  | int    | 等待结算(分)
      * payingMoney             | int    | 累计支出(分)
      * orderCount              | int    | 小程序订单数
+     * limitedFunctionality    | int    | 提现是否受限 1:是，0:否
+     * certificationStatus     | int    | 是否实名 1:是，0:否
      *
      * @param int $storeId 店铺id
      *

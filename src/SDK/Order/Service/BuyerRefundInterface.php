@@ -248,10 +248,12 @@ interface BuyerRefundInterface
      * storeId          | int    | 店铺id
      * storeName        | string | 店铺名称
      * createdTime      | date   | 下单时间
+     * shiped           | bool   | 是否发货 true:是，false:否
      * payTime          | date   | 支付时间
      * cancelTime       | date   | 撤销退货退款时间
      * finishedTime     | date   | 完成退货退款时间
      * updateTime       | date   | 退货退款更新时间
+     * shipTime         | date   | 发货时间
      * countLogs        | int    | 协商记录总数
      * statusContent    | string | 状态说明
      * status           | int    | 状态
@@ -311,7 +313,7 @@ interface BuyerRefundInterface
      * @return array
      * 
      * @requestExample({"orderId":"50001744"})
-     * @returnExample({"orderId":50001744,"osId":"4","orderSn":"2153604432213748","orOsId":"22","applyAmount":"100","orType":"1","remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86","certificate":["123.jpg","456.jpg","789.jpg"],"storeId":"148086","storeName":"\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97","createdTime":"2018-09-04 14:58:42","payTime":"","cancelTime":"","shipTime":"1970-01-01 08:02:03","finishedTime":"","statusContent":"\u6211\u5df2\u7533\u8bf7\u8863\u8054\u5ba2\u670d\u4ecb\u5165","status":9,"firstRequestTime":"2018-09-14 15:57:06","lastRequestTime":"2018-09-14 18:37:52","countLogs":14,"countDown":0,"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","quantity":"1","sourceQuantity":"3","goodsId":"1450168197","price":"2900","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022004","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","quantity":"1","sourceQuantity":"1","goodsId":"1450168334","price":"11100","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022184","discountAmount":10626}]}]})
+     * @returnExample({"orderId":50001744,"osId":"4","orderSn":"2153604432213748","orOsId":"22","applyAmount":"100","orType":"1","remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86","certificate":["123.jpg","456.jpg","789.jpg"],"storeId":"148086","storeName":"\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97","createdTime":"2018-09-04 14:58:42","shiped":"true","payTime":"","cancelTime":"","shipTime":"1970-01-01 08:02:03","finishedTime":"","statusContent":"\u6211\u5df2\u7533\u8bf7\u8863\u8054\u5ba2\u670d\u4ecb\u5165","status":9,"firstRequestTime":"2018-09-14 15:57:06","lastRequestTime":"2018-09-14 18:37:52","countLogs":14,"countDown":0,"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","quantity":"1","sourceQuantity":"3","goodsId":"1450168197","price":"2900","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022004","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","quantity":"1","sourceQuantity":"1","goodsId":"1450168334","price":"11100","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022184","discountAmount":10626}]}]})
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.13
