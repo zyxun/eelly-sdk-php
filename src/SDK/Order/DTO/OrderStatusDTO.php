@@ -23,6 +23,20 @@ use Eelly\DTO\AbstractDTO;
 class OrderStatusDTO extends AbstractDTO
 {
     /**
+     * 业务状态码.
+     *
+     * @var int
+     */
+    public $bizCode = 0;
+
+    /**
+     * 数据库状态码.
+     *
+     * @var int
+     */
+    public $orderStatus = 0;
+
+    /**
      * 订单状态标题.
      *
      * @var string
@@ -77,6 +91,46 @@ class OrderStatusDTO extends AbstractDTO
      * @var array
      */
     public $actions = [];
+
+    /**
+     * @return int
+     */
+    public function getBizCode(): int
+    {
+        return $this->bizCode;
+    }
+
+    /**
+     * @param int $bizCode
+     *
+     * @return OrderStatusDTO
+     */
+    public function setBizCode(int $bizCode): self
+    {
+        $this->bizCode = $bizCode;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrderStatus(): int
+    {
+        return $this->orderStatus;
+    }
+
+    /**
+     * @param int $orderStatus
+     *
+     * @return OrderStatusDTO
+     */
+    public function setOrderStatus(int $orderStatus): self
+    {
+        $this->orderStatus = $orderStatus;
+
+        return $this;
+    }
 
     /**
      * @return string
