@@ -67,6 +67,7 @@ interface BuyerOrderInterface
      * @param string       $searchParams['goodsname']      商品名或货号
      * @param int          $searchParams['ordertimeStart'] 下单开始时间戳
      * @param int          $searchParams['ordertimeEnd']   下单结束时间戳
+     * @param string       $orderBy                        排序
      * @param UidDTO|null  $uidDTO                         uid dto
      *
      * @return array
@@ -78,71 +79,141 @@ interface BuyerOrderInterface
      * })
      *
      * @returnExample({
-     *    "orderStats": {
-     *         "needPay": 55,
-     *         "needShare": "7",
-     *         "needShipping": "28",
-     *         "needReceiving": 16,
-     *         "needReview": 44,
-     *         "refunding": 25
-     *    },
-     *    "page": {
-     *        "first": 1,
-     *        "before": 1,
-     *        "current": 1,
-     *        "last": 1,
-     *        "next": 1,
-     *        "totalPages": 1,
-     *        "totalItems": 2,
-     *        "limit": 20,
-     *        "items": [
-     *            {
-     *                "orderId": "50001725",
-     *                "orderSn": "1820789598",
-     *                "sellerName": "liping415",
-     *                "osId": "2",
-     *                "sellerId": 1762483,
-     *                "requireLikes": "3",
-     *                "likes": 0,
-     *                "evaluation": null,
-     *                "orderAmount": "1",
-     *                "extension": "1",
-     *                "freight": "0",
-     *                "createdTime": 1532679483,
-     *                "initGoodsAmount": "1",
-     *                "initFreight": "0",
-     *                "ordOsId": null,
-     *                "ordType": null,
-     *                "applyAmount": null,
-     *                "phase": null,
-     *                "avatar": "https://img01.eelly.test/",
-     *                "orderStatus": 2,
-     *                "createdDate": "2018-07-27",
-     *                "goodsList": [
-     *                    {
-     *                        "ogId": "20001404",
-     *                        "orderId": "50001725",
-     *                        "goodsId": 1450168318,
-     *                        "gsId": "195023188",
-     *                        "price": "1",
-     *                        "quantity": "1",
-     *                        "goodsName": "新款",
-     *                        "goodsImage": "https://img04.eelly.test/G02/M00/00/03/small_ooYBAFs178uIZh3DAAHO_47QgP8AAABgwMQlfcAAc8X589.jpg",
-     *                        "goodsNumber": "",
-     *                        "spec": "颜色:如图色,尺码:均码",
-     *                        "createdTime": "1532679483",
-     *                        "updateTime": "2018-07-27 16:18:03"
-     *                    }
-     *                ],
-     *                "ifRefund": 0
-     *            }
-     *        ]
-     *    }
-     *  })
+     *   "orderStats": {
+     *       "needPay": 55,
+     *       "needShare": "7",
+     *       "needShipping": "28",
+     *       "needReceiving": 16,
+     *       "needReview": 44,
+     *       "refunding": 25
+     *   },
+     *   "page": {
+     *       "first": 1,
+     *       "before": 1,
+     *       "current": 1,
+     *       "last": 290,
+     *       "next": 2,
+     *       "totalPages": 290,
+     *       "totalItems": 580,
+     *       "limit": 2,
+     *       "items": [
+     *           {
+     *               "orderId": "50001771",
+     *               "orderSn": "2153610960734762",
+     *               "sellerName": "test店铺测试",
+     *               "osId": "1",
+     *               "sellerId": 1760467,
+     *               "requireLikes": "0",
+     *               "likes": 0,
+     *               "evaluation": null,
+     *               "orderAmount": "4",
+     *               "extension": "0",
+     *               "freight": "0",
+     *               "createdTime": 1536109607,
+     *               "initGoodsAmount": "4",
+     *               "initFreight": "0",
+     *               "ordOsId": null,
+     *               "ordType": null,
+     *               "applyAmount": null,
+     *               "phase": null,
+     *               "avatar": "https://img01.eelly.test/G01/M00/00/05/oYYBAFdpAAWIFasdAAfT9dJT_v8AAAB_AF-kL4AB9QN974.jpg",
+     *               "createdDate": "2018-09-05",
+     *               "goodsList": [
+     *                   {
+     *                       "ogId": "20001443",
+     *                       "orderId": "50001771",
+     *                       "goodsId": 5578945,
+     *                       "gsId": "32090871",
+     *                       "price": "4",
+     *                       "quantity": "1",
+     *                       "goodsName": "测试物流",
+     *                       "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFtj9v-IMrTHAAGaI_vzPwkAAABhAGNYDoAAZo7382.jpg",
+     *                       "goodsNumber": "007",
+     *                       "spec": "颜色:如图色,尺码:均码",
+     *                       "createdTime": "1536109607",
+     *                       "updateTime": "2018-09-05 09:06:47"
+     *                   }
+     *               ],
+     *               "styleCount": 1,
+     *               "totalCount": 1,
+     *               "bizData": {
+     *                   "bizCode": 0,
+     *                   "orderStatus": 0,
+     *                   "title": "等待我付款",
+     *                   "text": "等待我付款",
+     *                   "countDown": -1148852,
+     *                   "countDownTpl": "请在{time}内付款，逾期系统自动取消订单",
+     *                   "express": "",
+     *                   "expressTime": 0,
+     *                   "note": "",
+     *                   "actions": [
+     *                       "cancel",
+     *                       "pay"
+     *                   ]
+     *               }
+     *           },
+     *           {
+     *               "orderId": "50001770",
+     *               "orderSn": "2153606366343926",
+     *               "sellerName": "test店铺测试",
+     *               "osId": "1",
+     *               "sellerId": 1760467,
+     *               "requireLikes": "1",
+     *               "likes": 0,
+     *               "evaluation": null,
+     *               "orderAmount": "1990",
+     *               "extension": "1",
+     *               "freight": "0",
+     *               "createdTime": 1536063663,
+     *               "initGoodsAmount": "1990",
+     *               "initFreight": "0",
+     *               "ordOsId": null,
+     *               "ordType": null,
+     *               "applyAmount": null,
+     *               "phase": null,
+     *               "avatar": "https://img01.eelly.test/G01/M00/00/05/oYYBAFdpAAWIFasdAAfT9dJT_v8AAAB_AF-kL4AB9QN974.jpg",
+     *               "createdDate": "2018-09-04",
+     *               "goodsList": [
+     *                   {
+     *                       "ogId": "20001442",
+     *                       "orderId": "50001770",
+     *                       "goodsId": 5578945,
+     *                       "gsId": "32090871",
+     *                       "price": "1990",
+     *                       "quantity": "1",
+     *                       "goodsName": "测试物流",
+     *                       "goodsImage": "https://img01.eelly.test/G02/M00/00/03/small_ooYBAFtj9v-IMrTHAAGaI_vzPwkAAABhAGNYDoAAZo7382.jpg",
+     *                       "goodsNumber": "007",
+     *                       "spec": "颜色:如图色,尺码:均码",
+     *                       "createdTime": "1536063663",
+     *                       "updateTime": "2018-09-04 20:21:03"
+     *                   }
+     *               ],
+     *               "styleCount": 1,
+     *               "totalCount": 1,
+     *               "bizData": {
+     *                   "bizCode": 0,
+     *                   "orderStatus": 0,
+     *                   "title": "等待我付款",
+     *                   "text": "等待我付款",
+     *                   "countDown": -1194796,
+     *                   "countDownTpl": "请在{time}内付款，逾期系统自动取消订单",
+     *                   "express": "",
+     *                   "expressTime": 0,
+     *                   "note": "",
+     *                   "actions": [
+     *                       "cancel",
+     *                       "pay"
+     *                   ]
+     *               }
+     *           }
+     *       ]
+     *   }
+     *})
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function orderPage(int $tab = 0, int $page = 1, int $limit = 20, $searchParams = null, UidDTO $uidDTO = null): array;
+    public function orderPage(int $tab = 0, int $page = 1, int $limit = 20, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array;
 
     /**
      * 订单详情(买家).
