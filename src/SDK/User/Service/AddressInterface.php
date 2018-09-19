@@ -228,14 +228,17 @@ interface AddressInterface
      * @param string  $data['detailInfo'] 收货详细地址
      * @param string  $data['telNumber'] 收货人手机号码
      * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
-     * @param string  $data['regionId'] 地区id
+     * @param string  $data['zipCode'] 邮政编码
+     * @param string  $data['provinceName'] 省份
+     * @param string  $data['cityName'] 市
+     * @param string  $data['countyName'] 区
+     * 
      * @param UidDTO $user 用户信息
      * 
      * @return bool
-     * @returnExample(true)
      *
      * @author wechan
-     * @since 2018年09月18日     
+     * @since 2018年09月18日
      */
     public function saveUserAddress(array $data, UidDTO $user = null): bool;
     
