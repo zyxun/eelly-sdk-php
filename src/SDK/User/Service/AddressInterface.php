@@ -228,7 +228,7 @@ interface AddressInterface
      * @param string  $data['detailInfo'] 收货详细地址
      * @param string  $data['telNumber'] 收货人手机号码
      * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
-     * @param string  $data['zipCode'] 邮政编码
+     * @param string  $data['postalCode'] 邮政编码
      * @param string  $data['provinceName'] 省份
      * @param string  $data['cityName'] 市
      * @param string  $data['countyName'] 区
