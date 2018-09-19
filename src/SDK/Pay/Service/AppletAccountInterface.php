@@ -37,6 +37,7 @@ interface AppletAccountInterface
      * orderCount              | int    | 小程序订单数
      * limitedFunctionality    | int    | 提现是否受限 1:是，0:否
      * certificationStatus     | int    | 是否实名 1:是，0:否
+     * isSetPayPass            | bool   | 是否设置支付密码 true:设置，false:未设置
      *
      * @param int $storeId 店铺id
      *
