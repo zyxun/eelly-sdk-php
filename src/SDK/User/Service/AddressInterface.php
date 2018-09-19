@@ -206,7 +206,7 @@ interface AddressInterface
     
     /**
      * 
-     * 小程序设置默认收货地址
+     * 设置默认收货地址
      * 
      * @param int $addrId 地址id
      * @param UidDTO $user 用户信息
@@ -243,7 +243,7 @@ interface AddressInterface
     public function saveUserAddress(array $data, UidDTO $user = null): bool;
     
     /**
-     * 获取小程序用户收货地址列表
+     * 获取用户收货地址列表
      * 
      * @param UidDTO $user 用户信息
      * 
