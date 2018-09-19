@@ -82,6 +82,34 @@ class Refund implements RefundInterface
     }
 
     /**
+     * 非微信的退款，需要财务协作
+     *
+     * @param array $data 请求所需的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.19
+     */
+    public function refundNotWechat(array $data): bool
+    {
+        return EellyClient::request('pay/refund', 'refundNotWechat', true, $data);
+    }
+
+    /**
+     * 非微信的退款，需要财务协作
+     *
+     * @param array $data 请求所需的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.19
+     */
+    public function refundNotWechatAsync(array $data)
+    {
+        return EellyClient::request('pay/refund', 'refundNotWechat', false, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

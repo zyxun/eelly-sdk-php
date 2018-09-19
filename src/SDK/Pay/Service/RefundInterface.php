@@ -46,4 +46,15 @@ interface RefundInterface
      */
     public function goRefundPay(array $data): bool;
 
+    /**
+     * 非微信的退款，需要财务协作
+     *
+     * @param array $data 请求所需的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.19
+     */
+    public function refundNotWechat(array $data):bool;
+
 }

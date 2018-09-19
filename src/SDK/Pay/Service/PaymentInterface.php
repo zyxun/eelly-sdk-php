@@ -167,4 +167,32 @@ interface PaymentInterface
      * @since 2018年04月17日
      */
     public function batchConsumePayment(array $data): bool;
+
+    /**
+     * 通过类型和关联id获取支付交易流水表
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * ppId        | int    | 支付交易id
+     * paId        | int    | 会员资金账号
+     * type        | int    | 支付类型：1 订单支付 2 购买服务 3 诚保冻结
+     * itemId      | int    | 关联对象ID：如订单ID、购买服务记录ID等
+     * billNo      | string | 交易号
+     * money       | int    | 支付金额
+     * precId      | int    | 支付批次：pay_recharge->prec_id，合并支付交易批次相同，纯余额支付为0
+     * status      | int    | 处理状态：0 未处理 1 成功 2 失败
+     * remark      | string | 备注
+     * createdTime | int    | 添加时间
+     * updateTime  | date   | 更新时间
+     *
+     * @param integer $itemId 关联id 如订单号
+     * @param integer $type 支付类型：1 订单支付 2 购买服务 3 诚保冻结
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.19
+     */
+    public function getPaymentByItemIdAndType(int $itemId, int $type):array;
 }
