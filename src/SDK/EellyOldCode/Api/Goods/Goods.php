@@ -91,6 +91,8 @@ class Goods
      * 小程序零售化 获取推荐商品.
      *
      * @param array $goodsIds 商品ID
+     * @param int   $page  页码
+     * @param int   $limit 条数
      *
      * @return array
      *
@@ -98,8 +100,8 @@ class Goods
      *
      * @since  2018年08月24日
      */
-    public function getRememberGoodsData(array $goodsIds): array
+    public function getRememberGoodsData(array $goodsIds, int $page = 1, int $limit = 10): array
     {
-        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds);
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds, $page, $limit);
     }
 }
