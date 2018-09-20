@@ -176,7 +176,6 @@ interface BuyerRefundInterface
      * freight          | int       | 订单运费
      * orderGoods       | array     | 订单商品 (请求的type 不为1出现)
      * remark           | array     | 退款原因（根据返回情况展示）
-     * discountAmount   | int       | 优惠金额 有优惠才会出现此数据
      * 
      * > orderGoods 数据说明
      * 
@@ -244,6 +243,8 @@ interface BuyerRefundInterface
      * orderSn          | string | 订单号
      * orOsId           | int    | 退货退款状态
      * applyAmount      | int    | 申请退款金额 单位：分
+     * showFreight      | bool   | 是否显示运费 true:是 false:否
+     * freight          | int    | 订单运费 单位：分
      * orType           | int    | 申请类型 1:退款 2:退货
      * remarkType       | string | 退款原因
      * remark           | string | 退款说明
@@ -443,7 +444,9 @@ interface BuyerRefundInterface
      * osId             | int    | 当时订单状态值
      * type             | int    | 类型 1:退款 2:退货
      * phase            | int    | 发生退货退款阶段：1 未发货发起的退款 2 已发货发起的退款 3 已发货发起的退货退款
-     * applyAmount      | int    | 申请金额
+     * applyAmount      | int    | 申请金额 单位:分
+     * freight          | int    | 运费 单位:分
+     * showFreight      | bool   | 是否展示运费 true:是 false:否
      * certificate      | array  | 图片凭证数组 
      * remarkType       | string | 退货退款原因
      * remark           | string | 退货退款说明
