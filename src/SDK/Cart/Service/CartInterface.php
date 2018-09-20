@@ -545,4 +545,60 @@ interface CartInterface
      * @since 2018.8.22
      */
     public function getCartBatch(array $uniqueIds, int $userId): array;
+
+
+    /**
+     * 获取商品数据规格
+     * 
+     * * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * storeInfo | array | 店铺数据说明
+     * goodsInfo | array | 商品数据说明
+     * data[]    | array | 规格数据说明
+     * priceInfo | array | 价格数据说明
+     * 
+     * > storeInfo 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * isMix                | int    | 是否混批 0:否， 1:是
+     * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
+     * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
+     * storeQuantity        | int    | 店铺起批数量
+     * 
+     * > goodsInfo 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * ifShow | int     | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
+     * close  | int     | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
+     * unit   | string  | 商品单位 例如：件
+     * goodsImage | string | 商品图片
+     * 
+     * > data 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * spec_id         | int    | 规格id
+     * goods_id        | int    | 商品id
+     * spec_1          | string | 规格颜色
+     * spec_2          | string | 规格码数
+     * color_rgb       | string | rgb颜色
+     * price           | float  | 规格价
+     * stock           | int    | 规格库存
+     * sku             | string | 未知
+     * selQuantity     | int    | 选中的数量 默认为0
+     * showQuantity    | int    | 初始展示的数量 默认为库存一致
+     * 
+     * > 返回数据 priceInfo 说明 https://api.eelly.test/cart/cart/listCart
+     *
+     * @param integer $goodsId 商品id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.20
+     */
+    public function getGoods(int $goodsId):array;
 }
