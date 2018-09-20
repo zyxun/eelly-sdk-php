@@ -421,7 +421,7 @@ interface BuyerRefundInterface
      * certificate      | array  | 凭证数据 空数组显示remark即可
      * createdTime      | date   | 创建时间
      * 
-     * > certificate 数据说明之退货数据
+     * > certificate 数据说明之退货数据 toOsId = 18
      * 
      * key | type | value
      * --- | ---- | -----
@@ -436,7 +436,7 @@ interface BuyerRefundInterface
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
      * 
-     * > certificate 数据说明之申请数据凭证
+     * > certificate 数据说明之申请数据凭证 toOsId = 16/20
      * 
      * key | type | value
      * --- | ---- | -----
@@ -451,7 +451,7 @@ interface BuyerRefundInterface
      * remarkType       | string | 退货退款原因
      * remark           | string | 退货退款说明
      * 
-     * > certificate 数据说明之卖家拒绝
+     * > certificate 数据说明之卖家拒绝 toOsId = 19
      * 
      * key | type | value
      * --- | ---- | -----
@@ -459,7 +459,7 @@ interface BuyerRefundInterface
      * refuseReason | string | 拒绝理由
      * certificate  | array  | 图片凭证数组
      * 
-     * > certificate 数据说明之卖家同意退货
+     * > certificate 数据说明之卖家同意退货 toOsId = 17
      * 
      * key | type | value
      * --- | ---- | -----
