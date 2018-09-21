@@ -348,6 +348,22 @@ interface BuyerOrderInterface
     public function orderDetails(int $orderId, UidDTO $uidDTO = null): array;
 
     /**
+     * 延长收货时间.
+     *
+     * @param int $orderId  订单id
+     * @param UidDTO|null $uidDTO uid dto
+     *
+     * @return bool
+     *
+     * @requestExample({"orderId":"160"})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function overtime(int $orderId, UidDTO $uidDTO = null): bool;
+
+    /**
      * 通知商家发送我的某个订单商品.
      *
      * @param int         $orderId 订单id
