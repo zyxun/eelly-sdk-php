@@ -1455,6 +1455,34 @@ class Order implements OrderInterface
     }
 
     /**
+     * 查询app消息列表商品信息
+     *
+     * @param array $condition
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getAppMessageOrder(array $condition): array
+    {
+        return EellyClient::request('order/order', 'getAppMessageOrder', true, $condition);
+    }
+
+    /**
+     * 查询app消息列表商品信息
+     *
+     * @param array $condition
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-08-24
+     */
+    public function getAppMessageOrderAsync(array $condition)
+    {
+        return EellyClient::request('order/order', 'getAppMessageOrder', false, $condition);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
