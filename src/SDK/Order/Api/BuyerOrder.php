@@ -39,6 +39,14 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function overtime(int $orderId, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function confirmReceivedOrder(int $orderId, string $password, UidDTO $uidDTO = null): bool
