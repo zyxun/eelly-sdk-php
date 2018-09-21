@@ -87,9 +87,10 @@ interface InvoiceInterface
      *
      * @return array
      * @requestExample({"orderId":160})
-     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301","orderSn":"ssss","orderAmount":22,"consignee":"老王","regionName":"地区","address":"白云自"})
+     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301","orderSn":"ssss","orderAmount":22,"consignee":"老王","regionName":"地区","address":"白云自","buyerId":148086,"memoContent":"test"})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * ### 返回数据说明
      *
@@ -98,6 +99,8 @@ interface InvoiceInterface
      * invoiceCode |string |送货编码：快递公司对应的拼音
      * invoiceName |string |送货公司名称
      * invoiceNo   |string |送货单号,物流号
+     * buyerId     |string | 买家id
+     * memoContent |string | 买家留言备忘
      * orderSn     |string |订单号
      * orderAmount |string |总金额
      * consignee   |string |收货人姓名
