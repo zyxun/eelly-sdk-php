@@ -82,31 +82,51 @@ class Refund implements RefundInterface
     }
 
     /**
-     * 非微信的退款，需要财务协作
+     * 支付宝退款
      *
-     * @param array $data 请求所需的数据
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 请求的数据
      * @return boolean
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2018.9.19
+     * @since 2018.9.20
      */
-    public function refundNotWechat(array $data): bool
+    public function alipayRefund(array $data): bool
     {
-        return EellyClient::request('pay/refund', 'refundNotWechat', true, $data);
+        return EellyClient::request('pay/refund', 'alipayRefund', true, $data);
     }
 
     /**
-     * 非微信的退款，需要财务协作
+     * 支付宝退款
      *
-     * @param array $data 请求所需的数据
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 请求的数据
      * @return boolean
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2018.9.19
+     * @since 2018.9.20
      */
-    public function refundNotWechatAsync(array $data)
+    public function alipayRefundAsync(array $data)
     {
-        return EellyClient::request('pay/refund', 'refundNotWechat', false, $data);
+        return EellyClient::request('pay/refund', 'alipayRefund', false, $data);
     }
 
     /**

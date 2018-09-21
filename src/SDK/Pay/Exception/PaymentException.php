@@ -50,4 +50,9 @@ class PaymentException extends LogicException
 
     public const NO_FIND_THIRD_PAY_EXIT = '未发现第三方支付记录';
 
+    /**
+     * 退款金额大于下单金额
+     */
+    public const REFUND_MONEY_THAN_PAYMENT_MONEY = '退款金额大于下单金额';
+
 }
