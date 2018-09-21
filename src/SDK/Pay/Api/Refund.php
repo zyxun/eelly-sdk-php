@@ -130,6 +130,102 @@ class Refund implements RefundInterface
     }
 
     /**
+     * 退款操作
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 退款请求的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function goRefund(array $data): bool
+    {
+        return EellyClient::request('pay/refund', 'goRefund', true, $data);
+    }
+
+    /**
+     * 退款操作
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 退款请求的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function goRefundAsync(array $data)
+    {
+        return EellyClient::request('pay/refund', 'goRefund', false, $data);
+    }
+
+    /**
+     * 其他方式退款/退款到余额
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function otherRefund(array $data): bool
+    {
+        return EellyClient::request('pay/refund', 'otherRefund', true, $data);
+    }
+
+    /**
+     * 其他方式退款/退款到余额
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function otherRefundAsync(array $data)
+    {
+        return EellyClient::request('pay/refund', 'otherRefund', false, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
