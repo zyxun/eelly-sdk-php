@@ -16,11 +16,11 @@ namespace Eelly\SDK\Order\DTO;
 use Eelly\DTO\AbstractDTO;
 
 /**
- * 订单状态数据.
+ * 订单业务数据.
  *
  * @author hehui<hehui@eelly.net>
  */
-class OrderStatusDTO extends AbstractDTO
+class OrderBizDataDTO extends AbstractDTO
 {
     /**
      * 业务状态码.
@@ -103,7 +103,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param int $bizCode
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setBizCode(int $bizCode): self
     {
@@ -123,7 +123,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param int $orderStatus
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setOrderStatus(int $orderStatus): self
     {
@@ -143,7 +143,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param string $title
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setTitle(string $title): self
     {
@@ -163,7 +163,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param string $text
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setText(string $text): self
     {
@@ -183,7 +183,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param int $countDown
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setCountDown(int $countDown): self
     {
@@ -203,7 +203,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param string $countDownTpl
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setCountDownTpl(string $countDownTpl): self
     {
@@ -223,7 +223,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param string $express
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setExpress(string $express): self
     {
@@ -243,7 +243,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param int $expressTime
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setExpressTime(int $expressTime): self
     {
@@ -263,7 +263,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param string $note
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setNote(string $note): self
     {
@@ -283,7 +283,7 @@ class OrderStatusDTO extends AbstractDTO
     /**
      * @param array $actions
      *
-     * @return OrderStatusDTO
+     * @return OrderBizDataDTO
      */
     public function setActions(array $actions): self
     {
