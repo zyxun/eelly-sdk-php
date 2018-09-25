@@ -175,6 +175,8 @@ interface BuyerRefundInterface
      * orderAmount      | int       | 订单总额
      * freight          | int       | 订单运费
      * orderGoods       | array     | 订单商品 (请求的type 不为1出现)
+     * finishTime       | int       | 提示过期时间
+     * servicerTime     | int       | 服务当前时间
      * remark           | array     | 退款原因（根据返回情况展示）
      * 
      * > orderGoods 数据说明
