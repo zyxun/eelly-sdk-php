@@ -179,6 +179,8 @@ interface InvoiceInterface
      * goodsImage     |string |商品图片
      * regionName     |string |省市地址
      * address        |string |详细地址
+     * ifExtendReceipt|bool   |是否可以延长收货标示
+     * receiptEndTime |string |收货截止时间戳
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月25日
