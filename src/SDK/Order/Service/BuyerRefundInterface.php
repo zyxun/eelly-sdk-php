@@ -174,10 +174,10 @@ interface BuyerRefundInterface
      * orderId          | int       | 订单id
      * orderAmount      | int       | 订单总额
      * freight          | int       | 订单运费
-     * orderGoods       | array     | 订单商品 (请求的type 不为1出现)
+     * orderGoods       | array     | 订单商品 (请求的phase 不为1出现)
      * finishTime       | int       | 提示过期时间
-     * servicerTime     | int       | 服务当前时间
-     * remark           | array     | 退款原因（根据返回情况展示）
+     * serviceTime      | int       | 服务当前时间
+     * remarkArr           | array     | 退款原因（根据返回情况展示）
      * 
      * > orderGoods 数据说明
      * 
@@ -201,7 +201,7 @@ interface BuyerRefundInterface
      * spec             | string | 商品规格
      * gsId             | int    | 规格id
      * 
-     * > remark 数据说明
+     * > remarkArr 数据说明
      * 
      * key | value
      * --- | ----
@@ -244,6 +244,7 @@ interface BuyerRefundInterface
      * osId             | int    | 订单状态
      * orderSn          | string | 订单号
      * orOsId           | int    | 退货退款状态
+     * phase            | int    | 1 未发货发起的退款 2 已发货发起的退款 3 已发货发起的退货退款'
      * applyAmount      | int    | 申请退款金额 单位：分
      * showFreight      | bool   | 是否显示运费 true:是 false:否
      * freight          | int    | 订单运费 单位：分
@@ -338,9 +339,12 @@ interface BuyerRefundInterface
      * freight          | int    | 运费 单位分
      * applyAmount      | int    | 申请的金额 单位：分
      * phase            | int    | 数据类型 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
+     * orderGoods       | array  | 商品列表 当phase为1时不存在此字段
      * remarkType       | int    | 退款原因
      * remark           | string | 退款说明
      * remarkArr        | array  | 退款原因列表
+     * finishTime       | int       | 提示过期时间
+     * serviceTime      | int       | 服务当前时间
      * certificate      | array  | 图片凭证
      * 
      * > remark 数据说明
