@@ -851,7 +851,7 @@ interface OrderInterface
      * @since 2018年09月04日
      * 
      */
-    public function saveMallOrder(array $data): bool;
+    public function saveMallOrder(array $data): array;
     
     /**
      * 获取快递方式和运费价格

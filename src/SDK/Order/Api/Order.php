@@ -1795,7 +1795,7 @@ class Order implements OrderInterface
      * @since 2018年09月04日
      * 
      */
-    public function saveMallOrder(array $data): bool
+    public function saveMallOrder(array $data): array
     {
         return EellyClient::request('order/order', 'saveMallOrder', true, $data);
     }
