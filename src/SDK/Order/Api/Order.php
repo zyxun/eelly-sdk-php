@@ -1789,15 +1789,16 @@ class Order implements OrderInterface
      * @param int $data['fromFlag'] 0 PC 1 WAP 2 店+APP 3 衣联小程序 4 快应用 5 联美小程序 6 市场小程序
      * @param int $data['isSpelling']  是否拼团订单
      * 
+     * @param UidDTO $user 登录用户信息
+     * 
      * @return array
      * 
      * @author wechan
      * @since 2018年09月04日
-     * 
      */
-    public function saveMallOrder(array $data): array
+    public function saveMallOrder(array $data, UidDTO $user = null): array
     {
-        return EellyClient::request('order/order', 'saveMallOrder', true, $data);
+        return EellyClient::request('order/order', 'saveMallOrder', true, $data, $user);
     }
 
     /**
@@ -1821,15 +1822,16 @@ class Order implements OrderInterface
      * @param int $data['fromFlag'] 0 PC 1 WAP 2 店+APP 3 衣联小程序 4 快应用 5 联美小程序 6 市场小程序
      * @param int $data['isSpelling']  是否拼团订单
      * 
+     * @param UidDTO $user 登录用户信息
+     * 
      * @return array
      * 
      * @author wechan
      * @since 2018年09月04日
-     * 
      */
-    public function saveMallOrderAsync(array $data)
+    public function saveMallOrderAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('order/order', 'saveMallOrder', false, $data);
+        return EellyClient::request('order/order', 'saveMallOrder', false, $data, $user);
     }
 
     /**
