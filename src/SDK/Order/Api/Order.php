@@ -1439,7 +1439,7 @@ class Order implements OrderInterface
      * >字段名 | 类型 |描述
      * >--- | ---- | -----
      * >quantity | int | 购买数量
-     * >specId | int | 规格ID
+     * >spId | int | 规格ID
      * > ---
      * 
      * ### 返回结果
@@ -1582,7 +1582,7 @@ class Order implements OrderInterface
      * >字段名 | 类型 |描述
      * >--- | ---- | -----
      * >quantity | int | 购买数量
-     * >specId | int | 规格ID
+     * >spId | int | 规格ID
      * > ---
      * 
      * ### 返回结果
@@ -1783,7 +1783,7 @@ class Order implements OrderInterface
      * @param int $data['orderInfo'][0]['goods'][0]['goodsId']  商品ID
      * @param int $data['orderInfo'][0]['goods'][0]['spec']  商品规格
      * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['quantity'] 商品数量
-     * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['specId'] 规格ID
+     * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['spId'] 规格ID
      * @param int $data['addressId'] 收货地址id
      * @param int $data['userId'] 用户id
      * @param int $data['fromFlag'] 0 PC 1 WAP 2 店+APP 3 衣联小程序 4 快应用 5 联美小程序 6 市场小程序
@@ -1816,7 +1816,7 @@ class Order implements OrderInterface
      * @param int $data['orderInfo'][0]['goods'][0]['goodsId']  商品ID
      * @param int $data['orderInfo'][0]['goods'][0]['spec']  商品规格
      * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['quantity'] 商品数量
-     * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['specId'] 规格ID
+     * @param int $data['orderInfo'][0]['goods'][0]['spec'][0]['spId'] 规格ID
      * @param int $data['addressId'] 收货地址id
      * @param int $data['userId'] 用户id
      * @param int $data['fromFlag'] 0 PC 1 WAP 2 店+APP 3 衣联小程序 4 快应用 5 联美小程序 6 市场小程序
