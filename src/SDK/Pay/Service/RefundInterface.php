@@ -17,6 +17,8 @@ use Eelly\SDK\Pay\DTO\RefundDTO;
 
 
 /**
+ * 退款相关接口
+ * 
  * @author eellytools<localhost.shell@gmail.com>
  */
 interface RefundInterface

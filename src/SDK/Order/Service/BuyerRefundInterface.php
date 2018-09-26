@@ -339,7 +339,8 @@ interface BuyerRefundInterface
      * applyAmount      | int    | 申请的金额 单位：分
      * phase            | int    | 数据类型 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
      * remarkType       | int    | 退款原因
-     * remark           | array  | 退款原因列表
+     * remark           | string | 退款说明
+     * remarkArr        | array  | 退款原因列表
      * certificate      | array  | 图片凭证
      * 
      * > remark 数据说明
