@@ -901,4 +901,24 @@ interface OrderInterface
      * @since 2018年09月10日
      */
     public function orderPay(array $orderIds, string $type = 'wechat', $extend = [], UidDTO $user = null): array;
+    
+    /**
+     * 根据订单id 获取金额跟运费
+     * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * totalFee | int | 总运费(分)
+     * totalAmount | int | 总金额(分)
+     * 
+     * @param array $orderIds 订单id
+     * 
+     * @return array
+     * 
+     * @returnExample({"totalFee":1,"totalAmount":1})
+     * 
+     * @author wechan
+     * @since 2018年9月27日
+     */
+    public function getAmountAndFeeByOrderId(array $orderIds): array;
 }
