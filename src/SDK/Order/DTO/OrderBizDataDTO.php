@@ -281,11 +281,10 @@ class OrderBizDataDTO extends AbstractDTO
     }
 
     /**
-     * @param array $actions
-     *
+     * @param string ...$actions
      * @return OrderBizDataDTO
      */
-    public function setActions(array $actions): self
+    public function setActions(string ...$actions): self
     {
         $this->actions = $actions;
 
