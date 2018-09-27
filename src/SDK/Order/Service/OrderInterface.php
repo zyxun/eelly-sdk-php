@@ -910,12 +910,13 @@ interface OrderInterface
      * ---|---|---
      * totalFee | int | 总运费(分)
      * totalAmount | int | 总金额(分)
+     * isSetPayPass | int | 是否设置支付密码 1.已设置 0.未设置
      * 
      * @param array $orderIds 订单id
      * 
      * @return array
      * 
-     * @returnExample({"totalFee":1,"totalAmount":1})
+     * @returnExample({"totalFee":1,"totalAmount":1,"isSetPayPass":1})
      * 
      * @author wechan
      * @since 2018年9月27日
