@@ -104,4 +104,18 @@ class Goods
     {
         return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds, $page, $limit);
     }
+
+    /**
+     * 根据$goodsIds 获取商品信息
+     *
+     * @param array $goodsIds 商品id
+     * @param int $userId 用户id
+     * @return array $goodsInfo
+     *
+     * @since 2015年6月8日
+     */
+    public function getGoodsInfo(array $goodsIds, int $userId = 0)
+    {
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds, $userId);
+    }
 }
