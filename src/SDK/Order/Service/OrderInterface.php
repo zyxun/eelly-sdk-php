@@ -893,9 +893,29 @@ interface OrderInterface
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
      * 
+     * ### 返回参数说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >platform | string | 支付类型
+     * >billNo | string | 衣联交易号
+     * >data | array | 第三方返回的数据
+     * >orderSns  | array | 订单号
+     * >orderIds | array | 订单id
+     * 
+     * 
+     * >app支付宝:{"platform":"alipayApp","billNo":"201809280150456160","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809280150456160\",\"total_amount\":200,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12640%26userId%3D1760467%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-28 14:00:56","version":"1.0","sign":"XAcLoq+N4upFq3tTo+7PrjXB9G+By9Gp\/6iyrThr5QbotjNX+8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg\/RGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809280150456160%22%2C%22total_amount%22%3A200%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12640%2526userId%253D1760467%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-28+14%3A00%3A56&version=1.0&sign=XAcLoq%2BN4upFq3tTo%2B7PrjXB9G%2BBy9Gp%2F6iyrThr5QbotjNX%2B8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg%2FRGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ%3D"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
+     * 
+     * >app微信:{"platform":"wechatPayApp","billNo":"201809280149688070","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx2813481171184190274156393709513957","package":"Sign=WXPay","noncestr":"7c230b4227a906332c80c78c2026695e","timestamp":1538113691,"sign":"131F460AEF603EDDA206B892BF2850A1"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
+     * 
+     * >微信小程序:
+     * 
      * @return array
      * 
-     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809110166529825\",\"total_amount\":0.04,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12634%26userId%3D2108412%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-11 18:28:49","version":"1.0","sign":"Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD\/aXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8\/hYN14MnadBaBxiXI=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809110166529825%22%2C%22total_amount%22%3A0.04%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12634%2526userId%253D2108412%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-11+18%3A28%3A49&version=1.0&sign=Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD%2FaXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8%2FhYN14MnadBaBxiXI%3D"},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * 
+     * 
+     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * 
+     * @returnExample({"platform":"wechatPayApp","billNo":"201809280149688070","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx2813481171184190274156393709513957","package":"Sign=WXPay","noncestr":"7c230b4227a906332c80c78c2026695e","timestamp":1538113691,"sign":"131F460AEF603EDDA206B892BF2850A1"},"orderSns":["2153810322557191"],"orderIds":[50001781]})
      *
      * @author wechan
      * @since 2018年09月10日
@@ -917,6 +937,7 @@ interface OrderInterface
      * @return array
      * 
      * @returnExample({"totalFee":1,"totalAmount":1,"isSetPayPass":1})
+     * 
      * 
      * @author wechan
      * @since 2018年9月27日
