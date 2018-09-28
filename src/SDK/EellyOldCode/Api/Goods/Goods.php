@@ -118,4 +118,22 @@ class Goods
     {
         return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds, $userId);
     }
+    
+   /**
+     * 获取商品信息.
+     *
+     * @param array  $priceInfo 商品的价格信息
+     * @param number $specId    规格id
+     * @param number $quantity  购买量
+     *
+     * @return number
+     *
+     * @author  何砚文<heyanwen@eelly.net>
+     *
+     * @since   2015-6-10
+     */
+    public function getGoodsPrice($priceInfo, $specId, $quantity)
+    {
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $priceInfo, $specId, $quantity);
+    }
 }
