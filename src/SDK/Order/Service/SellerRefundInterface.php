@@ -116,7 +116,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.17
      */
-    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO):bool;
+    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO = null):bool;
 
     /**
      * 卖家确认收到退货
