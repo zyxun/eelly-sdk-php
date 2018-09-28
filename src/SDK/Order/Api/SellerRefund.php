@@ -35,7 +35,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.13
      */
-    public function immediateDelivery(int $orderId, UidDTO $uidDTO): bool
+    public function immediateDelivery(int $orderId, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerRefund', 'immediateDelivery', true, $orderId, $uidDTO);
     }
@@ -53,7 +53,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.13
      */
-    public function immediateDeliveryAsync(int $orderId, UidDTO $uidDTO)
+    public function immediateDeliveryAsync(int $orderId, UidDTO $uidDTO = null)
     {
         return EellyClient::request('order/sellerRefund', 'immediateDelivery', false, $orderId, $uidDTO);
     }
@@ -71,7 +71,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function agreeRefundMoney(int $orderId, UidDTO $uidDTO): bool
+    public function agreeRefundMoney(int $orderId, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerRefund', 'agreeRefundMoney', true, $orderId, $uidDTO);
     }
@@ -89,7 +89,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function agreeRefundMoneyAsync(int $orderId, UidDTO $uidDTO)
+    public function agreeRefundMoneyAsync(int $orderId, UidDTO $uidDTO = null)
     {
         return EellyClient::request('order/sellerRefund', 'agreeRefundMoney', false, $orderId, $uidDTO);
     }
@@ -109,7 +109,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function refusedRefund(int $orderId, string $reason, string $images, UidDTO $uidDTO): bool
+    public function refusedRefund(int $orderId, string $reason, string $images, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerRefund', 'refusedRefund', true, $orderId, $reason, $images, $uidDTO);
     }
@@ -129,7 +129,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function refusedRefundAsync(int $orderId, string $reason, string $images, UidDTO $uidDTO)
+    public function refusedRefundAsync(int $orderId, string $reason, string $images, UidDTO $uidDTO = null)
     {
         return EellyClient::request('order/sellerRefund', 'refusedRefund', false, $orderId, $reason, $images, $uidDTO);
     }
@@ -149,7 +149,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function sellerApplyService(int $orderId, string $phone, string $wechat, UidDTO $uidDTO): bool
+    public function sellerApplyService(int $orderId, string $phone, string $wechat, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerRefund', 'sellerApplyService', true, $orderId, $phone, $wechat, $uidDTO);
     }
@@ -169,7 +169,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function sellerApplyServiceAsync(int $orderId, string $phone, string $wechat, UidDTO $uidDTO)
+    public function sellerApplyServiceAsync(int $orderId, string $phone, string $wechat, UidDTO $uidDTO = null)
     {
         return EellyClient::request('order/sellerRefund', 'sellerApplyService', false, $orderId, $phone, $wechat, $uidDTO);
     }
@@ -188,7 +188,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function agreeReturnGoods(int $orderId, array $addressData = [], UidDTO $uidDTO): bool
+    public function agreeReturnGoods(int $orderId, array $addressData = [], UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerRefund', 'agreeReturnGoods', true, $orderId, $addressData, $uidDTO);
     }
@@ -207,7 +207,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function agreeReturnGoodsAsync(int $orderId, array $addressData = [], UidDTO $uidDTO)
+    public function agreeReturnGoodsAsync(int $orderId, array $addressData = [], UidDTO $uidDTO = null)
     {
         return EellyClient::request('order/sellerRefund', 'agreeReturnGoods', false, $orderId, $addressData, $uidDTO);
     }
@@ -261,7 +261,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.17
      */
-    public function confirmRefundGoods(int $orderId, UidDTO $uidDTO): bool
+    public function confirmRefundGoods(int $orderId, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerRefund', 'confirmRefundGoods', true, $orderId, $uidDTO);
     }
@@ -279,7 +279,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.17
      */
-    public function confirmRefundGoodsAsync(int $orderId, UidDTO $uidDTO)
+    public function confirmRefundGoodsAsync(int $orderId, UidDTO $uidDTO = null)
     {
         return EellyClient::request('order/sellerRefund', 'confirmRefundGoods', false, $orderId, $uidDTO);
     }
@@ -381,7 +381,7 @@ class SellerRefund implements SellerRefundInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.28
      */
-    public function orderRefundCheck(int $orderId, UidDTO $user): array
+    public function orderRefundCheck(int $orderId, UidDTO $user = null): array
     {
         return EellyClient::request('order/sellerRefund', 'orderRefundCheck', true, $orderId, $user);
     }
@@ -405,7 +405,7 @@ class SellerRefund implements SellerRefundInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.28
      */
-    public function orderRefundCheckAsync(int $orderId, UidDTO $user)
+    public function orderRefundCheckAsync(int $orderId, UidDTO $user = null)
     {
         return EellyClient::request('order/sellerRefund', 'orderRefundCheck', false, $orderId, $user);
     }
