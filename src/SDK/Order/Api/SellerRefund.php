@@ -225,7 +225,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.17
      */
-    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO): bool
+    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerRefund', 'cancelSellerApplyService', true, $orderId, $uidDTO);
     }
@@ -243,7 +243,7 @@ class SellerRefund implements SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.17
      */
-    public function cancelSellerApplyServiceAsync(int $orderId, UidDTO $uidDTO)
+    public function cancelSellerApplyServiceAsync(int $orderId, UidDTO $uidDTO = null)
     {
         return EellyClient::request('order/sellerRefund', 'cancelSellerApplyService', false, $orderId, $uidDTO);
     }
