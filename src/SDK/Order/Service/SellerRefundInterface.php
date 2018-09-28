@@ -36,7 +36,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.13
      */
-    public function immediateDelivery(int $orderId, UidDTO $uidDTO): bool;
+    public function immediateDelivery(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
      * 卖家同意退款操作 (仅退款)
@@ -51,7 +51,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function agreeRefundMoney(int $orderId, UidDTO $uidDTO): bool;
+    public function agreeRefundMoney(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
      * 卖家拒绝退货退款操作
@@ -68,7 +68,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function refusedRefund(int $orderId, string $reason, string $images, UidDTO $uidDTO): bool;
+    public function refusedRefund(int $orderId, string $reason, string $images, UidDTO $uidDTO = null): bool;
 
     /**
      * 卖家申请客服介入
@@ -85,7 +85,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function sellerApplyService(int $orderId, string $phone, string $wechat, UidDTO $uidDTO):bool;
+    public function sellerApplyService(int $orderId, string $phone, string $wechat, UidDTO $uidDTO = null):bool;
 
     /**
      * 卖家同意退货操作
@@ -101,7 +101,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.14
      */
-    public function agreeReturnGoods(int $orderId, array $addressData = [], UidDTO $uidDTO): bool;
+    public function agreeReturnGoods(int $orderId, array $addressData = [], UidDTO $uidDTO = null): bool;
 
     /**
      * 卖家撤销客服介入
@@ -131,7 +131,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.17
      */
-    public function confirmRefundGoods(int $orderId, UidDTO $uidDTO): bool;
+    public function confirmRefundGoods(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
      * 卖家退货退款详情页
@@ -189,5 +189,5 @@ interface SellerRefundInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.28
      */
-    public  function orderRefundCheck(int $orderId, UidDTO $user): array;
+    public  function orderRefundCheck(int $orderId, UidDTO $user = null): array;
 }
