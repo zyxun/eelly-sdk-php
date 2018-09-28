@@ -168,4 +168,26 @@ interface SellerRefundInterface
      * @since 2018.09.17
      */
     public function orderRefundDetail(int $orderId): array;
+
+
+    /**
+     * 确认退款页面
+     *
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * freight | int | 运费 单位：分
+     * applyAmount | int | 申请退款的金额
+     * orderAmount | int | 订单总额
+     * isSetPayPassword | bool | 是否设置支付密码 true ：是 false ： 否
+     * 
+     * @param integer $orderId 订单id
+     * @param UidDTO $user 当前登陆的用户
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.28
+     */
+    public  function orderRefundCheck(int $orderId, UidDTO $user): array;
 }
