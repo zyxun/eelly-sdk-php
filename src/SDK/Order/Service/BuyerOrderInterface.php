@@ -373,6 +373,8 @@ interface BuyerOrderInterface
      *
      * @return bool
      *
+     * @returnExample(true)
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function notifySendProducts(int $orderId, UidDTO $uidDTO = null): bool;
@@ -384,6 +386,8 @@ interface BuyerOrderInterface
      * @param UidDTO|null $uidDTO  uid dto
      *
      * @return bool
+     *
+     * @returnExample(true)
      *
      * @author hehui<hehui@eelly.net>
      */
@@ -397,6 +401,8 @@ interface BuyerOrderInterface
      * @param UidDTO|null $uidDTO   uid dto
      *
      * @return bool
+     *
+     * @returnExample(true)
      *
      * @author hehui<hehui@eelly.net>
      */
