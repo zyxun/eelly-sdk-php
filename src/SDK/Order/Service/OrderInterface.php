@@ -720,6 +720,7 @@ interface OrderInterface
      * >goodsId | int | 商品id
      * >totalPrice | float | 商品总价
      * >goodsNumber | string | 商品货号
+     * >goodsCount | string | 商品数量
      * >goodsImage | string | 商品图片地址
      * >goodsName | string | 商品名称
      * >specInfo | array | 规格信息
@@ -743,6 +744,7 @@ interface OrderInterface
      * >priceType | int | 价格类型 
      * >priceLower | float | 最低价
      * >priceUpper | float | 最高价
+     * >unitPrice | float | 单价
      * >priceData  | array | 起批价格区间
      *
      * >storeOrderGoods[]['priceData']['priceData'] 字段说明
@@ -790,7 +792,7 @@ interface OrderInterface
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
      * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
-     * @returnExample({"defaultAddress":{"addrId":"547435","userName":"hahhahah","telNumber":"13232343244","detailInfo":"北京市 市辖区 东城区 sdhfjkdfhkdjsfhdsfdf","default":"1","regionId":"110101"},"storeOrderGoods":[{"storeId":"16777306","storeName":"新店6","goodsInfo":[{"goodsId":5578748,"totalPrice":1860,"goodsNumber":155,"goodsSn":"港湾123","goodsImage":"https:\/\/img02.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFmJIJCIVphJAAEbJKKDQNIAAACZALBulgAARs8034.jpg","goodsName":"十三行女装流行风格","specInfo":[{"specId":"32090625","price":"12.00","originalPrice":"12.00","quantity":107,"color":"黑色","size":"XXS","stock":99998}],"priceData":{"goodsId":"5578748","storeId":"16777306","priceType":1,"priceLower":"12.00","priceUpper":"12.00","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"12.00","type":"1"}]}}],"couponInfo":[{"couponId":1450168327,"couponNo":"1450168327SS","startTime":1525329993,"endTime":1525329993,"recId":111}],"expressWay":[{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}]}],"freePostCard":["暂时给个"]})
+     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"2140195","storeName":"local010_","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":0.2,"goodsInfo":[{"goodsId":5578924,"totalPrice":576,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img04.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFqc6fSIKucwAAF_wI2kgE8AAACaALdKGEAAX_Y243.jpg","goodsName":"直播款1","specInfo":[{"specId":"32090843","price":"48.00","originalPrice":"48.00","quantity":12,"color":"如图色","size":"均码","stock":100000}],"priceData":{"goodsId":"5578924","storeId":"2140195","priceType":1,"priceLower":"48.00","priceUpper":"56.00","priceData":[{"lowerLimit":"1","upperLimit":"2","price":"56.00","type":"1"},{"lowerLimit":"3","upperLimit":"4","price":"50.00","type":"2"},{"lowerLimit":"5","upperLimit":"0","price":"48.00","type":"3"}],"unitPrice":"48.00"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":576,"expressWay":[[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}]],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
      * 
      * @param UidDTO $user
      * 
@@ -848,6 +850,8 @@ interface OrderInterface
      * @param UidDTO $user 登录用户信息
      * 
      * @return array
+     * 
+     * @returnExample({[1,2]})
      * 
      * @author wechan
      * @since 2018年09月04日

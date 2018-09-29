@@ -229,7 +229,7 @@ interface AddressInterface
      * @param string  $data['telNumber'] 收货人手机号码
      * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
      * @param string  $data['postalCode'] 邮政编码
-     * @param int $data['regionId'] 邮政编码
+     * @param int $data['regionId'] 地区id
      * @param UidDTO $user 用户信息
      * 
      * @return bool
