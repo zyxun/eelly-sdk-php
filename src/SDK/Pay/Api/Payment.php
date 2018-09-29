@@ -411,6 +411,34 @@ class Payment implements PaymentInterface
     }
 
     /**
+     * 根据类型和平台获取支付类
+     * 
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
+     * 
+     * @author wechan
+     * @since 2018年09月29日
+     */
+    public function getTypeClass(string $type, string $platform): string
+    {
+        return EellyClient::request('pay/payment', 'getTypeClass', true, $type, $platform);
+    }
+
+    /**
+     * 根据类型和平台获取支付类
+     * 
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
+     * 
+     * @author wechan
+     * @since 2018年09月29日
+     */
+    public function getTypeClassAsync(string $type, string $platform)
+    {
+        return EellyClient::request('pay/payment', 'getTypeClass', false, $type, $platform);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
