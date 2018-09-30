@@ -1481,6 +1481,7 @@ class Order implements OrderInterface
      * >goodsId | int | 商品id
      * >totalPrice | float | 商品总价
      * >goodsNumber | string | 商品货号
+     * >goodsCount | string | 商品数量
      * >goodsImage | string | 商品图片地址
      * >goodsName | string | 商品名称
      * >specInfo | array | 规格信息
@@ -1504,6 +1505,7 @@ class Order implements OrderInterface
      * >priceType | int | 价格类型 
      * >priceLower | float | 最低价
      * >priceUpper | float | 最高价
+     * >unitPrice | float | 单价
      * >priceData  | array | 起批价格区间
      *
      * >storeOrderGoods[]['priceData']['priceData'] 字段说明
@@ -1551,7 +1553,7 @@ class Order implements OrderInterface
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
      * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
-     * @returnExample({"defaultAddress":{"addrId":"547435","userName":"hahhahah","telNumber":"13232343244","detailInfo":"北京市 市辖区 东城区 sdhfjkdfhkdjsfhdsfdf","default":"1","regionId":"110101"},"storeOrderGoods":[{"storeId":"16777306","storeName":"新店6","goodsInfo":[{"goodsId":5578748,"totalPrice":1860,"goodsNumber":155,"goodsSn":"港湾123","goodsImage":"https:\/\/img02.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFmJIJCIVphJAAEbJKKDQNIAAACZALBulgAARs8034.jpg","goodsName":"十三行女装流行风格","specInfo":[{"specId":"32090625","price":"12.00","originalPrice":"12.00","quantity":107,"color":"黑色","size":"XXS","stock":99998}],"priceData":{"goodsId":"5578748","storeId":"16777306","priceType":1,"priceLower":"12.00","priceUpper":"12.00","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"12.00","type":"1"}]}}],"couponInfo":[{"couponId":1450168327,"couponNo":"1450168327SS","startTime":1525329993,"endTime":1525329993,"recId":111}],"expressWay":[{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}]}],"freePostCard":["暂时给个"]})
+     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"2140195","storeName":"local010_","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":0.2,"goodsInfo":[{"goodsId":5578924,"totalPrice":576,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img04.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFqc6fSIKucwAAF_wI2kgE8AAACaALdKGEAAX_Y243.jpg","goodsName":"直播款1","specInfo":[{"specId":"32090843","price":"48.00","originalPrice":"48.00","quantity":12,"color":"如图色","size":"均码","stock":100000}],"priceData":{"goodsId":"5578924","storeId":"2140195","priceType":1,"priceLower":"48.00","priceUpper":"56.00","priceData":[{"lowerLimit":"1","upperLimit":"2","price":"56.00","type":"1"},{"lowerLimit":"3","upperLimit":"4","price":"50.00","type":"2"},{"lowerLimit":"5","upperLimit":"0","price":"48.00","type":"3"}],"unitPrice":"48.00"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":576,"expressWay":[[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}]],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
      * 
      * @param UidDTO $user
      * 
@@ -1624,6 +1626,7 @@ class Order implements OrderInterface
      * >goodsId | int | 商品id
      * >totalPrice | float | 商品总价
      * >goodsNumber | string | 商品货号
+     * >goodsCount | string | 商品数量
      * >goodsImage | string | 商品图片地址
      * >goodsName | string | 商品名称
      * >specInfo | array | 规格信息
@@ -1647,6 +1650,7 @@ class Order implements OrderInterface
      * >priceType | int | 价格类型 
      * >priceLower | float | 最低价
      * >priceUpper | float | 最高价
+     * >unitPrice | float | 单价
      * >priceData  | array | 起批价格区间
      *
      * >storeOrderGoods[]['priceData']['priceData'] 字段说明
@@ -1694,7 +1698,7 @@ class Order implements OrderInterface
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
      * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
-     * @returnExample({"defaultAddress":{"addrId":"547435","userName":"hahhahah","telNumber":"13232343244","detailInfo":"北京市 市辖区 东城区 sdhfjkdfhkdjsfhdsfdf","default":"1","regionId":"110101"},"storeOrderGoods":[{"storeId":"16777306","storeName":"新店6","goodsInfo":[{"goodsId":5578748,"totalPrice":1860,"goodsNumber":155,"goodsSn":"港湾123","goodsImage":"https:\/\/img02.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFmJIJCIVphJAAEbJKKDQNIAAACZALBulgAARs8034.jpg","goodsName":"十三行女装流行风格","specInfo":[{"specId":"32090625","price":"12.00","originalPrice":"12.00","quantity":107,"color":"黑色","size":"XXS","stock":99998}],"priceData":{"goodsId":"5578748","storeId":"16777306","priceType":1,"priceLower":"12.00","priceUpper":"12.00","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"12.00","type":"1"}]}}],"couponInfo":[{"couponId":1450168327,"couponNo":"1450168327SS","startTime":1525329993,"endTime":1525329993,"recId":111}],"expressWay":[{"name":"货运","shippingId":"222789","expressType":0,"express_select":"1","freight":0,"weight":0},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":0,"weight":0}]}],"freePostCard":["暂时给个"]})
+     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"2140195","storeName":"local010_","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":0.2,"goodsInfo":[{"goodsId":5578924,"totalPrice":576,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img04.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFqc6fSIKucwAAF_wI2kgE8AAACaALdKGEAAX_Y243.jpg","goodsName":"直播款1","specInfo":[{"specId":"32090843","price":"48.00","originalPrice":"48.00","quantity":12,"color":"如图色","size":"均码","stock":100000}],"priceData":{"goodsId":"5578924","storeId":"2140195","priceType":1,"priceLower":"48.00","priceUpper":"56.00","priceData":[{"lowerLimit":"1","upperLimit":"2","price":"56.00","type":"1"},{"lowerLimit":"3","upperLimit":"4","price":"50.00","type":"2"},{"lowerLimit":"5","upperLimit":"0","price":"48.00","type":"3"}],"unitPrice":"48.00"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":576,"expressWay":[[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}]],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
      * 
      * @param UidDTO $user
      * 
@@ -1793,6 +1797,8 @@ class Order implements OrderInterface
      * 
      * @return array
      * 
+     * @returnExample({[1,2]})
+     * 
      * @author wechan
      * @since 2018年09月04日
      */
@@ -1825,6 +1831,8 @@ class Order implements OrderInterface
      * @param UidDTO $user 登录用户信息
      * 
      * @return array
+     * 
+     * @returnExample({[1,2]})
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -1916,16 +1924,36 @@ class Order implements OrderInterface
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
      * 
+     * ### 返回参数说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >platform | string | 支付类型
+     * >billNo | string | 衣联交易号
+     * >data | array | 第三方返回的数据
+     * >orderSns  | array | 订单号
+     * >orderIds | array | 订单id
+     * 
+     * 
+     * >app支付宝:{"platform":"alipayApp","billNo":"201809280150456160","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809280150456160\",\"total_amount\":200,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12640%26userId%3D1760467%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-28 14:00:56","version":"1.0","sign":"XAcLoq+N4upFq3tTo+7PrjXB9G+By9Gp\/6iyrThr5QbotjNX+8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg\/RGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809280150456160%22%2C%22total_amount%22%3A200%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12640%2526userId%253D1760467%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-28+14%3A00%3A56&version=1.0&sign=XAcLoq%2BN4upFq3tTo%2B7PrjXB9G%2BBy9Gp%2F6iyrThr5QbotjNX%2B8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg%2FRGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ%3D"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
+     * 
+     * >app微信:{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
+     * 
+     * >微信小程序:
+     * 
      * @return array
      * 
-     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809110166529825\",\"total_amount\":0.04,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12634%26userId%3D2108412%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-11 18:28:49","version":"1.0","sign":"Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD\/aXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8\/hYN14MnadBaBxiXI=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809110166529825%22%2C%22total_amount%22%3A0.04%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12634%2526userId%253D2108412%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-11+18%3A28%3A49&version=1.0&sign=Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD%2FaXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8%2FhYN14MnadBaBxiXI%3D"},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * 
+     * 
+     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * 
+     * @returnExample({"platform":"wechatPayApp","billNo":"201809280149688070","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx2813481171184190274156393709513957","package":"Sign=WXPay","noncestr":"7c230b4227a906332c80c78c2026695e","timestamp":1538113691,"sign":"131F460AEF603EDDA206B892BF2850A1"},"orderSns":["2153810322557191"],"orderIds":[50001781]})
      *
      * @author wechan
      * @since 2018年09月10日
      */
-    public function orderPay(array $orderIds, string $type = 'wechat', $extend = [], UidDTO $user = null): array
+    public function orderPay(array $orderIds, string $type = 'wechat', string $platform = 'pc', array $extend = [], UidDTO $user = null): array
     {
-        return EellyClient::request('order/order', 'orderPay', true, $orderIds, $type, $extend, $user);
+        return EellyClient::request('order/order', 'orderPay', true, $orderIds, $type, $platform, $extend, $user);
     }
 
     /**
@@ -1936,16 +1964,36 @@ class Order implements OrderInterface
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
      * 
+     * ### 返回参数说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >platform | string | 支付类型
+     * >billNo | string | 衣联交易号
+     * >data | array | 第三方返回的数据
+     * >orderSns  | array | 订单号
+     * >orderIds | array | 订单id
+     * 
+     * 
+     * >app支付宝:{"platform":"alipayApp","billNo":"201809280150456160","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809280150456160\",\"total_amount\":200,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12640%26userId%3D1760467%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-28 14:00:56","version":"1.0","sign":"XAcLoq+N4upFq3tTo+7PrjXB9G+By9Gp\/6iyrThr5QbotjNX+8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg\/RGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809280150456160%22%2C%22total_amount%22%3A200%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12640%2526userId%253D1760467%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-28+14%3A00%3A56&version=1.0&sign=XAcLoq%2BN4upFq3tTo%2B7PrjXB9G%2BBy9Gp%2F6iyrThr5QbotjNX%2B8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg%2FRGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ%3D"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
+     * 
+     * >app微信:{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
+     * 
+     * >微信小程序:
+     * 
      * @return array
      * 
-     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809110166529825\",\"total_amount\":0.04,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12634%26userId%3D2108412%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-11 18:28:49","version":"1.0","sign":"Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD\/aXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8\/hYN14MnadBaBxiXI=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809110166529825%22%2C%22total_amount%22%3A0.04%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12634%2526userId%253D2108412%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-11+18%3A28%3A49&version=1.0&sign=Mf3VsqP7YZK9nGJUgkNFF8Rc7VgD%2FaXSzYIZlBM7aFye3lCQVvrHAi6trUzwMPTfWGKULHWRMRrOPhSw2pEqgsFCeIVAe7GPP8zghleBwTDc6MKnB45yDbIcLmM2H9C7u8Xk7Kru93cTGwW3PJL6GgEJs8%2FhYN14MnadBaBxiXI%3D"},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * 
+     * 
+     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * 
+     * @returnExample({"platform":"wechatPayApp","billNo":"201809280149688070","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx2813481171184190274156393709513957","package":"Sign=WXPay","noncestr":"7c230b4227a906332c80c78c2026695e","timestamp":1538113691,"sign":"131F460AEF603EDDA206B892BF2850A1"},"orderSns":["2153810322557191"],"orderIds":[50001781]})
      *
      * @author wechan
      * @since 2018年09月10日
      */
-    public function orderPayAsync(array $orderIds, string $type = 'wechat', $extend = [], UidDTO $user = null)
+    public function orderPayAsync(array $orderIds, string $type = 'wechat', string $platform = 'pc', array $extend = [], UidDTO $user = null)
     {
-        return EellyClient::request('order/order', 'orderPay', false, $orderIds, $type, $extend, $user);
+        return EellyClient::request('order/order', 'orderPay', false, $orderIds, $type, $platform, $extend, $user);
     }
 
     /**
@@ -1956,12 +2004,14 @@ class Order implements OrderInterface
      * ---|---|---
      * totalFee | int | 总运费(分)
      * totalAmount | int | 总金额(分)
+     * isSetPayPass | int | 是否设置支付密码 1.已设置 0.未设置
      * 
      * @param array $orderIds 订单id
      * 
      * @return array
      * 
-     * @returnExample({"totalFee":1,"totalAmount":1})
+     * @returnExample({"totalFee":1,"totalAmount":1,"isSetPayPass":1})
+     * 
      * 
      * @author wechan
      * @since 2018年9月27日
@@ -1979,12 +2029,14 @@ class Order implements OrderInterface
      * ---|---|---
      * totalFee | int | 总运费(分)
      * totalAmount | int | 总金额(分)
+     * isSetPayPass | int | 是否设置支付密码 1.已设置 0.未设置
      * 
      * @param array $orderIds 订单id
      * 
      * @return array
      * 
-     * @returnExample({"totalFee":1,"totalAmount":1})
+     * @returnExample({"totalFee":1,"totalAmount":1,"isSetPayPass":1})
+     * 
      * 
      * @author wechan
      * @since 2018年9月27日
