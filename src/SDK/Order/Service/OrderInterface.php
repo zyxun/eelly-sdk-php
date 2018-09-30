@@ -747,7 +747,7 @@ interface OrderInterface
      * >unitPrice | float | 单价
      * >priceData  | array | 起批价格区间
      * 
-     * >storeOrderGoods[]['priceDetail'] 字段说明
+     * >storeOrderGoods[]['priceData']['priceDetail'] 字段说明
      * >字段名 | 类型 |描述
      * >-- | ---- | -----
      * >actId | int | 活动id
