@@ -746,6 +746,14 @@ interface OrderInterface
      * >priceUpper | float | 最高价
      * >unitPrice | float | 单价
      * >priceData  | array | 起批价格区间
+     * 
+     * >storeOrderGoods[]['priceDetail'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >actId | int | 活动id
+     * >goodsId | int | 商品id
+     * >price | int | 价格 
+     * >tag | float | 活动标题
      *
      * >storeOrderGoods[]['priceData']['priceData'] 字段说明
      * >字段名 | 类型 |描述
@@ -792,7 +800,7 @@ interface OrderInterface
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
      * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
-     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"2140195","storeName":"local010_","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":0.2,"goodsInfo":[{"goodsId":5578924,"totalPrice":576,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img04.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFqc6fSIKucwAAF_wI2kgE8AAACaALdKGEAAX_Y243.jpg","goodsName":"直播款1","specInfo":[{"specId":"32090843","price":"48.00","originalPrice":"48.00","quantity":12,"color":"如图色","size":"均码","stock":100000}],"priceData":{"goodsId":"5578924","storeId":"2140195","priceType":1,"priceLower":"48.00","priceUpper":"56.00","priceData":[{"lowerLimit":"1","upperLimit":"2","price":"56.00","type":"1"},{"lowerLimit":"3","upperLimit":"4","price":"50.00","type":"2"},{"lowerLimit":"5","upperLimit":"0","price":"48.00","type":"3"}],"unitPrice":"48.00"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":576,"expressWay":[[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}]],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
+     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"1760244","storeName":"女装大大","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":1,"goodsInfo":[{"goodsId":5578939,"totalPrice":0.12,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img01.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFtMOZWIGOgHAAGL_sMz2wAAAACagKbTqgAAYwW358.jpg","goodsName":"运费","specInfo":[{"specId":"32090865","price":"0.01","originalPrice":"0.00","quantity":12,"color":"如图色","size":"均码","stock":99978}],"priceData":{"goodsId":"5578939","storeId":"1760244","priceType":2001,"priceLower":"0.01","priceUpper":"0.01","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"0.01","type":"1"}],"pricePay":"0.01","priceTitle":"限时特惠","priceDetail":{"actId":"3401","goodsId":"5578939","nums":"0","mbrBuyLimit":"0","price":"0.01","typeInfo":"a:0:{}","tag":"限时特惠","startTime":"1503561600","endTime":"1542441599","type":"16","isLimitMbrbuy":"1","single":"0","isSetNums":"1","expireTime":4196480},"unitPrice":"0.01"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":0.12,"expressWay":[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
      * 
      * @param UidDTO $user
      * 
