@@ -72,6 +72,50 @@ class Arbitrate implements ArbitrateInterface
     }
 
     /**
+     * 仲裁跟进
+     * 
+     * > params 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * adminId | int | 管理员id
+     * adminName | string | 管理员姓名
+     * 
+     * @param integer $orderId 订单id
+     * @param array $params 所需数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.30
+     */
+    public function follow(int $orderId, array $params): bool
+    {
+        return EellyClient::request('order/arbitrate', 'follow', true, $orderId, $params);
+    }
+
+    /**
+     * 仲裁跟进
+     * 
+     * > params 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * adminId | int | 管理员id
+     * adminName | string | 管理员姓名
+     * 
+     * @param integer $orderId 订单id
+     * @param array $params 所需数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.30
+     */
+    public function followAsync(int $orderId, array $params)
+    {
+        return EellyClient::request('order/arbitrate', 'follow', false, $orderId, $params);
+    }
+
+    /**
      * 处理仲裁
      *
      * > params 数据说明
