@@ -43,6 +43,25 @@ interface ArbitrateInterface
     public function addOrderArbitrate(array $data):bool;
 
     /**
+     * 仲裁跟进
+     * 
+     * > params 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * adminId | int | 管理员id
+     * adminName | string | 管理员姓名
+     * 
+     * @param integer $orderId 订单id
+     * @param array $params 所需数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.30
+     */
+    public function follow(int $orderId, array $params):bool;
+
+    /**
      * 处理仲裁
      *
      * > params 数据说明
