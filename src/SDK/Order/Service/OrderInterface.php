@@ -924,7 +924,7 @@ interface OrderInterface
      * @author wechan
      * @since 2018年09月10日
      */
-    public function orderPay(array $orderIds, string $type = 'wechat', $extend = [], UidDTO $user = null): array;
+    public function orderPay(array $orderIds, string $type = 'wechat', string $platform = 'pc', array $extend = [], UidDTO $user = null): array;
     
     /**
      * 根据订单id 获取金额跟运费
