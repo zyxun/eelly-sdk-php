@@ -719,7 +719,7 @@ interface OrderInterface
      * >-- | ---- | -----
      * >goodsId | int | 商品id
      * >totalPrice | float | 商品总价
-     * >goodsNumber | string | 商品货号
+     * >goodsSn | string | 商品货号
      * >goodsCount | string | 商品数量
      * >goodsImage | string | 商品图片地址
      * >goodsName | string | 商品名称
