@@ -920,10 +920,11 @@ interface OrderInterface
      * 
      * >app微信:{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
      * 
-     * >微信小程序:
+     * >pc支付宝:{"platform":"alipayLegacyWeb","billNo":"201810080154962945","data":"https:\/\/mapi.alipay.com\/gateway.do?_input_charset=UTF-8&payment_type=1&alipay_sdk=lokielse/omnipay-alipay&partner=2088001435326491&seller_id=2088001435326491&seller_email=eleen001@126.com&notify_url=https://cs.eelly.com/alipay_notify.html&out_trade_no=201810080154962945&subject=è®¢åæ¯ä»&goods_type=1&total_fee=200&service=create_direct_pay_by_user&sign=pSJiacwz77qk1IZOSXQTXlwFfLtP7aAbd9Of/OCDVG5jzKnHqX0cpy6kZMzOD9Nr+LLptzrSdmAPsRg8rXNMUbUHz4N2ZBquQwDTkvkQwoc/VfrTIqTHrwvd3cmQ9fszv1cTBSBJ/kGUhnjQwj3JgQGLQ5PmYVPfT3WJ2sPRrHQ=&sign_type=RSA","orderSns":["2153812014142953"],"orderIds":[50001783]}
+     * 
+     * >pc微信:{"platform":"wechatPayNative","billNo":"201810080150664981","data":"weixin:\/\/wxpay\/bizpayurl?pr=RVf4P5v","orderSns":["2153812014142953"],"orderIds":[50001783]}
      * 
      * @return array
-     * 
      * 
      * 
      * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
