@@ -1483,6 +1483,34 @@ class Order implements OrderInterface
     }
 
     /**
+     * 统计符合条件的订单数量
+     *
+     * @param array $conditions
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-09
+     */
+    public function getOrderSumByCondition(array $conditions): array
+    {
+        return EellyClient::request('order/order', 'getOrderSumByCondition', true, $conditions);
+    }
+
+    /**
+     * 统计符合条件的订单数量
+     *
+     * @param array $conditions
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-09
+     */
+    public function getOrderSumByConditionAsync(array $conditions)
+    {
+        return EellyClient::request('order/order', 'getOrderSumByCondition', false, $conditions);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

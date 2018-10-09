@@ -683,4 +683,15 @@ interface OrderInterface
      * @since 2018-08-24
      */
     public function getAppMessageOrder(array $condition): array;
+
+    /**
+     * 统计符合条件的订单数量
+     *
+     * @param array $conditions
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-09
+     */
+    public function getOrderSumByCondition(array $conditions): array;
 }
