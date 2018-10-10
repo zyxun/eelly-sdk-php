@@ -616,6 +616,36 @@ class Account implements AccountInterface
     }
 
     /**
+     * 判断用户是否设置了支付密码
+     *
+     * @param integer $userId 用户id
+     * @param integer $storeId 店铺id 默认0 店+
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.28
+     */
+    public function checkIsSetPayPassword(int $userId, int $storeId = 0): bool
+    {
+        return EellyClient::request('pay/account', 'checkIsSetPayPassword', true, $userId, $storeId);
+    }
+
+    /**
+     * 判断用户是否设置了支付密码
+     *
+     * @param integer $userId 用户id
+     * @param integer $storeId 店铺id 默认0 店+
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.28
+     */
+    public function checkIsSetPayPasswordAsync(int $userId, int $storeId = 0)
+    {
+        return EellyClient::request('pay/account', 'checkIsSetPayPassword', false, $userId, $storeId);
+    }
+
+    /**
      * 校验密码是否正确.
      *
      * @param integer $userId 用户的id

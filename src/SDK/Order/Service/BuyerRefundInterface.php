@@ -266,6 +266,7 @@ interface BuyerRefundInterface
      * status           | int    | 状态
      * firstRequestTime | date   | 首次申请退货退款时间
      * countDown        | int    | 倒计时 没有则 0
+     * storePhone       | string | 店铺电话
      * orderGoods       | array  | 退货退款商品数据
      * 
      * > status 和 statusContent 对应关系

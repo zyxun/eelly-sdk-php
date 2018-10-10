@@ -41,4 +41,49 @@ interface ArbitrateInterface
      * @since 2018.09.14
      */
     public function addOrderArbitrate(array $data):bool;
+
+    /**
+     * 仲裁跟进
+     * 
+     * > params 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * adminId | int | 管理员id
+     * adminName | string | 管理员姓名
+     * 
+     * @param integer $orderId 订单id
+     * @param array $params 所需数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.30
+     */
+    public function follow(int $orderId, array $params):bool;
+
+    /**
+     * 处理仲裁
+     *
+     * > params 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * adminId | int | 管理员id
+     * adminName | string | 管理员姓名
+     * handleType | int | 仲裁类型 1 全部退给买家 2 全部退给卖家 3 部分退给买家
+     * handleFlag | int | 仲裁标记 0 其他 1 发货存在问题 2 包裹拒收 3 邮费争议 4 无理由退货 5 质量问题退货 6 退货存在问题 7 平台问题
+     * handleRemark | string | 仲裁操作备注
+     * blameFlag | int | 责任标记 1 卖家 2 买家 3 双方责任 4 其他原因
+     * blameRemark | string | 责任备注
+     * returnAmount | int | 退款金额(全额则订单全款)
+     * freight | int | 退款运费
+     * 
+     * @param integer $orderId 订单id
+     * @param array $params 所需数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.30
+     */
+    public function handleArbitrate(int $orderId, array $params):bool;
 }
