@@ -859,7 +859,7 @@ interface OrderInterface
      * 
      * @return array
      * 
-     * @returnExample({[1,2]})
+     * @returnExample([1,2])
      * 
      * @author wechan
      * @since 2018年09月04日

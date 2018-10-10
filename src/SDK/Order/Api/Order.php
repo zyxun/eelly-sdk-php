@@ -2036,9 +2036,9 @@ class Order implements OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderId(array $orderIds): array
+    public function getAmountAndFeeByOrderId(array $orderIds, UidDTO $user = null): array
     {
-        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', true, $orderIds);
+        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', true, $orderIds, $user);
     }
 
     /**
@@ -2061,9 +2061,9 @@ class Order implements OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderIdAsync(array $orderIds)
+    public function getAmountAndFeeByOrderIdAsync(array $orderIds, UidDTO $user = null)
     {
-        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', false, $orderIds);
+        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', false, $orderIds, $user);
     }
 
     /**
