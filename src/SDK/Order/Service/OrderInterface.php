@@ -956,5 +956,17 @@ interface OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderId(array $orderIds, UidDTO $user = null): array;
+    public function getAmountAndFeeByOrderId(array $orderIds): array;
+
+    /**
+     * 统计符合条件的订单数量
+     *
+     * @param array $conditions
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-09
+     */
+    public function getOrderSumByCondition(array $conditions): array;
+
 }
