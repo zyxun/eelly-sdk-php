@@ -968,5 +968,16 @@ interface OrderInterface
      * @since 2018-10-09
      */
     public function getOrderSumByCondition(array $conditions): array;
-
+    
+    /**
+     * 根据条件获取订单信息
+     * 
+     * @param string $conditions 订单条件
+     * @param array $bind 绑定数据
+     * @param array $extend 扩展信息
+     * 
+     * @author wechan
+     * @since 2018年10月10日
+     */
+    public function getOrderConditionInfo(string $conditions = "", array $bind = [], array $extend = []):array;
 }
