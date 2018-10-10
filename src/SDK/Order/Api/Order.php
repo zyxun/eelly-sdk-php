@@ -1480,7 +1480,7 @@ class Order implements OrderInterface
      * >-- | ---- | -----
      * >goodsId | int | 商品id
      * >totalPrice | float | 商品总价
-     * >goodsNumber | string | 商品货号
+     * >goodsSn | string | 商品货号
      * >goodsCount | string | 商品数量
      * >goodsImage | string | 商品图片地址
      * >goodsName | string | 商品名称
@@ -1507,6 +1507,14 @@ class Order implements OrderInterface
      * >priceUpper | float | 最高价
      * >unitPrice | float | 单价
      * >priceData  | array | 起批价格区间
+     * 
+     * >storeOrderGoods[]['priceData']['priceDetail'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >actId | int | 活动id
+     * >goodsId | int | 商品id
+     * >price | int | 价格 
+     * >tag | float | 活动标题
      *
      * >storeOrderGoods[]['priceData']['priceData'] 字段说明
      * >字段名 | 类型 |描述
@@ -1553,7 +1561,7 @@ class Order implements OrderInterface
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
      * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
-     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"2140195","storeName":"local010_","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":0.2,"goodsInfo":[{"goodsId":5578924,"totalPrice":576,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img04.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFqc6fSIKucwAAF_wI2kgE8AAACaALdKGEAAX_Y243.jpg","goodsName":"直播款1","specInfo":[{"specId":"32090843","price":"48.00","originalPrice":"48.00","quantity":12,"color":"如图色","size":"均码","stock":100000}],"priceData":{"goodsId":"5578924","storeId":"2140195","priceType":1,"priceLower":"48.00","priceUpper":"56.00","priceData":[{"lowerLimit":"1","upperLimit":"2","price":"56.00","type":"1"},{"lowerLimit":"3","upperLimit":"4","price":"50.00","type":"2"},{"lowerLimit":"5","upperLimit":"0","price":"48.00","type":"3"}],"unitPrice":"48.00"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":576,"expressWay":[[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}]],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
+     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"1760244","storeName":"女装大大","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":1,"goodsInfo":[{"goodsId":5578939,"totalPrice":0.12,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img01.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFtMOZWIGOgHAAGL_sMz2wAAAACagKbTqgAAYwW358.jpg","goodsName":"运费","specInfo":[{"specId":"32090865","price":"0.01","originalPrice":"0.00","quantity":12,"color":"如图色","size":"均码","stock":99978}],"priceData":{"goodsId":"5578939","storeId":"1760244","priceType":2001,"priceLower":"0.01","priceUpper":"0.01","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"0.01","type":"1"}],"pricePay":"0.01","priceTitle":"限时特惠","priceDetail":{"actId":"3401","goodsId":"5578939","nums":"0","mbrBuyLimit":"0","price":"0.01","typeInfo":"a:0:{}","tag":"限时特惠","startTime":"1503561600","endTime":"1542441599","type":"16","isLimitMbrbuy":"1","single":"0","isSetNums":"1","expireTime":4196480},"unitPrice":"0.01"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":0.12,"expressWay":[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
      * 
      * @param UidDTO $user
      * 
@@ -1625,7 +1633,7 @@ class Order implements OrderInterface
      * >-- | ---- | -----
      * >goodsId | int | 商品id
      * >totalPrice | float | 商品总价
-     * >goodsNumber | string | 商品货号
+     * >goodsSn | string | 商品货号
      * >goodsCount | string | 商品数量
      * >goodsImage | string | 商品图片地址
      * >goodsName | string | 商品名称
@@ -1652,6 +1660,14 @@ class Order implements OrderInterface
      * >priceUpper | float | 最高价
      * >unitPrice | float | 单价
      * >priceData  | array | 起批价格区间
+     * 
+     * >storeOrderGoods[]['priceData']['priceDetail'] 字段说明
+     * >字段名 | 类型 |描述
+     * >-- | ---- | -----
+     * >actId | int | 活动id
+     * >goodsId | int | 商品id
+     * >price | int | 价格 
+     * >tag | float | 活动标题
      *
      * >storeOrderGoods[]['priceData']['priceData'] 字段说明
      * >字段名 | 类型 |描述
@@ -1698,7 +1714,7 @@ class Order implements OrderInterface
      * @param int $data['goods'][0]['isSpelling'] 是否拼团商品
      * @param array $data['uniqueIds'][] 购物车商品主键id (购物车下单必传,立即下单传空)
      * 
-     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"2140195","storeName":"local010_","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":0.2,"goodsInfo":[{"goodsId":5578924,"totalPrice":576,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img04.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFqc6fSIKucwAAF_wI2kgE8AAACaALdKGEAAX_Y243.jpg","goodsName":"直播款1","specInfo":[{"specId":"32090843","price":"48.00","originalPrice":"48.00","quantity":12,"color":"如图色","size":"均码","stock":100000}],"priceData":{"goodsId":"5578924","storeId":"2140195","priceType":1,"priceLower":"48.00","priceUpper":"56.00","priceData":[{"lowerLimit":"1","upperLimit":"2","price":"56.00","type":"1"},{"lowerLimit":"3","upperLimit":"4","price":"50.00","type":"2"},{"lowerLimit":"5","upperLimit":"0","price":"48.00","type":"3"}],"unitPrice":"48.00"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":576,"expressWay":[[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}]],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
+     * @returnExample({"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"storeOrderGoods":[{"storeId":"1760244","storeName":"女装大大","creditValue":{"type":1,"number":1},"totalQuantity":12,"totalWeight":1,"goodsInfo":[{"goodsId":5578939,"totalPrice":0.12,"goodsCount":12,"goodsNumber":"","goodsImage":"https:\/\/img01.eelly.test\/G01\/M00\/00\/06\/small_oYYBAFtMOZWIGOgHAAGL_sMz2wAAAACagKbTqgAAYwW358.jpg","goodsName":"运费","specInfo":[{"specId":"32090865","price":"0.01","originalPrice":"0.00","quantity":12,"color":"如图色","size":"均码","stock":99978}],"priceData":{"goodsId":"5578939","storeId":"1760244","priceType":2001,"priceLower":"0.01","priceUpper":"0.01","priceData":[{"lowerLimit":"1","upperLimit":"0","price":"0.01","type":"1"}],"pricePay":"0.01","priceTitle":"限时特惠","priceDetail":{"actId":"3401","goodsId":"5578939","nums":"0","mbrBuyLimit":"0","price":"0.01","typeInfo":"a:0:{}","tag":"限时特惠","startTime":"1503561600","endTime":"1542441599","type":"16","isLimitMbrbuy":"1","single":"0","isSetNums":"1","expireTime":4196480},"unitPrice":"0.01"}}],"couponInfo":[{"couponId":"1450168327","couponNo":"1450168327SS","startTime":"1525329993","endTime":"1525329993","recId":"111"}],"totalPrice":0.12,"expressWay":[{"name":"货运","shippingId":"222789","expressType":"0","express_select":"1","freight":"0","weight":"0"},{"name":"运费到付","shippingId":"222789","expressType":"1","expressSelect":"1","freight":"0","weight":"0"}],"defaultAddress":{"addrId":"547627","userName":"黄丽玲","telNumber":"18312019106","detailInfo":"河北省 秦皇岛市 市辖区 啦咯啦咯啦咯啦咯啦","default":"1","regionId":"130301"},"fullSendActiveConfig":["暂时给个"]}],"freePostCard":["暂时给个"]})
      * 
      * @param UidDTO $user
      * 
@@ -1920,7 +1936,8 @@ class Order implements OrderInterface
      * 订单发起的支付.
      *
      * @param array  $orderIds 多个订单Id
-     * @param string $type  支付账号类型 wechat:微信支付 smallWechat:微信小程序 alipay:支付宝
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
      * 
@@ -1938,10 +1955,11 @@ class Order implements OrderInterface
      * 
      * >app微信:{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
      * 
-     * >微信小程序:
+     * >pc支付宝:{"platform":"alipayLegacyWeb","billNo":"201810080154962945","data":"https:\/\/mapi.alipay.com\/gateway.do?_input_charset=UTF-8&payment_type=1&alipay_sdk=lokielse/omnipay-alipay&partner=2088001435326491&seller_id=2088001435326491&seller_email=eleen001@126.com&notify_url=https://cs.eelly.com/alipay_notify.html&out_trade_no=201810080154962945&subject=è®¢åæ¯ä»&goods_type=1&total_fee=200&service=create_direct_pay_by_user&sign=pSJiacwz77qk1IZOSXQTXlwFfLtP7aAbd9Of/OCDVG5jzKnHqX0cpy6kZMzOD9Nr+LLptzrSdmAPsRg8rXNMUbUHz4N2ZBquQwDTkvkQwoc/VfrTIqTHrwvd3cmQ9fszv1cTBSBJ/kGUhnjQwj3JgQGLQ5PmYVPfT3WJ2sPRrHQ=&sign_type=RSA","orderSns":["2153812014142953"],"orderIds":[50001783]}
+     * 
+     * >pc微信:{"platform":"wechatPayNative","billNo":"201810080150664981","data":"weixin:\/\/wxpay\/bizpayurl?pr=RVf4P5v","orderSns":["2153812014142953"],"orderIds":[50001783]}
      * 
      * @return array
-     * 
      * 
      * 
      * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
@@ -1960,7 +1978,8 @@ class Order implements OrderInterface
      * 订单发起的支付.
      *
      * @param array  $orderIds 多个订单Id
-     * @param string $type  支付账号类型 wechat:微信支付 smallWechat:微信小程序 alipay:支付宝
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
      * 
@@ -1978,10 +1997,11 @@ class Order implements OrderInterface
      * 
      * >app微信:{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
      * 
-     * >微信小程序:
+     * >pc支付宝:{"platform":"alipayLegacyWeb","billNo":"201810080154962945","data":"https:\/\/mapi.alipay.com\/gateway.do?_input_charset=UTF-8&payment_type=1&alipay_sdk=lokielse/omnipay-alipay&partner=2088001435326491&seller_id=2088001435326491&seller_email=eleen001@126.com&notify_url=https://cs.eelly.com/alipay_notify.html&out_trade_no=201810080154962945&subject=è®¢åæ¯ä»&goods_type=1&total_fee=200&service=create_direct_pay_by_user&sign=pSJiacwz77qk1IZOSXQTXlwFfLtP7aAbd9Of/OCDVG5jzKnHqX0cpy6kZMzOD9Nr+LLptzrSdmAPsRg8rXNMUbUHz4N2ZBquQwDTkvkQwoc/VfrTIqTHrwvd3cmQ9fszv1cTBSBJ/kGUhnjQwj3JgQGLQ5PmYVPfT3WJ2sPRrHQ=&sign_type=RSA","orderSns":["2153812014142953"],"orderIds":[50001783]}
+     * 
+     * >pc微信:{"platform":"wechatPayNative","billNo":"201810080150664981","data":"weixin:\/\/wxpay\/bizpayurl?pr=RVf4P5v","orderSns":["2153812014142953"],"orderIds":[50001783]}
      * 
      * @return array
-     * 
      * 
      * 
      * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
@@ -2016,9 +2036,9 @@ class Order implements OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderId(array $orderIds): array
+    public function getAmountAndFeeByOrderId(array $orderIds, UidDTO $user = null): array
     {
-        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', true, $orderIds);
+        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', true, $orderIds, $user);
     }
 
     /**
@@ -2041,9 +2061,9 @@ class Order implements OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderIdAsync(array $orderIds)
+    public function getAmountAndFeeByOrderIdAsync(array $orderIds, UidDTO $user = null)
     {
-        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', false, $orderIds);
+        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', false, $orderIds, $user);
     }
 
     /**
