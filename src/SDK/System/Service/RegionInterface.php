@@ -166,4 +166,25 @@ interface RegionInterface
      * @since 2017-12-09
      */
     public function getRegionListByParentCode(int $parentCode = 1): array;
+    
+    /**
+     * 获取省市区三级数据
+     *
+     * @returnExample([{"regionName":"\u5317\u4eac\u5e02","zipCode":"0","gbCode":"11"},{"regionName":"\u5929\u6d25\u5e02","zipCode":"0","gbCode":"12"},{"regionName":"\u6cb3\u5317\u7701","zipCode":"0","gbCode":"13"},{"regionName":"\u5c71\u897f\u7701","zipCode":"0","gbCode":"14"},{"regionName":"\u5185\u8499\u53e4\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"15"},{"regionName":"\u8fbd\u5b81\u7701","zipCode":"0","gbCode":"21"},{"regionName":"\u5409\u6797\u7701","zipCode":"0","gbCode":"22"},{"regionName":"\u9ed1\u9f99\u6c5f\u7701","zipCode":"0","gbCode":"23"},{"regionName":"\u4e0a\u6d77\u5e02","zipCode":"0","gbCode":"31"},{"regionName":"\u6c5f\u82cf\u7701","zipCode":"0","gbCode":"32"},{"regionName":"\u6d59\u6c5f\u7701","zipCode":"0","gbCode":"33"},{"regionName":"\u5b89\u5fbd\u7701","zipCode":"0","gbCode":"34"},{"regionName":"\u798f\u5efa\u7701","zipCode":"0","gbCode":"35"},{"regionName":"\u6c5f\u897f\u7701","zipCode":"0","gbCode":"36"},{"regionName":"\u5c71\u4e1c\u7701","zipCode":"0","gbCode":"37"},{"regionName":"\u6cb3\u5357\u7701","zipCode":"0","gbCode":"41"},{"regionName":"\u6e56\u5317\u7701","zipCode":"0","gbCode":"42"},{"regionName":"\u6e56\u5357\u7701","zipCode":"0","gbCode":"43"},{"regionName":"\u5e7f\u4e1c\u7701","zipCode":"0","gbCode":"44"},{"regionName":"\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"45"},{"regionName":"\u6d77\u5357\u7701","zipCode":"0","gbCode":"46"},{"regionName":"\u91cd\u5e86\u5e02","zipCode":"0","gbCode":"50"},{"regionName":"\u56db\u5ddd\u7701","zipCode":"0","gbCode":"51"},{"regionName":"\u8d35\u5dde\u7701","zipCode":"0","gbCode":"52"},{"regionName":"\u4e91\u5357\u7701","zipCode":"0","gbCode":"53"},{"regionName":"\u897f\u85cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"54"},{"regionName":"\u9655\u897f\u7701","zipCode":"0","gbCode":"61"},{"regionName":"\u7518\u8083\u7701","zipCode":"0","gbCode":"62"},{"regionName":"\u9752\u6d77\u7701","zipCode":"0","gbCode":"63"},{"regionName":"\u5b81\u590f\u56de\u65cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"64"},{"regionName":"\u65b0\u7586\u7ef4\u543e\u5c14\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"65"},{"regionName":"\u53f0\u6e7e\u7701","zipCode":"0","gbCode":"71"},{"regionName":"\u9999\u6e2f\u7279\u522b\u884c\u653f\u533a","zipCode":"999077","gbCode":"81"},{"regionName":"\u6fb3\u95e8\u7279\u522b\u884c\u653f\u533a","zipCode":"999078","gbCode":"82"}])
+     * 
+     * @author wechan
+     * @since  2018年10月09日
+     */
+    public function getRegionSelectList():array;
+    
+    /**
+     * 根据parentID获得下属地区
+     *
+     * 
+     * @returnExample()
+     * 
+     * @author wechan
+     * @since  2018年10月09日
+     */
+    public function getRegionByParentId(int $regionId):array;
 }
