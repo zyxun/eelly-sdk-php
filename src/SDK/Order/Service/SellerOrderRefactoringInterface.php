@@ -745,7 +745,7 @@ interface SellerOrderRefactoringInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.11
      */
-    public function cancelOrder(int $orderId, UidDTO $uidDTO):bool;
+    public function cancelOrder(int $orderId, UidDTO $uidDTO = null):bool;
 
     /**
      * 添加物流信息跟修改物流信息接口
@@ -778,7 +778,7 @@ interface SellerOrderRefactoringInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.18
      */
-    public function getOrderInvoiceData(int $orderId, UidDTO $uidDTO):array;
+    public function getOrderInvoiceData(int $orderId, UidDTO $uidDTO = null):array;
 
     /**
      * 卖家更新买家的收货地址信息
@@ -799,7 +799,7 @@ interface SellerOrderRefactoringInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.18
      */
-    public function updateOrderInvoiceData(int $orderId, array $invoiceData, UidDTO $uidDTO):bool;
+    public function updateOrderInvoiceData(int $orderId, array $invoiceData, UidDTO $uidDTO = null):bool;
 
     /**
      * 卖家延长收货时间
@@ -814,7 +814,7 @@ interface SellerOrderRefactoringInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.18
      */
-    function extendReceiptTime(int $orderId, UidDTO $uidDTO):bool;
+    function extendReceiptTime(int $orderId, UidDTO $uidDTO = null):bool;
 
     /**
      * 搜索已打印订单.
