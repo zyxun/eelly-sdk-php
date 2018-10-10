@@ -1813,7 +1813,7 @@ class Order implements OrderInterface
      * 
      * @return array
      * 
-     * @returnExample({[1,2]})
+     * @returnExample([1,2])
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -1848,7 +1848,7 @@ class Order implements OrderInterface
      * 
      * @return array
      * 
-     * @returnExample({[1,2]})
+     * @returnExample([1,2])
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -2036,9 +2036,9 @@ class Order implements OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderId(array $orderIds, UidDTO $user = null): array
+    public function getAmountAndFeeByOrderId(array $orderIds): array
     {
-        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', true, $orderIds, $user);
+        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', true, $orderIds);
     }
 
     /**
@@ -2061,9 +2061,9 @@ class Order implements OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderIdAsync(array $orderIds, UidDTO $user = null)
+    public function getAmountAndFeeByOrderIdAsync(array $orderIds)
     {
-        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', false, $orderIds, $user);
+        return EellyClient::request('order/order', 'getAmountAndFeeByOrderId', false, $orderIds);
     }
 
     /**
@@ -2092,6 +2092,36 @@ class Order implements OrderInterface
     public function getOrderSumByConditionAsync(array $conditions)
     {
         return EellyClient::request('order/order', 'getOrderSumByCondition', false, $conditions);
+    }
+
+    /**
+     * 根据条件获取订单信息
+     * 
+     * @param string $conditions 订单条件
+     * @param array $bind 绑定数据
+     * @param array $extend 扩展信息
+     * 
+     * @author wechan
+     * @since 2018年10月10日
+     */
+    public function getOrderConditionInfo(string $conditions = '', array $bind = [], array $extend = []): array
+    {
+        return EellyClient::request('order/order', 'getOrderConditionInfo', true, $conditions, $bind, $extend);
+    }
+
+    /**
+     * 根据条件获取订单信息
+     * 
+     * @param string $conditions 订单条件
+     * @param array $bind 绑定数据
+     * @param array $extend 扩展信息
+     * 
+     * @author wechan
+     * @since 2018年10月10日
+     */
+    public function getOrderConditionInfoAsync(string $conditions = '', array $bind = [], array $extend = [])
+    {
+        return EellyClient::request('order/order', 'getOrderConditionInfo', false, $conditions, $bind, $extend);
     }
 
     /**
