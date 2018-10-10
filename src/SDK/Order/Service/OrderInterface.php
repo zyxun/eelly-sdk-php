@@ -859,7 +859,7 @@ interface OrderInterface
      * 
      * @return array
      * 
-     * @returnExample({[1,2]})
+     * @returnExample([1,2])
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -956,5 +956,5 @@ interface OrderInterface
      * @author wechan
      * @since 2018年9月27日
      */
-    public function getAmountAndFeeByOrderId(array $orderIds): array;
+    public function getAmountAndFeeByOrderId(array $orderIds, UidDTO $user = null): array;
 }
