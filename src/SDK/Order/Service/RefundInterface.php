@@ -115,4 +115,15 @@ interface RefundInterface
      * @since 2018.06.26
      */
     public function confirmRefundGoods(int $orderId, int $sellerId): bool;
+
+    /**
+     * 获取后台订单退货退款信息
+     *
+     * @param int $orderId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-11
+     */
+    public function getManageRefund(int $orderId): array;
 }

@@ -694,4 +694,16 @@ interface OrderInterface
      * @since 2018-10-09
      */
     public function getOrderSumByCondition(array $conditions): array;
+
+    /**
+     * 获取订单信息
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-10
+     */
+    public function getOrderList(array $condition, array $extend = []): array;
 }

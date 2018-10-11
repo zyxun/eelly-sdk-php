@@ -1511,6 +1511,36 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取订单信息
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-10
+     */
+    public function getOrderList(array $condition, array $extend = []): array
+    {
+        return EellyClient::request('order/order', 'getOrderList', true, $condition, $extend);
+    }
+
+    /**
+     * 获取订单信息
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-10
+     */
+    public function getOrderListAsync(array $condition, array $extend = [])
+    {
+        return EellyClient::request('order/order', 'getOrderList', false, $condition, $extend);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
