@@ -44,4 +44,15 @@ interface RefundLogInterface
      * @since 2018.06.19
      */
     public function addOrderRefundLog(array $data):bool;
+
+    /**
+     * 获取订单退货退款操作记录
+     *
+     * @param int $orderId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-11
+     */
+    public function getRefundLog(int $orderId): array;
 }

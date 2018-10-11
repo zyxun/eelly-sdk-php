@@ -86,4 +86,26 @@ interface ArbitrateInterface
      * @since 2018.9.30
      */
     public function handleArbitrate(int $orderId, array $params):bool;
+
+    /**
+     * 订单仲裁列表
+     *
+     * @param string $condition
+     * @param array $bind
+     * @param int   $page
+     * @param int   $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-09-29
+     */
+    public function listArbitratePage(string $condition, array $bind = [], int $page = 1, int $limit = 20): array ;
+
+    /**
+     * 订单仲裁信息
+     *
+     * @param int $orderId
+     * @return array
+     */
+    public function getArbitrate(int $orderId): array ;
 }

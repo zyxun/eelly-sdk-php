@@ -174,6 +174,62 @@ class Arbitrate implements ArbitrateInterface
     }
 
     /**
+     * 订单仲裁列表
+     *
+     * @param string $condition
+     * @param array $bind
+     * @param int   $page
+     * @param int   $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-09-29
+     */
+    public function listArbitratePage(string $condition, array $bind = [], int $page = 1, int $limit = 20): array
+    {
+        return EellyClient::request('order/arbitrate', 'listArbitratePage', true, $condition, $bind, $page, $limit);
+    }
+
+    /**
+     * 订单仲裁列表
+     *
+     * @param string $condition
+     * @param array $bind
+     * @param int   $page
+     * @param int   $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-09-29
+     */
+    public function listArbitratePageAsync(string $condition, array $bind = [], int $page = 1, int $limit = 20)
+    {
+        return EellyClient::request('order/arbitrate', 'listArbitratePage', false, $condition, $bind, $page, $limit);
+    }
+
+    /**
+     * 订单仲裁信息
+     *
+     * @param int $orderId
+     * @return array
+     */
+    public function getArbitrate(int $orderId): array
+    {
+        return EellyClient::request('order/arbitrate', 'getArbitrate', true, $orderId);
+    }
+
+    /**
+     * 订单仲裁信息
+     *
+     * @param int $orderId
+     * @return array
+     */
+    public function getArbitrateAsync(int $orderId)
+    {
+        return EellyClient::request('order/arbitrate', 'getArbitrate', false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

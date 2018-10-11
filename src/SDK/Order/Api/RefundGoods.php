@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,13 +12,43 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\RefundGoodsInterface;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class RefundGoods implements RefundGoodsInterface
 {
+    /**
+     * 获取退货商品信息
+     *
+     * @param int $orderId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-11
+     */
+    public function getRefundGoods(int $orderId): array
+    {
+        return EellyClient::request('order/refundGoods', 'getRefundGoods', true, $orderId);
+    }
+
+    /**
+     * 获取退货商品信息
+     *
+     * @param int $orderId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-11
+     */
+    public function getRefundGoodsAsync(int $orderId)
+    {
+        return EellyClient::request('order/refundGoods', 'getRefundGoods', false, $orderId);
+    }
+
     /**
      * @return self
      */
