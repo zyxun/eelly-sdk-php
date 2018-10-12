@@ -832,4 +832,18 @@ interface SellerOrderInterface
      * @since 2018.7.3
      */
     public function cancelOrder(int $orderId):bool;
+
+    /**
+     * 通知买家对订单付款.
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function notifyPaying(int $orderId, UidDTO $uidDTO = null): bool;
 }
