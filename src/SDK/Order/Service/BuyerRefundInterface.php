@@ -177,6 +177,7 @@ interface BuyerRefundInterface
      * orderGoods       | array     | 订单商品 (请求的phase 不为1出现)
      * finishTime       | int       | 提示过期时间
      * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
      * remarkArr           | array     | 退款原因（根据返回情况展示）
      * 
      * > orderGoods 数据说明
@@ -346,6 +347,7 @@ interface BuyerRefundInterface
      * remarkArr        | array  | 退款原因列表
      * finishTime       | int       | 提示过期时间
      * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
      * certificate      | array  | 图片凭证
      * 
      * > remark 数据说明

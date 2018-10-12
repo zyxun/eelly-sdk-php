@@ -184,4 +184,9 @@ class BuyerRefundException extends LogicException
      * 仲裁数据不存在
      */
     public const ORDER_ARBITRATE_NOT_EXIST = '仲裁数据不存在';
+
+    /**
+     * 申请退款金额大于最大退款金额
+     */
+    public const ORDER_RETURN_MONEY_LARGE_MAX_RETURN_MONEY = '申请退款金额大于最大退款金额';
 }
