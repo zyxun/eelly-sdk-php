@@ -79,6 +79,14 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function deleteOrder(int $orderId, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
+    }
+
+    /**
      * 申请退货退款.
      *
      * @param int    $type        退货退款类型 1:仅退款， 2:退货退款
