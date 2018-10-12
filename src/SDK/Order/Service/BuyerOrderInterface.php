@@ -352,8 +352,8 @@ interface BuyerOrderInterface
     /**
      * 延长收货时间.
      *
-     * @param int $orderId  订单id
-     * @param UidDTO|null $uidDTO uid dto
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
      *
      * @return bool
      *
@@ -407,6 +407,23 @@ interface BuyerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function confirmReceivedOrder(int $orderId, string $password, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 添加订单备注.
+     *
+     * @param int         $orderId 订单id
+     * @param string      $memo    备注内容
+     * @param int         $type    2. 备忘 4. 留言
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     * 
+     * @requestExample({"orderId":"160","memo":"你买了个表", "type":4})
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool;
 
     /**
      * 申请退货退款.

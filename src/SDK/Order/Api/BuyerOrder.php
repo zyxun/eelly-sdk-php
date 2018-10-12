@@ -39,7 +39,7 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function overtime(int $orderId, UidDTO $uidDTO = null): bool
     {
@@ -68,6 +68,14 @@ class BuyerOrder implements BuyerOrderInterface
     public function cancelOrder(int $orderId, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId, $memo, $type);
     }
 
     /**
