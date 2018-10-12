@@ -1751,6 +1751,14 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function notifyPaying(int $orderId, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
