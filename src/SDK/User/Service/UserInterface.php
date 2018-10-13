@@ -481,4 +481,16 @@ interface UserInterface
      * @since 2018年08月01日
      */
     public function getLoginErrorCount(string $ip):int;
+
+    /**
+     * 获取用户信息，适用多场景
+     *
+     * @param array       $params
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-13
+     */
+    public function getUserInfo(array $params, UidDTO $user = null): array ;
 }
