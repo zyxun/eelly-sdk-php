@@ -23,6 +23,14 @@ use Eelly\SDK\Pay\DTO\PaymentDTO;
 class Payment implements PaymentInterface
 {
     /**
+     * {@inheritDoc}
+     */
+    public function getInfoByItemId(int $itemId, int $type): array
+    {
+        return EellyClient::request('pay/payment', __FUNCTION__, true, $itemId, $type);
+    }
+
+    /**
      * 根据交易号 获取支付交易流水.
      *
      * @param string $billNo    衣联交易号

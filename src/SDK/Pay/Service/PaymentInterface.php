@@ -24,6 +24,55 @@ use Eelly\SDK\Pay\Exception\PayException;
 interface PaymentInterface
 {
     /**
+     * 获取交易流水信息.
+     * 
+     * @param int $itemId 关联对象ID：如订单ID、购买服务记录ID等
+     * @param int $type  支付类型：1 订单支付 2 购买服务 3 诚保冻结
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+	 * 
+	 * @requestExample({"itemId":"50001744","type":1})
+	 *
+	 * @returnExample({
+     *   "payment": {
+     *       "ppId": "2",
+     *       "paId": "3",
+     *       "type": "1",
+     *       "itemId": "50001744",
+     *       "billNo": "201809280155067660",
+     *       "money": "1",
+     *       "precId": "2",
+     *       "status": "1",
+     *       "remark": "",
+     *       "createdTime": "0",
+     *       "updateTime": "2018-09-28 15:26:31"
+     *   },
+     *   "recharge": {
+     *       "precId": "2",
+     *       "paId": "3",
+     *       "money": "1",
+     *       "refundMoney": "0",
+     *       "channel": "2",
+     *       "style": "0",
+     *       "bankId": "186",
+     *       "bankName": "微信",
+     *       "bankAccount": "",
+     *       "billNo": "201809280155067660",
+     *       "thirdNo": "4200000194201809286902081370",
+     *       "status": "1",
+     *       "remark": "订单支付",
+     *       "adminRemark": "",
+     *       "handleTime": "0",
+     *       "createdTime": "1527661884",
+     *       "updateTime": "2018-09-28 15:33:01"
+     *   }
+     *  })
+     */
+    public function getInfoByItemId(int $itemId, int $type): array;
+    
+    /**
      * 根据交易号 获取支付交易流水.
      *
      * @param string $billNo    衣联交易号
