@@ -601,4 +601,22 @@ interface CartInterface
      * @since 2018.9.20
      */
     public function getGoods(int $goodsId):array;
+
+    /**
+     * 提交订单后删除购物车接口，不对外
+     *
+     * @param array $goodsId 商品id 数组
+     * @param integer $userId 用户id
+     * @return boolean
+     * 
+     * @requestExample({
+     *  "goodsId":{"50001744", "50001855"},
+     *  "userId":"148086",
+     * })
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.13
+     */
+    public function delCartByOrder(array $goodsId, int $userId):bool;
 }
