@@ -36,7 +36,7 @@ class Bind implements BindInterface
      * ------------|-------|--------------
      * ubId        |int    | 绑定ID
      * userId      |string | 用户Id
-     * type        |int    | 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * type        |int    | 绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * unionId     |string | 第三方平台union_id
      * openId      |string | 第三方平台open_id
      * appId       |string | 微信公众平台ID
@@ -68,7 +68,7 @@ class Bind implements BindInterface
      * ------------|-------|--------------
      * ubId        |int    | 绑定ID
      * userId      |string | 用户Id
-     * type        |int    | 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * type        |int    | 绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * unionId     |string | 第三方平台union_id
      * openId      |string | 第三方平台open_id
      * appId       |string | 微信公众平台ID
@@ -474,7 +474,7 @@ class Bind implements BindInterface
     /**
      * 根据第三方平台openid,unionid 获取用户信息.
      *
-     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param int    $type    1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * @param string $unionId 第三方平台用户信息
      *
      * @return array
@@ -493,7 +493,7 @@ class Bind implements BindInterface
     /**
      * 根据第三方平台openid,unionid 获取用户信息.
      *
-     * @param int    $type    1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param int    $type    1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * @param string $unionId 第三方平台用户信息
      *
      * @return array
@@ -521,9 +521,9 @@ class Bind implements BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.25
      */
-    public function updateBindInfo(array $where, array $data):bool
+    public function updateBindInfo(array $where, array $data): bool
     {
-        return EellyClient::request('user/bind', __FUNCTION__, true, $where, $data);
+        return EellyClient::request('user/bind', 'updateBindInfo', true, $where, $data);
     }
 
     /**
@@ -538,9 +538,9 @@ class Bind implements BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.25
      */
-    public function updateBindInfoAsync(array $where, array $data):bool
+    public function updateBindInfoAsync(array $where, array $data)
     {
-        return EellyClient::request('user/bind', __FUNCTION__, false, $where, $data);
+        return EellyClient::request('user/bind', 'updateBindInfo', false, $where, $data);
     }
 
     /**
@@ -555,9 +555,9 @@ class Bind implements BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.27
      */
-    public function getBindInfoData(string $condition, array $binds):array
+    public function getBindInfoData(string $condition, array $binds): array
     {
-        return EellyClient::request('user/bind', __FUNCTION__, true, $condition, $binds);
+        return EellyClient::request('user/bind', 'getBindInfoData', true, $condition, $binds);
     }
 
     /**
@@ -572,9 +572,45 @@ class Bind implements BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.27
      */
-    public function getBindInfoDataAsync(string $condition, array $binds):array
+    public function getBindInfoDataAsync(string $condition, array $binds)
     {
-        return EellyClient::request('user/bind', __FUNCTION__, false, $condition, $binds);
+        return EellyClient::request('user/bind', 'getBindInfoData', false, $condition, $binds);
+    }
+
+    /**
+     * 绑定/解绑第三方应用
+     *
+     * @param array        $data
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"bindId":1,{"data":{"type":1,"unionId":"xxxx","openId":"xxxx","appId":"xxxx","status":2}}})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-10-13
+     */
+    public function bindThirdParty(array $data, UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/bind', 'bindThirdParty', true, $data, $user);
+    }
+
+    /**
+     * 绑定/解绑第三方应用
+     *
+     * @param array        $data
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"bindId":1,{"data":{"type":1,"unionId":"xxxx","openId":"xxxx","appId":"xxxx","status":2}}})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-10-13
+     */
+    public function bindThirdPartyAsync(array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('user/bind', 'bindThirdParty', false, $data, $user);
     }
 
     /**

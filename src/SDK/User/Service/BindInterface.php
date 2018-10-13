@@ -264,4 +264,19 @@ interface BindInterface
      * @since 2018.07.27
      */
     public function getBindInfoData(string $condition, array $binds):array;
+
+    /**
+     * 绑定/解绑第三方应用
+     *
+     * @param array        $data
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"bindId":1,{"data":{"type":1,"unionId":"xxxx","openId":"xxxx","appId":"xxxx","status":2}}})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-10-13
+     */
+    public function bindThirdParty(array $data, UidDTO $user = null): bool;
 }
