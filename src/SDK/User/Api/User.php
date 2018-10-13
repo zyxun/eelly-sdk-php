@@ -308,6 +308,8 @@ class User implements UserInterface
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      *
      * @author hehui<hehui@eelly.net>
+     *
+     * @deprecated
      */
     public function getUserByPassword(string $username, string $password): UserDTO
     {
@@ -339,6 +341,8 @@ class User implements UserInterface
      * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
      *
      * @author hehui<hehui@eelly.net>
+     *
+     * @deprecated
      */
     public function getUserByPasswordAsync(string $username, string $password)
     {
@@ -936,18 +940,11 @@ class User implements UserInterface
      * @author hehui<hehui@eelly.net>
      *
      * @since 2017-11-06
+     * @deprecated
      */
     public function getUser(int $uid): UserDTO
     {
         return EellyClient::request('user/user', 'getUser', true, $uid);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getUserByQQAccessToken(string $accessToken): UserDTO
-    {
-        return EellyClient::request('user/user', __FUNCTION__, true, $accessToken);
     }
 
     /**
@@ -971,6 +968,7 @@ class User implements UserInterface
      * @author hehui<hehui@eelly.net>
      *
      * @since 2017-11-06
+     * @deprecated
      */
     public function getUserAsync(int $uid)
     {
@@ -1065,6 +1063,36 @@ class User implements UserInterface
     public function getLoginErrorCountAsync(string $ip)
     {
         return EellyClient::request('user/user', 'getLoginErrorCount', false, $ip);
+    }
+
+    /**
+     * 获取用户信息，适用多场景
+     *
+     * @param array       $params
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-13
+     */
+    public function getUserInfo(array $params, UidDTO $user = null): array
+    {
+        return EellyClient::request('user/user', 'getUserInfo', true, $params, $user);
+    }
+
+    /**
+     * 获取用户信息，适用多场景
+     *
+     * @param array       $params
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-13
+     */
+    public function getUserInfoAsync(array $params, UidDTO $user = null)
+    {
+        return EellyClient::request('user/user', 'getUserInfo', false, $params, $user);
     }
 
     /**
