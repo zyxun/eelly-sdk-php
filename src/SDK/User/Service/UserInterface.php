@@ -316,7 +316,7 @@ interface UserInterface
      *
      * @since  2017-11-06
      */
-    public function updateUserAvatar(int $uid, string $avatar): bool;
+    public function updateUserAvatar(int $uid, string $avatar): array;
 
     /**
      * 根据用户id获取二维码数据.
