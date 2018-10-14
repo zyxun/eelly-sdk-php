@@ -663,7 +663,7 @@ class User implements UserInterface
      *
      * @since  2017-11-06
      */
-    public function updateUserAvatar(int $uid, string $avatar): array
+    public function updateUserAvatar(int $uid, string $avatar): bool
     {
         return EellyClient::request('user/user', 'updateUserAvatar', true, $uid, $avatar);
     }
