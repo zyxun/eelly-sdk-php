@@ -655,7 +655,7 @@ class User implements UserInterface
      *
      * @throws UserException
      *
-     * @return array
+     * @return bool
      * @requestExample({"uid":1,"avatar":""})
      * @returnExample(true)
      *
@@ -663,7 +663,7 @@ class User implements UserInterface
      *
      * @since  2017-11-06
      */
-    public function updateUserAvatar(int $uid, string $avatar): array
+    public function updateUserAvatar(int $uid, string $avatar): bool
     {
         return EellyClient::request('user/user', 'updateUserAvatar', true, $uid, $avatar);
     }
@@ -676,7 +676,7 @@ class User implements UserInterface
      *
      * @throws UserException
      *
-     * @return array
+     * @return bool
      * @requestExample({"uid":1,"avatar":""})
      * @returnExample(true)
      *

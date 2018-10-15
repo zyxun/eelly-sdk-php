@@ -308,7 +308,7 @@ interface UserInterface
      *
      * @throws UserException
      *
-     * @return array
+     * @return bool
      * @requestExample({"uid":1,"avatar":""})
      * @returnExample(true)
      *
@@ -316,7 +316,7 @@ interface UserInterface
      *
      * @since  2017-11-06
      */
-    public function updateUserAvatar(int $uid, string $avatar): array;
+    public function updateUserAvatar(int $uid, string $avatar): bool;
 
     /**
      * 根据用户id获取二维码数据.
