@@ -88,4 +88,9 @@ class AccountException extends LogicException
      * 单日单笔限额2000.00元
      */
     public const WITHDRAW_MONEY_NOT_HIGHER_TWO_THOUSAND = '单日单笔限额2000.00元';
+
+    /**
+     * 设置支付密码错误
+     */
+    public const SET_PASSWORD_FAIL = '设置支付密码错误';
 }
