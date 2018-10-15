@@ -246,6 +246,18 @@ interface AddressInterface
      * 
      * @param UidDTO $user 用户信息
      * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * addrId | int | 地址id
+     * userName | string | 收货人名称
+     * telNumber | string  | 收货人电话
+     * detailInfo | string  | 收货人详细地址(包含地区)
+     * regionName | string | 地区名
+     * addressName | string  | 收货人详细地址(不包含地区)
+     * default | int | 是否默认
+     * regionId | int | 地区id
+     * 
      * @return array
      * @returnExample([{"addrId":"50873","userName":"fsdfds","telNumber":"13546731245","detailInfo":"北京市 市辖区 丰台区 上海市 市辖区 徐汇区 Ehdhdjd.","regionName":"北京市 市辖区 丰台区","addressName":"上海市 市辖区 徐汇区 Ehdhdjd.","default":"1","regionId":"110106"}])
      *
