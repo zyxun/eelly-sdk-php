@@ -264,4 +264,43 @@ interface BindInterface
      * @since 2018.07.27
      */
     public function getBindInfoData(string $condition, array $binds):array;
+
+    /**
+     * 绑定/解绑第三方应用
+     *
+     * @param array        $data
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"bindId":1,{"data":{"type":1,"unionId":"xxxx","openId":"xxxx","appId":"xxxx","status":2}}})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-10-13
+     */
+    public function bindThirdParty(array $data, UidDTO $user = null): bool;
+
+    /**
+     * 根据用户和类型更新绑定信息.
+     *
+     * @param int    $userId
+     * @param int    $type   1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param string $key    第三方平台用户信息
+     * @param int    $isBind 1 绑定 2 解绑
+     *
+     * @return bool
+     * @requestExample({"userId":1,"type":1,"key":"","isBind":2})
+     * @returnExample(true)
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017/10/10
+     * @Validation(
+     *     @Digit(0, {message: "用户id类型错误"}),
+     *     @InclusionIn(1,{message:"绑定类型错误",domain:[1,2,3,4]}),
+     *     @PresenceOf(2,{message : "第三方平台信息不能为空"}),
+     *     @InclusionIn(3,{message:"绑定状态类型错误",domain:[1,2]})
+     * )
+     */
+    public function updateByUserId(int $userId, int $type, string $key, int $isBind = 1): bool;
 }
