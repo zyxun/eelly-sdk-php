@@ -58,7 +58,7 @@ interface BindInterface
      *
      * @param array  $data
      * @param int    $data['userId']   用户id
-     * @param int    $data['type']     绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param int    $data['type']     绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * @param string $data['nickname'] 第三方平台昵称
      * @param string $data['unionId']  第三方平台union_id
      * @param string $data['openId']   第三方平台open_id
@@ -269,7 +269,7 @@ interface BindInterface
      * 绑定/解绑第三方应用
      *
      * @param array       $data             应用信息 app_id,open_id,union_id
-     * @param int         $data['type']     应用类型 1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param int         $data['type']     应用类型 1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * @param int         $data['status']   绑定状态 1 绑定 2 解绑
      * @param UidDTO|null $user             登录用户
      * @return bool
@@ -286,7 +286,7 @@ interface BindInterface
      * 根据用户和类型更新绑定信息.
      *
      * @param int    $userId
-     * @param int    $type   1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
+     * @param int    $type   1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
      * @param string $key    第三方平台用户信息
      * @param int    $isBind 1 绑定 2 解绑
      *
