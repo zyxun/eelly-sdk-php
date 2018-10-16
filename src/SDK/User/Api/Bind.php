@@ -581,7 +581,7 @@ class Bind implements BindInterface
      * 绑定/解绑第三方应用
      *
      * @param array       $data             应用信息 app_id,open_id,union_id
-     * @param int         $data['type']     应用类型 1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
+     * @param int         $data['type']     应用类型 1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
      * @param int         $data['status']   绑定状态 1 绑定 2 解绑
      * @param UidDTO|null $user             登录用户
      * @return bool
