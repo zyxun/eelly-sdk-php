@@ -440,6 +440,17 @@ interface CartInterface
     public function getCartCount(UidDTO $user = null): int;
 
     /**
+     * 通过用户id获取购物车数量
+     *
+     * @param integer $userId 用户ID
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com> 
+     * @since 2018.10.16
+     */
+    public function getCartCountByUserId(int $userId):int;
+
+    /**
      * 批量获取购物车商品
      *
      * > 返回数据说明

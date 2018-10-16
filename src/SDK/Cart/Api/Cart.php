@@ -907,6 +907,34 @@ class Cart implements CartInterface
     }
 
     /**
+     * 通过用户id获取购物车数量
+     *
+     * @param integer $userId 用户ID
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com> 
+     * @since 2018.10.16
+     */
+    public function getCartCountByUserId(int $userId): int
+    {
+        return EellyClient::request('cart/cart', 'getCartCountByUserId', true, $userId);
+    }
+
+    /**
+     * 通过用户id获取购物车数量
+     *
+     * @param integer $userId 用户ID
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com> 
+     * @since 2018.10.16
+     */
+    public function getCartCountByUserIdAsync(int $userId)
+    {
+        return EellyClient::request('cart/cart', 'getCartCountByUserId', false, $userId);
+    }
+
+    /**
      * 批量获取购物车商品
      *
      * > 返回数据说明
