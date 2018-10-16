@@ -318,4 +318,17 @@ interface AccountInterface
      * @since 2018.9.5
      */
     public function checkPayPassword(int $userId, string $payPassword, int $storeId = 0): bool;
+
+    /**
+     * 设置支付密码 / 重置支付密码
+     *
+     * @param integer $userId 用户id
+     * @param string $payPassword 支付密码
+     * @param integer $storeId 店铺id 默认0 店铺同userId值
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.15
+     */
+    public function setPayPassword(int $userId, string $payPassword, int $storeId = 0):bool;
 }
