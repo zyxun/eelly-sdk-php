@@ -229,7 +229,9 @@ interface BuyerOrderInterface
      * mobile          | string   | 手机
      * regionName      | string   | 省市区
      * address         | string   | 详细地址
-     * remark          | string   | 买家留言
+     * remark          | string   | 买家留言 (废弃 改为memo.type4.content 2018-10-16)
+     * memo               | array    | 订单备注信息
+     * memo.type4.content | string   | 买家留言
      * sellerName      | string   | 卖家名称
      * orderAmount     | int      | 实收(分)
      * initGoodsAmount | int      | 货款(分)
