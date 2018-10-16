@@ -58,7 +58,7 @@ interface BindInterface
      *
      * @param array  $data
      * @param int    $data['userId']   用户id
-     * @param int    $data['type']     绑定类型：1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
+     * @param int    $data['type']     绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博
      * @param string $data['nickname'] 第三方平台昵称
      * @param string $data['unionId']  第三方平台union_id
      * @param string $data['openId']   第三方平台open_id
