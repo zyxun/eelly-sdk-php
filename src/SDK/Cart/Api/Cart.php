@@ -1313,6 +1313,34 @@ class Cart implements CartInterface
     }
 
     /**
+     * 获取用户购物车商品id
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.16
+     */
+    public function getCartGoodsId(int $userId): array
+    {
+        return EellyClient::request('cart/cart', 'getCartGoodsId', true, $userId);
+    }
+
+    /**
+     * 获取用户购物车商品id
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.16
+     */
+    public function getCartGoodsIdAsync(int $userId)
+    {
+        return EellyClient::request('cart/cart', 'getCartGoodsId', false, $userId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
