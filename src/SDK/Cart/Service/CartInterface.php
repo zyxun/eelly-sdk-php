@@ -630,4 +630,15 @@ interface CartInterface
      * @since 2018.10.13
      */
     public function delCartByOrder(array $goodsId, int $userId):bool;
+
+    /**
+     * 获取用户购物车商品id
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.16
+     */
+    public function getCartGoodsId(int $userId):array;
 }
