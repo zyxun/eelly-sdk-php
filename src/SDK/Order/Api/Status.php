@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -17,6 +16,7 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\StatusInterface;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Status implements StatusInterface
@@ -217,6 +217,32 @@ class Status implements StatusInterface
     public function getStatusAsync(int $statusId = 0, int $type = 0, int $code = 0)
     {
         return EellyClient::request('order/status', 'getStatus', false, $statusId, $type, $code);
+    }
+
+    /**
+     * 根据旧订单状态返回新订单状态
+     * 
+     * @param array $code 旧状态
+     * 
+     * @author wechan
+     * @since 2018年10月16日
+     */
+    public function getNewStatusByOldStatus(array $code): array
+    {
+        return EellyClient::request('order/status', 'getNewStatusByOldStatus', true, $code);
+    }
+
+    /**
+     * 根据旧订单状态返回新订单状态
+     * 
+     * @param array $code 旧状态
+     * 
+     * @author wechan
+     * @since 2018年10月16日
+     */
+    public function getNewStatusByOldStatusAsync(array $code)
+    {
+        return EellyClient::request('order/status', 'getNewStatusByOldStatus', false, $code);
     }
 
     /**
