@@ -269,6 +269,7 @@ interface BuyerRefundInterface
      * countDown        | int    | 倒计时 没有则 0
      * storePhone       | string | 店铺电话
      * orderGoods       | array  | 退货退款商品数据
+     * arbitrateApplyFlag | int   | 客服介入申请方 0 ：未介入 不做处理 1: 买家申请客服 2:卖家申请客服
      * 
      * > status 和 statusContent 对应关系
      * 
