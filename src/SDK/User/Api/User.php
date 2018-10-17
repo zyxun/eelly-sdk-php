@@ -1096,6 +1096,34 @@ class User implements UserInterface
     }
 
     /**
+     * 商城登录用户信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginUser(int $userId): array
+    {
+        return EellyClient::request('user/user', 'getMallLoginUser', true, $userId);
+    }
+
+    /**
+     * 商城登录用户信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginUserAsync(int $userId)
+    {
+        return EellyClient::request('user/user', 'getMallLoginUser', false, $userId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

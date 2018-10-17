@@ -390,4 +390,14 @@ interface StoreInterface
      */
     public function getStoreCommon(int $storeId, array $condition = []): array;
 
+    /**
+     * 获取商城登录店铺信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginStore(int $userId): array;
 }
