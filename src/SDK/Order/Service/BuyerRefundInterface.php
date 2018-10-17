@@ -179,6 +179,7 @@ interface BuyerRefundInterface
      * serviceTime      | int       | 服务当前时间
      * maxReturnMoney   | int       | 最大退款金额
      * remarkArr           | array     | 退款原因（根据返回情况展示）
+     * reamrkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组
      * 
      * > orderGoods 数据说明
      * 
@@ -346,6 +347,7 @@ interface BuyerRefundInterface
      * remarkType       | int    | 退款原因
      * remark           | string | 退款说明
      * remarkArr        | array  | 退款原因列表
+     * reamrkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组
      * finishTime       | int       | 提示过期时间
      * serviceTime      | int       | 服务当前时间
      * maxReturnMoney   | int       | 最大退款金额
