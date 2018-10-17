@@ -836,6 +836,34 @@ class Store implements StoreInterface
     }
 
     /**
+     * 获取商城登录店铺信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginStore(int $userId): array
+    {
+        return EellyClient::request('store/store', 'getMallLoginStore', true, $userId);
+    }
+
+    /**
+     * 获取商城登录店铺信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginStoreAsync(int $userId)
+    {
+        return EellyClient::request('store/store', 'getMallLoginStore', false, $userId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

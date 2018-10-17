@@ -493,4 +493,15 @@ interface UserInterface
      * @since 2018-10-13
      */
     public function getUserInfo(array $params, UidDTO $user = null): array ;
+
+    /**
+     * 商城登录用户信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginUser(int $userId):array ;
 }
