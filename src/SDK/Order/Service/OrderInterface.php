@@ -901,7 +901,7 @@ interface OrderInterface
      * 订单发起的支付.
      *
      * @param array  $orderIds 多个订单Id
-     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝 balance:余额
      * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
