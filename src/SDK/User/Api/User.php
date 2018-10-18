@@ -1261,9 +1261,12 @@ class User implements UserInterface
      * @param int    $userId        用户ID
      * @param string $oldPassword   旧密码
      * @param string $newPassword   新密码
-     * @return array
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
      */
-    public function updatePassword(int $userId, string $oldPassword, string $newPassword): array
+    public function updatePassword(int $userId, string $oldPassword, string $newPassword): bool
     {
         return EellyClient::request('user/user', 'updatePassword', true, $userId, $oldPassword, $newPassword);
     }
@@ -1274,7 +1277,10 @@ class User implements UserInterface
      * @param int    $userId        用户ID
      * @param string $oldPassword   旧密码
      * @param string $newPassword   新密码
-     * @return array
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
      */
     public function updatePasswordAsync(int $userId, string $oldPassword, string $newPassword)
     {
