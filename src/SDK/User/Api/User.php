@@ -1256,6 +1256,32 @@ class User implements UserInterface
     }
 
     /**
+     * 修改密码
+     *
+     * @param int    $userId        用户ID
+     * @param string $oldPassword   旧密码
+     * @param string $newPassword   新密码
+     * @return array
+     */
+    public function updatePassword(int $userId, string $oldPassword, string $newPassword): array
+    {
+        return EellyClient::request('user/user', 'updatePassword', true, $userId, $oldPassword, $newPassword);
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param int    $userId        用户ID
+     * @param string $oldPassword   旧密码
+     * @param string $newPassword   新密码
+     * @return array
+     */
+    public function updatePasswordAsync(int $userId, string $oldPassword, string $newPassword)
+    {
+        return EellyClient::request('user/user', 'updatePassword', false, $userId, $oldPassword, $newPassword);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
