@@ -204,8 +204,8 @@ interface BuyerOrderInterface
      *                   "expressTime": 0,
      *                   "note": "",
      *                   "actions": [
-     *                       "cancel",
-     *                       "pay"
+     *                       {"btn" : "cancel", "name" : "取消订单"},
+     *                       {"btn : "pay", "name" : "立即付款"}
      *                   ]
      *               }
      *           }
@@ -275,7 +275,7 @@ interface BuyerOrderInterface
      * bizCode['express']            |string |  快递信息
      * bizCode['expressTime']        | int | 快递信息的时间戳(秒)
      * bizCode['note']               | string | 留言
-     * bizCode['actions']            | list | 支持的操作<返回数据actions说明>
+     * bizCode['actions']            | array | 支持的操作<返回数据actions说明>
      *
      * > 业务编号(bizData.bizCode)
      *
@@ -365,8 +365,8 @@ interface BuyerOrderInterface
      *           "expressTime": 0,
      *           "note": "",
      *           "actions": [
-     *               "refund",
-     *               "notifySendGoods"
+     *               {"btn" : "cancel", "name" : "取消订单"},
+     *               {"btn : "pay", "name" : "立即付款"}
      *           ]
      *       },
      *       "orderStatus": 3,
