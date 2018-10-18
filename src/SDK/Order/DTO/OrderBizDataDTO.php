@@ -303,6 +303,7 @@ class OrderBizDataDTO extends AbstractDTO
             'cancelArbitrate'    => '撤销介入申请',
             'returnGoodsExpress' => '退货物流',
             'returnGoods'        => '申请退货退款',
+            'review'             => '去评价'
         ];
         foreach ($actions as $item) {
             $this->actions[] = ['btn' => $item, 'name' => $btnMap[$item]];
