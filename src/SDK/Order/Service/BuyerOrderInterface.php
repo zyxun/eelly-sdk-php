@@ -477,7 +477,6 @@ interface BuyerOrderInterface
      * 确认收货.
      *
      * @param int         $orderId  订单id
-     * @param string      $password 支付密码
      * @param UidDTO|null $uidDTO   uid dto
      *
      * @return bool
@@ -486,7 +485,7 @@ interface BuyerOrderInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function confirmReceivedOrder(int $orderId, string $password, UidDTO $uidDTO = null): bool;
+    public function confirmReceivedOrder(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
      * 添加订单备注.
