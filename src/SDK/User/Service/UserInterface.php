@@ -526,4 +526,39 @@ interface UserInterface
      * @since 2018-10-18
      */
     public function getUserFlagInfo(int $userId):array ;
+
+    /**
+     * Uc通过条件获取用户信息.
+     *
+     * @param array  $data
+     * @param int    $data["type"]  获取类型  2:username, 3:根据用户id获取字段
+     * @param string $data["val"]   对应类型的值
+     * @param string $data["field"] 字段
+     *                              ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * userId      |string |    用户id
+     * username    |string |    用户名
+     * passwordOld |string |    用户旧密码
+     * password    |string |    用户新密码
+     * mobile      |string |    用户手机
+     * avatar      |string |    用户头像
+     * status      |string |    用户状态
+     * createdTime |string |    创建时间
+     * updateTime  |string |    更新时间
+     * email       |string |    邮箱地址
+     * regIp       |string |    注册ip
+     *
+     * @throws UserException
+     *
+     * @return array
+     * @requestExample({"data":{"type":1,"val":"1111@qq.com"}})
+     * @returnExample({"userId":"1","username":"admin_moq","passwordOld":"17130970363720a389d2c582ddb9042f03b2bd","password":"","mobile":"","avatar":"","status":"0","createdTime":"1258946046","updateTime":"2017-11-25 10:50:56","email":"111@eelly.com","regIp":"116.22.30.27"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年12月7日
+     */
+    public function getInfoByFieldUc(array $data = []): array;
 }
