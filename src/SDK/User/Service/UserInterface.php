@@ -561,4 +561,17 @@ interface UserInterface
      * @since  2017年12月7日
      */
     public function getInfoByFieldUc(array $data = []): array;
+
+    /**
+     * 修改密码
+     *
+     * @param int    $userId        用户ID
+     * @param string $oldPassword   旧密码
+     * @param string $newPassword   新密码
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function updatePassword(int $userId, string $oldPassword, string $newPassword): bool ;
 }
