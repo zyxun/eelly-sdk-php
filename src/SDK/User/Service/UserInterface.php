@@ -504,4 +504,26 @@ interface UserInterface
      * @since 2018-10-17
      */
     public function getMallLoginUser(int $userId):array ;
+
+    /**
+     * 商城个人中心资料
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallUcProfile(int $userId):array;
+
+    /**
+     * 获取用户标识信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function getUserFlagInfo(int $userId):array ;
 }

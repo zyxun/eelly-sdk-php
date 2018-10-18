@@ -1124,6 +1124,62 @@ class User implements UserInterface
     }
 
     /**
+     * 商城个人中心资料
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallUcProfile(int $userId): array
+    {
+        return EellyClient::request('user/user', 'getMallUcProfile', true, $userId);
+    }
+
+    /**
+     * 商城个人中心资料
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallUcProfileAsync(int $userId)
+    {
+        return EellyClient::request('user/user', 'getMallUcProfile', false, $userId);
+    }
+
+    /**
+     * 获取用户标识信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function getUserFlagInfo(int $userId): array
+    {
+        return EellyClient::request('user/user', 'getUserFlagInfo', true, $userId);
+    }
+
+    /**
+     * 获取用户标识信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function getUserFlagInfoAsync(int $userId)
+    {
+        return EellyClient::request('user/user', 'getUserFlagInfo', false, $userId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
