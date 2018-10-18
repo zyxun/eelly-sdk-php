@@ -911,7 +911,7 @@ interface OrderInterface
      * >-- | ---- | -----
      * >platform | string | 支付类型
      * >billNo | string | 衣联交易号
-     * >data | array | 第三方返回的数据
+     * >data | array | 第三方支付(余额支付)返回的结果
      * >orderSns  | array | 订单号
      * >orderIds | array | 订单id
      * 
