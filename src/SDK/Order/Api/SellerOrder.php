@@ -1759,6 +1759,14 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $memo, $type);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
