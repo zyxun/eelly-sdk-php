@@ -853,12 +853,12 @@ interface SellerOrderInterface
      *
      * @param int         $orderId 订单id
      * @param string      $memo    备注内容
-     * @param int         $type    3 备忘 5 留言'
+     * @param int         $type    3 备忘 5 留言
      * @param UidDTO|null $uidDTO  uid dto
      *
      * @return bool
      *
-     * @requestExample({"orderId":"160","memo":"你买了个表", "type":4})
+     * @requestExample({"orderId":"160","memo":"你买了个表", "type":5})
      *
      * @returnExample(true)
      *
