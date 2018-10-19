@@ -672,6 +672,34 @@ class Bind implements BindInterface
     }
 
     /**
+     * 检查手机绑定信息
+     *
+     * @param string $mobile
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-19
+     */
+    public function checkMobileBind(string $mobile): bool
+    {
+        return EellyClient::request('user/bind', 'checkMobileBind', true, $mobile);
+    }
+
+    /**
+     * 检查手机绑定信息
+     *
+     * @param string $mobile
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-19
+     */
+    public function checkMobileBindAsync(string $mobile)
+    {
+        return EellyClient::request('user/bind', 'checkMobileBind', false, $mobile);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
