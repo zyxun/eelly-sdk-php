@@ -43,7 +43,7 @@ class User implements UserInterface
      *
      * @since 2017年10月24日
      * @Validation(
-     *    @Regex(0,{message:"手机号",'pattern':'/^1[34578]\d{9}$/'})
+     *    @Regex(0,{message:"手机号",'pattern':'/^1\d{10}$/'})
      * )
      */
     public function checkIsExistUserMobile(string $mobile): int
@@ -71,7 +71,7 @@ class User implements UserInterface
      *
      * @since 2017年10月24日
      * @Validation(
-     *    @Regex(0,{message:"手机号",'pattern':'/^1[34578]\d{9}$/'})
+     *    @Regex(0,{message:"手机号",'pattern':'/^1\d{10}$/'})
      * )
      */
     public function checkIsExistUserMobileAsync(string $mobile)
