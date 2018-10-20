@@ -74,4 +74,28 @@ interface SecurityInterface
      * @author eellytools<localhost.shell@gmail.com>
      */
     public function listSecurityPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 获取用户密保问题
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function getUserSecurity(int $userId): array ;
+
+    /**
+     * 验证用户密保问题答案
+     *
+     * @param int $userId
+     * @param int $questionId
+     * @param string $answer
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function checkUserAnswer(int $userId, int $questionId, string $answer): bool ;
 }
