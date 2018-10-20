@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\DTO\SecurityDTO;
 use Eelly\SDK\User\Service\SecurityInterface;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\User\DTO\SecurityDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Security implements SecurityInterface
@@ -50,7 +50,7 @@ class Security implements SecurityInterface
      */
     public function getSecurityLevel(int $storeId = 0, UidDTO $user = null): array
     {
-        return EellyClient::request('user/security', __FUNCTION__, true, $storeId, $user);
+        return EellyClient::request('user/security', 'getSecurityLevel', true, $storeId, $user);
     }
 
     /**
@@ -80,7 +80,7 @@ class Security implements SecurityInterface
      */
     public function getSecurityLevelAsync(int $storeId = 0, UidDTO $user = null)
     {
-        return EellyClient::request('user/security', __FUNCTION__, false, $storeId, $user);
+        return EellyClient::request('user/security', 'getSecurityLevel', false, $storeId, $user);
     }
 
     /**
@@ -88,7 +88,7 @@ class Security implements SecurityInterface
      */
     public function getSecurity(int $usId): SecurityDTO
     {
-        return EellyClient::request('user/security', __FUNCTION__, true, $usId);
+        return EellyClient::request('user/security', 'getSecurity', true, $usId);
     }
 
     /**
@@ -96,7 +96,7 @@ class Security implements SecurityInterface
      */
     public function getSecurityAsync(int $usId)
     {
-        return EellyClient::request('user/security', __FUNCTION__, false, $usId);
+        return EellyClient::request('user/security', 'getSecurity', false, $usId);
     }
 
     /**
@@ -104,7 +104,7 @@ class Security implements SecurityInterface
      */
     public function addSecurity(array $data): bool
     {
-        return EellyClient::request('user/security', __FUNCTION__, true, $data);
+        return EellyClient::request('user/security', 'addSecurity', true, $data);
     }
 
     /**
@@ -112,7 +112,7 @@ class Security implements SecurityInterface
      */
     public function addSecurityAsync(array $data)
     {
-        return EellyClient::request('user/security', __FUNCTION__, false, $data);
+        return EellyClient::request('user/security', 'addSecurity', false, $data);
     }
 
     /**
@@ -120,7 +120,7 @@ class Security implements SecurityInterface
      */
     public function updateSecurity(int $SecurityId, array $data): bool
     {
-        return EellyClient::request('user/security', __FUNCTION__, true, $SecurityId, $data);
+        return EellyClient::request('user/security', 'updateSecurity', true, $SecurityId, $data);
     }
 
     /**
@@ -128,7 +128,7 @@ class Security implements SecurityInterface
      */
     public function updateSecurityAsync(int $SecurityId, array $data)
     {
-        return EellyClient::request('user/security', __FUNCTION__, false, $SecurityId, $data);
+        return EellyClient::request('user/security', 'updateSecurity', false, $SecurityId, $data);
     }
 
     /**
@@ -136,7 +136,7 @@ class Security implements SecurityInterface
      */
     public function deleteSecurity(int $SecurityId): bool
     {
-        return EellyClient::request('user/security', __FUNCTION__, true, $SecurityId);
+        return EellyClient::request('user/security', 'deleteSecurity', true, $SecurityId);
     }
 
     /**
@@ -144,7 +144,7 @@ class Security implements SecurityInterface
      */
     public function deleteSecurityAsync(int $SecurityId)
     {
-        return EellyClient::request('user/security', __FUNCTION__, false, $SecurityId);
+        return EellyClient::request('user/security', 'deleteSecurity', false, $SecurityId);
     }
 
     /**
@@ -152,7 +152,7 @@ class Security implements SecurityInterface
      */
     public function listSecurityPage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/security', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('user/security', 'listSecurityPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -160,7 +160,67 @@ class Security implements SecurityInterface
      */
     public function listSecurityPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('user/security', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('user/security', 'listSecurityPage', false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 获取用户密保问题
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function getUserSecurity(int $userId): array
+    {
+        return EellyClient::request('user/security', 'getUserSecurity', true, $userId);
+    }
+
+    /**
+     * 获取用户密保问题
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function getUserSecurityAsync(int $userId)
+    {
+        return EellyClient::request('user/security', 'getUserSecurity', false, $userId);
+    }
+
+    /**
+     * 验证用户密保问题答案
+     *
+     * @param int $userId
+     * @param int $questionId
+     * @param string $answer
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function checkUserAnswer(int $userId, int $questionId, string $answer): bool
+    {
+        return EellyClient::request('user/security', 'checkUserAnswer', true, $userId, $questionId, $answer);
+    }
+
+    /**
+     * 验证用户密保问题答案
+     *
+     * @param int $userId
+     * @param int $questionId
+     * @param string $answer
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function checkUserAnswerAsync(int $userId, int $questionId, string $answer)
+    {
+        return EellyClient::request('user/security', 'checkUserAnswer', false, $userId, $questionId, $answer);
     }
 
     /**
