@@ -32,7 +32,7 @@ interface AccountInterface
      * @param integer $storeId 店铺id 店+store = 0
      * @return boolean
      * 
-     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @author sunanzhi <sunanzhi@hotmail.com> 
      * @since 2018.10.22
      */
     public function addPayAccount(int $userId, int $storeId = 0):bool;
