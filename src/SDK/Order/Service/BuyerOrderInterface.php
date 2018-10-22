@@ -205,7 +205,7 @@ interface BuyerOrderInterface
      *                   "note": "",
      *                   "actions": [
      *                       {"btn" : "cancel", "name" : "取消订单"},
-     *                       {"btn : "pay", "name" : "立即付款"}
+     *                       {"btn" : "pay", "name" : "立即付款"}
      *                   ]
      *               }
      *           }
@@ -265,6 +265,9 @@ interface BuyerOrderInterface
      * goodsList[]['quantity']     | int    | 商品数量
      * goodsList[]['spec']         | string | 商品属性
      * goodsList[]['goodsImage']   | string | 商品图片
+     * expressList     | array     | 物流信息列表
+     * expressList[]['time']   | string | 时间
+     * expressList[]['status']   | string | 物流文本信息
      * bizData                     | array  | 业务数据
      * bizCode | int | 业务编号
      * bizCode['orderStatus'] | int | 订单状态
@@ -366,7 +369,7 @@ interface BuyerOrderInterface
      *           "note": "",
      *           "actions": [
      *               {"btn" : "cancel", "name" : "取消订单"},
-     *               {"btn : "pay", "name" : "立即付款"}
+     *               {"btn" : "pay", "name" : "立即付款"}
      *           ]
      *       },
      *       "orderStatus": 3,

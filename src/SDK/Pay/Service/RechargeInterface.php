@@ -165,4 +165,14 @@ interface RechargeInterface
      * @since  2017年11月14日
      */
     public function goRecharge(array $data): array;
+    
+    /**
+     * 根据precId 获取 billNo
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getBillNoByPrecId(int $precId): string;
 }
