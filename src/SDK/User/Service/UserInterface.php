@@ -50,6 +50,17 @@ interface UserInterface
     public function checkIsExistUserMobile(string $mobile): int;
 
     /**
+     * 校验邮箱是否存在
+     *
+     * @param string $email
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2018-10-22
+     */
+    public function checkIsExistUserEmail(string $email): int ;
+
+    /**
      * 校验密码强度.
      *
      * ### 返回数据说明
