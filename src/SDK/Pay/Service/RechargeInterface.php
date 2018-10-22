@@ -165,4 +165,20 @@ interface RechargeInterface
      * @since  2017年11月14日
      */
     public function goRecharge(array $data): array;
+
+    /**
+     * 根据传过来的条件返回对应的记录
+     *
+     * @param string $conditions 搜索条件
+     * @param array $bind  绑定参数
+     * @param string $field 字段名
+     * @return array
+     *
+     * @requestExample({"conditions":"prec_id=:precId:", "bind":[992, 991], "field":"payType"})
+     * @returnExample([{"precId":992,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"},{"precId":991,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.22
+     */
+    public function listRechargeInfoByConditions(string $conditions, array $bind, string $field = 'base'):array;
 }
