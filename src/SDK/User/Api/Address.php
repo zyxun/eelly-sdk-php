@@ -433,7 +433,7 @@ class Address implements AddressInterface
 
     /**
      * 
-     * 小程序设置默认收货地址
+     * 设置默认收货地址
      * 
      * @param int $addrId 地址id
      * @param UidDTO $user 用户信息
@@ -451,7 +451,7 @@ class Address implements AddressInterface
 
     /**
      * 
-     * 小程序设置默认收货地址
+     * 设置默认收货地址
      * 
      * @param int $addrId 地址id
      * @param UidDTO $user 用户信息
@@ -476,16 +476,18 @@ class Address implements AddressInterface
      * @param string  $data['detailInfo'] 收货详细地址
      * @param string  $data['telNumber'] 收货人手机号码
      * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
-     * @param string  $data['regionId'] 地区id
+     * @param string  $data['postalCode'] 邮政编码
+     * @param int $data['regionId'] 地区id
      * @param UidDTO $user 用户信息
      * 
      * @return bool
-     * @returnExample(true)
+     * 
+     * @returnExample({"addrId":"392285","regionId":1111})
      *
      * @author wechan
-     * @since 2018年09月18日     
+     * @since 2018年09月18日
      */
-    public function saveUserAddress(array $data, UidDTO $user = null): bool
+    public function saveUserAddress(array $data, UidDTO $user = null): array
     {
         return EellyClient::request('user/address', 'saveUserAddress', true, $data, $user);
     }
@@ -499,14 +501,16 @@ class Address implements AddressInterface
      * @param string  $data['detailInfo'] 收货详细地址
      * @param string  $data['telNumber'] 收货人手机号码
      * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
-     * @param string  $data['regionId'] 地区id
+     * @param string  $data['postalCode'] 邮政编码
+     * @param int $data['regionId'] 地区id
      * @param UidDTO $user 用户信息
      * 
      * @return bool
-     * @returnExample(true)
+     * 
+     * @returnExample({"addrId":"392285","regionId":1111})
      *
      * @author wechan
-     * @since 2018年09月18日     
+     * @since 2018年09月18日
      */
     public function saveUserAddressAsync(array $data, UidDTO $user = null)
     {
@@ -514,12 +518,24 @@ class Address implements AddressInterface
     }
 
     /**
-     * 获取小程序用户收货地址列表
+     * 获取用户收货地址列表
      * 
      * @param UidDTO $user 用户信息
      * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * addrId | int | 地址id
+     * userName | string | 收货人名称
+     * telNumber | string  | 收货人电话
+     * detailInfo | string  | 收货人详细地址(包含地区)
+     * regionName | string | 地区名
+     * addressName | string  | 收货人详细地址(不包含地区)
+     * default | int | 是否默认
+     * regionId | int | 地区id
+     * 
      * @return array
-     * @returnExample([{"addrId":"392285","userName":"moq7","telNumber":"15713886412","detailInfo":"北京市 市辖区 西城区广州大道中","default":"1"},{"addrId":"393920","userName":"ad","telNumber":"13430245645","detailInfo":"广东省 广州市 天河区广州大道中559号太行商业大厦","default":"0"},{"addrId":"393487","userName":"张三1","telNumber":"13456791245","detailInfo":"广东省 广州市 越秀区棠下上社胡岗新村dd","default":"0"},{"addrId":"392481","userName":"张三4","telNumber":"13456791245","detailInfo":"湖北省 武汉市 市辖区棠下上社胡岗新村","default":"0"},{"addrId":"392463","userName":"moq5","telNumber":"13113886417","detailInfo":"上海市 市辖区 徐汇区广州大道中a","default":"0"},{"addrId":"392417","userName":"adsf6","telNumber":"11111111111","detailInfo":"广东省 广州市 海珠区fasdfasdf","default":"0"}])
+     * @returnExample([{"addrId":"50873","userName":"fsdfds","telNumber":"13546731245","detailInfo":"北京市 市辖区 丰台区 上海市 市辖区 徐汇区 Ehdhdjd.","regionName":"北京市 市辖区 丰台区","addressName":"上海市 市辖区 徐汇区 Ehdhdjd.","default":"1","regionId":"110106"}])
      *
      * @author wechan
      * @since 2018年09月18日  
@@ -530,12 +546,24 @@ class Address implements AddressInterface
     }
 
     /**
-     * 获取小程序用户收货地址列表
+     * 获取用户收货地址列表
      * 
      * @param UidDTO $user 用户信息
      * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * addrId | int | 地址id
+     * userName | string | 收货人名称
+     * telNumber | string  | 收货人电话
+     * detailInfo | string  | 收货人详细地址(包含地区)
+     * regionName | string | 地区名
+     * addressName | string  | 收货人详细地址(不包含地区)
+     * default | int | 是否默认
+     * regionId | int | 地区id
+     * 
      * @return array
-     * @returnExample([{"addrId":"392285","userName":"moq7","telNumber":"15713886412","detailInfo":"北京市 市辖区 西城区广州大道中","default":"1"},{"addrId":"393920","userName":"ad","telNumber":"13430245645","detailInfo":"广东省 广州市 天河区广州大道中559号太行商业大厦","default":"0"},{"addrId":"393487","userName":"张三1","telNumber":"13456791245","detailInfo":"广东省 广州市 越秀区棠下上社胡岗新村dd","default":"0"},{"addrId":"392481","userName":"张三4","telNumber":"13456791245","detailInfo":"湖北省 武汉市 市辖区棠下上社胡岗新村","default":"0"},{"addrId":"392463","userName":"moq5","telNumber":"13113886417","detailInfo":"上海市 市辖区 徐汇区广州大道中a","default":"0"},{"addrId":"392417","userName":"adsf6","telNumber":"11111111111","detailInfo":"广东省 广州市 海珠区fasdfasdf","default":"0"}])
+     * @returnExample([{"addrId":"50873","userName":"fsdfds","telNumber":"13546731245","detailInfo":"北京市 市辖区 丰台区 上海市 市辖区 徐汇区 Ehdhdjd.","regionName":"北京市 市辖区 丰台区","addressName":"上海市 市辖区 徐汇区 Ehdhdjd.","default":"1","regionId":"110106"}])
      *
      * @author wechan
      * @since 2018年09月18日  

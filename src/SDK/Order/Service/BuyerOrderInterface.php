@@ -204,8 +204,8 @@ interface BuyerOrderInterface
      *                   "expressTime": 0,
      *                   "note": "",
      *                   "actions": [
-     *                       "cancel",
-     *                       "pay"
+     *                       {"btn" : "cancel", "name" : "取消订单"},
+     *                       {"btn" : "pay", "name" : "立即付款"}
      *                   ]
      *               }
      *           }
@@ -229,7 +229,9 @@ interface BuyerOrderInterface
      * mobile          | string   | 手机
      * regionName      | string   | 省市区
      * address         | string   | 详细地址
-     * remark          | string   | 买家留言
+     * remark          | string   | 买家留言 (废弃 改为memo.type4.content 2018-10-16)
+     * memo               | array    | 订单备注信息
+     * memo.type4.content | string   | 买家留言
      * sellerName      | string   | 卖家名称
      * orderAmount     | int      | 实收(分)
      * initGoodsAmount | int      | 货款(分)
@@ -263,6 +265,9 @@ interface BuyerOrderInterface
      * goodsList[]['quantity']     | int    | 商品数量
      * goodsList[]['spec']         | string | 商品属性
      * goodsList[]['goodsImage']   | string | 商品图片
+     * expressList     | array     | 物流信息列表
+     * expressList[]['time']   | string | 时间
+     * expressList[]['status']   | string | 物流文本信息
      * bizData                     | array  | 业务数据
      * bizCode | int | 业务编号
      * bizCode['orderStatus'] | int | 订单状态
@@ -273,7 +278,7 @@ interface BuyerOrderInterface
      * bizCode['express']            |string |  快递信息
      * bizCode['expressTime']        | int | 快递信息的时间戳(秒)
      * bizCode['note']               | string | 留言
-     * bizCode['actions']            | list | 支持的操作<返回数据actions说明>
+     * bizCode['actions']            | array | 支持的操作<返回数据actions说明>
      *
      * > 业务编号(bizData.bizCode)
      *
@@ -363,8 +368,8 @@ interface BuyerOrderInterface
      *           "expressTime": 0,
      *           "note": "",
      *           "actions": [
-     *               "refund",
-     *               "notifySendGoods"
+     *               {"btn" : "cancel", "name" : "取消订单"},
+     *               {"btn" : "pay", "name" : "立即付款"}
      *           ]
      *       },
      *       "orderStatus": 3,
@@ -475,7 +480,6 @@ interface BuyerOrderInterface
      * 确认收货.
      *
      * @param int         $orderId  订单id
-     * @param string      $password 支付密码
      * @param UidDTO|null $uidDTO   uid dto
      *
      * @return bool
@@ -484,7 +488,7 @@ interface BuyerOrderInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function confirmReceivedOrder(int $orderId, string $password, UidDTO $uidDTO = null): bool;
+    public function confirmReceivedOrder(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
      * 添加订单备注.

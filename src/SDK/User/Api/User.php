@@ -43,7 +43,7 @@ class User implements UserInterface
      *
      * @since 2017年10月24日
      * @Validation(
-     *    @Regex(0,{message:"手机号",'pattern':'/^1[34578]\d{9}$/'})
+     *    @Regex(0,{message:"手机号",'pattern':'/^1\d{10}$/'})
      * )
      */
     public function checkIsExistUserMobile(string $mobile): int
@@ -71,7 +71,7 @@ class User implements UserInterface
      *
      * @since 2017年10月24日
      * @Validation(
-     *    @Regex(0,{message:"手机号",'pattern':'/^1[34578]\d{9}$/'})
+     *    @Regex(0,{message:"手机号",'pattern':'/^1\d{10}$/'})
      * )
      */
     public function checkIsExistUserMobileAsync(string $mobile)
@@ -1093,6 +1093,198 @@ class User implements UserInterface
     public function getUserInfoAsync(array $params, UidDTO $user = null)
     {
         return EellyClient::request('user/user', 'getUserInfo', false, $params, $user);
+    }
+
+    /**
+     * 商城登录用户信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginUser(int $userId): array
+    {
+        return EellyClient::request('user/user', 'getMallLoginUser', true, $userId);
+    }
+
+    /**
+     * 商城登录用户信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginUserAsync(int $userId)
+    {
+        return EellyClient::request('user/user', 'getMallLoginUser', false, $userId);
+    }
+
+    /**
+     * 商城个人中心资料
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallUcProfile(int $userId): array
+    {
+        return EellyClient::request('user/user', 'getMallUcProfile', true, $userId);
+    }
+
+    /**
+     * 商城个人中心资料
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallUcProfileAsync(int $userId)
+    {
+        return EellyClient::request('user/user', 'getMallUcProfile', false, $userId);
+    }
+
+    /**
+     * 获取用户标识信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function getUserFlagInfo(int $userId): array
+    {
+        return EellyClient::request('user/user', 'getUserFlagInfo', true, $userId);
+    }
+
+    /**
+     * 获取用户标识信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function getUserFlagInfoAsync(int $userId)
+    {
+        return EellyClient::request('user/user', 'getUserFlagInfo', false, $userId);
+    }
+
+    /**
+     * Uc通过条件获取用户信息.
+     *
+     * @param array  $data
+     * @param int    $data["type"]  获取类型  2:username, 3:根据用户id获取字段
+     * @param string $data["val"]   对应类型的值
+     * @param string $data["field"] 字段
+     *                              ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * userId      |string |    用户id
+     * username    |string |    用户名
+     * passwordOld |string |    用户旧密码
+     * password    |string |    用户新密码
+     * mobile      |string |    用户手机
+     * avatar      |string |    用户头像
+     * status      |string |    用户状态
+     * createdTime |string |    创建时间
+     * updateTime  |string |    更新时间
+     * email       |string |    邮箱地址
+     * regIp       |string |    注册ip
+     *
+     * @throws UserException
+     *
+     * @return array
+     * @requestExample({"data":{"type":1,"val":"1111@qq.com"}})
+     * @returnExample({"userId":"1","username":"admin_moq","passwordOld":"17130970363720a389d2c582ddb9042f03b2bd","password":"","mobile":"","avatar":"","status":"0","createdTime":"1258946046","updateTime":"2017-11-25 10:50:56","email":"111@eelly.com","regIp":"116.22.30.27"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年12月7日
+     */
+    public function getInfoByFieldUc(array $data = []): array
+    {
+        return EellyClient::request('user/user', 'getInfoByFieldUc', true, $data);
+    }
+
+    /**
+     * Uc通过条件获取用户信息.
+     *
+     * @param array  $data
+     * @param int    $data["type"]  获取类型  2:username, 3:根据用户id获取字段
+     * @param string $data["val"]   对应类型的值
+     * @param string $data["field"] 字段
+     *                              ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ------------|-------|--------------
+     * userId      |string |    用户id
+     * username    |string |    用户名
+     * passwordOld |string |    用户旧密码
+     * password    |string |    用户新密码
+     * mobile      |string |    用户手机
+     * avatar      |string |    用户头像
+     * status      |string |    用户状态
+     * createdTime |string |    创建时间
+     * updateTime  |string |    更新时间
+     * email       |string |    邮箱地址
+     * regIp       |string |    注册ip
+     *
+     * @throws UserException
+     *
+     * @return array
+     * @requestExample({"data":{"type":1,"val":"1111@qq.com"}})
+     * @returnExample({"userId":"1","username":"admin_moq","passwordOld":"17130970363720a389d2c582ddb9042f03b2bd","password":"","mobile":"","avatar":"","status":"0","createdTime":"1258946046","updateTime":"2017-11-25 10:50:56","email":"111@eelly.com","regIp":"116.22.30.27"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年12月7日
+     */
+    public function getInfoByFieldUcAsync(array $data = [])
+    {
+        return EellyClient::request('user/user', 'getInfoByFieldUc', false, $data);
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param int    $userId        用户ID
+     * @param string $oldPassword   旧密码
+     * @param string $newPassword   新密码
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function updatePassword(int $userId, string $oldPassword, string $newPassword): bool
+    {
+        return EellyClient::request('user/user', 'updatePassword', true, $userId, $oldPassword, $newPassword);
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param int    $userId        用户ID
+     * @param string $oldPassword   旧密码
+     * @param string $newPassword   新密码
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-10-18
+     */
+    public function updatePasswordAsync(int $userId, string $oldPassword, string $newPassword)
+    {
+        return EellyClient::request('user/user', 'updatePassword', false, $userId, $oldPassword, $newPassword);
     }
 
     /**

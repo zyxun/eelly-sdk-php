@@ -24,36 +24,6 @@ use Eelly\DTO\UidDTO;
 class Account implements AccountInterface
 {
     /**
-     * 添加资金账号
-     *
-     * @param integer $userId 用户id
-     * @param integer $storeId 店铺id 店+store = 0
-     * @return boolean
-     * 
-     * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2018.10.22
-     */
-    public function addPayAccount(int $userId, int $storeId = 0): bool
-    {
-        return EellyClient::request('pay/account', 'addPayAccount', true, $userId, $storeId);
-    }
-
-    /**
-     * 添加资金账号
-     *
-     * @param integer $userId 用户id
-     * @param integer $storeId 店铺id 店+store = 0
-     * @return boolean
-     * 
-     * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2018.10.22
-     */
-    public function addPayAccountAsync(int $userId, int $storeId = 0)
-    {
-        return EellyClient::request('pay/account', 'addPayAccount', false, $userId, $storeId);
-    }
-
-    /**
      * 根据帐户主键id获取账户信息.
      *
      * ### 返回数据说明

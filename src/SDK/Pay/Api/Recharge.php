@@ -337,6 +337,32 @@ class Recharge implements RechargeInterface
     }
 
     /**
+     * 根据precId 获取 billNo
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getBillNoByPrecId(int $precId): string
+    {
+        return EellyClient::request('pay/recharge', 'getBillNoByPrecId', true, $precId);
+    }
+
+    /**
+     * 根据precId 获取 billNo
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getBillNoByPrecIdAsync(int $precId)
+    {
+        return EellyClient::request('pay/recharge', 'getBillNoByPrecId', false, $precId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

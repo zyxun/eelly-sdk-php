@@ -26,18 +26,6 @@ use Eelly\SDK\Pay\DTO\AccountDTO;
 interface AccountInterface
 {
     /**
-     * 添加资金账号
-     *
-     * @param integer $userId 用户id
-     * @param integer $storeId 店铺id 店+store = 0
-     * @return boolean
-     * 
-     * @author sunanzhi <sunanzhi@hotmail.com> 
-     * @since 2018.10.22
-     */
-    public function addPayAccount(int $userId, int $storeId = 0):bool;
-
-    /**
      * 根据帐户主键id获取账户信息.
      *
      * ### 返回数据说明
