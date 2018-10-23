@@ -40,7 +40,7 @@ class Service implements ServiceInterface
      */
     public function getService(int $serviceId): ServiceDTO
     {
-        return EellyClient::request('service/service', __FUNCTION__, true, $serviceId);
+        return EellyClient::request('service/service', 'getService', true, $serviceId);
     }
 
     /**
@@ -60,7 +60,7 @@ class Service implements ServiceInterface
      */
     public function getServiceAsync(int $serviceId)
     {
-        return EellyClient::request('service/service', __FUNCTION__, false, $serviceId);
+        return EellyClient::request('service/service', 'getService', false, $serviceId);
     }
 
     /**
@@ -88,7 +88,7 @@ class Service implements ServiceInterface
      */
     public function addService(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/service', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('service/service', 'addService', true, $data, $user);
     }
 
     /**
@@ -116,7 +116,7 @@ class Service implements ServiceInterface
      */
     public function addServiceAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('service/service', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('service/service', 'addService', false, $data, $user);
     }
 
     /**
@@ -145,7 +145,7 @@ class Service implements ServiceInterface
      */
     public function updateService(int $serviceId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/service', __FUNCTION__, true, $serviceId, $data, $user);
+        return EellyClient::request('service/service', 'updateService', true, $serviceId, $data, $user);
     }
 
     /**
@@ -174,7 +174,7 @@ class Service implements ServiceInterface
      */
     public function updateServiceAsync(int $serviceId, array $data, UidDTO $user = null)
     {
-        return EellyClient::request('service/service', __FUNCTION__, false, $serviceId, $data, $user);
+        return EellyClient::request('service/service', 'updateService', false, $serviceId, $data, $user);
     }
 
     /**
@@ -196,7 +196,7 @@ class Service implements ServiceInterface
      */
     public function deleteService(int $serviceId, UidDTO $user = null): bool
     {
-        return EellyClient::request('service/service', __FUNCTION__, true, $serviceId, $user);
+        return EellyClient::request('service/service', 'deleteService', true, $serviceId, $user);
     }
 
     /**
@@ -218,7 +218,7 @@ class Service implements ServiceInterface
      */
     public function deleteServiceAsync(int $serviceId, UidDTO $user = null)
     {
-        return EellyClient::request('service/service', __FUNCTION__, false, $serviceId, $user);
+        return EellyClient::request('service/service', 'deleteService', false, $serviceId, $user);
     }
 
     /**
@@ -247,7 +247,7 @@ class Service implements ServiceInterface
      */
     public function listServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/service', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', 'listServicePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -276,7 +276,7 @@ class Service implements ServiceInterface
      */
     public function listServicePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('service/service', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', 'listServicePage', false, $condition, $currentPage, $limit);
     }
 
     /**
@@ -305,7 +305,7 @@ class Service implements ServiceInterface
      */
     public function listBuyerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/service', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', 'listBuyerServicePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -334,7 +334,7 @@ class Service implements ServiceInterface
      */
     public function listBuyerServicePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('service/service', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', 'listBuyerServicePage', false, $condition, $currentPage, $limit);
     }
 
     /**
@@ -363,7 +363,7 @@ class Service implements ServiceInterface
      */
     public function listSellerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('service/service', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', 'listSellerServicePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -392,7 +392,33 @@ class Service implements ServiceInterface
      */
     public function listSellerServicePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('service/service', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('service/service', 'listSellerServicePage', false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 增值服务支付
+     * 
+     * @param string $billNo 衣联交易号
+     * 
+     * @author wechan
+     * @since 2018年10月23日
+     */
+    public function setServicePay(string $billNo): bool
+    {
+        return EellyClient::request('service/service', 'setServicePay', true, $billNo);
+    }
+
+    /**
+     * 增值服务支付
+     * 
+     * @param string $billNo 衣联交易号
+     * 
+     * @author wechan
+     * @since 2018年10月23日
+     */
+    public function setServicePayAsync(string $billNo)
+    {
+        return EellyClient::request('service/service', 'setServicePay', false, $billNo);
     }
 
     /**
