@@ -23,6 +23,14 @@ use Eelly\SDK\Pay\DTO\PaymentDTO;
 class Payment implements PaymentInterface
 {
     /**
+     * {@inheritDoc}
+     */
+    public function getInfoByItemId(int $itemId, int $type): array
+    {
+        return EellyClient::request('pay/payment', __FUNCTION__, true, $itemId, $type);
+    }
+
+    /**
      * 根据交易号 获取支付交易流水.
      *
      * @param string $billNo    衣联交易号
@@ -408,6 +416,34 @@ class Payment implements PaymentInterface
     public function getPaymentByItemIdAndTypeAsync(int $itemId, int $type)
     {
         return EellyClient::request('pay/payment', 'getPaymentByItemIdAndType', false, $itemId, $type);
+    }
+
+    /**
+     * 根据类型和平台获取支付类
+     * 
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
+     * 
+     * @author wechan
+     * @since 2018年09月29日
+     */
+    public function getTypeClass(string $type, string $platform): string
+    {
+        return EellyClient::request('pay/payment', 'getTypeClass', true, $type, $platform);
+    }
+
+    /**
+     * 根据类型和平台获取支付类
+     * 
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
+     * 
+     * @author wechan
+     * @since 2018年09月29日
+     */
+    public function getTypeClassAsync(string $type, string $platform)
+    {
+        return EellyClient::request('pay/payment', 'getTypeClass', false, $type, $platform);
     }
 
     /**

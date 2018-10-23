@@ -440,6 +440,17 @@ interface CartInterface
     public function getCartCount(UidDTO $user = null): int;
 
     /**
+     * 通过用户id获取购物车数量
+     *
+     * @param integer $userId 用户ID
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com> 
+     * @since 2018.10.16
+     */
+    public function getCartCountByUserId(int $userId):int;
+
+    /**
      * 批量获取购物车商品
      *
      * > 返回数据说明
@@ -601,4 +612,27 @@ interface CartInterface
      * @since 2018.9.20
      */
     public function getGoods(int $goodsId):array;
+
+    /**
+     * 提交订单后删除购物车接口，不对外
+     *
+     * @param array $goodsId 商品id 数组
+     * @param integer $userId 用户id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.13
+     */
+    public function delCartByOrder(array $goodsId, int $userId):bool;
+
+    /**
+     * 获取用户购物车商品id
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.16
+     */
+    public function getCartGoodsId(int $userId):array;
 }

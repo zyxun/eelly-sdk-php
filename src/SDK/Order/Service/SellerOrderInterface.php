@@ -832,4 +832,37 @@ interface SellerOrderInterface
      * @since 2018.7.3
      */
     public function cancelOrder(int $orderId):bool;
+
+    /**
+     * 通知买家对订单付款.
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function notifyPaying(int $orderId, UidDTO $uidDTO = null): bool;
+
+
+    /**
+     * 添加订单备注.
+     *
+     * @param int         $orderId 订单id
+     * @param string      $memo    备注内容
+     * @param int         $type    3 备忘 5 留言
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @requestExample({"orderId":"160","memo":"你买了个表", "type":5})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool;
 }

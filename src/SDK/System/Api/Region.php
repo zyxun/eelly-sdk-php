@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\SYSTEM\DTO\RegionDTO;
 use Eelly\SDK\System\Service\RegionInterface;
+use Eelly\SDK\SYSTEM\DTO\RegionDTO;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Region implements RegionInterface
@@ -40,7 +40,7 @@ class Region implements RegionInterface
      */
     public function getRegion(int $gbCode): RegionDTO
     {
-        return EellyClient::request('system/region', __FUNCTION__, true, $gbCode);
+        return EellyClient::request('system/region', 'getRegion', true, $gbCode);
     }
 
     /**
@@ -60,7 +60,7 @@ class Region implements RegionInterface
      */
     public function getRegionAsync(int $gbCode)
     {
-        return EellyClient::request('system/region', __FUNCTION__, false, $gbCode);
+        return EellyClient::request('system/region', 'getRegion', false, $gbCode);
     }
 
     /**
@@ -88,7 +88,7 @@ class Region implements RegionInterface
      */
     public function addRegion(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/region', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('system/region', 'addRegion', true, $data, $user);
     }
 
     /**
@@ -116,7 +116,7 @@ class Region implements RegionInterface
      */
     public function addRegionAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('system/region', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('system/region', 'addRegion', false, $data, $user);
     }
 
     /**
@@ -144,7 +144,7 @@ class Region implements RegionInterface
      */
     public function updateRegion(int $gbCode, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/region', __FUNCTION__, true, $gbCode, $data, $user);
+        return EellyClient::request('system/region', 'updateRegion', true, $gbCode, $data, $user);
     }
 
     /**
@@ -172,7 +172,7 @@ class Region implements RegionInterface
      */
     public function updateRegionAsync(int $gbCode, array $data, UidDTO $user = null)
     {
-        return EellyClient::request('system/region', __FUNCTION__, false, $gbCode, $data, $user);
+        return EellyClient::request('system/region', 'updateRegion', false, $gbCode, $data, $user);
     }
 
     /**
@@ -220,7 +220,7 @@ class Region implements RegionInterface
      */
     public function listRegionPage(array $condition = [], int $currentPage = 1, int $limit = 20): array
     {
-        return EellyClient::request('system/region', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('system/region', 'listRegionPage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -268,7 +268,7 @@ class Region implements RegionInterface
      */
     public function listRegionPageAsync(array $condition = [], int $currentPage = 1, int $limit = 20)
     {
-        return EellyClient::request('system/region', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('system/region', 'listRegionPage', false, $condition, $currentPage, $limit);
     }
 
     /**
@@ -288,7 +288,7 @@ class Region implements RegionInterface
      */
     public function getUserAddressByGbCode(int $gbCode): array
     {
-        return EellyClient::request('system/region', __FUNCTION__, true, $gbCode);
+        return EellyClient::request('system/region', 'getUserAddressByGbCode', true, $gbCode);
     }
 
     /**
@@ -300,7 +300,7 @@ class Region implements RegionInterface
      *
      * @return array
      * @requestExample({"gbCode":1})
-     * @returnExample({"gbCode":"4401","areaName":"广东省.广州市","shortName":"广东.广州"})
+     * @returnExample({"gbCode":"4401","areaName":"广东省 广州市","shortName":"广东 广州"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      *
@@ -308,7 +308,7 @@ class Region implements RegionInterface
      */
     public function getUserAddressByGbCodeAsync(int $gbCode)
     {
-        return EellyClient::request('system/region', __FUNCTION__, false, $gbCode);
+        return EellyClient::request('system/region', 'getUserAddressByGbCode', false, $gbCode);
     }
 
     /**
@@ -345,6 +345,60 @@ class Region implements RegionInterface
     public function getRegionListByParentCodeAsync(int $parentCode = 1)
     {
         return EellyClient::request('system/region', 'getRegionListByParentCode', false, $parentCode);
+    }
+
+    /**
+     * 获取省市区三级数据
+     *
+     * @returnExample([{"regionName":"\u5317\u4eac\u5e02","zipCode":"0","gbCode":"11"},{"regionName":"\u5929\u6d25\u5e02","zipCode":"0","gbCode":"12"},{"regionName":"\u6cb3\u5317\u7701","zipCode":"0","gbCode":"13"},{"regionName":"\u5c71\u897f\u7701","zipCode":"0","gbCode":"14"},{"regionName":"\u5185\u8499\u53e4\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"15"},{"regionName":"\u8fbd\u5b81\u7701","zipCode":"0","gbCode":"21"},{"regionName":"\u5409\u6797\u7701","zipCode":"0","gbCode":"22"},{"regionName":"\u9ed1\u9f99\u6c5f\u7701","zipCode":"0","gbCode":"23"},{"regionName":"\u4e0a\u6d77\u5e02","zipCode":"0","gbCode":"31"},{"regionName":"\u6c5f\u82cf\u7701","zipCode":"0","gbCode":"32"},{"regionName":"\u6d59\u6c5f\u7701","zipCode":"0","gbCode":"33"},{"regionName":"\u5b89\u5fbd\u7701","zipCode":"0","gbCode":"34"},{"regionName":"\u798f\u5efa\u7701","zipCode":"0","gbCode":"35"},{"regionName":"\u6c5f\u897f\u7701","zipCode":"0","gbCode":"36"},{"regionName":"\u5c71\u4e1c\u7701","zipCode":"0","gbCode":"37"},{"regionName":"\u6cb3\u5357\u7701","zipCode":"0","gbCode":"41"},{"regionName":"\u6e56\u5317\u7701","zipCode":"0","gbCode":"42"},{"regionName":"\u6e56\u5357\u7701","zipCode":"0","gbCode":"43"},{"regionName":"\u5e7f\u4e1c\u7701","zipCode":"0","gbCode":"44"},{"regionName":"\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"45"},{"regionName":"\u6d77\u5357\u7701","zipCode":"0","gbCode":"46"},{"regionName":"\u91cd\u5e86\u5e02","zipCode":"0","gbCode":"50"},{"regionName":"\u56db\u5ddd\u7701","zipCode":"0","gbCode":"51"},{"regionName":"\u8d35\u5dde\u7701","zipCode":"0","gbCode":"52"},{"regionName":"\u4e91\u5357\u7701","zipCode":"0","gbCode":"53"},{"regionName":"\u897f\u85cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"54"},{"regionName":"\u9655\u897f\u7701","zipCode":"0","gbCode":"61"},{"regionName":"\u7518\u8083\u7701","zipCode":"0","gbCode":"62"},{"regionName":"\u9752\u6d77\u7701","zipCode":"0","gbCode":"63"},{"regionName":"\u5b81\u590f\u56de\u65cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"64"},{"regionName":"\u65b0\u7586\u7ef4\u543e\u5c14\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"65"},{"regionName":"\u53f0\u6e7e\u7701","zipCode":"0","gbCode":"71"},{"regionName":"\u9999\u6e2f\u7279\u522b\u884c\u653f\u533a","zipCode":"999077","gbCode":"81"},{"regionName":"\u6fb3\u95e8\u7279\u522b\u884c\u653f\u533a","zipCode":"999078","gbCode":"82"}])
+     * 
+     * @author wechan
+     * @since  2018年10月09日
+     */
+    public function getRegionSelectList(): array
+    {
+        return EellyClient::request('system/region', 'getRegionSelectList', true);
+    }
+
+    /**
+     * 获取省市区三级数据
+     *
+     * @returnExample([{"regionName":"\u5317\u4eac\u5e02","zipCode":"0","gbCode":"11"},{"regionName":"\u5929\u6d25\u5e02","zipCode":"0","gbCode":"12"},{"regionName":"\u6cb3\u5317\u7701","zipCode":"0","gbCode":"13"},{"regionName":"\u5c71\u897f\u7701","zipCode":"0","gbCode":"14"},{"regionName":"\u5185\u8499\u53e4\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"15"},{"regionName":"\u8fbd\u5b81\u7701","zipCode":"0","gbCode":"21"},{"regionName":"\u5409\u6797\u7701","zipCode":"0","gbCode":"22"},{"regionName":"\u9ed1\u9f99\u6c5f\u7701","zipCode":"0","gbCode":"23"},{"regionName":"\u4e0a\u6d77\u5e02","zipCode":"0","gbCode":"31"},{"regionName":"\u6c5f\u82cf\u7701","zipCode":"0","gbCode":"32"},{"regionName":"\u6d59\u6c5f\u7701","zipCode":"0","gbCode":"33"},{"regionName":"\u5b89\u5fbd\u7701","zipCode":"0","gbCode":"34"},{"regionName":"\u798f\u5efa\u7701","zipCode":"0","gbCode":"35"},{"regionName":"\u6c5f\u897f\u7701","zipCode":"0","gbCode":"36"},{"regionName":"\u5c71\u4e1c\u7701","zipCode":"0","gbCode":"37"},{"regionName":"\u6cb3\u5357\u7701","zipCode":"0","gbCode":"41"},{"regionName":"\u6e56\u5317\u7701","zipCode":"0","gbCode":"42"},{"regionName":"\u6e56\u5357\u7701","zipCode":"0","gbCode":"43"},{"regionName":"\u5e7f\u4e1c\u7701","zipCode":"0","gbCode":"44"},{"regionName":"\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"45"},{"regionName":"\u6d77\u5357\u7701","zipCode":"0","gbCode":"46"},{"regionName":"\u91cd\u5e86\u5e02","zipCode":"0","gbCode":"50"},{"regionName":"\u56db\u5ddd\u7701","zipCode":"0","gbCode":"51"},{"regionName":"\u8d35\u5dde\u7701","zipCode":"0","gbCode":"52"},{"regionName":"\u4e91\u5357\u7701","zipCode":"0","gbCode":"53"},{"regionName":"\u897f\u85cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"54"},{"regionName":"\u9655\u897f\u7701","zipCode":"0","gbCode":"61"},{"regionName":"\u7518\u8083\u7701","zipCode":"0","gbCode":"62"},{"regionName":"\u9752\u6d77\u7701","zipCode":"0","gbCode":"63"},{"regionName":"\u5b81\u590f\u56de\u65cf\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"64"},{"regionName":"\u65b0\u7586\u7ef4\u543e\u5c14\u81ea\u6cbb\u533a","zipCode":"0","gbCode":"65"},{"regionName":"\u53f0\u6e7e\u7701","zipCode":"0","gbCode":"71"},{"regionName":"\u9999\u6e2f\u7279\u522b\u884c\u653f\u533a","zipCode":"999077","gbCode":"81"},{"regionName":"\u6fb3\u95e8\u7279\u522b\u884c\u653f\u533a","zipCode":"999078","gbCode":"82"}])
+     * 
+     * @author wechan
+     * @since  2018年10月09日
+     */
+    public function getRegionSelectListAsync()
+    {
+        return EellyClient::request('system/region', 'getRegionSelectList', false);
+    }
+
+    /**
+     * 根据parentID获得下属地区
+     *
+     * 
+     * @returnExample()
+     * 
+     * @author wechan
+     * @since  2018年10月09日
+     */
+    public function getRegionByParentId(int $regionId): array
+    {
+        return EellyClient::request('system/region', 'getRegionByParentId', true, $regionId);
+    }
+
+    /**
+     * 根据parentID获得下属地区
+     *
+     * 
+     * @returnExample()
+     * 
+     * @author wechan
+     * @since  2018年10月09日
+     */
+    public function getRegionByParentIdAsync(int $regionId)
+    {
+        return EellyClient::request('system/region', 'getRegionByParentId', false, $regionId);
     }
 
     /**

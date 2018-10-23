@@ -174,10 +174,12 @@ interface BuyerRefundInterface
      * orderId          | int       | 订单id
      * orderAmount      | int       | 订单总额
      * freight          | int       | 订单运费
-     * orderGoods       | array     | 订单商品 (请求的type 不为1出现)
+     * orderGoods       | array     | 订单商品 (请求的phase 不为1出现)
      * finishTime       | int       | 提示过期时间
-     * servicerTime     | int       | 服务当前时间
-     * remark           | array     | 退款原因（根据返回情况展示）
+     * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
+     * remarkArr           | array     | 退款原因（根据返回情况展示）
+     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组
      * 
      * > orderGoods 数据说明
      * 
@@ -201,7 +203,7 @@ interface BuyerRefundInterface
      * spec             | string | 商品规格
      * gsId             | int    | 规格id
      * 
-     * > remark 数据说明
+     * > remarkArr 数据说明
      * 
      * key | value
      * --- | ----
@@ -244,6 +246,7 @@ interface BuyerRefundInterface
      * osId             | int    | 订单状态
      * orderSn          | string | 订单号
      * orOsId           | int    | 退货退款状态
+     * phase            | int    | 1 未发货发起的退款 2 已发货发起的退款 3 已发货发起的退货退款'
      * applyAmount      | int    | 申请退款金额 单位：分
      * showFreight      | bool   | 是否显示运费 true:是 false:否
      * freight          | int    | 订单运费 单位：分
@@ -265,7 +268,9 @@ interface BuyerRefundInterface
      * status           | int    | 状态
      * firstRequestTime | date   | 首次申请退货退款时间
      * countDown        | int    | 倒计时 没有则 0
+     * storePhone       | string | 店铺电话
      * orderGoods       | array  | 退货退款商品数据
+     * arbitrateApplyFlag | int   | 客服介入申请方 0 ：未介入 不做处理 1: 买家申请客服 2:卖家申请客服
      * 
      * > status 和 statusContent 对应关系
      * 
@@ -338,8 +343,14 @@ interface BuyerRefundInterface
      * freight          | int    | 运费 单位分
      * applyAmount      | int    | 申请的金额 单位：分
      * phase            | int    | 数据类型 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
+     * orderGoods       | array  | 商品列表 当phase为1时不存在此字段
      * remarkType       | int    | 退款原因
-     * remark           | array  | 退款原因列表
+     * remark           | string | 退款说明
+     * remarkArr        | array  | 退款原因列表
+     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组 
+     * finishTime       | int       | 提示过期时间
+     * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
      * certificate      | array  | 图片凭证
      * 
      * > remark 数据说明

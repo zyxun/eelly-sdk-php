@@ -198,4 +198,18 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $commissionRate);
     }
+    
+    /**
+     * 获取订单收货人信息
+     *
+     * @param   array $storeInfo    店铺信息
+     * @param   array $postData     post数据
+     * @param   array $address      收货地址
+     * @return  array
+     *
+     */
+    public function getConsigneeInfo(array $storeInfo , array $postData, array $address)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeInfo, $postData, $address);
+    }
 }

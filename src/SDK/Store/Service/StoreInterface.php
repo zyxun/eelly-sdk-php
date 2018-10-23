@@ -371,4 +371,33 @@ interface StoreInterface
      */
     public function getStoresEvaluation(int $storeId): array;
 
+    /**
+     * 获取店铺接口公共信息.
+     *
+     * @param int   $storeId                   店铺id
+     * @param array $condition                 条件数组
+     * @param int   $condition["addressStyle"] 店铺地址格式
+     *
+     * @throws StoreException
+     *
+     * @return array
+     * @requestExample({"storeId":1,"condition":{"addressStyle":3}})
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年12月1日
+     */
+    public function getStoreCommon(int $storeId, array $condition = []): array;
+
+    /**
+     * 获取商城登录店铺信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginStore(int $userId): array;
 }

@@ -22,7 +22,7 @@ use Eelly\SDK\Order\Service\RefundInterface;
 class Refund implements RefundInterface
 {
     /**
-     * 快速退款，对外接口.
+     * 快速退款，对外接口. 
      *
      * @param int $orderId 订单ID
      * @param int $money 退款金额
@@ -38,7 +38,7 @@ class Refund implements RefundInterface
     }
 
     /**
-     * 快速退款，对外接口.
+     * 快速退款，对外接口. 
      *
      * @param int $orderId 订单ID
      * @param int $money 退款金额
@@ -69,7 +69,7 @@ class Refund implements RefundInterface
      */
     public function immediateDelivery(int $orderId, int $sellerId): bool
     {
-        return EellyClient::request('order/refund', __FUNCTION__, true, $orderId, $sellerId);
+        return EellyClient::request('order/refund', 'immediateDelivery', true, $orderId, $sellerId);
     }
 
     /**
@@ -86,9 +86,9 @@ class Refund implements RefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.26
      */
-    public function immediateDeliveryAsync(int $orderId, int $sellerId): bool
+    public function immediateDeliveryAsync(int $orderId, int $sellerId)
     {
-        return EellyClient::request('order/refund', __FUNCTION__, false, $orderId, $sellerId);
+        return EellyClient::request('order/refund', 'immediateDelivery', false, $orderId, $sellerId);
     }
 
     /**
@@ -107,7 +107,7 @@ class Refund implements RefundInterface
      */
     public function agreeRefundMoney(int $orderId, int $sellerId): bool
     {
-        return EellyClient::request('order/refund', __FUNCTION__, true, $orderId, $sellerId);
+        return EellyClient::request('order/refund', 'agreeRefundMoney', true, $orderId, $sellerId);
     }
 
     /**
@@ -124,9 +124,9 @@ class Refund implements RefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.26
      */
-    public function agreeRefundMoneyAsync(int $orderId, int $sellerId): bool
+    public function agreeRefundMoneyAsync(int $orderId, int $sellerId)
     {
-        return EellyClient::request('order/refund', __FUNCTION__, false, $orderId, $sellerId);
+        return EellyClient::request('order/refund', 'agreeRefundMoney', false, $orderId, $sellerId);
     }
 
     /**
@@ -147,7 +147,7 @@ class Refund implements RefundInterface
      */
     public function refusedRefund(int $orderId, int $sellerId, string $reason, string $images): bool
     {
-        return EellyClient::request('order/refund', __FUNCTION__, true, $orderId, $sellerId, $reason, $images);
+        return EellyClient::request('order/refund', 'refusedRefund', true, $orderId, $sellerId, $reason, $images);
     }
 
     /**
@@ -166,9 +166,9 @@ class Refund implements RefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.26
      */
-    public function refusedRefundAsync(int $orderId, int $sellerId, string $reason, string $images): bool
+    public function refusedRefundAsync(int $orderId, int $sellerId, string $reason, string $images)
     {
-        return EellyClient::request('order/refund', __FUNCTION__, false, $orderId, $sellerId, $reason, $images);
+        return EellyClient::request('order/refund', 'refusedRefund', false, $orderId, $sellerId, $reason, $images);
     }
 
     /**
@@ -188,7 +188,7 @@ class Refund implements RefundInterface
      */
     public function agreeReturnGoods(int $orderId, int $sellerId, array $addressData = []): bool
     {
-        return EellyClient::request('order/refund', __FUNCTION__, true, $orderId, $sellerId, $addressData);
+        return EellyClient::request('order/refund', 'agreeReturnGoods', true, $orderId, $sellerId, $addressData);
     }
 
     /**
@@ -206,9 +206,9 @@ class Refund implements RefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.26
      */
-    public function agreeReturnGoodsAsync(int $orderId, int $sellerId, array $addressData = []): bool
+    public function agreeReturnGoodsAsync(int $orderId, int $sellerId, array $addressData = [])
     {
-        return EellyClient::request('order/refund', __FUNCTION__, false, $orderId, $sellerId, $addressData);
+        return EellyClient::request('order/refund', 'agreeReturnGoods', false, $orderId, $sellerId, $addressData);
     }
 
     /**
@@ -227,7 +227,7 @@ class Refund implements RefundInterface
      */
     public function confirmRefundGoods(int $orderId, int $sellerId): bool
     {
-        return EellyClient::request('order/refund', __FUNCTION__, true, $orderId, $sellerId);
+        return EellyClient::request('order/refund', 'confirmRefundGoods', true, $orderId, $sellerId);
     }
 
     /**
@@ -244,11 +244,38 @@ class Refund implements RefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.26
      */
-    public function confirmRefundGoodsAsync(int $orderId, int $sellerId): bool
+    public function confirmRefundGoodsAsync(int $orderId, int $sellerId)
     {
-        return EellyClient::request('order/refund', __FUNCTION__, false, $orderId, $sellerId);
+        return EellyClient::request('order/refund', 'confirmRefundGoods', false, $orderId, $sellerId);
     }
 
+    /**
+     * 获取后台订单退货退款信息
+     *
+     * @param int $orderId
+     * @return array
+     * 
+     * @author zhangyangxun
+     * @since 2018-10-11
+     */
+    public function getManageRefund(int $orderId): array
+    {
+        return EellyClient::request('order/refund', 'getManageRefund', true, $orderId);
+    }
+
+    /**
+     * 获取后台订单退货退款信息
+     *
+     * @param int $orderId
+     * @return array
+     * 
+     * @author zhangyangxun
+     * @since 2018-10-11
+     */
+    public function getManageRefundAsync(int $orderId)
+    {
+        return EellyClient::request('order/refund', 'getManageRefund', false, $orderId);
+    }
 
     /**
      * @return self

@@ -51,7 +51,7 @@ class Store implements StoreInterface
      */
     public function addStore(array $storeData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $storeData, $user);
+        return EellyClient::request('store/store', 'addStore', true, $storeData, $user);
     }
 
     /**
@@ -82,7 +82,7 @@ class Store implements StoreInterface
      */
     public function addStoreAsync(array $storeData, UidDTO $user = null)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $storeData, $user);
+        return EellyClient::request('store/store', 'addStore', false, $storeData, $user);
     }
 
     /**
@@ -106,7 +106,7 @@ class Store implements StoreInterface
      */
     public function deleteStoreOperator(int $operatorId, int $storeId, int $type, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $operatorId, $storeId, $type, $user);
+        return EellyClient::request('store/store', 'deleteStoreOperator', true, $operatorId, $storeId, $type, $user);
     }
 
     /**
@@ -130,7 +130,7 @@ class Store implements StoreInterface
      */
     public function deleteStoreOperatorAsync(int $operatorId, int $storeId, int $type, UidDTO $user = null)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $operatorId, $storeId, $type, $user);
+        return EellyClient::request('store/store', 'deleteStoreOperator', false, $operatorId, $storeId, $type, $user);
     }
 
     /**
@@ -152,7 +152,7 @@ class Store implements StoreInterface
      */
     public function checkCanOperateStore(int $userId, int $storeId, bool $onlyCheckOwner = false): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $userId, $storeId, $onlyCheckOwner);
+        return EellyClient::request('store/store', 'checkCanOperateStore', true, $userId, $storeId, $onlyCheckOwner);
     }
 
     /**
@@ -174,7 +174,7 @@ class Store implements StoreInterface
      */
     public function checkCanOperateStoreAsync(int $userId, int $storeId, bool $onlyCheckOwner = false)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $userId, $storeId, $onlyCheckOwner);
+        return EellyClient::request('store/store', 'checkCanOperateStore', false, $userId, $storeId, $onlyCheckOwner);
     }
 
     /**
@@ -200,7 +200,7 @@ class Store implements StoreInterface
      */
     public function updateStoreOwner(int $newOwner, int $storeId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $newOwner, $storeId, $user);
+        return EellyClient::request('store/store', 'updateStoreOwner', true, $newOwner, $storeId, $user);
     }
 
     /**
@@ -226,7 +226,7 @@ class Store implements StoreInterface
      */
     public function updateStoreOwnerAsync(int $newOwner, int $storeId, UidDTO $user = null)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $newOwner, $storeId, $user);
+        return EellyClient::request('store/store', 'updateStoreOwner', false, $newOwner, $storeId, $user);
     }
 
     /**
@@ -246,7 +246,7 @@ class Store implements StoreInterface
      */
     public function getStoreInfoByUserIds(array $userIds): array
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $userIds);
+        return EellyClient::request('store/store', 'getStoreInfoByUserIds', true, $userIds);
     }
 
     /**
@@ -266,7 +266,7 @@ class Store implements StoreInterface
      */
     public function getStoreInfoByUserIdsAsync(array $userIds)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $userIds);
+        return EellyClient::request('store/store', 'getStoreInfoByUserIds', false, $userIds);
     }
 
     /**
@@ -279,15 +279,14 @@ class Store implements StoreInterface
      *
      * @return array 返回入库会员搜索引擎所需数据
      * @requestExample({"currentPage":1,"limit":100})
-     * @returnExample({"items":[{"storeId":"3","storeName":"LiWeiQuan123456","domain":"domain-3","creditValue":null,"addedCredit":null,"isMix":null,"mixNum":null,"mixMoney":null,"limitActivityExpireTime":null,"introduction":null,"storeWeight":0,"favorityNum":0,"isEntity":0,"isEnterprise":0,"isReturnedExchange":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isTryOn":0,"isRealGoods":0,"isMobiePay":0,"isSelfLift":0,"isHot":0}],"page":{"totalPages":3,"totalItems":3,"limit":1}})
-     *
+     * @returnExample({"items":{"1":{"storeId":"1","storeName":"店铺名称","domain":"domain-1","storeStatus":"1","storeLog":"","storeWeight":"0","createdTime":"1502278385","gbCodes":["65","6542","654223","654223100"],"creditValue":"0","minQuantity":"0","minPrice":"0","storeIntro":"","cateId":["22","22"],"storeYear":1,"isEnterprise":0,"isEntity":0,"isBrand":0,"isSeller":0,"isHot":0,"isTimeShipping":0,"isIntegrity":0,"isRealShot":0,"onlineStatus":1,"isBehalfof":1,"floorId":0,"marketId":0,"goodsNewTime":0,"recommendGoods":["goodsInfo"]}},"page":{"totalPages":1,"totalItems":3,"current":1,"limit":100}})
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-10-23
      */
     public function listStoreElasticData(int $currentPage = 1, int $limit = 100): array
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $currentPage, $limit);
+        return EellyClient::request('store/store', 'listStoreElasticData', true, $currentPage, $limit);
     }
 
     /**
@@ -300,15 +299,14 @@ class Store implements StoreInterface
      *
      * @return array 返回入库会员搜索引擎所需数据
      * @requestExample({"currentPage":1,"limit":100})
-     * @returnExample({"items":[{"storeId":"3","storeName":"LiWeiQuan123456","domain":"domain-3","creditValue":null,"addedCredit":null,"isMix":null,"mixNum":null,"mixMoney":null,"limitActivityExpireTime":null,"introduction":null,"storeWeight":0,"favorityNum":0,"isEntity":0,"isEnterprise":0,"isReturnedExchange":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isTryOn":0,"isRealGoods":0,"isMobiePay":0,"isSelfLift":0,"isHot":0}],"page":{"totalPages":3,"totalItems":3,"limit":1}})
-     *
+     * @returnExample({"items":{"1":{"storeId":"1","storeName":"店铺名称","domain":"domain-1","storeStatus":"1","storeLog":"","storeWeight":"0","createdTime":"1502278385","gbCodes":["65","6542","654223","654223100"],"creditValue":"0","minQuantity":"0","minPrice":"0","storeIntro":"","cateId":["22","22"],"storeYear":1,"isEnterprise":0,"isEntity":0,"isBrand":0,"isSeller":0,"isHot":0,"isTimeShipping":0,"isIntegrity":0,"isRealShot":0,"onlineStatus":1,"isBehalfof":1,"floorId":0,"marketId":0,"goodsNewTime":0,"recommendGoods":["goodsInfo"]}},"page":{"totalPages":1,"totalItems":3,"current":1,"limit":100}})
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-10-23
      */
     public function listStoreElasticDataAsync(int $currentPage = 1, int $limit = 100)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $currentPage, $limit);
+        return EellyClient::request('store/store', 'listStoreElasticData', false, $currentPage, $limit);
     }
 
     /**
@@ -334,7 +332,7 @@ class Store implements StoreInterface
      */
     public function listStorePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('store/store', 'listStorePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -360,7 +358,7 @@ class Store implements StoreInterface
      */
     public function listStorePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('store/store', 'listStorePage', false, $condition, $currentPage, $limit);
     }
 
     /**
@@ -380,7 +378,7 @@ class Store implements StoreInterface
      */
     public function getStore(int $storeId): StoreDTO
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $storeId);
+        return EellyClient::request('store/store', 'getStore', true, $storeId);
     }
 
     /**
@@ -400,7 +398,7 @@ class Store implements StoreInterface
      */
     public function getStoreAsync(int $storeId)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $storeId);
+        return EellyClient::request('store/store', 'getStore', false, $storeId);
     }
 
     /**
@@ -446,7 +444,7 @@ class Store implements StoreInterface
      */
     public function getCertificationServices(array $storeIds, array $types = []): array
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $storeIds, $types);
+        return EellyClient::request('store/store', 'getCertificationServices', true, $storeIds, $types);
     }
 
     /**
@@ -492,7 +490,7 @@ class Store implements StoreInterface
      */
     public function getCertificationServicesAsync(array $storeIds, array $types = [])
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $storeIds, $types);
+        return EellyClient::request('store/store', 'getCertificationServices', false, $storeIds, $types);
     }
 
     /**
@@ -515,16 +513,16 @@ class Store implements StoreInterface
      * @param int $data['glId'] 销售档次id
      * @param UidDTO $user 登录用户信息
      * @return  boolean
-     * 
+     *
      * @requestExample()
      * @returnExample()
-     * 
+     *
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月24日
      */
     public function addStoreMainInfo(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/store', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('store/store', 'addStoreMainInfo', true, $data, $user);
     }
 
     /**
@@ -547,16 +545,322 @@ class Store implements StoreInterface
      * @param int $data['glId'] 销售档次id
      * @param UidDTO $user 登录用户信息
      * @return  boolean
-     * 
+     *
      * @requestExample()
      * @returnExample()
-     * 
+     *
      * @author wechan<liweiquan@eelly.net>
      * @since 2017年11月24日
      */
     public function addStoreMainInfoAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('store/store', 'addStoreMainInfo', false, $data, $user);
+    }
+
+    /**
+     * 店铺信息页--店铺档案【新版档案】.
+     *
+     * @param int $storeId      店铺id
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------------------------------|-------|--------------
+     * storeId                          |string |   店铺id
+     * storeName                        |string |   店铺名
+     * storeLogo                        |string |   店铺logo
+     * addTime                          |string |   开店时间
+     * status                           |string |   店铺状态
+     * creditValue                      |string |   店铺信誉值
+     * tel                              |string |   店铺电话
+     * storeDesc                        |string |   店铺描述
+     * isMix                            |string |   是否混批
+     * mixNum                           |string |   混批数量
+     * mixMoney                         |string |   混批最大金额
+     * shopfront                        |string |   店招
+     * dealIn                           |string |   店铺主营
+     * goodsCount                       |int    |   店铺商品数
+     * streetAddr                       |string |   店铺地址
+     * creditInfo                       |string |   店铺信誉值图片url
+     * authAll                          |array  |   (店铺认证数组)
+     * authAll["isEntity"]              |int    |   实体认证
+     * authAll["isEnterprise"]          |int    |   企业认证
+     * authAll["returnGoodsStatus"]     |int    |   48小时包退换认证
+     * authAll["isRealShot"]            |int    |   商品实拍认证
+     * authAll["isTimeShipping"]        |int    |   准时发货认证
+     * authAll["isIntegrity"]           |int    |   诚信保障
+     * authAll["isSellerCredit"]        |int    |   卖家认证
+     * authAll["isBrandCredit"]         |int    |   品牌认证
+     * authAll["isStoreShipping"]       |int    |   全店包邮
+     * authAll["isHot"]                 |int    |   热销店铺认证
+     * entityAuth                       |array  |   (实体认证)
+     * entityAuth["authName"]           |string |   认证名称
+     * entityAuth["authRank"]           |string |   认证等级
+     * entityAuth["auditTime"]          |int    |   认证开始时间
+     * entityAuth["expireTime"]         |int    |   认证结束时间
+     * entityAuth["imagesArr"]          |array  |   认证图片数组
+     * enterpriseAuth                   |array  |   (企业认证)
+     * enterpriseAuth["authName"]       |string |   认证名称
+     * enterpriseAuth["authRank"]       |string |   认证等级
+     * enterpriseAuth["auditTime"]      |int    |   认证开始时间
+     * enterpriseAuth["expireTime"]     |int    |   认证结束时间
+     * enterpriseAuth["imagesArr"]      |array  |   认证图片数组
+     * sellerAuth                       |array  |   (卖家认证)
+     * sellerAuth["authName"]           |string |   认证名称
+     * sellerAuth["authRank"]           |string |   认证等级
+     * sellerAuth["auditTime"]          |int    |   认证开始时间
+     * sellerAuth["expireTime"]         |int    |   认证结束时间
+     * brandAuth                        |array  |   (品牌认证)
+     * brandAuth["authName"]            |string |   认证名称
+     * brandAuth["authRank"]            |string |   认证等级
+     * brandAuth["auditTime"]           |int    |   认证开始时间
+     * brandAuth["expireTime"]          |int    |   认证结束时间
+     * cautionMoney                     |string |   诚信保障金 金额
+     *
+     * @throws StoreException
+     *
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({"storeId":"1","storeName":"店铺名称","storeLogo":"https:\/\/img01.eelly.com\/G02\/M00\/00\/E9\/small_640_pIYBAFmS3KKIJNktAAN3bO9UX0YAABoNwFuSc8AA3eE62.jpeg","addTime":"1502278385","status":"1","creditValue":"0","tel":"13333333333","storeDesc":"","isMix":"0","mixNum":"0","mixMoney":"0","shopfront":"","dealIn":"男装 女装","goodsCount":0,"streetAddr":"黑龙江省双鸭山市宝山区十三行新中国大厦9层110A","creditInfo":"https:\/\/pifaquan.eelly.com\/Data\/image\/credit_icon\/s_red_1.png","authAll":{"isEntity":1,"isEnterprise":1,"returnGoodsStatus":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isSellerCredit":0,"isBrandCredit":0,"isStoreShipping":0,"isHot":0},"entityAuth":{"authName":"档口地址真实性认证","authRank":"中级认证","auditTime":1525107661,"expireTime":1538326861,"imagesArr":["https://img.eelly.com"]},"enterpriseAuth":{"authName":"企业身份真实性认证","authRank":"中级认证","auditTime":0,"expireTime":0,"imagesArr":["https://img.eelly.com"]},"sellerAuth":{"authName":"卖家身份真实性认证","authRank":"初级认证","auditTime":0,"expireTime":0},"brandAuth":{"authName":"品牌真实性认证","authRank":"高级认证","auditTime":0,"expireTime":0},"cautionMoney":""})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月24日
+     */
+    public function storeArchiveV2(int $storeId): array
+    {
+        return EellyClient::request('store/store', 'storeArchiveV2', true, $storeId);
+    }
+
+    /**
+     * 店铺信息页--店铺档案【新版档案】.
+     *
+     * @param int $storeId      店铺id
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------------------------------|-------|--------------
+     * storeId                          |string |   店铺id
+     * storeName                        |string |   店铺名
+     * storeLogo                        |string |   店铺logo
+     * addTime                          |string |   开店时间
+     * status                           |string |   店铺状态
+     * creditValue                      |string |   店铺信誉值
+     * tel                              |string |   店铺电话
+     * storeDesc                        |string |   店铺描述
+     * isMix                            |string |   是否混批
+     * mixNum                           |string |   混批数量
+     * mixMoney                         |string |   混批最大金额
+     * shopfront                        |string |   店招
+     * dealIn                           |string |   店铺主营
+     * goodsCount                       |int    |   店铺商品数
+     * streetAddr                       |string |   店铺地址
+     * creditInfo                       |string |   店铺信誉值图片url
+     * authAll                          |array  |   (店铺认证数组)
+     * authAll["isEntity"]              |int    |   实体认证
+     * authAll["isEnterprise"]          |int    |   企业认证
+     * authAll["returnGoodsStatus"]     |int    |   48小时包退换认证
+     * authAll["isRealShot"]            |int    |   商品实拍认证
+     * authAll["isTimeShipping"]        |int    |   准时发货认证
+     * authAll["isIntegrity"]           |int    |   诚信保障
+     * authAll["isSellerCredit"]        |int    |   卖家认证
+     * authAll["isBrandCredit"]         |int    |   品牌认证
+     * authAll["isStoreShipping"]       |int    |   全店包邮
+     * authAll["isHot"]                 |int    |   热销店铺认证
+     * entityAuth                       |array  |   (实体认证)
+     * entityAuth["authName"]           |string |   认证名称
+     * entityAuth["authRank"]           |string |   认证等级
+     * entityAuth["auditTime"]          |int    |   认证开始时间
+     * entityAuth["expireTime"]         |int    |   认证结束时间
+     * entityAuth["imagesArr"]          |array  |   认证图片数组
+     * enterpriseAuth                   |array  |   (企业认证)
+     * enterpriseAuth["authName"]       |string |   认证名称
+     * enterpriseAuth["authRank"]       |string |   认证等级
+     * enterpriseAuth["auditTime"]      |int    |   认证开始时间
+     * enterpriseAuth["expireTime"]     |int    |   认证结束时间
+     * enterpriseAuth["imagesArr"]      |array  |   认证图片数组
+     * sellerAuth                       |array  |   (卖家认证)
+     * sellerAuth["authName"]           |string |   认证名称
+     * sellerAuth["authRank"]           |string |   认证等级
+     * sellerAuth["auditTime"]          |int    |   认证开始时间
+     * sellerAuth["expireTime"]         |int    |   认证结束时间
+     * brandAuth                        |array  |   (品牌认证)
+     * brandAuth["authName"]            |string |   认证名称
+     * brandAuth["authRank"]            |string |   认证等级
+     * brandAuth["auditTime"]           |int    |   认证开始时间
+     * brandAuth["expireTime"]          |int    |   认证结束时间
+     * cautionMoney                     |string |   诚信保障金 金额
+     *
+     * @throws StoreException
+     *
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({"storeId":"1","storeName":"店铺名称","storeLogo":"https:\/\/img01.eelly.com\/G02\/M00\/00\/E9\/small_640_pIYBAFmS3KKIJNktAAN3bO9UX0YAABoNwFuSc8AA3eE62.jpeg","addTime":"1502278385","status":"1","creditValue":"0","tel":"13333333333","storeDesc":"","isMix":"0","mixNum":"0","mixMoney":"0","shopfront":"","dealIn":"男装 女装","goodsCount":0,"streetAddr":"黑龙江省双鸭山市宝山区十三行新中国大厦9层110A","creditInfo":"https:\/\/pifaquan.eelly.com\/Data\/image\/credit_icon\/s_red_1.png","authAll":{"isEntity":1,"isEnterprise":1,"returnGoodsStatus":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isSellerCredit":0,"isBrandCredit":0,"isStoreShipping":0,"isHot":0},"entityAuth":{"authName":"档口地址真实性认证","authRank":"中级认证","auditTime":1525107661,"expireTime":1538326861,"imagesArr":["https://img.eelly.com"]},"enterpriseAuth":{"authName":"企业身份真实性认证","authRank":"中级认证","auditTime":0,"expireTime":0,"imagesArr":["https://img.eelly.com"]},"sellerAuth":{"authName":"卖家身份真实性认证","authRank":"初级认证","auditTime":0,"expireTime":0},"brandAuth":{"authName":"品牌真实性认证","authRank":"高级认证","auditTime":0,"expireTime":0},"cautionMoney":""})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月24日
+     */
+    public function storeArchiveV2Async(int $storeId)
+    {
+        return EellyClient::request('store/store', 'storeArchiveV2', false, $storeId);
+    }
+
+    /**
+     * 店铺评论接口.
+     *
+     * @param int $storeId  店铺id
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * -----------------------|-------|--------------
+     * storeId                |string | 店铺id
+     * storeName              |string | 店铺名
+     * storeLogo              |string | 店铺logo
+     * addTime                |string | 开店时间
+     * status                 |string | 店铺状态
+     * creditInfo             |string | 店铺等级图片地址
+     * streetAddr             |string | 店铺地址
+     * tel                    |string | 店铺电话
+     * GoodsEvaluation        |array  |
+     * GoodsEvaluation["zg"]  |int    | 加工分
+     * GoodsEvaluation["ml"]  |int    | 面料分
+     * GoodsEvaluation["bx"]  |double | 版型分
+     * GoodsEvaluation["com"] |double | 综合分
+     * list                   |array  |
+     * list["comment"]        |string | 商品评论
+     * list["createdTime"]    |string | 商品评论时间
+     * list["isAnonymous"]    |string | 是否匿名
+     * list["isDefault"]      |string | 是否默认
+     * list["goodsId"]        |string | 商品id
+     * list["buyerName"]      |string | 买家用户名
+     * list["buyerId"]        |string | 买家用户id
+     * list["goodsImage"]     |string | 商品默认图
+     * list["price"]          |string | 商品下单价格
+     *
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({"storeId":"1","storeName":"店铺名称","storeLogo":"https:\/\/img01.eelly.com\/G02\/M00\/00\/E9\/small_640_pIYBAFmS3KKIJNktAAN3bO9UX0YAABoNwFuSc8AA3eE62.jpeg","addTime":"1502278385","status":"1","creditInfo":"https:\/\/pifaquan.eelly.com\/Data\/image\/credit_icon\/s_red_1.png","streetAddr":"黑龙江省双鸭山市宝山区十三行新中国大厦9层110A","tel":"13333333333","GoodsEvaluation":{"zg":3,"ml":3,"bx":3.3,"com":3.1},"list":[{"comment":"不好用","createdTime":"1511946394","isAnonymous":"1","isDefault":"1","goodsId":"2","buyerName":"匿名处理","buyerId":"2","goodsImage":null,"price":null},{"comment":"商品不错！","createdTime":"1511846394","isAnonymous":"0","isDefault":"1","goodsId":"3","buyerName":"呜呜二峨山","buyerId":"2","goodsImage":null,"price":null},{"comment":"好用哈哈哈","createdTime":"1511841630","isAnonymous":"0","isDefault":"1","goodsId":"1","buyerName":"呜呜二峨山","buyerId":"2","goodsImage":"G01\/M00\/01\/14\/oYYBAFndBNaIZ-lsAAAVS2gig-4AABr9QIY5KkAABVj276.jpg","price":"1258"}]})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月29日
+     */
+    public function getStoresEvaluation(int $storeId): array
+    {
+        return EellyClient::request('store/store', 'getStoresEvaluation', true, $storeId);
+    }
+
+    /**
+     * 店铺评论接口.
+     *
+     * @param int $storeId  店铺id
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * -----------------------|-------|--------------
+     * storeId                |string | 店铺id
+     * storeName              |string | 店铺名
+     * storeLogo              |string | 店铺logo
+     * addTime                |string | 开店时间
+     * status                 |string | 店铺状态
+     * creditInfo             |string | 店铺等级图片地址
+     * streetAddr             |string | 店铺地址
+     * tel                    |string | 店铺电话
+     * GoodsEvaluation        |array  |
+     * GoodsEvaluation["zg"]  |int    | 加工分
+     * GoodsEvaluation["ml"]  |int    | 面料分
+     * GoodsEvaluation["bx"]  |double | 版型分
+     * GoodsEvaluation["com"] |double | 综合分
+     * list                   |array  |
+     * list["comment"]        |string | 商品评论
+     * list["createdTime"]    |string | 商品评论时间
+     * list["isAnonymous"]    |string | 是否匿名
+     * list["isDefault"]      |string | 是否默认
+     * list["goodsId"]        |string | 商品id
+     * list["buyerName"]      |string | 买家用户名
+     * list["buyerId"]        |string | 买家用户id
+     * list["goodsImage"]     |string | 商品默认图
+     * list["price"]          |string | 商品下单价格
+     *
+     * @return array
+     * @requestExample({"storeId":1})
+     * @returnExample({"storeId":"1","storeName":"店铺名称","storeLogo":"https:\/\/img01.eelly.com\/G02\/M00\/00\/E9\/small_640_pIYBAFmS3KKIJNktAAN3bO9UX0YAABoNwFuSc8AA3eE62.jpeg","addTime":"1502278385","status":"1","creditInfo":"https:\/\/pifaquan.eelly.com\/Data\/image\/credit_icon\/s_red_1.png","streetAddr":"黑龙江省双鸭山市宝山区十三行新中国大厦9层110A","tel":"13333333333","GoodsEvaluation":{"zg":3,"ml":3,"bx":3.3,"com":3.1},"list":[{"comment":"不好用","createdTime":"1511946394","isAnonymous":"1","isDefault":"1","goodsId":"2","buyerName":"匿名处理","buyerId":"2","goodsImage":null,"price":null},{"comment":"商品不错！","createdTime":"1511846394","isAnonymous":"0","isDefault":"1","goodsId":"3","buyerName":"呜呜二峨山","buyerId":"2","goodsImage":null,"price":null},{"comment":"好用哈哈哈","createdTime":"1511841630","isAnonymous":"0","isDefault":"1","goodsId":"1","buyerName":"呜呜二峨山","buyerId":"2","goodsImage":"G01\/M00\/01\/14\/oYYBAFndBNaIZ-lsAAAVS2gig-4AABr9QIY5KkAABVj276.jpg","price":"1258"}]})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     * @since  2017年11月29日
+     */
+    public function getStoresEvaluationAsync(int $storeId)
+    {
+        return EellyClient::request('store/store', 'getStoresEvaluation', false, $storeId);
+    }
+
+    /**
+     * 获取店铺接口公共信息.
+     *
+     * @param int   $storeId                   店铺id
+     * @param array $condition                 条件数组
+     * @param int   $condition["addressStyle"] 店铺地址格式
+     *
+     * @throws StoreException
+     *
+     * @return array
+     * @requestExample({"storeId":1,"condition":{"addressStyle":3}})
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年12月1日
+     */
+    public function getStoreCommon(int $storeId, array $condition = []): array
+    {
+        return EellyClient::request('store/store', 'getStoreCommon', true, $storeId, $condition);
+    }
+
+    /**
+     * 获取店铺接口公共信息.
+     *
+     * @param int   $storeId                   店铺id
+     * @param array $condition                 条件数组
+     * @param int   $condition["addressStyle"] 店铺地址格式
+     *
+     * @throws StoreException
+     *
+     * @return array
+     * @requestExample({"storeId":1,"condition":{"addressStyle":3}})
+     * @returnExample()
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017年12月1日
+     */
+    public function getStoreCommonAsync(int $storeId, array $condition = [])
+    {
+        return EellyClient::request('store/store', 'getStoreCommon', false, $storeId, $condition);
+    }
+
+    /**
+     * 获取商城登录店铺信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginStore(int $userId): array
+    {
+        return EellyClient::request('store/store', 'getMallLoginStore', true, $userId);
+    }
+
+    /**
+     * 获取商城登录店铺信息
+     *
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-17
+     */
+    public function getMallLoginStoreAsync(int $userId)
+    {
+        return EellyClient::request('store/store', 'getMallLoginStore', false, $userId);
     }
 
     /**

@@ -39,7 +39,7 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function overtime(int $orderId, UidDTO $uidDTO = null): bool
     {
@@ -49,9 +49,9 @@ class BuyerOrder implements BuyerOrderInterface
     /**
      * {@inheritdoc}
      */
-    public function confirmReceivedOrder(int $orderId, string $password, UidDTO $uidDTO = null): bool
+    public function confirmReceivedOrder(int $orderId, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId, $password);
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
     }
 
     /**
@@ -66,6 +66,22 @@ class BuyerOrder implements BuyerOrderInterface
      * {@inheritdoc}
      */
     public function cancelOrder(int $orderId, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId, $memo, $type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function deleteOrder(int $orderId, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderId);
     }

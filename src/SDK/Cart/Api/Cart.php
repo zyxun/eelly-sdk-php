@@ -907,6 +907,34 @@ class Cart implements CartInterface
     }
 
     /**
+     * 通过用户id获取购物车数量
+     *
+     * @param integer $userId 用户ID
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com> 
+     * @since 2018.10.16
+     */
+    public function getCartCountByUserId(int $userId): int
+    {
+        return EellyClient::request('cart/cart', 'getCartCountByUserId', true, $userId);
+    }
+
+    /**
+     * 通过用户id获取购物车数量
+     *
+     * @param integer $userId 用户ID
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com> 
+     * @since 2018.10.16
+     */
+    public function getCartCountByUserIdAsync(int $userId)
+    {
+        return EellyClient::request('cart/cart', 'getCartCountByUserId', false, $userId);
+    }
+
+    /**
      * 批量获取购物车商品
      *
      * > 返回数据说明
@@ -1129,7 +1157,49 @@ class Cart implements CartInterface
     /**
      * 获取商品数据规格
      * 
-     * > 返回数据同getCart接口 
+     * * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * storeInfo | array | 店铺数据说明
+     * goodsInfo | array | 商品数据说明
+     * data[]    | array | 规格数据说明
+     * priceInfo | array | 价格数据说明
+     * 
+     * > storeInfo 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * isMix                | int    | 是否混批 0:否， 1:是
+     * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
+     * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
+     * storeQuantity        | int    | 店铺起批数量
+     * 
+     * > goodsInfo 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * ifShow | int     | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
+     * close  | int     | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
+     * unit   | string  | 商品单位 例如：件
+     * goodsImage | string | 商品图片
+     * 
+     * > data 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * spec_id         | int    | 规格id
+     * goods_id        | int    | 商品id
+     * spec_1          | string | 规格颜色
+     * spec_2          | string | 规格码数
+     * color_rgb       | string | rgb颜色
+     * price           | float  | 规格价
+     * stock           | int    | 规格库存
+     * sku             | string | 未知
+     * selQuantity     | int    | 选中的数量 默认为0
+     * showQuantity    | int    | 初始展示的数量 默认为库存一致
+     * 
+     * > 返回数据 priceInfo 说明 https://api.eelly.test/cart/cart/listCart
      *
      * @param integer $goodsId 商品id
      * @return array
@@ -1145,7 +1215,49 @@ class Cart implements CartInterface
     /**
      * 获取商品数据规格
      * 
-     * > 返回数据同getCart接口 
+     * * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * storeInfo | array | 店铺数据说明
+     * goodsInfo | array | 商品数据说明
+     * data[]    | array | 规格数据说明
+     * priceInfo | array | 价格数据说明
+     * 
+     * > storeInfo 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * isMix                | int    | 是否混批 0:否， 1:是
+     * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
+     * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
+     * storeQuantity        | int    | 店铺起批数量
+     * 
+     * > goodsInfo 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * ifShow | int     | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
+     * close  | int     | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
+     * unit   | string  | 商品单位 例如：件
+     * goodsImage | string | 商品图片
+     * 
+     * > data 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * spec_id         | int    | 规格id
+     * goods_id        | int    | 商品id
+     * spec_1          | string | 规格颜色
+     * spec_2          | string | 规格码数
+     * color_rgb       | string | rgb颜色
+     * price           | float  | 规格价
+     * stock           | int    | 规格库存
+     * sku             | string | 未知
+     * selQuantity     | int    | 选中的数量 默认为0
+     * showQuantity    | int    | 初始展示的数量 默认为库存一致
+     * 
+     * > 返回数据 priceInfo 说明 https://api.eelly.test/cart/cart/listCart
      *
      * @param integer $goodsId 商品id
      * @return array
@@ -1156,6 +1268,64 @@ class Cart implements CartInterface
     public function getGoodsAsync(int $goodsId)
     {
         return EellyClient::request('cart/cart', 'getGoods', false, $goodsId);
+    }
+
+    /**
+     * 提交订单后删除购物车接口，不对外
+     *
+     * @param array $goodsId 商品id 数组
+     * @param integer $userId 用户id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.13
+     */
+    public function delCartByOrder(array $goodsId, int $userId): bool
+    {
+        return EellyClient::request('cart/cart', 'delCartByOrder', true, $goodsId, $userId);
+    }
+
+    /**
+     * 提交订单后删除购物车接口，不对外
+     *
+     * @param array $goodsId 商品id 数组
+     * @param integer $userId 用户id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.13
+     */
+    public function delCartByOrderAsync(array $goodsId, int $userId)
+    {
+        return EellyClient::request('cart/cart', 'delCartByOrder', false, $goodsId, $userId);
+    }
+
+    /**
+     * 获取用户购物车商品id
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.16
+     */
+    public function getCartGoodsId(int $userId): array
+    {
+        return EellyClient::request('cart/cart', 'getCartGoodsId', true, $userId);
+    }
+
+    /**
+     * 获取用户购物车商品id
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.16
+     */
+    public function getCartGoodsIdAsync(int $userId)
+    {
+        return EellyClient::request('cart/cart', 'getCartGoodsId', false, $userId);
     }
 
     /**

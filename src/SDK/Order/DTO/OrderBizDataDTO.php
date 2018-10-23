@@ -281,13 +281,33 @@ class OrderBizDataDTO extends AbstractDTO
     }
 
     /**
-     * @param array $actions
+     * @param string ...$actions
      *
      * @return OrderBizDataDTO
      */
-    public function setActions(array $actions): self
+    public function setActions(string ...$actions): self
     {
-        $this->actions = $actions;
+        $btnMap = [
+            'cancel'             => '取消订单',
+            'pay'                => '立即付款',
+            'refund'             => '申请退款',
+            'notifySendGoods'    => '提醒发货',
+            'expandReceivedTime' => '延长收货时间',
+            'confirmReceived'    => '确认收货',
+            'agreedDetail'       => '查看协商记录',
+            'refundDetail'       => '退款详情',
+            'cancelReturnGoods'  => '撤销申请',
+            'sendReturnGoods'    => '发错退货',
+            'queryRefund'        => '去处理退款申请',
+            'queryReturnGoods'   => '去处理退货申请',
+            'cancelArbitrate'    => '撤销介入申请',
+            'returnGoodsExpress' => '退货物流',
+            'returnGoods'        => '申请退货退款',
+            'review'             => '去评价',
+        ];
+        foreach ($actions as $item) {
+            $this->actions[] = ['btn' => $item, 'name' => $btnMap[$item]];
+        }
 
         return $this;
     }
