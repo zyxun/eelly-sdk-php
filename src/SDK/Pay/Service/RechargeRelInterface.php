@@ -35,4 +35,14 @@ interface RechargeRelInterface
      * @since 2018年10月12日
      */
     public function addRechargeRel(array $data): bool;
+    
+    /**
+     * 根据billNo 获取充值与业务关系信息
+     * 
+     * @param string $billNo 衣联交易号
+     * 
+     * @author wechan
+     * @since 2018年10月23日
+     */
+    public function getRechargeRelByBillNo(string $billNo): array;
 }
