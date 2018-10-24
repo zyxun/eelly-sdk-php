@@ -993,16 +993,18 @@ interface OrderInterface
      * needShare          | int     | 集赞中 待分享
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
-     * needRefund         | int     | 退货退款
-     * needCancel         | int     | 已取消
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
      *
      * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
-     * @param string $role   用户角色 (buyer,seller)
+     * @param string $role   用户角色 (1 买家, 2 卖家)
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
      * @return array
      *
-     * @requestExample({"client":"wap","role":"buyer"})
+     * @requestExample({"client":"wap","role":1})
      * @returnExample(
      * {
      *     "all":52,
@@ -1010,8 +1012,10 @@ interface OrderInterface
      *     "needShare": 8,
      *     "needShipping": 0,
      *     "needReceiving": 0,
-     *     "needRefund":2,
-     *     "needCancel":2
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
      * }
      * )
      *

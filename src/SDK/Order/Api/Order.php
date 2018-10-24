@@ -1813,7 +1813,7 @@ class Order implements OrderInterface
      * 
      * @return array
      * 
-     * @returnExample([1,2])
+     * @returnExample({"50002027", "50002026"})
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -1848,7 +1848,7 @@ class Order implements OrderInterface
      * 
      * @return array
      * 
-     * @returnExample([1,2])
+     * @returnExample({"50002027", "50002026"})
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -1936,7 +1936,7 @@ class Order implements OrderInterface
      * 订单发起的支付.
      *
      * @param array  $orderIds 多个订单Id
-     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝 balance:余额
      * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
@@ -1946,7 +1946,7 @@ class Order implements OrderInterface
      * >-- | ---- | -----
      * >platform | string | 支付类型
      * >billNo | string | 衣联交易号
-     * >data | array | 第三方返回的数据
+     * >data | array | 第三方支付(余额支付)返回的结果
      * >orderSns  | array | 订单号
      * >orderIds | array | 订单id
      * 
@@ -1978,7 +1978,7 @@ class Order implements OrderInterface
      * 订单发起的支付.
      *
      * @param array  $orderIds 多个订单Id
-     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝 balance:余额
      * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
@@ -1988,7 +1988,7 @@ class Order implements OrderInterface
      * >-- | ---- | -----
      * >platform | string | 支付类型
      * >billNo | string | 衣联交易号
-     * >data | array | 第三方返回的数据
+     * >data | array | 第三方支付(余额支付)返回的结果
      * >orderSns  | array | 订单号
      * >orderIds | array | 订单id
      * 
@@ -2125,7 +2125,7 @@ class Order implements OrderInterface
     }
 
     /**
-     * 获取我的订单统计信息(买家).
+     * 获取各状态我的订单数量.
      *
      * > 返回数据说明
      *
@@ -2136,16 +2136,18 @@ class Order implements OrderInterface
      * needShare          | int     | 集赞中 待分享
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
-     * needRefund         | int     | 退货退款
-     * needCancel         | int     | 已取消
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
      *
      * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
-     * @param string $role   用户角色 (buyer,seller)
+     * @param string $role   用户角色 (1 买家, 2 卖家)
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
      * @return array
      *
-     * @requestExample({"client":"wap","role":"buyer"})
+     * @requestExample({"client":"wap","role":1})
      * @returnExample(
      * {
      *     "all":52,
@@ -2153,8 +2155,10 @@ class Order implements OrderInterface
      *     "needShare": 8,
      *     "needShipping": 0,
      *     "needReceiving": 0,
-     *     "needRefund":2,
-     *     "needCancel":2
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
      * }
      * )
      *
@@ -2167,7 +2171,7 @@ class Order implements OrderInterface
     }
 
     /**
-     * 获取我的订单统计信息(买家).
+     * 获取各状态我的订单数量.
      *
      * > 返回数据说明
      *
@@ -2178,16 +2182,18 @@ class Order implements OrderInterface
      * needShare          | int     | 集赞中 待分享
      * needShipping       | int     | 待发货
      * needReceiving      | int     | 待收货
-     * needRefund         | int     | 退货退款
-     * needCancel         | int     | 已取消
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
      *
      * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
-     * @param string $role   用户角色 (buyer,seller)
+     * @param string $role   用户角色 (1 买家, 2 卖家)
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
      * @return array
      *
-     * @requestExample({"client":"wap","role":"buyer"})
+     * @requestExample({"client":"wap","role":1})
      * @returnExample(
      * {
      *     "all":52,
@@ -2195,8 +2201,10 @@ class Order implements OrderInterface
      *     "needShare": 8,
      *     "needShipping": 0,
      *     "needReceiving": 0,
-     *     "needRefund":2,
-     *     "needCancel":2
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
      * }
      * )
      *
