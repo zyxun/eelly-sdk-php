@@ -2125,6 +2125,98 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取各状态我的订单数量.
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * all                | int     | 所有
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
+     *
+     * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
+     * @param string $role   用户角色 (1 买家, 2 卖家)
+     * @param UidDTO|null $uidDTO uid dto(表示需要登录)
+     *
+     * @return array
+     *
+     * @requestExample({"client":"wap","role":1})
+     * @returnExample(
+     * {
+     *     "all":52,
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0,
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
+     * }
+     * )
+     *
+     * @author zhangyangxun
+     * @since 2018.10.24
+     */
+    public function listOrderStatusNum(string $client, string $role, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/order', 'listOrderStatusNum', true, $client, $role, $uidDTO);
+    }
+
+    /**
+     * 获取各状态我的订单数量.
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * all                | int     | 所有
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
+     *
+     * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
+     * @param string $role   用户角色 (1 买家, 2 卖家)
+     * @param UidDTO|null $uidDTO uid dto(表示需要登录)
+     *
+     * @return array
+     *
+     * @requestExample({"client":"wap","role":1})
+     * @returnExample(
+     * {
+     *     "all":52,
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0,
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
+     * }
+     * )
+     *
+     * @author zhangyangxun
+     * @since 2018.10.24
+     */
+    public function listOrderStatusNumAsync(string $client, string $role, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/order', 'listOrderStatusNum', false, $client, $role, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
