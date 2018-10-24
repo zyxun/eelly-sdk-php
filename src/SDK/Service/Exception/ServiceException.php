@@ -17,4 +17,5 @@ use Eelly\Exception\LogicException;
 
 class ServiceException extends LogicException
 {
+    public const MONEY_ERROR = '金额有误';
 }
