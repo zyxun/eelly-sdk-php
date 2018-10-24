@@ -45,4 +45,9 @@ class CallbackException extends LogicException
      * 回调的交易金额错误
      */
     public const BILL_RECORD_MONEY_ERROR = '回调的交易金额错误';
+    
+    /**
+     * 回调的交易金额错误
+     */
+    public const PAY_RECHARGE_REL_ERROR = '充值用途类型错误';
 }

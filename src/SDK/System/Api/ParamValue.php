@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\System\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\DTO\ParamValueDTO;
 use Eelly\SDK\System\Service\ParamValueInterface;
+use Eelly\SDK\System\DTO\ParamValueDTO;
+use Eelly\DTO\UidDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class ParamValue implements ParamValueInterface
@@ -41,7 +41,7 @@ class ParamValue implements ParamValueInterface
      */
     public function getParamValue(int $spvId): ParamValueDTO
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, true, $spvId);
+        return EellyClient::request('system/paramValue', 'getParamValue', true, $spvId);
     }
 
     /**
@@ -62,7 +62,35 @@ class ParamValue implements ParamValueInterface
      */
     public function getParamValueAsync(int $spvId)
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, false, $spvId);
+        return EellyClient::request('system/paramValue', 'getParamValue', false, $spvId);
+    }
+
+    /**
+     * 根据类型获取参数值
+     *
+     * @param string $code
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function getParamValueByCode(string $code): array
+    {
+        return EellyClient::request('system/paramValue', 'getParamValueByCode', true, $code);
+    }
+
+    /**
+     * 根据类型获取参数值
+     *
+     * @param string $code
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function getParamValueByCodeAsync(string $code)
+    {
+        return EellyClient::request('system/paramValue', 'getParamValueByCode', false, $code);
     }
 
     /**
@@ -89,7 +117,7 @@ class ParamValue implements ParamValueInterface
      */
     public function addParamValue(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('system/paramValue', 'addParamValue', true, $data, $user);
     }
 
     /**
@@ -116,7 +144,7 @@ class ParamValue implements ParamValueInterface
      */
     public function addParamValueAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('system/paramValue', 'addParamValue', false, $data, $user);
     }
 
     /**
@@ -143,7 +171,7 @@ class ParamValue implements ParamValueInterface
      */
     public function updateParamValue(int $spvId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, true, $spvId, $data, $user);
+        return EellyClient::request('system/paramValue', 'updateParamValue', true, $spvId, $data, $user);
     }
 
     /**
@@ -170,7 +198,7 @@ class ParamValue implements ParamValueInterface
      */
     public function updateParamValueAsync(int $spvId, array $data, UidDTO $user = null)
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, false, $spvId, $data, $user);
+        return EellyClient::request('system/paramValue', 'updateParamValue', false, $spvId, $data, $user);
     }
 
     /**
@@ -217,7 +245,7 @@ class ParamValue implements ParamValueInterface
      */
     public function listParamValuePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, true, $condition, $currentPage, $limit);
+        return EellyClient::request('system/paramValue', 'listParamValuePage', true, $condition, $currentPage, $limit);
     }
 
     /**
@@ -264,7 +292,7 @@ class ParamValue implements ParamValueInterface
      */
     public function listParamValuePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
-        return EellyClient::request('system/paramValue', __FUNCTION__, false, $condition, $currentPage, $limit);
+        return EellyClient::request('system/paramValue', 'listParamValuePage', false, $condition, $currentPage, $limit);
     }
 
     /**

@@ -11,11 +11,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Service\Exception;
+namespace Eelly\SDK\User\Exception;
 
 use Eelly\Exception\LogicException;
 
-class ServiceException extends LogicException
+/**
+ * User模块异常类.
+ *
+ * @author zhangzeqiang<zhangzeqiang@eelly.net>
+ *
+ * @since 2017-09-29
+ */
+class SecurityException extends LogicException
 {
-    public const MONEY_ERROR = '金额有误';
 }
