@@ -585,4 +585,15 @@ interface UserInterface
      * @since 2018-10-18
      */
     public function updatePassword(int $userId, string $oldPassword, string $newPassword): bool ;
+
+    /**
+     * 店+app个人中心主页
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-24
+     */
+    public function buyerAppMyIndex(UidDTO $user = null): array ;
 }
