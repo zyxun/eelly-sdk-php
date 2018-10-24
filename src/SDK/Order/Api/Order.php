@@ -2125,6 +2125,90 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取我的订单统计信息(买家).
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * all                | int     | 所有
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     * needRefund         | int     | 退货退款
+     * needCancel         | int     | 已取消
+     *
+     * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
+     * @param string $role   用户角色 (buyer,seller)
+     * @param UidDTO|null $uidDTO uid dto(表示需要登录)
+     *
+     * @return array
+     *
+     * @requestExample({"client":"wap","role":"buyer"})
+     * @returnExample(
+     * {
+     *     "all":52,
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0,
+     *     "needRefund":2,
+     *     "needCancel":2
+     * }
+     * )
+     *
+     * @author zhangyangxun
+     * @since 2018.10.24
+     */
+    public function listOrderStatusNum(string $client, string $role, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/order', 'listOrderStatusNum', true, $client, $role, $uidDTO);
+    }
+
+    /**
+     * 获取我的订单统计信息(买家).
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * all                | int     | 所有
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     * needRefund         | int     | 退货退款
+     * needCancel         | int     | 已取消
+     *
+     * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
+     * @param string $role   用户角色 (buyer,seller)
+     * @param UidDTO|null $uidDTO uid dto(表示需要登录)
+     *
+     * @return array
+     *
+     * @requestExample({"client":"wap","role":"buyer"})
+     * @returnExample(
+     * {
+     *     "all":52,
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0,
+     *     "needRefund":2,
+     *     "needCancel":2
+     * }
+     * )
+     *
+     * @author zhangyangxun
+     * @since 2018.10.24
+     */
+    public function listOrderStatusNumAsync(string $client, string $role, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/order', 'listOrderStatusNum', false, $client, $role, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
