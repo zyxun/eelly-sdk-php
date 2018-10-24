@@ -80,6 +80,34 @@ class User implements UserInterface
     }
 
     /**
+     * 校验邮箱是否存在
+     *
+     * @param string $email
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2018-10-22
+     */
+    public function checkIsExistUserEmail(string $email): int
+    {
+        return EellyClient::request('user/user', 'checkIsExistUserEmail', true, $email);
+    }
+
+    /**
+     * 校验邮箱是否存在
+     *
+     * @param string $email
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2018-10-22
+     */
+    public function checkIsExistUserEmailAsync(string $email)
+    {
+        return EellyClient::request('user/user', 'checkIsExistUserEmail', false, $email);
+    }
+
+    /**
      * 校验密码强度.
      *
      * ### 返回数据说明
