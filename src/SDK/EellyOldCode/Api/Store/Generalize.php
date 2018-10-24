@@ -20,7 +20,6 @@ use Eelly\SDK\EellyClient;
  *
  *  modules/Store/Service/GeneralizeService.php
  *
- * @author hehui<hehui@eelly.net>
  */
 class Generalize
 {
@@ -33,5 +32,18 @@ class Generalize
     public function isGeneralizePrId($prId)
     {
         return EellyClient::request('eellyOldCode/store/generalize', __FUNCTION__, true, $prId);
+    }
+    
+    /**
+     * 用余额购买推广增值服务
+     * -----------------------------
+     * 半自动|需要有预购买日志ID  $gsublId
+     *
+     * @param  int  $userId     用户ID
+     * @param  int  $gsublId    预购买日志ID
+     */
+    public function useRechargeBuyService($userId, $gsublId)
+    {
+        return EellyClient::request('eellyOldCode/store/generalize', __FUNCTION__, true, $userId, $gsublId);
     }
 }
