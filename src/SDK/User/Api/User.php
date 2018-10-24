@@ -1316,6 +1316,34 @@ class User implements UserInterface
     }
 
     /**
+     * 店+app个人中心主页
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-24
+     */
+    public function buyerAppMyIndex(UidDTO $user = null): array
+    {
+        return EellyClient::request('user/user', 'buyerAppMyIndex', true, $user);
+    }
+
+    /**
+     * 店+app个人中心主页
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-24
+     */
+    public function buyerAppMyIndexAsync(UidDTO $user = null)
+    {
+        return EellyClient::request('user/user', 'buyerAppMyIndex', false, $user);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
