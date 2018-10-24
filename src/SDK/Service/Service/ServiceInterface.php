@@ -187,4 +187,14 @@ interface ServiceInterface
      * @since 2017-09-21
      */
     public function listSellerServicePage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    
+    /**
+     * 增值服务支付
+     * 
+     * @param string $billNo 衣联交易号
+     * 
+     * @author wechan
+     * @since 2018年10月23日
+     */
+    public function setServicePay(string $billNo): bool;
 }

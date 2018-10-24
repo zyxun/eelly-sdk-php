@@ -1277,12 +1277,6 @@ class Cart implements CartInterface
      * @param integer $userId 用户id
      * @return boolean
      * 
-     * @requestExample({
-     *  "goodsId":{"50001744", "50001855"},
-     *  "userId":"148086",
-     * })
-     * @returnExample(true)
-     * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.10.13
      */
@@ -1297,12 +1291,6 @@ class Cart implements CartInterface
      * @param array $goodsId 商品id 数组
      * @param integer $userId 用户id
      * @return boolean
-     * 
-     * @requestExample({
-     *  "goodsId":{"50001744", "50001855"},
-     *  "userId":"148086",
-     * })
-     * @returnExample(true)
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.10.13
