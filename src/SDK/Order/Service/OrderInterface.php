@@ -999,7 +999,7 @@ interface OrderInterface
      * finished           | int     | 已完成
      *
      * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
-     * @param string $role   用户角色 (1 买家, 2 卖家)
+     * @param int $role   用户角色 (1 买家, 2 卖家)
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
      * @return array
@@ -1022,5 +1022,5 @@ interface OrderInterface
      * @author zhangyangxun
      * @since 2018.10.24
      */
-    public function listOrderStatusNum(string $client, string $role, UidDTO $uidDTO = null): array;
+    public function listOrderStatusNum(string $client, int $role, UidDTO $uidDTO = null): array;
 }
