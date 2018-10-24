@@ -93,4 +93,9 @@ class AccountException extends LogicException
      * 设置支付密码错误
      */
     public const SET_PASSWORD_FAIL = '设置支付密码错误';
+
+    /**
+     * 创建账号错误
+     */
+    public const CREATED_ACCOUNT_FAIL = '创建账号错误';
 }
