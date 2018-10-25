@@ -86,8 +86,6 @@ interface AuthInterface
      * @throws \Eelly\SDK\User\Exception\AuthException
      *
      * @return array
-     * @requestExample({1, "condition":{"type":1}})
-     * @returnExample()
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      *
@@ -116,8 +114,6 @@ interface AuthInterface
      * @throws AuthException
      *
      * @return bool
-     * @requestExample()
-     * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      *
@@ -146,11 +142,8 @@ interface AuthInterface
      * @throws AuthException
      *
      * @return bool
-     * @requestExample()
-     * @returnExample(true)
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
-     *
      * @since  2017/9/12
      */
     public function updateAuth(array $data, UidDTO $user = null): bool;
@@ -178,10 +171,7 @@ interface AuthInterface
      * @param string      $condition['name']    真实姓名/企业名称,
      * @param string      $condition['license'] 身份证号码/营业执照号
      * @param integer     $userId               登录用户id
-     *
      * @return array
-     * @requestExample({"condition":{"type":1},"userId":"148086"})
-     * @returnExample()
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.8.29
@@ -192,9 +182,21 @@ interface AuthInterface
      * 获取实名认证类型
      * 
      * > 返回数据类型说明
+     * 
      * key | type | value
      * --- | ---- | ----
      * type | int | 认证类型 -1:没有认证 0:个人认证 1:企业认证
+     * status | int | 认证状态
+     *
+     * > status 状态说明
+     * 
+     * value | desc
+     * --- | -----  
+     * 1 | 未申请认证
+     * 2 | 等待审核
+     * 3 | 审核通过
+     * 4 | 审核不通过
+     * 5 | 认证过期
      * 
      * @param UidDTO $user 当前登陆的用户
      * @return integer
@@ -202,7 +204,7 @@ interface AuthInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.10
      */
-    public function getAuthType(UidDTO $user = null):int;
+    public function getAuthType(UidDTO $user = null):array;
 
     /**
      * 获取实名认证 企业和个人 eelly_old_code
