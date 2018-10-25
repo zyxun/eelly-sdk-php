@@ -2125,6 +2125,50 @@ class Order implements OrderInterface
     }
 
     /**
+     * 回调订单支付.
+     *
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "money" => 10000   诚信保证冻结金额
+     *    "billNo" => xxxxxxxx    增值服务id
+     * ]
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2018年10月25日
+     */
+    public function handleOrderPayed(array $relData): bool
+    {
+        return EellyClient::request('order/order', 'handleOrderPayed', true, $relData);
+    }
+
+    /**
+     * 回调订单支付.
+     *
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "money" => 10000   诚信保证冻结金额
+     *    "billNo" => xxxxxxxx    增值服务id
+     * ]
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2018年10月25日
+     */
+    public function handleOrderPayedAsync(array $relData)
+    {
+        return EellyClient::request('order/order', 'handleOrderPayed', false, $relData);
+    }
+  
+    /**
      * 获取各状态我的订单数量.
      *
      * > 返回数据说明

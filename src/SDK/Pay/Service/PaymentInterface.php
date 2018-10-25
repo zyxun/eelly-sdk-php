@@ -255,4 +255,14 @@ interface PaymentInterface
      * @since 2018年09月29日
      */
     public function getTypeClass(string $type, string $platform):string;
+    
+    /**
+     * 充值支付业务处理
+     * 
+     * @param string $billNo 衣联交易号
+     * 
+     * @author wechan
+     * @since 2018年10月23日
+     */
+    public function setPayMent(string $billNo): bool;
 }

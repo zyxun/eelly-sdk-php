@@ -396,29 +396,89 @@ class Service implements ServiceInterface
     }
 
     /**
-     * 增值服务支付
+     * 支付增值服务(诚信保证金和增值服务旧的是两套东西所以暂时分开)
      * 
-     * @param string $billNo 衣联交易号
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "itemId" => 866    增值服务id
+     *    "money" => 10000   价格
+     *    "billNo" => xxxxxxxx    增值服务id
+     *    "precId" => 充值id
+     * ]
+     * 
      * 
      * @author wechan
      * @since 2018年10月23日
      */
-    public function setServicePay(string $billNo): bool
+    public function handleServicePayed(array $relData): bool
     {
-        return EellyClient::request('service/service', 'setServicePay', true, $billNo);
+        return EellyClient::request('service/service', 'handleServicePayed', true, $relData);
     }
 
     /**
-     * 增值服务支付
+     * 支付增值服务(诚信保证金和增值服务旧的是两套东西所以暂时分开)
      * 
-     * @param string $billNo 衣联交易号
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "itemId" => 866    增值服务id
+     *    "money" => 10000   价格
+     *    "billNo" => xxxxxxxx    增值服务id
+     *    "precId" => 充值id
+     * ]
+     * 
      * 
      * @author wechan
      * @since 2018年10月23日
      */
-    public function setServicePayAsync(string $billNo)
+    public function handleServicePayedAsync(array $relData)
     {
-        return EellyClient::request('service/service', 'setServicePay', false, $billNo);
+        return EellyClient::request('service/service', 'handleServicePayed', false, $relData);
+    }
+
+    /**
+     * 缴纳诚信保证金(诚信保证金和增值服务旧的是两套东西所以暂时分开)
+     * 
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "money" => 10000   诚信保证冻结金额
+     *    "billNo" => xxxxxxxx    增值服务id
+     * ]
+     * 
+     * @author wechan
+     * @since 2018年10月23日
+     */
+    public function handleIntegrityPayed(array $relData): bool
+    {
+        return EellyClient::request('service/service', 'handleIntegrityPayed', true, $relData);
+    }
+
+    /**
+     * 缴纳诚信保证金(诚信保证金和增值服务旧的是两套东西所以暂时分开)
+     * 
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "money" => 10000   诚信保证冻结金额
+     *    "billNo" => xxxxxxxx    增值服务id
+     * ]
+     * 
+     * @author wechan
+     * @since 2018年10月23日
+     */
+    public function handleIntegrityPayedAsync(array $relData)
+    {
+        return EellyClient::request('service/service', 'handleIntegrityPayed', false, $relData);
     }
 
     /**
