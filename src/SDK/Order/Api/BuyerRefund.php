@@ -338,9 +338,12 @@ class BuyerRefund implements BuyerRefundInterface
      * orderId          | int       | 订单id
      * orderAmount      | int       | 订单总额
      * freight          | int       | 订单运费
-     * orderGoods       | array     | 订单商品 (请求的type 不为1出现)
-     * remark           | array     | 退款原因（根据返回情况展示）
-     * discountAmount   | int       | 优惠金额 有优惠才会出现此数据
+     * orderGoods       | array     | 订单商品 (请求的phase 不为1出现)
+     * finishTime       | int       | 提示过期时间
+     * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
+     * remarkArr           | array     | 退款原因（根据返回情况展示）
+     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组
      * 
      * > orderGoods 数据说明
      * 
@@ -364,7 +367,7 @@ class BuyerRefund implements BuyerRefundInterface
      * spec             | string | 商品规格
      * gsId             | int    | 规格id
      * 
-     * > remark 数据说明
+     * > remarkArr 数据说明
      * 
      * key | value
      * --- | ----
@@ -386,7 +389,10 @@ class BuyerRefund implements BuyerRefundInterface
      * @return array
      * 
      * @requestExample({"orderId":"50001744","phase":"2"})
-     * @returnExample({"orderId":50001744,"orderAmount":"23400","freight":"0","orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626}]}],"remark":{"0":"\u5176\u4ed6","1":"\u65e0\u7406\u7531\u9000\u8d27","3":"\u5546\u54c1\u8d28\u91cf\u95ee\u9898","5":"\u5356\u5bb6\u9519\u53d1\/\u6f0f\u53d1","7":"\u5546\u54c1\u4e0e\u63cf\u8ff0\u4e0d\u7b26","8":"\u5546\u54c1\u7834\u635f\/\u6b8b\u7f3a"}})
+     * @returnExample({
+     *      "orderId":50001744,"orderAmount":"23400","freight":"0","orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626}]}],
+     *      "remark":[{"key":"0","value":"\u5176\u4ed6"},{"key":"1","value":"\u65e0\u7406\u7531\u9000\u8d27"},{"key":"3","value":"\u5546\u54c1\u8d28\u91cf\u95ee\u9898"},{"key":"5","value":"\u5356\u5bb6\u9519\u53d1\/\u6f0f\u53d1"},{"key":"7","value":"\u5546\u54c1\u4e0e\u63cf\u8ff0\u4e0d\u7b26"},{"key":"8","value":"\u5546\u54c1\u7834\u635f\/\u6b8b\u7f3a"}]
+     * })
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.13
@@ -406,9 +412,12 @@ class BuyerRefund implements BuyerRefundInterface
      * orderId          | int       | 订单id
      * orderAmount      | int       | 订单总额
      * freight          | int       | 订单运费
-     * orderGoods       | array     | 订单商品 (请求的type 不为1出现)
-     * remark           | array     | 退款原因（根据返回情况展示）
-     * discountAmount   | int       | 优惠金额 有优惠才会出现此数据
+     * orderGoods       | array     | 订单商品 (请求的phase 不为1出现)
+     * finishTime       | int       | 提示过期时间
+     * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
+     * remarkArr           | array     | 退款原因（根据返回情况展示）
+     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组
      * 
      * > orderGoods 数据说明
      * 
@@ -432,7 +441,7 @@ class BuyerRefund implements BuyerRefundInterface
      * spec             | string | 商品规格
      * gsId             | int    | 规格id
      * 
-     * > remark 数据说明
+     * > remarkArr 数据说明
      * 
      * key | value
      * --- | ----
@@ -454,7 +463,10 @@ class BuyerRefund implements BuyerRefundInterface
      * @return array
      * 
      * @requestExample({"orderId":"50001744","phase":"2"})
-     * @returnExample({"orderId":50001744,"orderAmount":"23400","freight":"0","orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626}]}],"remark":{"0":"\u5176\u4ed6","1":"\u65e0\u7406\u7531\u9000\u8d27","3":"\u5546\u54c1\u8d28\u91cf\u95ee\u9898","5":"\u5356\u5bb6\u9519\u53d1\/\u6f0f\u53d1","7":"\u5546\u54c1\u4e0e\u63cf\u8ff0\u4e0d\u7b26","8":"\u5546\u54c1\u7834\u635f\/\u6b8b\u7f3a"}})
+     * @returnExample({
+     *      "orderId":50001744,"orderAmount":"23400","freight":"0","orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626}]}],
+     *      "remark":[{"key":"0","value":"\u5176\u4ed6"},{"key":"1","value":"\u65e0\u7406\u7531\u9000\u8d27"},{"key":"3","value":"\u5546\u54c1\u8d28\u91cf\u95ee\u9898"},{"key":"5","value":"\u5356\u5bb6\u9519\u53d1\/\u6f0f\u53d1"},{"key":"7","value":"\u5546\u54c1\u4e0e\u63cf\u8ff0\u4e0d\u7b26"},{"key":"8","value":"\u5546\u54c1\u7834\u635f\/\u6b8b\u7f3a"}]
+     * })
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.13
@@ -475,7 +487,10 @@ class BuyerRefund implements BuyerRefundInterface
      * osId             | int    | 订单状态
      * orderSn          | string | 订单号
      * orOsId           | int    | 退货退款状态
+     * phase            | int    | 1 未发货发起的退款 2 已发货发起的退款 3 已发货发起的退货退款'
      * applyAmount      | int    | 申请退款金额 单位：分
+     * showFreight      | bool   | 是否显示运费 true:是 false:否
+     * freight          | int    | 订单运费 单位：分
      * orType           | int    | 申请类型 1:退款 2:退货
      * remarkType       | string | 退款原因
      * remark           | string | 退款说明
@@ -483,16 +498,20 @@ class BuyerRefund implements BuyerRefundInterface
      * storeId          | int    | 店铺id
      * storeName        | string | 店铺名称
      * createdTime      | date   | 下单时间
+     * shiped           | bool   | 是否发货 true:是，false:否
      * payTime          | date   | 支付时间
      * cancelTime       | date   | 撤销退货退款时间
      * finishedTime     | date   | 完成退货退款时间
      * updateTime       | date   | 退货退款更新时间
+     * shipTime         | date   | 发货时间
      * countLogs        | int    | 协商记录总数
      * statusContent    | string | 状态说明
      * status           | int    | 状态
      * firstRequestTime | date   | 首次申请退货退款时间
      * countDown        | int    | 倒计时 没有则 0
+     * storePhone       | string | 店铺电话
      * orderGoods       | array  | 退货退款商品数据
+     * arbitrateApplyFlag | int   | 客服介入申请方 0 ：未介入 不做处理 1: 买家申请客服 2:卖家申请客服
      * 
      * > status 和 statusContent 对应关系
      * 
@@ -546,7 +565,7 @@ class BuyerRefund implements BuyerRefundInterface
      * @return array
      * 
      * @requestExample({"orderId":"50001744"})
-     * @returnExample({"orderId":50001744,"osId":"4","orderSn":"2153604432213748","orOsId":"22","applyAmount":"100","orType":"1","remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86","certificate":["123.jpg","456.jpg","789.jpg"],"storeId":"148086","storeName":"\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97","createdTime":"2018-09-04 14:58:42","payTime":"","cancelTime":"","shipTime":"1970-01-01 08:02:03","finishedTime":"","statusContent":"\u6211\u5df2\u7533\u8bf7\u8863\u8054\u5ba2\u670d\u4ecb\u5165","status":9,"firstRequestTime":"2018-09-14 15:57:06","lastRequestTime":"2018-09-14 18:37:52","countLogs":14,"countDown":0,"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","quantity":"1","sourceQuantity":"3","goodsId":"1450168197","price":"2900","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022004","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","quantity":"1","sourceQuantity":"1","goodsId":"1450168334","price":"11100","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022184","discountAmount":10626}]}]})
+     * @returnExample({"orderId":50001744,"osId":"4","orderSn":"2153604432213748","orOsId":"22","applyAmount":"100","orType":"1","remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86","certificate":["123.jpg","456.jpg","789.jpg"],"storeId":"148086","storeName":"\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97","createdTime":"2018-09-04 14:58:42","shiped":"true","payTime":"","cancelTime":"","shipTime":"1970-01-01 08:02:03","finishedTime":"","statusContent":"\u6211\u5df2\u7533\u8bf7\u8863\u8054\u5ba2\u670d\u4ecb\u5165","status":9,"firstRequestTime":"2018-09-14 15:57:06","lastRequestTime":"2018-09-14 18:37:52","countLogs":14,"countDown":0,"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","quantity":"1","sourceQuantity":"3","goodsId":"1450168197","price":"2900","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022004","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","quantity":"1","sourceQuantity":"1","goodsId":"1450168334","price":"11100","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022184","discountAmount":10626}]}]})
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.13
@@ -567,7 +586,10 @@ class BuyerRefund implements BuyerRefundInterface
      * osId             | int    | 订单状态
      * orderSn          | string | 订单号
      * orOsId           | int    | 退货退款状态
+     * phase            | int    | 1 未发货发起的退款 2 已发货发起的退款 3 已发货发起的退货退款'
      * applyAmount      | int    | 申请退款金额 单位：分
+     * showFreight      | bool   | 是否显示运费 true:是 false:否
+     * freight          | int    | 订单运费 单位：分
      * orType           | int    | 申请类型 1:退款 2:退货
      * remarkType       | string | 退款原因
      * remark           | string | 退款说明
@@ -575,16 +597,20 @@ class BuyerRefund implements BuyerRefundInterface
      * storeId          | int    | 店铺id
      * storeName        | string | 店铺名称
      * createdTime      | date   | 下单时间
+     * shiped           | bool   | 是否发货 true:是，false:否
      * payTime          | date   | 支付时间
      * cancelTime       | date   | 撤销退货退款时间
      * finishedTime     | date   | 完成退货退款时间
      * updateTime       | date   | 退货退款更新时间
+     * shipTime         | date   | 发货时间
      * countLogs        | int    | 协商记录总数
      * statusContent    | string | 状态说明
      * status           | int    | 状态
      * firstRequestTime | date   | 首次申请退货退款时间
      * countDown        | int    | 倒计时 没有则 0
+     * storePhone       | string | 店铺电话
      * orderGoods       | array  | 退货退款商品数据
+     * arbitrateApplyFlag | int   | 客服介入申请方 0 ：未介入 不做处理 1: 买家申请客服 2:卖家申请客服
      * 
      * > status 和 statusContent 对应关系
      * 
@@ -638,7 +664,7 @@ class BuyerRefund implements BuyerRefundInterface
      * @return array
      * 
      * @requestExample({"orderId":"50001744"})
-     * @returnExample({"orderId":50001744,"osId":"4","orderSn":"2153604432213748","orOsId":"22","applyAmount":"100","orType":"1","remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86","certificate":["123.jpg","456.jpg","789.jpg"],"storeId":"148086","storeName":"\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97","createdTime":"2018-09-04 14:58:42","payTime":"","cancelTime":"","shipTime":"1970-01-01 08:02:03","finishedTime":"","statusContent":"\u6211\u5df2\u7533\u8bf7\u8863\u8054\u5ba2\u670d\u4ecb\u5165","status":9,"firstRequestTime":"2018-09-14 15:57:06","lastRequestTime":"2018-09-14 18:37:52","countLogs":14,"countDown":0,"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","quantity":"1","sourceQuantity":"3","goodsId":"1450168197","price":"2900","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022004","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","quantity":"1","sourceQuantity":"1","goodsId":"1450168334","price":"11100","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022184","discountAmount":10626}]}]})
+     * @returnExample({"orderId":50001744,"osId":"4","orderSn":"2153604432213748","orOsId":"22","applyAmount":"100","orType":"1","remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86","certificate":["123.jpg","456.jpg","789.jpg"],"storeId":"148086","storeName":"\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97","createdTime":"2018-09-04 14:58:42","shiped":"true","payTime":"","cancelTime":"","shipTime":"1970-01-01 08:02:03","finishedTime":"","statusContent":"\u6211\u5df2\u7533\u8bf7\u8863\u8054\u5ba2\u670d\u4ecb\u5165","status":9,"firstRequestTime":"2018-09-14 15:57:06","lastRequestTime":"2018-09-14 18:37:52","countLogs":14,"countDown":0,"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","quantity":"1","sourceQuantity":"3","goodsId":"1450168197","price":"2900","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022004","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","quantity":"1","sourceQuantity":"1","goodsId":"1450168334","price":"11100","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022184","discountAmount":10626}]}]})
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.13
@@ -660,8 +686,14 @@ class BuyerRefund implements BuyerRefundInterface
      * freight          | int    | 运费 单位分
      * applyAmount      | int    | 申请的金额 单位：分
      * phase            | int    | 数据类型 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
+     * orderGoods       | array  | 商品列表 当phase为1时不存在此字段
      * remarkType       | int    | 退款原因
-     * remark           | array  | 退款原因列表
+     * remark           | string | 退款说明
+     * remarkArr        | array  | 退款原因列表
+     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组 
+     * finishTime       | int       | 提示过期时间
+     * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
      * certificate      | array  | 图片凭证
      * 
      * > remark 数据说明
@@ -707,7 +739,7 @@ class BuyerRefund implements BuyerRefundInterface
      * @return array
      * 
      * @requestExample({"orderId":"50001744"})
-     * @returnExample({"orderId":50001744,"orderAmount":"23400","freight":"0","applyAmount":"100","phase":"2","remarkType":"11","remark":{"0":"\u5176\u4ed6","6":"\u672a\u6536\u5230\u8d27","11":"\u5546\u54c1\u7f3a\u8d27"},"certificate":["123.jpg","456.jpg","789.jpg"],"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776,"selQuantity":"1"}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626,"selQuantity":"1"}]}]})
+     * @returnExample({"orderId":50001744,"orderAmount":"23400","freight":"0","applyAmount":"100","phase":"2","remarkType":"11","remark":[{"key":"0","value":"\u5176\u4ed6"},{"key":"6","value":"\u672a\u6536\u5230\u8d27"},{"key":"11","value":"\u5546\u54c1\u7f3a\u8d27"}],"certificate":["123.jpg","456.jpg","789.jpg"],"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776,"selQuantity":"1"}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626,"selQuantity":"1"}]}]})
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.17
@@ -729,8 +761,14 @@ class BuyerRefund implements BuyerRefundInterface
      * freight          | int    | 运费 单位分
      * applyAmount      | int    | 申请的金额 单位：分
      * phase            | int    | 数据类型 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
+     * orderGoods       | array  | 商品列表 当phase为1时不存在此字段
      * remarkType       | int    | 退款原因
-     * remark           | array  | 退款原因列表
+     * remark           | string | 退款说明
+     * remarkArr        | array  | 退款原因列表
+     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组 
+     * finishTime       | int       | 提示过期时间
+     * serviceTime      | int       | 服务当前时间
+     * maxReturnMoney   | int       | 最大退款金额
      * certificate      | array  | 图片凭证
      * 
      * > remark 数据说明
@@ -776,7 +814,7 @@ class BuyerRefund implements BuyerRefundInterface
      * @return array
      * 
      * @requestExample({"orderId":"50001744"})
-     * @returnExample({"orderId":50001744,"orderAmount":"23400","freight":"0","applyAmount":"100","phase":"2","remarkType":"11","remark":{"0":"\u5176\u4ed6","6":"\u672a\u6536\u5230\u8d27","11":"\u5546\u54c1\u7f3a\u8d27"},"certificate":["123.jpg","456.jpg","789.jpg"],"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776,"selQuantity":"1"}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626,"selQuantity":"1"}]}]})
+     * @returnExample({"orderId":50001744,"orderAmount":"23400","freight":"0","applyAmount":"100","phase":"2","remarkType":"11","remark":[{"key":"0","value":"\u5176\u4ed6"},{"key":"6","value":"\u672a\u6536\u5230\u8d27"},{"key":"11","value":"\u5546\u54c1\u7f3a\u8d27"}],"certificate":["123.jpg","456.jpg","789.jpg"],"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776,"selQuantity":"1"}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626,"selQuantity":"1"}]}]})
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.17
@@ -838,7 +876,7 @@ class BuyerRefund implements BuyerRefundInterface
      * certificate      | array  | 凭证数据 空数组显示remark即可
      * createdTime      | date   | 创建时间
      * 
-     * > certificate 数据说明之退货数据
+     * > certificate 数据说明之退货数据 toOsId = 18
      * 
      * key | type | value
      * --- | ---- | -----
@@ -853,7 +891,7 @@ class BuyerRefund implements BuyerRefundInterface
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
      * 
-     * > certificate 数据说明之申请数据凭证
+     * > certificate 数据说明之申请数据凭证 toOsId = 16/20
      * 
      * key | type | value
      * --- | ---- | -----
@@ -861,12 +899,14 @@ class BuyerRefund implements BuyerRefundInterface
      * osId             | int    | 当时订单状态值
      * type             | int    | 类型 1:退款 2:退货
      * phase            | int    | 发生退货退款阶段：1 未发货发起的退款 2 已发货发起的退款 3 已发货发起的退货退款
-     * applyAmount      | int    | 申请金额
+     * applyAmount      | int    | 申请金额 单位:分
+     * freight          | int    | 运费 单位:分
+     * showFreight      | bool   | 是否展示运费 true:是 false:否
      * certificate      | array  | 图片凭证数组 
      * remarkType       | string | 退货退款原因
      * remark           | string | 退货退款说明
      * 
-     * > certificate 数据说明之卖家拒绝
+     * > certificate 数据说明之卖家拒绝 toOsId = 19
      * 
      * key | type | value
      * --- | ---- | -----
@@ -874,7 +914,7 @@ class BuyerRefund implements BuyerRefundInterface
      * refuseReason | string | 拒绝理由
      * certificate  | array  | 图片凭证数组
      * 
-     * > certificate 数据说明之卖家同意退货
+     * > certificate 数据说明之卖家同意退货 toOsId = 17
      * 
      * key | type | value
      * --- | ---- | -----
@@ -922,7 +962,7 @@ class BuyerRefund implements BuyerRefundInterface
      * certificate      | array  | 凭证数据 空数组显示remark即可
      * createdTime      | date   | 创建时间
      * 
-     * > certificate 数据说明之退货数据
+     * > certificate 数据说明之退货数据 toOsId = 18
      * 
      * key | type | value
      * --- | ---- | -----
@@ -937,7 +977,7 @@ class BuyerRefund implements BuyerRefundInterface
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
      * 
-     * > certificate 数据说明之申请数据凭证
+     * > certificate 数据说明之申请数据凭证 toOsId = 16/20
      * 
      * key | type | value
      * --- | ---- | -----
@@ -945,12 +985,14 @@ class BuyerRefund implements BuyerRefundInterface
      * osId             | int    | 当时订单状态值
      * type             | int    | 类型 1:退款 2:退货
      * phase            | int    | 发生退货退款阶段：1 未发货发起的退款 2 已发货发起的退款 3 已发货发起的退货退款
-     * applyAmount      | int    | 申请金额
+     * applyAmount      | int    | 申请金额 单位:分
+     * freight          | int    | 运费 单位:分
+     * showFreight      | bool   | 是否展示运费 true:是 false:否
      * certificate      | array  | 图片凭证数组 
      * remarkType       | string | 退货退款原因
      * remark           | string | 退货退款说明
      * 
-     * > certificate 数据说明之卖家拒绝
+     * > certificate 数据说明之卖家拒绝 toOsId = 19
      * 
      * key | type | value
      * --- | ---- | -----
@@ -958,7 +1000,7 @@ class BuyerRefund implements BuyerRefundInterface
      * refuseReason | string | 拒绝理由
      * certificate  | array  | 图片凭证数组
      * 
-     * > certificate 数据说明之卖家同意退货
+     * > certificate 数据说明之卖家同意退货 toOsId = 17
      * 
      * key | type | value
      * --- | ---- | -----
@@ -1059,13 +1101,6 @@ class BuyerRefund implements BuyerRefundInterface
      * 
      * key | type | value
      * --- | ---- | ----
-     * consignee        | string | 收件人姓名
-     * gbCode           | string | 地区编码
-     * regionName       | string | 地区名称
-     * address          | string | 详情地址
-     * zipcode          | string | 邮编
-     * phoneTel         | string | 收件人联系号
-     * phoneMob         | string | 收件人手机号
      * invoiceCode      | string | 送货编码
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
@@ -1076,7 +1111,7 @@ class BuyerRefund implements BuyerRefundInterface
      * @return boolean
      * 
      * @requestExample({
-     *      "params":{"consignee":"\u65b9\u5065\u7fa4","address":"1","zipcode":"510000","phoneTel":"1","phoneMob":"1","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","gbCode":"440104","storeId":1762613,"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
+     *      "params":{"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
      *      "orderId":"50001744"
      * })
      * @returnExample(true)
@@ -1096,13 +1131,6 @@ class BuyerRefund implements BuyerRefundInterface
      * 
      * key | type | value
      * --- | ---- | ----
-     * consignee        | string | 收件人姓名
-     * gbCode           | string | 地区编码
-     * regionName       | string | 地区名称
-     * address          | string | 详情地址
-     * zipcode          | string | 邮编
-     * phoneTel         | string | 收件人联系号
-     * phoneMob         | string | 收件人手机号
      * invoiceCode      | string | 送货编码
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
@@ -1113,7 +1141,7 @@ class BuyerRefund implements BuyerRefundInterface
      * @return boolean
      * 
      * @requestExample({
-     *      "params":{"consignee":"\u65b9\u5065\u7fa4","address":"1","zipcode":"510000","phoneTel":"1","phoneMob":"1","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","gbCode":"440104","storeId":1762613,"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
+     *      "params":{"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
      *      "orderId":"50001744"
      * })
      * @returnExample(true)

@@ -536,13 +536,6 @@ interface BuyerRefundInterface
      * 
      * key | type | value
      * --- | ---- | ----
-     * consignee        | string | 收件人姓名
-     * gbCode           | string | 地区编码
-     * regionName       | string | 地区名称
-     * address          | string | 详情地址
-     * zipcode          | string | 邮编
-     * phoneTel         | string | 收件人联系号
-     * phoneMob         | string | 收件人手机号
      * invoiceCode      | string | 送货编码
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
@@ -553,7 +546,7 @@ interface BuyerRefundInterface
      * @return boolean
      * 
      * @requestExample({
-     *      "params":{"consignee":"\u65b9\u5065\u7fa4","address":"1","zipcode":"510000","phoneTel":"1","phoneMob":"1","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","gbCode":"440104","storeId":1762613,"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
+     *      "params":{"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
      *      "orderId":"50001744"
      * })
      * @returnExample(true)
