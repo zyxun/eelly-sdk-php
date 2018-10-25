@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\RefundInterface;
 
@@ -223,6 +224,32 @@ class Refund implements RefundInterface
     public function otherRefundAsync(array $data)
     {
         return EellyClient::request('pay/refund', 'otherRefund', false, $data);
+    }
+
+    /**
+     * 诚信保障解冻退款
+     *
+     * @param array $data  诚信保障相关数据
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"data":{"itemId":148086, "money":100}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.24
+     */
+    public function refundIntegrity(array $data, UidDTO $uidDTO = null):bool
+    {
+        return EellyClient::request('pay/refund', __FUNCTION__, true, $data, $uidDTO);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function refundIntegrityAsync(array $data, UidDTO $uidDTO = null):bool
+    {
+        return EellyClient::request('pay/refund', __FUNCTION__, false, $data, $uidDTO);
     }
 
     /**
