@@ -54,5 +54,7 @@ class PaymentException extends LogicException
      * 退款金额大于下单金额
      */
     public const REFUND_MONEY_THAN_PAYMENT_MONEY = '退款金额大于下单金额';
-
+    
+    public const MONEY_ERROR = '金额有误';
+    
 }

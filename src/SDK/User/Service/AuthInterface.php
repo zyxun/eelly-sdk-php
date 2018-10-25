@@ -199,12 +199,12 @@ interface AuthInterface
      * 5 | 认证过期
      * 
      * @param UidDTO $user 当前登陆的用户
-     * @return integer
+     * @return array
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.10
      */
-    public function getAuthType(UidDTO $user = null):array;
+    public function getAuthType(UidDTO $user = null): array;
 
     /**
      * 获取实名认证 企业和个人 eelly_old_code
