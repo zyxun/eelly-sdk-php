@@ -205,7 +205,7 @@ interface BuyerOrderInterface
      *                   "note": "",
      *                   "actions": [
      *                       {"btn" : "cancel", "name" : "取消订单"},
-     *                       {"btn : "pay", "name" : "立即付款"}
+     *                       {"btn" : "pay", "name" : "立即付款"}
      *                   ]
      *               }
      *           }
@@ -366,7 +366,7 @@ interface BuyerOrderInterface
      *           "note": "",
      *           "actions": [
      *               {"btn" : "cancel", "name" : "取消订单"},
-     *               {"btn : "pay", "name" : "立即付款"}
+     *               {"btn" : "pay", "name" : "立即付款"}
      *           ]
      *       },
      *       "orderStatus": 3,
