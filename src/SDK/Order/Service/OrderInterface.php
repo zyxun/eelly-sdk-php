@@ -927,7 +927,7 @@ interface OrderInterface
      * @return array
      * 
      * 
-     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
+     * @returnExample({"platform":"alipayApp","billNo":"201809110166529825","data":{},"orderSns":["2153610960734762"],"orderIds":[50001771]})
      * 
      * @returnExample({"platform":"wechatPayApp","billNo":"201809280149688070","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx2813481171184190274156393709513957","package":"Sign=WXPay","noncestr":"7c230b4227a906332c80c78c2026695e","timestamp":1538113691,"sign":"131F460AEF603EDDA206B892BF2850A1"},"orderSns":["2153810322557191"],"orderIds":[50001781]})
      *
