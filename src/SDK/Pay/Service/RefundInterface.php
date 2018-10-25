@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Service;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\Pay\DTO\RefundDTO;
 
 
@@ -110,5 +111,20 @@ interface RefundInterface
      * @since 2018.9.21
      */
     public function otherRefund(array $data):bool;
+
+    /**
+     * 诚信保障解冻退款
+     *
+     * @param array $data  诚信保障相关数据
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"data":{"itemId":148086, "money":100}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.24
+     */
+    public function refundIntegrity(array $data, UidDTO $uidDTO = null):bool;
 
 }

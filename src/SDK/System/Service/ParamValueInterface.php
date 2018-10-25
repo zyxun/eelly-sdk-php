@@ -42,6 +42,17 @@ interface ParamValueInterface
     public function getParamValue(int $spvId): ParamValueDTO;
 
     /**
+     * 根据类型获取参数值
+     *
+     * @param string $code
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-20
+     */
+    public function getParamValueByCode(string $code): array ;
+
+    /**
      * 新增系统字典参数对应的值的数据.
      *
      * @param array  $data                字典参数数据

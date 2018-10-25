@@ -80,6 +80,34 @@ class User implements UserInterface
     }
 
     /**
+     * 校验邮箱是否存在
+     *
+     * @param string $email
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2018-10-22
+     */
+    public function checkIsExistUserEmail(string $email): int
+    {
+        return EellyClient::request('user/user', 'checkIsExistUserEmail', true, $email);
+    }
+
+    /**
+     * 校验邮箱是否存在
+     *
+     * @param string $email
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2018-10-22
+     */
+    public function checkIsExistUserEmailAsync(string $email)
+    {
+        return EellyClient::request('user/user', 'checkIsExistUserEmail', false, $email);
+    }
+
+    /**
      * 校验密码强度.
      *
      * ### 返回数据说明
@@ -1285,6 +1313,34 @@ class User implements UserInterface
     public function updatePasswordAsync(int $userId, string $oldPassword, string $newPassword)
     {
         return EellyClient::request('user/user', 'updatePassword', false, $userId, $oldPassword, $newPassword);
+    }
+
+    /**
+     * 店+app个人中心主页
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-24
+     */
+    public function buyerAppMyIndex(UidDTO $user = null): array
+    {
+        return EellyClient::request('user/user', 'buyerAppMyIndex', true, $user);
+    }
+
+    /**
+     * 店+app个人中心主页
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-24
+     */
+    public function buyerAppMyIndexAsync(UidDTO $user = null)
+    {
+        return EellyClient::request('user/user', 'buyerAppMyIndex', false, $user);
     }
 
     /**

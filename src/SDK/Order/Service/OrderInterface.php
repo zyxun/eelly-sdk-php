@@ -995,4 +995,47 @@ interface OrderInterface
      * @since 2018年10月25日
      */
     public function handleOrderPayed(array $relData): bool;
+
+    /**
+     * 获取各状态我的订单数量.
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * all                | int     | 所有
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
+     *
+     * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
+     * @param int $role   用户角色 (1 买家, 2 卖家)
+     * @param int $userId 用户ID
+     *
+     * @return array
+     *
+     * @requestExample({"client":"wap","role":1,"userId":148086})
+     * @returnExample(
+     * {
+     *     "all":52,
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0,
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
+     * }
+     * )
+     *
+     * @author zhangyangxun
+     * @since 2018.10.24
+     */
+    public function listOrderStatusNum(string $client, int $role, int $userId): array;
 }
