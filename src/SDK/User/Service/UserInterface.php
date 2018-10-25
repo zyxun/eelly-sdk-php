@@ -50,6 +50,17 @@ interface UserInterface
     public function checkIsExistUserMobile(string $mobile): int;
 
     /**
+     * 校验邮箱是否存在
+     *
+     * @param string $email
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2018-10-22
+     */
+    public function checkIsExistUserEmail(string $email): int ;
+
+    /**
      * 校验密码强度.
      *
      * ### 返回数据说明
@@ -574,4 +585,15 @@ interface UserInterface
      * @since 2018-10-18
      */
     public function updatePassword(int $userId, string $oldPassword, string $newPassword): bool ;
+
+    /**
+     * 店+app个人中心主页
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-24
+     */
+    public function buyerAppMyIndex(UidDTO $user = null): array ;
 }

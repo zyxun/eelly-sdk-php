@@ -1940,7 +1940,7 @@ class Order implements OrderInterface
      * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
-     * 
+     *
      * ### 返回参数说明
      * >字段名 | 类型 |描述
      * >-- | ---- | -----
@@ -1949,21 +1949,21 @@ class Order implements OrderInterface
      * >data | array | 第三方支付(余额支付)返回的结果
      * >orderSns  | array | 订单号
      * >orderIds | array | 订单id
-     * 
-     * 
+     *
+     *
      * >app支付宝:{"platform":"alipayApp","billNo":"201809280150456160","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809280150456160\",\"total_amount\":200,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12640%26userId%3D1760467%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-28 14:00:56","version":"1.0","sign":"XAcLoq+N4upFq3tTo+7PrjXB9G+By9Gp\/6iyrThr5QbotjNX+8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg\/RGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809280150456160%22%2C%22total_amount%22%3A200%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12640%2526userId%253D1760467%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-28+14%3A00%3A56&version=1.0&sign=XAcLoq%2BN4upFq3tTo%2B7PrjXB9G%2BBy9Gp%2F6iyrThr5QbotjNX%2B8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg%2FRGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ%3D"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
-     * 
+     *
      * >app微信:{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
-     * 
+     *
      * >pc支付宝:{"platform":"alipayLegacyWeb","billNo":"201810080154962945","data":"https:\/\/mapi.alipay.com\/gateway.do?_input_charset=UTF-8&payment_type=1&alipay_sdk=lokielse/omnipay-alipay&partner=2088001435326491&seller_id=2088001435326491&seller_email=eleen001@126.com&notify_url=https://cs.eelly.com/alipay_notify.html&out_trade_no=201810080154962945&subject=è®¢åæ¯ä»&goods_type=1&total_fee=200&service=create_direct_pay_by_user&sign=pSJiacwz77qk1IZOSXQTXlwFfLtP7aAbd9Of/OCDVG5jzKnHqX0cpy6kZMzOD9Nr+LLptzrSdmAPsRg8rXNMUbUHz4N2ZBquQwDTkvkQwoc/VfrTIqTHrwvd3cmQ9fszv1cTBSBJ/kGUhnjQwj3JgQGLQ5PmYVPfT3WJ2sPRrHQ=&sign_type=RSA","orderSns":["2153812014142953"],"orderIds":[50001783]}
-     * 
+     *
      * >pc微信:{"platform":"wechatPayNative","billNo":"201810080150664981","data":"weixin:\/\/wxpay\/bizpayurl?pr=RVf4P5v","orderSns":["2153812014142953"],"orderIds":[50001783]}
-     * 
+     *
      * @return array
-     * 
-     * 
-     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
-     * 
+     *
+     *
+     * @returnExample({"platform":"alipayApp","billNo":"201809110166529825","data":{},"orderSns":["2153610960734762"],"orderIds":[50001771]})
+     *
      * @returnExample({"platform":"wechatPayApp","billNo":"201809280149688070","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx2813481171184190274156393709513957","package":"Sign=WXPay","noncestr":"7c230b4227a906332c80c78c2026695e","timestamp":1538113691,"sign":"131F460AEF603EDDA206B892BF2850A1"},"orderSns":["2153810322557191"],"orderIds":[50001781]})
      *
      * @author wechan
@@ -1982,7 +1982,7 @@ class Order implements OrderInterface
      * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
-     * 
+     *
      * ### 返回参数说明
      * >字段名 | 类型 |描述
      * >-- | ---- | -----
@@ -1991,21 +1991,21 @@ class Order implements OrderInterface
      * >data | array | 第三方支付(余额支付)返回的结果
      * >orderSns  | array | 订单号
      * >orderIds | array | 订单id
-     * 
-     * 
+     *
+     *
      * >app支付宝:{"platform":"alipayApp","billNo":"201809280150456160","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809280150456160\",\"total_amount\":200,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12640%26userId%3D1760467%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-28 14:00:56","version":"1.0","sign":"XAcLoq+N4upFq3tTo+7PrjXB9G+By9Gp\/6iyrThr5QbotjNX+8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg\/RGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809280150456160%22%2C%22total_amount%22%3A200%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12640%2526userId%253D1760467%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-28+14%3A00%3A56&version=1.0&sign=XAcLoq%2BN4upFq3tTo%2B7PrjXB9G%2BBy9Gp%2F6iyrThr5QbotjNX%2B8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg%2FRGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ%3D"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
-     * 
+     *
      * >app微信:{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}
-     * 
+     *
      * >pc支付宝:{"platform":"alipayLegacyWeb","billNo":"201810080154962945","data":"https:\/\/mapi.alipay.com\/gateway.do?_input_charset=UTF-8&payment_type=1&alipay_sdk=lokielse/omnipay-alipay&partner=2088001435326491&seller_id=2088001435326491&seller_email=eleen001@126.com&notify_url=https://cs.eelly.com/alipay_notify.html&out_trade_no=201810080154962945&subject=è®¢åæ¯ä»&goods_type=1&total_fee=200&service=create_direct_pay_by_user&sign=pSJiacwz77qk1IZOSXQTXlwFfLtP7aAbd9Of/OCDVG5jzKnHqX0cpy6kZMzOD9Nr+LLptzrSdmAPsRg8rXNMUbUHz4N2ZBquQwDTkvkQwoc/VfrTIqTHrwvd3cmQ9fszv1cTBSBJ/kGUhnjQwj3JgQGLQ5PmYVPfT3WJ2sPRrHQ=&sign_type=RSA","orderSns":["2153812014142953"],"orderIds":[50001783]}
-     * 
+     *
      * >pc微信:{"platform":"wechatPayNative","billNo":"201810080150664981","data":"weixin:\/\/wxpay\/bizpayurl?pr=RVf4P5v","orderSns":["2153812014142953"],"orderIds":[50001783]}
-     * 
+     *
      * @return array
-     * 
-     * 
-     * @returnExample({{"platform":"alipayApp","billNo":"201809110166529825","data":{""},"orderSns":["2153610960734762"],"orderIds":[50001771]}})
-     * 
+     *
+     *
+     * @returnExample({"platform":"alipayApp","billNo":"201809110166529825","data":{},"orderSns":["2153610960734762"],"orderIds":[50001771]})
+     *
      * @returnExample({"platform":"wechatPayApp","billNo":"201809280149688070","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx2813481171184190274156393709513957","package":"Sign=WXPay","noncestr":"7c230b4227a906332c80c78c2026695e","timestamp":1538113691,"sign":"131F460AEF603EDDA206B892BF2850A1"},"orderSns":["2153810322557191"],"orderIds":[50001781]})
      *
      * @author wechan
@@ -2166,6 +2166,98 @@ class Order implements OrderInterface
     public function handleOrderPayedAsync(array $relData)
     {
         return EellyClient::request('order/order', 'handleOrderPayed', false, $relData);
+    }
+  
+    /**
+     * 获取各状态我的订单数量.
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * all                | int     | 所有
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
+     *
+     * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
+     * @param int $role   用户角色 (1 买家, 2 卖家)
+     * @param int $userId 用户ID
+     *
+     * @return array
+     *
+     * @requestExample({"client":"wap","role":1,"userId":148086})
+     * @returnExample(
+     * {
+     *     "all":52,
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0,
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
+     * }
+     * )
+     *
+     * @author zhangyangxun
+     * @since 2018.10.24
+     */
+    public function listOrderStatusNum(string $client, int $role, int $userId): array
+    {
+        return EellyClient::request('order/order', 'listOrderStatusNum', true, $client, $role, $userId);
+    }
+
+    /**
+     * 获取各状态我的订单数量.
+     *
+     * > 返回数据说明
+     *
+     * key                | type    | value
+     * ------------------ | ------- | --------
+     * all                | int     | 所有
+     * needPay            | int     | 待付款
+     * needShare          | int     | 集赞中 待分享
+     * needShipping       | int     | 待发货
+     * needReceiving      | int     | 待收货
+     * refunding          | int     | 退货退款
+     * canceled           | int     | 已取消
+     * needReview         | int     | 待评价
+     * finished           | int     | 已完成
+     *
+     * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
+     * @param int $role   用户角色 (1 买家, 2 卖家)
+     * @param int $userId 用户ID
+     *
+     * @return array
+     *
+     * @requestExample({"client":"wap","role":1,"userId":148086})
+     * @returnExample(
+     * {
+     *     "all":52,
+     *     "needPay": 32,
+     *     "needShare": 8,
+     *     "needShipping": 0,
+     *     "needReceiving": 0,
+     *     "refunding":2,
+     *     "canceled":2,
+     *     "needReview":2,
+     *     "finished":2,
+     * }
+     * )
+     *
+     * @author zhangyangxun
+     * @since 2018.10.24
+     */
+    public function listOrderStatusNumAsync(string $client, int $role, int $userId)
+    {
+        return EellyClient::request('order/order', 'listOrderStatusNum', false, $client, $role, $userId);
     }
 
     /**

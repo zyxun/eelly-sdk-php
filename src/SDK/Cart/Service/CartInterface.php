@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of eelly package.
@@ -22,7 +22,6 @@ use Eelly\DTO\UidDTO;
  */
 interface CartInterface
 {
-
     /**
      * 购物车列表.
      *
@@ -145,7 +144,7 @@ interface CartInterface
      * 1002 | int | 'Customer' crm会员价
      * 1    | int | 'Ladder' 阶梯价------最基础的价格，必需有-------
      * 2    | int | 'Spec' 规格报价
-     * 
+     *
      * @param UidDTO $user 用户信息
      *
      * @return array
@@ -155,6 +154,7 @@ interface CartInterface
      * })
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function listCart(UidDTO $user = null): array;
@@ -162,11 +162,11 @@ interface CartInterface
     /**
      * 添加购物车.
      *
-     * @param int   $goodsId    商品id
-     * @param array $attributes 其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
-     * @param array $attributes['spId'] 规格属性Id
-     * @param array $attributes['quantity'] 属性购买数量
-     * @param UidDTO $user  用户
+     * @param int    $goodsId                商品id
+     * @param array  $attributes             其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
+     * @param array  $attributes['spId']     规格属性Id
+     * @param array  $attributes['quantity'] 属性购买数量
+     * @param UidDTO $user                   用户
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
@@ -177,13 +177,14 @@ interface CartInterface
      * @returnExample(true)
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function addCart(int $goodsId, array $attributes, UidDTO $user = null): bool;
 
     /**
-     * 获取指定商品来更新购物车
-     * 
+     * 获取指定商品来更新购物车.
+     *
      * > 返回数据说明
      * key | type | value
      * --- | ---- | ----
@@ -191,7 +192,7 @@ interface CartInterface
      * goodsInfo | array | 商品数据说明
      * data[]    | array | 规格数据说明
      * priceInfo | array | 价格数据说明
-     * 
+     *
      * > storeInfo 数据说明
      * key | type | value
      * --- | ---- | ----
@@ -199,7 +200,7 @@ interface CartInterface
      * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
      * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
      * storeQuantity        | int    | 店铺起批数量
-     * 
+     *
      * > goodsInfo 数据说明
      * key | type | value
      * --- | ---- | ----
@@ -208,7 +209,7 @@ interface CartInterface
      * unit   | string  | 商品单位 例如：件
      * goodsImage | string | 商品图片
      * uniqueId   | string | 购物车唯一标识
-     * 
+     *
      * > data 数据说明
      * key | type | value
      * --- | ---- | -----
@@ -222,13 +223,14 @@ interface CartInterface
      * sku             | string | 未知
      * selQuantity     | int    | 选中的数量 默认为0
      * showQuantity    | int    | 初始展示的数量 默认为库存一致
-     * 
+     *
      * > 返回数据 priceInfo 说明 https://api.eelly.test/cart/cart/listCart
-     * 
-     * @param integer $goodsId 商品id
-     * @param UidDTO $user  用户
+     *
+     * @param int    $goodsId 商品id
+     * @param UidDTO $user    用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({
      *      "goodsId":"5155477"
      * })
@@ -249,12 +251,12 @@ interface CartInterface
      *      }],
      *      "priceInfo":"具体看说明"
      * })
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.27
      */
     public function getCart(int $goodsId, UidDTO $user = null): array;
-
 
     /**
      * 更新购物车.
@@ -346,9 +348,9 @@ interface CartInterface
      * 2 | 该商品规格发生变更，请重新选择
      * 3 | 数量或金额不满足商家混批规则
      *
-     * @param string $uniqueId 指定购物车唯一值
+     * @param string $uniqueId   指定购物车唯一值
      * @param array  $attributes 修改属性
-     * @param UidDTO $user  用户信息
+     * @param UidDTO $user       用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
@@ -361,6 +363,7 @@ interface CartInterface
      * })
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function updateCart(string $uniqueId, array $attributes, UidDTO $user = null): array;
@@ -375,6 +378,7 @@ interface CartInterface
      * @return bool 返回bool值
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function clearCart(UidDTO $user = null): bool;
@@ -384,7 +388,7 @@ interface CartInterface
      *
      *
      * @param string $uniqueId 指定购物车key值 列表中存在
-     * @param UidDTO $user 用户信息
+     * @param UidDTO $user     用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
@@ -395,6 +399,7 @@ interface CartInterface
      * @returnExample(true)
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function deleteCart(string $uniqueId, UidDTO $user = null): bool;
@@ -403,7 +408,7 @@ interface CartInterface
      * 批量移除购物车.
      *
      * @param array  $uniqueIds 购物车key值id数组
-     * @param UidDTO $user   用户信息
+     * @param UidDTO $user      用户信息
      *
      * @throws \Eelly\SDK\Cart\Exception\CartException
      *
@@ -414,41 +419,47 @@ interface CartInterface
      * @returnExample(true)
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function deleteCartBatch(array $uniqueIds, UidDTO $user = null): bool;
 
     /**
-     * 获取购物车数量限制
+     * 获取购物车数量限制.
      *
      * @return int
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function getMaxCount(): int;
 
     /**
-     * 获取购物车数量
+     * 获取购物车数量.
      *
      * @param UidDTO $user 当前登陆的用户
+     *
      * @return int
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.16
      */
     public function getCartCount(UidDTO $user = null): int;
 
     /**
-     * 通过用户id获取购物车数量
+     * 通过用户id获取购物车数量.
      *
-     * @param integer $userId 用户ID
+     * @param int $userId 用户ID
+     *
      * @return integer
-     * 
-     * @author sunanzhi <sunanzhi@hotmail.com> 
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.16
      */
-    public function getCartCountByUserId(int $userId):int;
+    public function getCartCountByUserId(int $userId): int;
 
     /**
      * 批量获取购物车商品
@@ -488,7 +499,7 @@ interface CartInterface
      * unit                         | string | 商品单位 例:件
      * ifShow                       | int    | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
      * close                        | int    | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
-     * 
+     *
      * > attributes 商品规格数据说明
      * key | type | value
      * --- | ---- | -----
@@ -540,10 +551,11 @@ interface CartInterface
      * 2 | 该商品规格发生变更，请重新选择
      * 3 | 数量或金额不满足商家混批规则
      *
-     * @param array $uniqueIds 指定购物车key值数组，userId _ goodsId, 数据格式中md5值 
+     * @param array $uniqueIds 指定购物车key值数组，userId _ goodsId, 数据格式中md5值
      * @param int   $userId    用户id
+     *
      * @return array
-     * 
+     *
      * @requestExample({
      *   "uniqueIds":[{"f54a532d0f2b60071cfec2149476f1c3","372f86e3539ef75e5b49f393e98decc7","701eb18b6a9bec5e13973101df32b8c8"}],
      *   "userId":"123456789"
@@ -551,45 +563,45 @@ interface CartInterface
      * @returnExample({
      *   [{"uniqueId":"f54a532d0f2b60071cfec2149476f1c3","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","defaultImage":"G03/M00/00/B0/small_pYYBAFUvareIVSLaAAYKRm6bJisAABFIAIv_CQABgpe928.jpg","goodsName":"ioeoi1120\u80d6mm\u5927\u7801\u5973\u88c5\u6625\u88c5 \u649e\u8272\u53e3\u888b\u8fde\u5e3d2015\u4f11\u95f2\u5957\u88c5\u6625\u5b63\u8fd0\u52a8\u5957\u88c5\u5973","goodsNumber":"1234513","goodsId":5155477,"quantity":1,"goodsPrice":"74.00","singlePrice":"74.00","lowerLimit":"4","attributes":[{"spId":28738538,"color":"\u7d2b\u8272","size":"xl","quantity":1,"loseSpec":false},{"spId":28738538111,"color":"\u7d2b\u8272","size":"xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"5155477","store_id":"159771","price_type":1,"price_lower":"74.00","price_upper":"89.00","price_data":[{"lower_limit":"3","upper_limit":"4","price":"89.00","type":"1"},{"lower_limit":"5","upper_limit":"9","price":"79.00","type":"2"},{"lower_limit":"10","upper_limit":"0","price":"74.00","type":"3"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534817709,"updateTime":1534903157,"useful":false,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"},{"uniqueId":"372f86e3539ef75e5b49f393e98decc7","storeId":159771,"storeName":"\u827e\u6b27\u4e25\u9009\u5927\u7801\u5973\u88c5","goodsName":"ioeoi\u6b63\u54c1\u26069568\u65f6\u5c1a\u5178\u96c5\u6cd5\u5f0f\u957f\u5927\u8863","goodsNumber":"1234513","goodsId":27767,"quantity":8,"price":"464.00","attributes":[{"spId":9521387,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false},{"spId":9521390,"color":"\u9ec4\u8272","size":"4xl","quantity":5,"loseSpec":false},{"spId":9521391,"color":"\u9ec4\u8272","size":"4xl","quantity":0,"loseSpec":true}],"pirceInfo":{"goods_id":"27767","store_id":"159771","price_type":1,"price_lower":"58.00","price_upper":"58.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"58.00","type":"1"}]},"tipType":2,"tipReason":"\u8be5\u5546\u54c1\u89c4\u683c\u53d1\u751f\u53d8\u66f4\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9","createdTime":1534733379,"updateTime":1534903158,"useful":false,"colorSum":2,"sizeSum":2,"unit":"件","ifShow":"1","close":"0"},{"uniqueId":"701eb18b6a9bec5e13973101df32b8c8","storeId":1760467,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","goodsName":"19\u5757\u94b1\u7279\u4ef7","goodsNumber":"1234513","goodsId":5578934,"quantity":3,"price":"55.50","attributes":[{"spId":32090859,"color":"\u7d2b\u8272","size":"xl","quantity":3,"loseSpec":false}],"pirceInfo":{"goods_id":"5578934","store_id":"1760467","price_type":2001,"price_lower":"20.00","price_upper":"20.00","price_data":[{"lower_limit":"1","upper_limit":"0","price":"20.00","type":"1"}],"price_pay":"18.50","price_title":"\u9650\u65f6\u7279\u60e0","price_detail":{"act_id":"3401","goods_id":"5578934","nums":"0","mbr_buy_limit":"0","price":"18.50","type_info":"a:0:{}","tag":"\u9650\u65f6\u7279\u60e0","start_time":"1503561600","end_time":"1535702399","type":"16","is_limit_mbrbuy":"1","single":"0","is_set_nums":"1","expire_time":913638}},"tipType":0,"tipReason":"\u6b63\u5e38\u60c5\u51b5","createdTime":1534817561,"updateTime":1534903157,"useful":true,"colorSum":1,"sizeSum":1,"unit":"件","ifShow":"1","close":"0"}]
      * })
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.22
      */
     public function getCartBatch(array $uniqueIds, int $userId): array;
 
-
     /**
      * 获取商品数据规格
-     * 
+     *
      * * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * storeInfo | array | 店铺数据说明
      * goodsInfo | array | 商品数据说明
      * data[]    | array | 规格数据说明
      * priceInfo | array | 价格数据说明
-     * 
+     *
      * > storeInfo 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * isMix                | int    | 是否混批 0:否， 1:是
      * mixMoney             | float  | 混批价格 （isMix为1的时候才出现）
      * mixNum               | int    | 混批数量 （isMix为1的时候才出现）
      * storeQuantity        | int    | 店铺起批数量
-     * 
+     *
      * > goodsInfo 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * ifShow | int     | 商品状态 0 下架, 1 上架, 2 自动下架, 3 等待上架, 4 自动上架, 5 卖家已删除
      * close  | int     | 店铺状态 0=正常，1=禁售，2=店铺关闭，3=店铺挂起，4=店铺暂停营业
      * unit   | string  | 商品单位 例如：件
      * goodsImage | string | 商品图片
-     * 
+     *
      * > data 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * spec_id         | int    | 规格id
@@ -602,37 +614,49 @@ interface CartInterface
      * sku             | string | 未知
      * selQuantity     | int    | 选中的数量 默认为0
      * showQuantity    | int    | 初始展示的数量 默认为库存一致
-     * 
+     *
      * > 返回数据 priceInfo 说明 https://api.eelly.test/cart/cart/listCart
      *
-     * @param integer $goodsId 商品id
+     * @param int $goodsId 商品id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.20
      */
-    public function getGoods(int $goodsId):array;
+    public function getGoods(int $goodsId): array;
 
     /**
-     * 提交订单后删除购物车接口，不对外
+     * 提交订单后删除购物车接口，不对外.
      *
      * @param array $goodsId 商品id 数组
-     * @param integer $userId 用户id
+     * @param int   $userId  用户id
+     *
      * @return boolean
-     * 
+     *
+     * @requestExample({
+     *  "goodsId":{"50001744", "50001855"},
+     *  "userId":"148086"
+     * })
+     * @returnExample(true)
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.13
      */
-    public function delCartByOrder(array $goodsId, int $userId):bool;
+    public function delCartByOrder(array $goodsId, int $userId): bool;
 
     /**
-     * 获取用户购物车商品id
+     * 获取用户购物车商品id.
      *
-     * @param integer $userId 用户id
+     * @param int $userId 用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.16
      */
-    public function getCartGoodsId(int $userId):array;
+    public function getCartGoodsId(int $userId): array;
 }
