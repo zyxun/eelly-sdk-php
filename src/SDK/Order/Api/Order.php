@@ -1813,7 +1813,7 @@ class Order implements OrderInterface
      * 
      * @return array
      * 
-     * @returnExample([1,2])
+     * @returnExample({"50002027", "50002026"})
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -1848,7 +1848,7 @@ class Order implements OrderInterface
      * 
      * @return array
      * 
-     * @returnExample([1,2])
+     * @returnExample({"50002027", "50002026"})
      * 
      * @author wechan
      * @since 2018年09月04日
@@ -1936,7 +1936,7 @@ class Order implements OrderInterface
      * 订单发起的支付.
      *
      * @param array  $orderIds 多个订单Id
-     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝 balance:余额
      * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
@@ -1946,7 +1946,7 @@ class Order implements OrderInterface
      * >-- | ---- | -----
      * >platform | string | 支付类型
      * >billNo | string | 衣联交易号
-     * >data | array | 第三方返回的数据
+     * >data | array | 第三方支付(余额支付)返回的结果
      * >orderSns  | array | 订单号
      * >orderIds | array | 订单id
      * 
@@ -1978,7 +1978,7 @@ class Order implements OrderInterface
      * 订单发起的支付.
      *
      * @param array  $orderIds 多个订单Id
-     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝
+     * @param string $type  支付账号类型 wechat:微信支付 alipay:支付宝 balance:余额
      * @param string $platform  支付平台: app:手机app pc:电脑pc端 wap:手机wap端 smallWechat:小程序
      * @param array $extend 扩展信息,比如某宝账号,某小程序账号信息。
      * @param UidDTO $user      登录用户信息
@@ -1988,7 +1988,7 @@ class Order implements OrderInterface
      * >-- | ---- | -----
      * >platform | string | 支付类型
      * >billNo | string | 衣联交易号
-     * >data | array | 第三方返回的数据
+     * >data | array | 第三方支付(余额支付)返回的结果
      * >orderSns  | array | 订单号
      * >orderIds | array | 订单id
      * 
@@ -2122,6 +2122,50 @@ class Order implements OrderInterface
     public function getOrderConditionInfoAsync(string $conditions = '', array $bind = [], array $extend = [])
     {
         return EellyClient::request('order/order', 'getOrderConditionInfo', false, $conditions, $bind, $extend);
+    }
+
+    /**
+     * 回调订单支付.
+     *
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "money" => 10000   诚信保证冻结金额
+     *    "billNo" => xxxxxxxx    增值服务id
+     * ]
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2018年10月25日
+     */
+    public function handleOrderPayed(array $relData): bool
+    {
+        return EellyClient::request('order/order', 'handleOrderPayed', true, $relData);
+    }
+
+    /**
+     * 回调订单支付.
+     *
+     * @param array $relData 支付请求数据
+     * 
+     * [
+     *    "userId" => 148086 用户id
+     *    "storeId" => 148086 店铺id
+     *    "money" => 10000   诚信保证冻结金额
+     *    "billNo" => xxxxxxxx    增值服务id
+     * ]
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2018年10月25日
+     */
+    public function handleOrderPayedAsync(array $relData)
+    {
+        return EellyClient::request('order/order', 'handleOrderPayed', false, $relData);
     }
 
     /**
