@@ -32,7 +32,7 @@ class Seller
      * 4 审核不通过：修改认证申请（点击进入审核未通过页面）
      * 5 认证过期：立即认证（点击进入资料提交页面，且保留上次认证的信息）
      */
-    public function authStatus(int $userId)
+    public function apiAuthStatus(int $userId)
     {
         return EellyClient::request('eellyOldCode/store/Auth/Seller', __FUNCTION__, true, $userId);
     }
