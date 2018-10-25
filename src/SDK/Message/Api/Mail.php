@@ -48,7 +48,7 @@ class Mail implements MailInterface
      */
     public function sendMail(array $messageMail, string $to, string $subject, string $message, array $attachments = []): bool
     {
-        return EellyClient::request('message/mail', __FUNCTION__, true, $messageMail, $to, $subject, $message, $attachments);
+        return EellyClient::request('message/mail', 'sendMail', true, $messageMail, $to, $subject, $message, $attachments);
     }
 
     /**
@@ -78,7 +78,69 @@ class Mail implements MailInterface
      */
     public function sendMailAsync(array $messageMail, string $to, string $subject, string $message, array $attachments = [])
     {
-        return EellyClient::request('message/mail', __FUNCTION__, false, $messageMail, $to, $subject, $message, $attachments);
+        return EellyClient::request('message/mail', 'sendMail', false, $messageMail, $to, $subject, $message, $attachments);
+    }
+
+    /**
+     * 发送邮件验证码
+     *
+     * @param string $to        收件人
+     * @param string $scenario  业务场景
+     * @return bool
+     *
+     * @author zhangyangxun<542207975@qq.com>
+     * @since 2018-10-25
+     */
+    public function sendMailCode(string $to, string $scenario): bool
+    {
+        return EellyClient::request('message/mail', 'sendMailCode', true, $to, $scenario);
+    }
+
+    /**
+     * 发送邮件验证码
+     *
+     * @param string $to        收件人
+     * @param string $scenario  业务场景
+     * @return bool
+     *
+     * @author zhangyangxun<542207975@qq.com>
+     * @since 2018-10-25
+     */
+    public function sendMailCodeAsync(string $to, string $scenario)
+    {
+        return EellyClient::request('message/mail', 'sendMailCode', false, $to, $scenario);
+    }
+
+    /**
+     * 校验邮件验证码
+     *
+     * @param string $to        收件人
+     * @param string $scenario  业务场景
+     * @param string $code      验证码
+     * @return bool
+     *
+     * @author zhangyangxun<542207975@qq.com>
+     * @since 2018-10-25
+     */
+    public function checkMailCode(string $to, string $scenario, string $code): bool
+    {
+        return EellyClient::request('message/mail', 'checkMailCode', true, $to, $scenario, $code);
+    }
+
+    /**
+     * 校验邮件验证码
+     *
+     * @param string $to        收件人
+     * @param string $scenario  业务场景
+     * @param string $code      验证码
+     * @return bool
+     *
+     * @author zhangyangxun<542207975@qq.com>
+     * @since 2018-10-25
+     */
+    public function checkMailCodeAsync(string $to, string $scenario, string $code)
+    {
+        return EellyClient::request('message/mail', 'checkMailCode', false, $to, $scenario, $code);
     }
 
     /**

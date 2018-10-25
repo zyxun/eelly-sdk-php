@@ -46,4 +46,29 @@ interface MailInterface
      * @since 2017-8-5
      */
     public function sendMail(array $messageMail, string $to, string $subject, string $message, array $attachments = []): bool;
+
+    /**
+     * 发送邮件验证码
+     *
+     * @param string $to        收件人
+     * @param string $scenario  业务场景
+     * @return bool
+     *
+     * @author zhangyangxun<542207975@qq.com>
+     * @since 2018-10-25
+     */
+    public function sendMailCode(string $to, string $scenario): bool ;
+
+    /**
+     * 校验邮件验证码
+     *
+     * @param string $to        收件人
+     * @param string $scenario  业务场景
+     * @param string $code      验证码
+     * @return bool
+     *
+     * @author zhangyangxun<542207975@qq.com>
+     * @since 2018-10-25
+     */
+    public function checkMailCode(string $to, string $scenario, string $code): bool ;
 }
