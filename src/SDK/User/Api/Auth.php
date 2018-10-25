@@ -430,7 +430,7 @@ class Auth implements AuthInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.10
      */
-    public function getAuthTypeAsync(UidDTO $user = null)
+    public function getAuthTypeAsync(UidDTO $user = null): array
     {
         return EellyClient::request('user/auth', 'getAuthType', false, $user);
     }
