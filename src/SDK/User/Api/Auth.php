@@ -394,7 +394,7 @@ class Auth implements AuthInterface
      * 5 | 认证过期
      * 
      * @param UidDTO $user 当前登陆的用户
-     * @return integer
+     * @return array
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.10
@@ -425,7 +425,7 @@ class Auth implements AuthInterface
      * 5 | 认证过期
      * 
      * @param UidDTO $user 当前登陆的用户
-     * @return integer
+     * @return array
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.9.10
