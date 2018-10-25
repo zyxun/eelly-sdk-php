@@ -2143,11 +2143,11 @@ class Order implements OrderInterface
      *
      * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
      * @param int $role   用户角色 (1 买家, 2 卖家)
-     * @param UidDTO|null $uidDTO uid dto(表示需要登录)
+     * @param int $userId 用户ID
      *
      * @return array
      *
-     * @requestExample({"client":"wap","role":1})
+     * @requestExample({"client":"wap","role":1,"userId":148086})
      * @returnExample(
      * {
      *     "all":52,
@@ -2165,9 +2165,9 @@ class Order implements OrderInterface
      * @author zhangyangxun
      * @since 2018.10.24
      */
-    public function listOrderStatusNum(string $client, int $role, UidDTO $uidDTO = null): array
+    public function listOrderStatusNum(string $client, int $role, int $userId): array
     {
-        return EellyClient::request('order/order', 'listOrderStatusNum', true, $client, $role, $uidDTO);
+        return EellyClient::request('order/order', 'listOrderStatusNum', true, $client, $role, $userId);
     }
 
     /**
@@ -2189,11 +2189,11 @@ class Order implements OrderInterface
      *
      * @param string $client 订单请求客户端 (wap端:wap, pc端:pc, 衣联小程序:eelly,店+:buyer,百里挑一:blty,龙瑞购:lrg)
      * @param int $role   用户角色 (1 买家, 2 卖家)
-     * @param UidDTO|null $uidDTO uid dto(表示需要登录)
+     * @param int $userId 用户ID
      *
      * @return array
      *
-     * @requestExample({"client":"wap","role":1})
+     * @requestExample({"client":"wap","role":1,"userId":148086})
      * @returnExample(
      * {
      *     "all":52,
@@ -2211,9 +2211,9 @@ class Order implements OrderInterface
      * @author zhangyangxun
      * @since 2018.10.24
      */
-    public function listOrderStatusNumAsync(string $client, int $role, UidDTO $uidDTO = null)
+    public function listOrderStatusNumAsync(string $client, int $role, int $userId)
     {
-        return EellyClient::request('order/order', 'listOrderStatusNum', false, $client, $role, $uidDTO);
+        return EellyClient::request('order/order', 'listOrderStatusNum', false, $client, $role, $userId);
     }
 
     /**
