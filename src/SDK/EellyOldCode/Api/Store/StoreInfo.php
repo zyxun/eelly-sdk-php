@@ -23,8 +23,12 @@ namespace Eelly\SDK\EellyOldCode\Api\Store;
 class StoreInfo
 {
     /**
-     * @param $userId
-     * @param array $storeIds
+     * 更新店铺信息.
+     *
+     * @param int   $storeId 店铺id
+     * @param array $data    店铺信息
+     *
+     * @throws \ErrorException
      *
      * @return bool
      */
