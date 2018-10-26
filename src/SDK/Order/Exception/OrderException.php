@@ -57,4 +57,6 @@ class OrderException extends LogicException
     public const ADDRESS_DATA_NOT_EXIT = '收货地址不存在';
     
     public const FREIGHT_DATA_NOT_EXIT = '运费不存在';
+    
+    public const ORDER_DATA_NOT_EXIT = '订单数据不存在';
 }
