@@ -26,9 +26,9 @@ class StoreInfo
      * @param $userId
      * @param array $storeIds
      *
-     * @return mixed
+     * @return bool
      */
-    public function updateStoreInfo(int $storeId, array $data)
+    public function updateStoreInfo(int $storeId, array $data): bool
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/storeInfo', __FUNCTION__, true, $storeId, $data);
     }
