@@ -1927,6 +1927,58 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 去指定时间内平台的所有下过单的买家Id (迁移旧代码)
+     *
+     * @param int $time
+     * @return array
+     *
+     * @requestExample({"time":1540474081})
+     * @returnExample(["371333","1762341"])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.25
+     */
+    public function getPlatOrderBuyerId(int $time):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $time);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPlatOrderBuyerIdAsync(int $time):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $time);
+    }
+
+    /**
+     * 批量获取买家下过的订单数 (迁移旧代码)
+     *
+     * @param array $buyerIds 买家ids
+     * @param int   $status   排除的订单状态
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341], "status": [6,12]})
+     * @returnExample([{"buyer_id":"371333","num":"7"},{"buyer_id":"1762341","num":"46"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getBuyerOrdersNum(array $buyerIds, $status=[])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerIds, $status);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getBuyerOrdersNumAsync(array $buyerIds, $status=[])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerIds, $status);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
