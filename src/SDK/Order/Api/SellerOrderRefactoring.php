@@ -1979,6 +1979,32 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码)
+     *
+     * @param array $buyerIds 买家ids
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341]})
+     * @returnExample([{"count":"2","seller_id":"158252"},{"count":"1","seller_id":"148086"},{"count":"1","seller_id":"1760467"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getSameOrderSellerId(array $buyerIds):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSameOrderSellerIdAsync(array $buyerIds):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
