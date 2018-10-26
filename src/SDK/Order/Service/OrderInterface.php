@@ -907,13 +907,13 @@ interface OrderInterface
      * @param UidDTO $user      登录用户信息
      * 
      * ### 返回参数说明
-     * >字段名 | 类型 |描述
-     * >-- | ---- | -----
-     * >platform | string | 支付类型
-     * >billNo | string | 衣联交易号
-     * >data | array | 第三方支付(余额支付)返回的结果
-     * >orderSns  | array | 订单号
-     * >orderIds | array | 订单id
+     * 字段名 | 类型 |描述
+     * -- | ---- | -----
+     * platform | string | 支付类型
+     * billNo | string | 衣联交易号
+     * data | array | 第三方支付(余额支付)返回的结果
+     * orderSns  | array | 订单号
+     * orderIds | array | 订单id
      * 
      * 
      * > app支付宝:
@@ -921,6 +921,7 @@ interface OrderInterface
      *  `{"platform":"alipayApp","billNo":"201809280150456160","data":{"alipay_sdk":"lokielse\/omnipay-alipay","app_id":"2016122204515132","biz_content":"{\"out_trade_no\":\"201809280150456160\",\"total_amount\":200,\"subject\":\"\\u8ba2\\u5355\\u652f\\u4ed8\",\"body\":\"\",\"goods_type\":1,\"passback_params\":\"paId%3D12640%26userId%3D1760467%26account%3D126mail.wap%26type%3D1%26transact%3D2%26platform%3DalipayApp\",\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}","charset":"UTF-8","format":"JSON","method":"alipay.trade.app.pay","notify_url":"https:\/\/cs.blty.com\/alipay\/notifyV2.html","sign_type":"RSA","timestamp":"2018-09-28 14:00:56","version":"1.0","sign":"XAcLoq+N4upFq3tTo+7PrjXB9G+By9Gp\/6iyrThr5QbotjNX+8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg\/RGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ=","order_string":"alipay_sdk=lokielse%2Fomnipay-alipay&app_id=2016122204515132&biz_content=%7B%22out_trade_no%22%3A%22201809280150456160%22%2C%22total_amount%22%3A200%2C%22subject%22%3A%22%5Cu8ba2%5Cu5355%5Cu652f%5Cu4ed8%22%2C%22body%22%3A%22%22%2C%22goods_type%22%3A1%2C%22passback_params%22%3A%22paId%253D12640%2526userId%253D1760467%2526account%253D126mail.wap%2526type%253D1%2526transact%253D2%2526platform%253DalipayApp%22%2C%22product_code%22%3A%22FAST_INSTANT_TRADE_PAY%22%7D&charset=UTF-8&format=JSON&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fcs.blty.com%2Falipay%2FnotifyV2.html&sign_type=RSA&timestamp=2018-09-28+14%3A00%3A56&version=1.0&sign=XAcLoq%2BN4upFq3tTo%2B7PrjXB9G%2BBy9Gp%2F6iyrThr5QbotjNX%2B8CEYxSgXl7DjwnLpRgewsMCb0tAoEtRuRls4OYmJFOdoVY5TaVpNA9sa6N72PkGP5dyJ8NFJUXitNtF31bnpYUg%2FRGBqK8q7JdwRU9elzFPUSlPVJLN0jZ2VXQ%3D"},"orderSns":["2153810322557191"],"orderIds":[50001781]}`
      *
      *  > app微信:
+     *
      *  `{"platform":"wechatPayApp","billNo":"201809280152655879","data":{"appid":"wxdd557bb66b43f811","partnerid":"1329161001","prepayid":"wx28143736138251c8eb6862222820299484","package":"Sign=WXPay","noncestr":"040ef719374befe679a49cc7f0c5a66d","timestamp":1538116656,"outTradeNo":"201809280152655879","sign":"7F9279462A61B535190EC3E59C52F443"},"orderSns":["2153810322557191"],"orderIds":[50001781]}`
      * 
      * > pc支付宝:
@@ -928,12 +929,14 @@ interface OrderInterface
      *  `{"platform":"alipayLegacyWeb","billNo":"201810080154962945","data":"https:\/\/mapi.alipay.com\/gateway.do?_input_charset=UTF-8&payment_type=1","orderSns":["2153812014142953"],"orderIds":[50001783]}`
      * 
      * >pc微信:
+     *
      *  `{"platform":"wechatPayNative","billNo":"201810080150664981","data":"weixin:\/\/wxpay\/bizpayurl?pr=RVf4P5v","orderSns":["2153812014142953"],"orderIds":[50001783]}`
      * 
      * @return array
      * 
      *
-     * @author wechan
+     * @author wechan<pxs6216@dingtalk.com>
+     *
      * @since 2018年09月10日
      */
     public function orderPay(array $orderIds, string $type = 'wechat', string $platform = 'pc', array $extend = [], UidDTO $user = null): array;
