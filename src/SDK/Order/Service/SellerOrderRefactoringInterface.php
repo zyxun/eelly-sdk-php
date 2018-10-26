@@ -983,4 +983,19 @@ interface SellerOrderRefactoringInterface
      * @since 2018.10.26
      */
     public function getSameOrderSellerId(array $buyerIds):array;
+
+    /**
+     * 根据买家id获取最后下单的订单id.(迁移旧代码)
+     *
+     * @param array $buyerIds 买家ids
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341]})
+     * @returnExample([{"order_id":"50002282"},{"order_id":"50002279"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getLastOrderId($buyerIds):array;
 }
