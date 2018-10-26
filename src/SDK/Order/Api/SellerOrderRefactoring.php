@@ -2031,6 +2031,32 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 根据订单id获取最后下单的卖家id.(迁移旧代码)
+     *
+     * @param array $orderIds 订单ids
+     * @return array
+     *
+     * @requestExample({"orderIds":[50002279]})
+     * @returnExample([{"seller_id":"1760467","buyer_id":"1762341"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getLastOrderSellerId($orderIds):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLastOrderSellerIdAsync($orderIds):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
