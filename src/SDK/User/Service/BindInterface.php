@@ -305,4 +305,26 @@ interface BindInterface
      * )
      */
     public function updateByUserId(int $userId, int $type, string $key, int $isBind = 1): bool;
+
+    /**
+     * 根据用户id获取绑定信息.
+     *
+     * @param int $uid
+     * @param int $type   1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
+     * @param int $status 绑定状态：(1 绑定状态 2 解绑状态)
+     *
+     * @return array
+     * @requestExample({"uid":148086})
+     * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,
+     *     "createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
+     *
+     * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
+     * @since  2017/10/10
+     * @Validation(
+     *     @Digit(0, {message: "用户id类型错误"}),
+     *     @InclusionIn(1,{message:"绑定类型错误",domain:[0,1,2,3,4]})
+     * )
+     */
+    public function getBindByUserId(int $uid, int $type = 0, int $status = 0): array;
 }
