@@ -968,4 +968,34 @@ interface SellerOrderRefactoringInterface
      * @since 2018.10.26
      */
     public function getBuyerOrdersNum(array $buyerIds, $status=[]);
+
+    /**
+     * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码)
+     *
+     * @param array $buyerIds 买家ids
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341]})
+     * @returnExample([{"count":"2","seller_id":"158252"},{"count":"1","seller_id":"148086"},{"count":"1","seller_id":"1760467"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getSameOrderSellerId(array $buyerIds):array;
+
+    /**
+     * 根据买家id获取最后下单的订单id.(迁移旧代码)
+     *
+     * @param array $buyerIds 买家ids
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341]})
+     * @returnExample([{"order_id":"50002282"},{"order_id":"50002279"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getLastOrderId($buyerIds):array;
 }
