@@ -272,6 +272,32 @@ class Goods implements GoodsInterface
     }
 
     /**
+     * 根据商品id获取 对应的所有的订单id (迁移旧代码)
+     *
+     * @param int $goodsId 商品id
+     * @return array
+     *
+     * @requestExample({"goodsId":5578937})
+     * @returnExample([{"order_id":"50002205"},{"order_id":"50002237"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getOrderIdByGoodsId(int $goodsId):array
+    {
+        return EellyClient::request('order/goods', __FUNCTION__, true, $goodsId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getOrderIdByGoodsIdAsync(int $goodsId):array
+    {
+        return EellyClient::request('order/goods', __FUNCTION__, false, $goodsId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
