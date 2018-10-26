@@ -53,4 +53,10 @@ class OrderException extends LogicException
     public const ORDER_PAY_TYPE_ERROR = '订单支付类型错误';
     
     public const ORDER_GOODS_DATA_NOT_EXIT = '订单商品不存在';
+    
+    public const ADDRESS_DATA_NOT_EXIT = '收货地址不存在';
+    
+    public const FREIGHT_DATA_NOT_EXIT = '运费不存在';
+    
+    public const ORDER_DATA_NOT_EXIT = '订单数据不存在';
 }
