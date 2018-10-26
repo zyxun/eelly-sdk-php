@@ -24,14 +24,15 @@ use Eelly\SDK\EellyClient;
  */
 class ReturnAddress
 {
-
     /**
      * 通过店铺id获取店铺地址
      *
      * @param array $sellerId
+     *
      * @return array
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since  2018.09.17
      */
     public function getDefaultAddressByUserId(int $sellerId)

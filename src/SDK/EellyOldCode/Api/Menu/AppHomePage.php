@@ -1,13 +1,15 @@
 <?php
-declare(strict_types=1);
-/**
- * PHP version 5.5
- *
- * @copyright  Copyright (c) 2012-2015 EELLY Inc. (http://www.eelly.com)
- * @link       http://www.eelly.com
- * @license    衣联网版权所有
- */
 
+declare(strict_types=1);
+
+/*
+ * This file is part of eelly package.
+ *
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Eelly\SDK\EellyOldCode\Api\Menu;
 
@@ -17,7 +19,9 @@ use Eelly\SDK\EellyClient;
  * 菜单接口服务
  *
  * @author  zhangzeqiang <zhangzeqiang@eelly.net>
+ *
  * @since     2016年4月19日
+ *
  * @version 1.0
  */
 class AppHomePage

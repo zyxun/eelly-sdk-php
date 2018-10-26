@@ -74,7 +74,6 @@ class FullSend
      *   coupon_usetimes     |    string 优惠券使用次数
      *
      * @return array
-     * 
      */
     public function getActInfoByStoreIds(array $storeIds)
     {

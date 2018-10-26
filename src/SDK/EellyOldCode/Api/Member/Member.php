@@ -72,6 +72,7 @@ class Member
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-13
      */
     public function createCaptcha(string $mobile, string $type)

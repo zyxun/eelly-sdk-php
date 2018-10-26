@@ -21,20 +21,21 @@ use Eelly\SDK\EellyClient;
  * var/eelly-old-code/modules/Base/Service/RegionService.php
  */
 class Region
-{   
+{
     /**
-     * 获取省市区三级数据
+     * 获取省市区三级数据.
      *
      * @author wechan
+     *
      * @since  2018年10月09日
      */
     public function getRegionSelectList()
     {
         return EellyClient::request('eellyOldCode/Base/Region', __FUNCTION__, true);
     }
-    
+
     /**
-     * 根据parentID获得下属地区（wap）
+     * 根据parentID获得下属地区（wap）.
      *
      * @service
      * > 数据说明
@@ -45,6 +46,8 @@ class Region
      *                       |    200: 成功
      *   retval              |    $retval
      *
+     * @param number $pid
+     *
      * @return array
      *
      * > $retval 数组说明
@@ -53,8 +56,6 @@ class Region
      *   region_name         |    string   地区名
      *   zip_code            |    string   邮编
      *   gb_code             |    string   国标码
-     *
-     * @param number $pid
      * @catch
      */
     public function wapGetRegion($pid = 2)

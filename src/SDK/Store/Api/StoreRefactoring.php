@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,7 +17,6 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\StoreRefactoringInterface;
 
 /**
- *
  * @author zhangyingdi<zhangyingdi@eelly.net>
  */
 class StoreRefactoring implements StoreRefactoringInterface
@@ -32,6 +32,7 @@ class StoreRefactoring implements StoreRefactoringInterface
      *   isTimeShipping     |    string  准时发货
      *
      * @param array $storeIds
+     *
      * @return array
      * @requestExample({"storeIds":[148086]})
      * @returnExample({
@@ -43,6 +44,7 @@ class StoreRefactoring implements StoreRefactoringInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.08.21
      */
     public function getCreditMarkByStoreIds(array $storeIds): array
@@ -59,9 +61,10 @@ class StoreRefactoring implements StoreRefactoringInterface
     }
 
     /**
-     * 根据传过来的店铺id，返回订单详情页店铺相关信息
+     * 根据传过来的店铺id，返回订单详情页店铺相关信息.
      *
      * @param int $storeId 店铺id
+     *
      * @return array
      *
      * @requestExample({"storeId":148086})
@@ -71,9 +74,10 @@ class StoreRefactoring implements StoreRefactoringInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.08.23
      */
-    public function getStoreOrderDetailInfo(int $storeId):array
+    public function getStoreOrderDetailInfo(int $storeId): array
     {
         return EellyClient::request('store/storeRefactoring', __FUNCTION__, true, $storeId);
     }
@@ -81,7 +85,7 @@ class StoreRefactoring implements StoreRefactoringInterface
     /**
      * {@inheritdoc}
      */
-    public function getStoreOrderDetailInfoAsync(int $storeId):array
+    public function getStoreOrderDetailInfoAsync(int $storeId): array
     {
         return EellyClient::request('store/storeRefactoring', __FUNCTION__, false, $storeId);
     }

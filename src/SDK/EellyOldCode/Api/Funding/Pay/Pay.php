@@ -25,10 +25,11 @@ use Eelly\SDK\EellyClient;
 class Pay
 {
     /**
-     * 根据PrId获取关联的诚信服务ID
+     * 根据PrId获取关联的诚信服务ID.
      *
-     * @param  int  $prId        支付ID
-     * @return int  $serviceId   服务ID
+     * @param int $prId 支付ID
+     *
+     * @return int $serviceId   服务ID
      */
     public function getPayIntegrityRelationByPrId($prId)
     {

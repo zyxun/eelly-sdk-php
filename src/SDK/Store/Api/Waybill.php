@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,7 +17,6 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\WaybillInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Waybill implements WaybillInterface
@@ -25,8 +25,11 @@ class Waybill implements WaybillInterface
      * 添加用户店铺电子面单Token绑定.
      *
      * @param array $data
+     *
      * @return bool
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月23日
      * @Validation(
      *     @PresenceOf(0,{message : "非法参数"})
@@ -41,8 +44,11 @@ class Waybill implements WaybillInterface
      * 添加用户店铺电子面单Token绑定.
      *
      * @param array $data
+     *
      * @return bool
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月23日
      * @Validation(
      *     @PresenceOf(0,{message : "非法参数"})

@@ -17,15 +17,14 @@ namespace Eelly\SDK\EellyOldCode\Api\Store\Integrity;
  * Class Favorite.
  *
  *  modules/Store/Service/Integrity/Integrity
- *
  */
 class Integrity
 {
     /**
-     * 厂+缴纳诚信保障金
+     * 厂+缴纳诚信保障金.
      *
-     * @param  int  $storeId  店铺ID
-     * @param  int  $money    缴纳金额
+     * @param int $storeId 店铺ID
+     * @param int $money   缴纳金额
      */
     public function appPayCautionMoney($storeId, $money)
     {

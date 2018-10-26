@@ -142,6 +142,7 @@ interface StoreInterface
      * @return array 返回入库会员搜索引擎所需数据
      * @requestExample({"currentPage":1,"limit":100})
      * @returnExample({"items":{"1":{"storeId":"1","storeName":"店铺名称","domain":"domain-1","storeStatus":"1","storeLog":"","storeWeight":"0","createdTime":"1502278385","gbCodes":["65","6542","654223","654223100"],"creditValue":"0","minQuantity":"0","minPrice":"0","storeIntro":"","cateId":["22","22"],"storeYear":1,"isEnterprise":0,"isEntity":0,"isBrand":0,"isSeller":0,"isHot":0,"isTimeShipping":0,"isIntegrity":0,"isRealShot":0,"onlineStatus":1,"isBehalfof":1,"floorId":0,"marketId":0,"goodsNewTime":0,"recommendGoods":["goodsInfo"]}},"page":{"totalPages":1,"totalItems":3,"current":1,"limit":100}})
+     *
      * @author liangxinyi<liangxinyi@eelly.net>
      *
      * @since 2017-10-23
@@ -232,30 +233,32 @@ interface StoreInterface
     public function getCertificationServices(array $storeIds, array $types = []): array;
 
     /**
-     * 开店流程
+     * 开店流程.
      *
-     * @param array  $data 开店流程请求参数
-     * @param string $data['storeId'] 店铺id
+     * @param array  $data              开店流程请求参数
+     * @param string $data['storeId']   店铺id
      * @param string $data['storeName'] 店铺名称
      * @param string $data['consignee'] 联系人姓名
-     * @param string $data['gbCode'] 地区编码
-     * @param string $data['zipcode'] 邮政编码
-     * @param string $data['address'] 详细地址
-     * @param string $data['mobile'] 手机号
-     * @param string $data['marketId'] 市场id
-     * @param string $data['address'] 详细地址
-     * @param int $data['floorId'] 楼层id
-     * @param array $data['entNumber'] 档口号
-     * @param int $data['gcId'] 主营类型Id
-     * @param array $data['gpvIds'] 销售风格Id
-     * @param int $data['glId'] 销售档次id
-     * @param UidDTO $user 登录用户信息
-     * @return  boolean
+     * @param string $data['gbCode']    地区编码
+     * @param string $data['zipcode']   邮政编码
+     * @param string $data['address']   详细地址
+     * @param string $data['mobile']    手机号
+     * @param string $data['marketId']  市场id
+     * @param string $data['address']   详细地址
+     * @param int    $data['floorId']   楼层id
+     * @param array  $data['entNumber'] 档口号
+     * @param int    $data['gcId']      主营类型Id
+     * @param array  $data['gpvIds']    销售风格Id
+     * @param int    $data['glId']      销售档次id
+     * @param UidDTO $user              登录用户信息
+     *
+     * @return boolean
      *
      * @requestExample()
      * @returnExample()
      *
      * @author wechan<liweiquan@eelly.net>
+     *
      * @since 2017年11月24日
      */
     public function addStoreMainInfo(array $data, UidDTO $user = null): bool;
@@ -263,8 +266,8 @@ interface StoreInterface
     /**
      * 店铺信息页--店铺档案【新版档案】.
      *
-     * @param int $storeId      店铺id
-     * ### 返回数据说明
+     * @param int $storeId 店铺id
+     *                     ### 返回数据说明
      *
      * 字段|类型|说明
      * ---------------------------------|-------|--------------
@@ -326,6 +329,7 @@ interface StoreInterface
      * @returnExample({"storeId":"1","storeName":"店铺名称","storeLogo":"https:\/\/img01.eelly.com\/G02\/M00\/00\/E9\/small_640_pIYBAFmS3KKIJNktAAN3bO9UX0YAABoNwFuSc8AA3eE62.jpeg","addTime":"1502278385","status":"1","creditValue":"0","tel":"13333333333","storeDesc":"","isMix":"0","mixNum":"0","mixMoney":"0","shopfront":"","dealIn":"男装 女装","goodsCount":0,"streetAddr":"黑龙江省双鸭山市宝山区十三行新中国大厦9层110A","creditInfo":"https:\/\/pifaquan.eelly.com\/Data\/image\/credit_icon\/s_red_1.png","authAll":{"isEntity":1,"isEnterprise":1,"returnGoodsStatus":0,"isRealShot":0,"isTimeShipping":0,"isIntegrity":0,"isSellerCredit":0,"isBrandCredit":0,"isStoreShipping":0,"isHot":0},"entityAuth":{"authName":"档口地址真实性认证","authRank":"中级认证","auditTime":1525107661,"expireTime":1538326861,"imagesArr":["https://img.eelly.com"]},"enterpriseAuth":{"authName":"企业身份真实性认证","authRank":"中级认证","auditTime":0,"expireTime":0,"imagesArr":["https://img.eelly.com"]},"sellerAuth":{"authName":"卖家身份真实性认证","authRank":"初级认证","auditTime":0,"expireTime":0},"brandAuth":{"authName":"品牌真实性认证","authRank":"高级认证","auditTime":0,"expireTime":0},"cautionMoney":""})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017年11月24日
      */
     public function storeArchiveV2(int $storeId): array;
@@ -333,8 +337,8 @@ interface StoreInterface
     /**
      * 店铺评论接口.
      *
-     * @param int $storeId  店铺id
-     * ### 返回数据说明
+     * @param int $storeId 店铺id
+     *                     ### 返回数据说明
      *
      * 字段|类型|说明
      * -----------------------|-------|--------------
@@ -367,6 +371,7 @@ interface StoreInterface
      * @returnExample({"storeId":"1","storeName":"店铺名称","storeLogo":"https:\/\/img01.eelly.com\/G02\/M00\/00\/E9\/small_640_pIYBAFmS3KKIJNktAAN3bO9UX0YAABoNwFuSc8AA3eE62.jpeg","addTime":"1502278385","status":"1","creditInfo":"https:\/\/pifaquan.eelly.com\/Data\/image\/credit_icon\/s_red_1.png","streetAddr":"黑龙江省双鸭山市宝山区十三行新中国大厦9层110A","tel":"13333333333","GoodsEvaluation":{"zg":3,"ml":3,"bx":3.3,"com":3.1},"list":[{"comment":"不好用","createdTime":"1511946394","isAnonymous":"1","isDefault":"1","goodsId":"2","buyerName":"匿名处理","buyerId":"2","goodsImage":null,"price":null},{"comment":"商品不错！","createdTime":"1511846394","isAnonymous":"0","isDefault":"1","goodsId":"3","buyerName":"呜呜二峨山","buyerId":"2","goodsImage":null,"price":null},{"comment":"好用哈哈哈","createdTime":"1511841630","isAnonymous":"0","isDefault":"1","goodsId":"1","buyerName":"呜呜二峨山","buyerId":"2","goodsImage":"G01\/M00\/01\/14\/oYYBAFndBNaIZ-lsAAAVS2gig-4AABr9QIY5KkAABVj276.jpg","price":"1258"}]})
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017年11月29日
      */
     public function getStoresEvaluation(int $storeId): array;
@@ -391,13 +396,37 @@ interface StoreInterface
     public function getStoreCommon(int $storeId, array $condition = []): array;
 
     /**
-     * 获取商城登录店铺信息
+     * 获取商城登录店铺信息.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-17
      */
     public function getMallLoginStore(int $userId): array;
+
+    /**
+     * 更新店铺信息.
+     *
+     * @param int         $storeId 店铺id
+     * @param array       $data    店铺信息（storeLogo 或 storePhoto）
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @requestExample({
+     *     "storeId":148086,
+     *     "data": {
+     *         "storeLogo": "https://img.eelly.com/path/image.jpg"
+     *     }
+     * })
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<runphp@dingtalk.com>
+     */
+    public function updateStoreInfo(int $storeId, array $data, UidDTO $uidDTO = null): bool;
 }

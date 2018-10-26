@@ -103,8 +103,8 @@ interface AddressInterface
      * 获取店铺地址
      * 获取店铺的店铺地址和退货地址
      *
-     * @param int    $storeId     店铺地址
-     * @param int    $addressType 店铺地址类型 1店铺地址 2退货地址
+     * @param int $storeId     店铺地址
+     * @param int $addressType 店铺地址类型 1店铺地址 2退货地址
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *

@@ -19,7 +19,6 @@ use Eelly\SDK\EellyClient;
  * Class Store.
  *
  *  modules/Store/Service/GeneralizeService.php
- *
  */
 class Seller
 {
@@ -27,7 +26,7 @@ class Seller
      * 认证状态.
      *
      * > 返回数据说明
-     * 
+     *
      * value | desc
      * --- | ----
      * 1 | 未申请认证：立即认证（点击进入资料提交页面）
@@ -35,14 +34,16 @@ class Seller
      * 3 | 审核通过：查看认证（点击进入审核通过页面）
      * 4 | 审核不通过：修改认证申请（点击进入审核未通过页面）
      * 5 | 认证过期：立即认证（点击进入资料提交页面，且保留上次认证的信息）
-     * 
-     * @param integer $userId 用户id
+     *
+     * @param int $userId 用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.25
      */
-    public function apiAuthStatus(int $userId):array
+    public function apiAuthStatus(int $userId): array
     {
         return EellyClient::request('eellyOldCode/store/Auth/Seller', __FUNCTION__, true, $userId);
     }

@@ -19,18 +19,20 @@ use Eelly\SDK\EellyClient;
  * Class EnterpriseAuth.
  *
  * var/eelly-old-code/modules/Member/Service/MemberService.php
- * 
+ *
  * @author sunanzhi <sunanzhi@hotmail.com>
  */
 class PersonAuth
 {
     /**
-     * 获取个人认证信息
+     * 获取个人认证信息.
      *
-     * @param integer $userId 用户id
+     * @param int $userId 用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.10
      */
     public function getInfoByUserId(int $userId)

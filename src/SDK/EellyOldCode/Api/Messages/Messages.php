@@ -29,6 +29,7 @@ class Messages
      * @param int    $receiver
      * @param array  $data
      * @param int    $userId
+     *
      * @return mixed
      */
     public function sendInfo(string $tplIndex, int $receiver, array $data, int $userId = 0)
@@ -40,6 +41,7 @@ class Messages
      * @param string $tplIndex
      * @param int    $receiver
      * @param array  $data
+     *
      * @return mixed
      */
     public function sendAppInfo(string $tplIndex, int $receiver, array $data)
@@ -52,6 +54,7 @@ class Messages
      * @param int    $receiver
      * @param array  $data
      * @param int    $userId
+     *
      * @return mixed
      */
     public function sendSms(string $tplIndex, int $receiver, array $data, int $userId = 0)
