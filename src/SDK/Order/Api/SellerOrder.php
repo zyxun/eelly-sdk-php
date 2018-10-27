@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,12 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\SellerOrderInterface;
-use Eelly\DTO\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class SellerOrder implements SellerOrderInterface
@@ -316,14 +316,15 @@ class SellerOrder implements SellerOrderInterface
      * 搜索订单.
      *
      * > 返回数据参考[小程序订单列表](/order/sellerOrder/myAppletOrders)
-     * 
+     *
      * @see myAppletOrders
      *
      * @param string $keywords 搜索的关键词
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
-     * @param UidDTO $uidDTO uid dto
+     * @param int    $tab      订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $page     第几页
+     * @param int    $limit    分页大小
+     * @param UidDTO $uidDTO   uid dto
+     *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
@@ -337,14 +338,15 @@ class SellerOrder implements SellerOrderInterface
      * 搜索订单.
      *
      * > 返回数据参考[小程序订单列表](/order/sellerOrder/myAppletOrders)
-     * 
+     *
      * @see myAppletOrders
      *
      * @param string $keywords 搜索的关键词
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
-     * @param UidDTO $uidDTO uid dto
+     * @param int    $tab      订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int    $page     第几页
+     * @param int    $limit    分页大小
+     * @param UidDTO $uidDTO   uid dto
+     *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
@@ -1032,15 +1034,17 @@ class SellerOrder implements SellerOrderInterface
         return EellyClient::request('order/sellerOrder', 'myAppletMergerOrders', false, $orderId, $uidDTO);
     }
 
-    /**             
+    /**
      * 添加物流信息.
-     * 
-     * @param string $invoiceCode  送货编码：快递公司对应的拼音
-     * @param string $invoiceName  送货公司名称
-     * @param string $invoiceNo   送货单号
-     * @param array $orderIds   订单id列表
-     * @param UidDTO|null $uidDTO    uid dto
+     *
+     * @param string      $invoiceCode 送货编码：快递公司对应的拼音
+     * @param string      $invoiceName 送货公司名称
+     * @param string      $invoiceNo   送货单号
+     * @param array       $orderIds    订单id列表
+     * @param UidDTO|null $uidDTO      uid dto
+     *
      * @return bool
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
@@ -1048,15 +1052,17 @@ class SellerOrder implements SellerOrderInterface
         return EellyClient::request('order/sellerOrder', 'updateLogisticsInfo', true, $invoiceCode, $invoiceName, $invoiceNo, $orderIds, $uidDTO);
     }
 
-    /**             
+    /**
      * 添加物流信息.
-     * 
-     * @param string $invoiceCode  送货编码：快递公司对应的拼音
-     * @param string $invoiceName  送货公司名称
-     * @param string $invoiceNo   送货单号
-     * @param array $orderIds   订单id列表
-     * @param UidDTO|null $uidDTO    uid dto
+     *
+     * @param string      $invoiceCode 送货编码：快递公司对应的拼音
+     * @param string      $invoiceName 送货公司名称
+     * @param string      $invoiceNo   送货单号
+     * @param array       $orderIds    订单id列表
+     * @param UidDTO|null $uidDTO      uid dto
+     *
      * @return bool
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function updateLogisticsInfoAsync(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null)
@@ -1066,13 +1072,15 @@ class SellerOrder implements SellerOrderInterface
 
     /**
      * 获取直播时间段的订单数据.
-     * 
-     * 
-     * @param int $startTime 直播开始时间戳
+     *
+     *
+     * @param int $startTime                    直播开始时间戳
      * @param int $endTime直播结束时间戳
-     * @param int $sellerId 卖家id
-     * @param int $type 类型 ( 1 待付款 2 已付款 )
+     * @param int $sellerId                     卖家id
+     * @param int $type                         类型 ( 1 待付款 2 已付款 )
+     *
      * @return array
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array
@@ -1082,13 +1090,15 @@ class SellerOrder implements SellerOrderInterface
 
     /**
      * 获取直播时间段的订单数据.
-     * 
-     * 
-     * @param int $startTime 直播开始时间戳
+     *
+     *
+     * @param int $startTime                    直播开始时间戳
      * @param int $endTime直播结束时间戳
-     * @param int $sellerId 卖家id
-     * @param int $type 类型 ( 1 待付款 2 已付款 )
+     * @param int $sellerId                     卖家id
+     * @param int $type                         类型 ( 1 待付款 2 已付款 )
+     *
      * @return array
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function listLiveOrdersByTimesAsync(int $startTime, int $endTime, int $sellerId, int $type)
@@ -1097,11 +1107,11 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取店铺列表某种状态下的订单数量
+     * 获取店铺列表某种状态下的订单数量.
      *
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
+     * @param int $tab   订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int $page  第几页
+     * @param int $limit 分页大小
      *
      * @return array
      * @requestExample({"tab":1, "page":2, "limit":10})
@@ -1119,6 +1129,7 @@ class SellerOrder implements SellerOrderInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.16
      */
     public function listStoreOrdersNum(int $tab = 0, int $page = 1, int $limit = 20): array
@@ -1127,11 +1138,11 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取店铺列表某种状态下的订单数量
+     * 获取店铺列表某种状态下的订单数量.
      *
-     * @param int    $tab    订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
+     * @param int $tab   订单筛选值  (0: 全部, 1: 待付款, 2: 待成团, 3: 待发货, 4: 待收货, 5: 待评价)
+     * @param int $page  第几页
+     * @param int $limit 分页大小
      *
      * @return array
      * @requestExample({"tab":1, "page":2, "limit":10})
@@ -1149,6 +1160,7 @@ class SellerOrder implements SellerOrderInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.16
      */
     public function listStoreOrdersNumAsync(int $tab = 0, int $page = 1, int $limit = 20)
@@ -1157,10 +1169,10 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取没有发送待付款订单消息的订单
+     * 获取没有发送待付款订单消息的订单.
      *
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
+     * @param int $page  第几页
+     * @param int $limit 分页大小
      *
      * @return array
      * @requestExample({"tab":1, "page":2, "limit":10})
@@ -1178,6 +1190,7 @@ class SellerOrder implements SellerOrderInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.18
      */
     public function listPendingPaymentOrderMessage(int $page, int $limit): array
@@ -1186,10 +1199,10 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取没有发送待付款订单消息的订单
+     * 获取没有发送待付款订单消息的订单.
      *
-     * @param int    $page   第几页
-     * @param int    $limit  分页大小
+     * @param int $page  第几页
+     * @param int $limit 分页大小
      *
      * @return array
      * @requestExample({"tab":1, "page":2, "limit":10})
@@ -1207,6 +1220,7 @@ class SellerOrder implements SellerOrderInterface
      * })
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.18
      */
     public function listPendingPaymentOrderMessageAsync(int $page, int $limit)
@@ -1215,14 +1229,16 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 根据传过来的订单ID，返回要发送消息相关数据
+     * 根据传过来的订单ID，返回要发送消息相关数据.
      *
-     * @param int $orderId  订单id
+     * @param int $orderId 订单id
+     *
      * @return array
      * @requestExample({"orderId":1})
      * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086,"shipTime":1526381614,"invoiceName":"EMS"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.19
      */
     public function getOrderMessageInfo(int $orderId): array
@@ -1231,14 +1247,16 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 根据传过来的订单ID，返回要发送消息相关数据
+     * 根据传过来的订单ID，返回要发送消息相关数据.
      *
-     * @param int $orderId  订单id
+     * @param int $orderId 订单id
+     *
      * @return array
      * @requestExample({"orderId":1})
      * @returnExample({"orderId":1,"orderSn":"1813401984","payTime":1526381614,"goodsName":"test","orderAmount":100,"buyerId":148086,"shipTime":1526381614,"invoiceName":"EMS"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.05.19
      */
     public function getOrderMessageInfoAsync(int $orderId)
@@ -1537,18 +1555,20 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取等待结算订单金额(等待结算：包含等待卖家发货、等待买家收货、集赞中待分享、集赞成功等待发货、退货退款中)
-     * 
+     * 获取等待结算订单金额(等待结算：包含等待卖家发货、等待买家收货、集赞中待分享、集赞成功等待发货、退货退款中).
+     *
      * > 返回数据说明
      *
      * key | type |  value
      * --- | ---- | -------
-     * sum | int  |  等待结算订单金额 
-     * 
+     * sum | int  |  等待结算订单金额
+     *
      * @param int $storeId 店铺id
+     *
      * @return int
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年
      */
     public function getWaitingSettlementOrderMoney(int $storeId): array
@@ -1557,18 +1577,20 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取等待结算订单金额(等待结算：包含等待卖家发货、等待买家收货、集赞中待分享、集赞成功等待发货、退货退款中)
-     * 
+     * 获取等待结算订单金额(等待结算：包含等待卖家发货、等待买家收货、集赞中待分享、集赞成功等待发货、退货退款中).
+     *
      * > 返回数据说明
      *
      * key | type |  value
      * --- | ---- | -------
-     * sum | int  |  等待结算订单金额 
-     * 
+     * sum | int  |  等待结算订单金额
+     *
      * @param int $storeId 店铺id
+     *
      * @return int
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年
      */
     public function getWaitingSettlementOrderMoneyAsync(int $storeId)
@@ -1577,15 +1599,18 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 统计卖家小程序订单数
-     * 
+     * 统计卖家小程序订单数.
+     *
      * > 返回数据说明
+     *
      * @returnExample(1)
-     * 
+     *
      * @param int $storeId 店铺id
+     *
      * @return int
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年
      */
     public function getappletOrderCount(int $storeId): int
@@ -1594,15 +1619,18 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 统计卖家小程序订单数
-     * 
+     * 统计卖家小程序订单数.
+     *
      * > 返回数据说明
+     *
      * @returnExample(1)
-     * 
+     *
      * @param int $storeId 店铺id
+     *
      * @return int
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年
      */
     public function getappletOrderCountAsync(int $storeId)
@@ -1651,15 +1679,18 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 退货退款详情页
+     * 退货退款详情页.
      *
      * @param int $orderId 订单id
-     * @return array
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array
      * @requestExample({"orderId":5000020})
      * @returnExample({"orderId":"5000020","orderSn":"1812374549","buyerId":"2108403","buyerName":"\u5927\u5e08\u5085\u58eb\u5927\u592b\uff08yl_jn003778\uff09","applyAmount":"11","applyFreight":"0","refundType":"\u4ec5\u9000\u6b3e","refundReason":"\u5176\u4ed6","remark":"","certificate":"","createdTime":"1525780044","refundStatus":"\u7533\u8bf7\u9000\u6b3e\u4e2d","firstTime":"2018-05-08 19:47","newTime":"2018-06-06 13:38"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.06.22
      */
     public function orderRefundDetail(int $orderId): array
@@ -1668,15 +1699,18 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 退货退款详情页
+     * 退货退款详情页.
      *
      * @param int $orderId 订单id
-     * @return array
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array
      * @requestExample({"orderId":5000020})
      * @returnExample({"orderId":"5000020","orderSn":"1812374549","buyerId":"2108403","buyerName":"\u5927\u5e08\u5085\u58eb\u5927\u592b\uff08yl_jn003778\uff09","applyAmount":"11","applyFreight":"0","refundType":"\u4ec5\u9000\u6b3e","refundReason":"\u5176\u4ed6","remark":"","certificate":"","createdTime":"1525780044","refundStatus":"\u7533\u8bf7\u9000\u6b3e\u4e2d","firstTime":"2018-05-08 19:47","newTime":"2018-06-06 13:38"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.06.22
      */
     public function orderRefundDetailAsync(int $orderId)
@@ -1685,15 +1719,18 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取退款页面相关数据
+     * 获取退款页面相关数据.
      *
      * @param int $orderId 订单id
-     * @return array
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array
      * @requestExample({"orderId":5000020})
      * @returnExample({"orderAmount":"400","freight":"1","applyAmount":"11"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.06.27
      */
     public function getRefundMoneyInfo(int $orderId): array
@@ -1702,15 +1739,18 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 获取退款页面相关数据
+     * 获取退款页面相关数据.
      *
      * @param int $orderId 订单id
-     * @return array
+     *
      * @throws \Eelly\SDK\Order\Exception\OrderException
+     *
+     * @return array
      * @requestExample({"orderId":5000020})
      * @returnExample({"orderAmount":"400","freight":"1","applyAmount":"11"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.06.27
      */
     public function getRefundMoneyInfoAsync(int $orderId)
@@ -1719,14 +1759,16 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 卖家取消订单
+     * 卖家取消订单.
      *
-     * @param integer $orderId 订单id
-     * @return boolean
-     * 
+     * @param int $orderId 订单id
+     *
+     * @return bool
+     *
      * @requestExample({"orderId":5000999})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.7.3
      */
     public function cancelOrder(int $orderId): bool
@@ -1735,14 +1777,16 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 卖家取消订单
+     * 卖家取消订单.
      *
-     * @param integer $orderId 订单id
-     * @return boolean
-     * 
+     * @param int $orderId 订单id
+     *
+     * @return bool
+     *
      * @requestExample({"orderId":5000999})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.7.3
      */
     public function cancelOrderAsync(int $orderId)
@@ -1751,7 +1795,7 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function notifyPaying(int $orderId, UidDTO $uidDTO = null): bool
     {
@@ -1759,11 +1803,19 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $memo, $type);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function exportOrderExcel(int $tab = 0, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $tab, $searchParams, $orderBy);
     }
 
     /**

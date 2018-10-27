@@ -64,9 +64,9 @@ interface BuyerOrderInterface
      * @param int          $limit                          分页大小
      * @param array|string $searchParams                   搜索参数(类型为array时进行精确搜索)
      * @param string       $searchParams['ordersn']        订单号
-     * @param string       $searchParams['storename']      店铺名或卖家用户名
+     * @param string       $searchParams['storeName']      店铺名或卖家用户名
      * @param string       $searchParams['consignee']      收货人
-     * @param string       $searchParams['goodsname']      商品名或货号
+     * @param string       $searchParams['goodsName']      商品名或货号
      * @param int          $searchParams['ordertimeStart'] 下单开始时间戳
      * @param int          $searchParams['ordertimeEnd']   下单结束时间戳
      * @param string       $orderBy                        排序
