@@ -1060,4 +1060,19 @@ interface SellerOrderRefactoringInterface
      * @since  2018.10.29
      */
     function getZcCount(int $time , int $storeId = 0):int;
+
+    /**
+     * 根据order_id 获取所有买家的id
+     *
+     * @param array $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":[50002202, 50002203]})
+     * @returnExample([{"buyer_id":"2108435"},{"buyer_id":"1762341"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.29
+     */
+    public function getByerIdByOrderId(array $orderId):array;
 }
