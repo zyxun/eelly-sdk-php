@@ -1013,4 +1013,19 @@ interface SellerOrderRefactoringInterface
      * @since 2018.10.26
      */
     public function getLastOrderSellerId($orderIds):array;
+
+    /**
+     * 获取退款总数 (迁移旧代码)
+     *
+     * @param int $time 时间戳  gmtime()-X*86400
+     * @param string $storeId
+     * @return number
+     *
+     * @requestExample({"time":1345678945, "storeId":1760467})
+     * @returnExample(4)
+     *
+     * @author zengxiong<zengxiong@eelly.net>
+     * @since  2018.10.29
+     */
+    public function getTkCount(int $time, int $storeId):int;
 }
