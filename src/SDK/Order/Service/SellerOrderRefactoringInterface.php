@@ -1028,4 +1028,20 @@ interface SellerOrderRefactoringInterface
      * @since  2018.10.29
      */
     public function getTkCount(int $time, int $storeId):int;
+
+    /**
+     * 根据下单时间获取某个店铺出售的商品信息 (迁移旧代码)
+     *
+     * @param int $storeId  店铺id
+     * @param array $byTime 添加时间 (['gt', 1538323200])
+     * @return array
+     *
+     * @requestExample({"storeId":1760467, "byTime":["gt", "1540540846"]})
+     * @returnExample([5578928,5578930,5578936])
+     *
+     * @author 黄文广<huangwenguang@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.29
+     */
+    public function getTakeOrderGoodsByTime(int $storeId, array $byTime):array;
 }
