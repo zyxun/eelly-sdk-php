@@ -265,4 +265,16 @@ interface PaymentInterface
      * @since 2018年10月23日
      */
     public function setPayMent(string $billNo): bool;
+    
+    /**
+     * 根据关联对象ID, 支付类型, 处理状态 判断是否有支付成功
+     * 
+     * @param int $itemId 关联对象ID
+     * @param int $type 支付类型
+     * @return bool
+     * 
+     * @author wechan
+     * @since 
+     */
+    public function getPaymentStatus(int $itemId, int $type): bool;
 }
