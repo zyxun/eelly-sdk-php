@@ -2110,6 +2110,33 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 获取90天仲裁数 服务质量2.0新规则
+     *
+     * @param int $time  时间90天 gmtime()-X*86400
+     * @param int $storeId 店铺id
+     * @return int
+     *
+     * @requestExample({"time":1540449990, "storeId":1760467})
+     * @returnExample(1)
+     *
+     * @author zengxiong<zengxiong@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.29
+     */
+    function getZcCount(int $time , int $storeId = 0):int
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $time, $storeId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    function getZcCountAsync(int $time , int $storeId = 0):int
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $time, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
