@@ -913,7 +913,6 @@ interface SellerOrderInterface
      *
      * @requestExample({
      *     "tab":0,
-     *     "page":1,
      *     "searchParams":"abc"
      * })
      *
