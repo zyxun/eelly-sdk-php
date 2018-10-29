@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -17,6 +16,7 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\AuthCallbackInterface;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class AuthCallback implements AuthCallbackInterface
@@ -45,7 +45,7 @@ class AuthCallback implements AuthCallbackInterface
      */
     public function checkAuthName(array $data): array
     {
-        return EellyClient::request('user/authCallback', __FUNCTION__, true, $data);
+        return EellyClient::request('user/authCallback', 'checkAuthName', true, $data);
     }
 
     /**
@@ -72,7 +72,7 @@ class AuthCallback implements AuthCallbackInterface
      */
     public function checkAuthNameAsync(array $data)
     {
-        return EellyClient::request('user/authCallback', __FUNCTION__, false, $data);
+        return EellyClient::request('user/authCallback', 'checkAuthName', false, $data);
     }
 
     /**
@@ -93,7 +93,7 @@ class AuthCallback implements AuthCallbackInterface
      */
     public function addAuthCallback(array $data): bool
     {
-        return EellyClient::request('user/authCallback', __FUNCTION__, true, $data);
+        return EellyClient::request('user/authCallback', 'addAuthCallback', true, $data);
     }
 
     /**
@@ -114,7 +114,7 @@ class AuthCallback implements AuthCallbackInterface
      */
     public function addAuthCallbackAsync(array $data)
     {
-        return EellyClient::request('user/authCallback', __FUNCTION__, false, $data);
+        return EellyClient::request('user/authCallback', 'addAuthCallback', false, $data);
     }
 
     /**
