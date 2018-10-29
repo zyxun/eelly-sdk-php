@@ -1344,6 +1344,52 @@ class User implements UserInterface
     }
 
     /**
+     * 用户绑定手机所需数据接口
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * isSetPayPassword | bool | 是否设置了支付密码
+     * isSetMobile | bool | 时候具有绑定手机 
+     * mobile | string | 绑定的手机号码
+     * isSetSecurity | bool | 是否设置了密保
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.29
+     */
+    public function userBindPhoneNeedInfo(int $userId, int $storeId = 0): array
+    {
+        return EellyClient::request('user/user', 'userBindPhoneNeedInfo', true, $userId, $storeId);
+    }
+
+    /**
+     * 用户绑定手机所需数据接口
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * isSetPayPassword | bool | 是否设置了支付密码
+     * isSetMobile | bool | 时候具有绑定手机 
+     * mobile | string | 绑定的手机号码
+     * isSetSecurity | bool | 是否设置了密保
+     *
+     * @param integer $userId 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.29
+     */
+    public function userBindPhoneNeedInfoAsync(int $userId, int $storeId = 0)
+    {
+        return EellyClient::request('user/user', 'userBindPhoneNeedInfo', false, $userId, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
