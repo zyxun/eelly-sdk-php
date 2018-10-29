@@ -1060,12 +1060,12 @@ interface OrderInterface
      * 根据订单状态和购买时间,返回店铺期间产生订单数
      * 
      * @param array $storeIds 店铺ids
-     * @param array $osIds 订单状态
+     * @param array $status 状态 ['pending', 'accepted']
      * @param int $startTime 开始时间
      * @param int $endTime 结束时间
      * 
      * @author wechan
      * @since 2018年10月29日
      */
-    public function getStatusTimeCount(array $storeIds, array $osIds, int $startTime, int $endTime);
+    public function getStatusTimeCount(array $storeIds, array $status, int $startTime, int $endTime): array;
 }
