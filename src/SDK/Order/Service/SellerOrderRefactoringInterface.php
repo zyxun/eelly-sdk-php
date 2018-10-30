@@ -1044,4 +1044,52 @@ interface SellerOrderRefactoringInterface
      * @since  2018.10.29
      */
     public function getTakeOrderGoodsByTime(int $storeId, array $byTime):array;
+
+    /**
+     * 获取90天仲裁数 服务质量2.0新规则
+     *
+     * @param int $time  时间90天 gmtime()-X*86400
+     * @param int $storeId 店铺id
+     * @return int
+     *
+     * @requestExample({"time":1540449990, "storeId":1760467})
+     * @returnExample(1)
+     *
+     * @author zengxiong<zengxiong@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.29
+     */
+    function getZcCount(int $time , int $storeId = 0):int;
+
+    /**
+     * 根据order_id 获取所有买家的id
+     *
+     * @param array $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":[50002202, 50002203]})
+     * @returnExample([{"buyer_id":"2108435"},{"buyer_id":"1762341"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.29
+     */
+    public function getByerIdByOrderId(array $orderId):array;
+
+    /**
+     * 根据买家id获取该买家购买的其他商品 (迁移旧代码)
+     *
+     * @param array $buyerId 买家id
+     * @param int $addTime  下单时间
+     * @param int $limit  数量
+     * @return array
+     *
+     * @requestExample({"buyerId":[1761505, 1762341, 148086], "addTime":1540540846, "limit":2})
+     * @returnExample([{"goods_id":"1580931","goods_name":"test","goods_number":"2"},{"goods_id":"1580932","goods_name":"demo","goods_number":"2"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.30
+     */
+    public function getGoodInfoByOrderBuyerId(array $buyerId, int $addTime = 0, int $limit = 10):array;
 }
