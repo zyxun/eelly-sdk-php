@@ -1075,4 +1075,21 @@ interface SellerOrderRefactoringInterface
      * @since  2018.10.29
      */
     public function getByerIdByOrderId(array $orderId):array;
+
+    /**
+     * 根据买家id获取该买家购买的其他商品 (迁移旧代码)
+     *
+     * @param array $buyerId 买家id
+     * @param int $addTime  下单时间
+     * @param int $limit  数量
+     * @return array
+     *
+     * @requestExample({"buyerId":[1761505, 1762341, 148086], "addTime":1540540846, "limit":2})
+     * @returnExample([{"goods_id":"1580931","goods_name":"test","goods_number":"2"},{"goods_id":"1580932","goods_name":"demo","goods_number":"2"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.30
+     */
+    public function getGoodInfoByOrderBuyerId(array $buyerId, int $addTime = 0, int $limit = 10):array;
 }
