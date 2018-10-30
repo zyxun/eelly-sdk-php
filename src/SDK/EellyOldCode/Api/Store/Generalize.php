@@ -46,4 +46,17 @@ class Generalize
     {
         return EellyClient::request('eellyOldCode/store/generalize', __FUNCTION__, true, $userId, $gsublId);
     }
+    
+    /**
+     * 获取购买服务文案信息(给api调用)
+     * 
+     * @param int $gsublId 服务记录表主键id
+     * 
+     * @author wechan
+     * @since 2018年10月30日
+     */
+    public function getPayServiceDesc(int $gsublId)
+    {
+        return EellyClient::request('eellyOldCode/store/generalize', __FUNCTION__, true, $gsublId);
+    }
 }
