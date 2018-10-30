@@ -1092,4 +1092,20 @@ interface SellerOrderRefactoringInterface
      * @since  2018.10.30
      */
     public function getGoodInfoByOrderBuyerId(array $buyerId, int $addTime = 0, int $limit = 10):array;
+
+    /**
+     * 统计用户在店铺下过的订单
+     *
+     * @param  int    $userId      用户ID
+     * @param  array  $sellerIds   店铺ID数组
+     * @return array
+     *
+     * @requestExample({"userId":1762341, "sellerIds":[158252, 1760467]})
+     * @returnExample({"158252":"2","1760467":"49"})
+     *
+     * @author 郑志明<zhengzhiming@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since  2018.10.30
+     */
+    public function getOrderNumForUserIdBySellerId(int $userId, array $sellerIds):array;
 }
