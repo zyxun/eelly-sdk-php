@@ -57,4 +57,5 @@ class PaymentException extends LogicException
     
     public const MONEY_ERROR = '金额有误';
     
+    public const PAY_DATA_EMPTY = '支付数据为空';
 }
