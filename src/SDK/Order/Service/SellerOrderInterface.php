@@ -871,11 +871,10 @@ interface SellerOrderInterface
      *
      * @param int $sellerId
      * @param array $buyerIds
-     * @param string $fieldScope
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-10-31
      */
-    public function getCustomerOrderStat(int $sellerId, array $buyerIds, string $fieldScope): array ;
+    public function getCustomerOrderStat(int $sellerId, array $buyerIds): array ;
 }
