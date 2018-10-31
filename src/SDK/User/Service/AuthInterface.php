@@ -192,6 +192,7 @@ interface AuthInterface
      * 
      * value | desc
      * --- | -----  
+     * -1 | 没有认证
      * 0 | 个人认证未审核
      * 1 | 个人认证审核通过
      * 2 | 个人认证审核中

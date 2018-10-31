@@ -158,7 +158,13 @@ class EellyClient
             } catch (ServerException $e) {
                 $body = json_decode((string) $e->getResponse()->getBody(), true);
                 if (JSON_ERROR_NONE == json_last_error()) {
-                    throw new \ErrorException($body['error'], 0, 1, __FILE__, __LINE__, $e);
+                    throw new \ErrorException(
+                        $body['error'] ?? (string) $e->getResponse()->getBody(),
+                        0,
+                        1,
+                        __FILE__,
+                        __LINE__,
+                        $e);
                 }
                 throw $e;
             }

@@ -1066,4 +1066,17 @@ interface OrderInterface
      * @since 2018年10月31日
      */
     public function getOrderAmountByOrderIds(array $orderIds): array;
+
+    /**
+     * 统计订单数据
+     *
+     * @param int    $role      用户角色[1 买家, 2 卖家]
+     * @param int    $userId    用户ID
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-29
+     */
+    public function getOrderStatByUser(int $role, int $userId, string $fieldScope): array ;
 }

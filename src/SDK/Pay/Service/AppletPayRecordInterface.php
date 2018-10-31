@@ -26,14 +26,30 @@ interface AppletPayRecordInterface
      * 获取卖家账户收支明细列表.
      *
      * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * data | array | 收支明细数据
+     * item | array | 分页所需数据 app暂时使用不到
      *
+     * > data 数据说明
+     * 
      * key | type |  value
      * --- | ---- | -------
+     * billNo        | string | 交易流水号
      * prId          | int    | 交易ID
      * type          | int    | 明细类型:0.支出 1.收入
+     * payType       | string | 付款类型
      * money         | int    | 金额
      * time          | int    | 时间戳
+     * remark        | string | 说明
      * handleStatus  | int    | 处理状态 0.未完成 1.已完成
+     * 
+     * > item 数据说明
+     * 
+     * itemCount     | int    | 总数量
+     * totalPage     | int    | 总页数
+     * page          | int    | 当前页面
      *
      * @param int $storeId 店铺id
      * @param int $type 1.今日收入列表 2.累计收入列表 3.累计支出列表 4.累计收入支出列表(全部)

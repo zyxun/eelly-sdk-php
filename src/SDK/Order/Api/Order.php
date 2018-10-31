@@ -2315,6 +2315,38 @@ class Order implements OrderInterface
     {
         return EellyClient::request('order/order', 'getOrderAmountByOrderIds', false, $orderIds);
     }
+  
+    /**
+     * 统计订单数据
+     *
+     * @param int    $role      用户角色[1 买家, 2 卖家]
+     * @param int    $userId    用户ID
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-29
+     */
+    public function getOrderStatByUser(int $role, int $userId, string $fieldScope): array
+    {
+        return EellyClient::request('order/order', 'getOrderStatByUser', true, $role, $userId, $fieldScope);
+    }
+
+    /**
+     * 统计订单数据
+     *
+     * @param int    $role      用户角色[1 买家, 2 卖家]
+     * @param int    $userId    用户ID
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-29
+     */
+    public function getOrderStatByUserAsync(int $role, int $userId, string $fieldScope)
+    {
+        return EellyClient::request('order/order', 'getOrderStatByUser', false, $role, $userId, $fieldScope);
+    }
 
     /**
      * @return self
