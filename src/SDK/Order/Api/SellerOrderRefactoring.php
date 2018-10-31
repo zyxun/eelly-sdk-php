@@ -2218,6 +2218,31 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 批量获取买家下过单的供应商数量 (迁移旧代码)
+     *
+     * @param array $buyerIds 买家ids
+     * @return array
+     *
+     * @requestExample({"buyerIds":[1762341, 2108435]})
+     * @returnExample([{"buyer_id":"1762341","total":"70"},{"buyer_id":"2108435","total":"7"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.31
+     */
+    public function getBuyerSupplierNum(array $buyerIds):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getBuyerSupplierNumAsync(array $buyerIds):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
