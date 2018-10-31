@@ -958,7 +958,7 @@ interface SellerOrderRefactoringInterface
      * 批量获取买家下过的订单数 (迁移旧代码)
      *
      * @param array $buyerIds 买家ids
-     * @param int   $status   排除的订单状态
+     * @param array   $status   排除的订单状态
      * @return array
      *
      * @requestExample({"buyerIds":[148086,1762341], "status": [6,12]})
@@ -967,7 +967,7 @@ interface SellerOrderRefactoringInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.10.26
      */
-    public function getBuyerOrdersNum(array $buyerIds, $status=[]);
+    public function getBuyerOrdersNum(array $buyerIds, array $status=[]);
 
     /**
      * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码)
