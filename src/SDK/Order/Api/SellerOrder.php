@@ -1875,15 +1875,14 @@ class SellerOrder implements SellerOrderInterface
      *
      * @param int $sellerId
      * @param array $buyerIds
-     * @param string $fieldScope
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-10-31
      */
-    public function getCustomerOrderStat(int $sellerId, array $buyerIds, string $fieldScope): array
+    public function getCustomerOrderStat(int $sellerId, array $buyerIds): array
     {
-        return EellyClient::request('order/sellerOrder', 'getCustomerOrderStat', true, $sellerId, $buyerIds, $fieldScope);
+        return EellyClient::request('order/sellerOrder', 'getCustomerOrderStat', true, $sellerId, $buyerIds);
     }
 
     /**
@@ -1891,15 +1890,14 @@ class SellerOrder implements SellerOrderInterface
      *
      * @param int $sellerId
      * @param array $buyerIds
-     * @param string $fieldScope
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-10-31
      */
-    public function getCustomerOrderStatAsync(int $sellerId, array $buyerIds, string $fieldScope)
+    public function getCustomerOrderStatAsync(int $sellerId, array $buyerIds)
     {
-        return EellyClient::request('order/sellerOrder', 'getCustomerOrderStat', false, $sellerId, $buyerIds, $fieldScope);
+        return EellyClient::request('order/sellerOrder', 'getCustomerOrderStat', false, $sellerId, $buyerIds);
     }
 
     /**
