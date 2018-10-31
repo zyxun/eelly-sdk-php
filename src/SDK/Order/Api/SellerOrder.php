@@ -1795,19 +1795,111 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * {@inheritdoc}
+     * 通知买家对订单付款.
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function notifyPaying(int $orderId, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/sellerOrder', 'notifyPaying', true, $orderId, $uidDTO);
     }
 
     /**
-     * {@inheritdoc}
+     * 通知买家对订单付款.
+     *
+     * @param int         $orderId 订单id
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function notifyPayingAsync(int $orderId, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/sellerOrder', 'notifyPaying', false, $orderId, $uidDTO);
+    }
+
+    /**
+     * 添加订单备注.
+     *
+     * @param int         $orderId 订单id
+     * @param string      $memo    备注内容
+     * @param int         $type    3 备忘 5 留言
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @requestExample({"orderId":"160","memo":"你买了个表", "type":5})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
      */
     public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('order/sellerOrder', __FUNCTION__, true, $orderId, $memo, $type);
+        return EellyClient::request('order/sellerOrder', 'addMemo', true, $orderId, $memo, $type, $uidDTO);
+    }
+
+    /**
+     * 添加订单备注.
+     *
+     * @param int         $orderId 订单id
+     * @param string      $memo    备注内容
+     * @param int         $type    3 备忘 5 留言
+     * @param UidDTO|null $uidDTO  uid dto
+     *
+     * @return bool
+     *
+     * @requestExample({"orderId":"160","memo":"你买了个表", "type":5})
+     *
+     * @returnExample(true)
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function addMemoAsync(int $orderId, string $memo, int $type, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/sellerOrder', 'addMemo', false, $orderId, $memo, $type, $uidDTO);
+    }
+
+    /**
+     * 统计买家订单数据
+     *
+     * @param int $sellerId
+     * @param array $buyerIds
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-31
+     */
+    public function getCustomerOrderStat(int $sellerId, array $buyerIds, string $fieldScope): array
+    {
+        return EellyClient::request('order/sellerOrder', 'getCustomerOrderStat', true, $sellerId, $buyerIds, $fieldScope);
+    }
+
+    /**
+     * 统计买家订单数据
+     *
+     * @param int $sellerId
+     * @param array $buyerIds
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-31
+     */
+    public function getCustomerOrderStatAsync(int $sellerId, array $buyerIds, string $fieldScope)
+    {
+        return EellyClient::request('order/sellerOrder', 'getCustomerOrderStat', false, $sellerId, $buyerIds, $fieldScope);
     }
 
     /**
