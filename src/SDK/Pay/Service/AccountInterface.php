@@ -331,17 +331,4 @@ interface AccountInterface
      * @since 2018.10.15
      */
     public function setPayPassword(int $userId, string $payPassword, int $storeId = 0):bool;
-
-    /**
-     * 获取账户密码状态
-     *
-     * @param UidDTO|null $user
-     * @return array
-     *
-     * @returnExample({"hasPassword":true,"mobile":"13612341234","hasSecret":false})
-     *
-     * @author zhangyangxun
-     * @since 2018-10-30
-     */
-    public function getPasswordState(UidDTO $user = null): array ;
 }
