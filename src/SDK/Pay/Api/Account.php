@@ -710,6 +710,38 @@ class Account implements AccountInterface
     }
 
     /**
+     * 获取账户密码状态
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @returnExample({"hasPassword":true,"mobile":"13612341234","hasSecret":false})
+     *
+     * @author zhangyangxun
+     * @since 2018-10-30
+     */
+    public function getPasswordState(UidDTO $user = null): array
+    {
+        return EellyClient::request('pay/account', 'getPasswordState', true, $user);
+    }
+
+    /**
+     * 获取账户密码状态
+     *
+     * @param UidDTO|null $user
+     * @return array
+     *
+     * @returnExample({"hasPassword":true,"mobile":"13612341234","hasSecret":false})
+     *
+     * @author zhangyangxun
+     * @since 2018-10-30
+     */
+    public function getPasswordStateAsync(UidDTO $user = null)
+    {
+        return EellyClient::request('pay/account', 'getPasswordState', false, $user);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

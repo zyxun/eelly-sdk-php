@@ -924,4 +924,16 @@ interface SellerOrderInterface
      * @author hehui<runphp@dingtalk.com>
      */
     public function exportOrderExcel(int $tab = 0, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array;
+
+    /**
+     * 统计买家订单数据
+     *
+     * @param int $sellerId
+     * @param array $buyerIds
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-31
+     */
+    public function getCustomerOrderStat(int $sellerId, array $buyerIds): array ;
 }
