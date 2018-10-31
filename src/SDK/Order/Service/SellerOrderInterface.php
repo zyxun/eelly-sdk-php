@@ -865,4 +865,17 @@ interface SellerOrderInterface
      * @author hehui<hehui@eelly.net>
      */
     public function addMemo(int $orderId, string $memo, int $type, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 统计买家订单数据
+     *
+     * @param int $sellerId
+     * @param array $buyerIds
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-10-31
+     */
+    public function getCustomerOrderStat(int $sellerId, array $buyerIds, string $fieldScope): array ;
 }
