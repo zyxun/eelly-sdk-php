@@ -616,4 +616,22 @@ interface UserInterface
      * @since 2018.10.29
      */
     public function userBindPhoneNeedInfo(int $userId, int $storeId = 0):array;
+
+    /**
+     * 检查手机是否已经被绑定
+     * 
+     * > 返回字段说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * isBinding | int | 0 : 未绑定，1:已经绑定
+     * username | string | 绑定账号的用户名 
+     *
+     * @param string $mobile 手机号码
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.10.31
+     */
+    public function checkMobileIsBinding(string $mobile):array;
 }
