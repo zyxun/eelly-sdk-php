@@ -311,20 +311,6 @@ interface OrderInterface
      */
     public function addMallOrderAndPay(array $orderData, array $userInfo, array $memoInfo = []): array;
 
-
-    /**
-     * 校验订单是否完成.
-     *
-     * @param array $orderSns 订单号
-     * @param string $billNo 交易号
-     * @return array
-     * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
-     * @returnExample([1,2,3])
-     * @author 肖俊明<xiaojunming@eelly.net>
-     * @since 2018年04月19日
-     */
-    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): array;
-
     /**
      * 回调订单支付.
      *
@@ -1068,4 +1054,16 @@ interface OrderInterface
      * @since 2018年10月29日
      */
     public function getStatusTimeCount(array $storeIds, array $status, int $startTime, int $endTime): array;
+    
+    /**
+     * 根据订单id查询订单价格
+     *
+     * @param array $orderIds 订单id
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2018年10月31日
+     */
+    public function getOrderAmountByOrderIds(array $orderIds): array;
 }

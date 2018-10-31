@@ -655,38 +655,6 @@ class Order implements OrderInterface
     }
 
     /**
-     * 校验订单是否完成.
-     *
-     * @param array $orderSns 订单号
-     * @param string $billNo 交易号
-     * @return array
-     * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
-     * @returnExample([1,2,3])
-     * @author 肖俊明<xiaojunming@eelly.net>
-     * @since 2018年04月19日
-     */
-    public function checkOrderIsPayed(array $orderSns, string $billNo = ''): array
-    {
-        return EellyClient::request('order/order', 'checkOrderIsPayed', true, $orderSns, $billNo);
-    }
-
-    /**
-     * 校验订单是否完成.
-     *
-     * @param array $orderSns 订单号
-     * @param string $billNo 交易号
-     * @return array
-     * @requestExample({"orderSns":[1810833729,1810818814],"billNo":"1711114252646cvAcu"})
-     * @returnExample([1,2,3])
-     * @author 肖俊明<xiaojunming@eelly.net>
-     * @since 2018年04月19日
-     */
-    public function checkOrderIsPayedAsync(array $orderSns, string $billNo = '')
-    {
-        return EellyClient::request('order/order', 'checkOrderIsPayed', false, $orderSns, $billNo);
-    }
-
-    /**
      * 回调订单支付.
      *
      * @param string $billNo 衣联交易号
@@ -2316,6 +2284,36 @@ class Order implements OrderInterface
     public function getStatusTimeCountAsync(array $storeIds, array $status, int $startTime, int $endTime)
     {
         return EellyClient::request('order/order', 'getStatusTimeCount', false, $storeIds, $status, $startTime, $endTime);
+    }
+
+    /**
+     * 根据订单id查询订单价格
+     *
+     * @param array $orderIds 订单id
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2018年10月31日
+     */
+    public function getOrderAmountByOrderIds(array $orderIds): array
+    {
+        return EellyClient::request('order/order', 'getOrderAmountByOrderIds', true, $orderIds);
+    }
+
+    /**
+     * 根据订单id查询订单价格
+     *
+     * @param array $orderIds 订单id
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2018年10月31日
+     */
+    public function getOrderAmountByOrderIdsAsync(array $orderIds)
+    {
+        return EellyClient::request('order/order', 'getOrderAmountByOrderIds', false, $orderIds);
     }
 
     /**
