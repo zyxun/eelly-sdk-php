@@ -596,4 +596,18 @@ interface UserInterface
      * @since 2018-10-24
      */
     public function buyerAppMyIndex(UidDTO $user = null): array ;
+
+    /**
+     * 根据账号获取用户信息
+     *
+     * @param string $accountType   账号类型:username,mobile
+     * @param string $account       账号
+     * @return array
+     *
+     * @returnExample({"userId":148086,"mobile":"13612341288","mobileShield":"13*******88"})
+     *
+     * @author zhangyangxun
+     * @since 2018-11-01
+     */
+    public function getUserByAccount(string $accountType, string $account): array ;
 }
