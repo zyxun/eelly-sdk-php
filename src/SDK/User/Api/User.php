@@ -1432,6 +1432,40 @@ class User implements UserInterface
     }
 
     /**
+     * 根据账号获取用户信息
+     *
+     * @param string $accountType   账号类型:username,mobile
+     * @param string $account       账号
+     * @return array
+     *
+     * @returnExample({"userId":148086,"mobile":"13612341288","mobileShield":"13*******88"})
+     *
+     * @author zhangyangxun
+     * @since 2018-11-01
+     */
+    public function getUserByAccount(string $accountType, string $account): array
+    {
+        return EellyClient::request('user/user', 'getUserByAccount', true, $accountType, $account);
+    }
+
+    /**
+     * 根据账号获取用户信息
+     *
+     * @param string $accountType   账号类型:username,mobile
+     * @param string $account       账号
+     * @return array
+     *
+     * @returnExample({"userId":148086,"mobile":"13612341288","mobileShield":"13*******88"})
+     *
+     * @author zhangyangxun
+     * @since 2018-11-01
+     */
+    public function getUserByAccountAsync(string $accountType, string $account)
+    {
+        return EellyClient::request('user/user', 'getUserByAccount', false, $accountType, $account);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
