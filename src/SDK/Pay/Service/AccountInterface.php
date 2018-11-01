@@ -237,8 +237,8 @@ interface AccountInterface
      * mobile                   | string    | 绑定的手机号码
      * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
      * nickname     | string | 微信昵称 isBindWechat为true才出现
-     * money        | float  | 账号余额
-     * frozenMoney  | float  | 账号冻结金额
+     * money        | int  | 账号余额 单位分
+     * frozenMoney  | int  | 账号冻结金额 单位分
      * 
      * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
