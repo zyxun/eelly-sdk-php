@@ -39,8 +39,8 @@ interface LiveOrderInterface
     /**
      * 获取直播间直播期间的小程序订单信息.
      *
-     * @param int $liveId
-     * @param int $type
+     * @param int $liveId 直播id
+     * @param int $type  订单类型(1 待付款 2 已付款)
      *
      * @return array
      */

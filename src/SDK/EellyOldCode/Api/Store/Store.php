@@ -175,7 +175,7 @@ class Store
      *
      * @param int $storeId 店铺id
      *
-     * @return integer
+     * @return int
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      *

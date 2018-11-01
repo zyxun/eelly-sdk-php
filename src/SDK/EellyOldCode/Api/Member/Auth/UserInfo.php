@@ -19,18 +19,20 @@ use Eelly\SDK\EellyClient;
  * Class EnterpriseAuth.
  *
  * var/eelly-old-code/modules/Member/Service/MemberService.php
- * 
+ *
  * @author sunanzhi <sunanzhi@hotmail.com>
  */
 class UserInfo
 {
     /**
-     * 获取认证信息
+     * 获取认证信息.
      *
-     * @param integer $userId 用户id
+     * @param int $userId 用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.29
      */
     public function getAuthAuditStatus(int $userId)
