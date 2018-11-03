@@ -26,6 +26,9 @@ interface SellerRefundInterface
     /**
      * 待发货订单，买家申请退款，卖家立即发货操作
      *
+     * @param string $invoiceCode 送货编码 快递公司对应的拼音
+     * @param string $invoiceName 送货公司名称
+     * @param string $inoviceNo 送货编号
      * @param int $orderId 订单id
      * @param UidDTO $uidDTO
      * @return bool
@@ -36,7 +39,7 @@ interface SellerRefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.09.13
      */
-    public function immediateDelivery(int $orderId, UidDTO $uidDTO = null): bool;
+    public function immediateDelivery(string $invoiceCode, string $invoiceName, string $invoiceNo, int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
      * 卖家同意退款操作 (仅退款)
