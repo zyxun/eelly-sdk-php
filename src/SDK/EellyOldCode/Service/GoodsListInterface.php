@@ -46,20 +46,23 @@ interface GoodsListInterface
      * page.items[].goodsId      | int     | 商品id
      * page.items[].goodsName    | int     | 商品名
      * page.items[].defaultImage | int     | 商品图片
+     * page.items[].minPrice     | float     | 最低价(元)
+     * page.items[].maxPrice     | float     | 最高价(元)
      *
      *
-     * @param int    $cateId   分类id
+     *
+     * @param int    $cateId      分类id
      * @param int    $publishType 发布类型 0:全部 1:完整版上款商品 2:快速上款商品
-     * @param string $keywords 搜索关键词
-     * @param string $orderBy  排序方式('goods_id desc'或'goods_id asc')字段参考`排序字段说明`
-     * @param int    $page     第几页
-     * @param int    $limit    分页大小
+     * @param int    $isPublic    防抄版 1:所有 2:无防抄 3:有防抄
+     * @param string $keywords    搜索关键词
+     * @param string $orderBy     排序方式('goods_id desc'或'goods_id asc')字段参考`排序字段说明`
+     * @param int    $page        第几页
+     * @param int    $limit       分页大小
+     * @param UidDTO $uidDTO      uid dto
      *
-     * @param UidDTO $uidDTO   uid dto
+     * @requestExample({"cateId":0,"publishType":2})
      *
-	 * @requestExample({"cateId":0,"publishType":2})
-	 * 
-	 * @returnExample(
+     * @returnExample(
      * {
      * "page": {
      *   "items": [
@@ -148,9 +151,9 @@ interface GoodsListInterface
      *      }
      *    ]
      *  }
-	 * )
-	 *
+     * )
+     *
      * @return array
      */
-    public function sellerPageForChat(int $cateId = 0, int $publishType = 0, string $keywords = null, string $orderBy = 'goods_id desc', int $page = 1, int $limit = 100, UidDTO $uidDTO = null): array;
+    public function sellerPageForChat(int $cateId = 0, int $publishType = 0, int $isPublic = 1, string $keywords = null, string $orderBy = 'goods_id desc', int $page = 1, int $limit = 100, UidDTO $uidDTO = null): array;
 }
