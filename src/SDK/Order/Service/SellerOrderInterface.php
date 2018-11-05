@@ -529,16 +529,18 @@ interface SellerOrderInterface
      * 获取直播时间段的订单数据.
      *
      *
-     * @param int $startTime                    直播开始时间戳
-     * @param int $endTime直播结束时间戳
-     * @param int $sellerId                     卖家id
-     * @param int $type                         类型 ( 1 待付款 2 已付款 )
+     * @param int $startTime 直播开始时间戳
+     * @param int $endTime   直播结束时间戳
+     * @param int $sellerId  卖家id
+     * @param int $type      类型 ( 1 待付款 2 已付款 )
+     * @param int $page      分页
+     * @param int $limit     分页大小
      *
      * @return array
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array;
+    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type, int $page = 1, int $limit = 20): array;
 
     /**
      * 获取店铺列表某种状态下的订单数量.
@@ -926,14 +928,16 @@ interface SellerOrderInterface
     public function exportOrderExcel(int $tab = 0, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array;
 
     /**
-     * 统计买家订单数据
+     * 统计买家订单数据.
      *
-     * @param int $sellerId
+     * @param int   $sellerId
      * @param array $buyerIds
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-31
      */
-    public function getCustomerOrderStat(int $sellerId, array $buyerIds): array ;
+    public function getCustomerOrderStat(int $sellerId, array $buyerIds): array;
 }

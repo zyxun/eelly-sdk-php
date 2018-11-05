@@ -1083,9 +1083,9 @@ class SellerOrder implements SellerOrderInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type): array
+    public function listLiveOrdersByTimes(int $startTime, int $endTime, int $sellerId, int $type, int $page = 1, int $limit = 20): array
     {
-        return EellyClient::request('order/sellerOrder', 'listLiveOrdersByTimes', true, $startTime, $endTime, $sellerId, $type);
+        return EellyClient::request('order/sellerOrder', 'listLiveOrdersByTimes', true, $startTime, $endTime, $sellerId, $type, $page, $limit);
     }
 
     /**
@@ -1871,13 +1871,15 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 统计买家订单数据
+     * 统计买家订单数据.
      *
-     * @param int $sellerId
+     * @param int   $sellerId
      * @param array $buyerIds
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-31
      */
     public function getCustomerOrderStat(int $sellerId, array $buyerIds): array
@@ -1886,13 +1888,15 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
-     * 统计买家订单数据
+     * 统计买家订单数据.
      *
-     * @param int $sellerId
+     * @param int   $sellerId
      * @param array $buyerIds
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-31
      */
     public function getCustomerOrderStatAsync(int $sellerId, array $buyerIds)
