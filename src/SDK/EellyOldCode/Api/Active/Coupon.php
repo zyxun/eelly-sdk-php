@@ -37,4 +37,19 @@ class Coupon
     {
         return EellyClient::request('eellyOldCode/Active/Coupon/Coupon', __FUNCTION__, true, $money, $storeId, $userId);
     }
+    
+    /**
+     * 使用优惠券.
+     *
+     * @param int    $orderId
+     * @param int    $userId
+     * @param string $couponNo
+     *
+     * @return bool
+     *
+     */
+    public function useCoupon($orderId, $userId, $couponNo)
+    {
+        return EellyClient::request('eellyOldCode/Active/Coupon/Coupon', __FUNCTION__, true, $orderId, $userId, $couponNo);
+    }
 }
