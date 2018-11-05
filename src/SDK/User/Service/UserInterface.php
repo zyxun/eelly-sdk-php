@@ -610,4 +610,15 @@ interface UserInterface
      * @since 2018-11-01
      */
     public function getUserByAccount(string $accountType, string $account): array ;
+
+    /**
+     * 用户是否设置密码
+     *
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-05
+     */
+    public function hasPassword(UidDTO $user = null): bool ;
 }
