@@ -648,4 +648,18 @@ interface UserInterface
      * @since 2018-11-01
      */
     public function getUserByAccount(string $accountType, string $account): array ;
+
+    /**
+     * 根据用户id，获取用户名 (旧代码接口迁移)
+     *
+     * @param array $userIds 用户id
+     * @return array
+     *
+     * @requestExample({"userIds":[1762630, 1762631]})
+     * @returnExample({"1762630":{"user_id":1762630,"user_name":"yl_12342177","nickname":"yl_12342177","wechat_name":""},"1762631":{"user_id":1762631,"user_name":"danfeng1","nickname":"danfeng1","wechat_name":""}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.05
+     */
+    public function getUsernameByUid(array $userIds):array;
 }
