@@ -142,7 +142,7 @@ interface InvoiceInterface
      * @param UidDTO|null $uidDTO
      * @return array
      * @requestExample({"orderId":160})
-     * @returnExample({{
+     * @returnExample({
      *  "number": "1202237859178",
      *  "type": "YUNDA",
      *  "name": "韵达",
@@ -161,7 +161,7 @@ interface InvoiceInterface
      * "goodsImage":"https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
      * "regionName":"山西省 晋城市 沁水县",
      * "address":"2222"
-     * }})
+     * })
      * ### 返回数据说明
      *
      * 字段|类型|说明
