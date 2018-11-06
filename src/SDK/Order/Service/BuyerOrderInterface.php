@@ -942,4 +942,12 @@ interface BuyerOrderInterface
      * @since 2018.08.28
      */
     public function updateOrderNoticeFlag(int $orderId, int $noticeFlag): bool;
+
+    /**
+     *  pc买家主页订单信息
+     *
+     * @param int $buyerId
+     * @return array
+     */
+    public function listOrderBuyerHome(int $buyerId): array ;
 }
