@@ -162,6 +162,7 @@ interface InvoiceInterface
      * "regionName":"山西省 晋城市 沁水县",
      * "address":"2222"
      * })
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -184,10 +185,6 @@ interface InvoiceInterface
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月25日
-     * @Validation(
-     *     @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]}),
-     *     @InclusionIn(1,{message:"非法的物流类型",domain:[1,2]}),
-     * )
      */
     public function getExpressByOrderId(int $orderId, int $type = 1, UidDTO $uidDTO = null): array;
 
