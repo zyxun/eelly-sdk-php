@@ -1466,6 +1466,59 @@ class User implements UserInterface
     }
 
     /**
+     * 用户是否设置密码
+     *
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-05
+     */
+    public function hasPassword(UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/user', 'hasPassword', true, $user);
+    }
+
+    /**
+     * 用户是否设置密码
+     *
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-05
+     */
+    public function hasPasswordAsync(UidDTO $user = null)
+    {
+        return EellyClient::request('user/user', 'hasPassword', false, $user);
+    }
+  
+    /**
+     * 根据用户id，获取用户名 (旧代码接口迁移)
+     *
+     * @param array $userIds 用户id
+     * @return array
+     *
+     * @requestExample({"userIds":[1762630, 1762631]})
+     * @returnExample({"1762630":{"user_id":1762630,"user_name":"yl_12342177","nickname":"yl_12342177","wechat_name":""},"1762631":{"user_id":1762631,"user_name":"danfeng1","nickname":"danfeng1","wechat_name":""}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.05
+     */
+    public function getUsernameByUid(array $userIds):array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getUsernameByUidAsync(array $userIds):array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, false, $userIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
