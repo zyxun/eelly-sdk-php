@@ -1079,4 +1079,14 @@ interface OrderInterface
      * @since 2018-10-29
      */
     public function getOrderStatByUser(int $role, int $userId, string $fieldScope): array ;
+    
+    
+       /**
+     * 获取不同店铺状态下的订单数量和金额
+     * 
+     * @param array $storeIds 用户数据
+     * @param array $inStatus 订单状态
+     * @return array
+     */
+    public function getOrderAmountOrCountsByStoreIds(array $storeIds, array $inStatus = []): array;
 }
