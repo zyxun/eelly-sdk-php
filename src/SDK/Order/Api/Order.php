@@ -2315,7 +2315,7 @@ class Order implements OrderInterface
     {
         return EellyClient::request('order/order', 'getOrderAmountByOrderIds', false, $orderIds);
     }
-  
+
     /**
      * 统计订单数据
      *
@@ -2346,6 +2346,30 @@ class Order implements OrderInterface
     public function getOrderStatByUserAsync(int $role, int $userId, string $fieldScope)
     {
         return EellyClient::request('order/order', 'getOrderStatByUser', false, $role, $userId, $fieldScope);
+    }
+
+    /**
+     * 获取不同店铺状态下的订单数量和金额
+     * 
+     * @param array $storeIds 用户数据
+     * @param array $inStatus 订单状态
+     * @return array
+     */
+    public function getOrderAmountOrCountsByStoreIds(array $storeIds, array $inStatus = []): array
+    {
+        return EellyClient::request('order/order', 'getOrderAmountOrCountsByStoreIds', true, $storeIds, $inStatus);
+    }
+
+    /**
+     * 获取不同店铺状态下的订单数量和金额
+     * 
+     * @param array $storeIds 用户数据
+     * @param array $inStatus 订单状态
+     * @return array
+     */
+    public function getOrderAmountOrCountsByStoreIdsAsync(array $storeIds, array $inStatus = [])
+    {
+        return EellyClient::request('order/order', 'getOrderAmountOrCountsByStoreIds', false, $storeIds, $inStatus);
     }
 
     /**
