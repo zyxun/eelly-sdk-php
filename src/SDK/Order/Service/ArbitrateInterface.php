@@ -34,7 +34,7 @@ interface ArbitrateInterface
      * @param array $data["certificate"] 仲裁申请凭证
      * @return bool
      *
-     * @requestExample({"data":{"orderId":116,"applyFlag":1,"phone":"13430245645","qq":"","wechat":"","buyerNumber":1,"sellerNumber":0,"certificate":{}}})
+     * @requestExample({"data":{"orderId":116,"applyFlag":1,"phone":"13430245645","qq":"","wechat":"","buyerNumber":1,"sellerNumber":0,"certificate":["\G05\M00\00\8B\qYYBAFuhukyIQqv8AABMXeI08-EAAA2-wIkZUwAAEx1021.jpg"]}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
