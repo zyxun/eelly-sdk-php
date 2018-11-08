@@ -1122,4 +1122,22 @@ interface SellerOrderRefactoringInterface
      * @since 2018.10.31
      */
     public function getBuyerSupplierNum(array $buyerIds):array;
+
+    /**
+     * 根据userId获取下过单的卖家Id (迁移旧代码)
+     *
+     * @param int $userId 用户id
+     * @param int $sTime  开始时间
+     * @param int $eTime  结束时间
+     * @param int $limit  限制条数
+     * @return array
+     *
+     * @requestExample({"userId":148086})
+     * @returnExample([1762613,1760467])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.08
+     */
+    public function getSellerIdByOrder(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20):array;
 }
