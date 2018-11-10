@@ -139,4 +139,19 @@ interface GoodsInterface
      * @since 2018.10.26
      */
     public function getOrderIdByGoodsId(int $goodsId):array;
+
+    /**
+     * 获取订单商品信息 (迁移旧代码)
+     *
+     * @param array $orderIds
+     * @return array
+     *
+     * @requestExample({"orderId":[50002203]})
+     * @returnExample([{"rec_id":"20001938","order_id":"50002203","goods_id":"5579047","goods_image":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181019\/1267236199351.jpg?t=1539916327","spec_id":"32091517","specification":"\u989c\u8272:\u5982\u56fe\u8272,\u5c3a\u7801:\u5747\u7801","quantity":"1","goods_name":"\u62d2\u7edd\u4e86","price":"1"}])
+     *
+     * @author 陈淡华<chendanhua@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.10
+     */
+    public function getOrderGoodsOld(array $orderIds):array;
 }
