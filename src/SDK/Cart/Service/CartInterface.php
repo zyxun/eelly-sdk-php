@@ -183,6 +183,28 @@ interface CartInterface
     public function addCart(int $goodsId, array $attributes, UidDTO $user = null): bool;
 
     /**
+     * 添加购物车web.
+     *
+     * @param int    $goodsId                商品id
+     * @param array  $attributes             其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
+     * @param array  $attributes['spId']     规格属性Id
+     * @param array  $attributes['quantity'] 属性购买数量
+     * @param int    $userId                 用户
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool 返回bool值
+     * @requestExample({
+     *   "goodsId":27767,"attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
+     * })
+     * @returnExample(true)
+     *
+     * @author sunanzhi/zhangyangxun
+     * @since 2018-11-12
+     */
+    public function addCartWeb(int $goodsId, array $attributes, $userId): bool;
+
+    /**
      * 获取指定商品来更新购物车.
      *
      * > 返回数据说明
