@@ -1033,6 +1033,36 @@ class BuyerRefund implements BuyerRefundInterface
     }
 
     /**
+     * 后台协商记录
+     *
+     * @param int $orderId
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-07
+     */
+    public function manageOrderRefundLog(int $orderId, int $userId): array
+    {
+        return EellyClient::request('order/buyerRefund', 'manageOrderRefundLog', true, $orderId, $userId);
+    }
+
+    /**
+     * 后台协商记录
+     *
+     * @param int $orderId
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-07
+     */
+    public function manageOrderRefundLogAsync(int $orderId, int $userId)
+    {
+        return EellyClient::request('order/buyerRefund', 'manageOrderRefundLog', false, $orderId, $userId);
+    }
+
+    /**
      * 获取退货时所需的数据，店铺数据
      *
      * > 返回数据说明

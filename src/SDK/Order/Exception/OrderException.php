@@ -61,4 +61,8 @@ class OrderException extends LogicException
     public const ORDER_DATA_NOT_EXIT = '订单数据不存在';
     
     public const ORDER_NOT_PAY = '订单还没支付';
+    
+    public const ORDER_GOODS_SPEC_NOT_FOUND = '订单商品规格不存在';
+    
+    public const SAME_ACCOUNT_CANT_ORDER_ERROR = '不能下自己店铺的订单';
 }

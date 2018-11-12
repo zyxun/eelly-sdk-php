@@ -948,6 +948,38 @@ class User implements UserInterface
     }
 
     /**
+     * 判断用户是否已经绑定邮箱.
+     *
+     * @param int $userId 用户id
+     *
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2017-11-03
+     */
+    public function checkUserIsBindingEmail(int $userId): array
+    {
+        return EellyClient::request('user/user', 'checkUserIsBindingEmail', true, $userId);
+    }
+
+    /**
+     * 判断用户是否已经绑定邮箱.
+     *
+     * @param int $userId 用户id
+     *
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2017-11-03
+     */
+    public function checkUserIsBindingEmailAsync(int $userId)
+    {
+        return EellyClient::request('user/user', 'checkUserIsBindingEmail', false, $userId);
+    }
+
+    /**
      * 获取用户信息.
      *
      * ### 返回数据说明

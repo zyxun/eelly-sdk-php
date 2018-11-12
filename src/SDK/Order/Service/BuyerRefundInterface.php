@@ -502,6 +502,18 @@ interface BuyerRefundInterface
     public function orderRefundLog(int $orderId, UidDTO $user = null):array;
 
     /**
+     * 后台协商记录
+     *
+     * @param int $orderId
+     * @param int $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-07
+     */
+    public function manageOrderRefundLog(int $orderId, int $userId): array ;
+
+    /**
      * 获取退货时所需的数据，店铺数据
      *
      * > 返回数据说明
