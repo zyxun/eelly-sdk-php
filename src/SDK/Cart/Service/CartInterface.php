@@ -202,7 +202,7 @@ interface CartInterface
      * @author sunanzhi/zhangyangxun
      * @since 2018-11-12
      */
-    public function addCartWeb(int $goodsId, array $attributes, $userId): bool;
+    public function addCartWeb(int $goodsId, array $attributes, int $userId): bool;
 
     /**
      * 获取指定商品来更新购物车.
