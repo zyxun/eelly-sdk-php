@@ -367,7 +367,7 @@ class Cart implements CartInterface
      *
      * @return bool 返回bool值
      * @requestExample({
-     *   "goodsId":27767,"attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
+     *  27767, [{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}], 148086
      * })
      * @returnExample(true)
      *
@@ -392,7 +392,7 @@ class Cart implements CartInterface
      *
      * @return bool 返回bool值
      * @requestExample({
-     *   "goodsId":27767,"attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
+     *  27767, [{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}], 148086
      * })
      * @returnExample(true)
      *
@@ -870,6 +870,44 @@ class Cart implements CartInterface
     public function deleteCartAsync(string $uniqueId, UidDTO $user = null)
     {
         return EellyClient::request('cart/cart', 'deleteCart', false, $uniqueId, $user);
+    }
+
+    /**
+     * 删除购物车数据web.
+     *
+     *
+     * @param int $goodsId
+     * @param int $userId
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-12
+     */
+    public function deleteCartWeb(int $goodsId, int $userId): bool
+    {
+        return EellyClient::request('cart/cart', 'deleteCartWeb', true, $goodsId, $userId);
+    }
+
+    /**
+     * 删除购物车数据web.
+     *
+     *
+     * @param int $goodsId
+     * @param int $userId
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-12
+     */
+    public function deleteCartWebAsync(int $goodsId, int $userId)
+    {
+        return EellyClient::request('cart/cart', 'deleteCartWeb', false, $goodsId, $userId);
     }
 
     /**

@@ -195,7 +195,7 @@ interface CartInterface
      *
      * @return bool 返回bool值
      * @requestExample({
-     *   "goodsId":27767,"attributes":[{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}]
+     *  27767, [{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}], 148086
      * })
      * @returnExample(true)
      *
@@ -425,6 +425,22 @@ interface CartInterface
      * @since 2018.8.16
      */
     public function deleteCart(string $uniqueId, UidDTO $user = null): bool;
+
+    /**
+     * 删除购物车数据web.
+     *
+     *
+     * @param int $goodsId
+     * @param int $userId
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-12
+     */
+    public function deleteCartWeb(int $goodsId, int $userId): bool;
 
     /**
      * 批量移除购物车.
