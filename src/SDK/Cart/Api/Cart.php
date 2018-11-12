@@ -957,6 +957,44 @@ class Cart implements CartInterface
     }
 
     /**
+     * 批量删除购物车数据web.
+     *
+     *
+     * @param array $goodsIds
+     * @param int $userId
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-12
+     */
+    public function deleteCartBatchWeb(array $goodsIds, int $userId): bool
+    {
+        return EellyClient::request('cart/cart', 'deleteCartBatchWeb', true, $goodsIds, $userId);
+    }
+
+    /**
+     * 批量删除购物车数据web.
+     *
+     *
+     * @param array $goodsIds
+     * @param int $userId
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-12
+     */
+    public function deleteCartBatchWebAsync(array $goodsIds, int $userId)
+    {
+        return EellyClient::request('cart/cart', 'deleteCartBatchWeb', false, $goodsIds, $userId);
+    }
+
+    /**
      * 获取购物车数量限制.
      *
      * @return int
