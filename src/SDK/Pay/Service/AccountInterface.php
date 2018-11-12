@@ -235,6 +235,7 @@ interface AccountInterface
      * auditStatus              | int       | 是否实名认证 0:否，1:通过
      * setPayPassword           | bool      | 是否设置了支付密码
      * mobile                   | string    | 绑定的手机号码
+     * withdrawLimit | int | 提现受限 0:没有受限，1:受限
      * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
      * nickname     | string | 微信昵称 isBindWechat为true才出现
      * money        | int  | 账号余额 单位分
