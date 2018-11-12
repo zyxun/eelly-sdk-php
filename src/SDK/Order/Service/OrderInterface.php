@@ -161,6 +161,15 @@ interface OrderInterface
     public function getOrderInfo(int $orderId): array;
 
     /**
+     * 通过order sn 获取订单信息.
+     *
+     * @param string $orderSn order sn
+     *
+     * @return array
+     */
+    public function getOrderInfoByOrderSn(string $orderSn): array;
+
+    /**
      * 校验是否能否能快速支付.
      *
      * @param int $orderId 订单ID

@@ -261,6 +261,14 @@ class Order implements OrderInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getOrderInfoByOrderSn(string $orderSn): array
+    {
+        return EellyClient::request('order/order', __FUNCTION__, true, $orderSn);
+    }
+
+    /**
      * 获取订单信息
      * 获取订单信息.
      *

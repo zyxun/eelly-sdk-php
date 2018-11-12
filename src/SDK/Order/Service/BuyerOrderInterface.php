@@ -64,6 +64,7 @@ interface BuyerOrderInterface
      * @param int          $limit                          分页大小
      * @param array|string $searchParams                   搜索参数(类型为array时进行精确搜索)
      * @param string       $searchParams['ordersn']        订单号
+     * @param string       $searchParams['fromFlag']       订单来源(0: 全部 1: 普通 2: 小程序)
      * @param string       $searchParams['storeName']      店铺名或卖家用户名
      * @param string       $searchParams['consignee']      收货人
      * @param string       $searchParams['goodsName']      商品名或货号
