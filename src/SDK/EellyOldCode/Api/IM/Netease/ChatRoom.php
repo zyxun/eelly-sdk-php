@@ -49,7 +49,7 @@ class ChatRoom
      *
      * @since 2018年2月1日
      */
-    public function sendBarrage(int $fromUserId, int $liveId, int $type, array $replaceData = []): array
+    public function sendBarrage(int $fromUserId, int $liveId, int $type, array $replaceData = [])
     {
         return EellyClient::request('eellyOldCode/IM/Netease/ChatRoom', __FUNCTION__, true, $fromUserId, $liveId, $type, $replaceData);
     }
@@ -67,7 +67,7 @@ class ChatRoom
      *
      * @since 2018年2月2日
      */
-    public function sendBarrageByStoreId(int $fromUserId, int $storeId, int $type): array
+    public function sendBarrageByStoreId(int $fromUserId, int $storeId, int $type)
     {
         return EellyClient::request('eellyOldCode/IM/Netease/ChatRoom', __FUNCTION__, true, $fromUserId, $storeId, $type);
     }
@@ -85,7 +85,7 @@ class ChatRoom
      *
      * @since 2018年2月1日
      */
-    public function sendPraise(int $fromUserId, int $liveId, int $praiseNumber): bool
+    public function sendPraise(int $fromUserId, int $liveId, int $praiseNumber)
     {
         return EellyClient::request('eellyOldCode/IM/Netease/ChatRoom', __FUNCTION__, true, $fromUserId, $liveId, $praiseNumber);
     }
