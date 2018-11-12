@@ -374,7 +374,7 @@ class Cart implements CartInterface
      * @author sunanzhi/zhangyangxun
      * @since 2018-11-12
      */
-    public function addCartWeb(int $goodsId, array $attributes, $userId): bool
+    public function addCartWeb(int $goodsId, array $attributes, int $userId): bool
     {
         return EellyClient::request('cart/cart', 'addCartWeb', true, $goodsId, $attributes, $userId);
     }
@@ -399,7 +399,7 @@ class Cart implements CartInterface
      * @author sunanzhi/zhangyangxun
      * @since 2018-11-12
      */
-    public function addCartWebAsync(int $goodsId, array $attributes, $userId)
+    public function addCartWebAsync(int $goodsId, array $attributes, int $userId)
     {
         return EellyClient::request('cart/cart', 'addCartWeb', false, $goodsId, $attributes, $userId);
     }
