@@ -183,6 +183,28 @@ interface CartInterface
     public function addCart(int $goodsId, array $attributes, UidDTO $user = null): bool;
 
     /**
+     * 添加购物车web.
+     *
+     * @param int    $goodsId                商品id
+     * @param array  $attributes             其他属性 如果规格属性是空数组 [] 则默认找该商品其中一个规格加入购物车（场景用于快速加入购物车）
+     * @param array  $attributes['spId']     规格属性Id
+     * @param array  $attributes['quantity'] 属性购买数量
+     * @param int    $userId                 用户
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool 返回bool值
+     * @requestExample({
+     *  27767, [{"spId":9521387,"quantity":3},{"spId":9521390,"quantity":5}], 148086
+     * })
+     * @returnExample(true)
+     *
+     * @author sunanzhi/zhangyangxun
+     * @since 2018-11-12
+     */
+    public function addCartWeb(int $goodsId, array $attributes, int $userId): bool;
+
+    /**
      * 获取指定商品来更新购物车.
      *
      * > 返回数据说明
@@ -405,6 +427,22 @@ interface CartInterface
     public function deleteCart(string $uniqueId, UidDTO $user = null): bool;
 
     /**
+     * 删除购物车数据web.
+     *
+     *
+     * @param int $goodsId
+     * @param int $userId
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-12
+     */
+    public function deleteCartWeb(int $goodsId, int $userId): bool;
+
+    /**
      * 批量移除购物车.
      *
      * @param array  $uniqueIds 购物车key值id数组
@@ -423,6 +461,22 @@ interface CartInterface
      * @since 2018.8.16
      */
     public function deleteCartBatch(array $uniqueIds, UidDTO $user = null): bool;
+
+    /**
+     * 批量删除购物车数据web.
+     *
+     *
+     * @param array $goodsIds
+     * @param int $userId
+     *
+     * @throws \Eelly\SDK\Cart\Exception\CartException
+     *
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-12
+     */
+    public function deleteCartBatchWeb(array $goodsIds, int $userId): bool;
 
     /**
      * 获取购物车数量限制.
