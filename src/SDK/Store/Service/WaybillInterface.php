@@ -75,10 +75,6 @@ interface WaybillInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2018年05月23日
-     * @Validation(
-     *      @OperatorValidator(0,{message : "非法用户ID/店铺ID",operator:["gt",0]}),
-     *      @InclusionIn(1,{message : "非法的绑定类型",domain:[0, 1, 2]})
-     * )
      */
     public function getWaybillInfo(int $userId, int $type): array;
 }
