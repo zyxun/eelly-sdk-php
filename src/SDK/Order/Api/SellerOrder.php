@@ -1913,6 +1913,14 @@ class SellerOrder implements SellerOrderInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function orderPage(int $tab = 0, int $page = 1, int $limit = 20, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/sellerOrder', 'orderPage', true, $tab, $page, $limit, $searchParams, $orderBy, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

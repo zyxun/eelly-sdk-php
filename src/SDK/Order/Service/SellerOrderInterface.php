@@ -940,4 +940,20 @@ interface SellerOrderInterface
      * @since 2018-10-31
      */
     public function getCustomerOrderStat(int $sellerId, array $buyerIds): array;
+
+    /**
+     * 订单分页(卖家).
+     *
+     * @param int         $tab
+     * @param int         $page
+     * @param int         $limit
+     * @param null        $searchParams
+     * @param string      $orderBy
+     * @param UidDTO|null $uidDTO
+     *
+     * @return array
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function orderPage(int $tab = 0, int $page = 1, int $limit = 20, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array;
 }
