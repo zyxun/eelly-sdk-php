@@ -16,130 +16,144 @@ namespace Eelly\SDK\Order\Service;
 use Eelly\DTO\UidDTO;
 
 /**
- * 卖家退货退款
+ * 卖家退货退款.
  *
  * @author zhangyingdi<zhangyingdi@eellly.net>
  */
 interface SellerRefundInterface
 {
-
     /**
-     * 待发货订单，买家申请退款，卖家立即发货操作
+     * 待发货订单，买家申请退款，卖家立即发货操作.
      *
      * @param string $invoiceCode 送货编码 快递公司对应的拼音
      * @param string $invoiceName 送货公司名称
-     * @param string $inoviceNo 送货编号
-     * @param int $orderId 订单id
+     * @param string $inoviceNo   送货编号
+     * @param int    $orderId     订单id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId":5000214})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.13
      */
     public function immediateDelivery(string $invoiceCode, string $invoiceName, string $invoiceNo, int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家同意退款操作 (仅退款)
+     * 卖家同意退款操作 (仅退款).
      *
-     * @param int $orderId  订单id
+     * @param int    $orderId 订单id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId":5000214})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.14
      */
     public function agreeRefundMoney(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家拒绝退货退款操作
+     * 卖家拒绝退货退款操作.
      *
-     * @param int $orderId  订单id
-     * @param string $reason 拒绝原因
+     * @param int    $orderId 订单id
+     * @param string $reason  拒绝原因
      * @param string $images  图片凭证(#隔开)
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId":5000214, "reason":"test", "images":"https://img02.eelly.com/abc.jpg#https://img02.eelly.com/add.jpg"})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.14
      */
     public function refusedRefund(int $orderId, string $reason, string $images, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家申请客服介入
+     * 卖家申请客服介入.
      *
-     * @param int $orderId  订单id
-     * @param string $phone  联系手机号码
-     * @param string $wechat 联系微信号
+     * @param int    $orderId 订单id
+     * @param string $phone   联系手机号码
+     * @param string $wechat  联系微信号
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId":5000214, "phone":"13430245645", "wechat":"hello"})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.14
      */
-    public function sellerApplyService(int $orderId, string $phone, string $wechat, UidDTO $uidDTO = null):bool;
+    public function sellerApplyService(int $orderId, string $phone, string $wechat, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家同意退货操作
+     * 卖家同意退货操作.
      *
-     * @param int $orderId  订单id
-     * @param array $addressData 卖家退货地址相关信息
+     * @param int    $orderId     订单id
+     * @param array  $addressData 卖家退货地址相关信息
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId":5000214, "addressData":{"address":"test","consignee":"demo","phone":"13430245645","mobile":"","regionName":"gz","code":"510000"}})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.14
      */
     public function agreeReturnGoods(int $orderId, array $addressData = [], UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家撤销客服介入
+     * 卖家撤销客服介入.
      *
-     * @param int $orderId 订单id
+     * @param int    $orderId 订单id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId":5000214})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.17
      */
-    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO = null):bool;
+    public function cancelSellerApplyService(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家确认收到退货
+     * 卖家确认收到退货.
      *
-     * @param int $orderId  订单id
+     * @param int    $orderId 订单id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId":5000214})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.17
      */
     public function confirmRefundGoods(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家退货退款详情页
+     * 卖家退货退款详情页.
      *
      * @param int $orderId 订单id
+     *
      * @return array
      *
      * > 退款详情页订单状态(refundStatus)
@@ -168,29 +182,31 @@ interface SellerRefundInterface
      * @returnExample({"orderId":"5000020","orderSn":"1812374549","buyerId":"2108403","buyerName":"\u5927\u5e08\u5085\u58eb\u5927\u592b\uff08yl_jn003778\uff09","applyAmount":"11","applyFreight":"0","refundType":"\u4ec5\u9000\u6b3e","refundReason":"\u5176\u4ed6","remark":"","certificate":"","createdTime":"1525780044","refundStatus":"\u7533\u8bf7\u9000\u6b3e\u4e2d","firstTime":"2018-05-08 19:47","newTime":"2018-06-06 13:38"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.17
      */
     public function orderRefundDetail(int $orderId): array;
 
-
     /**
-     * 确认退款页面
+     * 确认退款页面.
      *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * freight | int | 运费 单位：分
      * applyAmount | int | 申请退款的金额
      * orderAmount | int | 订单总额
      * isSetPayPassword | bool | 是否设置支付密码 true ：是 false ： 否
-     * 
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.28
      */
-    public  function orderRefundCheck(int $orderId, UidDTO $user = null): array;
+    public function orderRefundCheck(int $orderId, UidDTO $user = null): array;
 }

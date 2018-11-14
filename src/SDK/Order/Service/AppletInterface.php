@@ -1,21 +1,23 @@
 <?php
+
 declare(strict_types=1);
-/**
- * PHP version 5.5
+
+/*
+ * This file is part of eelly package.
  *
- * @copyright  Copyright (c) 2012-2015 EELLY Inc. (http://www.eelly.com)
- * @link       http://www.eelly.com
- * @license    衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-
 namespace Eelly\SDK\Order\Service;
-
 
 /**
  * 小程序订单.
  *
  * @author  肖俊明<xiaojunming@eelly.net>
+ *
  * @since 2018年08月09日
  */
 interface AppletInterface
@@ -47,10 +49,10 @@ interface AppletInterface
      * })
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年08月09日
      */
     public function getOrderNumData(array $storeIds): array;
-
 
     /**
      * 获取一元订单列表数据.

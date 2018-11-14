@@ -109,14 +109,14 @@ interface StatusInterface
      * @since 2017年9月19日
      */
     public function getStatus(int $statusId = 0, int $type = 0, int $code = 0): array;
-    
-    
+
     /**
      * 根据旧订单状态返回新订单状态
-     * 
+     *
      * @param array $code 旧状态
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年10月16日
      */
     public function getNewStatusByOldStatus(array $code): array;
