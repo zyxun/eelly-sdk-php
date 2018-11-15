@@ -261,14 +261,6 @@ class Order implements OrderInterface
     }
 
     /**
-     * @inheritDoc
-     */
-    public function getOrderInfoByOrderSn(string $orderSn): array
-    {
-        return EellyClient::request('order/order', __FUNCTION__, true, $orderSn);
-    }
-
-    /**
      * 获取订单信息
      * 获取订单信息.
      *
@@ -328,6 +320,30 @@ class Order implements OrderInterface
     public function getOrderInfoAsync(int $orderId)
     {
         return EellyClient::request('order/order', 'getOrderInfo', false, $orderId);
+    }
+
+    /**
+     * 通过order sn 获取订单信息.
+     *
+     * @param string $orderSn order sn
+     *
+     * @return array
+     */
+    public function getOrderInfoByOrderSn(string $orderSn): array
+    {
+        return EellyClient::request('order/order', 'getOrderInfoByOrderSn', true, $orderSn);
+    }
+
+    /**
+     * 通过order sn 获取订单信息.
+     *
+     * @param string $orderSn order sn
+     *
+     * @return array
+     */
+    public function getOrderInfoByOrderSnAsync(string $orderSn)
+    {
+        return EellyClient::request('order/order', 'getOrderInfoByOrderSn', false, $orderSn);
     }
 
     /**
@@ -2378,6 +2394,30 @@ class Order implements OrderInterface
     public function getOrderAmountOrCountsByStoreIdsAsync(array $storeIds, array $inStatus = [])
     {
         return EellyClient::request('order/order', 'getOrderAmountOrCountsByStoreIds', false, $storeIds, $inStatus);
+    }
+
+    /**
+     * 获取买家支付的数量和总金额
+     *
+     * @param array $buyerIds 买家id
+     *
+     * @return array
+     */
+    public function getMemberOrderCountAndAmount(array $buyerIds): array
+    {
+        return EellyClient::request('order/order', 'getMemberOrderCountAndAmount', true, $buyerIds);
+    }
+
+    /**
+     * 获取买家支付的数量和总金额
+     *
+     * @param array $buyerIds 买家id
+     *
+     * @return array
+     */
+    public function getMemberOrderCountAndAmountAsync(array $buyerIds)
+    {
+        return EellyClient::request('order/order', 'getMemberOrderCountAndAmount', false, $buyerIds);
     }
 
     /**
