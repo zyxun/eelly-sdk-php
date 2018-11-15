@@ -258,7 +258,7 @@ class Trade implements TradeInterface
      * @author wechan
      * @since 2018年10月13日
      */
-    public function orderCheckPay(string $billNo, string $type, array $extend = []): bool
+    public function orderCheckPay(string $billNo, string $type = '', array $extend = []): bool
     {
         return EellyClient::request('pay/trade', 'orderCheckPay', true, $billNo, $type, $extend);
     }
@@ -274,7 +274,7 @@ class Trade implements TradeInterface
      * @author wechan
      * @since 2018年10月13日
      */
-    public function orderCheckPayAsync(string $billNo, string $type, array $extend = [])
+    public function orderCheckPayAsync(string $billNo, string $type = '', array $extend = [])
     {
         return EellyClient::request('pay/trade', 'orderCheckPay', false, $billNo, $type, $extend);
     }
