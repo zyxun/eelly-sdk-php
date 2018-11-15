@@ -2381,6 +2381,30 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取买家支付的数量和总金额
+     *
+     * @param array $buyerIds 买家id
+     *
+     * @return array
+     */
+    public function getMemberOrderCountAndAmount(array $buyerIds): array
+    {
+        return EellyClient::request('order/order', 'getMemberOrderCountAndAmount', true, $buyerIds);
+    }
+
+    /**
+     * 获取买家支付的数量和总金额
+     *
+     * @param array $buyerIds 买家id
+     *
+     * @return array
+     */
+    public function getMemberOrderCountAndAmountAsync(array $buyerIds)
+    {
+        return EellyClient::request('order/order', 'getMemberOrderCountAndAmount', false, $buyerIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

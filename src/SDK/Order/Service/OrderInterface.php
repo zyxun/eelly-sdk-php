@@ -1098,4 +1098,14 @@ interface OrderInterface
      * @return array
      */
     public function getOrderAmountOrCountsByStoreIds(array $storeIds, array $inStatus = []): array;
+    
+    
+    /**
+     * 获取买家支付的数量和总金额
+     *
+     * @param array $buyerIds 买家id
+     *
+     * @return array
+     */
+    public function getMemberOrderCountAndAmount(array $buyerIds): array;
 }
