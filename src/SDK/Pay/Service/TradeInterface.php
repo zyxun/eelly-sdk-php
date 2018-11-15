@@ -125,12 +125,12 @@ interface TradeInterface
      * 主动查询订单是否有支付
      * 
      * @param string $billNo 衣联交易号
-     * @param string $type 类型:alipay.支付宝 wechat.微信 applet.小程序
+     * @param string $type 类型(可以不传, 不传取数据库默认):alipay.支付宝 wechat.微信 applet.小程序
      * @param array $extend 扩展信息 
      * @param array $extend[account] 账号信息
      * 
      * @author wechan
      * @since 2018年10月13日
      */
-    public function orderCheckPay(string $billNo, string $type, array $extend = []):bool;
+    public function orderCheckPay(string $billNo, string $type = '', array $extend = []):bool;
 }
