@@ -16,30 +16,30 @@ namespace Eelly\SDK\Order\Service;
 use Eelly\DTO\UidDTO;
 
 /**
- * 买家退货退款
+ * 买家退货退款.
  *
  * @author sunanzhi <sunanzhi@hotmail.com>
  */
 interface BuyerRefundInterface
 {
-
     /**
-     * 未发货申请退款
+     * 未发货申请退款.
      *
      * > params 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * returnAmount | int    | 退款金额 单位分
      * remarkType   | int    | 退款原因
      * remark       | string | 退款说明 (可选)
      * certificate  | array  | 退款凭证图片 (可选)
-     * 
-     * @param array $params 申请退款的数据
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param array  $params  申请退款的数据
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({
      *      "returnAmount":"100",
      *      "remarkType":"1",
@@ -47,15 +47,16 @@ interface BuyerRefundInterface
      *      "certificate":{"0":"123456.jpg","1":"dfghj.jpg","2":"ertyuio.jpg"}
      * })
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.18
      */
     public function requestReturnAmount(array $params, int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 未发货申请退款修改
-     * 
+     * 未发货申请退款修改.
+     *
      * > params 数据说明
      * key | type | value
      * --- | ---- | -----
@@ -63,12 +64,13 @@ interface BuyerRefundInterface
      * remarkType   | int    | 退款原因
      * remark       | string | 退款说明 (可选)
      * certificate  | array  | 退款凭证图片 (可选)
-     * 
-     * @param array $params 修改申请退款的数据
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param array  $params  修改申请退款的数据
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({
      *      "returnAmount":"100",
      *      "remarkType":"1",
@@ -76,38 +78,40 @@ interface BuyerRefundInterface
      *      "certificate":{"0":"123456.jpg","1":"dfghj.jpg","2":"ertyuio.jpg"}
      * })
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.13
      */
     public function requestReturnAmountEdit(array $params, int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 已发货申请退款/退货退款
+     * 已发货申请退款/退货退款.
      *
      * > params 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
-     * returnAmount | int    | 退款金额 
+     * returnAmount | int    | 退款金额
      * type         | int    | 申请类型 1:仅退款 2:退货退款
      * remarkType   | int    | 退款原因
      * orderGoods   | array  | 退款商品
      * remark       | string | 退款说明 (可选)
      * certificate  | array  | 退款凭证 (可选)
-     * 
+     *
      * > orderGoods 退款商品数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * ogId     | int | 退款商品id
      * quantity | int | 退货数量
-     * 
-     * @param array $params 申请退货退款的数据
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param array  $params  申请退货退款的数据
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({
      *      "returnAmount":"100",
      *      "type":"1",
@@ -117,38 +121,40 @@ interface BuyerRefundInterface
      *      "certificate":{"0":"123456.jpg","1":"dfghj.jpg","2":"ertyuio.jpg"}
      * })
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.13
      */
     public function requestRefund(array $params, int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 已发货申请退款/退货退款 修改
+     * 已发货申请退款/退货退款 修改.
      *
      * > params 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
-     * returnAmount | int    | 退款金额 
+     * returnAmount | int    | 退款金额
      * type         | int    | 申请类型 1:仅退款 2:退货退款
      * remarkType   | int    | 退款原因
      * orderGoods   | array  | 退款商品
      * remark       | string | 退款说明 (可选)
      * certificate  | array  | 退款凭证 多图数组形式 (可选)
-     * 
+     *
      * > orderGoods 退款商品数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * ogId     | int | 退款商品id
      * quantity | int | 退货数量
-     * 
-     * @param array $params 申请退货退款的数据
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param array  $params  申请退货退款的数据
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({
      *      "returnAmount":"100",
      *      "type":"1",
@@ -158,17 +164,18 @@ interface BuyerRefundInterface
      *      "certificate":{"0":"123456.jpg","1":"dfghj.jpg","2":"ertyuio.jpg"}
      * })
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.14
      */
     public function requestRefundEdit(array $params, int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 申请退货退款页面所需订单数据
+     * 申请退货退款页面所需订单数据.
      *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * orderId          | int       | 订单id
@@ -180,16 +187,16 @@ interface BuyerRefundInterface
      * maxReturnMoney   | int       | 最大退款金额
      * remarkArr           | array     | 退款原因（根据返回情况展示）
      * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组
-     * 
+     *
      * > orderGoods 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * goodsName  | string | 商品名称
      * orderGoods | array  | 改商品下有多少规格商品
-     * 
+     *
      * > orderGoods->data 商品规格数组数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * ogId             | int    | 订单商品id
@@ -202,9 +209,9 @@ interface BuyerRefundInterface
      * goodsImage       | string | 商品图片
      * spec             | string | 商品规格
      * gsId             | int    | 规格id
-     * 
+     *
      * > remarkArr 数据说明
-     * 
+     *
      * key | value
      * --- | ----
      * 0   | 其他
@@ -218,28 +225,30 @@ interface BuyerRefundInterface
      * 8   | 商品破损/残缺
      * 11  | 商品缺货
      * 13  | 不想要了/不想拍了
-     * 
-     * @param integer $orderId 订单id
-     * @param integer $phase 准备类型 1:未发货申请退款，2:已发货申请退款，3:已发货申请退货退款
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param int    $orderId 订单id
+     * @param int    $phase   准备类型 1:未发货申请退款，2:已发货申请退款，3:已发货申请退货退款
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({"orderId":"50001744","phase":"2"})
      * @returnExample({
      *      "orderId":50001744,"orderAmount":"23400","freight":"0","orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626}]}],
      *      "remark":[{"key":"0","value":"\u5176\u4ed6"},{"key":"1","value":"\u65e0\u7406\u7531\u9000\u8d27"},{"key":"3","value":"\u5546\u54c1\u8d28\u91cf\u95ee\u9898"},{"key":"5","value":"\u5356\u5bb6\u9519\u53d1\/\u6f0f\u53d1"},{"key":"7","value":"\u5546\u54c1\u4e0e\u63cf\u8ff0\u4e0d\u7b26"},{"key":"8","value":"\u5546\u54c1\u7834\u635f\/\u6b8b\u7f3a"}]
      * })
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.13
      */
     public function prepareOrderRefund(int $orderId, int $phase, UidDTO $user = null): array;
 
     /**
-     * 退货退款详情
-     * 
+     * 退货退款详情.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * orderId          | int    | 订单id
@@ -271,9 +280,9 @@ interface BuyerRefundInterface
      * storePhone       | string | 店铺电话
      * orderGoods       | array  | 退货退款商品数据
      * arbitrateApplyFlag | int   | 客服介入申请方 0 ：未介入 不做处理 1: 买家申请客服 2:卖家申请客服
-     * 
+     *
      * > status 和 statusContent 对应关系
-     * 
+     *
      * key | value | extra
      * --- | ----- | -----
      * 0   | 订单出错，请联系客服           | 没有对应的状态
@@ -298,14 +307,14 @@ interface BuyerRefundInterface
      * 19  | 售后完成，其他原因              | -
      *
      * > orderGoods 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * goodsName  | string | 商品名称
      * orderGoods | array  | 改商品下有多少规格商品
-     * 
+     *
      * > orderGoods->data 商品规格数组数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * ogId             | int    | 订单商品id
@@ -318,24 +327,26 @@ interface BuyerRefundInterface
      * goodsImage       | string | 商品图片
      * spec             | string | 商品规格
      * gsId             | int    | 规格id
-     * 
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample({"orderId":50001744,"osId":"4","orderSn":"2153604432213748","orOsId":"22","applyAmount":"100","orType":"1","remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86","certificate":["123.jpg","456.jpg","789.jpg"],"storeId":"148086","storeName":"\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97","createdTime":"2018-09-04 14:58:42","shiped":"true","payTime":"","cancelTime":"","shipTime":"1970-01-01 08:02:03","finishedTime":"","statusContent":"\u6211\u5df2\u7533\u8bf7\u8863\u8054\u5ba2\u670d\u4ecb\u5165","status":9,"firstRequestTime":"2018-09-14 15:57:06","lastRequestTime":"2018-09-14 18:37:52","countLogs":14,"countDown":0,"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","quantity":"1","sourceQuantity":"3","goodsId":"1450168197","price":"2900","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022004","discountAmount":2776}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","quantity":"1","sourceQuantity":"1","goodsId":"1450168334","price":"11100","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","gsId":"195022184","discountAmount":10626}]}]})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.13
      */
-    public function orderRefundDetail(int $orderId, UidDTO $user = null):array;
+    public function orderRefundDetail(int $orderId, UidDTO $user = null): array;
 
     /**
-     * 修改退货退款数据所需数据
+     * 修改退货退款数据所需数据.
      *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * orderId          | int    | 订单id
@@ -347,14 +358,14 @@ interface BuyerRefundInterface
      * remarkType       | int    | 退款原因
      * remark           | string | 退款说明
      * remarkArr        | array  | 退款原因列表
-     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组 
+     * remarkFreightArr | array  | 需要加上最大的运费金额的退款原因key 一维数组
      * finishTime       | int       | 提示过期时间
      * serviceTime      | int       | 服务当前时间
      * maxReturnMoney   | int       | 最大退款金额
      * certificate      | array  | 图片凭证
-     * 
+     *
      * > remark 数据说明
-     * 
+     *
      * key | value
      * --- | ----
      * 0   | 其他
@@ -368,16 +379,16 @@ interface BuyerRefundInterface
      * 8   | 商品破损/残缺
      * 11  | 商品缺货
      * 13  | 不想要了/不想拍了
-     * 
+     *
      * > orderGoods 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * goodsName  | string | 商品名称
      * orderGoods | array  | 改商品下有多少规格商品
-     * 
+     *
      * > orderGoods->data 商品规格数组数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * ogId             | int    | 订单商品id
@@ -390,39 +401,43 @@ interface BuyerRefundInterface
      * goodsImage       | string | 商品图片
      * spec             | string | 商品规格
      * gsId             | int    | 规格id
-     * 
-     * @param integer $orderId 订单id 
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample({"orderId":50001744,"orderAmount":"23400","freight":"0","applyAmount":"100","phase":"2","remarkType":"11","remark":[{"key":"0","value":"\u5176\u4ed6"},{"key":"6","value":"\u672a\u6536\u5230\u8d27"},{"key":"11","value":"\u5546\u54c1\u7f3a\u8d27"}],"certificate":["123.jpg","456.jpg","789.jpg"],"orderGoods":[{"goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","orderGoods":[{"ogId":"20001424","orderId":"50001744","goodsId":"1450168197","gsId":"195022004","price":"2900","quantity":"3","goodsName":"\u3010\u65e5\u97e9\u5973\u88c5\u65d7\u8230\u5e97\u3011 2018\u65b0\u6b3e \u9488\u7ec7\u886b\/\u6bdb\u8863  \u5305\u90ae","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFqaRR6IF0K1AAFPWNeoLjcAAABgQK8bi8AAU9w267.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":2776,"selQuantity":"1"}]},{"goodsName":"fgh ","orderGoods":[{"ogId":"20001425","orderId":"50001744","goodsId":"1450168334","gsId":"195022184","price":"11100","quantity":"1","goodsName":"fgh ","goodsImage":"G02\/M00\/00\/03\/small_ooYBAFrDQlaIcTeFAAHMuyce2dIAAABggCCW44AAczT140.jpg","goodsNumber":"","spec":"\u989c\u8272:,\u5c3a\u7801:","createdTime":"1536044322","updateTime":"2018-09-04 14:58:42","discountAmount":10626,"selQuantity":"1"}]}]})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.17
      */
-    public function orderRefundEdit(int $orderId, UidDTO $user = null):array;
+    public function orderRefundEdit(int $orderId, UidDTO $user = null): array;
 
     /**
-     * 撤销退货退款
-     * 
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     * 撤销退货退款.
+     *
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.13
      */
-    public function undoOrderRefund(int $orderId, UidDTO $user = null):bool;
+    public function undoOrderRefund(int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 协商记录
+     * 协商记录.
      *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * orlId            | int    | 日志id
@@ -433,9 +448,9 @@ interface BuyerRefundInterface
      * remark           | string | 备注
      * certificate      | array  | 凭证数据 空数组显示remark即可
      * createdTime      | date   | 创建时间
-     * 
+     *
      * > certificate 数据说明之退货数据 toOsId = 18
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * consignee        | string | 收件人姓名
@@ -448,9 +463,9 @@ interface BuyerRefundInterface
      * invoiceCode      | string | 送货编码
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
-     * 
+     *
      * > certificate 数据说明之申请数据凭证 toOsId = 16/20
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * orderId          | int    | 订单id
@@ -460,20 +475,20 @@ interface BuyerRefundInterface
      * applyAmount      | int    | 申请金额 单位:分
      * freight          | int    | 运费 单位:分
      * showFreight      | bool   | 是否展示运费 true:是 false:否
-     * certificate      | array  | 图片凭证数组 
+     * certificate      | array  | 图片凭证数组
      * remarkType       | string | 退货退款原因
      * remark           | string | 退货退款说明
-     * 
+     *
      * > certificate 数据说明之卖家拒绝 toOsId = 19
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * remark       | string | 备注日志内容
      * refuseReason | string | 拒绝理由
      * certificate  | array  | 图片凭证数组
-     * 
+     *
      * > certificate 数据说明之卖家同意退货 toOsId = 17
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * address      | string | 收货地址
@@ -482,11 +497,12 @@ interface BuyerRefundInterface
      * mobile       | string | 手机号码
      * regionName   | string | 省市区中文
      * code         | string | 地区编码
-     * 
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample([
      *      {"orlId":529383,"toOsId":22,"handleType":1,"handleName":"\u4e70\u5bb6\u540d\u79f0","handleId":148086,"remark":"\u4e70\u5bb6 \u4e70\u5bb6\u540d\u79f0 \u64a4\u9500\u4e86\u5ba2\u670d\u7533\u8bf7","certificate":"[]","createdTime":"2018-09-18 15:35:01"},
@@ -495,29 +511,32 @@ interface BuyerRefundInterface
      *      {"orlId":529377,"toOsId":18,"handleType":1,"handleName":"\u4e70\u5bb6\u540d\u79f0","handleId":148086,"remark":"\u4e70\u5bb6 \u4e70\u5bb6\u540d\u79f0 \u4fee\u6539\u4e86\u9000\u8d27\u4fe1\u606f","certificate":{"addrId":"482501","consignee":"\u65b9\u5065\u7fa4","address":"1","zipcode":"510000","phoneTel":"1","phoneMob":"1","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","gbCode":"440104","storeId":1762613,"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},"createdTime":"2018-09-18 10:50:20"},
      *      {"orlId":529371,"toOsId":20,"handleType":1,"handleName":"\u4e70\u5bb6\u540d\u79f0","handleId":148086,"remark":"\u4e70\u5bb6 \u4e70\u5bb6\u540d\u79f0 \u91cd\u65b0\u7533\u8bf7\u4e86\u9000\u8d27\u9000\u6b3e","certificate":{"orderId":50001744,"osId":20,"type":1,"phase":2,"applyAmount":100,"certificate":["123.jpg","456.jpg","789.jpg"],"remarkType":"\u5546\u54c1\u7f3a\u8d27","remark":"\u6211\u4eab\u53d7\u4e70\u5bb6\u7684\u6743\u76ca\uff0c\u6240\u4ee5\u6211\u4e0d\u8981\u4e86"},"createdTime":"2018-09-14 18:37:52"}
      * ])
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.13
      */
-    public function orderRefundLog(int $orderId, UidDTO $user = null):array;
+    public function orderRefundLog(int $orderId, UidDTO $user = null): array;
 
     /**
-     * 后台协商记录
+     * 后台协商记录.
      *
      * @param int $orderId
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-07
      */
-    public function manageOrderRefundLog(int $orderId, int $userId): array ;
+    public function manageOrderRefundLog(int $orderId, int $userId): array;
 
     /**
-     * 获取退货时所需的数据，店铺数据
+     * 获取退货时所需的数据，店铺数据.
      *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * storeId      | int    | 店铺id
@@ -528,51 +547,55 @@ interface BuyerRefundInterface
      * phoneTel     | string | 联系手机号
      * phoneMob     | string | 联系号码
      * regionName   | string | 地区名称
-     * 
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample({"addrId":"482059","consignee":"\u6d4b\u8bd57","address":"1","zipcode":"123456","phoneTel":"1","phoneMob":"1","regionName":"\u5317\u4eac\u5e02 \u5e02\u8f96\u533a \u897f\u57ce\u533a","gbCode":"110102","storeId":148086})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.17
      */
-    public function prepareOrderRefundInvoice(int $orderId, UidDTO $user = null):array;
+    public function prepareOrderRefundInvoice(int $orderId, UidDTO $user = null): array;
 
     /**
-     * 退货
+     * 退货.
      *
      * > params 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * invoiceCode      | string | 送货编码
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
-     * 
-     * @param array $params 退货的数据
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param array  $params  退货的数据
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({
      *      "params":{"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
      *      "orderId":"50001744"
      * })
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.13
      */
-    public function orderRefundInvoice(array $params, int $orderId, UidDTO $user = null):bool;
+    public function orderRefundInvoice(array $params, int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 获取退货信息
-     * 
+     * 获取退货信息.
+     *
      * > 返回数据说明(只罗列所需)
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * oiId             | int    | 退货id
@@ -587,23 +610,25 @@ interface BuyerRefundInterface
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
      *
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample({"oiId":"715","orderId":"50001744","type":"2","consignee":"\u65b9\u5065\u7fa4","gbCode":"440104","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","address":"1","zipcode":"510000","phone":"1","mobile":"12345678987","slId":"0","logisticsName":"","invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567","status":"0","signTime":"0","remark":"[]","createdTime":"1537236394","updateTime":"2018-09-18 17:21:56"})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.18
      */
-    public function getOrderRefundInvoice(int $orderId, UidDTO $user = null):array;
+    public function getOrderRefundInvoice(int $orderId, UidDTO $user = null): array;
 
     /**
-     * 修改退货信息
+     * 修改退货信息.
      *
      * > params 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * consignee        | string | 收件人姓名
@@ -616,89 +641,97 @@ interface BuyerRefundInterface
      * invoiceCode      | string | 送货编码
      * invoiceName      | string | 快递公司
      * invoiceNo        | string | 送货单号
-     * 
-     * @param array $params 退货的数据
-     * @param integer $orderId 订单id
-     * @param integer $oiId 退货id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param array  $params  退货的数据
+     * @param int    $orderId 订单id
+     * @param int    $oiId    退货id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({
      *      "params":{"consignee":"\u65b9\u5065\u7fa4","address":"1","zipcode":"510000","phoneTel":"1","phoneMob":"1","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","gbCode":"440104","storeId":1762613,"invoiceCode":"ztkd","invoiceName":"\u4e2d\u901a\u5feb\u9012yyyy","invoiceNo":"123456789ty34567"},
      *      "orderId":"50001744",
      *      "oiId":"5"
      * })
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.18
      */
-    public function updateOrderRefundInvoice(array $params, int $orderId, int $oiId, UidDTO $user = null):bool;
+    public function updateOrderRefundInvoice(array $params, int $orderId, int $oiId, UidDTO $user = null): bool;
 
     /**
      * 申请仲裁
-     * 
+     *
      * > params 数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * wechat   | string | 微信号
      * phone    | string | 手机号
      *
-     * @param array $params 申请仲裁的数据
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     * @param array  $params  申请仲裁的数据
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({
      *      "params":{"wechat":"微信号","phone":"联系号码"},
      *      "orderId":"50001744"
      * })
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.18
      */
-    public function requestOrderArbitrate(array $params, int $orderId, UidDTO $user = null):bool;
+    public function requestOrderArbitrate(array $params, int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 撤销仲裁申请
+     * 撤销仲裁申请.
      *
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return boolean
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.18
      */
     public function cancelOrderArbitrate(int $orderId, UidDTO $user = null): bool;
 
     /**
-     * 获取仲裁介入页面
+     * 获取仲裁介入页面.
      *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * orderId      | int    | 订单id
      * countLogs    | int    | 协商记录统计
      * tipContent   | string | 顶部文案显示
      * arbitrateStatus | int | 客服介入状态 0:未处理，1:客服介入中，2:已处理，3:客服撤销
-     * 
-     * @param integer $orderId 订单id
-     * @param UidDTO $user 当前登陆的用户
+     *
+     * @param int    $orderId 订单id
+     * @param UidDTO $user    当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @requestExample({"orderId":"50001744"})
      * @returnExample({
      *      "orderId":"50001744","countLogs":"8","tipContent":"您已申请客服介入，衣联客服将在3-5个工作日内介入处理","arbitrateStatus":"0"
      * })
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.18
      */
-    public function getOrderArbitrate(int $orderId, UidDTO $user = null):array;
+    public function getOrderArbitrate(int $orderId, UidDTO $user = null): array;
 }

@@ -16,7 +16,7 @@ namespace Eelly\SDK\Order\Service;
 use Eelly\DTO\UidDTO;
 
 /**
- * 卖家订单功能.(重构)
+ * 卖家订单功能.(重构).
  *
  * @author hehui<hehui@eelly.com>
  * @author zhangyingdi<zhangyingdi@eelly.com>
@@ -105,14 +105,14 @@ interface SellerOrderRefactoringInterface
      * 28 |交易完成(客服介入处理完成，其他原因)
      * 29 |交易完成(订单部分退款，交易完成)
      *
-     * @param array $params 参数数组
-     * @param int $params['tab']  请求的订单列表栏目
-     * @param string $params['keyword'] 搜索关键字
-     * @param int $params['page'] 请求的页码
-     * @param int $params['limit'] 每页显示的数量
+     * @param array       $params            参数数组
+     * @param int         $params['tab']     请求的订单列表栏目
+     * @param string      $params['keyword'] 搜索关键字
+     * @param int         $params['page']    请求的页码
+     * @param int         $params['limit']   每页显示的数量
      * @param UidDTO|null $uidDTO
-     * @return array
      *
+     * @return array
      * @return array
      *
      * @author hehui<hehui@eelly.net>
@@ -281,14 +281,14 @@ interface SellerOrderRefactoringInterface
      * 28 |交易完成(客服介入处理完成，其他原因)
      * 29 |交易完成(订单部分退款，交易完成)
      *
-     * @param array $params 参数数组
-     * @param int $params['tab']  请求的订单列表栏目
-     * @param array $params['keywords'] 搜索关键字
-     * @param int $params['page'] 请求的页码
-     * @param int $params['limit'] 每页显示的数量
+     * @param array       $params             参数数组
+     * @param int         $params['tab']      请求的订单列表栏目
+     * @param array       $params['keywords'] 搜索关键字
+     * @param int         $params['page']     请求的页码
+     * @param int         $params['limit']    每页显示的数量
      * @param UidDTO|null $uidDTO
-     * @return array
      *
+     * @return array
      * @return array
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
@@ -372,7 +372,7 @@ interface SellerOrderRefactoringInterface
      * }
      * )
      */
-    public function listPcOrderData(array $params, UidDTO $uidDTO = null):array;
+    public function listPcOrderData(array $params, UidDTO $uidDTO = null): array;
 
     /**
      * 获取我的订单统计信息(卖家).
@@ -721,10 +721,11 @@ interface SellerOrderRefactoringInterface
     /**
      * 卖家修改订单价格
      *
-     * @param int $orderId 订单id
-     * @param int $price  修改后的订单价格
-     * @param int $freight 修改后的运费
+     * @param int         $orderId 订单id
+     * @param int         $price   修改后的订单价格
+     * @param int         $freight 修改后的运费
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 160, "price":1000, "freight":10})
@@ -732,89 +733,101 @@ interface SellerOrderRefactoringInterface
      *
      * @author hehui<hehui@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.08.31
      */
     public function changeOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家取消订单
+     * 卖家取消订单.
      *
-     * @param int $orderId  订单id
+     * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.11
      */
-    public function cancelOrder(int $orderId, UidDTO $uidDTO = null):bool;
+    public function cancelOrder(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
-     * 添加物流信息跟修改物流信息接口
+     * 添加物流信息跟修改物流信息接口.
      *
-     * @param string $invoiceCode  送货编码：快递公司对应的拼音
-     * @param string $invoiceName  送货公司名称
-     * @param string $invoiceNo  送货单号
-     * @param array $orderIds  订单id列表
+     * @param string      $invoiceCode 送货编码：快递公司对应的拼音
+     * @param string      $invoiceName 送货公司名称
+     * @param string      $invoiceNo   送货单号
+     * @param array       $orderIds    订单id列表
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"invoiceCode": "sf", "invoiceName":"顺丰", "invoiceNo":"12334454", "orderIds":[116,117]})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.11
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool;
 
     /**
-     * 根据订单id获取订单收货地址信息
+     * 根据订单id获取订单收货地址信息.
      *
-     * @param int $orderId 订单id
+     * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      *
      * @requestExample({"orderId": 50001744 })
      * @returnExample({"orderId":"2","consignee":"test","gbCode":"510000","regionName":"\u5e7f\u4e1c","address":"test","zipcode":"123456","mobile":"","phone":"13430245645"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
-    public function getOrderInvoiceData(int $orderId, UidDTO $uidDTO = null):array;
+    public function getOrderInvoiceData(int $orderId, UidDTO $uidDTO = null): array;
 
     /**
-     * 卖家更新买家的收货地址信息
+     * 卖家更新买家的收货地址信息.
      *
-     * @param int $orderId  订单id
-     * @param array $invoiceData 收货地址信息
+     * @param int    $orderId                   订单id
+     * @param array  $invoiceData               收货地址信息
      * @param string $invoiceData["regionName"] 省市区中文
-     * @param string $invoiceData["address"] 详细地址
-     * @param string $invoiceData["mobile"] 手机号码
-     * @param string $invoiceData["consignee"] 收货人姓名
-     * @param string $invoiceData["gbCode"] 地区编码id
+     * @param string $invoiceData["address"]    详细地址
+     * @param string $invoiceData["mobile"]     手机号码
+     * @param string $invoiceData["consignee"]  收货人姓名
+     * @param string $invoiceData["gbCode"]     地区编码id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 50001744, "invoiceData":{"regionName":"广东省 广州市 越秀区","address":"test","mobile":"13430245645","consignee":"demo","gbCode":"440104"}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
-    public function updateOrderInvoiceData(int $orderId, array $invoiceData, UidDTO $uidDTO = null):bool;
+    public function updateOrderInvoiceData(int $orderId, array $invoiceData, UidDTO $uidDTO = null): bool;
 
     /**
-     * 卖家延长收货时间
+     * 卖家延长收货时间.
      *
-     * @param int $orderId  订单id
+     * @param int    $orderId 订单id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 50001744 })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
-    function extendReceiptTime(int $orderId, UidDTO $uidDTO = null):bool;
+    public function extendReceiptTime(int $orderId, UidDTO $uidDTO = null): bool;
 
     /**
      * 搜索已打印订单.
@@ -940,9 +953,10 @@ interface SellerOrderRefactoringInterface
     public function searchWaybillOrders(string $keywords = '', int $tab = 0, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
 
     /**
-     * 去指定时间内平台的所有下过单的买家Id (迁移旧代码)
+     * 去指定时间内平台的所有下过单的买家Id (迁移旧代码).
      *
      * @param int $time
+     *
      * @return array
      *
      * @requestExample({"time":1540474081})
@@ -950,29 +964,33 @@ interface SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getPlatOrderBuyerId(int $time):array;
+    public function getPlatOrderBuyerId(int $time): array;
 
     /**
-     * 批量获取买家下过的订单数 (迁移旧代码)
+     * 批量获取买家下过的订单数 (迁移旧代码).
      *
      * @param array $buyerIds 买家ids
-     * @param array   $status   排除的订单状态
+     * @param array $status   排除的订单状态
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[148086,1762341], "status": [6,12]})
      * @returnExample([{"buyer_id":"371333","num":"7"},{"buyer_id":"1762341","num":"46"}])
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getBuyerOrdersNum(array $buyerIds, array $status=[]);
+    public function getBuyerOrdersNum(array $buyerIds, array $status = []);
 
     /**
-     * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码)
+     * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码).
      *
      * @param array $buyerIds 买家ids
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[148086,1762341]})
@@ -980,14 +998,16 @@ interface SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getSameOrderSellerId(array $buyerIds):array;
+    public function getSameOrderSellerId(array $buyerIds): array;
 
     /**
-     * 根据买家id获取最后下单的订单id.(迁移旧代码)
+     * 根据买家id获取最后下单的订单id.(迁移旧代码).
      *
      * @param array $buyerIds 买家ids
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[148086,1762341]})
@@ -995,14 +1015,16 @@ interface SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getLastOrderId($buyerIds):array;
+    public function getLastOrderId($buyerIds): array;
 
     /**
-     * 根据订单id获取最后下单的卖家id.(迁移旧代码)
+     * 根据订单id获取最后下单的卖家id.(迁移旧代码).
      *
      * @param array $orderIds 订单ids
+     *
      * @return array
      *
      * @requestExample({"orderIds":[50002279]})
@@ -1010,30 +1032,34 @@ interface SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getLastOrderSellerId($orderIds):array;
+    public function getLastOrderSellerId($orderIds): array;
 
     /**
-     * 获取退款总数 (迁移旧代码)
+     * 获取退款总数 (迁移旧代码).
      *
-     * @param int $time 时间戳  gmtime()-X*86400
+     * @param int    $time    时间戳  gmtime()-X*86400
      * @param string $storeId
+     *
      * @return number
      *
      * @requestExample({"time":1345678945, "storeId":1760467})
      * @returnExample(4)
      *
      * @author zengxiong<zengxiong@eelly.net>
+     *
      * @since  2018.10.29
      */
-    public function getTkCount(int $time, int $storeId):int;
+    public function getTkCount(int $time, int $storeId): int;
 
     /**
-     * 根据下单时间获取某个店铺出售的商品信息 (迁移旧代码)
+     * 根据下单时间获取某个店铺出售的商品信息 (迁移旧代码).
      *
-     * @param int $storeId  店铺id
-     * @param array $byTime 添加时间 (['gt', 1538323200])
+     * @param int   $storeId 店铺id
+     * @param array $byTime  添加时间 (['gt', 1538323200])
+     *
      * @return array
      *
      * @requestExample({"storeId":1760467, "byTime":["gt", "1540540846"]})
@@ -1041,15 +1067,17 @@ interface SellerOrderRefactoringInterface
      *
      * @author 黄文广<huangwenguang@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.29
      */
-    public function getTakeOrderGoodsByTime(int $storeId, array $byTime):array;
+    public function getTakeOrderGoodsByTime(int $storeId, array $byTime): array;
 
     /**
-     * 获取90天仲裁数 服务质量2.0新规则
+     * 获取90天仲裁数 服务质量2.0新规则.
      *
-     * @param int $time  时间90天 gmtime()-X*86400
+     * @param int $time    时间90天 gmtime()-X*86400
      * @param int $storeId 店铺id
+     *
      * @return int
      *
      * @requestExample({"time":1540449990, "storeId":1760467})
@@ -1057,14 +1085,16 @@ interface SellerOrderRefactoringInterface
      *
      * @author zengxiong<zengxiong@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.29
      */
-    function getZcCount(int $time , int $storeId = 0):int;
+    public function getZcCount(int $time, int $storeId = 0): int;
 
     /**
-     * 根据order_id 获取所有买家的id
+     * 根据order_id 获取所有买家的id.
      *
      * @param array $orderId 订单id
+     *
      * @return array
      *
      * @requestExample({"orderId":[50002202, 50002203]})
@@ -1072,16 +1102,18 @@ interface SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.29
      */
-    public function getByerIdByOrderId(array $orderId):array;
+    public function getByerIdByOrderId(array $orderId): array;
 
     /**
-     * 根据买家id获取该买家购买的其他商品 (迁移旧代码)
+     * 根据买家id获取该买家购买的其他商品 (迁移旧代码).
      *
      * @param array $buyerId 买家id
-     * @param int $addTime  下单时间
-     * @param int $limit  数量
+     * @param int   $addTime 下单时间
+     * @param int   $limit   数量
+     *
      * @return array
      *
      * @requestExample({"buyerId":[1761505, 1762341, 148086], "addTime":1540540846, "limit":2})
@@ -1089,15 +1121,17 @@ interface SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.30
      */
-    public function getGoodInfoByOrderBuyerId(array $buyerId, int $addTime = 0, int $limit = 10):array;
+    public function getGoodInfoByOrderBuyerId(array $buyerId, int $addTime = 0, int $limit = 10): array;
 
     /**
-     * 统计用户在店铺下过的订单
+     * 统计用户在店铺下过的订单.
      *
-     * @param  int    $userId      用户ID
-     * @param  array  $sellerIds   店铺ID数组
+     * @param int   $userId    用户ID
+     * @param array $sellerIds 店铺ID数组
+     *
      * @return array
      *
      * @requestExample({"userId":1762341, "sellerIds":[158252, 1760467]})
@@ -1105,31 +1139,35 @@ interface SellerOrderRefactoringInterface
      *
      * @author 郑志明<zhengzhiming@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.30
      */
-    public function getOrderNumForUserIdBySellerId(int $userId, array $sellerIds):array;
+    public function getOrderNumForUserIdBySellerId(int $userId, array $sellerIds): array;
 
     /**
-     * 批量获取买家下过单的供应商数量 (迁移旧代码)
+     * 批量获取买家下过单的供应商数量 (迁移旧代码).
      *
      * @param array $buyerIds 买家ids
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[1762341, 2108435]})
      * @returnExample([{"buyer_id":"1762341","total":"70"},{"buyer_id":"2108435","total":"7"}])
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.31
      */
-    public function getBuyerSupplierNum(array $buyerIds):array;
+    public function getBuyerSupplierNum(array $buyerIds): array;
 
     /**
-     * 根据userId获取下过单的卖家Id (迁移旧代码)
+     * 根据userId获取下过单的卖家Id (迁移旧代码).
      *
      * @param int $userId 用户id
      * @param int $sTime  开始时间
      * @param int $eTime  结束时间
      * @param int $limit  限制条数
+     *
      * @return array
      *
      * @requestExample({"userId":148086})
@@ -1137,7 +1175,8 @@ interface SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.11.08
      */
-    public function getSellerIdByOrder(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20):array;
+    public function getSellerIdByOrder(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20): array;
 }

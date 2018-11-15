@@ -332,4 +332,17 @@ interface AccountInterface
      * @since 2018.10.15
      */
     public function setPayPassword(int $userId, string $payPassword, int $storeId = 0):bool;
+
+    /**
+     * 设置账号的提现手续费
+     *
+     * @param integer $userId  用户id
+     * @param integer $storeId 店铺id
+     * @param float $commissionRatio 手续费 默认 0.008
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.15
+     */
+    public function setCommissionratio(int $userId, int $storeId, float $commissionRatio = 0.008):bool;
 }
