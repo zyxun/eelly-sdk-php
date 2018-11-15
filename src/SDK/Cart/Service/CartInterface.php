@@ -160,6 +160,17 @@ interface CartInterface
     public function listCart(UidDTO $user = null): array;
 
     /**
+     * 购物车列表web
+     *
+     * @param  int      $userId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-13
+     */
+    public function listCartWeb(int $userId): array ;
+
+    /**
      * 添加购物车.
      *
      * @param int    $goodsId                商品id
