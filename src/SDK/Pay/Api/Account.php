@@ -467,10 +467,11 @@ class Account implements AccountInterface
      * auditStatus              | int       | 是否实名认证 0:否，1:通过
      * setPayPassword           | bool      | 是否设置了支付密码
      * mobile                   | string    | 绑定的手机号码
+     * withdrawLimit | int | 提现受限 0:没有受限，1:受限
      * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
      * nickname     | string | 微信昵称 isBindWechat为true才出现
-     * money        | float  | 账号余额
-     * frozenMoney  | float  | 账号冻结金额
+     * money        | int  | 账号余额 单位分
+     * frozenMoney  | int  | 账号冻结金额 单位分
      * 
      * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
@@ -499,10 +500,11 @@ class Account implements AccountInterface
      * auditStatus              | int       | 是否实名认证 0:否，1:通过
      * setPayPassword           | bool      | 是否设置了支付密码
      * mobile                   | string    | 绑定的手机号码
+     * withdrawLimit | int | 提现受限 0:没有受限，1:受限
      * isBindWechat | bool   | 是否绑定定了微信 true 是， false， 否
      * nickname     | string | 微信昵称 isBindWechat为true才出现
-     * money        | float  | 账号余额
-     * frozenMoney  | float  | 账号冻结金额
+     * money        | int  | 账号余额 单位分
+     * frozenMoney  | int  | 账号冻结金额 单位分
      * 
      * @param int         $storeId 店铺ID 默认是0
      * @param UidDTO|null $user    登录用户
@@ -707,6 +709,38 @@ class Account implements AccountInterface
     public function setPayPasswordAsync(int $userId, string $payPassword, int $storeId = 0)
     {
         return EellyClient::request('pay/account', 'setPayPassword', false, $userId, $payPassword, $storeId);
+    }
+
+    /**
+     * 设置账号的提现手续费
+     *
+     * @param integer $userId  用户id
+     * @param integer $storeId 店铺id
+     * @param float $commissionRatio 手续费 默认 0.008
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.15
+     */
+    public function setCommissionratio(int $userId, int $storeId, float $commissionRatio = 0.008): bool
+    {
+        return EellyClient::request('pay/account', 'setCommissionratio', true, $userId, $storeId, $commissionRatio);
+    }
+
+    /**
+     * 设置账号的提现手续费
+     *
+     * @param integer $userId  用户id
+     * @param integer $storeId 店铺id
+     * @param float $commissionRatio 手续费 默认 0.008
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.15
+     */
+    public function setCommissionratioAsync(int $userId, int $storeId, float $commissionRatio = 0.008)
+    {
+        return EellyClient::request('pay/account', 'setCommissionratio', false, $userId, $storeId, $commissionRatio);
     }
 
     /**
