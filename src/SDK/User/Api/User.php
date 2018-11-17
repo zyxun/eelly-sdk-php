@@ -1551,6 +1551,33 @@ class User implements UserInterface
     }
 
     /**
+     * 获取用户信息和扩展信息.
+     *
+     * @param array $userIds 用户id
+     * @return array
+     *
+     * @requestExample({"userIds":[1762254, 2108398]})
+     * @returnExample({"1762254":{"user_id":"1762254","user_name":"yl_waqa1945","nickname":"yl_waqa1945","real_name":"","phone_mob":""},"2108398":{"user_id":"2108398","user_name":"yl_jn003778","nickname":"yl_jn003778","real_name":"","phone_mob":""}})
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.11.18
+     */
+    public function getMemberExtendInfo(array $userIds):array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMemberExtendInfoAsync(array $userIds):array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
