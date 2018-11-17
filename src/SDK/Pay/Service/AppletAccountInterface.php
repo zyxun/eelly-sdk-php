@@ -39,6 +39,7 @@ interface AppletAccountInterface
      * certificationStatus     | int    | 是否实名 1:是，0:否
      * isSetPayPass            | bool   | 是否设置支付密码 true:设置，false:未设置
      *
+     * @param int $userId  用户id
      * @param int $storeId 店铺id
      *
      * @return array
@@ -46,7 +47,7 @@ interface AppletAccountInterface
      * @author hehui<hehui@eelly.net>
      * @author wechan
      */
-    public function statistics(int $storeId): array;
+    public function statistics(int $userId, int $storeId): array;
 
     /**
      * 获取我绑定的银行账户.
