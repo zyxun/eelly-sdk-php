@@ -137,9 +137,10 @@ interface InvoiceInterface
     /**
      * 获取物流信息.
      *
-     * @param int $orderId 订单ID
-     * @param int $type 1 发货物流 2 退货物流
+     * @param int         $orderId 订单ID
+     * @param int         $type    1 发货物流 2 退货物流
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      * @requestExample({"orderId":160})
      * @returnExample({
@@ -184,19 +185,22 @@ interface InvoiceInterface
      * receiptEndTime |string |收货截止时间戳
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年04月25日
      */
     public function getExpressByOrderId(int $orderId, int $type = 1, UidDTO $uidDTO = null): array;
 
     /**
      * 店铺最近发货的5家物流
+     *
      * @reqArgs
      * @requestExample({"sellerId": 148086})
      * @explain
      * @returnExample({"中通","顺丰","韵达","圆通","申通"})
+     *
      * @author 张扬熏<542207975@qq.com>
+     *
      * @since 2018年06月14日
      */
-    public function getOrderInvoiceRecord(int $sellerId): array ;
-
+    public function getOrderInvoiceRecord(int $sellerId): array;
 }

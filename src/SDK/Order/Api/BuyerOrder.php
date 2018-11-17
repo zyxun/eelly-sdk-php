@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,12 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Order\Service\BuyerOrderInterface;
-use Eelly\DTO\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class BuyerOrder implements BuyerOrderInterface
@@ -217,7 +217,7 @@ class BuyerOrder implements BuyerOrderInterface
      */
     public function orderPage(int $tab = 0, int $page = 1, int $limit = 20, $searchParams = null, string $orderBy = 'created_time desc', UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/buyerOrder', 'orderPage', true, $tab, $page, $limit, $searchParams, $orderBy, $uidDTO);
+        return EellyClient::request('order/buyerOrder', 'orderPage', true, $tab, $page, $limit, $searchParams, $orderBy);
     }
 
     /**
@@ -1979,9 +1979,10 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
-     *  pc买家主页订单信息
+     *  pc买家主页订单信息.
      *
      * @param int $buyerId
+     *
      * @return array
      */
     public function listOrderBuyerHome(int $buyerId): array
@@ -1990,9 +1991,10 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
-     *  pc买家主页订单信息
+     *  pc买家主页订单信息.
      *
      * @param int $buyerId
+     *
      * @return array
      */
     public function listOrderBuyerHomeAsync(int $buyerId)
