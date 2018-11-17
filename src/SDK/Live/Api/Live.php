@@ -596,6 +596,7 @@ class Live implements LiveInterface
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
      * @param int   $data['isPay']   是否收费
+     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
      *
      * @requestExample({
         "data": {
@@ -625,6 +626,7 @@ class Live implements LiveInterface
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
      * @param int   $data['isPay']   是否收费
+     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
      *
      * @requestExample({
         "data": {
@@ -850,7 +852,7 @@ class Live implements LiveInterface
      * 获取正在直播的店铺id
      * 
      * @requestExample()
-     * @returnExample()
+     * @returnExample(["148086","1760467","1761477"])
      * 
      * @author wechan
      * @since 2018年07月07日
@@ -864,7 +866,7 @@ class Live implements LiveInterface
      * 获取正在直播的店铺id
      * 
      * @requestExample()
-     * @returnExample()
+     * @returnExample(["148086","1760467","1761477"])
      * 
      * @author wechan
      * @since 2018年07月07日
@@ -873,7 +875,7 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'getOnLiveStoreId', false);
     }
-  
+
     /**
      * 取消直播预约
      *
@@ -976,6 +978,36 @@ class Live implements LiveInterface
     public function getExpiredStatAsync(int $day)
     {
         return EellyClient::request('live/live', 'getExpiredStat', false, $day);
+    }
+
+    /**
+     * 关于直播操作
+     *
+     * @param integer $userId 用户ID
+     * @param integer $storeId 店铺id
+     * @param int $type 消息类型 1正在去拿货2刚刚下了单3关注了直播商家4分享了该直播5主播变更讲解商品
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function aboutOrderAndCartHandle(int $userId, int $storeId, int $type): bool
+    {
+        return EellyClient::request('live/live', 'aboutOrderAndCartHandle', true, $userId, $storeId, $type);
+    }
+
+    /**
+     * 关于直播操作
+     *
+     * @param integer $userId 用户ID
+     * @param integer $storeId 店铺id
+     * @param int $type 消息类型 1正在去拿货2刚刚下了单3关注了直播商家4分享了该直播5主播变更讲解商品
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function aboutOrderAndCartHandleAsync(int $userId, int $storeId, int $type)
+    {
+        return EellyClient::request('live/live', 'aboutOrderAndCartHandle', false, $userId, $storeId, $type);
     }
 
     /**
