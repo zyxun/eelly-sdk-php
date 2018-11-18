@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 
+use Eelly\DTO\UidDTO;
+
 /**
  * uc的一些替代接口.
  *
@@ -61,7 +63,7 @@ interface UcReplaceInterface
      *
      * @return bool
      */
-    public function updatePassword(int $userId, string $password): bool;
+    public function updatePassword(int $userId, string $password, UidDTO $uidDTO = null): bool;
 
     /**
      * 是否设置密码.
