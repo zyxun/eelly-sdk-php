@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UcReplaceInterface;
 
@@ -45,7 +46,7 @@ class UcReplace implements UcReplaceInterface
     /**
      * {@inheritdoc}
      */
-    public function updatePassword(int $userId, string $password): bool
+    public function updatePassword(int $userId, string $password, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('user/ucReplace', __FUNCTION__, true, $userId, $password);
     }
