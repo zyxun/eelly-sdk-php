@@ -2421,6 +2421,32 @@ class Order implements OrderInterface
     }
 
     /**
+     * 根据订单id 获取订单号
+     * 
+     * @param int $orderId 订单id
+     * 
+     * @author wechan
+     * @since 2018年11月18日
+     */
+    public function getOrderSnByOrderId(int $orderId): string
+    {
+        return EellyClient::request('order/order', 'getOrderSnByOrderId', true, $orderId);
+    }
+
+    /**
+     * 根据订单id 获取订单号
+     * 
+     * @param int $orderId 订单id
+     * 
+     * @author wechan
+     * @since 2018年11月18日
+     */
+    public function getOrderSnByOrderIdAsync(int $orderId)
+    {
+        return EellyClient::request('order/order', 'getOrderSnByOrderId', false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
