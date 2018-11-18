@@ -1124,4 +1124,14 @@ interface OrderInterface
      * @return array
      */
     public function getMemberOrderCountAndAmount(array $buyerIds): array;
+    
+    /**
+     * 根据订单id 获取订单号
+     * 
+     * @param int $orderId 订单id
+     * 
+     * @author wechan
+     * @since 2018年11月18日
+     */
+    public function getOrderSnByOrderId(int $orderId):string;
 }
