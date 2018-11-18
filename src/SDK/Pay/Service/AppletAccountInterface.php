@@ -47,7 +47,7 @@ interface AppletAccountInterface
      * @author hehui<hehui@eelly.net>
      * @author wechan
      */
-    public function statistics(int $userId, int $storeId = 0): array;
+    public function statistics(int $userId = 0, int $storeId = 0): array;
 
     /**
      * 获取我绑定的银行账户.
