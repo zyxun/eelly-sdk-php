@@ -47,7 +47,7 @@ class AppletAccount implements AppletAccountInterface
      * @author hehui<hehui@eelly.net>
      * @author wechan
      */
-    public function statistics(int $userId, int $storeId): array
+    public function statistics(int $userId = 0, int $storeId = 0): array
     {
         return EellyClient::request('pay/appletAccount', 'statistics', true, $userId, $storeId);
     }
@@ -77,7 +77,7 @@ class AppletAccount implements AppletAccountInterface
      * @author hehui<hehui@eelly.net>
      * @author wechan
      */
-    public function statisticsAsync(int $userId, int $storeId)
+    public function statisticsAsync(int $userId = 0, int $storeId = 0)
     {
         return EellyClient::request('pay/appletAccount', 'statistics', false, $userId, $storeId);
     }
