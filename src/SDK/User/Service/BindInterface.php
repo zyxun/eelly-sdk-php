@@ -205,7 +205,7 @@ interface BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.11
      */
-    public function bindUserMobile(int $userId, string $mobile): bool;
+    public function bindUserMobile(int $userId, string $mobile, UidDTO $uidDTO = null): bool;
 
     /**
      * 重置用户密码
