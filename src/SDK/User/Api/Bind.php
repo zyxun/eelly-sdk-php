@@ -415,7 +415,7 @@ class Bind implements BindInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.07.11
      */
-    public function bindUserMobile(int $userId, string $mobile): bool
+    public function bindUserMobile(int $userId, string $mobile, UidDTO $uidDTO = null): bool
     {
         return EellyClient::request('user/bind', 'bindUserMobile', true, $userId, $mobile);
     }
