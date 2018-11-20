@@ -146,4 +146,18 @@ interface RefundInterface
      * @since 2018-10-11
      */
     public function getManageRefund(int $orderId): array;
+
+    /**
+     * 后台退款订单列表
+     *
+     * @param array $condition
+     * @param int $page
+     * @param int $limit
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-20
+     */
+    public function listManageRefundOrder(array $condition, int $page, int $limit, string $fieldScope): array ;
 }
