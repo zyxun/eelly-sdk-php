@@ -722,6 +722,33 @@ class Bind implements BindInterface
     }
 
     /**
+     * 根据传过来的条件，返回对应的数据信息.
+     *
+     * @param string $condition 条件
+     * @param array  $bind      绑定参数
+     * @param string $field     要搜索的字段
+     * @return array
+     *
+     * @requestExample({"condition":"user_id IN ({userIds:array})", "bind":{"userIds":[148086]}})
+     * @returnExample([{"userId":"148086","nickname":"6LW36aOO5LqG","type":"1","status":"2","openId":"1234"},{"userId":"148086","nickname":"Y29sb3Jz","type":"2","status":"2","openId":"1234"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.20
+     */
+    public function listMessageByCondition(string $condition, array $bind, string $field = 'bindInfo'): array
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, true, $condition, $bind, $field);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listMessageByConditionAsync(string $condition, array $bind, string $field = 'bindInfo'): array
+    {
+        return EellyClient::request('user/bind', __FUNCTION__, false, $condition, $bind, $field);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
