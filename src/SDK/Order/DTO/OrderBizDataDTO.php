@@ -55,6 +55,7 @@ class OrderBizDataDTO extends AbstractDTO
      *
      * @var int
      */
+    public $countdown = 0;
     public $countDown = 0;
 
     /**
@@ -62,6 +63,7 @@ class OrderBizDataDTO extends AbstractDTO
      *
      * @var string
      */
+    public $countdownTpl = '';
     public $countDownTpl = '';
 
     /**
@@ -175,9 +177,9 @@ class OrderBizDataDTO extends AbstractDTO
     /**
      * @return int
      */
-    public function getCountDown(): int
+    public function getCountdown(): int
     {
-        return $this->countDown;
+        return $this->countdown;
     }
 
     /**
@@ -185,9 +187,10 @@ class OrderBizDataDTO extends AbstractDTO
      *
      * @return OrderBizDataDTO
      */
-    public function setCountDown(int $countDown): self
+    public function setCountdown(int $countdown): self
     {
-        $this->countDown = $countDown;
+        $this->countdown = $countdown;
+        $this->countDown = $countdown;
 
         return $this;
     }
@@ -195,9 +198,9 @@ class OrderBizDataDTO extends AbstractDTO
     /**
      * @return string
      */
-    public function getCountDownTpl(): string
+    public function getCountdownTpl(): string
     {
-        return $this->countDownTpl;
+        return $this->countdownTpl;
     }
 
     /**
@@ -205,9 +208,10 @@ class OrderBizDataDTO extends AbstractDTO
      *
      * @return OrderBizDataDTO
      */
-    public function setCountDownTpl(string $countDownTpl): self
+    public function setCountdownTpl(string $countdownTpl): self
     {
-        $this->countDownTpl = $countDownTpl;
+        $this->countdownTpl = $countdownTpl;
+        $this->countDownTpl = $countdownTpl;
 
         return $this;
     }
