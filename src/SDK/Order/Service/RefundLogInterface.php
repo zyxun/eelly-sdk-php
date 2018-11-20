@@ -57,4 +57,18 @@ interface RefundLogInterface
      * @since 2018-10-11
      */
     public function getRefundLog(int $orderId): array;
+
+    /**
+     * 获取订单退货退款操作记录.
+     *
+     * @param array $condition      查询条件
+     * @param int $page             当前页码
+     * @param int $limit            获取条数
+     * @param string $fieldScope    字段空间
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-20
+     */
+    public function getOrderRefundLog(array $condition, int $page = 1, int $limit = 10, string $fieldScope = ''): array ;
 }
