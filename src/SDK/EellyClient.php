@@ -122,7 +122,7 @@ class EellyClient
         self::getSdkClient()->getHandlerStack()->push(Middleware::mapRequest(function (RequestInterface $request) {
             $clientRequest = new Request();
             if (!$clientRequest->hasHeader(self::TRACE_HEADER_IP)) {
-                $ip = $clientRequest->getClientAddress();
+                $ip = $clientRequest->getClientAddress(true);
                 $request = $request->withHeader(self::TRACE_HEADER_IP, $ip);
             }
 
