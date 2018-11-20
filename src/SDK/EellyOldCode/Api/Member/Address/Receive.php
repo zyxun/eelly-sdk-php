@@ -84,4 +84,42 @@ class Receive
     {
         return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId);
     }
+    
+    /**
+     * 通过地址ID和用户ID获得收货地址
+     *
+     * > 注意：这里参数顺序是地址id，用户id
+     *
+     * ###使用示例
+     *
+     * ####一般使用方式
+     * <code>
+     * ReceiveService::getInstance()->getAddrByAddrId(456, 123);
+     * </code>
+     *
+     * @param int $addrId 地址id
+     * @param int $userId 用户id
+     *
+     * @return array 地址数组
+     *               > 未找到数据返回null
+     *
+     * > 数组说明
+     *   key | value
+     *   ------------ | -------------
+     *   addr_id      | 收货地址id
+     *   user_id      | 用户id
+     *   consignee    | 收货人姓名
+     *   region_id    | 地区id
+     *   region_name  | 地区名
+     *   address      | 详细地址
+     *   zipcode      | 邮编
+     *   phone_tel    | 电话
+     *   phone_mob    | 手机
+     *   default      | 是否设置为默认地址(1:是，0:否)
+     *
+     */
+    public function getAddrByAddrId($addrId, $userId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $addrId, $userId);
+    }
 }
