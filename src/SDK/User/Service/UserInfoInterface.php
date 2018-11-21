@@ -41,4 +41,16 @@ interface UserInfoInterface
      * @author hehui<runphp@dingtalk.com>
      */
     public function getList(array $userIds): array;
+
+    /**
+     * 获取申请提现的用户的信息
+     *
+     * @param array $userIds
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-21
+     */
+    public function getWithdrawUserInfo(array $userIds): array ;
+
 }
