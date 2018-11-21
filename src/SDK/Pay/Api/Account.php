@@ -753,7 +753,7 @@ class Account implements AccountInterface
      * @author zhangyangxun
      * @since 2018-11-21
      */
-    public function getAccountStatistics(int $userId = 0, int $storeId = 0): array
+    public function getAccountStatistics(int $userId, int $storeId = 0): array
     {
         return EellyClient::request('pay/account', 'getAccountStatistics', true, $userId, $storeId);
     }
@@ -768,7 +768,7 @@ class Account implements AccountInterface
      * @author zhangyangxun
      * @since 2018-11-21
      */
-    public function getAccountStatisticsAsync(int $userId = 0, int $storeId = 0)
+    public function getAccountStatisticsAsync(int $userId, int $storeId = 0)
     {
         return EellyClient::request('pay/account', 'getAccountStatistics', false, $userId, $storeId);
     }
