@@ -744,6 +744,36 @@ class Account implements AccountInterface
     }
 
     /**
+     * 统计资金账号流水
+     *
+     * @param int $userId
+     * @param int $storeId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-21
+     */
+    public function getAccountStatistics(int $userId = 0, int $storeId = 0): array
+    {
+        return EellyClient::request('pay/account', 'getAccountStatistics', true, $userId, $storeId);
+    }
+
+    /**
+     * 统计资金账号流水
+     *
+     * @param int $userId
+     * @param int $storeId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-21
+     */
+    public function getAccountStatisticsAsync(int $userId = 0, int $storeId = 0)
+    {
+        return EellyClient::request('pay/account', 'getAccountStatistics', false, $userId, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
