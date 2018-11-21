@@ -115,6 +115,19 @@ interface ApplyWithdrawInterface
     public function updateWithdrawStatus(int $pwId, int $status, string $remark = ''): bool;
 
     /**
+     * 批量更新状态
+     *
+     * @param array  $pwIds  提现交易ID
+     * @param int    $status 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * @param string $remark 备注
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-21
+     */
+    public function updateWithdrawStatusBatch(array $pwIds, int $status, string $remark = ''): bool ;
+
+    /**
      * 申请微信钱包提现
      * 
      * > data 数据说明
