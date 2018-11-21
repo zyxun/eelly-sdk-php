@@ -356,5 +356,5 @@ interface AccountInterface
      * @author zhangyangxun
      * @since 2018-11-21
      */
-    public function getAccountStatistics(int $userId = 0, int $storeId = 0):array ;
+    public function getAccountStatistics(int $userId, int $storeId = 0):array ;
 }
