@@ -122,4 +122,16 @@ class Receive
     {
         return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $addrId, $userId);
     }
+    
+    /**
+     * 通过地址ID和用户ID获得收货地址
+     *
+     * @param int $addressId
+     * @param int $userId
+     * @return array
+     */
+    public function getAddressByAddressId($addressId, $userId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $addressId, $userId);
+    }
 }
