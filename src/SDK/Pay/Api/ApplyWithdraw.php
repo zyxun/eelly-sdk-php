@@ -230,7 +230,7 @@ class ApplyWithdraw implements ApplyWithdrawInterface
      * > data 数据说明
      * key | type | value
      * --- | ---- | -----
-     * money | float | 提现的金额 分单位
+     * money | int | 提现的金额 分单位
      * storeId  | int   | 店铺id 默认0，非0代表厂+
      * password | string | 支付密码
      *      
@@ -255,7 +255,7 @@ class ApplyWithdraw implements ApplyWithdrawInterface
      * > data 数据说明
      * key | type | value
      * --- | ---- | -----
-     * money | float | 提现的金额 分单位
+     * money | int | 提现的金额 分单位
      * storeId  | int   | 店铺id 默认0，非0代表厂+
      * password | string | 支付密码
      *      
