@@ -96,8 +96,7 @@ interface ArbitrateInterface
     /**
      * 订单仲裁列表.
      *
-     * @param string $condition
-     * @param array  $bind
+     * @param array  $condition  查询字段和值
      * @param int    $page
      * @param int    $limit
      *
@@ -107,7 +106,7 @@ interface ArbitrateInterface
      *
      * @since 2018-09-29
      */
-    public function listArbitratePage(string $condition, array $bind = [], int $page = 1, int $limit = 20): array;
+    public function listArbitratePage(array $condition, int $page = 1, int $limit = 20): array;
 
     /**
      * 订单仲裁信息.
