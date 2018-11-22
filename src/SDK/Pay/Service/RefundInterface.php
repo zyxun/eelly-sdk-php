@@ -127,4 +127,18 @@ interface RefundInterface
      */
     public function refundIntegrity(array $data, UidDTO $uidDTO = null):bool;
 
+    /**
+     * 获取退款记录列表
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-22
+     */
+    public function listRefundPage(array $condition, int $page = 1, int $limit = 10, string $fieldScope = ''): array ;
+
 }
