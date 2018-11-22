@@ -225,38 +225,6 @@ class ApplyWithdraw implements ApplyWithdrawInterface
     }
 
     /**
-     * 批量更新状态
-     *
-     * @param array  $pwIds  提现交易ID
-     * @param int    $status 处理状态：0 未处理 1 成功 2 失败 3 处理中
-     * @param string $remark 备注
-     * @return bool
-     *
-     * @author zhangyangxun
-     * @since 2018-11-21
-     */
-    public function updateWithdrawStatusBatch(array $pwIds, int $status, string $remark = ''): bool
-    {
-        return EellyClient::request('pay/applyWithdraw', 'updateWithdrawStatusBatch', true, $pwIds, $status, $remark);
-    }
-
-    /**
-     * 批量更新状态
-     *
-     * @param array  $pwIds  提现交易ID
-     * @param int    $status 处理状态：0 未处理 1 成功 2 失败 3 处理中
-     * @param string $remark 备注
-     * @return bool
-     *
-     * @author zhangyangxun
-     * @since 2018-11-21
-     */
-    public function updateWithdrawStatusBatchAsync(array $pwIds, int $status, string $remark = '')
-    {
-        return EellyClient::request('pay/applyWithdraw', 'updateWithdrawStatusBatch', false, $pwIds, $status, $remark);
-    }
-
-    /**
      * 申请微信钱包提现
      * 
      * > data 数据说明
