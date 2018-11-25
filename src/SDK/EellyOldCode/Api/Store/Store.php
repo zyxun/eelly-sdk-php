@@ -232,4 +232,20 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $fieldType, $state);
     }
+
+    /**
+     * 获取店铺信息（店主，描述）.
+     *
+     * @param int $storeId
+     *
+     * @return array
+     *
+     * @author wangjiang<wangjiang@eelly.net>
+     *
+     * @since  2017年4月21日
+     */
+    public function getStoreOwnerInfo(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
+    }
 }
