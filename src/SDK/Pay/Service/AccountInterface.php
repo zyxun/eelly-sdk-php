@@ -357,4 +357,16 @@ interface AccountInterface
      * @since 2018-11-21
      */
     public function getAccountStatistics(int $userId, int $storeId = 0):array ;
+
+    /**
+     * 统计用户交易流水
+     *
+     * @param int $userId
+     * @param int $storeId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-26
+     */
+    public function statAccountMoney(int $userId, int $storeId = 0): array ;
 }
