@@ -169,4 +169,28 @@ interface OauthUserInterface
      * @author hehui<hehui@eelly.net>
      */
     public function getUserByMobileCode(string $mobile, string $code): UserDTO;
+
+    /**
+     * 保存sso token
+     *
+     * @param string $token
+     * @param array  $data
+     * @param int    $lifetime
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-11-27
+     */
+    public function saveSsoLoginToken(string $token, array $data, int $lifetime = 60): bool ;
+
+    /**
+     * 校验sso token
+     *
+     * @param string $token
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-27
+     */
+    public function checkSsoLoginToken(string $token): array;
 }
