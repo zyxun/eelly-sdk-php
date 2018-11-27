@@ -84,4 +84,33 @@ interface AppletPayRecordInterface
      * @since  2018年05月19日
      */
     public function getSellerPayRecordsDetails(int $payRecordId): array;
+
+    /**
+     * 获取交易的记录 针对pc
+     * 
+     * > params 筛选条件说明
+     * 
+     * type | value | desc
+     * ---- | ----- | ----
+     * oneMonth | mixed | 近一个月数据筛选条件，没有任何筛选条件默认
+     * threeMonth | mixed | 近三个月的筛选条件
+     * halfAYear | mixed | 近半年
+     * all | mixed | 全部
+     * startTime | int | 开始时间戳
+     * endTime | int | 结束时间戳
+     * orderSn | string | 订单号
+     * BillNo | string | 交易流水号
+     * type | int | 筛选类型 1:收入 2:支出
+     *
+     * @param integer $storeId 店铺id
+     * @param array $params 参数数组 筛选条件
+     * @param integer $page 当前页
+     * @param integer $limit 每页限制数量
+     * @param UidDTO $user 当前登录的用户
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.26
+     */
+    public function getRecordList(int $storeId, array $params = [], int $page = 1, int $limit = 10, UidDTO $user = null):array;
 }
