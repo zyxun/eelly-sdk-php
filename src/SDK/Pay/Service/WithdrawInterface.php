@@ -357,4 +357,45 @@ interface WithdrawInterface
      * @since 2018.9.11
      */
     public function getWithdrawDetail(int $pwId, int $userId):array;
+
+    /**
+     * pc获取提现列表
+     *
+     * > params 筛选条件值
+     * 
+     * key | type | desc
+     * --- | ---- | ----
+     * startTime | int | 筛选开始的时间戳
+     * endTime | int | 筛选结束的时间戳
+     * times | int | 筛选时间类型 1:近一个月 2:近三个月 3:近半年 4:全部
+     * type | int | 处理状态：0 未处理 1 成功 2 失败 3 处理中
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | desc
+     * --- | ---- | ----
+     * pwId | int | 提现id
+     * paId | int | 提现账号id
+     * money | int | 提现金额 分单位
+     * bankName | string | 提现银行卡名称
+     * bankAccount | string | 提现银行卡账号
+     * billNo | string | 提现交易流水号
+     * status | int | 提现状态 0:未处理 1:成功 2:失败 3:处理中
+     * statusContent | string | 提现状态文字说明
+     * remark | string | 提现备注
+     * adminRemark | string | 驳回原因
+     * handleTime | int | 处理时间戳
+     * createdTime | int | 创建时间戳
+     * 
+     * @param integer $storeId 店铺id
+     * @param array $params 筛选条件
+     * @param integer $page
+     * @param integer $limit
+     * @param UidDTO $user
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.28
+     */
+    public function getWithdrawListForPc(int $storeId, array $params = [], int $page = 1, int $limit = 50, UidDTO $user = null):array;
 }

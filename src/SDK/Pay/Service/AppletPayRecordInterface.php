@@ -92,14 +92,11 @@ interface AppletPayRecordInterface
      * 
      * type | value | desc
      * ---- | ----- | ----
-     * oneMonth | mixed | 近一个月数据筛选条件，没有任何筛选条件默认
-     * threeMonth | mixed | 近三个月的筛选条件
-     * halfAYear | mixed | 近半年
-     * all | mixed | 全部
+     * times | int | 1:近一个月 2:近三个月 3:近半年 4:全部
      * startTime | int | 开始时间戳
      * endTime | int | 结束时间戳
      * orderSn | string | 订单号
-     * BillNo | string | 交易流水号
+     * billNo | string | 交易流水号
      * type | int | 筛选类型 1:收入 2:支出
      *
      * @param integer $storeId 店铺id
