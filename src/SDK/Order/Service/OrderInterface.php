@@ -1134,4 +1134,16 @@ interface OrderInterface
      * @since 2018年11月18日
      */
     public function getOrderSnByOrderId(int $orderId):string;
+    
+    /**
+     * 获取时间区间内店铺非付款取消的总交易额
+     *
+     * @param array $storeIds 店铺id
+     * @param int   $sTime   开始时间
+     * @param int   $eTime   结束时间
+     * @return array
+     * @author wechan
+     * @since  2018年11月28日
+     */
+    public function getNotCancelSalesByStoreId(array $storeIds, int $sTime, int $eTime): array;
 }
