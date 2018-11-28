@@ -270,14 +270,14 @@ class Address implements AddressInterface
      * 店铺是否设置退货地址
      *
      * @param int $storeId 店铺id
-     * @return bool
+     * @return string
      * @requestExample({"storeId":148086})
-     * @returnExample(true)
+     * @returnExample("true")
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.11.28
      */
-    public function ifSetReturnAddress(int $storeId):bool
+    public function ifSetReturnAddress(int $storeId):string
     {
         return EellyClient::request('store/address', __FUNCTION__, true, $storeId);
     }
@@ -285,7 +285,7 @@ class Address implements AddressInterface
     /**
      * @inheritdoc
      */
-    public function ifSetReturnAddressAsync(int $storeId):bool
+    public function ifSetReturnAddressAsync(int $storeId):string
     {
         return EellyClient::request('store/address', __FUNCTION__, false, $storeId);
     }
