@@ -105,9 +105,29 @@ interface BankInterface
      *
      * @return array 返回分页结果
      * @requestExample(["condition": [{"useFlag":1,"status":1}],"limit": "10","currentPage": "1"])
-     * @returnExample(["items": [{"bankId":1,"name":"测试银行", "code":"testcode","logo":"bank_logo_shbank.gif",
-     *     "use_flag":1,"sort":255,"status":1,"createdTime":1503560249},
-     *     "page": {"first": 1,"before": 1,"current": 1,"last": 1,"next": 1,"total_pages": 1,"total_items": 1,"limit": 10}])
+     *
+     * @returnExample({
+     * "items": [{
+     * "bankId": 1,
+     * "name": "测试银行",
+     * "code": "testcode",
+     * "logo": "bank_logo_shbank.gif",
+     * "use_flag": 1,
+     * "sort": 255,
+     * "status": 1,
+     * "createdTime": 1503560249
+     * }],
+     * "page": {
+     * "first": 1,
+     * "before": 1,
+     * "current": 1,
+     * "last": 1,
+     * "next": 1,
+     * "total_pages": 1,
+     * "total_items": 1,
+     * "limit": 10
+     * }
+     * })
      *
      * @author zhangyingdi<zhangyingdi@gmail.com>
      *

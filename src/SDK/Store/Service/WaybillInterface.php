@@ -1,16 +1,17 @@
 <?php
+
 declare(strict_types=1);
-/**
- * PHP version 5.5
+
+/*
+ * This file is part of eelly package.
  *
- * @copyright  Copyright (c) 2012-2015 EELLY Inc. (http://www.eelly.com)
- * @link       http://www.eelly.com
- * @license    衣联网版权所有
+ * (c) eelly.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-
 namespace Eelly\SDK\Store\Service;
-
 
 interface WaybillInterface
 {
@@ -18,8 +19,11 @@ interface WaybillInterface
      * 添加用户店铺电子面单Token绑定.
      *
      * @param array $data
+     *
      * @return bool
+     *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年05月23日
      * @Validation(
      *     @PresenceOf(0,{message : "非法参数"})
@@ -75,10 +79,6 @@ interface WaybillInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2018年05月23日
-     * @Validation(
-     *      @OperatorValidator(0,{message : "非法用户ID/店铺ID",operator:["gt",0]}),
-     *      @InclusionIn(1,{message : "非法的绑定类型",domain:[0, 1, 2]})
-     * )
      */
     public function getWaybillInfo(int $userId, int $type): array;
 }

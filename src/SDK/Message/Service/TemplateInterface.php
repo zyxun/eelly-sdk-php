@@ -25,42 +25,35 @@ interface TemplateInterface
     /**
      * 添加信息模板.
      *
-     * @param int    $type    消息模板类型：1 站内消息 2 邮件 4 手机短信
-     * @param string $name    消息模板名称
-     * @param string $content 消息模板内容
+     * @param array $template 消息模板内容
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return int 返回消息id
-     * @requestExample({"type":1,"name":"模板名称","content":"模板内容"})
+     * @requestExample({"template":{"type":1,"name":"模板名称","content":"模板内容"}})
      * @returnExample(1)
      *
-     * @author liangxinyi<liangxinyi@eelly.net>
-     *
-     * @since 2017-7-28
+     * @author zhangyangxun
+     * @since 2018-08-31
      */
-    public function addTemplate(int $type, string $name, string $content): int;
+    public function addTemplate(array $template): int;
 
     /**
      * 编辑指定id消息模板.
      *
      * @param int    $mtId    消息模板id
-     * @param int    $type    消息模板类型：1 站内消息 2 邮件 4 手机短信
-     * @param string $name    消息模板名称
-     * @param string $content 消息模板内容
-     * @param int    $status  状态：0 未启用 1 启用
+     * @param array  $template    更新的数据
      *
      * @throws \Eelly\SDK\Message\Exception\MessageException
      *
      * @return bool
-     * @requestExample({"mtId":1,"type":1,"name":"模板名称","content":"模板内容"})
+     * @requestExample({"mtId":1, "emplate":{"type":1,"name":"模板名称","content":"模板内容"}})
      * @returnExample(true)
      *
-     * @author liangxinyi<liangxinyi@eelly.net>
-     *
-     * @since 2017-7-28
+     * @author zhangyangxun
+     * @since 2018-08-31
      */
-    public function updateTemplate(int $mtId, int $type, string $name, string $content, int $status): bool;
+    public function updateTemplate(int $mtId, array $template): bool;
 
     /**
      * 信息模板分页列表.
@@ -140,4 +133,37 @@ interface TemplateInterface
      * @since 2017-8-2
      */
     public function getTemplateContent(int $mtId, array $parameter = null): TemplateDTO;
+
+    /**
+     * 传过来的条件返回一条对应的信息记录
+     *
+     * @param string $conditions  搜索条件
+     * @param array $bind  绑定参数
+     * @return array
+     *
+     * @requestExample({
+     *     "conditions":"type=:type:",
+     *     "bind":{"type":1}
+     * })
+     * @returnExample({"mtId":"1","type":"1","name":"\u62fc\u56e2\u6210\u529f\u901a\u77e5","group_name": "activation_activity","content":"\u60a8\u7684\u597d\u53cb\u5df2\u5e2e\u60a8\u70b9\u8d5e\u5566\uff0c\u6210\u529f\u7701\u4e86XX\u5143\u54e6~?\u670d\u88c5\u6279\u53d1\u8d27\u6e90\uff0c\u4f4e\u81f39.9\u5143\uff0c\u5feb\u6765\u770b\u770b\uff01","status":"1","createdTime":"0"})
+     * @author zhangyangxun
+     * @since 2018-09-05
+     */
+    public function getTemplateByCondition($conditions, $bind):array;
+
+    /**
+     * 删除指定id消息模板.
+     *
+     * @param int    $mtId    消息模板id
+     *
+     * @throws \Eelly\SDK\Message\Exception\MessageException
+     *
+     * @return bool
+     * @requestExample({"mtId":1})
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018-08-31
+     */
+    public function deleteTemplate(int $mtId): bool;
 }

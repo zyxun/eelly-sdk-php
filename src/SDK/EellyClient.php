@@ -122,7 +122,7 @@ class EellyClient
         self::getSdkClient()->getHandlerStack()->push(Middleware::mapRequest(function (RequestInterface $request) {
             $clientRequest = new Request();
             if (!$clientRequest->hasHeader(self::TRACE_HEADER_IP)) {
-                $ip = $clientRequest->getClientAddress();
+                $ip = $clientRequest->getClientAddress(true);
                 $request = $request->withHeader(self::TRACE_HEADER_IP, $ip);
             }
 
@@ -158,7 +158,13 @@ class EellyClient
             } catch (ServerException $e) {
                 $body = json_decode((string) $e->getResponse()->getBody(), true);
                 if (JSON_ERROR_NONE == json_last_error()) {
-                    throw new \ErrorException($body['error']);
+                    throw new \ErrorException(
+                        $body['error'] ?? (string) $e->getResponse()->getBody(),
+                        0,
+                        1,
+                        __FILE__,
+                        __LINE__,
+                        $e);
                 }
                 throw $e;
             }

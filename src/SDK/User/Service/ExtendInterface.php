@@ -195,7 +195,7 @@ interface ExtendInterface
      * @param UidDTO $user 用户登录信息
      *
      * @return array
-     * @requestExample({})
+     *
      * @returnExample({"status":"1"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>

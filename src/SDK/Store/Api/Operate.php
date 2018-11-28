@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -17,7 +18,6 @@ use Eelly\SDK\Store\Service\OperateInterface;
 use Eelly\SDK\Store\Service\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Operate implements OperateInterface

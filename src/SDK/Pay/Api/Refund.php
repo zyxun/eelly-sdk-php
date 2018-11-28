@@ -14,6 +14,7 @@ namespace Eelly\SDK\Pay\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\RefundInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -79,6 +80,220 @@ class Refund implements RefundInterface
     public function goRefundPayAsync(array $data)
     {
         return EellyClient::request('pay/refund', 'goRefundPay', false, $data);
+    }
+
+    /**
+     * 支付宝退款
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 请求的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.20
+     */
+    public function alipayRefund(array $data): bool
+    {
+        return EellyClient::request('pay/refund', 'alipayRefund', true, $data);
+    }
+
+    /**
+     * 支付宝退款
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 请求的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.20
+     */
+    public function alipayRefundAsync(array $data)
+    {
+        return EellyClient::request('pay/refund', 'alipayRefund', false, $data);
+    }
+
+    /**
+     * 退款操作
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 退款请求的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function goRefund(array $data): bool
+    {
+        return EellyClient::request('pay/refund', 'goRefund', true, $data);
+    }
+
+    /**
+     * 退款操作
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data 退款请求的数据
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function goRefundAsync(array $data)
+    {
+        return EellyClient::request('pay/refund', 'goRefund', false, $data);
+    }
+
+    /**
+     * 其他方式退款/退款到余额
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function otherRefund(array $data): bool
+    {
+        return EellyClient::request('pay/refund', 'otherRefund', true, $data);
+    }
+
+    /**
+     * 其他方式退款/退款到余额
+     *
+     * > data 请求数据说明
+     * 
+     * key | type | value
+     * --- | ---- | ----
+     * userId       | int   | 用户id
+     * itemId       | int   | 关联id 订单id
+     * type         | int   | 退款类型 1:订单退款 2:服务退款
+     * money        | int   | 退款金额 单位:分
+     * reason       | string | 退款原因
+     * 
+     * @param array $data
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.21
+     */
+    public function otherRefundAsync(array $data)
+    {
+        return EellyClient::request('pay/refund', 'otherRefund', false, $data);
+    }
+
+    /**
+     * 诚信保障解冻退款
+     *
+     * @param array $data  诚信保障相关数据
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"data":{"itemId":148086, "money":100}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.24
+     */
+    public function refundIntegrity(array $data, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('pay/refund', 'refundIntegrity', true, $data, $uidDTO);
+    }
+
+    /**
+     * 诚信保障解冻退款
+     *
+     * @param array $data  诚信保障相关数据
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"data":{"itemId":148086, "money":100}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.24
+     */
+    public function refundIntegrityAsync(array $data, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('pay/refund', 'refundIntegrity', false, $data, $uidDTO);
+    }
+
+    /**
+     * 获取退款记录列表
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-22
+     */
+    public function listRefundPage(array $condition, int $page = 1, int $limit = 10, string $fieldScope = ''): array
+    {
+        return EellyClient::request('pay/refund', 'listRefundPage', true, $condition, $page, $limit, $fieldScope);
+    }
+
+    /**
+     * 获取退款记录列表
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-22
+     */
+    public function listRefundPageAsync(array $condition, int $page = 1, int $limit = 10, string $fieldScope = '')
+    {
+        return EellyClient::request('pay/refund', 'listRefundPage', false, $condition, $page, $limit, $fieldScope);
     }
 
     /**

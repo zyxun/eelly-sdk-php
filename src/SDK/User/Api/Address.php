@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\DTO\UserAddressDTO;
 use Eelly\SDK\User\Service\AddressInterface;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\User\DTO\UserAddressDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Address implements AddressInterface
@@ -42,7 +42,7 @@ class Address implements AddressInterface
      */
     public function getAddress(int $uaId, UidDTO $user = null): UserAddressDTO
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $uaId, $user);
+        return EellyClient::request('user/address', 'getAddress', true, $uaId, $user);
     }
 
     /**
@@ -64,7 +64,7 @@ class Address implements AddressInterface
      */
     public function getAddressAsync(int $uaId, UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $uaId, $user);
+        return EellyClient::request('user/address', 'getAddress', false, $uaId, $user);
     }
 
     /**
@@ -94,7 +94,7 @@ class Address implements AddressInterface
      */
     public function addAddress(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('user/address', 'addAddress', true, $data, $user);
     }
 
     /**
@@ -124,7 +124,7 @@ class Address implements AddressInterface
      */
     public function addAddressAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('user/address', 'addAddress', false, $data, $user);
     }
 
     /**
@@ -153,7 +153,7 @@ class Address implements AddressInterface
      */
     public function addAddressApp(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $data, $user);
+        return EellyClient::request('user/address', 'addAddressApp', true, $data, $user);
     }
 
     /**
@@ -182,7 +182,7 @@ class Address implements AddressInterface
      */
     public function addAddressAppAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $data, $user);
+        return EellyClient::request('user/address', 'addAddressApp', false, $data, $user);
     }
 
     /**
@@ -213,7 +213,7 @@ class Address implements AddressInterface
      */
     public function updateAddress(int $uaId, array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $uaId, $data, $user);
+        return EellyClient::request('user/address', 'updateAddress', true, $uaId, $data, $user);
     }
 
     /**
@@ -244,7 +244,7 @@ class Address implements AddressInterface
      */
     public function updateAddressAsync(int $uaId, array $data, UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $uaId, $data, $user);
+        return EellyClient::request('user/address', 'updateAddress', false, $uaId, $data, $user);
     }
 
     /**
@@ -270,7 +270,7 @@ class Address implements AddressInterface
      */
     public function deleteAddress(int $uaId, UidDTO $user = null): bool
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $uaId, $user);
+        return EellyClient::request('user/address', 'deleteAddress', true, $uaId, $user);
     }
 
     /**
@@ -296,7 +296,7 @@ class Address implements AddressInterface
      */
     public function deleteAddressAsync(int $uaId, UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $uaId, $user);
+        return EellyClient::request('user/address', 'deleteAddress', false, $uaId, $user);
     }
 
     /**
@@ -317,7 +317,7 @@ class Address implements AddressInterface
      */
     public function listAddress(UidDTO $user = null): array
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $user);
+        return EellyClient::request('user/address', 'listAddress', true, $user);
     }
 
     /**
@@ -338,7 +338,7 @@ class Address implements AddressInterface
      */
     public function listAddressAsync(UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $user);
+        return EellyClient::request('user/address', 'listAddress', false, $user);
     }
 
     /**
@@ -364,7 +364,7 @@ class Address implements AddressInterface
      */
     public function listAddressPage(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null): array
     {
-        return EellyClient::request('user/address', __FUNCTION__, true, $condition, $currentPage, $limit, $user);
+        return EellyClient::request('user/address', 'listAddressPage', true, $condition, $currentPage, $limit, $user);
     }
 
     /**
@@ -390,7 +390,187 @@ class Address implements AddressInterface
      */
     public function listAddressPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10, UidDTO $user = null)
     {
-        return EellyClient::request('user/address', __FUNCTION__, false, $condition, $currentPage, $limit, $user);
+        return EellyClient::request('user/address', 'listAddressPage', false, $condition, $currentPage, $limit, $user);
+    }
+
+    /**
+     * 
+     * 删除收货地址
+     * 
+     * @param int $addrId 地址id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * 
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function deleteUserAddress(int $addrId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/address', 'deleteUserAddress', true, $addrId, $user);
+    }
+
+    /**
+     * 
+     * 删除收货地址
+     * 
+     * @param int $addrId 地址id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * 
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function deleteUserAddressAsync(int $addrId, UidDTO $user = null)
+    {
+        return EellyClient::request('user/address', 'deleteUserAddress', false, $addrId, $user);
+    }
+
+    /**
+     * 
+     * 设置默认收货地址
+     * 
+     * @param int $addrId 地址id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function setUserDefaultAddress(int $addrId, UidDTO $user = null): bool
+    {
+        return EellyClient::request('user/address', 'setUserDefaultAddress', true, $addrId, $user);
+    }
+
+    /**
+     * 
+     * 设置默认收货地址
+     * 
+     * @param int $addrId 地址id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * @returnExample(true)
+     * 
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function setUserDefaultAddressAsync(int $addrId, UidDTO $user = null)
+    {
+        return EellyClient::request('user/address', 'setUserDefaultAddress', false, $addrId, $user);
+    }
+
+    /**
+     * 添加/编辑收货地址 (编辑的时候传addrId).
+     *
+     * @param array $data 添加的数据
+     * @param int $data['addrId'] 收货地址id
+     * @param string $data['userName'] 收货人名字
+     * @param string  $data['detailInfo'] 收货详细地址
+     * @param string  $data['telNumber'] 收货人手机号码
+     * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
+     * @param string  $data['postalCode'] 邮政编码
+     * @param int $data['regionId'] 地区id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * 
+     * @returnExample({"addrId":"392285","regionId":1111})
+     *
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function saveUserAddress(array $data, UidDTO $user = null): array
+    {
+        return EellyClient::request('user/address', 'saveUserAddress', true, $data, $user);
+    }
+
+    /**
+     * 添加/编辑收货地址 (编辑的时候传addrId).
+     *
+     * @param array $data 添加的数据
+     * @param int $data['addrId'] 收货地址id
+     * @param string $data['userName'] 收货人名字
+     * @param string  $data['detailInfo'] 收货详细地址
+     * @param string  $data['telNumber'] 收货人手机号码
+     * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
+     * @param string  $data['postalCode'] 邮政编码
+     * @param int $data['regionId'] 地区id
+     * @param UidDTO $user 用户信息
+     * 
+     * @return bool
+     * 
+     * @returnExample({"addrId":"392285","regionId":1111})
+     *
+     * @author wechan
+     * @since 2018年09月18日
+     */
+    public function saveUserAddressAsync(array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('user/address', 'saveUserAddress', false, $data, $user);
+    }
+
+    /**
+     * 获取用户收货地址列表
+     * 
+     * @param UidDTO $user 用户信息
+     * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * addrId | int | 地址id
+     * userName | string | 收货人名称
+     * telNumber | string  | 收货人电话
+     * detailInfo | string  | 收货人详细地址(包含地区)
+     * regionName | string | 地区名
+     * addressName | string  | 收货人详细地址(不包含地区)
+     * default | int | 是否默认
+     * regionId | int | 地区id
+     * 
+     * @return array
+     * @returnExample([{"addrId":"50873","userName":"fsdfds","telNumber":"13546731245","detailInfo":"北京市 市辖区 丰台区 上海市 市辖区 徐汇区 Ehdhdjd.","regionName":"北京市 市辖区 丰台区","addressName":"上海市 市辖区 徐汇区 Ehdhdjd.","default":"1","regionId":"110106"}])
+     *
+     * @author wechan
+     * @since 2018年09月18日  
+     */
+    public function getUserAddressList(UidDTO $user = null): array
+    {
+        return EellyClient::request('user/address', 'getUserAddressList', true, $user);
+    }
+
+    /**
+     * 获取用户收货地址列表
+     * 
+     * @param UidDTO $user 用户信息
+     * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * addrId | int | 地址id
+     * userName | string | 收货人名称
+     * telNumber | string  | 收货人电话
+     * detailInfo | string  | 收货人详细地址(包含地区)
+     * regionName | string | 地区名
+     * addressName | string  | 收货人详细地址(不包含地区)
+     * default | int | 是否默认
+     * regionId | int | 地区id
+     * 
+     * @return array
+     * @returnExample([{"addrId":"50873","userName":"fsdfds","telNumber":"13546731245","detailInfo":"北京市 市辖区 丰台区 上海市 市辖区 徐汇区 Ehdhdjd.","regionName":"北京市 市辖区 丰台区","addressName":"上海市 市辖区 徐汇区 Ehdhdjd.","default":"1","regionId":"110106"}])
+     *
+     * @author wechan
+     * @since 2018年09月18日  
+     */
+    public function getUserAddressListAsync(UidDTO $user = null)
+    {
+        return EellyClient::request('user/address', 'getUserAddressList', false, $user);
     }
 
     /**

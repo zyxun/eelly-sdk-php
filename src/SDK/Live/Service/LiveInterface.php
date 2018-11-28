@@ -384,6 +384,7 @@ interface LiveInterface
      * 
      */
     public function updateShowFlag(int $liveId, array $flag, int $type): bool;
+    
     /**
      * 获取正在直播的店铺id
      * 
@@ -437,4 +438,16 @@ interface LiveInterface
      * @since 2018-08-14
      */
     public function getExpiredStat(int $day): array;
+
+    /**
+     * 关于直播操作
+     *
+     * @param integer $userId 用户ID
+     * @param integer $storeId 店铺id
+     * @param int $type 消息类型 1正在去拿货2刚刚下了单3关注了直播商家4分享了该直播5主播变更讲解商品
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     */
+    public function aboutOrderAndCartHandle(int $userId, int $storeId, int $type):bool;
 }

@@ -337,6 +337,85 @@ class Recharge implements RechargeInterface
     }
 
     /**
+     * 根据precId 获取 billNo
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getBillNoByPrecId(int $precId): string
+    {
+        return EellyClient::request('pay/recharge', 'getBillNoByPrecId', true, $precId);
+    }
+
+    /**
+     * 根据precId 获取 billNo
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getBillNoByPrecIdAsync(int $precId)
+    {
+        return EellyClient::request('pay/recharge', 'getBillNoByPrecId', false, $precId);
+    }
+  
+    /**
+     * 根据传过来的条件返回对应的记录
+     *
+     * @param string $conditions 搜索条件
+     * @param array $bind  绑定参数
+     * @param string $field 字段名
+     * @return array
+     *
+     * @requestExample({"conditions":"prec_id=:precId:", "bind":[992, 991], "field":"payType"})
+     * @returnExample([{"precId":992,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"},{"precId":991,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.22
+     */
+    public function listRechargeInfoByConditions(string $conditions, array $bind, string $field = 'base'):array
+    {
+        return EellyClient::request('pay/recharge', __FUNCTION__, true, $conditions, $bind, $field);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listRechargeInfoByConditionsAsync(string $conditions, array $bind, string $field = 'base'):array
+    {
+        return EellyClient::request('pay/recharge', __FUNCTION__, false, $conditions, $bind, $field);
+    }
+
+    /**
+     * 根据precId 获取一条充值记录
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getRecordByPrecId(int $precId): array
+    {
+        return EellyClient::request('pay/recharge', 'getRecordByPrecId', true, $precId);
+    }
+
+    /**
+     * 根据precId 获取一条充值记录
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getRecordByPrecIdAsync(int $precId)
+    {
+        return EellyClient::request('pay/recharge', 'getRecordByPrecId', false, $precId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

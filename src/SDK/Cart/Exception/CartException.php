@@ -28,6 +28,10 @@ class CartException extends LogicException
 
     public const GOODS_INVALID = '商品失效';
 
+    public const CART_DATA_NOT_EXIT = '购物车数据不存在';
+
+    public const STORE_NOT_EXIT = '店铺不存在';
+
     public const SELF_NO_ADD_SELF_GOODS = '不能购买自己店铺的商品';
 
     public const GOODS_SPEC_NOT_TEXT = '商品规格不存在';

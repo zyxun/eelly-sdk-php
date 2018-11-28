@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class BusinessCircle.
  *
- * var/eelly-old-code/modules/BusinessCircle/Service/BusinessCircleService.php
+ *  modules/BusinessCircle/Service/BusinessCircleService.php
  *
  * @author hehui<hehui@eelly.net>
  */

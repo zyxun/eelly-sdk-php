@@ -383,6 +383,32 @@ class Spec implements SpecInterface
     }
 
     /**
+     * 根据订单ID，取消订单对应的商品库存
+     *
+     * @param int $orderId 订单id
+     * @param int $sellerId 卖家id
+     * @return bool
+     *
+     * @requestExample({"orderId":5000034,"sellerId":148086})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.09.12
+     */
+    public function updateGoodsStock(int $orderId, int $sellerId):bool
+    {
+        return EellyClient::request('goods/spec', __FUNCTION__, true, $orderId, $sellerId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function updateGoodsStockAsync(int $orderId, int $sellerId):bool
+    {
+        return EellyClient::request('goods/spec', __FUNCTION__, false, $orderId, $sellerId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

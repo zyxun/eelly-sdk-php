@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,12 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\TagInterface;
-use Eelly\DTO\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Tag implements TagInterface

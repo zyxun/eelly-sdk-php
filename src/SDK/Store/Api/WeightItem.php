@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,11 +14,10 @@ declare(strict_types=1);
 namespace Eelly\SDK\Store\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Store\Service\WeightItemInterface;
 use Eelly\SDK\Store\DTO\WeightItemDTO;
+use Eelly\SDK\Store\Service\WeightItemInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class WeightItem implements WeightItemInterface
