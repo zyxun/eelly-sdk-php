@@ -267,6 +267,30 @@ class Address implements AddressInterface
     }
 
     /**
+     * 店铺是否设置退货地址
+     *
+     * @param int $storeId 店铺id
+     * @return bool
+     * @requestExample({"storeId":148086})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.28
+     */
+    public function ifSetReturnAddress(int $storeId):bool
+    {
+        return EellyClient::request('store/address', __FUNCTION__, true, $storeId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function ifSetReturnAddressAsync(int $storeId):bool
+    {
+        return EellyClient::request('store/address', __FUNCTION__, false, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
