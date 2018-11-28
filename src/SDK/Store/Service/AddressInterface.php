@@ -133,4 +133,17 @@ interface AddressInterface
      * @since  2018.11.17
      */
     public function getDefaultAddrInfoByUserId(int $userId):array;
+
+    /**
+     * 店铺是否设置退货地址
+     *
+     * @param int $storeId 店铺id
+     * @return string
+     * @requestExample({"storeId":148086})
+     * @returnExample("true")
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.28
+     */
+    public function ifSetReturnAddress(int $storeId):string;
 }
