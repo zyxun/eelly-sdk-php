@@ -49,4 +49,15 @@ class Integrity
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/integrity/integrity', __FUNCTION__, true, $iprId);
     }
+    
+    /**
+     * 根据主键Id 更新诚信保障收支明细 為成功狀態
+     * 
+     * @param int $iprId 
+     * @param array $data 更新的數據
+     */
+    public function updateIntegrityRecordByIprId($iprId)
+    {
+        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/integrity/integrity', __FUNCTION__, true, $iprId);
+    }
 }
