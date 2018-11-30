@@ -352,6 +352,34 @@ class Refund implements RefundInterface
     }
 
     /**
+     * 获取时间区间内店铺退货退款成功的总金额
+     *
+     * @param array $storeIds 店铺id
+     * @param int   $sTime   开始时间
+     * @param int   $eTime   结束时间
+     * @author wechan
+     * @since  2018年11月28日
+     */
+    public function getCompleteRefundByStoreId($storeIds, $sTime, $eTime): array
+    {
+        return EellyClient::request('order/refund', 'getCompleteRefundByStoreId', true, $storeIds, $sTime, $eTime);
+    }
+
+    /**
+     * 获取时间区间内店铺退货退款成功的总金额
+     *
+     * @param array $storeIds 店铺id
+     * @param int   $sTime   开始时间
+     * @param int   $eTime   结束时间
+     * @author wechan
+     * @since  2018年11月28日
+     */
+    public function getCompleteRefundByStoreIdAsync($storeIds, $sTime, $eTime)
+    {
+        return EellyClient::request('order/refund', 'getCompleteRefundByStoreId', false, $storeIds, $sTime, $eTime);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
