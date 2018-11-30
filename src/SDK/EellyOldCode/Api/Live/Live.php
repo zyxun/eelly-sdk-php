@@ -35,4 +35,50 @@ class Live
     {
         return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $liveId, $userId);
     }
+
+    /**
+     * 店+直播中心=》正在直播.
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $platform
+     * @return mixed
+     *
+     * @author zhangyangxun
+     * @since 2018-11-30
+     */
+    public function getProgressList(array $condition = [], int $page = 1, int $limit = 10, $platform = 'APP')
+    {
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $platform);
+    }
+
+    /**
+     * 店+直播中心=》直播预告
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param int    $userId
+     * @param string $platform
+     * @return mixed
+     *
+     * @author zhangyangxun
+     * @since 2018-11-30
+     */
+    public function getPendingList(array $condition = [], $page = 1, $limit = 10, $userId = 0, $platform = 'APP')
+    {
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $userId, $platform);
+    }
+
+    /**
+     * 获取直播广告列表.
+     *
+     * @author zhangyangxun
+     * @since 2018-11-30
+     */
+    public function getLiveAdvertList()
+    {
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true);
+    }
 }
