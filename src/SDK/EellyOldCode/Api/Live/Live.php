@@ -70,4 +70,15 @@ class Live
     {
         return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $userId, $platform);
     }
+
+    /**
+     * 获取直播广告列表.
+     *
+     * @author zhangyangxun
+     * @since 2018-11-30
+     */
+    public function getLiveAdvertList()
+    {
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true);
+    }
 }
