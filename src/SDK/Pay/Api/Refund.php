@@ -300,7 +300,7 @@ class Refund implements RefundInterface
      * 诚信保障退款 退款到余额 针对厂+
      *
      * @param integer $integrityId 诚信保障id
-     * @return void
+     * @return array
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.11.30
@@ -314,7 +314,7 @@ class Refund implements RefundInterface
      * 诚信保障退款 退款到余额 针对厂+
      *
      * @param integer $integrityId 诚信保障id
-     * @return void
+     * @return array
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.11.30
