@@ -60,4 +60,14 @@ class Integrity
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/integrity/integrity', __FUNCTION__, true, $iprId);
     }
+    
+    /**
+     * 诚信保障金余额支付
+     *
+     * @param array $relData 支付请求数据
+     */
+    public function balancePayIntegrityMoney($relData)
+    {
+        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/integrity/integrity', __FUNCTION__, true, $relData);
+    }
 }
