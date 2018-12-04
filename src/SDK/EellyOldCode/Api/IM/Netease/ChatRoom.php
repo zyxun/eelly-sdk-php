@@ -18,6 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class ChatRoom.
 
+ *
  * @author sunanzhi <sunanzhi@hotmail.com>
  */
 class ChatRoom
@@ -28,6 +29,7 @@ class ChatRoom
      * @param array $liveInfo 直播信息
      *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年1月30日
      */
     public function getLiveChatRoom(array $liveInfo)
@@ -105,6 +107,4 @@ class ChatRoom
     {
         return EellyClient::request('eellyOldCode/IM/Netease/ChatRoom', __FUNCTION__, true, $liveIds);
     }
-
-
 }

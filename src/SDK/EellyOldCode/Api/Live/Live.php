@@ -25,8 +25,8 @@ class Live
     /**
      * 获取直播间信息.
      *
-     * @param int $liveId 直播id
-     * @return mixed
+     * @param int   $liveId 直播id
+     * @param mixed $userId
      *
      * @author wangjiang<wangjiang@eelly.net>
      * @since 2018年1月30日

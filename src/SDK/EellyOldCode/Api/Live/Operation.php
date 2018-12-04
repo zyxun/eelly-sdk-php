@@ -23,13 +23,15 @@ use Eelly\SDK\EellyClient;
 class Operation
 {
     /**
-     * 记录直播间用户添加进购物车数量
+     * 记录直播间用户添加进购物车数量.
      *
-     * @param int $userId 用户id
+     * @param int $userId  用户id
      * @param int $storeId 店铺id
-     * @return boolean
-     * 
+     *
+     * @return bool
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年3月16日
      */
     public function recordAddCartNumber(int $userId, int $storeId)
@@ -38,14 +40,16 @@ class Operation
     }
 
     /**
-     * 获取直播间用户添加购物车数量
+     * 获取直播间用户添加购物车数量.
      *
-     * @param int $storeId 店铺id
+     * @param int $storeId   店铺id
      * @param int $startTime 起始时间
-     * @param int $endTime 截止时间
-     * @return integer
-     * 
+     * @param int $endTime   截止时间
+     *
+     * @return int
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年3月16日
      */
     public function getAddCartNumber(int $storeId, int $startTime = 0, int $endTime = 0)

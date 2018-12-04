@@ -220,12 +220,14 @@ class Store
     /**
      * 获取店铺自定义字段.
      *
-     * @param int $storeId
+     * @param int    $storeId
      * @param string $fieldType
-     * @param int $state
+     * @param int    $state
+     *
      * @return mixed
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-14
      */
     public function getStoreFieldById(int $storeId, string $fieldType, int $state = -1)
