@@ -1011,6 +1011,27 @@ class Live implements LiveInterface
     }
 
     /**
+     * 获取正在直播中的直播间数量
+     *
+     * @return string
+     * @returnExample("10")
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.04
+     */
+    public function getLivingRoomNum():string
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLivingRoomNumAsync():string
+    {
+        return EellyClient::request('live/live', __FUNCTION__, false);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
