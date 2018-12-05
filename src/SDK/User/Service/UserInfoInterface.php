@@ -41,4 +41,16 @@ interface UserInfoInterface
      * @author hehui<runphp@dingtalk.com>
      */
     public function getList(array $userIds): array;
+
+    /**
+     * 根据条件批量获取用户信息
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-04
+     */
+    public function getListByCondition(array $condition, string $fieldScope = 'base'): array ;
 }
