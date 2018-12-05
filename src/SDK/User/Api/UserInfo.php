@@ -19,7 +19,7 @@ use Eelly\SDK\User\Service\UserInfoInterface;
 /**
  * Class UserInfo.
  *
- * @author hehui<runphp@dingtalk.com>
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class UserInfo implements UserInfoInterface
 {
@@ -105,6 +105,36 @@ class UserInfo implements UserInfoInterface
     public function getWithdrawUserInfoAsync(array $userIds)
     {
         return EellyClient::request('user/userInfo', 'getWithdrawUserInfo', false, $userIds);
+    }
+
+    /**
+     * 根据条件批量获取用户信息
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-04
+     */
+    public function getListByCondition(array $condition, string $fieldScope = 'base'): array
+    {
+        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope);
+    }
+
+    /**
+     * 根据条件批量获取用户信息
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-04
+     */
+    public function getListByConditionAsync(array $condition, string $fieldScope = 'base')
+    {
+        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope);
     }
 
     /**
