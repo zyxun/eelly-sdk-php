@@ -14,6 +14,7 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInfoInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -82,14 +83,15 @@ class UserInfo implements UserInfoInterface
      *
      * @param array  $condition
      * @param string $fieldScope
+     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-04
      */
-    public function getListByCondition(array $condition, string $fieldScope = 'list'): array
+    public function getListByCondition(array $condition, string $fieldScope, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope);
+        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope, $uidDTO);
     }
 
     /**
@@ -97,14 +99,15 @@ class UserInfo implements UserInfoInterface
      *
      * @param array  $condition
      * @param string $fieldScope
+     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-04
      */
-    public function getListByConditionAsync(array $condition, string $fieldScope = 'list')
+    public function getListByConditionAsync(array $condition, string $fieldScope, UidDTO $uidDTO = null)
     {
-        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope);
+        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope, $uidDTO);
     }
 
     /**
