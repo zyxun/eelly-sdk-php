@@ -87,7 +87,7 @@ class UserInfo implements UserInfoInterface
      * @author zhangyangxun
      * @since 2018-12-04
      */
-    public function getListByCondition(array $condition, string $fieldScope = 'base'): array
+    public function getListByCondition(array $condition, string $fieldScope = 'list'): array
     {
         return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope);
     }
@@ -102,7 +102,7 @@ class UserInfo implements UserInfoInterface
      * @author zhangyangxun
      * @since 2018-12-04
      */
-    public function getListByConditionAsync(array $condition, string $fieldScope = 'base')
+    public function getListByConditionAsync(array $condition, string $fieldScope = 'list')
     {
         return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope);
     }

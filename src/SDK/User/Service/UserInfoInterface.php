@@ -52,5 +52,5 @@ interface UserInfoInterface
      * @author zhangyangxun
      * @since 2018-12-04
      */
-    public function getListByCondition(array $condition, string $fieldScope = 'base'): array ;
+    public function getListByCondition(array $condition, string $fieldScope = 'list'): array ;
 }
