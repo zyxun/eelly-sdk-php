@@ -450,4 +450,14 @@ interface LiveInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function aboutOrderAndCartHandle(int $userId, int $storeId, int $type):bool;
+
+    /**
+     * 获取正在直播中的直播间数量
+     *
+     * @return string
+     * @returnExample("10")
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.04
+     */
+    public function getLivingRoomNum():string;
 }
