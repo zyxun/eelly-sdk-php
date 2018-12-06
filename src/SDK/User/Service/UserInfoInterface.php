@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\User\Service;
+use Eelly\DTO\UidDTO;
 
 /**
  * Interface UserInfoInterface.
@@ -53,4 +54,16 @@ interface UserInfoInterface
      */
     public function getWithdrawUserInfo(array $userIds): array ;
 
+    /**
+     * 根据条件批量获取用户信息
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @param UidDTO $uidDTO
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-04
+     */
+    public function getListByCondition(array $condition, string $fieldScope, UidDTO $uidDTO = null): array ;
 }
