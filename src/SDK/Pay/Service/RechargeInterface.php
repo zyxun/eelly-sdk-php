@@ -201,4 +201,21 @@ interface RechargeInterface
      * @since 2018.10.22
      */
     public function listRechargeInfoByConditions(string $conditions, array $bind, string $field = 'base'):array;
+
+    /**
+     * 获取后台充值列表数据
+     *
+     * @param string $condition 查询条件
+     * @param array $binds 绑定参数
+     * @param int $page 页码
+     * @param int $limit 每页显示多少数量
+     * @return array
+     *
+     * @requestExample({"conditions":"channel = 1"})
+     * @returnExample({"items":[{"precId":"1694","paId":"703","money":"1","refundMoney":"0","channel":"1","style":"0","bankId":"184","bankName":"\u652f\u4ed8\u5b9d","bankAccount":"","billNo":"201811290176302595","thirdNo":"","status":"1","remark":"\u652f\u4ed8\u5b9d\u5145\u503c0.01\u5143","adminRemark":"","handleTime":"0","createdTime":"1543497102","toAccount":"2016041301293617"},{"precId":"1693","paId":"703","money":"1","refundMoney":"0","channel":"1","style":"0","bankId":"184","bankName":"\u652f\u4ed8\u5b9d","bankAccount":"","billNo":"201811290176110526","thirdNo":"","status":"0","remark":"\u652f\u4ed8\u5b9d\u5145\u503c0.01\u5143","adminRemark":"","handleTime":"0","createdTime":"1543496910","toAccount":"2016041301293617"}],"page":{"totalPages":449,"totalItems":897,"current":1,"limit":2}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.06
+     */
+    public function listManageRecharge(string $condition, array $binds = [], int $page = 1, int $limit = 20):array;
 }
