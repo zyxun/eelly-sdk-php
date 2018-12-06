@@ -68,10 +68,10 @@ interface UserInfoInterface
     public function getListByCondition(array $condition, string $fieldScope, UidDTO $uidDTO = null): array ;
 
     /**
-     * 后台会员列表
+     * 分页获取会员列表
      *
      * @param array  $condition
-     * @param string $orderBy
+     * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
      * @return array
@@ -79,5 +79,5 @@ interface UserInfoInterface
      * @author zhangyangxun
      * @since 2018-12-05
      */
-    public function getManageUserPage(array $condition, string $orderBy, int $page = 1, int $limit = 10): array ;
+    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array ;
 }

@@ -141,10 +141,10 @@ class UserInfo implements UserInfoInterface
     }
 
     /**
-     * 后台会员列表
+     * 分页获取会员列表
      *
      * @param array  $condition
-     * @param string $orderBy
+     * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
      * @return array
@@ -152,16 +152,16 @@ class UserInfo implements UserInfoInterface
      * @author zhangyangxun
      * @since 2018-12-05
      */
-    public function getManageUserPage(array $condition, string $orderBy, int $page = 1, int $limit = 10): array
+    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/userInfo', 'getManageUserPage', true, $condition, $orderBy, $page, $limit);
+        return EellyClient::request('user/userInfo', 'getUserListPage', true, $condition, $fieldScope, $page, $limit);
     }
 
     /**
-     * 后台会员列表
+     * 分页获取会员列表
      *
      * @param array  $condition
-     * @param string $orderBy
+     * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
      * @return array
@@ -169,9 +169,9 @@ class UserInfo implements UserInfoInterface
      * @author zhangyangxun
      * @since 2018-12-05
      */
-    public function getManageUserPageAsync(array $condition, string $orderBy, int $page = 1, int $limit = 10)
+    public function getUserListPageAsync(array $condition, string $fieldScope, int $page = 1, int $limit = 10)
     {
-        return EellyClient::request('user/userInfo', 'getManageUserPage', false, $condition, $orderBy, $page, $limit);
+        return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit);
     }
 
     /**
