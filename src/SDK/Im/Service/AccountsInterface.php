@@ -30,6 +30,10 @@ interface AccountsInterface
      * @param UidDTO|null $uidDTO
      *
      * @return array
+     *
+     * @requestExample({"uid":148086, "type":2})
+     *
+     * @author hehui<hehui@eelly.com>
      */
     public function getOne(int $uid, int $type, UidDTO $uidDTO = null): array;
 
@@ -40,6 +44,10 @@ interface AccountsInterface
      * @param UidDTO|null $uidDTO
      *
      * @return array
+     *
+     * @requestExample({"users":[[148086, 2],[148086, 1]]})
+     *
+     * @author hehui<hehui@eelly.com>
      */
     public function getList(array $users, UidDTO $uidDTO = null): array;
 }
