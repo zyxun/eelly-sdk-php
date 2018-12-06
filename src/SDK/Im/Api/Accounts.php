@@ -30,7 +30,7 @@ class Accounts implements AccountsInterface
      */
     public function getOne(int $uid, int $type, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('im/accounts/', __FUNCTION__, true, $uid, $type);
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
     /**
@@ -43,6 +43,6 @@ class Accounts implements AccountsInterface
      */
     public function getList(array $users, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('im/accounts/', __FUNCTION__, true, $users);
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $users);
     }
 }
