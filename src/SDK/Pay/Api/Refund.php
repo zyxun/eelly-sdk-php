@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Pay\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\RefundInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -239,17 +239,89 @@ class Refund implements RefundInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.10.24
      */
-    public function refundIntegrity(array $data, UidDTO $uidDTO = null):bool
+    public function refundIntegrity(array $data, UidDTO $uidDTO = null): bool
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, true, $data, $uidDTO);
+        return EellyClient::request('pay/refund', 'refundIntegrity', true, $data, $uidDTO);
     }
 
     /**
-     * @inheritdoc
+     * 诚信保障解冻退款
+     *
+     * @param array $data  诚信保障相关数据
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     *
+     * @requestExample({"data":{"itemId":148086, "money":100}})
+     * @returnExample(true)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.24
      */
-    public function refundIntegrityAsync(array $data, UidDTO $uidDTO = null):bool
+    public function refundIntegrityAsync(array $data, UidDTO $uidDTO = null)
     {
-        return EellyClient::request('pay/refund', __FUNCTION__, false, $data, $uidDTO);
+        return EellyClient::request('pay/refund', 'refundIntegrity', false, $data, $uidDTO);
+    }
+
+    /**
+     * 获取退款记录列表
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-22
+     */
+    public function listRefundPage(array $condition, int $page = 1, int $limit = 10, string $fieldScope = ''): array
+    {
+        return EellyClient::request('pay/refund', 'listRefundPage', true, $condition, $page, $limit, $fieldScope);
+    }
+
+    /**
+     * 获取退款记录列表
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-22
+     */
+    public function listRefundPageAsync(array $condition, int $page = 1, int $limit = 10, string $fieldScope = '')
+    {
+        return EellyClient::request('pay/refund', 'listRefundPage', false, $condition, $page, $limit, $fieldScope);
+    }
+
+    /**
+     * 诚信保障退款 退款到余额 针对厂+
+     *
+     * @param integer $integrityId 诚信保障id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.30
+     */
+    public function refundIntegrityV2(int $integrityId): array
+    {
+        return EellyClient::request('pay/refund', 'refundIntegrityV2', true, $integrityId);
+    }
+
+    /**
+     * 诚信保障退款 退款到余额 针对厂+
+     *
+     * @param integer $integrityId 诚信保障id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.30
+     */
+    public function refundIntegrityV2Async(int $integrityId)
+    {
+        return EellyClient::request('pay/refund', 'refundIntegrityV2', false, $integrityId);
     }
 
     /**

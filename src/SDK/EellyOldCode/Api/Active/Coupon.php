@@ -37,7 +37,7 @@ class Coupon
     {
         return EellyClient::request('eellyOldCode/Active/Coupon/Coupon', __FUNCTION__, true, $money, $storeId, $userId);
     }
-    
+
     /**
      * 使用优惠券.
      *
@@ -46,7 +46,6 @@ class Coupon
      * @param string $couponNo
      *
      * @return bool
-     *
      */
     public function useCoupon($orderId, $userId, $couponNo)
     {

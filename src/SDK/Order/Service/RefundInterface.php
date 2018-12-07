@@ -160,4 +160,15 @@ interface RefundInterface
      * @since 2018-11-20
      */
     public function listManageRefundOrder(array $condition, int $page, int $limit, string $fieldScope): array ;
+    
+    /**
+     * 获取时间区间内店铺退货退款成功的总金额
+     *
+     * @param array $storeIds 店铺id
+     * @param int   $sTime   开始时间
+     * @param int   $eTime   结束时间
+     * @author wechan
+     * @since  2018年11月28日
+     */
+    public function getCompleteRefundByStoreId($storeIds, $sTime, $eTime):array;
 }

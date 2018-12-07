@@ -84,7 +84,7 @@ class Receive
     {
         return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId);
     }
-    
+
     /**
      * 通过地址ID和用户ID获得收货地址
      *
@@ -116,10 +116,22 @@ class Receive
      *   phone_tel    | 电话
      *   phone_mob    | 手机
      *   default      | 是否设置为默认地址(1:是，0:否)
-     *
      */
     public function getAddrByAddrId($addrId, $userId)
     {
         return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $addrId, $userId);
+    }
+
+    /**
+     * 通过地址ID和用户ID获得收货地址
+     *
+     * @param int $addressId
+     * @param int $userId
+     *
+     * @return array
+     */
+    public function getAddressByAddressId($addressId, $userId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $addressId, $userId);
     }
 }

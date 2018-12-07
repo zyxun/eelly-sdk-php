@@ -15,11 +15,12 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInfoInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  * Class UserInfo.
  *
- * @author hehui<runphp@dingtalk.com>
+ * @author shadonTools<localhost.shell@gmail.com>
  */
 class UserInfo implements UserInfoInterface
 {
@@ -105,6 +106,72 @@ class UserInfo implements UserInfoInterface
     public function getWithdrawUserInfoAsync(array $userIds)
     {
         return EellyClient::request('user/userInfo', 'getWithdrawUserInfo', false, $userIds);
+    }
+
+    /**
+     * 根据条件批量获取用户信息
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @param UidDTO $uidDTO
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-04
+     */
+    public function getListByCondition(array $condition, string $fieldScope, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope, $uidDTO);
+    }
+
+    /**
+     * 根据条件批量获取用户信息
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @param UidDTO $uidDTO
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-04
+     */
+    public function getListByConditionAsync(array $condition, string $fieldScope, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope, $uidDTO);
+    }
+
+    /**
+     * 分页获取会员列表
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @param int    $page
+     * @param int    $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-05
+     */
+    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array
+    {
+        return EellyClient::request('user/userInfo', 'getUserListPage', true, $condition, $fieldScope, $page, $limit);
+    }
+
+    /**
+     * 分页获取会员列表
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @param int    $page
+     * @param int    $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-05
+     */
+    public function getUserListPageAsync(array $condition, string $fieldScope, int $page = 1, int $limit = 10)
+    {
+        return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit);
     }
 
     /**

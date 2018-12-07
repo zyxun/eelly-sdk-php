@@ -127,4 +127,29 @@ interface RefundInterface
      */
     public function refundIntegrity(array $data, UidDTO $uidDTO = null):bool;
 
+    /**
+     * 获取退款记录列表
+     *
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $fieldScope
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-11-22
+     */
+    public function listRefundPage(array $condition, int $page = 1, int $limit = 10, string $fieldScope = ''): array ;
+
+    /**
+     * 诚信保障退款 退款到余额 针对厂+
+     *
+     * @param integer $integrityId 诚信保障id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.11.30
+     */
+    public function refundIntegrityV2(int $integrityId):array;
+
 }

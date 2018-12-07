@@ -220,16 +220,34 @@ class Store
     /**
      * 获取店铺自定义字段.
      *
-     * @param int $storeId
+     * @param int    $storeId
      * @param string $fieldType
-     * @param int $state
+     * @param int    $state
+     *
      * @return mixed
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-14
      */
     public function getStoreFieldById(int $storeId, string $fieldType, int $state = -1)
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $fieldType, $state);
+    }
+
+    /**
+     * 获取店铺信息（店主，描述）.
+     *
+     * @param int $storeId
+     *
+     * @return array
+     *
+     * @author wangjiang<wangjiang@eelly.net>
+     *
+     * @since  2017年4月21日
+     */
+    public function getStoreOwnerInfo(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
 }
