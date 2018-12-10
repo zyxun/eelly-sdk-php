@@ -141,6 +141,40 @@ class UserInfo implements UserInfoInterface
     }
 
     /**
+     * 分页获取会员列表
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @param int    $page
+     * @param int    $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-05
+     */
+    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array
+    {
+        return EellyClient::request('user/userInfo', 'getUserListPage', true, $condition, $fieldScope, $page, $limit);
+    }
+
+    /**
+     * 分页获取会员列表
+     *
+     * @param array  $condition
+     * @param string $fieldScope
+     * @param int    $page
+     * @param int    $limit
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2018-12-05
+     */
+    public function getUserListPageAsync(array $condition, string $fieldScope, int $page = 1, int $limit = 10)
+    {
+        return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

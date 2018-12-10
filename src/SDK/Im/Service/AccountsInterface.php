@@ -27,19 +27,54 @@ interface AccountsInterface
      *
      * @param int         $uid    用户id
      * @param int         $type   用户类型 1 店 2 厂
-     * @param UidDTO|null $uidDTO
+     * @param UidDTO|null $uidDTO 登录dto
      *
      * @return array
+     *
+     * @requestExample({"uid":148086, "type":2})
+     *
+     * @author hehui<hehui@eelly.com>
      */
     public function getOne(int $uid, int $type, UidDTO $uidDTO = null): array;
 
     /**
-     * 获取多个用户.
+     * 获取单个用户信息.
      *
-     * @param array       $users
-     * @param UidDTO|null $uidDTO
+     * @param int         $uid    用户id
+     * @param int         $type   用户类型 1 店 2 厂
      *
      * @return array
+     *
+     * @requestExample({"uid":148086, "type":2})
+     *
+     * @author hehui<hehui@eelly.com>
+     */
+    public function getOneNoLogin(int $uid, int $type): array;
+
+    /**
+     * 获取多个用户.
+     *
+     * @param array       $users   用户列表
+     * @param UidDTO|null $uidDTO  登录dto
+     *
+     * @return array
+     *
+     * @requestExample({"users":[[148086, 2],[148086, 1]]})
+     *
+     * @author hehui<hehui@eelly.com>
      */
     public function getList(array $users, UidDTO $uidDTO = null): array;
+
+    /**
+     * 获取多个用户.
+     *
+     * @param array       $users   用户列表
+     *
+     * @return array
+     *
+     * @requestExample({"users":[[148086, 2],[148086, 1]]})
+     *
+     * @author hehui<hehui@eelly.com>
+     */
+    public function getListNoLogin(array $users): array;
 }

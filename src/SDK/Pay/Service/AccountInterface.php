@@ -369,4 +369,18 @@ interface AccountInterface
      * @since 2018-11-26
      */
     public function statAccountMoney(int $userId, int $storeId = 0): array ;
+
+    /**
+     * 根据传过来的账号id，返回对应的用户信息
+     *
+     * @param array $paIds 账号id
+     * @return array
+     *
+     * @requestExample({"paIds":[3,6]})
+     * @returnExample({"3":{"user_id":"148086","user_name":"molimoq","nickname":"molimoq","real_name":"\u674e\u767d","phone_mob":"13430245646"},"6":{"user_id":"1761477","user_name":"liping284","nickname":"liping284","real_name":"","phone_mob":""}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.07
+     */
+    public function getUserInfoByPaIds(array $paIds):array;
 }
