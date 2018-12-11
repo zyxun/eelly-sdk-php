@@ -383,4 +383,18 @@ interface AccountInterface
      * @since 2018.12.07
      */
     public function getUserInfoByPaIds(array $paIds):array;
+
+    /**
+     * 根据传过来的用户id，返回对应的账号id
+     *
+     * @param array $userIds 用户id
+     * @return array
+     *
+     * @requestExample({"userIds":[148086]})
+     * @returnExample([3,2])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.11
+     */
+    public function getPaIdByUserIds(array $userIds):array;
 }
