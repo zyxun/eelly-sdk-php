@@ -876,7 +876,7 @@ class Account implements AccountInterface
      */
     public function getAccountInfoByConditionAsync(string $condition, array $bind = []):array
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $condition, $bind);
+        return EellyClient::request('pay/account', __FUNCTION__, false, $condition, $bind);
     }
 
     /**
