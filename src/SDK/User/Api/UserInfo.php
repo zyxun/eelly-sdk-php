@@ -14,13 +14,12 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInfoInterface;
-use Eelly\DTO\UidDTO;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class UserInfo
+class UserInfo implements UserInfoInterface
 {
     /**
      * 获取一条用户信息.
@@ -83,15 +82,16 @@ class UserInfo
      *
      * @param array  $condition
      * @param string $fieldScope
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-04
+     *
+     * @internal
      */
-    public function getListByCondition(array $condition, string $fieldScope, UidDTO $uidDTO = null): array
+    public function getListByCondition(array $condition, string $fieldScope): array
     {
-        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope);
     }
 
     /**
@@ -99,15 +99,16 @@ class UserInfo
      *
      * @param array  $condition
      * @param string $fieldScope
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-04
+     *
+     * @internal
      */
-    public function getListByConditionAsync(array $condition, string $fieldScope, UidDTO $uidDTO = null)
+    public function getListByConditionAsync(array $condition, string $fieldScope)
     {
-        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope);
     }
 
     /**
@@ -117,7 +118,6 @@ class UserInfo
      * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
@@ -137,7 +137,6 @@ class UserInfo
      * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
