@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Logger\Api;
 
 
+use Eelly\SDK\EellyClient;
+
 class DingLogger
 {
     public function monolog(array $record): bool
