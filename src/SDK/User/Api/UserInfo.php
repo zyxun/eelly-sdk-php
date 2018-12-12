@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class UserInfo implements UserInfoInterface
+class UserInfo
 {
     /**
      * 获取一条用户信息.
@@ -122,10 +122,12 @@ class UserInfo implements UserInfoInterface
      *
      * @author zhangyangxun
      * @since 2018-12-05
+     *
+     * @internal
      */
-    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10, UidDTO $uidDTO = null): array
+    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/userInfo', 'getUserListPage', true, $condition, $fieldScope, $page, $limit, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getUserListPage', true, $condition, $fieldScope, $page, $limit);
     }
 
     /**
@@ -140,10 +142,12 @@ class UserInfo implements UserInfoInterface
      *
      * @author zhangyangxun
      * @since 2018-12-05
+     *
+     * @internal
      */
-    public function getUserListPageAsync(array $condition, string $fieldScope, int $page = 1, int $limit = 10, UidDTO $uidDTO = null)
+    public function getUserListPageAsync(array $condition, string $fieldScope, int $page = 1, int $limit = 10)
     {
-        return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit);
     }
 
     /**
