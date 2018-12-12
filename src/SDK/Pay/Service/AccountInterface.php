@@ -397,4 +397,19 @@ interface AccountInterface
      * @since 2018.12.11
      */
     public function getPaIdByUserIds(array $userIds):array;
+
+    /**
+     * 根据传过来的查询条件，返回对应的记录
+     *
+     * @param string $condition 查询条件
+     * @param array $bind  绑定参数
+     * @return array
+     *
+     * @requestExample({"condition":"pa_id IN ({paId:array})", "bind":{"paId":[2,3]}})
+     * @returnExample([{"paId":"2","userId":"148086","storeId":"148086","money":"285900","frozenMoney":"0","commissionRatio":"0.008","status":"0","alipayAccount":"","wechatPurseOpenId":"oW-yJwJS5QW2mb-JvNtwbHcgpk74","createdTime":"1527168509"},{"paId":"3","userId":"148086","storeId":"0","money":"1","frozenMoney":"0","commissionRatio":"0.000","status":"0","alipayAccount":"","wechatPurseOpenId":"oW-yJwJS5QW2mb-JvNtwbHcgpk74","createdTime":"1527168509"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.12
+     */
+    public function getAccountInfoByCondition(string $condition, array $bind = []):array;
 }
