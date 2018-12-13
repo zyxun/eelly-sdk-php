@@ -16,7 +16,7 @@ namespace Eelly\SDK\Store\Api;
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\AddressInterface;
-use Eelly\SDK\Store\Service\DTO\AddressDTO;
+use Eelly\SDK\Store\DTO\AddressDTO;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
