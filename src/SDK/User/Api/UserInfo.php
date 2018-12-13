@@ -15,7 +15,6 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UserInfoInterface;
-use Eelly\DTO\UidDTO;
 
 /**
  * Class UserInfo.
@@ -113,15 +112,16 @@ class UserInfo implements UserInfoInterface
      *
      * @param array  $condition
      * @param string $fieldScope
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-04
+     *
+     * @internal
      */
-    public function getListByCondition(array $condition, string $fieldScope, UidDTO $uidDTO = null): array
+    public function getListByCondition(array $condition, string $fieldScope): array
     {
-        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getListByCondition', true, $condition, $fieldScope);
     }
 
     /**
@@ -129,15 +129,16 @@ class UserInfo implements UserInfoInterface
      *
      * @param array  $condition
      * @param string $fieldScope
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-04
+     *
+     * @internal
      */
-    public function getListByConditionAsync(array $condition, string $fieldScope, UidDTO $uidDTO = null)
+    public function getListByConditionAsync(array $condition, string $fieldScope)
     {
-        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getListByCondition', false, $condition, $fieldScope);
     }
 
     /**
@@ -147,15 +148,16 @@ class UserInfo implements UserInfoInterface
      * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-05
+     *
+     * @internal
      */
-    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10, UidDTO $uidDTO = null): array
+    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array
     {
-        return EellyClient::request('user/userInfo', 'getUserListPage', true, $condition, $fieldScope, $page, $limit, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getUserListPage', true, $condition, $fieldScope, $page, $limit);
     }
 
     /**
@@ -165,15 +167,16 @@ class UserInfo implements UserInfoInterface
      * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-05
+     *
+     * @internal
      */
-    public function getUserListPageAsync(array $condition, string $fieldScope, int $page = 1, int $limit = 10, UidDTO $uidDTO = null)
+    public function getUserListPageAsync(array $condition, string $fieldScope, int $page = 1, int $limit = 10)
     {
-        return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit, $uidDTO);
+        return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit);
     }
 
     /**
