@@ -2003,6 +2003,32 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * 根据查询条件，返回对应的order_id
+     *
+     * @param string $condition 查询条件
+     * @param array $bind 绑定参数
+     * @return int
+     *
+     * @requestExample({"condition":"order_sn = :orderSn:", "bind":{"orderSn":"2154034430329778"}})
+     * @returnExample(50002202)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.12
+     */
+    public function getOrderIdByCondition(string $condition, array $bind = []):int
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $condition, $bind);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getOrderIdByConditionAsync(string $condition, array $bind = []):int
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $condition, $bind);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
