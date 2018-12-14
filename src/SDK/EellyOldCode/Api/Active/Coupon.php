@@ -52,4 +52,19 @@ class Coupon
     {
         return EellyClient::request('eellyOldCode/Active/Coupon/Coupon', __FUNCTION__, true, $orderId, $userId, $couponNo);
     }
+
+    /**
+     * 根据传过来的优惠卷id，返回优惠卷页面相关数据.
+     *
+     * @param string $keycode
+     * @param int    $userId
+     * @return mixed
+     *
+     * @author zhangyangxun
+     * @since 2018-12-14
+     */
+    public function getWapCouponInfo(string $keycode, int $userId)
+    {
+        return EellyClient::request('eellyOldCode/Active/Coupon/Coupon', __FUNCTION__, true, $keycode, $userId);
+    }
 }
