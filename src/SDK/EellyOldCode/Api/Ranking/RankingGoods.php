@@ -26,9 +26,21 @@ class RankingGoods
 {
     /**
      * @return mixed
+     * @throws \ErrorException
      */
     public function getMarketGoodsCateList()
     {
         return EellyClient::request('eellyOldCode/ranking/rankingGoods', __FUNCTION__, true);
+    }
+
+    /**
+     * @param $mgrrId
+     * @param int $page
+     * @return mixed
+     * @throws \ErrorException
+     */
+    public function getRecordByMgrrId($mgrrId, $page = 1)
+    {
+        return EellyClient::request('eellyOldCode/ranking/rankingGoods', __FUNCTION__, true, $mgrrId, $page);
     }
 }
