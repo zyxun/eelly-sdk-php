@@ -37,4 +37,17 @@ class MallSetting
     {
         return EellyClient::request('eellyOldCode/common/mallSetting', __FUNCTION__, true);
     }
+
+    /**
+     * 获取登录页广告
+     *
+     * @return mixed
+     *
+     * @author zhangyangxun
+     * @since 2018-12-18
+     */
+    public function getLoginAd()
+    {
+        return EellyClient::request('eellyOldCode/Common/MallSetting', __FUNCTION__, true);
+    }
 }
