@@ -2635,6 +2635,156 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 已经打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * invoiceNo | string | 快递单号
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.19
+     */
+    public function alreadyPrintOrderList(int $storeId, array $conditions = []): array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'alreadyPrintOrderList', true, $storeId, $conditions);
+    }
+
+    /**
+     * 已经打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * invoiceNo | string | 快递单号
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.19
+     */
+    public function alreadyPrintOrderListAsync(int $storeId, array $conditions = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'alreadyPrintOrderList', false, $storeId, $conditions);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
