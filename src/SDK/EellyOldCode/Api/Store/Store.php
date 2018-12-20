@@ -248,4 +248,19 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
+
+    /**
+     * 获取实体认证人姓名
+     * 企业身份认证（企业法人姓名）>个人实名认证（真实姓名）>基础资料（店主姓名）.
+     *
+     * @param array $storeId 店铺id
+     *
+     * @author liweiquan<liweiquan@eelly.net>
+     *
+     * @since  2016年10月07日
+     */
+    public function getStoreAuthName(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
+    }
 }
