@@ -81,4 +81,17 @@ interface WaybillInterface
      * @since 2018年05月23日
      */
     public function getWaybillInfo(int $userId, int $type): array;
+
+    /**
+     * 设置默认的发货地址
+     *
+     * @param integer $userId 用户id
+     * @param string $cpCode 物流服务id
+     * @param string $branchCode 地址唯一id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function setDefaultShipAddress(int $userId, string $cpCode, string $branchCode):bool;
 }
