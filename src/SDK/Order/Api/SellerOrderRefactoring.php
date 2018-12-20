@@ -2787,6 +2787,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     /**
      * 电子面单打印
      *
+     * @param integer $storeId 店铺id
      * @param array $orderIds 订单id数组
      * @param array $conditions 其他条件
      * @return array
@@ -2794,14 +2795,15 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.12.20
      */
-    public function newPrintOrders(array $orderIds, array $conditions = []): array
+    public function newPrintOrders(int $storeId, array $orderIds, array $conditions = []): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', true, $orderIds, $conditions);
+        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', true, $storeId, $orderIds, $conditions);
     }
 
     /**
      * 电子面单打印
      *
+     * @param integer $storeId 店铺id
      * @param array $orderIds 订单id数组
      * @param array $conditions 其他条件
      * @return array
@@ -2809,14 +2811,15 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.12.20
      */
-    public function newPrintOrdersAsync(array $orderIds, array $conditions = [])
+    public function newPrintOrdersAsync(int $storeId, array $orderIds, array $conditions = [])
     {
-        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', false, $orderIds, $conditions);
+        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', false, $storeId, $orderIds, $conditions);
     }
 
     /**
      * 原电子面单打印
      *
+     * @param integer $storeId 店铺id
      * @param array $orderIds
      * @param array $conditions
      * @return array
@@ -2824,14 +2827,15 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.12.20
      */
-    public function sourcePrintOrders(array $orderIds, array $conditions = []): array
+    public function sourcePrintOrders(int $storeId, array $orderIds, array $conditions = []): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', true, $orderIds, $conditions);
+        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', true, $storeId, $orderIds, $conditions);
     }
 
     /**
      * 原电子面单打印
      *
+     * @param integer $storeId 店铺id
      * @param array $orderIds
      * @param array $conditions
      * @return array
@@ -2839,9 +2843,9 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.12.20
      */
-    public function sourcePrintOrdersAsync(array $orderIds, array $conditions = [])
+    public function sourcePrintOrdersAsync(int $storeId, array $orderIds, array $conditions = [])
     {
-        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', false, $orderIds, $conditions);
+        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', false, $storeId, $orderIds, $conditions);
     }
 
     /**

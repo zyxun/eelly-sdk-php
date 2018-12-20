@@ -1326,6 +1326,7 @@ interface SellerOrderRefactoringInterface
     /**
      * 电子面单打印
      *
+     * @param integer $storeId 店铺id
      * @param array $orderIds 订单id数组
      * @param array $conditions 其他条件
      * @return array
@@ -1333,11 +1334,12 @@ interface SellerOrderRefactoringInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.12.20
      */
-    public function newPrintOrders(array $orderIds, array $conditions = []):array;
+    public function newPrintOrders(int $storeId, array $orderIds, array $conditions = []):array;
 
     /**
      * 原电子面单打印
      *
+     * @param integer $storeId 店铺id
      * @param array $orderIds
      * @param array $conditions
      * @return array
@@ -1345,5 +1347,5 @@ interface SellerOrderRefactoringInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2018.12.20
      */
-    public function sourcePrintOrders(array $orderIds, array $conditions = []):array;
+    public function sourcePrintOrders(int $storeId, array $orderIds, array $conditions = []):array;
 }
