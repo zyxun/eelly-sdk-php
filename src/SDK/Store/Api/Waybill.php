@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -17,6 +16,7 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\WaybillInterface;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Waybill implements WaybillInterface
@@ -173,14 +173,42 @@ class Waybill implements WaybillInterface
      * @author 肖俊明<xiaojunming@eelly.net>
      *
      * @since 2018年05月23日
-     * @Validation(
-     *      @OperatorValidator(0,{message : "非法用户ID/店铺ID",operator:["gt",0]}),
-     *      @InclusionIn(1,{message : "非法的绑定类型",domain:[0, 1, 2]})
-     * )
      */
     public function getWaybillInfoAsync(int $userId, int $type)
     {
         return EellyClient::request('store/waybill', 'getWaybillInfo', false, $userId, $type);
+    }
+
+    /**
+     * 设置默认的发货地址
+     *
+     * @param integer $userId 用户id
+     * @param string $cpCode 物流服务id
+     * @param string $branchCode 地址唯一id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function setDefaultShipAddress(int $userId, string $cpCode, string $branchCode): bool
+    {
+        return EellyClient::request('store/waybill', 'setDefaultShipAddress', true, $userId, $cpCode, $branchCode);
+    }
+
+    /**
+     * 设置默认的发货地址
+     *
+     * @param integer $userId 用户id
+     * @param string $cpCode 物流服务id
+     * @param string $branchCode 地址唯一id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function setDefaultShipAddressAsync(int $userId, string $cpCode, string $branchCode)
+    {
+        return EellyClient::request('store/waybill', 'setDefaultShipAddress', false, $userId, $cpCode, $branchCode);
     }
 
     /**
