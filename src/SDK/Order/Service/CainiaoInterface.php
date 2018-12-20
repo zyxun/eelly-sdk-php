@@ -349,6 +349,8 @@ interface CainiaoInterface
     /**
      * 获取发货快递地址
      * 
+     * > 特别说明 外层数组第一个数据就是存在了默认地址，无需再遍历，具体哪个地址为默认看 address[...]['default'] 字段
+     * 
      * > 返回数据说明
      * 
      * key | type | value
@@ -356,7 +358,6 @@ interface CainiaoInterface
      * cpCode | string | 物流公司id
      * expressCompany | string | 物流公司名称
      * cpType | int | 1是直营，2是加盟
-     * default | int | 是否默认地址 0:否 1:是
      * address | array | 地址列表 二维数组
      * 
      * > address 字段说明
@@ -364,6 +365,7 @@ interface CainiaoInterface
      * key | type | value
      * --- | ---- | -----
      * branchCode | string | 网点code
+     * default | int | 是否默认地址 0:否 1:是
      * quantity  | int | 电子面单余额数量
      * province | string | 省名称（一级地址）
      * city | string | 市名称（二级地址）
