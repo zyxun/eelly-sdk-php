@@ -1011,6 +1011,36 @@ class Live implements LiveInterface
     }
 
     /**
+     * 发送点赞信息.
+     * 
+     * @param type $userId 用户id
+     * @param int $liveId 直播id
+     * @param int $praise 点击次数
+     * 
+     * @author wechan
+     * @since 2018年12月20日
+     */
+    public function sendPraise(int $userId, int $liveId, int $praise)
+    {
+        return EellyClient::request('live/live', 'sendPraise', true, $userId, $liveId, $praise);
+    }
+
+    /**
+     * 发送点赞信息.
+     * 
+     * @param type $userId 用户id
+     * @param int $liveId 直播id
+     * @param int $praise 点击次数
+     * 
+     * @author wechan
+     * @since 2018年12月20日
+     */
+    public function sendPraiseAsync(int $userId, int $liveId, int $praise)
+    {
+        return EellyClient::request('live/live', 'sendPraise', false, $userId, $liveId, $praise);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
