@@ -1322,4 +1322,28 @@ interface SellerOrderRefactoringInterface
      * @since 2018.12.19
      */
     public function alreadyPrintOrderList(int $storeId, array $conditions = []):array;
+
+    /**
+     * 电子面单打印
+     *
+     * @param array $orderIds 订单id数组
+     * @param array $conditions 其他条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function newPrintOrders(array $orderIds, array $conditions = []):array;
+
+    /**
+     * 原电子面单打印
+     *
+     * @param array $orderIds
+     * @param array $conditions
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function sourcePrintOrders(array $orderIds, array $conditions = []):array;
 }

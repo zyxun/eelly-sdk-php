@@ -2785,6 +2785,66 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 电子面单打印
+     *
+     * @param array $orderIds 订单id数组
+     * @param array $conditions 其他条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function newPrintOrders(array $orderIds, array $conditions = []): array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', true, $orderIds, $conditions);
+    }
+
+    /**
+     * 电子面单打印
+     *
+     * @param array $orderIds 订单id数组
+     * @param array $conditions 其他条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function newPrintOrdersAsync(array $orderIds, array $conditions = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', false, $orderIds, $conditions);
+    }
+
+    /**
+     * 原电子面单打印
+     *
+     * @param array $orderIds
+     * @param array $conditions
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function sourcePrintOrders(array $orderIds, array $conditions = []): array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', true, $orderIds, $conditions);
+    }
+
+    /**
+     * 原电子面单打印
+     *
+     * @param array $orderIds
+     * @param array $conditions
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function sourcePrintOrdersAsync(array $orderIds, array $conditions = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', false, $orderIds, $conditions);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
