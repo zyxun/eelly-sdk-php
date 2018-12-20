@@ -104,14 +104,14 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * 28 |交易完成(客服介入处理完成，其他原因)
      * 29 |交易完成(订单部分退款，交易完成)
      *
-     * @param array $params 参数数组
-     * @param int $params['tab']  请求的订单列表栏目
-     * @param string $params['keyword'] 搜索关键字
-     * @param int $params['page'] 请求的页码
-     * @param int $params['limit'] 每页显示的数量
+     * @param array       $params            参数数组
+     * @param int         $params['tab']     请求的订单列表栏目
+     * @param string      $params['keyword'] 搜索关键字
+     * @param int         $params['page']    请求的页码
+     * @param int         $params['limit']   每页显示的数量
      * @param UidDTO|null $uidDTO
-     * @return array
      *
+     * @return array
      * @return array
      *
      * @author hehui<hehui@eelly.net>
@@ -283,14 +283,14 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * 28 |交易完成(客服介入处理完成，其他原因)
      * 29 |交易完成(订单部分退款，交易完成)
      *
-     * @param array $params 参数数组
-     * @param int $params['tab']  请求的订单列表栏目
-     * @param string $params['keyword'] 搜索关键字
-     * @param int $params['page'] 请求的页码
-     * @param int $params['limit'] 每页显示的数量
+     * @param array       $params            参数数组
+     * @param int         $params['tab']     请求的订单列表栏目
+     * @param string      $params['keyword'] 搜索关键字
+     * @param int         $params['page']    请求的页码
+     * @param int         $params['limit']   每页显示的数量
      * @param UidDTO|null $uidDTO
-     * @return array
      *
+     * @return array
      * @return array
      *
      * @author hehui<hehui@eelly.net>
@@ -462,14 +462,14 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * 28 |交易完成(客服介入处理完成，其他原因)
      * 29 |交易完成(订单部分退款，交易完成)
      *
-     * @param array $params 参数数组
-     * @param int $params['tab']  请求的订单列表栏目
-     * @param array $params['keywords'] 搜索关键字
-     * @param int $params['page'] 请求的页码
-     * @param int $params['limit'] 每页显示的数量
+     * @param array       $params             参数数组
+     * @param int         $params['tab']      请求的订单列表栏目
+     * @param array       $params['keywords'] 搜索关键字
+     * @param int         $params['page']     请求的页码
+     * @param int         $params['limit']    每页显示的数量
      * @param UidDTO|null $uidDTO
-     * @return array
      *
+     * @return array
      * @return array
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
@@ -640,14 +640,14 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      * 28 |交易完成(客服介入处理完成，其他原因)
      * 29 |交易完成(订单部分退款，交易完成)
      *
-     * @param array $params 参数数组
-     * @param int $params['tab']  请求的订单列表栏目
-     * @param array $params['keywords'] 搜索关键字
-     * @param int $params['page'] 请求的页码
-     * @param int $params['limit'] 每页显示的数量
+     * @param array       $params             参数数组
+     * @param int         $params['tab']      请求的订单列表栏目
+     * @param array       $params['keywords'] 搜索关键字
+     * @param int         $params['page']     请求的页码
+     * @param int         $params['limit']    每页显示的数量
      * @param UidDTO|null $uidDTO
-     * @return array
      *
+     * @return array
      * @return array
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
@@ -1445,10 +1445,11 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     /**
      * 卖家修改订单价格
      *
-     * @param int $orderId 订单id
-     * @param int $price  修改后的订单价格
-     * @param int $freight 修改后的运费
+     * @param int         $orderId 订单id
+     * @param int         $price   修改后的订单价格
+     * @param int         $freight 修改后的运费
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 160, "price":1000, "freight":10})
@@ -1456,6 +1457,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author hehui<hehui@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.08.31
      */
     public function changeOrderPrice(int $orderId, int $price, int $freight, UidDTO $uidDTO = null): bool
@@ -1466,10 +1468,11 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     /**
      * 卖家修改订单价格
      *
-     * @param int $orderId 订单id
-     * @param int $price  修改后的订单价格
-     * @param int $freight 修改后的运费
+     * @param int         $orderId 订单id
+     * @param int         $price   修改后的订单价格
+     * @param int         $freight 修改后的运费
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 160, "price":1000, "freight":10})
@@ -1477,6 +1480,7 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author hehui<hehui@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.08.31
      */
     public function changeOrderPriceAsync(int $orderId, int $price, int $freight, UidDTO $uidDTO = null)
@@ -1485,12 +1489,15 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 卖家取消订单
+     * 卖家取消订单.
      *
-     * @param int $orderId  订单id
+     * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.11
      */
     public function cancelOrder(int $orderId, UidDTO $uidDTO = null): bool
@@ -1499,12 +1506,15 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 卖家取消订单
+     * 卖家取消订单.
      *
-     * @param int $orderId  订单id
+     * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.11
      */
     public function cancelOrderAsync(int $orderId, UidDTO $uidDTO = null)
@@ -1513,19 +1523,21 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 添加物流信息跟修改物流信息接口
+     * 添加物流信息跟修改物流信息接口.
      *
-     * @param string $invoiceCode  送货编码：快递公司对应的拼音
-     * @param string $invoiceName  送货公司名称
-     * @param string $invoiceNo  送货单号
-     * @param array $orderIds  订单id列表
+     * @param string      $invoiceCode 送货编码：快递公司对应的拼音
+     * @param string      $invoiceName 送货公司名称
+     * @param string      $invoiceNo   送货单号
+     * @param array       $orderIds    订单id列表
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"invoiceCode": "sf", "invoiceName":"顺丰", "invoiceNo":"12334454", "orderIds":[116,117]})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.11
      */
     public function updateLogisticsInfo(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null): bool
@@ -1534,19 +1546,21 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 添加物流信息跟修改物流信息接口
+     * 添加物流信息跟修改物流信息接口.
      *
-     * @param string $invoiceCode  送货编码：快递公司对应的拼音
-     * @param string $invoiceName  送货公司名称
-     * @param string $invoiceNo  送货单号
-     * @param array $orderIds  订单id列表
+     * @param string      $invoiceCode 送货编码：快递公司对应的拼音
+     * @param string      $invoiceName 送货公司名称
+     * @param string      $invoiceNo   送货单号
+     * @param array       $orderIds    订单id列表
      * @param UidDTO|null $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"invoiceCode": "sf", "invoiceName":"顺丰", "invoiceNo":"12334454", "orderIds":[116,117]})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.11
      */
     public function updateLogisticsInfoAsync(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, UidDTO $uidDTO = null)
@@ -1555,16 +1569,18 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 根据订单id获取订单收货地址信息
+     * 根据订单id获取订单收货地址信息.
      *
-     * @param int $orderId 订单id
+     * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      *
      * @requestExample({"orderId": 50001744 })
      * @returnExample({"orderId":"2","consignee":"test","gbCode":"510000","regionName":"\u5e7f\u4e1c","address":"test","zipcode":"123456","mobile":"","phone":"13430245645"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
     public function getOrderInvoiceData(int $orderId, UidDTO $uidDTO = null): array
@@ -1573,16 +1589,18 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 根据订单id获取订单收货地址信息
+     * 根据订单id获取订单收货地址信息.
      *
-     * @param int $orderId 订单id
+     * @param int         $orderId 订单id
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      *
      * @requestExample({"orderId": 50001744 })
      * @returnExample({"orderId":"2","consignee":"test","gbCode":"510000","regionName":"\u5e7f\u4e1c","address":"test","zipcode":"123456","mobile":"","phone":"13430245645"})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
     public function getOrderInvoiceDataAsync(int $orderId, UidDTO $uidDTO = null)
@@ -1591,22 +1609,24 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 卖家更新买家的收货地址信息
+     * 卖家更新买家的收货地址信息.
      *
-     * @param int $orderId  订单id
-     * @param array $invoiceData 收货地址信息
+     * @param int    $orderId                   订单id
+     * @param array  $invoiceData               收货地址信息
      * @param string $invoiceData["regionName"] 省市区中文
-     * @param string $invoiceData["address"] 详细地址
-     * @param string $invoiceData["mobile"] 手机号码
-     * @param string $invoiceData["consignee"] 收货人姓名
-     * @param string $invoiceData["gbCode"] 地区编码id
+     * @param string $invoiceData["address"]    详细地址
+     * @param string $invoiceData["mobile"]     手机号码
+     * @param string $invoiceData["consignee"]  收货人姓名
+     * @param string $invoiceData["gbCode"]     地区编码id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 50001744, "invoiceData":{"regionName":"广东省 广州市 越秀区","address":"test","mobile":"13430245645","consignee":"demo","gbCode":"440104"}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
     public function updateOrderInvoiceData(int $orderId, array $invoiceData, UidDTO $uidDTO = null): bool
@@ -1615,22 +1635,24 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 卖家更新买家的收货地址信息
+     * 卖家更新买家的收货地址信息.
      *
-     * @param int $orderId  订单id
-     * @param array $invoiceData 收货地址信息
+     * @param int    $orderId                   订单id
+     * @param array  $invoiceData               收货地址信息
      * @param string $invoiceData["regionName"] 省市区中文
-     * @param string $invoiceData["address"] 详细地址
-     * @param string $invoiceData["mobile"] 手机号码
-     * @param string $invoiceData["consignee"] 收货人姓名
-     * @param string $invoiceData["gbCode"] 地区编码id
+     * @param string $invoiceData["address"]    详细地址
+     * @param string $invoiceData["mobile"]     手机号码
+     * @param string $invoiceData["consignee"]  收货人姓名
+     * @param string $invoiceData["gbCode"]     地区编码id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 50001744, "invoiceData":{"regionName":"广东省 广州市 越秀区","address":"test","mobile":"13430245645","consignee":"demo","gbCode":"440104"}})
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
     public function updateOrderInvoiceDataAsync(int $orderId, array $invoiceData, UidDTO $uidDTO = null)
@@ -1639,16 +1661,18 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 卖家延长收货时间
+     * 卖家延长收货时间.
      *
-     * @param int $orderId  订单id
+     * @param int    $orderId 订单id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 50001744 })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
     public function extendReceiptTime(int $orderId, UidDTO $uidDTO = null): bool
@@ -1657,16 +1681,18 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 卖家延长收货时间
+     * 卖家延长收货时间.
      *
-     * @param int $orderId  订单id
+     * @param int    $orderId 订单id
      * @param UidDTO $uidDTO
+     *
      * @return bool
      *
      * @requestExample({"orderId": 50001744 })
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.09.18
      */
     public function extendReceiptTimeAsync(int $orderId, UidDTO $uidDTO = null)
@@ -1927,9 +1953,10 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
-     * 去指定时间内平台的所有下过单的买家Id (迁移旧代码)
+     * 去指定时间内平台的所有下过单的买家Id (迁移旧代码).
      *
      * @param int $time
+     *
      * @return array
      *
      * @requestExample({"time":1540474081})
@@ -1937,51 +1964,79 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.10.25
+     *
+     * @since 2018.10.26
      */
-    public function getPlatOrderBuyerId(int $time):array
+    public function getPlatOrderBuyerId(int $time): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $time);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getPlatOrderBuyerId', true, $time);
     }
 
     /**
-     * @inheritdoc
+     * 去指定时间内平台的所有下过单的买家Id (迁移旧代码).
+     *
+     * @param int $time
+     *
+     * @return array
+     *
+     * @requestExample({"time":1540474081})
+     * @returnExample(["371333","1762341"])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.10.26
      */
-    public function getPlatOrderBuyerIdAsync(int $time):array
+    public function getPlatOrderBuyerIdAsync(int $time)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $time);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getPlatOrderBuyerId', false, $time);
     }
 
     /**
-     * 批量获取买家下过的订单数 (迁移旧代码)
+     * 批量获取买家下过的订单数 (迁移旧代码).
      *
      * @param array $buyerIds 买家ids
-     * @param array   $status   排除的订单状态
+     * @param array $status   排除的订单状态
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[148086,1762341], "status": [6,12]})
      * @returnExample([{"buyer_id":"371333","num":"7"},{"buyer_id":"1762341","num":"46"}])
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getBuyerOrdersNum(array $buyerIds, array $status=[])
+    public function getBuyerOrdersNum(array $buyerIds, array $status = [])
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerIds, $status);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getBuyerOrdersNum', true, $buyerIds, $status);
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getBuyerOrdersNumAsync(array $buyerIds, $status=[])
-    {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerIds, $status);
-    }
-
-    /**
-     * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码)
+     * 批量获取买家下过的订单数 (迁移旧代码).
      *
      * @param array $buyerIds 买家ids
+     * @param array $status   排除的订单状态
+     *
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341], "status": [6,12]})
+     * @returnExample([{"buyer_id":"371333","num":"7"},{"buyer_id":"1762341","num":"46"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.10.26
+     */
+    public function getBuyerOrdersNumAsync(array $buyerIds, array $status = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'getBuyerOrdersNum', false, $buyerIds, $status);
+    }
+
+    /**
+     * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码).
+     *
+     * @param array $buyerIds 买家ids
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[148086,1762341]})
@@ -1989,25 +2044,39 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getSameOrderSellerId(array $buyerIds):array
+    public function getSameOrderSellerId(array $buyerIds): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getSameOrderSellerId', true, $buyerIds);
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getSameOrderSellerIdAsync(array $buyerIds):array
-    {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerIds);
-    }
-
-    /**
-     * 根据买家id获取最后下单的订单id.(迁移旧代码)
+     * 获取用户ids 共同进货（下单含支付）最多 的卖家id 倒序(迁移旧代码).
      *
      * @param array $buyerIds 买家ids
+     *
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341]})
+     * @returnExample([{"count":"2","seller_id":"158252"},{"count":"1","seller_id":"148086"},{"count":"1","seller_id":"1760467"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.10.26
+     */
+    public function getSameOrderSellerIdAsync(array $buyerIds)
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'getSameOrderSellerId', false, $buyerIds);
+    }
+
+    /**
+     * 根据买家id获取最后下单的订单id.(迁移旧代码).
+     *
+     * @param array $buyerIds 买家ids
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[148086,1762341]})
@@ -2015,25 +2084,39 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getLastOrderId($buyerIds):array
+    public function getLastOrderId($buyerIds): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getLastOrderId', true, $buyerIds);
     }
 
     /**
-     * @inheritdoc
+     * 根据买家id获取最后下单的订单id.(迁移旧代码).
+     *
+     * @param array $buyerIds 买家ids
+     *
+     * @return array
+     *
+     * @requestExample({"buyerIds":[148086,1762341]})
+     * @returnExample([{"order_id":"50002282"},{"order_id":"50002279"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.10.26
      */
-    public function getLastOrderIdAsync($buyerIds):array
+    public function getLastOrderIdAsync($buyerIds)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getLastOrderId', false, $buyerIds);
     }
 
     /**
-     * 根据订单id获取最后下单的卖家id.(迁移旧代码)
+     * 根据订单id获取最后下单的卖家id.(迁移旧代码).
      *
      * @param array $orderIds 订单ids
+     *
      * @return array
      *
      * @requestExample({"orderIds":[50002279]})
@@ -2041,52 +2124,80 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.26
      */
-    public function getLastOrderSellerId($orderIds):array
+    public function getLastOrderSellerId($orderIds): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getLastOrderSellerId', true, $orderIds);
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getLastOrderSellerIdAsync($orderIds):array
-    {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderIds);
-    }
-
-    /**
-     * 获取退款总数 (迁移旧代码)
+     * 根据订单id获取最后下单的卖家id.(迁移旧代码).
      *
-     * @param int $time 时间戳  gmtime()-X*86400
+     * @param array $orderIds 订单ids
+     *
+     * @return array
+     *
+     * @requestExample({"orderIds":[50002279]})
+     * @returnExample([{"seller_id":"1760467","buyer_id":"1762341"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.10.26
+     */
+    public function getLastOrderSellerIdAsync($orderIds)
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'getLastOrderSellerId', false, $orderIds);
+    }
+
+    /**
+     * 获取退款总数 (迁移旧代码).
+     *
+     * @param int    $time    时间戳  gmtime()-X*86400
      * @param string $storeId
+     *
      * @return number
      *
      * @requestExample({"time":1345678945, "storeId":1760467})
      * @returnExample(4)
      *
      * @author zengxiong<zengxiong@eelly.net>
+     *
      * @since  2018.10.29
      */
-    public function getTkCount(int $time, int $storeId):int
+    public function getTkCount(int $time, int $storeId): int
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $time, $storeId);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getTkCount', true, $time, $storeId);
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getTkCountAsync(int $time, int $storeId):int
-    {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $time, $storeId);
-    }
-
-    /**
-     * 根据下单时间获取某个店铺出售的商品信息 (迁移旧代码)
+     * 获取退款总数 (迁移旧代码).
      *
-     * @param int $storeId  店铺id
-     * @param array $byTime 添加时间 (['gt', 1538323200])
+     * @param int    $time    时间戳  gmtime()-X*86400
+     * @param string $storeId
+     *
+     * @return number
+     *
+     * @requestExample({"time":1345678945, "storeId":1760467})
+     * @returnExample(4)
+     *
+     * @author zengxiong<zengxiong@eelly.net>
+     *
+     * @since  2018.10.29
+     */
+    public function getTkCountAsync(int $time, int $storeId)
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'getTkCount', false, $time, $storeId);
+    }
+
+    /**
+     * 根据下单时间获取某个店铺出售的商品信息 (迁移旧代码).
+     *
+     * @param int   $storeId 店铺id
+     * @param array $byTime  添加时间 (['gt', 1538323200])
+     *
      * @return array
      *
      * @requestExample({"storeId":1760467, "byTime":["gt", "1540540846"]})
@@ -2094,26 +2205,41 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 黄文广<huangwenguang@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.29
      */
-    public function getTakeOrderGoodsByTime(int $storeId, array $byTime):array
+    public function getTakeOrderGoodsByTime(int $storeId, array $byTime): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $storeId, $byTime);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getTakeOrderGoodsByTime', true, $storeId, $byTime);
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getTakeOrderGoodsByTimeAsync(int $storeId, array $byTime):array
-    {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $storeId, $byTime);
-    }
-
-    /**
-     * 获取90天仲裁数 服务质量2.0新规则
+     * 根据下单时间获取某个店铺出售的商品信息 (迁移旧代码).
      *
-     * @param int $time  时间90天 gmtime()-X*86400
+     * @param int   $storeId 店铺id
+     * @param array $byTime  添加时间 (['gt', 1538323200])
+     *
+     * @return array
+     *
+     * @requestExample({"storeId":1760467, "byTime":["gt", "1540540846"]})
+     * @returnExample([5578928,5578930,5578936])
+     *
+     * @author 黄文广<huangwenguang@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.10.29
+     */
+    public function getTakeOrderGoodsByTimeAsync(int $storeId, array $byTime)
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'getTakeOrderGoodsByTime', false, $storeId, $byTime);
+    }
+
+    /**
+     * 获取90天仲裁数 服务质量2.0新规则.
+     *
+     * @param int $time    时间90天 gmtime()-X*86400
      * @param int $storeId 店铺id
+     *
      * @return int
      *
      * @requestExample({"time":1540449990, "storeId":1760467})
@@ -2121,25 +2247,40 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author zengxiong<zengxiong@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.29
      */
-    function getZcCount(int $time , int $storeId = 0):int
+    public function getZcCount(int $time, int $storeId = 0): int
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $time, $storeId);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getZcCount', true, $time, $storeId);
     }
 
     /**
-     * @inheritdoc
+     * 获取90天仲裁数 服务质量2.0新规则.
+     *
+     * @param int $time    时间90天 gmtime()-X*86400
+     * @param int $storeId 店铺id
+     *
+     * @return int
+     *
+     * @requestExample({"time":1540449990, "storeId":1760467})
+     * @returnExample(1)
+     *
+     * @author zengxiong<zengxiong@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.10.29
      */
-    function getZcCountAsync(int $time , int $storeId = 0):int
+    public function getZcCountAsync(int $time, int $storeId = 0)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $time, $storeId);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getZcCount', false, $time, $storeId);
     }
 
     /**
-     * 根据order_id 获取所有买家的id
+     * 根据order_id 获取所有买家的id.
      *
      * @param array $orderId 订单id
+     *
      * @return array
      *
      * @requestExample({"orderId":[50002202, 50002203]})
@@ -2147,27 +2288,41 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.29
      */
-    public function getByerIdByOrderId(array $orderId):array
+    public function getByerIdByOrderId(array $orderId): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getByerIdByOrderId', true, $orderId);
     }
 
     /**
-     * @inheritdoc
+     * 根据order_id 获取所有买家的id.
+     *
+     * @param array $orderId 订单id
+     *
+     * @return array
+     *
+     * @requestExample({"orderId":[50002202, 50002203]})
+     * @returnExample([{"buyer_id":"2108435"},{"buyer_id":"1762341"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.10.29
      */
-    public function getByerIdByOrderIdAsync(array $orderId):array
+    public function getByerIdByOrderIdAsync(array $orderId)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getByerIdByOrderId', false, $orderId);
     }
 
     /**
-     * 根据买家id获取该买家购买的其他商品 (迁移旧代码)
+     * 根据买家id获取该买家购买的其他商品 (迁移旧代码).
      *
      * @param array $buyerId 买家id
-     * @param int $addTime  下单时间
-     * @param int $limit  数量
+     * @param int   $addTime 下单时间
+     * @param int   $limit   数量
+     *
      * @return array
      *
      * @requestExample({"buyerId":[1761505, 1762341, 148086], "addTime":1540540846, "limit":2})
@@ -2175,26 +2330,42 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.30
      */
-    public function getGoodInfoByOrderBuyerId(array $buyerId, int $addTime = 0, int $limit = 10):array
+    public function getGoodInfoByOrderBuyerId(array $buyerId, int $addTime = 0, int $limit = 10): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerId, $addTime, $limit);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getGoodInfoByOrderBuyerId', true, $buyerId, $addTime, $limit);
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getGoodInfoByOrderBuyerIdAsync(array $buyerId, int $addTime = 0, int $limit = 10):array
-    {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerId, $addTime, $limit);
-    }
-
-    /**
-     * 统计用户在店铺下过的订单
+     * 根据买家id获取该买家购买的其他商品 (迁移旧代码).
      *
-     * @param  int    $userId      用户ID
-     * @param  array  $sellerIds   店铺ID数组
+     * @param array $buyerId 买家id
+     * @param int   $addTime 下单时间
+     * @param int   $limit   数量
+     *
+     * @return array
+     *
+     * @requestExample({"buyerId":[1761505, 1762341, 148086], "addTime":1540540846, "limit":2})
+     * @returnExample([{"goods_id":"1580931","goods_name":"test","goods_number":"2"},{"goods_id":"1580932","goods_name":"demo","goods_number":"2"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.10.30
+     */
+    public function getGoodInfoByOrderBuyerIdAsync(array $buyerId, int $addTime = 0, int $limit = 10)
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'getGoodInfoByOrderBuyerId', false, $buyerId, $addTime, $limit);
+    }
+
+    /**
+     * 统计用户在店铺下过的订单.
+     *
+     * @param int   $userId    用户ID
+     * @param array $sellerIds 店铺ID数组
+     *
      * @return array
      *
      * @requestExample({"userId":1762341, "sellerIds":[158252, 1760467]})
@@ -2202,53 +2373,81 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 郑志明<zhengzhiming@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2018.10.30
      */
-    public function getOrderNumForUserIdBySellerId(int $userId, array $sellerIds):array
+    public function getOrderNumForUserIdBySellerId(int $userId, array $sellerIds): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $userId, $sellerIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getOrderNumForUserIdBySellerId', true, $userId, $sellerIds);
     }
 
     /**
-     * @inheritdoc
+     * 统计用户在店铺下过的订单.
+     *
+     * @param int   $userId    用户ID
+     * @param array $sellerIds 店铺ID数组
+     *
+     * @return array
+     *
+     * @requestExample({"userId":1762341, "sellerIds":[158252, 1760467]})
+     * @returnExample({"158252":"2","1760467":"49"})
+     *
+     * @author 郑志明<zhengzhiming@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.10.30
      */
-    public function getOrderNumForUserIdBySellerIdAsync(int $userId, array $sellerIds):array
+    public function getOrderNumForUserIdBySellerIdAsync(int $userId, array $sellerIds)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $userId, $sellerIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getOrderNumForUserIdBySellerId', false, $userId, $sellerIds);
     }
 
     /**
-     * 批量获取买家下过单的供应商数量 (迁移旧代码)
+     * 批量获取买家下过单的供应商数量 (迁移旧代码).
      *
      * @param array $buyerIds 买家ids
+     *
      * @return array
      *
      * @requestExample({"buyerIds":[1762341, 2108435]})
      * @returnExample([{"buyer_id":"1762341","total":"70"},{"buyer_id":"2108435","total":"7"}])
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.10.31
      */
-    public function getBuyerSupplierNum(array $buyerIds):array
+    public function getBuyerSupplierNum(array $buyerIds): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $buyerIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getBuyerSupplierNum', true, $buyerIds);
     }
 
     /**
-     * @inheritdoc
+     * 批量获取买家下过单的供应商数量 (迁移旧代码).
+     *
+     * @param array $buyerIds 买家ids
+     *
+     * @return array
+     *
+     * @requestExample({"buyerIds":[1762341, 2108435]})
+     * @returnExample([{"buyer_id":"1762341","total":"70"},{"buyer_id":"2108435","total":"7"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.10.31
      */
-    public function getBuyerSupplierNumAsync(array $buyerIds):array
+    public function getBuyerSupplierNumAsync(array $buyerIds)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $buyerIds);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getBuyerSupplierNum', false, $buyerIds);
     }
 
     /**
-     * 根据userId获取下过单的卖家Id (迁移旧代码)
+     * 根据userId获取下过单的卖家Id (迁移旧代码).
      *
      * @param int $userId 用户id
      * @param int $sTime  开始时间
      * @param int $eTime  结束时间
      * @param int $limit  限制条数
+     *
      * @return array
      *
      * @requestExample({"userId":148086})
@@ -2256,19 +2455,397 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
      *
      * @author 李伟权<liweiquan@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.11.08
      */
-    public function getSellerIdByOrder(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20):array
+    public function getSellerIdByOrder(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $userId, $sTime, $eTime, $limit);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getSellerIdByOrder', true, $userId, $sTime, $eTime, $limit);
     }
 
     /**
-     * @inheritdoc
+     * 根据userId获取下过单的卖家Id (迁移旧代码).
+     *
+     * @param int $userId 用户id
+     * @param int $sTime  开始时间
+     * @param int $eTime  结束时间
+     * @param int $limit  限制条数
+     *
+     * @return array
+     *
+     * @requestExample({"userId":148086})
+     * @returnExample([1762613,1760467])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.11.08
      */
-    public function getSellerIdByOrderAsync(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20):array
+    public function getSellerIdByOrderAsync(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $userId, $sTime, $eTime, $limit);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getSellerIdByOrder', false, $userId, $sTime, $eTime, $limit);
+    }
+
+    /**
+     * 待打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.17
+     */
+    public function waitToPrintOrderList(int $storeId, array $conditions = []): array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'waitToPrintOrderList', true, $storeId, $conditions);
+    }
+
+    /**
+     * 待打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.17
+     */
+    public function waitToPrintOrderListAsync(int $storeId, array $conditions = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'waitToPrintOrderList', false, $storeId, $conditions);
+    }
+
+    /**
+     * 已经打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * invoiceNo | string | 快递单号
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.19
+     */
+    public function alreadyPrintOrderList(int $storeId, array $conditions = []): array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'alreadyPrintOrderList', true, $storeId, $conditions);
+    }
+
+    /**
+     * 已经打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * invoiceNo | string | 快递单号
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.19
+     */
+    public function alreadyPrintOrderListAsync(int $storeId, array $conditions = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'alreadyPrintOrderList', false, $storeId, $conditions);
+    }
+
+    /**
+     * 电子面单打印
+     *
+     * @param integer $storeId 店铺id
+     * @param array $orderIds 订单id数组
+     * @param array $conditions 其他条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function newPrintOrders(int $storeId, array $orderIds, array $conditions = []): array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', true, $storeId, $orderIds, $conditions);
+    }
+
+    /**
+     * 电子面单打印
+     *
+     * @param integer $storeId 店铺id
+     * @param array $orderIds 订单id数组
+     * @param array $conditions 其他条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function newPrintOrdersAsync(int $storeId, array $orderIds, array $conditions = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'newPrintOrders', false, $storeId, $orderIds, $conditions);
+    }
+
+    /**
+     * 原电子面单打印
+     *
+     * @param integer $storeId 店铺id
+     * @param array $orderIds
+     * @param array $conditions
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function sourcePrintOrders(int $storeId, array $orderIds, array $conditions = []): array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', true, $storeId, $orderIds, $conditions);
+    }
+
+    /**
+     * 原电子面单打印
+     *
+     * @param integer $storeId 店铺id
+     * @param array $orderIds
+     * @param array $conditions
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function sourcePrintOrdersAsync(int $storeId, array $orderIds, array $conditions = [])
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'sourcePrintOrders', false, $storeId, $orderIds, $conditions);
     }
 
     /**

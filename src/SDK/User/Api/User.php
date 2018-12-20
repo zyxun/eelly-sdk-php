@@ -1578,6 +1578,31 @@ class User implements UserInterface
     }
 
     /**
+     * 根据用户名获取用户id
+     *
+     * @param string $userName 用户名
+     * @return int
+     *
+     * @requestExample({"userName":"molimoq"})
+     * @returnExample(148086)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.11
+     */
+    public function getUserIdByUserName(string $userName):int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $userName);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getUserIdByUserNameAsync(string $userName):int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, false, $userName);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

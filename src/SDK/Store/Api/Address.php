@@ -16,7 +16,7 @@ namespace Eelly\SDK\Store\Api;
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\AddressInterface;
-use Eelly\SDK\Store\Service\DTO\AddressDTO;
+use Eelly\SDK\Store\DTO\AddressDTO;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
@@ -264,6 +264,30 @@ class Address implements AddressInterface
     public function getDefaultAddrInfoByUserIdAsync(int $userId):array
     {
         return EellyClient::request('store/address', __FUNCTION__, false, $userId);
+    }
+
+    /**
+     * 店铺是否设置退货地址
+     *
+     * @param int $storeId 店铺id
+     * @return string
+     * @requestExample({"storeId":148086})
+     * @returnExample("true")
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.28
+     */
+    public function ifSetReturnAddress(int $storeId):string
+    {
+        return EellyClient::request('store/address', __FUNCTION__, true, $storeId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function ifSetReturnAddressAsync(int $storeId):string
+    {
+        return EellyClient::request('store/address', __FUNCTION__, false, $storeId);
     }
 
     /**

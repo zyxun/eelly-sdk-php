@@ -1039,6 +1039,52 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'sendPraise', false, $userId, $liveId, $praise);
     }
+  
+    /**
+     * 获取正在直播中的直播间数量
+     *
+     * @return string
+     * @returnExample("10")
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.04
+     */
+    public function getLivingRoomNum():string
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLivingRoomNumAsync():string
+    {
+        return EellyClient::request('live/live', __FUNCTION__, false);
+    }
+
+    /**
+     * 根据直播id，获取对应的推流地址
+     *
+     * @param int $liveId 直播id
+     * @return array
+     *
+     * @requestExample({"liveId": 586})
+     * @returnExample({"firstUrl":"rtmp:\/\/push.eelly.com\/live\/","endUrl":"3344_develop_586?bizid=3344&txSecret=cdc8accbf1b8cfc076ac87cf68130704&txTime=5C18BE50"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.17
+     */
+    public function getLivePushUrl(int $liveId):array
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true, $liveId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLivePushUrlAsync(int $liveId):array
+    {
+        return EellyClient::request('live/live', __FUNCTION__, false, $liveId);
+    }
 
     /**
      * @return self

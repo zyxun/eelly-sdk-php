@@ -702,4 +702,18 @@ interface UserInterface
      * @since  2018.11.18
      */
     public function getMemberExtendInfo(array $userIds):array;
+
+    /**
+     * 根据用户名获取用户id
+     *
+     * @param string $userName 用户名
+     * @return int
+     *
+     * @requestExample({"userName":"molimoq"})
+     * @returnExample(148086)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.11
+     */
+    public function getUserIdByUserName(string $userName):int;
 }

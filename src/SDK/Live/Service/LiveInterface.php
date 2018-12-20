@@ -462,4 +462,28 @@ interface LiveInterface
      * @since 2018年12月20日
      */
     public function sendPraise(int $userId, int $liveId, int $praise);
+
+    /**
+     * 获取正在直播中的直播间数量
+     *
+     * @return string
+     * @returnExample("10")
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.04
+     */
+    public function getLivingRoomNum():string;
+
+    /**
+     * 根据直播id，获取对应的推流地址
+     *
+     * @param int $liveId 直播id
+     * @return array
+     *
+     * @requestExample({"liveId": 586})
+     * @returnExample({"firstUrl":"rtmp:\/\/push.eelly.com\/live\/","endUrl":"3344_develop_586?bizid=3344&txSecret=cdc8accbf1b8cfc076ac87cf68130704&txTime=5C18BE50"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.17
+     */
+    public function getLivePushUrl(int $liveId):array;
 }

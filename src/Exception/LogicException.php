@@ -57,7 +57,7 @@ class LogicException extends \LogicException
     {
         parent::__construct($message, (int) $code, $previous);
         // default context
-        if (null === $context) {
+        if (null === $context && defined('APP') && APP['env'] == 'develop') {
             $context = [
                 'code' => $this->getCode(),
                 'line' => $this->getLine(),
