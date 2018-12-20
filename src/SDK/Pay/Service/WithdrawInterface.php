@@ -443,11 +443,10 @@ interface WithdrawInterface
      * 
      * @param integer $userId 当前登陆的账号id
      * @param integer $storeId 店铺id 0:店+ 非0:厂家
-     * @param integer $page 分页页码 默认 1
-     * @param integer $limit 数据单页数量
+     * @param array $conditions 筛选条件
      * @return array
      * 
-     * @requestExample({"userId":"148086","storeId":"148086","page":"1","limit":"50"})
+     * @requestExample({"userId":"148086","storeId":"148086","conditions":[{"startTime":"123123123"}]})
      * @returnExample({"allMoney":"1899","month":"2018-9","data":[{"pwId":"35","paId":"2","commissionRation":"0.008","money":"129","gbCode":"0","bankId":"186","bankName":"微信","bankSubbranch":"","bankAccount":"oW-yJwJS5QW2mb-JvNtwbHcgpk74","billNo":"201809040261074056","thirdNo":"","status":"1","remark":"用户微信提现1.30元","adminRemark":"提现成功","handleTime":"1536051543","createdTime":"1536051543","updateTime":"2018-09-04 16:59:10","handling":"1.0"}]})
      * 
      * 
