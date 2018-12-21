@@ -2849,6 +2849,58 @@ class SellerOrderRefactoring implements SellerOrderRefactoringInterface
     }
 
     /**
+     * 根据传过来的条件，返回以同一个买家id而且地址一样的订单作为唯一键的发货单数据列表
+     *
+     * @param array $conditions 查询条件
+     * @return array
+     *
+     * @requestExample({"orderIds":[50002444, 50002202,50002203,50002206]})
+     * @returnExample([{"orderId":"50002444","orderSn":"2154158674068034","buyerName":"yumei1","buyerId":"1762341","sellerId":"148086","osId":"2","orderAmount":"10000","createdTime":"1541586740","waybillFlag":"0","requireLikes":"0","gbCode":"150521","regionName":"\u5185\u8499\u53e4\u81ea\u6cbb\u533a \u901a\u8fbd\u5e02 \u79d1\u5c14\u6c81\u5de6\u7ffc\u4e2d\u65d7","address":"\u6d4b\u8bd5\u4f60\u559c\u6b22","mobile":"13710198271","consignee":"\u6536\u83b7\u4eba"},{"orderId":"50002202","orderSn":"2154034430329778","buyerName":"sixdec","buyerId":"2108435","sellerId":"148086","osId":"2","orderAmount":"4503","createdTime":"1540344303","waybillFlag":"0","requireLikes":"0","gbCode":"440104","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","address":"\u5e7f\u5dde\u5927\u9053\u4e2d599\u53f7","mobile":"13427587735","consignee":"\u51af\u5148\u751f"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.21
+     */
+    public function listInvoiceData(array $conditions = []):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $conditions);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listInvoiceDataAsync(array $conditions = []):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $conditions);
+    }
+
+    /**
+     * 根据传过来的订单id还有条件，返回同一个买家用户id而且地址一样的订单数据的所有订单id
+     *
+     * @param int $orderId  订单id
+     * @param string $condition 查询条件
+     * @param array $bind 绑定参数
+     * @return array
+     *
+     * @requestExample({"orderId":50002203, "condition":"order_id IN ({orderIds:array})", "bind":{"orderIds":[50002202,50002203,50002206]}})
+     * @returnExample(["50002224","50002237","50002239"])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.21
+     */
+    public function getMergeOrderIds(int $orderId , string $condition, array $bind = []):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $condition, $bind);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMergeOrderIdsAsync(int $orderId , string $condition, array $bind = []):array
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $condition, $bind);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
