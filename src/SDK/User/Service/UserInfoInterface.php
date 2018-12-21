@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Service;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\User\Api\User;
 
 /**
  * Interface UserInfoInterface.
@@ -59,13 +60,14 @@ interface UserInfoInterface
      *
      * @param array  $condition
      * @param string $fieldScope
-     * @param UidDTO $uidDTO
      * @return array
      *
      * @author zhangyangxun
      * @since 2018-12-04
+     *
+     * @internal
      */
-    public function getListByCondition(array $condition, string $fieldScope, UidDTO $uidDTO = null): array ;
+    public function getListByCondition(array $condition, string $fieldScope): array ;
 
     /**
      * 分页获取会员列表
@@ -78,6 +80,8 @@ interface UserInfoInterface
      *
      * @author zhangyangxun
      * @since 2018-12-05
+     *
+     * @internal
      */
     public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array ;
 }
