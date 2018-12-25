@@ -54,6 +54,40 @@ class UserManage implements UserManageInterface
     }
 
     /**
+     * 解绑用户手机
+     *
+     * @param int    $userId
+     * @param string $mobile
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-12-25
+     *
+     * @internal
+     */
+    public function UnbindUserMobile(int $userId, string $mobile): bool
+    {
+        return EellyClient::request('user/userManage', 'UnbindUserMobile', true, $userId, $mobile);
+    }
+
+    /**
+     * 解绑用户手机
+     *
+     * @param int    $userId
+     * @param string $mobile
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-12-25
+     *
+     * @internal
+     */
+    public function UnbindUserMobileAsync(int $userId, string $mobile)
+    {
+        return EellyClient::request('user/userManage', 'UnbindUserMobile', false, $userId, $mobile);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
