@@ -34,4 +34,6 @@ class UserException extends LogicException
     public const PHONE_DIFFERENT_ERROR = '输入的手机号码与原手机号码不符';
     public const REQUEST_ERROR = '请求有误';
     public const CAPTCHA_VERIFY_ERROR = '验证码校验错误';
+    public const USER_NOT_EXIST = '用户不存在';
+    public const NOT_USER_MOBILE = '不是该用户的手机号';
 }
