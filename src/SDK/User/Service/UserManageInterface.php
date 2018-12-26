@@ -32,4 +32,18 @@ interface UserManageInterface
      * @since 2018-12-21
      */
     public function changeUserStatus(array $data): bool;
+
+    /**
+     * 解绑用户手机
+     *
+     * @param int    $userId
+     * @param string $mobile
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2018-12-25
+     *
+     * @internal
+     */
+    public function UnbindUserMobile(int $userId, string $mobile): bool;
 }
