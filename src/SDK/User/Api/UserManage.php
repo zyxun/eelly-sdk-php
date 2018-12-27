@@ -58,6 +58,7 @@ class UserManage implements UserManageInterface
      *
      * @param int    $userId
      * @param string $mobile
+     * @param string $confirmCode 操作验证串
      * @return bool
      *
      * @author zhangyangxun
@@ -65,9 +66,9 @@ class UserManage implements UserManageInterface
      *
      * @internal
      */
-    public function UnbindUserMobile(int $userId, string $mobile): bool
+    public function unbindUserMobile(int $userId, string $mobile, string $confirmCode = ''): bool
     {
-        return EellyClient::request('user/userManage', 'UnbindUserMobile', true, $userId, $mobile);
+        return EellyClient::request('user/userManage', 'unbindUserMobile', true, $userId, $mobile, $confirmCode);
     }
 
     /**
@@ -75,6 +76,7 @@ class UserManage implements UserManageInterface
      *
      * @param int    $userId
      * @param string $mobile
+     * @param string $confirmCode 操作验证串
      * @return bool
      *
      * @author zhangyangxun
@@ -82,9 +84,9 @@ class UserManage implements UserManageInterface
      *
      * @internal
      */
-    public function UnbindUserMobileAsync(int $userId, string $mobile)
+    public function unbindUserMobileAsync(int $userId, string $mobile, string $confirmCode = '')
     {
-        return EellyClient::request('user/userManage', 'UnbindUserMobile', false, $userId, $mobile);
+        return EellyClient::request('user/userManage', 'unbindUserMobile', false, $userId, $mobile, $confirmCode);
     }
 
     /**
