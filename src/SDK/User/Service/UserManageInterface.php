@@ -38,6 +38,7 @@ interface UserManageInterface
      *
      * @param int    $userId
      * @param string $mobile
+     * @param string $confirmCode 操作验证串
      * @return bool
      *
      * @author zhangyangxun
@@ -45,5 +46,5 @@ interface UserManageInterface
      *
      * @internal
      */
-    public function UnbindUserMobile(int $userId, string $mobile): bool;
+    public function unbindUserMobile(int $userId, string $mobile, string $confirmCode = ''): bool;
 }
