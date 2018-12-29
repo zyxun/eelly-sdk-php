@@ -27,10 +27,11 @@ interface AccountManageInterface
      * @param int $userId   会员ID
      * @param int $storeId  店铺ID
      * @param int $toStatus 目标状态
+     * @param int $adminId  操作人ID
      * @return bool
      *
      * @author zhangyangxun
      * @since 2018-12-29
      */
-    public function updateAccountStatus(int $userId, int $storeId, int $toStatus): bool ;
+    public function updateAccountStatus(int $userId, int $storeId, int $toStatus, int $adminId): bool ;
 }
