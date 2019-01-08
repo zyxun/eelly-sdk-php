@@ -1146,6 +1146,15 @@ interface OrderInterface
      * @since  2018年11月28日
      */
     public function getNotCancelSalesByStoreId(array $storeIds, int $sTime, int $eTime): array;
+
+    /**
+     * 批量获取订单字段
+     *
+     * @param array $orderIds 订单id数组
+     * @param string str 字段
+     * @return array
+     */
+    public function getOrderFieldByOrderIds(array $orderIds, string $str = 'order_id, order_sn'):array;
     
     /**
      * 获取需自动评论订单

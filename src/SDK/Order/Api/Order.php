@@ -2511,6 +2511,30 @@ class Order implements OrderInterface
     }
 
     /**
+     * 批量获取订单字段
+     *
+     * @param array $orderIds 订单id数组
+     * @param string str 字段
+     * @return array
+     */
+    public function getOrderFieldByOrderIds(array $orderIds, string $str = 'order_id, order_sn'): array
+    {
+        return EellyClient::request('order/order', 'getOrderFieldByOrderIds', true, $orderIds, $str);
+    }
+
+    /**
+     * 批量获取订单字段
+     *
+     * @param array $orderIds 订单id数组
+     * @param string str 字段
+     * @return array
+     */
+    public function getOrderFieldByOrderIdsAsync(array $orderIds, string $str = 'order_id, order_sn')
+    {
+        return EellyClient::request('order/order', 'getOrderFieldByOrderIds', false, $orderIds, $str);
+    }
+
+    /**
      * 获取需自动评论订单
      * @param int $evaluationStatus 评价状态
      * @param array $timeBetween 订单完成时间范围
