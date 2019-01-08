@@ -216,6 +216,32 @@ class Wechat implements WechatInterface
     }
 
     /**
+     * 获取前端展示的微信号
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-08
+     */
+    public function getServiceWechat(): array
+    {
+        return EellyClient::request('system/wechat', 'getServiceWechat', true);
+    }
+
+    /**
+     * 获取前端展示的微信号
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-08
+     */
+    public function getServiceWechatAsync()
+    {
+        return EellyClient::request('system/wechat', 'getServiceWechat', false);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

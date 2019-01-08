@@ -102,4 +102,14 @@ interface WechatInterface
      * @internal
      */
     public function deleteWechat(int $wechatId): bool;
+
+    /**
+     * 获取前端展示的微信号
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-08
+     */
+    public function getServiceWechat(): array ;
 }
