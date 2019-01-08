@@ -187,6 +187,20 @@ class Store
     }
 
     /**
+     * 批量店铺起批数量.
+     *
+     * @param int $storeIds 店铺id
+     * @return array
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.1.7
+     */
+    public function getQuantitys(array $storeIds)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
+    }
+
+    /**
      * 更新店铺佣金比率.
      *
      * @param int   $storeId        店铺ID

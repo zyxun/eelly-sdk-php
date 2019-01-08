@@ -325,6 +325,132 @@ class Refund implements RefundInterface
     }
 
     /**
+     * 获取退款记录
+     * 
+     * > items 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * prefId | int | 退款id
+     * paId | int | 账号id
+     * type | int | 退款类型：1 订单退款 2 服务退款 3 诚保解冻 4 一件代发保证金退款
+     * style | int | 退款方式：0 未知 1 退款到余额 2 退款到支付宝 3 退款到微信',
+     * storeName | string | 店铺名称
+     * number | string | 交易号
+     * serviceName | string | 退款类型号 例如：订单号： 、服务号：
+     * money | float | 退款金额 单位元
+     * remark | string | 备注
+     * extend | string | 拓展
+     * createdTime | int | 创建时间戳
+     *
+     * @param integer $userId 用户id
+     * @param integer $storeId 店铺id
+     * @param integer $page 页码 默认 1
+     * @param integer $limit 每页限制数量 默认 20
+     * @param array $conditions 查询条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.1.4
+     */
+    public function getRefundListForApp(int $userId, int $storeId, int $page = 1, int $limit = 20, array $conditions = []): array
+    {
+        return EellyClient::request('pay/refund', 'getRefundListForApp', true, $userId, $storeId, $page, $limit, $conditions);
+    }
+
+    /**
+     * 获取退款记录
+     * 
+     * > items 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * prefId | int | 退款id
+     * paId | int | 账号id
+     * type | int | 退款类型：1 订单退款 2 服务退款 3 诚保解冻 4 一件代发保证金退款
+     * style | int | 退款方式：0 未知 1 退款到余额 2 退款到支付宝 3 退款到微信',
+     * storeName | string | 店铺名称
+     * number | string | 交易号
+     * serviceName | string | 退款类型号 例如：订单号： 、服务号：
+     * money | float | 退款金额 单位元
+     * remark | string | 备注
+     * extend | string | 拓展
+     * createdTime | int | 创建时间戳
+     *
+     * @param integer $userId 用户id
+     * @param integer $storeId 店铺id
+     * @param integer $page 页码 默认 1
+     * @param integer $limit 每页限制数量 默认 20
+     * @param array $conditions 查询条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.1.4
+     */
+    public function getRefundListForAppAsync(int $userId, int $storeId, int $page = 1, int $limit = 20, array $conditions = [])
+    {
+        return EellyClient::request('pay/refund', 'getRefundListForApp', false, $userId, $storeId, $page, $limit, $conditions);
+    }
+
+    /**
+     * 退款详情
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * prefId | int | 退款id
+     * paId | int | 账号id
+     * type | int | 退款类型：1 订单退款 2 服务退款 3 诚保解冻 4 一件代发保证金退款
+     * serviceName | string | 退款类型号 例如：订单号： 、服务号：
+     * number | string | 交易号
+     * storeName | string | 店铺名称
+     * money | float | 退款金额 单位元
+     * remark | string | 备注
+     * extend | string | 拓展
+     * createdTime | int | 创建时间戳
+     *
+     * @param integer $prefId 退款主键id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.1.4
+     */
+    public function refundDetail(int $prefId): array
+    {
+        return EellyClient::request('pay/refund', 'refundDetail', true, $prefId);
+    }
+
+    /**
+     * 退款详情
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * prefId | int | 退款id
+     * paId | int | 账号id
+     * type | int | 退款类型：1 订单退款 2 服务退款 3 诚保解冻 4 一件代发保证金退款
+     * serviceName | string | 退款类型号 例如：订单号： 、服务号：
+     * number | string | 交易号
+     * storeName | string | 店铺名称
+     * money | float | 退款金额 单位元
+     * remark | string | 备注
+     * extend | string | 拓展
+     * createdTime | int | 创建时间戳
+     *
+     * @param integer $prefId 退款主键id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.1.4
+     */
+    public function refundDetailAsync(int $prefId)
+    {
+        return EellyClient::request('pay/refund', 'refundDetail', false, $prefId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
