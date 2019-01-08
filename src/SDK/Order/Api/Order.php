@@ -2535,6 +2535,64 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取需自动评论订单
+     * @param int $evaluationStatus 评价状态
+     * @param array $timeBetween 订单完成时间范围
+     * @param array $page 分页
+     *
+     */
+    public function getNeedAutoEvaluateOrders(int $evaluationStatus, array $timeBetween = [0, 0], array $page = [0, 0]): array
+    {
+        return EellyClient::request('order/order', 'getNeedAutoEvaluateOrders', true, $evaluationStatus, $timeBetween, $page);
+    }
+
+    /**
+     * 获取需自动评论订单
+     * @param int $evaluationStatus 评价状态
+     * @param array $timeBetween 订单完成时间范围
+     * @param array $page 分页
+     *
+     */
+    public function getNeedAutoEvaluateOrdersAsync(int $evaluationStatus, array $timeBetween = [0, 0], array $page = [0, 0])
+    {
+        return EellyClient::request('order/order', 'getNeedAutoEvaluateOrders', false, $evaluationStatus, $timeBetween, $page);
+    }
+
+    /**
+     * 根据订单id 更新 评价标志
+     *
+     * @param array $orderIds    订单id
+     * @param int $evaluateFlag  消息通知标识的值
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2019年01月02日
+     * @internal
+     */
+    public function updateOrderEvaluateFlag(array $orderIds, int $evaluateFlag): bool
+    {
+        return EellyClient::request('order/order', 'updateOrderEvaluateFlag', true, $orderIds, $evaluateFlag);
+    }
+
+    /**
+     * 根据订单id 更新 评价标志
+     *
+     * @param array $orderIds    订单id
+     * @param int $evaluateFlag  消息通知标识的值
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2019年01月02日
+     * @internal
+     */
+    public function updateOrderEvaluateFlagAsync(array $orderIds, int $evaluateFlag)
+    {
+        return EellyClient::request('order/order', 'updateOrderEvaluateFlag', false, $orderIds, $evaluateFlag);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

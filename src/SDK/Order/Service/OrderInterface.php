@@ -1155,4 +1155,27 @@ interface OrderInterface
      * @return array
      */
     public function getOrderFieldByOrderIds(array $orderIds, string $str = 'order_id, order_sn'):array;
+    
+    /**
+     * 获取需自动评论订单
+     * @param int $evaluationStatus 评价状态
+     * @param array $timeBetween 订单完成时间范围
+     * @param array $page 分页
+     *
+     */
+    public function getNeedAutoEvaluateOrders(int $evaluationStatus ,array $timeBetween = ['start' => 0 ,'end' => 0], array $page = ['limit' => '0' ,'offset' => 0]):array;
+    
+    /**
+     * 根据订单id 更新 评价标志
+     *
+     * @param array $orderIds    订单id
+     * @param int $evaluateFlag  消息通知标识的值
+     *
+     * @return bool
+     *
+     * @author wechan
+     * @since 2019年01月02日
+     * @internal
+     */
+    public function updateOrderEvaluateFlag(array $orderIds, int $evaluateFlag): bool;
 }

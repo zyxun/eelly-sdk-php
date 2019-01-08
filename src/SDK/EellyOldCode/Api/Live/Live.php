@@ -156,4 +156,22 @@ class Live
     {
         return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $liveId, $type);
     }
+    
+    /**
+     * 店+直播中心=》直播记录.
+     *
+     * @param array  $condition 查询条件
+     * @param int    $page      第几页
+     * @param int    $limit     每页条数
+     * @param string $platform  平台类型 APP WAP PC APPLET
+     *
+     * @return array
+     *
+     * @author  wechan
+     * @since 2019年01月07日
+     */
+    public function getRecordingList(array $condition = [], $page = 1, $limit = 10, $platform = 'APP')
+    {
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $platform);
+    }
 }
