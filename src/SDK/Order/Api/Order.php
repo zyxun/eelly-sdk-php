@@ -2544,7 +2544,6 @@ class Order implements OrderInterface
      *
      * @author wechan
      * @since 2019年01月02日
-     * @internal
      */
     public function updateOrderEvaluateFlag(array $orderIds, int $evaluateFlag): bool
     {
@@ -2561,7 +2560,6 @@ class Order implements OrderInterface
      *
      * @author wechan
      * @since 2019年01月02日
-     * @internal
      */
     public function updateOrderEvaluateFlagAsync(array $orderIds, int $evaluateFlag)
     {
