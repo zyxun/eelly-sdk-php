@@ -187,6 +187,20 @@ class Store
     }
 
     /**
+     * 批量店铺起批数量.
+     *
+     * @param int $storeIds 店铺id
+     * @return array
+     *
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.1.7
+     */
+    public function getQuantitys(array $storeIds)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
+    }
+
+    /**
      * 更新店铺佣金比率.
      *
      * @param int   $storeId        店铺ID
@@ -247,6 +261,21 @@ class Store
      * @since  2017年4月21日
      */
     public function getStoreOwnerInfo(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
+    }
+
+    /**
+     * 获取实体认证人姓名
+     * 企业身份认证（企业法人姓名）>个人实名认证（真实姓名）>基础资料（店主姓名）.
+     *
+     * @param array $storeId 店铺id
+     *
+     * @author liweiquan<liweiquan@eelly.net>
+     *
+     * @since  2016年10月07日
+     */
+    public function getStoreAuthName(int $storeId)
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }

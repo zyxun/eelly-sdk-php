@@ -35,7 +35,6 @@ class Accounts implements AccountsInterface
         return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
-
     /**
      * {@inheritdoc}
      */
@@ -52,4 +51,8 @@ class Accounts implements AccountsInterface
         return EellyClient::request('im/accounts', __FUNCTION__, true, $users);
     }
 
+    public function sendLogoutNotification(int $uid): void
+    {
+        EellyClient::request('im/accounts', __FUNCTION__, true, $uid);
+    }
 }

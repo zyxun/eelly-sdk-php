@@ -450,6 +450,18 @@ interface LiveInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function aboutOrderAndCartHandle(int $userId, int $storeId, int $type):bool;
+    
+    /**
+     * 发送点赞信息.
+     * 
+     * @param type $userId 用户id
+     * @param int $liveId 直播id
+     * @param int $praise 点击次数
+     * 
+     * @author wechan
+     * @since 2018年12月20日
+     */
+    public function sendPraise(int $userId, int $liveId, int $praise);
 
     /**
      * 获取正在直播中的直播间数量

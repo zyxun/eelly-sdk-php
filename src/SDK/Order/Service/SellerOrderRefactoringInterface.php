@@ -1179,4 +1179,203 @@ interface SellerOrderRefactoringInterface
      * @since 2018.11.08
      */
     public function getSellerIdByOrder(int $userId, int $sTime = 0, int $eTime = 0, int $limit = 20): array;
+
+    /**
+     * 待打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.17
+     */
+    public function waitToPrintOrderList(int $storeId, array $conditions = []):array;
+
+    /**
+     * 已经打印订单列表
+     * 
+     * > conditions 筛选条件
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderSn | string | 订单号
+     * searchStr | string | 搜索字段：买家
+     * startTime | int | 下单开始时间戳
+     * endTime | int | 下单结束时间戳
+     * invoiceNo | string | 快递单号
+     * orderBy | string | 升降序 desc: 降序 asc:升序
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value 
+     * --- | ---- | -----
+     * first | int | 分页：第一页
+     * before | int | 分页：上一页
+     * current | int | 分页：当前页
+     * last | int | 分页：最后一页
+     * next | int | 分页：下一页
+     * totalPages | int | 分页：全部页
+     * totalItems | int | 分页：总数量
+     * limit | int | 每页限制数量
+     * items | array | 内容
+     * 
+     * > items 内容数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * buyerName | string | 买家信息
+     * mobile | string | 收件人手机号码
+     * consignee | string | 收货人姓名
+     * address | string | 收货地址
+     * ordersOrderAmount | float | 实付款
+     * ordersStyleCount | int | 总款数
+     * ordersTotalCount | int | 总件数
+     * ordersCount | int | 订单总笔数
+     * orders | array | 订单列表数据
+     * 
+     * > orders 数据
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * orderId | int | 订单id
+     * orderSn | string | 订单号
+     * buyerName | string | 买家姓名
+     * buyerId | int | 买家id
+     * osId | int | 订单状态
+     * orderAmount | float | 订单价格
+     * createdTime | int | 下单时间戳
+     * waybillFlag | int | 电子面单打印标记 0:未打印 1:已打印
+     * requireLikes | int | 积赞数量？
+     * memo | string | 买家留言
+     * isFreightCollect | int | 运费是否到付 0:否 1:是
+     * avatar | string | 头像链接
+     * orderStatus | int | 订单状态
+     * createdData | string | 创建日期
+     * styleCount | int | 订单总款数
+     * totalCount | int | 订单总件数
+     *
+     * @param integer $storeId 店铺id
+     * @param array $conditions 筛选条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.19
+     */
+    public function alreadyPrintOrderList(int $storeId, array $conditions = []):array;
+
+    /**
+     * 电子面单打印
+     *
+     * @param integer $storeId 店铺id
+     * @param array $orderIds 订单id数组
+     * @param array $conditions 其他条件
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function newPrintOrders(int $storeId, array $orderIds, array $conditions = []):array;
+
+    /**
+     * 原电子面单打印
+     *
+     * @param integer $storeId 店铺id
+     * @param array $orderIds
+     * @param array $conditions
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function sourcePrintOrders(int $storeId, array $orderIds, array $conditions = []):array;
+  
+    /**
+     * 根据传过来的条件，返回以同一个买家id而且地址一样的订单作为唯一键的发货单数据列表
+     *
+     * @param array $conditions 查询条件
+     * @return array
+     *
+     * @requestExample({"conditions":{"orderIds":[50002444, 50002202,50002203,50002206]}})
+     * @returnExample([{"orderId":"50002444","orderSn":"2154158674068034","buyerName":"yumei1","buyerId":"1762341","sellerId":"148086","osId":"2","orderAmount":"10000","createdTime":"1541586740","waybillFlag":"0","requireLikes":"0","gbCode":"150521","regionName":"\u5185\u8499\u53e4\u81ea\u6cbb\u533a \u901a\u8fbd\u5e02 \u79d1\u5c14\u6c81\u5de6\u7ffc\u4e2d\u65d7","address":"\u6d4b\u8bd5\u4f60\u559c\u6b22","mobile":"13710198271","consignee":"\u6536\u83b7\u4eba"},{"orderId":"50002202","orderSn":"2154034430329778","buyerName":"sixdec","buyerId":"2108435","sellerId":"148086","osId":"2","orderAmount":"4503","createdTime":"1540344303","waybillFlag":"0","requireLikes":"0","gbCode":"440104","regionName":"\u5e7f\u4e1c\u7701 \u5e7f\u5dde\u5e02 \u8d8a\u79c0\u533a","address":"\u5e7f\u5dde\u5927\u9053\u4e2d599\u53f7","mobile":"13427587735","consignee":"\u51af\u5148\u751f"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.21
+     */
+    public function listInvoiceData(array $conditions = []):array;
+
+    /**
+     * 根据传过来的订单id还有条件，返回同一个买家用户id而且地址一样的订单数据的所有订单id
+     *
+     * @param int $orderId  订单id
+     * @param string $condition 查询条件
+     * @param array $bind 绑定参数
+     * @return array
+     *
+     * @requestExample({"orderId":50002203, "condition":"order_id IN ({orderIds:array})", "bind":{"orderIds":[50002202,50002203,50002206]}})
+     * @returnExample(["50002224","50002237","50002239"])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.21
+     */
+    public function getMergeOrderIds(int $orderId , string $condition, array $bind = []):array;
 }
