@@ -1039,7 +1039,7 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'sendPraise', false, $userId, $liveId, $praise);
     }
-
+  
     /**
      * 获取正在直播中的直播间数量
      *
@@ -1048,22 +1048,17 @@ class Live implements LiveInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.12.04
      */
-    public function getLivingRoomNum(): string
+    public function getLivingRoomNum():string
     {
-        return EellyClient::request('live/live', 'getLivingRoomNum', true);
+        return EellyClient::request('live/live', __FUNCTION__, true);
     }
 
     /**
-     * 获取正在直播中的直播间数量
-     *
-     * @return string
-     * @returnExample("10")
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.12.04
+     * @inheritdoc
      */
-    public function getLivingRoomNumAsync()
+    public function getLivingRoomNumAsync():string
     {
-        return EellyClient::request('live/live', 'getLivingRoomNum', false);
+        return EellyClient::request('live/live', __FUNCTION__, false);
     }
 
     /**
@@ -1078,222 +1073,17 @@ class Live implements LiveInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.12.17
      */
-    public function getLivePushUrl(int $liveId): array
+    public function getLivePushUrl(int $liveId):array
     {
-        return EellyClient::request('live/live', 'getLivePushUrl', true, $liveId);
+        return EellyClient::request('live/live', __FUNCTION__, true, $liveId);
     }
 
     /**
-     * 根据直播id，获取对应的推流地址
-     *
-     * @param int $liveId 直播id
-     * @return array
-     *
-     * @requestExample({"liveId": 586})
-     * @returnExample({"firstUrl":"rtmp:\/\/push.eelly.com\/live\/","endUrl":"3344_develop_586?bizid=3344&txSecret=cdc8accbf1b8cfc076ac87cf68130704&txTime=5C18BE50"})
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2018.12.17
+     * @inheritdoc
      */
-    public function getLivePushUrlAsync(int $liveId)
+    public function getLivePushUrlAsync(int $liveId):array
     {
-        return EellyClient::request('live/live', 'getLivePushUrl', false, $liveId);
-    }
-
-    /**
-     * 获取直播标签
-     * 
-     * @param int $page 分页
-     * @param int $limit 分页页数
-     * @param int $tab 标签id
-     * @param int $platform 平台类型 APP WAP PC APPLET
-     * 
-     * @author wechan
-     * @since 2019年1月4日
-     * 
-     */
-    public function getLiveTabsList(int $page = 1, int $limit = 10, int $tab = 1, string $platform = 'APP'): array
-    {
-        return EellyClient::request('live/live', 'getLiveTabsList', true, $page, $limit, $tab, $platform);
-    }
-
-    /**
-     * 获取直播标签
-     * 
-     * @param int $page 分页
-     * @param int $limit 分页页数
-     * @param int $tab 标签id
-     * @param int $platform 平台类型 APP WAP PC APPLET
-     * 
-     * @author wechan
-     * @since 2019年1月4日
-     * 
-     */
-    public function getLiveTabsListAsync(int $page = 1, int $limit = 10, int $tab = 1, string $platform = 'APP')
-    {
-        return EellyClient::request('live/live', 'getLiveTabsList', false, $page, $limit, $tab, $platform);
-    }
-
-    /**
-     * 店+直播中心=》正在直播.
-     *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
-     * @return array
-     *
-     * @author  wechan
-     * @since   2019年01月07日
-     */
-    public function getLiveProgressList(array $data): array
-    {
-        return EellyClient::request('live/live', 'getLiveProgressList', true, $data);
-    }
-
-    /**
-     * 店+直播中心=》正在直播.
-     *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
-     * @return array
-     *
-     * @author  wechan
-     * @since   2019年01月07日
-     */
-    public function getLiveProgressListAsync(array $data)
-    {
-        return EellyClient::request('live/live', 'getLiveProgressList', false, $data);
-    }
-
-    /**
-     * 店+直播中心=》直播预告
-     *  * ### 返回数据说明.
-     *
-     * 字段|类型|说明
-     * ----------------------|-------|--------------
-     * items                 |array  |列表数据
-     * items["liveId"]       |int    |直播信息ID
-     * items["userId"]       |int    |用户ID
-     * items["storeId"]      |int    |店铺ID
-     * items["title"]        |string |直播标题
-     * items["image"]        |string 直播封面
-     * items["scheduleTime"] |int    |预计视频开始时间
-     * items["startTime"]    |int    |视频开始时间
-     * items["endTime"]      |int    |视频结束时间
-     * items["sort"]         |int    |排序
-     * items["status"]       |int    |状态：0.直播未开始,1.直播中-进行中,12.直播中-暂停,13.直播中-异常暂停,2.正常结束,3.强制中止
-     * items["createdTime"]  |int    |添加时间
-     * items["goodsCount"]   |int    |直播商品数量
-     * items["goodsList"]    |array  |直播商品列表
-     * items["addressName"]  |string |店铺地址
-     * items["userName"]     |string |店铺名称
-     * items["portraitUrl"]  |string |店铺logo
-     * items["isSubscribe"]  |bool   |是否订阅，订阅为true，未订阅false
-     * page                  |array  |页数信息
-     * page["totalPages"]    |int    |总页数
-     * page["totalItems"]    |int    |总条数
-     * page["current"]       |int    |当前页
-     * page["limit"]         |int    |每页条数
-     *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
-     * @return array
-     *
-     * @author  wechan
-     * @since   2019年01月07日
-     */
-    public function getPendingList(array $data): array
-    {
-        return EellyClient::request('live/live', 'getPendingList', true, $data);
-    }
-
-    /**
-     * 店+直播中心=》直播预告
-     *  * ### 返回数据说明.
-     *
-     * 字段|类型|说明
-     * ----------------------|-------|--------------
-     * items                 |array  |列表数据
-     * items["liveId"]       |int    |直播信息ID
-     * items["userId"]       |int    |用户ID
-     * items["storeId"]      |int    |店铺ID
-     * items["title"]        |string |直播标题
-     * items["image"]        |string 直播封面
-     * items["scheduleTime"] |int    |预计视频开始时间
-     * items["startTime"]    |int    |视频开始时间
-     * items["endTime"]      |int    |视频结束时间
-     * items["sort"]         |int    |排序
-     * items["status"]       |int    |状态：0.直播未开始,1.直播中-进行中,12.直播中-暂停,13.直播中-异常暂停,2.正常结束,3.强制中止
-     * items["createdTime"]  |int    |添加时间
-     * items["goodsCount"]   |int    |直播商品数量
-     * items["goodsList"]    |array  |直播商品列表
-     * items["addressName"]  |string |店铺地址
-     * items["userName"]     |string |店铺名称
-     * items["portraitUrl"]  |string |店铺logo
-     * items["isSubscribe"]  |bool   |是否订阅，订阅为true，未订阅false
-     * page                  |array  |页数信息
-     * page["totalPages"]    |int    |总页数
-     * page["totalItems"]    |int    |总条数
-     * page["current"]       |int    |当前页
-     * page["limit"]         |int    |每页条数
-     *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
-     * @return array
-     *
-     * @author  wechan
-     * @since   2019年01月07日
-     */
-    public function getPendingListAsync(array $data)
-    {
-        return EellyClient::request('live/live', 'getPendingList', false, $data);
-    }
-
-    /**
-     * 店+直播中心=》直播记录.
-     *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
-     * @return array
-     *
-     * @author wechan
-     * @since 2019年01月07日
-     */
-    public function getRecordingList(array $data): array
-    {
-        return EellyClient::request('live/live', 'getRecordingList', true, $data);
-    }
-
-    /**
-     * 店+直播中心=》直播记录.
-     *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
-     * @return array
-     *
-     * @author wechan
-     * @since 2019年01月07日
-     */
-    public function getRecordingListAsync(array $data)
-    {
-        return EellyClient::request('live/live', 'getRecordingList', false, $data);
+        return EellyClient::request('live/live', __FUNCTION__, false, $liveId);
     }
     
     /**
