@@ -265,4 +265,40 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
+    
+    /**
+     * 检验是否是在指定的主营内
+     * 
+     * @param array $params 请求参数
+     * @param array $params['storeId'] 店铺id
+     * @param array $params['cateIds'] 分类id
+     */
+    public function checkStoreMainBusiness(array $params)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $params);
+    }
+        
+    /**
+     * 检验店铺是否是在指定的Vip内
+     * 
+     * @param array $params 请求参数
+     * @param array $params['storeId'] 店铺id
+     * @param array $params['vipTypes'] 类型id
+     */
+    public function checkStoreVip(array $params)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $params);
+    }
+    
+    /**
+     * 检验店铺是否是在指定的商圈内
+     * 
+     * @param array $params 请求参数
+     * @param array $params['storeId'] 店铺id
+     * @param array $params['districtId'] 商圈id
+     */
+    public function checkStoreDistrict(array $params)
+    {   
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $params);
+    }
 }
