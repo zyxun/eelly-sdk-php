@@ -1603,6 +1603,44 @@ class User implements UserInterface
     }
 
     /**
+     * 根据传过来的用户id跟时间，返回新用户的数量 （当天注册的用户）
+     *
+     * @param array $userIds 用户id
+     * @param int $startTime 开始时间戳
+     * @param int $endTime   结束时间戳
+     * @return int
+     *
+     * @requestExample({"userIds":[148086,2286683],"startTime":1545103818,"endTime":1545127044})
+     * @returnExample(1)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.01.09
+     */
+    public function getNewUserNum(array $userIds, int $startTime, int $endTime):int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $userIds, $startTime, $endTime);
+    }
+
+    /**
+     * 根据传过来的用户id跟时间，返回新用户的数量 （当天注册的用户）
+     *
+     * @param array $userIds 用户id
+     * @param int $startTime 开始时间戳
+     * @param int $endTime   结束时间戳
+     * @return int
+     *
+     * @requestExample({"userIds":[148086,2286683],"startTime":1545103818,"endTime":1545127044})
+     * @returnExample(1)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.01.09
+     */
+    public function getNewUserNumAsync(array $userIds, int $startTime, int $endTime):int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, false, $userIds, $startTime, $endTime);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

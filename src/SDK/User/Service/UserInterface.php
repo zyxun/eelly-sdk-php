@@ -716,4 +716,20 @@ interface UserInterface
      * @since 2018.12.11
      */
     public function getUserIdByUserName(string $userName):int;
+
+    /**
+     * 根据传过来的用户id跟时间，返回新用户的数量 （当天注册的用户）
+     *
+     * @param array $userIds 用户id
+     * @param int $startTime 开始时间戳
+     * @param int $endTime   结束时间戳
+     * @return int
+     *
+     * @requestExample({"userIds":[148086,2286683],"startTime":1545103818,"endTime":1545127044})
+     * @returnExample(1)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.01.09
+     */
+    public function getNewUserNum(array $userIds, int $startTime, int $endTime):int;
 }
