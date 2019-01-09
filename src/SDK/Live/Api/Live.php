@@ -1039,7 +1039,7 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'sendPraise', false, $userId, $liveId, $praise);
     }
-  
+
     /**
      * 获取正在直播中的直播间数量
      *
@@ -1048,17 +1048,22 @@ class Live implements LiveInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.12.04
      */
-    public function getLivingRoomNum():string
+    public function getLivingRoomNum(): string
     {
-        return EellyClient::request('live/live', __FUNCTION__, true);
+        return EellyClient::request('live/live', 'getLivingRoomNum', true);
     }
 
     /**
-     * @inheritdoc
+     * 获取正在直播中的直播间数量
+     *
+     * @return string
+     * @returnExample("10")
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.04
      */
-    public function getLivingRoomNumAsync():string
+    public function getLivingRoomNumAsync()
     {
-        return EellyClient::request('live/live', __FUNCTION__, false);
+        return EellyClient::request('live/live', 'getLivingRoomNum', false);
     }
 
     /**
@@ -1073,26 +1078,40 @@ class Live implements LiveInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.12.17
      */
-    public function getLivePushUrl(int $liveId):array
+    public function getLivePushUrl(int $liveId): array
     {
-        return EellyClient::request('live/live', __FUNCTION__, true, $liveId);
+        return EellyClient::request('live/live', 'getLivePushUrl', true, $liveId);
     }
 
     /**
-     * @inheritdoc
+     * 根据直播id，获取对应的推流地址
+     *
+     * @param int $liveId 直播id
+     * @return array
+     *
+     * @requestExample({"liveId": 586})
+     * @returnExample({"firstUrl":"rtmp:\/\/push.eelly.com\/live\/","endUrl":"3344_develop_586?bizid=3344&txSecret=cdc8accbf1b8cfc076ac87cf68130704&txTime=5C18BE50"})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.17
      */
-    public function getLivePushUrlAsync(int $liveId):array
+    public function getLivePushUrlAsync(int $liveId)
     {
-        return EellyClient::request('live/live', __FUNCTION__, false, $liveId);
+        return EellyClient::request('live/live', 'getLivePushUrl', false, $liveId);
     }
-    
+
     /**
      * 获取直播标签
      * 
      * @param int $page 分页
      * @param int $limit 分页页数
-     * @param int $tab 标签id
+     * @param int $tab 标签id 不传默认为1
      * @param int $platform 平台类型 APP WAP PC APPLET
+     * 
+     * ### 返回数据说明.
+     * ## 正在直播: https://api.eelly.test/live/live/getLiveProgressList
+     * ## 直播预告: https://api.eelly.test/live/live/getPendingList
+     * ## 直播记录: https://api.eelly.test/live/live/getRecordingList
      * 
      * @author wechan
      * @since 2019年1月4日
@@ -1108,8 +1127,13 @@ class Live implements LiveInterface
      * 
      * @param int $page 分页
      * @param int $limit 分页页数
-     * @param int $tab 标签id
+     * @param int $tab 标签id 不传默认为1
      * @param int $platform 平台类型 APP WAP PC APPLET
+     * 
+     * ### 返回数据说明.
+     * ## 正在直播: https://api.eelly.test/live/live/getLiveProgressList
+     * ## 直播预告: https://api.eelly.test/live/live/getPendingList
+     * ## 直播记录: https://api.eelly.test/live/live/getRecordingList
      * 
      * @author wechan
      * @since 2019年1月4日
@@ -1127,8 +1151,20 @@ class Live implements LiveInterface
      * @param int    $data[page]      第几页
      * @param int    $data[limit]     每页条数
      * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
+     * 
+     * ### 返回数据说明.
+     * 字段|类型|说明
+     * items|array  |列表数据
+     * page  |array  |页数信息
+     * tabs  |array  |标签信息
+     * tabs[name] | string | 标签名称()
+     * tabs[tab] | int | 标签id
+     * tabs[lableType] | int | 标签类型：1 店铺主营 2 店铺VIP等级 3 店铺所在商圈
+     * tabs[liveStatus] | int | '直播状态：0 预告 1 直播中 2 直播记录'
+     * tabs[count] | int | 数量
+     * 
      * @return array
+     * @returnExample({"items":[{"liveId":"301","userId":"2140195","storeId":"2140195","title":"local010_的直播","image":"","scheduleTime":"1529424000","startTime":"0","endTime":"1529424000","validDate":"0","sort":"255","status":"0","createdTime":"1520232571","isPay":"0","showFlag":"15","liveType":2,"lpId":"5","pullUrl":["xxxxx"],"view":0,"goodsCount":0,"addressName":"广州","userName":"local010_","portraitUrl":"xxxxxxxxxxx","isHaveCoupon":false,"isSubscribe":false,"vipValid":0,"storeVipType":0}],"page":{"totalPages":1,"totalItems":10,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
      *
      * @author  wechan
      * @since   2019年01月07日
@@ -1145,8 +1181,20 @@ class Live implements LiveInterface
      * @param int    $data[page]      第几页
      * @param int    $data[limit]     每页条数
      * @param string $data[platform]  平台类型 APP WAP PC APPLET
-     *
+     * 
+     * ### 返回数据说明.
+     * 字段|类型|说明
+     * items|array  |列表数据
+     * page  |array  |页数信息
+     * tabs  |array  |标签信息
+     * tabs[name] | string | 标签名称()
+     * tabs[tab] | int | 标签id
+     * tabs[lableType] | int | 标签类型：1 店铺主营 2 店铺VIP等级 3 店铺所在商圈
+     * tabs[liveStatus] | int | '直播状态：0 预告 1 直播中 2 直播记录'
+     * tabs[count] | int | 数量
+     * 
      * @return array
+     * @returnExample({"items":[{"liveId":"301","userId":"2140195","storeId":"2140195","title":"local010_的直播","image":"","scheduleTime":"1529424000","startTime":"0","endTime":"1529424000","validDate":"0","sort":"255","status":"0","createdTime":"1520232571","isPay":"0","showFlag":"15","liveType":2,"lpId":"5","pullUrl":["xxxxx"],"view":0,"goodsCount":0,"addressName":"广州","userName":"local010_","portraitUrl":"xxxxxxxxxxx","isHaveCoupon":false,"isSubscribe":false,"vipValid":0,"storeVipType":0}],"page":{"totalPages":1,"totalItems":10,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
      *
      * @author  wechan
      * @since   2019年01月07日
@@ -1158,8 +1206,13 @@ class Live implements LiveInterface
 
     /**
      * 店+直播中心=》直播预告
-     *  * ### 返回数据说明.
-     *
+     * 
+     * @param array  $data      请求参数
+     * @param int    $data[page]      第几页
+     * @param int    $data[limit]     每页条数
+     * @param string $data[platform]  平台类型 APP WAP PC APPLET
+     * 
+     * ### 返回数据说明.
      * 字段|类型|说明
      * ----------------------|-------|--------------
      * items                 |array  |列表数据
@@ -1180,18 +1233,23 @@ class Live implements LiveInterface
      * items["userName"]     |string |店铺名称
      * items["portraitUrl"]  |string |店铺logo
      * items["isSubscribe"]  |bool   |是否订阅，订阅为true，未订阅false
+     * items["isSubscribe"]  |bool   |是否订阅，订阅为true，未订阅false
+     * items["isStoreVip"]   |bool   |是否是店铺vip
+     * items["isHaveCoupon"] |bool   |是否有优惠券
      * page                  |array  |页数信息
      * page["totalPages"]    |int    |总页数
      * page["totalItems"]    |int    |总条数
      * page["current"]       |int    |当前页
      * page["limit"]         |int    |每页条数
+     * tabs  |array  |标签信息
+     * tabs[name] | string | 标签名称
+     * tabs[tab] | int | 标签id
+     * tabs[lableType] | int | 标签类型：1 店铺主营 2 店铺VIP等级 3 店铺所在商圈
+     * tabs[live_status] | int | '直播状态：0 预告 1 直播中 2 直播记录'
      *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
      *
      * @return array
+     * @returnExample({"items":[{"liveId":"307","userId":"2140195","storeId":"2140195","title":"local010_的直播","image":"","scheduleTime":"1529424000","startTime":"0","endTime":"1529424000","validDate":"0","sort":"255","status":"0","createdTime":"1520232571","isPay":"0","showFlag":"15","liveType":2,"lpId":"5","view":0,"goodsCount":0,"addressName":"广州","userName":"local010_","portraitUrl":"xx","isHaveCoupon":false,"isSubscribe":false,"vipValid":0,"storeVipType":0}],"page":{"totalPages":1,"totalItems":10,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
      *
      * @author  wechan
      * @since   2019年01月07日
@@ -1203,8 +1261,13 @@ class Live implements LiveInterface
 
     /**
      * 店+直播中心=》直播预告
-     *  * ### 返回数据说明.
-     *
+     * 
+     * @param array  $data      请求参数
+     * @param int    $data[page]      第几页
+     * @param int    $data[limit]     每页条数
+     * @param string $data[platform]  平台类型 APP WAP PC APPLET
+     * 
+     * ### 返回数据说明.
      * 字段|类型|说明
      * ----------------------|-------|--------------
      * items                 |array  |列表数据
@@ -1225,18 +1288,23 @@ class Live implements LiveInterface
      * items["userName"]     |string |店铺名称
      * items["portraitUrl"]  |string |店铺logo
      * items["isSubscribe"]  |bool   |是否订阅，订阅为true，未订阅false
+     * items["isSubscribe"]  |bool   |是否订阅，订阅为true，未订阅false
+     * items["isStoreVip"]   |bool   |是否是店铺vip
+     * items["isHaveCoupon"] |bool   |是否有优惠券
      * page                  |array  |页数信息
      * page["totalPages"]    |int    |总页数
      * page["totalItems"]    |int    |总条数
      * page["current"]       |int    |当前页
      * page["limit"]         |int    |每页条数
+     * tabs  |array  |标签信息
+     * tabs[name] | string | 标签名称
+     * tabs[tab] | int | 标签id
+     * tabs[lableType] | int | 标签类型：1 店铺主营 2 店铺VIP等级 3 店铺所在商圈
+     * tabs[live_status] | int | '直播状态：0 预告 1 直播中 2 直播记录'
      *
-     * @param array  $data      请求参数
-     * @param int    $data[page]      第几页
-     * @param int    $data[limit]     每页条数
-     * @param string $data[platform]  平台类型 APP WAP PC APPLET
      *
      * @return array
+     * @returnExample({"items":[{"liveId":"307","userId":"2140195","storeId":"2140195","title":"local010_的直播","image":"","scheduleTime":"1529424000","startTime":"0","endTime":"1529424000","validDate":"0","sort":"255","status":"0","createdTime":"1520232571","isPay":"0","showFlag":"15","liveType":2,"lpId":"5","view":0,"goodsCount":0,"addressName":"广州","userName":"local010_","portraitUrl":"xx","isHaveCoupon":false,"isSubscribe":false,"vipValid":0,"storeVipType":0}],"page":{"totalPages":1,"totalItems":10,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
      *
      * @author  wechan
      * @since   2019年01月07日
@@ -1253,11 +1321,22 @@ class Live implements LiveInterface
      * @param int    $data[page]      第几页
      * @param int    $data[limit]     每页条数
      * @param string $data[platform]  平台类型 APP WAP PC APPLET
+     * 
+     * 字段|类型|说明
+     * items|array  |列表数据
+     * page  |array  |页数信息
+     * tabs  |array  |标签信息
+     * tabs[name] | string | 标签名称
+     * tabs[tab] | int | 标签id
+     * tabs[lableType] | int | 标签类型：1 店铺主营 2 店铺VIP等级 3 店铺所在商圈
+     * tabs[live_status] | int | '直播状态：0 预告 1 直播中 2 直播记录'
      *
      * @return array
      *
      * @author wechan
      * @since 2019年01月07日
+     * 
+     * @returnExample({"items":[{"liveId":"307","userId":"2140195","storeId":"2140195","title":"local010_的直播","image":"","scheduleTime":"1529424000","startTime":"0","endTime":"1529424000","validDate":"0","sort":"255","status":"0","createdTime":"1520232571","isPay":"0","showFlag":"15","liveType":2,"lpId":"5","view":0,"goodsCount":0,"addressName":"广州","userName":"local010_","portraitUrl":"xx","isHaveCoupon":false,"isSubscribe":false,"vipValid":0,"storeVipType":0}],"page":{"totalPages":1,"totalItems":10,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
      */
     public function getRecordingList(array $data): array
     {
@@ -1271,15 +1350,56 @@ class Live implements LiveInterface
      * @param int    $data[page]      第几页
      * @param int    $data[limit]     每页条数
      * @param string $data[platform]  平台类型 APP WAP PC APPLET
+     * 
+     * 字段|类型|说明
+     * items|array  |列表数据
+     * page  |array  |页数信息
+     * tabs  |array  |标签信息
+     * tabs[name] | string | 标签名称
+     * tabs[tab] | int | 标签id
+     * tabs[lableType] | int | 标签类型：1 店铺主营 2 店铺VIP等级 3 店铺所在商圈
+     * tabs[live_status] | int | '直播状态：0 预告 1 直播中 2 直播记录'
      *
      * @return array
      *
      * @author wechan
      * @since 2019年01月07日
+     * 
+     * @returnExample({"items":[{"liveId":"307","userId":"2140195","storeId":"2140195","title":"local010_的直播","image":"","scheduleTime":"1529424000","startTime":"0","endTime":"1529424000","validDate":"0","sort":"255","status":"0","createdTime":"1520232571","isPay":"0","showFlag":"15","liveType":2,"lpId":"5","view":0,"goodsCount":0,"addressName":"广州","userName":"local010_","portraitUrl":"xx","isHaveCoupon":false,"isSubscribe":false,"vipValid":0,"storeVipType":0}],"page":{"totalPages":1,"totalItems":10,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
      */
     public function getRecordingListAsync(array $data)
     {
         return EellyClient::request('live/live', 'getRecordingList', false, $data);
+    }
+
+    /**
+     * 获取直播标签(给安卓用)
+     * 
+     * @param int $platform 平台类型 APP WAP PC APPLET
+     * 
+     * @author wechan
+     * @since 2019年1月9日
+     * 
+     * @returnExample([{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}])
+     */
+    public function getAppLiveTabs(string $platform = 'APP')
+    {
+        return EellyClient::request('live/live', 'getAppLiveTabs', true, $platform);
+    }
+
+    /**
+     * 获取直播标签(给安卓用)
+     * 
+     * @param int $platform 平台类型 APP WAP PC APPLET
+     * 
+     * @author wechan
+     * @since 2019年1月9日
+     * 
+     * @returnExample([{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}])
+     */
+    public function getAppLiveTabsAsync(string $platform = 'APP')
+    {
+        return EellyClient::request('live/live', 'getAppLiveTabs', false, $platform);
     }
 
     /**
