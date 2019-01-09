@@ -492,7 +492,7 @@ interface LiveInterface
      * 
      * @param int $page 分页
      * @param int $limit 分页页数
-     * @param int $tab 标签id
+     * @param int $tab 标签id 不传默认为1
      * @param int $platform 平台类型 APP WAP PC APPLET
      * 
      * @author wechan
@@ -501,7 +501,7 @@ interface LiveInterface
      */
     public function getLiveTabsList(int $page = 1, int $limit = 10, int $tab = 1, string $platform = 'APP'):array;
     
-     /**
+    /**
      * 店+直播中心=》正在直播.
      *
      * @param array  $data      请求参数
@@ -514,13 +514,14 @@ interface LiveInterface
      * items|array  |列表数据
      * page  |array  |页数信息
      * tabs  |array  |标签信息
-     * tabs[name] | string | 标签名称
+     * tabs[name] | string | 标签名称()
      * tabs[tab] | int | 标签id
      * tabs[lableType] | int | 标签类型：1 店铺主营 2 店铺VIP等级 3 店铺所在商圈
-     * tabs[live_status] | int | '直播状态：0 预告 1 直播中 2 直播记录'
+     * tabs[liveStatus] | int | '直播状态：0 预告 1 直播中 2 直播记录'
+     * tabs[count] | int | 数量
      * 
      * @return array
-     * @returnExample({"items":[{"liveId":"462","userId":"158252","storeId":"158252","title":"111111","image":"https:\/\/eellytest.eelly.com\/user158252\/other\/20181108\/1475507561451.jpg?t=1541657056&x-oss-process=image\/resize,w_200","scheduleTime":"1541638800","startTime":"1541661259","endTime":"1541703600","validDate":"0","sort":"255","status":"1","createdTime":"1541233143","isPay":"0","showFlag":"15","liveType":5,"lpId":"19","pullUrl":{"RTMP":"rtmp:\/\/play.eelly.com\/live\/3344_dev_462","FLV":"https:\/\/play.eelly.com\/live\/3344_dev_462.flv","HLS":"https:\/\/play.eelly.com\/live\/3344_dev_462.m3u8"},"view":0,"goodsCount":"15","goodsList":[{"goodsId":"5579067","defaultImage":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181029\/8417194870451.jpg?t=1540784917"},{"goodsId":"5579076","defaultImage":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181103\/8342606321451.jpg?t=1541236062"},{"goodsId":"5579083","defaultImage":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181103\/9175212421451.jpg?t=1541242126"}],"addressName":"广州. 广大布匹商贸城","userName":"窈窕衣色测试店","portraitUrl":"https:\/\/eellytest.eelly.com\/store158252\/logo.jpg?t=1541240097","isHaveCoupon":false,"isStoreVip":true,}],"page":{"totalPages":1,"totalItems":1,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
+     * @returnExample({"items":[{"liveId":"462","userId":"158252","storeId":"158252","title":"111111","image":"https:\/\/eellytest.eelly.com\/user158252\/other\/20181108\/1475507561451.jpg?t=1541657056&x-oss-process=image\/resize,w_200","scheduleTime":"1541638800","startTime":"1541661259","endTime":"1541703600","validDate":"0","sort":"255","status":"1","createdTime":"1541233143","isPay":"0","showFlag":"15","liveType":5,"lpId":"19","pullUrl":{"RTMP":"rtmp:\/\/play.eelly.com\/live\/3344_dev_462","FLV":"https:\/\/play.eelly.com\/live\/3344_dev_462.flv","HLS":"https:\/\/play.eelly.com\/live\/3344_dev_462.m3u8"},"view":0,"goodsCount":"15","goodsList":[{"goodsId":"5579067","defaultImage":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181029\/8417194870451.jpg?t=1540784917"},{"goodsId":"5579076","defaultImage":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181103\/8342606321451.jpg?t=1541236062"},{"goodsId":"5579083","defaultImage":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181103\/9175212421451.jpg?t=1541242126"}],"addressName":"广州. 广大布匹商贸城","userName":"窈窕衣色测试店","portraitUrl":"https:\/\/eellytest.eelly.com\/store158252\/logo.jpg?t=1541240097","isHaveCoupon":false,"isStoreVip":true}],"page":{"totalPages":1,"totalItems":1,"current":1,"limit":10},"tabs":[{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}]})
      *
      * @author  wechan
      * @since   2019年01月07日
