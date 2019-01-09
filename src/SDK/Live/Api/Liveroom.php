@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Live\Api;
 
-
 use Eelly\SDK\EellyClient;
 
 class Liveroom
@@ -21,5 +20,10 @@ class Liveroom
     public function getOne(int $liveId): array
     {
         return EellyClient::request('live/liveroom', __FUNCTION__, true, $liveId);
+    }
+
+    public function sendPraise(int $uid, int $liveId, int $praise): bool
+    {
+        return EellyClient::request('live/liveroom', __FUNCTION__, true, $uid, $liveId, $praise);
     }
 }
