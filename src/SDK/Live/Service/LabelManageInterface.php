@@ -20,6 +20,7 @@ interface LabelManageInterface
     /**
      * 后台直播标签列表
      *
+     * @param array $condition  查询条件
      * @return array
      *
      * @author zhangyangxun
@@ -27,7 +28,7 @@ interface LabelManageInterface
      *
      * @internal
      */
-    public function getLabelList(): array;
+    public function getLabelList(array $condition = []): array;
 
     /**
      * 添加直播标签
