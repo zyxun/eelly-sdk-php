@@ -621,5 +621,15 @@ interface LiveInterface
      * 
      * @returnExample([{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}])
      */
-    public function getAppLiveTabs(string $platform = 'APP');
+    public function getAppLiveTabs(string $platform = 'APP'):array;
+    
+    /**
+     * 获取正在直播的卡片
+     * 
+     * @param string $platform  平台类型 APP WAP PC APPLET
+     * 
+     * @author wechan
+     * @since 2019年01月10日
+     */
+    public function getLiveCard($platform = 'APP'):array;
 }
