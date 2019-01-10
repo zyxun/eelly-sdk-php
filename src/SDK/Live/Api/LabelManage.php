@@ -22,6 +22,38 @@ use Eelly\SDK\Live\Service\LabelManageInterface;
 class LabelManage implements LabelManageInterface
 {
     /**
+     * 获取一条直播标签
+     *
+     * @param int $labelId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-10
+     *
+     * @internal
+     */
+    public function getLabel(int $labelId): array
+    {
+        return EellyClient::request('live/labelManage', 'getLabel', true, $labelId);
+    }
+
+    /**
+     * 获取一条直播标签
+     *
+     * @param int $labelId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-10
+     *
+     * @internal
+     */
+    public function getLabelAsync(int $labelId)
+    {
+        return EellyClient::request('live/labelManage', 'getLabel', false, $labelId);
+    }
+
+    /**
      * 后台直播标签列表
      *
      * @param array $condition  查询条件
