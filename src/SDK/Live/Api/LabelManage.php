@@ -24,6 +24,7 @@ class LabelManage implements LabelManageInterface
     /**
      * 后台直播标签列表
      *
+     * @param array $condition  查询条件
      * @return array
      *
      * @author zhangyangxun
@@ -31,14 +32,15 @@ class LabelManage implements LabelManageInterface
      *
      * @internal
      */
-    public function getLabelList(): array
+    public function getLabelList(array $condition = []): array
     {
-        return EellyClient::request('live/labelManage', 'getLabelList', true);
+        return EellyClient::request('live/labelManage', 'getLabelList', true, $condition);
     }
 
     /**
      * 后台直播标签列表
      *
+     * @param array $condition  查询条件
      * @return array
      *
      * @author zhangyangxun
@@ -46,9 +48,9 @@ class LabelManage implements LabelManageInterface
      *
      * @internal
      */
-    public function getLabelListAsync()
+    public function getLabelListAsync(array $condition = [])
     {
-        return EellyClient::request('live/labelManage', 'getLabelList', false);
+        return EellyClient::request('live/labelManage', 'getLabelList', false, $condition);
     }
 
     /**
