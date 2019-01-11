@@ -152,6 +152,36 @@ class LabelManage implements LabelManageInterface
     }
 
     /**
+     * 批量更新直播标签
+     *
+     * @param array $labelIds
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-01-11
+     */
+    public function updateLabelBatch(array $labelIds, array $data): bool
+    {
+        return EellyClient::request('live/labelManage', 'updateLabelBatch', true, $labelIds, $data);
+    }
+
+    /**
+     * 批量更新直播标签
+     *
+     * @param array $labelIds
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-01-11
+     */
+    public function updateLabelBatchAsync(array $labelIds, array $data)
+    {
+        return EellyClient::request('live/labelManage', 'updateLabelBatch', false, $labelIds, $data);
+    }
+
+    /**
      * 删除直播标签
      *
      * @param int $labelId
