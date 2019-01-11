@@ -214,6 +214,36 @@ class LabelManage implements LabelManageInterface
     }
 
     /**
+     * 获取直播标签接口配置
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-11
+     *
+     * @internal
+     */
+    public function getLabelApiConfig(): array
+    {
+        return EellyClient::request('live/labelManage', 'getLabelApiConfig', true);
+    }
+
+    /**
+     * 获取直播标签接口配置
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-11
+     *
+     * @internal
+     */
+    public function getLabelApiConfigAsync()
+    {
+        return EellyClient::request('live/labelManage', 'getLabelApiConfig', false);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
