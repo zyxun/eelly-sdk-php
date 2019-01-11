@@ -147,6 +147,74 @@ class LiveShare implements LiveShareInterface
     }
 
     /**
+     * 直播间分享V2
+     * 
+     * @param array $data 请求数据
+     * @param int $liveId 直播id
+     * @param string $uniqueFlag  唯一标识
+     * @param string $type  分享类型
+     * @param string $chatRoomType 消息类型 4微信分享 10 朋友圈分享 11 QQ分享
+     * @param int $laId 活动id
+     * @param UidDTO $user
+     * @return string
+     * @throws ShareException
+     * 
+     * @return string
+     * 
+     * @requestExample({
+     *     "liveId":1,
+     *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
+     *     "type":"小程序-分享",
+     *     "laId":"4"
+     * })
+     * @returnExample({
+     *     "code":200,
+     *     "msg":"分享信息记录成功"
+     * })
+     * 
+     * @author wechan
+     * @since 2019年01月11日
+     */
+    public function shareV2(array $data, UidDTO $user = null): string
+    {
+        return EellyClient::request('live/liveShare', 'shareV2', true, $data, $user);
+    }
+
+    /**
+     * 直播间分享V2
+     * 
+     * @param array $data 请求数据
+     * @param int $liveId 直播id
+     * @param string $uniqueFlag  唯一标识
+     * @param string $type  分享类型
+     * @param string $chatRoomType 消息类型 4微信分享 10 朋友圈分享 11 QQ分享
+     * @param int $laId 活动id
+     * @param UidDTO $user
+     * @return string
+     * @throws ShareException
+     * 
+     * @return string
+     * 
+     * @requestExample({
+     *     "liveId":1,
+     *     "uniqueFlag":"5b0932c4c0fe9c000f131f96",
+     *     "type":"小程序-分享",
+     *     "laId":"4"
+     * })
+     * @returnExample({
+     *     "code":200,
+     *     "msg":"分享信息记录成功"
+     * })
+     * 
+     * @author wechan
+     * @since 2019年01月11日
+     */
+    public function shareV2Async(array $data, UidDTO $user = null)
+    {
+        return EellyClient::request('live/liveShare', 'shareV2', false, $data, $user);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
