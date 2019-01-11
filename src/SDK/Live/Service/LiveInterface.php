@@ -200,7 +200,7 @@ interface LiveInterface
      *  @OperatorValidator(2,{message:"非法每页条数",operator:["gt",0]})
      *)
      */
-    public function getProgressList(array $condition, int $currentPage = 1, int $limit = 10, string $order = 'progress'): array;
+    public function getProgressList(array $condition, int $currentPage = 1, int $limit = 10, string $order = 'progress', string $field = "getInfo"): array;
 
     /**
      * 直播管理列表.
