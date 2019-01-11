@@ -94,4 +94,16 @@ interface LabelManageInterface
      * @internal
      */
     public function deleteLabel(int $labelId): bool;
+
+    /**
+     * 获取直播标签接口配置
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-01-11
+     *
+     * @internal
+     */
+    public function getLabelApiConfig(): array;
 }
