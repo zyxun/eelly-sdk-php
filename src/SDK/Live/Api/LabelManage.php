@@ -156,12 +156,12 @@ class LabelManage implements LabelManageInterface
      *
      * @param array $labelIds
      * @param array $data
-     * @return bool
+     * @return int  更新条数
      *
      * @author zhangyangxun
      * @since 2019-01-11
      */
-    public function updateLabelBatch(array $labelIds, array $data): bool
+    public function updateLabelBatch(array $labelIds, array $data): int
     {
         return EellyClient::request('live/labelManage', 'updateLabelBatch', true, $labelIds, $data);
     }
@@ -171,7 +171,7 @@ class LabelManage implements LabelManageInterface
      *
      * @param array $labelIds
      * @param array $data
-     * @return bool
+     * @return int  更新条数
      *
      * @author zhangyangxun
      * @since 2019-01-11
