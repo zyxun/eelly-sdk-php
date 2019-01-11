@@ -71,6 +71,18 @@ interface LabelManageInterface
     public function updateLabel(int $labelId, array $data): bool;
 
     /**
+     * 批量更新直播标签
+     *
+     * @param array $labelIds
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-01-11
+     */
+    public function updateLabelBatch(array $labelIds, array $data): bool;
+
+    /**
      * 删除直播标签
      *
      * @param int $labelId
