@@ -150,11 +150,11 @@ class LiveShare implements LiveShareInterface
      * 直播间分享V2
      * 
      * @param array $data 请求数据
-     * @param int $liveId 直播id
-     * @param string $uniqueFlag  唯一标识
-     * @param string $type  分享类型
-     * @param string $chatRoomType 消息类型 4微信分享 10 朋友圈分享 11 QQ分享
-     * @param int $laId 活动id
+     * @param int $data[liveId] 直播id
+     * @param string $data[uniqueFlag]  唯一标识
+     * @param string $data[type]  分享类型
+     * @param string $data[chatRoomType] 消息类型 4微信分享 10 朋友圈分享 11 QQ分享
+     * @param int $data[laId] 活动id
      * @param UidDTO $user
      * @return string
      * @throws ShareException
@@ -184,11 +184,11 @@ class LiveShare implements LiveShareInterface
      * 直播间分享V2
      * 
      * @param array $data 请求数据
-     * @param int $liveId 直播id
-     * @param string $uniqueFlag  唯一标识
-     * @param string $type  分享类型
-     * @param string $chatRoomType 消息类型 4微信分享 10 朋友圈分享 11 QQ分享
-     * @param int $laId 活动id
+     * @param int $data[liveId] 直播id
+     * @param string $data[uniqueFlag]  唯一标识
+     * @param string $data[type]  分享类型
+     * @param string $data[chatRoomType] 消息类型 4微信分享 10 朋友圈分享 11 QQ分享
+     * @param int $data[laId] 活动id
      * @param UidDTO $user
      * @return string
      * @throws ShareException
