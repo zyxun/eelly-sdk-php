@@ -200,7 +200,7 @@ interface LiveInterface
      *  @OperatorValidator(2,{message:"非法每页条数",operator:["gt",0]})
      *)
      */
-    public function getProgressList(array $condition, int $currentPage = 1, int $limit = 10, string $order = 'progress'): array;
+    public function getProgressList(array $condition, int $currentPage = 1, int $limit = 10, string $order = 'progress', string $field = "getInfo"): array;
 
     /**
      * 直播管理列表.
@@ -621,5 +621,28 @@ interface LiveInterface
      * 
      * @returnExample([{"name":"全部直播","tab":"1","lableType":"1","liveStatus":"1"},{"name":"直播预告","tab":"2","lableType":"1","liveStatus":"0"},{"name":"直播记录","tab":"3","lableType":"1","liveStatus":"2"},{"name":"虎门商圈","tab":"4","lableType":"3","liveStatus":"1"},{"name":"VIP商家","tab":"5","lableType":"2","liveStatus":"1"},{"name":"其他饰品","tab":"6","lableType":"1","liveStatus":"1"}])
      */
-    public function getAppLiveTabs(string $platform = 'APP');
+    public function getAppLiveTabs(string $platform = 'APP'):array;
+    
+    /**
+     * 获取正在直播的卡片
+     * 
+     * @param string $platform  平台类型 APP WAP PC APPLET
+     * 
+     * ### 返回数据说明.
+     * 字段|类型|说明
+     * --------|-------|--------------
+     * list | array | 数组
+     * list[0][storeId] | int | 店铺id
+     * list[0][defaultAnnouncement] | int | 直播间介绍
+     * list[0][liveId] | int | 直播间Id
+     * list[0][appLiveRoomAddr] | int | app直播间
+     * list[0][liveRoomAddr] | int | pc wap 小程序 直播间地址
+     * count | int | 正在直播数量
+     * 
+     * @returnExample({"list":[{"storeId":"158252","defaultAnnouncement":"xxxxx","liveId":"462","appLiveRoomAddr":"xxxxxx","liveRoomAddr":"xxxxxx"}],"count":1})
+     * 
+     * @author wechan
+     * @since 2019年01月10日
+     */
+    public function getLiveCard($platform = 'APP'):array;
 }

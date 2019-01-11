@@ -43,14 +43,16 @@ class Live
      * @param int    $page
      * @param int    $limit
      * @param string $platform
+     * @param string   $order                  排序
+     * @param string $field                    字段
      * @return mixed
      *
      * @author zhangyangxun
      * @since 2018-11-30
      */
-    public function getProgressList(array $condition = [], int $page = 1, int $limit = 10, $platform = 'APP')
+    public function getProgressList(array $condition = [], int $page = 1, int $limit = 10, $platform = 'APP', string $order = 'progress', string $field = "getInfo")
     {
-        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $platform);
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $platform, $order, $field);
     }
 
     /**
@@ -61,14 +63,16 @@ class Live
      * @param int    $limit
      * @param int    $userId
      * @param string $platform
+     * @param string   $order                  排序
+     * @param string $field                    字段
      * @return mixed
      *
      * @author zhangyangxun
      * @since 2018-11-30
-     */
-    public function getPendingList(array $condition = [], $page = 1, $limit = 10, $userId = 0, $platform = 'APP')
+     */ 
+    public function getPendingList(array $condition = [], $page = 1, $limit = 10, $userId = 0, $platform = 'APP', $order = 'progress', $field = "getInfo")
     {
-        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $userId, $platform);
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $userId, $platform, $order, $field);
     }
 
     /**
@@ -164,14 +168,16 @@ class Live
      * @param int    $page      第几页
      * @param int    $limit     每页条数
      * @param string $platform  平台类型 APP WAP PC APPLET
+     * @param string   $order   排序
+     * @param string $field     字段
      *
      * @return array
      *
      * @author  wechan
      * @since 2019年01月07日
      */
-    public function getRecordingList(array $condition = [], $page = 1, $limit = 10, $platform = 'APP')
+    public function getRecordingList(array $condition = [], $page = 1, $limit = 10, $platform = 'APP', $order = 'finishLive', $field = "getInfo")
     {
-        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $platform);
+        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $platform, $order, $field);
     }
 }
