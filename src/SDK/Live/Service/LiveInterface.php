@@ -635,8 +635,7 @@ interface LiveInterface
      * list[0][storeId] | int | 店铺id
      * list[0][defaultAnnouncement] | array | 直播间介绍
      * list[0][liveId] | int | 直播间Id
-     * list[0][appChatRoomAddr] | array | app直播间
-     * list[0][chatRoomAddr] | array | pc wap 小程序 直播间地址
+     * list[0][roomId] | string | 聊天室id
      * list[0][pullUrl] | array | 拉流地址
      * list[0][coverImage] | string | 直播封面图
      * count | int | 正在直播数量
