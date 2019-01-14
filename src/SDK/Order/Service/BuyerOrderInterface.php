@@ -967,4 +967,18 @@ interface BuyerOrderInterface
      * @since 2018.12.12
      */
     public function getOrderIdByCondition(string $condition, array $bind = []):int;
+
+    /**
+     * 根据传过来的直播id，获取对应的订单信息
+     *
+     * @param int $liveId 直播id
+     * @return array
+     *
+     * @requestExample({"liveId":1}})
+     * @returnExample({"newUserNum":2,"oldUserNum":1,"orderNum":10,"payNum":2,"totalAmount":1000,"payAmount":200,"appletsOrderNum":0,"appletsPayNum":0,"appletsTotalAmount":0,"appletsPayAmount":0})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.01.14
+     */
+    public function getOrderInfoByLiveId(int $liveId):array;
 }
