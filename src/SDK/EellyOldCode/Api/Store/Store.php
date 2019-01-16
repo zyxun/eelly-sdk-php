@@ -315,4 +315,18 @@ class Store
     {   
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $params);
     }
+
+    /**
+     * 根据storeName获取到storeId.
+     *
+     * @param string $storeName
+     * @return mixed
+     *
+     * @author zhangyangxun
+     * @since 2019-01-16
+     */
+    public function getStoreIdByStoreName(string $storeName)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeName);
+    }
 }
