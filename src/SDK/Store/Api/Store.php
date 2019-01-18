@@ -886,6 +886,31 @@ class Store implements StoreInterface
     }
 
     /**
+     * 根据传过来的店铺id，返回对应的店铺名称
+     *
+     * @param int $storeId 店铺id
+     * @return array
+     *
+     * @requestExample({"storeId":148086})
+     * @returnExample("test")
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.01.18
+     */
+    public function getStoreNameById(int $storeId):string
+    {
+        return EellyClient::request('store/store', __FUNCTION__, false, $storeId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStoreNameByIdAsync(int $storeId):string
+    {
+        return EellyClient::request('store/store', __FUNCTION__, false, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
