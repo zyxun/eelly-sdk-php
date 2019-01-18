@@ -899,7 +899,7 @@ class Store implements StoreInterface
      */
     public function getStoreNameById(int $storeId):string
     {
-        return EellyClient::request('store/store', __FUNCTION__, false, $storeId);
+        return EellyClient::request('store/store', __FUNCTION__, true, $storeId);
     }
 
     /**
