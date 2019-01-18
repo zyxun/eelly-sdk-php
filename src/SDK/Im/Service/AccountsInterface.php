@@ -77,4 +77,32 @@ interface AccountsInterface
      * @author hehui<hehui@eelly.com>
      */
     public function getListNoLogin(array $users): array;
+
+    /**
+     * 封禁网易云通信ID.
+     *
+     * @param int $uid
+     * @param int $type
+     *
+     * @return bool
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function blockUser(int $uid, int $type): bool;
+
+    /**
+     * 解禁网易云通信ID.
+     *
+     * @param int $uid
+     * @param int $type
+     *
+     * @return bool
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function unblockUser(int $uid, int $type): bool;
 }
