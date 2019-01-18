@@ -429,4 +429,18 @@ interface StoreInterface
      * @author hehui<runphp@dingtalk.com>
      */
     public function updateStoreInfo(int $storeId, array $data, UidDTO $uidDTO = null): bool;
+
+    /**
+     * 根据传过来的店铺id，返回对应的店铺名称
+     *
+     * @param int $storeId 店铺id
+     * @return array
+     *
+     * @requestExample({"storeId":148086})
+     * @returnExample("test")
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.01.18
+     */
+    public function getStoreNameById(int $storeId):string;
 }
