@@ -109,9 +109,9 @@ interface AccountsInterface
     /**
      * 账号全局禁言
      *
-     * @param int   $uid
-     * @param int   $type
-     * @param bool  $mute   true 禁言 false 解除禁言
+     * @param int       $uid
+     * @param int       $type
+     * @param string    $mute   true 禁言 false 解除禁言
      * @return bool
      *
      * @author zhangyangxun
@@ -119,5 +119,5 @@ interface AccountsInterface
      *
      * @internal
      */
-    public function muteUser(int $uid, int $type, bool $mute): bool;
+    public function muteUser(int $uid, int $type, string $mute): bool;
 }
