@@ -227,6 +227,42 @@ class Accounts implements AccountsInterface
     }
 
     /**
+     * 账号全局禁言
+     *
+     * @param int   $uid
+     * @param int   $type
+     * @param bool  $mute   true 禁言 false 解除禁言
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-01-19
+     * 
+     * @internal
+     */
+    public function muteUser(int $uid, int $type, bool $mute): bool
+    {
+        return EellyClient::request('im/accounts', 'muteUser', true, $uid, $type, $mute);
+    }
+
+    /**
+     * 账号全局禁言
+     *
+     * @param int   $uid
+     * @param int   $type
+     * @param bool  $mute   true 禁言 false 解除禁言
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-01-19
+     * 
+     * @internal
+     */
+    public function muteUserAsync(int $uid, int $type, bool $mute)
+    {
+        return EellyClient::request('im/accounts', 'muteUser', false, $uid, $type, $mute);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
