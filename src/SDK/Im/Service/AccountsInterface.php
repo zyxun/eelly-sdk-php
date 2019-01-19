@@ -105,4 +105,19 @@ interface AccountsInterface
      * @author hehui<hehui@eelly.net>
      */
     public function unblockUser(int $uid, int $type): bool;
+
+    /**
+     * 账号全局禁言
+     *
+     * @param int   $uid
+     * @param int   $type
+     * @param bool  $mute   true 禁言 false 解除禁言
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-01-19
+     *
+     * @internal
+     */
+    public function muteUser(int $uid, int $type, bool $mute): bool;
 }
