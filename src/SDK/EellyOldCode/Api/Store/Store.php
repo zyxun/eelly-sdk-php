@@ -279,4 +279,22 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
+
+    /**
+     * 获取满足条件的店铺.
+     *
+     * @param array  $where
+     * @param int    $limit
+     * @param string $order
+     *
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2019.02.14
+     */
+    public function getStoreIdsByWhere($where, $limit = 20, $order = 'store_id ASC')
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $where, $limit, $order);
+    }
 }
