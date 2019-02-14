@@ -24,35 +24,37 @@ class User implements UserInterface
     /**
      * 设置黑名单/静音
      *
-     * @param int $uid
+     * @param int $fromUid
+     * @param int $fromType         1-店，2-厂
      * @param int $targetUid
-     * @param int $type             1-店，2-厂
+     * @param int $targetType       1-店，2-厂
      * @param int $relationType     1-黑名单，2-静音
-     * @param int $value
+     * @param int $value            0-取消，1-加入
      * @return bool
      *
-     * @internal 
+     * @internal
      */
-    public function setSpecialRelation(int $uid, int $targetUid, int $type, int $relationType, int $value): bool
+    public function setSpecialRelation(int $fromUid, int $fromType, int $targetUid, int $targetType, int $relationType, int $value): bool
     {
-        return EellyClient::request('im/user', 'setSpecialRelation', true, $uid, $targetUid, $type, $relationType, $value);
+        return EellyClient::request('im/user', 'setSpecialRelation', true, $fromUid, $fromType, $targetUid, $targetType, $relationType, $value);
     }
 
     /**
      * 设置黑名单/静音
      *
-     * @param int $uid
+     * @param int $fromUid
+     * @param int $fromType         1-店，2-厂
      * @param int $targetUid
-     * @param int $type             1-店，2-厂
+     * @param int $targetType       1-店，2-厂
      * @param int $relationType     1-黑名单，2-静音
-     * @param int $value
+     * @param int $value            0-取消，1-加入
      * @return bool
      *
-     * @internal 
+     * @internal
      */
-    public function setSpecialRelationAsync(int $uid, int $targetUid, int $type, int $relationType, int $value)
+    public function setSpecialRelationAsync(int $fromUid, int $fromType, int $targetUid, int $targetType, int $relationType, int $value)
     {
-        return EellyClient::request('im/user', 'setSpecialRelation', false, $uid, $targetUid, $type, $relationType, $value);
+        return EellyClient::request('im/user', 'setSpecialRelation', false, $fromUid, $fromType, $targetUid, $targetType, $relationType, $value);
     }
 
     /**
