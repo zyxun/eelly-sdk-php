@@ -20,5 +20,18 @@ namespace Eelly\SDK\Im\Service;
  */
 interface UserInterface
 {
+    /**
+     * 设置黑名单/静音
+     *
+     * @param int $uid
+     * @param int $targetUid
+     * @param int $type             1-店，2-厂
+     * @param int $relationType     1-黑名单，2-静音
+     * @param int $value
+     * @return bool
+     *
+     * @internal
+     */
+    public function setSpecialRelation(int $uid, int $targetUid, int $type, int $relationType, int $value): bool;
 
 }
