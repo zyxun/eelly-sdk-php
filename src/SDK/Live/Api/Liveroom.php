@@ -26,4 +26,14 @@ class Liveroom
     {
         return EellyClient::request('live/liveroom', __FUNCTION__, true, $uid, $liveId, $praise);
     }
+
+    public function enterEventNotify(int $liveId): bool
+    {
+        return EellyClient::request('live/liveroom', __FUNCTION__, true, $liveId);
+    }
+
+    public function userEnterEventNotify(int $liveId, int $uid): bool
+    {
+        return EellyClient::request('live/liveroom', __FUNCTION__, true, $liveId, $uid);
+    }
 }
