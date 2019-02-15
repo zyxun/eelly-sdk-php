@@ -148,4 +148,18 @@ class Receive
     {
         return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId);
     }
+
+    /**
+     * 批量获取用户默认收获地址
+     *
+     * @param integer $userId
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.2.15
+     */
+    public function getDefaultAddrByUserIds(array $userId)
+    {
+        return EellyClient::request('eellyOldCode/member/Address/Receive', __FUNCTION__, true, $userId);
+    }
 }
