@@ -330,12 +330,13 @@ class Store
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeName);
     }
   
-  /**
+   /**
      * 获取满足条件的店铺.
      *
      * @param array  $where
      * @param int    $limit
      * @param string $order
+     * @param int $page
      *
      * @return array
      *
@@ -343,8 +344,8 @@ class Store
      *
      * @since  2019.02.14
      */
-    public function getStoreIdsByWhere($where, $limit = 20, $order = 'store_id ASC')
+    public function getStoreIdsByWhere($where, $limit = 20, $order = 'store_id ASC', $page = 1)
     {
-        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $where, $limit, $order);
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $where, $limit, $order, $page);
     }
 }
