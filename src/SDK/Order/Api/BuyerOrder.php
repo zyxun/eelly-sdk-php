@@ -2054,6 +2054,31 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * 根据传过来的订单id，返回对应的订单总额跟运费总额
+     *
+     * @param array $orderIds 订单ID
+     * @return array
+     *
+     * @requestExample({"orderIds":[50002202, 50002203, 50002204, 50002218]})
+     * @returnExample({"totalAmount":150.25,"totalFreight":143.2})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.02.22
+     */
+    public function getSumDataByOrderIds(array $orderIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $orderIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSumDataByOrderIdsAsync(array $orderIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $orderIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
