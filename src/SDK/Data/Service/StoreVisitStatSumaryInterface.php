@@ -34,4 +34,21 @@ interface StoreVisitStatSumaryInterface
      * @since 2019.02.22
      */
     public function getStoreVisitStatInfo(int $storeId):array;
+
+    /**
+     * 根据店铺id和日期获取统计数据 （旧代码业务迁移）
+     *
+     * @param array $storeIds  店铺id
+     * @param int $sDate Ymd格式开始日期 20180101
+     * @param int $eDate Ymd格式结束日期 20190202
+     * @return array
+     *
+     * @requestExample({"storeIds":[148087,148086], "sDate":20180101, "eDate":20190201})
+     * @returnExample({"148087":{"uv":0,"pv":0},"148086":{"uv":10,"pv":79}})
+     *
+     * @author zengzhihao<zengzhihao@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.02.25
+     */
+    public function getStoreFlowTotal(array $storeIds, int $sDate, int $eDate):array;
 }
