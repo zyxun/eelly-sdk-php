@@ -61,6 +61,25 @@ class ChatRoom implements ChatRoomInterface
     {
         return EellyClient::request('im/chatRoom', __FUNCTION__, true, $liveId, $name, $storeId);
     }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function queryChatroomMsg(string $roomid, string $accid, string $timetag, int $limit, string $type, int $reverse = 1): array
+    {
+        return EellyClient::request('im/chatroom', __FUNCTION__, true, $roomid, $accid, $timetag, $limit, $type, $reverse);
+    }
+    
+    /**
+     * 发送聊天室消息
+     * 
+     * {@inheritdoc}
+     * 
+     */
+    public function sendChatRoomMsg(string $roomid, string $msgId, string $fromAccid, int $msgType, string $attach = '', string $ext = ''): array
+    {
+        return EellyClient::request('im/chatroom', __FUNCTION__, true, $roomid, $msgId, $fromAccid, $msgType, $attach, $ext);
+    }
 
     /**
      * @return self
