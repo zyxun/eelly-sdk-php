@@ -61,6 +61,7 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
      * @param array $liveIds  直播ID
      * @param int   $showFlag 修改为的值
      * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
+     * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启  
      *
      * @return bool
      *
@@ -75,9 +76,9 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
      *    @PresenceOf(0,{message : "直播数据不能为空"})
      * )
      */
-    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1): bool
+    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 1): bool
     {
-        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', true, $liveIds, $showFlag, $type);
+        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', true, $liveIds, $showFlag, $type, $isRobot);
     }
 
     /**
@@ -86,6 +87,7 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
      * @param array $liveIds  直播ID
      * @param int   $showFlag 修改为的值
      * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
+     * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启  
      *
      * @return bool
      *
@@ -100,9 +102,9 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
      *    @PresenceOf(0,{message : "直播数据不能为空"})
      * )
      */
-    public function updateShowFlagDataAsync(array $liveIds, int $showFlag = 15, int $type = 1)
+    public function updateShowFlagDataAsync(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 1)
     {
-        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', false, $liveIds, $showFlag, $type);
+        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', false, $liveIds, $showFlag, $type, $isRobot);
     }
 
     /**
