@@ -50,44 +50,4 @@ interface LiveRobotMessageInterface
      * @since 2019.2.28
      */
     public function get(int $liveId = 0):array;
-
-    /**
-     * 获取机器人对话列表
-     *
-     * @param array $condition
-     * @return array
-     *
-     * @author zhangyangxun
-     * @since 2019-03-04
-     *
-     * @internal
-     */
-    public function getList(array $condition):array;
-
-    /**
-     * 更新机器人对话
-     *
-     * @param int   $lrmId  主键ID
-     * @param array $data
-     * @return array
-     *
-     * @author zhangyangxun
-     * @since 2019-03-04
-     *
-     * @internal
-     */
-    public function update(int $lrmId, array $data):array;
-
-    /**
-     * 删除机器人对话
-     *
-     * @param int $lrmId 主键ID
-     * @return array
-     *
-     * @author zhangyangxun
-     * @since 2019-03-04
-     *
-     * @internal
-     */
-    public function delete(int $lrmId):array;
 }
