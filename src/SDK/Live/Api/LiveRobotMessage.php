@@ -96,6 +96,104 @@ class LiveRobotMessage implements LiveRobotMessageInterface
     }
 
     /**
+     * 获取机器人对话列表
+     *
+     * @param array $condition
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-04
+     *
+     * @internal
+     */
+    public function getList(array $condition): array
+    {
+        return EellyClient::request('live/liveRobotMessage', 'getList', true, $condition);
+    }
+
+    /**
+     * 获取机器人对话列表
+     *
+     * @param array $condition
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-04
+     *
+     * @internal
+     */
+    public function getListAsync(array $condition)
+    {
+        return EellyClient::request('live/liveRobotMessage', 'getList', false, $condition);
+    }
+
+    /**
+     * 更新机器人对话
+     *
+     * @param int   $lrmId  主键ID
+     * @param array $data
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-04
+     *
+     * @internal
+     */
+    public function update(int $lrmId, array $data): array
+    {
+        return EellyClient::request('live/liveRobotMessage', 'update', true, $lrmId, $data);
+    }
+
+    /**
+     * 更新机器人对话
+     *
+     * @param int   $lrmId  主键ID
+     * @param array $data
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-04
+     *
+     * @internal
+     */
+    public function updateAsync(int $lrmId, array $data)
+    {
+        return EellyClient::request('live/liveRobotMessage', 'update', false, $lrmId, $data);
+    }
+
+    /**
+     * 删除机器人对话
+     *
+     * @param int $lrmId 主键ID
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-04
+     *
+     * @internal
+     */
+    public function delete(int $lrmId): array
+    {
+        return EellyClient::request('live/liveRobotMessage', 'delete', true, $lrmId);
+    }
+
+    /**
+     * 删除机器人对话
+     *
+     * @param int $lrmId 主键ID
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-04
+     *
+     * @internal
+     */
+    public function deleteAsync(int $lrmId)
+    {
+        return EellyClient::request('live/liveRobotMessage', 'delete', false, $lrmId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
