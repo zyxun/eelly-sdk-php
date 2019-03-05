@@ -55,7 +55,7 @@ interface LiveStoreSettingsInterface
      *    @PresenceOf(0,{message : "直播数据不能为空"})
      * )
      */
-    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 1): bool;
+    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0): bool;
 
     /**
      * 获取店铺的.
@@ -76,4 +76,14 @@ interface LiveStoreSettingsInterface
      * )
      */
     public function getStoreIds(int $showFlag = 15): array;
+
+    /**
+     * 后台获取列表
+     *
+     * @param array $condition
+     * @return array
+     * @author zhangyangxun
+     * @since 2019-03-05
+     */
+    public function getManageList(array $condition): array;
 }
