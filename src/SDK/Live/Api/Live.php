@@ -1513,6 +1513,36 @@ class Live implements LiveInterface
     }
 
     /**
+     * 续播操作
+     *
+     * @param integer $liveId 直播id
+     * @param integer $lpId 续播id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.5
+     */
+    public function continueLiveBroadcase(int $liveId, int $lpId): bool
+    {
+        return EellyClient::request('live/live', 'continueLiveBroadcase', true, $liveId, $lpId);
+    }
+
+    /**
+     * 续播操作
+     *
+     * @param integer $liveId 直播id
+     * @param integer $lpId 续播id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.5
+     */
+    public function continueLiveBroadcaseAsync(int $liveId, int $lpId)
+    {
+        return EellyClient::request('live/live', 'continueLiveBroadcase', false, $liveId, $lpId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
