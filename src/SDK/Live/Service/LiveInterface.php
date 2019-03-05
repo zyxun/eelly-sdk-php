@@ -671,4 +671,16 @@ interface LiveInterface
      * @since 2019.3.5
      */
     public function getLivePlan(int $liveId):array;
+
+    /**
+     * 续播操作
+     *
+     * @param integer $liveId 直播id
+     * @param integer $lpId 续播id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.5
+     */
+    public function continueLiveBroadcase(int $liveId, int $lpId):bool;
 }
