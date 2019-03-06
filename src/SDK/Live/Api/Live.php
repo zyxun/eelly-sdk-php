@@ -1543,6 +1543,34 @@ class Live implements LiveInterface
     }
 
     /**
+     * 检查是否续播成功 1:成功 0:失败
+     *
+     * @param integer $liveId 直播id 
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.6
+     */
+    public function checkContinueIsSuccess(int $liveId): int
+    {
+        return EellyClient::request('live/live', 'checkContinueIsSuccess', true, $liveId);
+    }
+
+    /**
+     * 检查是否续播成功 1:成功 0:失败
+     *
+     * @param integer $liveId 直播id 
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.6
+     */
+    public function checkContinueIsSuccessAsync(int $liveId)
+    {
+        return EellyClient::request('live/live', 'checkContinueIsSuccess', false, $liveId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
