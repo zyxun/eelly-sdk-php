@@ -42,6 +42,13 @@ class VersionDTO extends AbstractDTO
     public $appName;
 
     /**
+     * 模块名称.
+     *
+     * @var string
+     */
+    public $module;
+
+    /**
      * 下载地址
      *
      * @var string
