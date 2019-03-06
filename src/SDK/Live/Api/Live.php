@@ -1546,12 +1546,12 @@ class Live implements LiveInterface
      * 检查是否续播成功 1:成功 0:失败
      *
      * @param integer $liveId 直播id 
-     * @return integer
+     * @return array
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.6
      */
-    public function checkContinueIsSuccess(int $liveId): int
+    public function checkContinueIsSuccess(int $liveId): array
     {
         return EellyClient::request('live/live', 'checkContinueIsSuccess', true, $liveId);
     }
@@ -1560,7 +1560,7 @@ class Live implements LiveInterface
      * 检查是否续播成功 1:成功 0:失败
      *
      * @param integer $liveId 直播id 
-     * @return integer
+     * @return array
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.6
