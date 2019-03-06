@@ -1178,4 +1178,13 @@ interface OrderInterface
      * @internal
      */
     public function updateOrderEvaluateFlag(array $orderIds, int $evaluateFlag): bool;
+    
+    /**
+     * 订单支付成功后 发送信息
+     * 
+     * @param array $data 请求的数据
+     * 
+     * @since 2019年03月06日
+     */
+    public function sendOrderSuccessMessage(array $data): bool;
 }
