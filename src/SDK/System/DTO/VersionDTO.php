@@ -28,6 +28,13 @@ class VersionDTO extends AbstractDTO
     public $versionId;
 
     /**
+     * 版本类型.
+     *
+     * @var int
+     */
+    public $appType;
+
+    /**
      * 应用名称.
      *
      * @var string
