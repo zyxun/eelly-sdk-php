@@ -685,13 +685,28 @@ interface LiveInterface
     public function continueLiveBroadcase(int $liveId, int $lpId):bool;
 
     /**
-     * 检查是否续播成功 1:成功 0:失败
+     * 检查是否续播成功
      *
      * @param integer $liveId 直播id 
      * @return array
+     * 
+     * @returnExample({
+     *  "data" : {"isSuccess":"false", "expireIn":"1234"}
+     * })
      * 
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.6
      */
     public function checkContinueIsSuccess(int $liveId):array;
+
+    /**
+     * 判断是否使用缓存的直播间数据
+     *
+     * @param integer $liveId 直播间id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.7
+     */
+    public function checkUseCacheLiveRoomInfo(int $liveId):bool;
 }
