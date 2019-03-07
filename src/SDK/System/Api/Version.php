@@ -215,6 +215,66 @@ class Version implements VersionInterface
     }
 
     /**
+     * 新版app版本更新接口
+     * 
+     * @param int $appType 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
+     * 
+     * ### 请求参数
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * $appType | int | 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
+     * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * forcedModule | array | 强制更新的模块
+     * latestVersionName | string | 最新的版本名称
+     * isForced | int | 是否强制更新
+     * remark | string | 备注
+     * downUrl | string | 下载地址
+     * 
+     * @requestExample({"appType": 1})
+     * @returnExample({"forcedModule":["store","pay"],"latestVersionName":"2.4.0","isForced":0,"remark":"xxxxxxxxx","downUrl":"www.eelly.com"})
+     * 
+     * @author wechan
+     * @since 2019年03月06日
+     */
+    public function getAppVersion(int $appType): array
+    {
+        return EellyClient::request('system/version', 'getAppVersion', true, $appType);
+    }
+
+    /**
+     * 新版app版本更新接口
+     * 
+     * @param int $appType 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
+     * 
+     * ### 请求参数
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * $appType | int | 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
+     * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * forcedModule | array | 强制更新的模块
+     * latestVersionName | string | 最新的版本名称
+     * isForced | int | 是否强制更新
+     * remark | string | 备注
+     * downUrl | string | 下载地址
+     * 
+     * @requestExample({"appType": 1})
+     * @returnExample({"forcedModule":["store","pay"],"latestVersionName":"2.4.0","isForced":0,"remark":"xxxxxxxxx","downUrl":"www.eelly.com"})
+     * 
+     * @author wechan
+     * @since 2019年03月06日
+     */
+    public function getAppVersionAsync(int $appType)
+    {
+        return EellyClient::request('system/version', 'getAppVersion', false, $appType);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
