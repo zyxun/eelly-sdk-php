@@ -51,7 +51,7 @@ interface LiveStoreSettingsInterface
      *
      * @since 2018年07月11日
      */
-    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 1): bool;
+    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0): bool;
 
     /**
      * 获取店铺的.
@@ -68,6 +68,16 @@ interface LiveStoreSettingsInterface
      * @since 2018年07月11日
      */
     public function getStoreIds(int $showFlag = 15): array;
+
+    /**
+     * 后台获取列表
+     *
+     * @param array $condition
+     * @return array
+     * @author zhangyangxun
+     * @since 2019-03-05
+     */
+    public function getManageList(array $condition): array;
 
     /**
      * 修改展示场次.

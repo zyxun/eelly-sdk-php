@@ -105,4 +105,34 @@ interface VersionInterface
      * @since   2018.01.30
      */
     public function listVersionPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+    
+    /**
+     * 新版app版本更新接口
+     * 
+     * @param int $appType 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
+     * 
+     * ### 请求参数
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * appType | int | 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
+     * 
+     * ### 返回结果
+     * 字段名 | 类型 |描述
+     * ---|---|---
+     * modules | array | 强制更新的模块
+     * versionName | string | 最新的版本名称
+     * version | string | 最新的版本号
+     * isModulesForced | int | 模块是否强制更新
+     * isAllForced | int | 是否强制更新
+     * remark | string | 备注
+     * downUrl | string | 下载地址
+     * title | string | app标题
+     * 
+     * @requestExample({"appType": 1})
+     * @returnExample({"modules":["store","pay"],"isModulesForced":0,"isAllForced":0,"remark":"xxxxxxxxx","downUrl":"www.eelly.com","version":"2.4.0","versionName":"\u7248\u672c\u540d\u79f0","title":"xxx"})
+     * 
+     * @author wechan
+     * @since 2019年03月06日
+     */
+    public function getAppVersion(int $appType):array;
 }

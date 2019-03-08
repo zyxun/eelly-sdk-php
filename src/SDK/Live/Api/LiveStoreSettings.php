@@ -72,7 +72,7 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
      *
      * @since 2018年07月11日
      */
-    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 1): bool
+    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0): bool
     {
         return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', true, $liveIds, $showFlag, $type, $isRobot);
     }
@@ -94,7 +94,7 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
      *
      * @since 2018年07月11日
      */
-    public function updateShowFlagDataAsync(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 1)
+    public function updateShowFlagDataAsync(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0)
     {
         return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', false, $liveIds, $showFlag, $type, $isRobot);
     }
@@ -135,6 +135,32 @@ class LiveStoreSettings implements LiveStoreSettingsInterface
     public function getStoreIdsAsync(int $showFlag = 15)
     {
         return EellyClient::request('live/liveStoreSettings', 'getStoreIds', false, $showFlag);
+    }
+
+    /**
+     * 后台获取列表
+     *
+     * @param array $condition
+     * @return array
+     * @author zhangyangxun
+     * @since 2019-03-05
+     */
+    public function getManageList(array $condition): array
+    {
+        return EellyClient::request('live/liveStoreSettings', 'getManageList', true, $condition);
+    }
+
+    /**
+     * 后台获取列表
+     *
+     * @param array $condition
+     * @return array
+     * @author zhangyangxun
+     * @since 2019-03-05
+     */
+    public function getManageListAsync(array $condition)
+    {
+        return EellyClient::request('live/liveStoreSettings', 'getManageList', false, $condition);
     }
 
     /**

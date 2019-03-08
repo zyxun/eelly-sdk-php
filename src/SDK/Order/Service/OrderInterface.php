@@ -1191,4 +1191,13 @@ interface OrderInterface
      * @since 2019.3.8
      */
     public function getTotalOrderCount(int $time, int $userId, int $type = 0):int;
+    
+    /**
+     * 订单支付成功后 发送信息
+     * 
+     * @param array $data 请求的数据
+     * 
+     * @since 2019年03月06日
+     */
+    public function sendOrderSuccessMessage(array $data): bool;
 }
