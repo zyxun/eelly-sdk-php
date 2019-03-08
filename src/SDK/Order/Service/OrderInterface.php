@@ -1178,4 +1178,17 @@ interface OrderInterface
      * @internal
      */
     public function updateOrderEvaluateFlag(array $orderIds, int $evaluateFlag): bool;
+
+    /**
+     * 获取店铺订单统计
+     *
+     * @param integer $time 时间戳
+     * @param integer $userId 店铺id
+     * @param integer $type 类型 0:店铺 1:用户
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.8
+     */
+    public function getTotalOrderCount(int $time, int $userId, int $type = 0):int;
 }
