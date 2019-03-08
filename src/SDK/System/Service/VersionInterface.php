@@ -114,7 +114,7 @@ interface VersionInterface
      * ### 请求参数
      * 字段名 | 类型 |描述
      * ---|---|---
-     * appType | int | 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
+     * appType | string | 版本类型：1 andriod买家 2 andriod卖家 3 iOS买家 4 iOS卖家
      * 
      * ### 返回结果
      * 字段名 | 类型 |描述
@@ -134,5 +134,5 @@ interface VersionInterface
      * @author wechan
      * @since 2019年03月06日
      */
-    public function getAppVersion(int $appType):array;
+    public function getAppVersion(string $appType):array;
 }
