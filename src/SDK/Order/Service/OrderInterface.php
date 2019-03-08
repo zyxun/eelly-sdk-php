@@ -1175,7 +1175,6 @@ interface OrderInterface
      *
      * @author wechan
      * @since 2019年01月02日
-     * @internal
      */
     public function updateOrderEvaluateFlag(array $orderIds, int $evaluateFlag): bool;
 
