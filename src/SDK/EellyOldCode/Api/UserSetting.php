@@ -15,10 +15,10 @@ namespace Eelly\SDK\EellyOldCode\Api;
 
 use Eelly\SDK\EellyClient;
 
-class Store
+class UserSetting
 {
-    public function getOne(int $storeId): array
+    public function isSettingLike(int $uid): bool
     {
-        return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
+        return EellyClient::request('eellyOldCode/userSetting', __FUNCTION__, true, $uid);
     }
 }
