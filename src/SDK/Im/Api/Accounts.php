@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Im\Service\AccountsInterface;
 
-class Accounts implements AccountsInterface
+class Accounts
 {
     /**
      *{@inheritdoc}
@@ -49,6 +49,16 @@ class Accounts implements AccountsInterface
     public function getListNoLogin(array $users): array
     {
         return EellyClient::request('im/accounts', __FUNCTION__, true, $users);
+    }
+
+    public function blockUser(int $uid, int $type): bool
+    {
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
+    }
+
+    public function unblockUser(int $uid, int $type): bool
+    {
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
     public function sendLogoutNotification(int $uid): void
