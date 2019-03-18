@@ -263,6 +263,34 @@ class Accounts implements AccountsInterface
     }
 
     /**
+     * 发送登出通知给客户端.
+     *
+     * @param int $uid
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function sendLogoutNotification(int $uid): void
+    {
+        return EellyClient::request('im/accounts', 'sendLogoutNotification', true, $uid);
+    }
+
+    /**
+     * 发送登出通知给客户端.
+     *
+     * @param int $uid
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function sendLogoutNotificationAsync(int $uid)
+    {
+        return EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
