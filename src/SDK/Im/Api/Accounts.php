@@ -72,7 +72,7 @@ class Accounts
      */
     public function sendLogoutNotification(int $uid): void
     {
-        return EellyClient::request('im/accounts', 'sendLogoutNotification', true, $uid);
+        EellyClient::request('im/accounts', 'sendLogoutNotification', true, $uid);
     }
 
     /**
@@ -86,7 +86,7 @@ class Accounts
      */
     public function sendLogoutNotificationAsync(int $uid)
     {
-        return EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
+        EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
     }
 
     /**
