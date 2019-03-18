@@ -61,8 +61,44 @@ class Accounts
         return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
+    /**
+     * 发送登出通知给客户端.
+     *
+     * @param int $uid
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
     public function sendLogoutNotification(int $uid): void
     {
-        EellyClient::request('im/accounts', __FUNCTION__, true, $uid);
+        return EellyClient::request('im/accounts', 'sendLogoutNotification', true, $uid);
+    }
+
+    /**
+     * 发送登出通知给客户端.
+     *
+     * @param int $uid
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function sendLogoutNotificationAsync(int $uid)
+    {
+        return EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
     }
 }
