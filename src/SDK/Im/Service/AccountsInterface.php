@@ -120,4 +120,15 @@ interface AccountsInterface
      * @internal
      */
     public function muteUser(int $uid, int $type, string $mute): bool;
+
+    /**
+     * 发送登出通知给客户端.
+     *
+     * @param int $uid
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function sendLogoutNotification(int $uid): void;
 }
