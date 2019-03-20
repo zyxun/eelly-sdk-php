@@ -18,7 +18,7 @@ namespace Eelly\SDK\Tim\Service;
  *
  * @author eellytools<localhost.shell@gmail.com>
  */
-interface MessageInterface
+interface MsgSenderInterface
 {
     /**
      * 发送单聊消息
