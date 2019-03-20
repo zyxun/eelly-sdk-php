@@ -13,13 +13,13 @@ declare(strict_types=1);
 namespace Eelly\SDK\Tim\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Tim\Service\MessageInterface;
+use Eelly\SDK\Tim\Service\MsgSenderInterface;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Message implements MessageInterface
+class MsgSender implements MsgSenderInterface
 {
     /**
      * 发送单聊消息
@@ -36,7 +36,7 @@ class Message implements MessageInterface
      */
     public function sendMessage(string $from = null, string $to, string $msgType, array $msgContent, array $offlinePushInfo = null, array $extension = null): bool
     {
-        return EellyClient::request('tim/message', 'sendMessage', true, $from, $to, $msgType, $msgContent, $offlinePushInfo, $extension);
+        return EellyClient::request('tim/msgSender', 'sendMessage', true, $from, $to, $msgType, $msgContent, $offlinePushInfo, $extension);
     }
 
     /**
@@ -54,7 +54,7 @@ class Message implements MessageInterface
      */
     public function sendMessageAsync(string $from = null, string $to, string $msgType, array $msgContent, array $offlinePushInfo = null, array $extension = null)
     {
-        return EellyClient::request('tim/message', 'sendMessage', false, $from, $to, $msgType, $msgContent, $offlinePushInfo, $extension);
+        return EellyClient::request('tim/msgSender', 'sendMessage', false, $from, $to, $msgType, $msgContent, $offlinePushInfo, $extension);
     }
 
     /**
