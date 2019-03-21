@@ -36,4 +36,21 @@ class Contacts
     {
         return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $userListId, $type, $userType, $dataType);
     }
+
+    /**
+     * 检查联系人数是否超过限定值
+     *
+     * @param int $fromUserId   用户id
+     * @param int $fromUserType 用户类型: 4.店+ 3.厂+
+     * @param int $needAddNum   本次需要添加的联系人人数
+     * @return mixed
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @since  2017年03月17日
+     */
+    public function checkContactsOverCount($fromUserId, $fromUserType, $needAddNum)
+    {
+        return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $fromUserId, $fromUserType, $needAddNum);
+    }
+
 }
