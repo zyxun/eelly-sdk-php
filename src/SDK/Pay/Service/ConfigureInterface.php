@@ -28,4 +28,15 @@ interface ConfigureInterface
      * @since 2019年03月22日
      */
     public function getConfigureByChannelType(int $channelType): array;
+    
+    /**
+     * 根据渠道类型返回对应类型的所有信息
+     * 
+     * @param int $pcoId 收款帐户配置ID，自增主键
+     * @param array $updateData 需要更新的数据
+     * 
+     * @author wechan
+     * @since 2019年03月22日
+     */
+    public function updateConfigureData(int $pcoId, array $updateData): bool;
 }
