@@ -34,12 +34,12 @@ interface RobotInterface
      * 更新机器人角色
      *
      * @param array $extend 拓展业务
-     * @return void
+     * @return boolean
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.21
      */
-    public function setRobotRole(array $extend = []):void;
+    public function setRobotRole(array $extend):bool;
 
     /**
      * 获取机器人数据
@@ -50,7 +50,7 @@ interface RobotInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.21
      */
-    public function getRobot(array $extend = []):array;
+    public function getRobot(array $extend):array;
 
     /**
      * 更新机器人数据
