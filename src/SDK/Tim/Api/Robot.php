@@ -51,12 +51,12 @@ class Robot implements RobotInterface
      * 更新机器人角色
      *
      * @param array $extend 拓展业务
-     * @return void
+     * @return boolean
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.21
      */
-    public function setRobotRole(array $extend = []): void
+    public function setRobotRole(array $extend): bool
     {
         return EellyClient::request('tim/robot', 'setRobotRole', true, $extend);
     }
@@ -65,12 +65,12 @@ class Robot implements RobotInterface
      * 更新机器人角色
      *
      * @param array $extend 拓展业务
-     * @return void
+     * @return boolean
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.21
      */
-    public function setRobotRoleAsync(array $extend = [])
+    public function setRobotRoleAsync(array $extend)
     {
         return EellyClient::request('tim/robot', 'setRobotRole', false, $extend);
     }
@@ -84,7 +84,7 @@ class Robot implements RobotInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.21
      */
-    public function getRobot(array $extend = []): array
+    public function getRobot(array $extend): array
     {
         return EellyClient::request('tim/robot', 'getRobot', true, $extend);
     }
@@ -98,7 +98,7 @@ class Robot implements RobotInterface
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.21
      */
-    public function getRobotAsync(array $extend = [])
+    public function getRobotAsync(array $extend)
     {
         return EellyClient::request('tim/robot', 'getRobot', false, $extend);
     }
