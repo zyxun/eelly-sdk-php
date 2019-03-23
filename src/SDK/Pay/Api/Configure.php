@@ -84,7 +84,7 @@ class Configure implements ConfigureInterface
      * @author wechan
      * @since 2019年03月23日
      */
-    public function getOneConfigureByType(int $channelType, int $chargeType): array
+    public function getOneConfigureByType(int $channelType, int $chargeType): string
     {
         return EellyClient::request('pay/configure', 'getOneConfigureByType', true, $channelType, $chargeType);
     }
