@@ -39,4 +39,15 @@ interface ConfigureInterface
      * @since 2019年03月22日
      */
     public function updateConfigureData(int $pcoId, array $updateData): bool;
+    
+    /**
+     * 根据渠道类型和收款类型 返回收款账号AppId
+     * 
+     * @param int $channelType 渠道类型：1 支付宝 2 微信 3 银联
+     * @param int $chargeType 收款类型：1 货款 2 增值服务
+     * 
+     * @author wechan
+     * @since 2019年03月23日
+     */
+    public function getOneConfigureByType(int $channelType, int $chargeType): array;
 }
