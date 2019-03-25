@@ -32,4 +32,16 @@ class Favorite
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/favorite', __FUNCTION__, true, $userId, $storeIds);
     }
+
+    /**
+     *  添加多个店铺到收藏夹
+     *
+     * @param       $userId
+     * @param array $storeIds
+     * @return mixed
+     */
+    public function addStoreCollection($userId, array $storeIds)
+    {
+        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/favorite', __FUNCTION__, true, $userId, $storeIds);
+    }
 }
