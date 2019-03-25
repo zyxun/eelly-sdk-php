@@ -21,4 +21,9 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
     }
+
+    public function newGoodsCount(int $storeId, int $days = 7): int
+    {
+        return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId, $days);
+    }
 }
