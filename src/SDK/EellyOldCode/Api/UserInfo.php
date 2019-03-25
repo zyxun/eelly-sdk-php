@@ -19,6 +19,6 @@ class UserInfo
 {
     public function getCreditValue(int $uid): int
     {
-        return EellyClient::request('eellyOldCode/userINfo', __FUNCTION__, true, $uid);
+        return EellyClient::request('eellyOldCode/userInfo', __FUNCTION__, true, $uid);
     }
 }
