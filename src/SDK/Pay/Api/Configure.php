@@ -104,6 +104,28 @@ class Configure implements ConfigureInterface
     }
 
     /**
+     * 获取支付配置列表
+     * 
+     * @author wechan
+     * @since 2019年03月26日
+     */
+    public function getConfigureList(): array
+    {
+        return EellyClient::request('pay/configure', 'getConfigureList', true);
+    }
+
+    /**
+     * 获取支付配置列表
+     * 
+     * @author wechan
+     * @since 2019年03月26日
+     */
+    public function getConfigureListAsync()
+    {
+        return EellyClient::request('pay/configure', 'getConfigureList', false);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
