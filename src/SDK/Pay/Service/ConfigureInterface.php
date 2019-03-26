@@ -50,4 +50,12 @@ interface ConfigureInterface
      * @since 2019年03月23日
      */
     public function getOneConfigureByType(int $channelType, int $chargeType): string;
+    
+    /**
+     * 获取支付配置列表
+     * 
+     * @author wechan
+     * @since 2019年03月26日
+     */
+    public function getConfigureList():array;
 }
