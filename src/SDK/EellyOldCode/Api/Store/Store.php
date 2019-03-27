@@ -348,4 +348,16 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $where, $limit, $order, $page);
     }
+    
+    /**
+     * 根据storeid拿 name.
+     *
+     * @param array $storeIds
+     *
+     * @return array
+     */
+    public function getStoreNameByIds($storeIds)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
+    }
 }
