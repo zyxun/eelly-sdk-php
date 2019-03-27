@@ -36,7 +36,7 @@ interface LivePlanInterface
      * @param int $planId
      * @param int $isPay
      * @param int $roomSize
-     * @param int $liveType  直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场 6.普通场)
+     * @param int $liveType  直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场 6.普通场 7.凌晨场)
      *
      * @return bool
      */
