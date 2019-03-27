@@ -116,4 +116,18 @@ interface ArbitrateInterface
      * @return array
      */
     public function getArbitrate(int $orderId): array;
+
+    /**
+     * 根据传过来的店铺ID，返回对应店铺的卖家责任仲裁率
+     *
+     * @param int $storeId 店铺id
+     * @return  float
+     *
+     * @requestExample({"storeId":148086})
+     * @returnExample(12.5)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.27
+     */
+    public function getArbitrationRateByStoreId(int $storeId):float;
 }
