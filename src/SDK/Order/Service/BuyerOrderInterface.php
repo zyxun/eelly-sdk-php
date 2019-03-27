@@ -995,4 +995,20 @@ interface BuyerOrderInterface
      * @since 2019.02.22
      */
     public function getSumDataByOrderIds(array $orderIds):array;
+
+    /**
+     * 根据传过来的店铺ID跟时间范围，返回该店铺各个买家的下单购买金额
+     *
+     * @param int $storeId  店铺id
+     * @param int $startTime 开始时间
+     * @param int $endTime  结束时间
+     * @return array
+     *
+     * @requestExample({"storeId":148086, "startTime":1540347553, "endTime":1547814819})
+     * @returnExample({"payOrderNum":4,"payBuyerNum":2,"buyerList":{"1762341":"10","2108435":"3"}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.26
+     */
+    public function listBuyerOrderAmount(int $storeId, int $startTime , int $endTime):array;
 }

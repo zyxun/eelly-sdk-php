@@ -281,7 +281,7 @@ interface LiveInterface
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
      * @param int   $data['isPay']   是否收费
-     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
+     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场 6.普通场 7.凌晨场)
      *
      * @requestExample({
         "data": {
