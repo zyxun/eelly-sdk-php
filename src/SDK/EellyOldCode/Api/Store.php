@@ -26,4 +26,9 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId, $days);
     }
+
+    public static function getStoreStatus(int $storeId): int
+    {
+        return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
+    }
 }
