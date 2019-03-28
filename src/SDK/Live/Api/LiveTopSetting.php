@@ -13,12 +13,13 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Live\Service\LiveTopSettingInterface;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveTopSetting
+class LiveTopSetting implements LiveTopSettingInterface
 {
     /**
      * 获取当前配置生效的数据

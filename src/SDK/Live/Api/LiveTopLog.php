@@ -13,12 +13,13 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Live\Service\LiveTopLogInterface;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveTopLog
+class LiveTopLog implements LiveTopLogInterface
 {
     /**
      * 获取正在置顶位置的直播间
