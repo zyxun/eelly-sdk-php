@@ -1457,6 +1457,28 @@ class Live implements LiveInterface
     }
 
     /**
+     * 直播中的积分排行榜
+     *
+     * @return array
+     *
+     * @returnExample([{"ranking":1,"storeName":"\u7a88\u7a95\u8863\u8272","score":"320"},{"ranking":2,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","score":"124"}])
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.28
+     */
+    public function listLiveScore():array
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listLiveScoreAsync():array
+    {
+        return EellyClient::request('live/live', __FUNCTION__, false);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
