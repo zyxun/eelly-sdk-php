@@ -646,7 +646,7 @@ interface LiveInterface
      * @since 2019年01月10日
      */
     public function getLiveCard($platform = 'APP'):array;
-
+  
     /**
      * 获取即将可以续播的列表
      * 
@@ -709,4 +709,15 @@ interface LiveInterface
      * @since 2019.3.7
      */
     public function checkUseCacheLiveRoomInfo(int $liveId):bool;
+  
+    /**
+     * 直播中的积分排行榜
+     *
+     * @return array
+     *
+     * @returnExample([{"ranking":1,"storeName":"\u7a88\u7a95\u8863\u8272","score":"320"},{"ranking":2,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","score":"124"}])
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.28
+     */
+    public function listLiveScore():array;
 }
