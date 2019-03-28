@@ -86,6 +86,32 @@ class RechargeRel implements RechargeRelInterface
     }
 
     /**
+     * 根据充值id返回对应的item_id和类型
+     * 
+     * @param array $precIds 充值ids
+     * 
+     * @aurhor wechan
+     * @since 2019年03月27日
+     */
+    public function getRelByChargeIds(array $precIds): array
+    {
+        return EellyClient::request('pay/rechargeRel', 'getRelByChargeIds', true, $precIds);
+    }
+
+    /**
+     * 根据充值id返回对应的item_id和类型
+     * 
+     * @param array $precIds 充值ids
+     * 
+     * @aurhor wechan
+     * @since 2019年03月27日
+     */
+    public function getRelByChargeIdsAsync(array $precIds)
+    {
+        return EellyClient::request('pay/rechargeRel', 'getRelByChargeIds', false, $precIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
