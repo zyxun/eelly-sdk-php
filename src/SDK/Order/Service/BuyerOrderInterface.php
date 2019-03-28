@@ -1011,4 +1011,19 @@ interface BuyerOrderInterface
      * @since 2019.03.26
      */
     public function listBuyerOrderAmount(int $storeId, int $startTime , int $endTime):array;
+
+    /**
+     * 获取一个店铺多少天内，用户的回头率
+     *
+     * @param int $storeId 店铺ID
+     * @param int $day 天数
+     * @return float
+     *
+     * @requestExample({"storeId":148086, "day":30})
+     * @returnExample(5.5)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.28
+     */
+    public function getStoreTurnOverRate(int $storeId, int $day = 30):float;
 }
