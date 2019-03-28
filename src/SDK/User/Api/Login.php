@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,24 +13,24 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\LoginInterface;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Login implements LoginInterface
+class Login
 {
     /**
-     * 添加登陆历史
+     * 添加登陆历史.
      *
      * @param string $domain 登陆平台 例：www.account.com www.eelly.com www.manage.com etc
-     * @param UidDTO $user 登陆的用户id
-     * @return boolean
-     * 
+     * @param UidDTO $user   登陆的用户id
+     *
+     * @return bool
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.7.23
      */
     public function addHistory(string $domain, UidDTO $user = null): bool
@@ -38,13 +39,15 @@ class Login implements LoginInterface
     }
 
     /**
-     * 添加登陆历史
+     * 添加登陆历史.
      *
      * @param string $domain 登陆平台 例：www.account.com www.eelly.com www.manage.com etc
-     * @param UidDTO $user 登陆的用户id
-     * @return boolean
-     * 
+     * @param UidDTO $user   登陆的用户id
+     *
+     * @return bool
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.7.23
      */
     public function addHistoryAsync(string $domain, UidDTO $user = null)
@@ -53,11 +56,12 @@ class Login implements LoginInterface
     }
 
     /**
-     * 获取登陆历史
+     * 获取登陆历史.
      *
      * @param UidDTO $user 登陆的用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function getHistory(UidDTO $user = null): array
@@ -66,16 +70,50 @@ class Login implements LoginInterface
     }
 
     /**
-     * 获取登陆历史
+     * 获取登陆历史.
      *
      * @param UidDTO $user 登陆的用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
     public function getHistoryAsync(UidDTO $user = null)
     {
         return EellyClient::request('user/login', 'getHistory', false, $user);
+    }
+
+    /**
+     * @param UidDTO|null $uidDTO
+     *
+     * @return array
+     */
+    public function getUserInfo(UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('user/login', __FUNCTION__, true);
+    }
+
+    /**
+     * @param UidDTO|null $uidDTO
+     *
+     * @return array
+     */
+    public function getStoreInfo(UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('user/login', __FUNCTION__, true);
+    }
+
+    /**
+     * @param int $uid
+     * @param int $type
+     *
+     * @throws \Exception
+     *
+     * @return array
+     */
+    public function getTimInfo(int $uid, int $type)
+    {
+        return EellyClient::request('user/login', __FUNCTION__, true, $uid, $type);
     }
 
     /**

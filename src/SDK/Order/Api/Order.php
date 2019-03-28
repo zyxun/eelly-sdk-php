@@ -2591,6 +2591,62 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取店铺订单统计
+     *
+     * @param integer $time 时间戳
+     * @param integer $userId 店铺id
+     * @param integer $type 类型 0:店铺 1:用户
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.8
+     */
+    public function getTotalOrderCount(int $time, int $userId, int $type = 0): int
+    {
+        return EellyClient::request('order/order', 'getTotalOrderCount', true, $time, $userId, $type);
+    }
+
+    /**
+     * 获取店铺订单统计
+     *
+     * @param integer $time 时间戳
+     * @param integer $userId 店铺id
+     * @param integer $type 类型 0:店铺 1:用户
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.8
+     */
+    public function getTotalOrderCountAsync(int $time, int $userId, int $type = 0)
+    {
+        return EellyClient::request('order/order', 'getTotalOrderCount', false, $time, $userId, $type);
+    }
+
+    /**
+     * 订单支付成功后 发送信息
+     * 
+     * @param array $data 请求的数据
+     * 
+     * @since 2019年03月06日
+     */
+    public function sendOrderSuccessMessage(array $data): bool
+    {
+        return EellyClient::request('order/order', 'sendOrderSuccessMessage', true, $data);
+    }
+
+    /**
+     * 订单支付成功后 发送信息
+     * 
+     * @param array $data 请求的数据
+     * 
+     * @since 2019年03月06日
+     */
+    public function sendOrderSuccessMessageAsync(array $data)
+    {
+        return EellyClient::request('order/order', 'sendOrderSuccessMessage', false, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

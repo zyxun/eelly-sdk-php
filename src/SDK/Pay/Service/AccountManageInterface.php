@@ -24,14 +24,16 @@ interface AccountManageInterface
      *
      * @internal
      *
-     * @param int $userId   会员ID
-     * @param int $storeId  店铺ID
-     * @param int $toStatus 目标状态
-     * @param int $adminId  操作人ID
+     * @param array  $data
+     * @param int    $data['userId']    会员ID
+     * @param int    $data['storeId']   店铺ID
+     * @param int    $data['toStatus']  目标状态
+     * @param int    $data['adminId']   操作人ID
+     * @param string $data['remark']    操作备注
      * @return bool
      *
      * @author zhangyangxun
      * @since 2018-12-29
      */
-    public function updateAccountStatus(int $userId, int $storeId, int $toStatus, int $adminId): bool ;
+    public function updateAccountStatus(array $data): bool;
 }

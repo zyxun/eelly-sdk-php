@@ -646,7 +646,70 @@ interface LiveInterface
      * @since 2019年01月10日
      */
     public function getLiveCard($platform = 'APP'):array;
+  
+    /**
+     * 获取即将可以续播的列表
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | desc
+     * --- | ---- | ----
+     * lpId | int | 续播id
+     * startTime | int | 续播开始时间
+     * endTime | int | 续播结束时间
+     * status | int | 状态：默认1
+     * liveType | int | 直播类型：1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场
+     * timeInterval | string | 时间区间
+     * coundDown | int | 距离直播结束时间还剩下多长时间
+     *
+     * @param integer $liveId 当前直播的id
+     * @return array
+     * 
+     * @returnExample({"planList":[{"lpId":"7","startTime":"64800","endTime":"75600","status":"1","liveType":"3", "typeContent":"白天场","timeInterval":"18点-01点"}],"countDown":7672})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.5
+     */
+    public function getLivePlan(int $liveId):array;
 
+    /**
+     * 续播操作
+     *
+     * @param integer $liveId 直播id
+     * @param integer $lpId 续播id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.5
+     */
+    public function continueLiveBroadcase(int $liveId, int $lpId):bool;
+
+    /**
+     * 检查是否续播成功
+     *
+     * @param integer $liveId 直播id 
+     * @return array
+     * 
+     * @returnExample({
+     *  "data" : {"isSuccess":"false", "expireIn":"1234"}
+     * })
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.6
+     */
+    public function checkContinueIsSuccess(int $liveId):array;
+
+    /**
+     * 判断是否使用缓存的直播间数据
+     *
+     * @param integer $liveId 直播间id
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.7
+     */
+    public function checkUseCacheLiveRoomInfo(int $liveId):bool;
+  
     /**
      * 直播中的积分排行榜
      *

@@ -64,6 +64,7 @@ class EellyClient
         'service'        => 'https://api.eelly.com',
         'store'          => 'https://api.eelly.com',
         'system'         => 'https://api.eelly.com',
+        'tim'            => 'https://api.eelly.com',
         'user'           => 'https://api.eelly.com',
     ];
 

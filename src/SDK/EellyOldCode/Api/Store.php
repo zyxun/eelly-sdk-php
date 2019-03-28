@@ -14,15 +14,21 @@ declare(strict_types=1);
 namespace Eelly\SDK\EellyOldCode\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\EellyOldCode\Service\StoreInterface;
 
-class Store implements StoreInterface
+class Store
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getOne(int $storeId): array
     {
-        return EellyClient::request('eellyOldCode/Store', __FUNCTION__, true, $storeId);
+        return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
+    }
+
+    public function newGoodsCount(int $storeId, int $days = 7): int
+    {
+        return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId, $days);
+    }
+
+    public static function getStoreStatus(int $storeId): int
+    {
+        return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
     }
 }

@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Im\Service\AccountsInterface;
 
-class Accounts implements AccountsInterface
+class Accounts
 {
     /**
      *{@inheritdoc}
@@ -51,8 +51,54 @@ class Accounts implements AccountsInterface
         return EellyClient::request('im/accounts', __FUNCTION__, true, $users);
     }
 
+    public function blockUser(int $uid, int $type): bool
+    {
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
+    }
+
+    public function unblockUser(int $uid, int $type): bool
+    {
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
+    }
+
+    /**
+     * 发送登出通知给客户端.
+     *
+     * @param int $uid
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
     public function sendLogoutNotification(int $uid): void
     {
-        EellyClient::request('im/accounts', __FUNCTION__, true, $uid);
+        EellyClient::request('im/accounts', 'sendLogoutNotification', true, $uid);
+    }
+
+    /**
+     * 发送登出通知给客户端.
+     *
+     * @param int $uid
+     *
+     * @internal
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function sendLogoutNotificationAsync(int $uid)
+    {
+        EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new self();
+        }
+
+        return $instance;
     }
 }
