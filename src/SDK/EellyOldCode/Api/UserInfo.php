@@ -17,7 +17,12 @@ use Eelly\SDK\EellyClient;
 
 class UserInfo
 {
-    public function getCreditValue(int $uid): int
+    public static function getCreditValue(int $uid): int
+    {
+        return EellyClient::request('eellyOldCode/userInfo', __FUNCTION__, true, $uid);
+    }
+
+    public static function getDefaultAddress(int $uid): array
     {
         return EellyClient::request('eellyOldCode/userInfo', __FUNCTION__, true, $uid);
     }
