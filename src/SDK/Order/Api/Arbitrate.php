@@ -246,6 +246,56 @@ class Arbitrate implements ArbitrateInterface
     }
 
     /**
+     * 根据传过来的店铺ID，返回对应店铺的卖家责任仲裁率
+     *
+     * @param int $storeId 店铺id
+     * @return  float
+     *
+     * @requestExample({"storeId":148086})
+     * @returnExample(12.5)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.27
+     */
+    public function getArbitrationRateByStoreId(int $storeId):float
+    {
+        return EellyClient::request('order/arbitrate', __FUNCTION__, true, $storeId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getArbitrationRateByStoreIdAsync(int $storeId):float
+    {
+        return EellyClient::request('order/arbitrate', __FUNCTION__, false, $storeId);
+    }
+
+    /**
+     * 返回指定天数卖家责任的仲裁订单数
+     *
+     * @param int $day 天数
+     * @return int
+     *
+     * @requestExample({"day":30})
+     * @returnExample(3)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.27
+     */
+    public function getSellerArbitrateOrderNum(int $day = 30):int
+    {
+        return EellyClient::request('order/arbitrate', __FUNCTION__, true, $day);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSellerArbitrateOrderNumAsync(int $day = 30):int
+    {
+        return EellyClient::request('order/arbitrate', __FUNCTION__, false, $day);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

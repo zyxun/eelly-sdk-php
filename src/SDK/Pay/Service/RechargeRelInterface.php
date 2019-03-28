@@ -45,4 +45,14 @@ interface RechargeRelInterface
      * @since 2018年10月23日
      */
     public function getRechargeRelByBillNo(string $billNo): array;
+    
+    /**
+     * 根据充值id返回对应的item_id和类型
+     * 
+     * @param array $precIds 充值ids
+     * 
+     * @aurhor wechan
+     * @since 2019年03月27日
+     */
+    public function getRelByChargeIds(array $precIds):array;
 }

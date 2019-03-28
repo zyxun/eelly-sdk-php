@@ -218,4 +218,15 @@ interface RechargeInterface
      * @since 2018.12.06
      */
     public function listManageRecharge(string $condition, array $binds = [], int $page = 1, int $limit = 20):array;
+
+    /**
+     * 根据充值用途对象id获取退款账号
+     * 
+     * @param array $itemIds 充值用途对象ID
+     * @param int $type 充值用途类型：1 订单支付 2 购买服务 3 诚信保障 4 一件代发保证金
+     * 
+     * @aurhor wechan
+     * @since 2019年03月27日
+     */
+    public function getToAccountByItemIds(array $itemIds, int $type):array;
 }
