@@ -13,12 +13,13 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Live\Service\LiveTopInterface;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveTop
+class LiveTop implements LiveTopInterface
 {
     /**
      * 获取置顶卡

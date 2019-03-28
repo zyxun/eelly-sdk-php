@@ -13,12 +13,13 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
+use Eelly\SDK\Live\Service\LiveSortInterface;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveSort
+class LiveSort implements LiveSortInterface
 {
     /**
      * 更新排序数据
