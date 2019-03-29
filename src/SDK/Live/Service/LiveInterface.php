@@ -720,4 +720,18 @@ interface LiveInterface
      * @since 2019.03.28
      */
     public function listLiveScore():array;
+
+    /**
+     * 根据传过来的直播id，返回对应的积分组成细节
+     *
+     * @param int $liveId 直播id
+     * @return array
+     *
+     * @requestExample({"liveId": 1})
+     * @returnExample({"storeScore":{"left":{"content":"\u5e97\u94fa\u57fa\u7840\u5206","value":"110\u5206"},"right":[{"content":"\u5e97\u94fa\u521d\u59cb\u5206","value":100},{"content":"\u4ef2\u88c1\u7387\u6263\u5206","value":-10},{"content":"\u56de\u5934\u7387\u6263\u5206","value":0},{"content":"\u9996\u64ad\u5468\u52a0\u5206","value":20}]},"shareScore":{"left":{"content":"\u5206\u4eab\u62c9\u65b0\u5206","value":"0\u5206"},"right":[{"content":"\u6210\u529f\u62c9\u6765\u65b0\u5ba2","value":"0\u4eba"},{"content":"\u5206\u4eab\u62c9\u65b0\u52a0\u5206","value":"5\u5206\/\u4eba"}]},"orderScore":{"left":{"content":"\u5206\u4eab\u62c9\u65b0\u5206","value":"0\u5206"},"right":[{"content":"\u652f\u4ed8\u8ba2\u5355\u4eba\u6570","value":"0\u4eba"},{"content":"\u652f\u4ed8\u8ba2\u5355\u7b14\u6570","value":"0\u7b14"},{"content":"\u76f4\u64ad\u8f6c\u5316\u52a0\u5206","value":"0\u5206"}]}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.29
+     */
+    public function getliveScoreDetail(int $liveId):array;
 }
