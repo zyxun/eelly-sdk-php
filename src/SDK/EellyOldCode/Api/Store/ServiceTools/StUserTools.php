@@ -39,4 +39,22 @@ class StUserTools
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/ServiceTools/StUserTools', __FUNCTION__, true, $userId, $tId, $aId, $expireTime, $desc, $extends);
     }
+    
+    /**
+     * 赠送工具，只会赠送数量
+     *
+     * @param $userId
+     * @param $adminName
+     * @param $tId
+     * @param int $aId 工具子表id
+     * @param $des
+     * @param $gsId
+     * @param $timeNumber 时间单位
+     * @param array $extensions 其他信息
+     * @return array
+     */
+    public function giveUserSetupSave($userId, $adminName, $tId, $aId, $des, $gsId = 0, $timeNumber = 0, array $extensions = [])
+    {
+        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/ServiceTools/StUserTools', __FUNCTION__, true, $userId, $adminName, $tId, $aId, $des, $gsId, $timeNumber, $extensions);
+    }
 }
