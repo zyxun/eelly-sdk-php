@@ -596,7 +596,7 @@ class Live implements LiveInterface
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
      * @param int   $data['isPay']   是否收费
-     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
+     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场 6.普通场 7.凌晨场)
      *
      * @requestExample({
         "data": {
@@ -626,7 +626,7 @@ class Live implements LiveInterface
      * @param int   $data['userId']  用户ID
      * @param int   $data['storeId'] 店铺ID
      * @param int   $data['isPay']   是否收费
-     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场)
+     * @param int   $data['liveType'] 直播类型(1.白天场 2.白天连播场 3.晚上场 4.晚上连播场 5.全天连播场 6.普通场 7.凌晨场)
      *
      * @requestExample({
         "data": {
@@ -1605,7 +1605,7 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'checkUseCacheLiveRoomInfo', false, $liveId);
     }
-  
+
     /**
      * 直播中的积分排行榜
      *
@@ -1615,17 +1615,23 @@ class Live implements LiveInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2019.03.28
      */
-    public function listLiveScore():array
+    public function listLiveScore(): array
     {
-        return EellyClient::request('live/live', __FUNCTION__, true);
+        return EellyClient::request('live/live', 'listLiveScore', true);
     }
 
     /**
-     * @inheritdoc
+     * 直播中的积分排行榜
+     *
+     * @return array
+     *
+     * @returnExample([{"ranking":1,"storeName":"\u7a88\u7a95\u8863\u8272","score":"320"},{"ranking":2,"storeName":"test\u5e97\u94fa\u6d4b\u8bd5","score":"124"}])
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.28
      */
-    public function listLiveScoreAsync():array
+    public function listLiveScoreAsync()
     {
-        return EellyClient::request('live/live', __FUNCTION__, false);
+        return EellyClient::request('live/live', 'listLiveScore', false);
     }
 
     /**
@@ -1640,17 +1646,118 @@ class Live implements LiveInterface
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2019.03.29
      */
-    public function getliveScoreDetail(int $liveId):array
+    public function getliveScoreDetail(int $liveId): array
     {
-        return EellyClient::request('live/live', __FUNCTION__, true, $liveId);
+        return EellyClient::request('live/live', 'getliveScoreDetail', true, $liveId);
     }
 
     /**
-     * @inheritdoc
+     * 根据传过来的直播id，返回对应的积分组成细节
+     *
+     * @param int $liveId 直播id
+     * @return array
+     *
+     * @requestExample({"liveId": 1})
+     * @returnExample({"storeScore":{"left":{"content":"\u5e97\u94fa\u57fa\u7840\u5206","value":"110\u5206"},"right":[{"content":"\u5e97\u94fa\u521d\u59cb\u5206","value":100},{"content":"\u4ef2\u88c1\u7387\u6263\u5206","value":-10},{"content":"\u56de\u5934\u7387\u6263\u5206","value":0},{"content":"\u9996\u64ad\u5468\u52a0\u5206","value":20}]},"shareScore":{"left":{"content":"\u5206\u4eab\u62c9\u65b0\u5206","value":"0\u5206"},"right":[{"content":"\u6210\u529f\u62c9\u6765\u65b0\u5ba2","value":"0\u4eba"},{"content":"\u5206\u4eab\u62c9\u65b0\u52a0\u5206","value":"5\u5206\/\u4eba"}]},"orderScore":{"left":{"content":"\u5206\u4eab\u62c9\u65b0\u5206","value":"0\u5206"},"right":[{"content":"\u652f\u4ed8\u8ba2\u5355\u4eba\u6570","value":"0\u4eba"},{"content":"\u652f\u4ed8\u8ba2\u5355\u7b14\u6570","value":"0\u7b14"},{"content":"\u76f4\u64ad\u8f6c\u5316\u52a0\u5206","value":"0\u5206"}]}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.29
      */
-    public function getliveScoreDetailAsync(int $liveId):array
+    public function getliveScoreDetailAsync(int $liveId)
     {
-        return EellyClient::request('live/live', __FUNCTION__, false, $liveId);
+        return EellyClient::request('live/live', 'getliveScoreDetail', false, $liveId);
+    }
+
+    /**
+     * 获取直播积分排序
+     * 
+     * > 返回字段说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * extra | array | 额外拓展数据
+     * items | array | 数据列表
+     * 
+     * > extra 数据说明
+     * 
+     * key | type | desc
+     * --- | ---- | ----
+     * storeScore | int | 店铺基础分
+     * shareScore | int | 分享拉新分
+     * orderScore | int | 直播转换分
+     * pointDifference | int | 距离上一名相差多少分
+     * scoreRank | int | 排名第几名
+     * nextUpdateTime | int | 距离下次更新的时间
+     * 
+     * > items 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * liveId | int | 直播间id
+     * storeId | int | 店铺id
+     * scoreSort | int | 店铺积分
+     * showTopFlag | int |  展示不同置顶标记 0:不显示 1:置顶标记 2:官方推荐标记
+     * storeLogo | string | 店铺logo
+     * storeName | string | 店铺名称
+     * pointDifference | int | 距离上一名相差多少分
+     * scoreRank | int | 积分排名
+     * isThisLive | int | 是否为当前直播间 0:否 1:是
+     * 
+     * @param integer $liveId 直播间id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.29
+     */
+    public function getLiveIntegralSort(int $liveId): array
+    {
+        return EellyClient::request('live/live', 'getLiveIntegralSort', true, $liveId);
+    }
+
+    /**
+     * 获取直播积分排序
+     * 
+     * > 返回字段说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * extra | array | 额外拓展数据
+     * items | array | 数据列表
+     * 
+     * > extra 数据说明
+     * 
+     * key | type | desc
+     * --- | ---- | ----
+     * storeScore | int | 店铺基础分
+     * shareScore | int | 分享拉新分
+     * orderScore | int | 直播转换分
+     * pointDifference | int | 距离上一名相差多少分
+     * scoreRank | int | 排名第几名
+     * nextUpdateTime | int | 距离下次更新的时间
+     * 
+     * > items 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * liveId | int | 直播间id
+     * storeId | int | 店铺id
+     * scoreSort | int | 店铺积分
+     * showTopFlag | int |  展示不同置顶标记 0:不显示 1:置顶标记 2:官方推荐标记
+     * storeLogo | string | 店铺logo
+     * storeName | string | 店铺名称
+     * pointDifference | int | 距离上一名相差多少分
+     * scoreRank | int | 积分排名
+     * isThisLive | int | 是否为当前直播间 0:否 1:是
+     * 
+     * @param integer $liveId 直播间id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.29
+     */
+    public function getLiveIntegralSortAsync(int $liveId)
+    {
+        return EellyClient::request('live/live', 'getLiveIntegralSort', false, $liveId);
     }
 
     /**

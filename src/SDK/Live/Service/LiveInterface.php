@@ -734,4 +734,47 @@ interface LiveInterface
      * @since 2019.03.29
      */
     public function getliveScoreDetail(int $liveId):array;
+
+    /**
+     * 获取直播积分排序
+     * 
+     * > 返回字段说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * extra | array | 额外拓展数据
+     * items | array | 数据列表
+     * 
+     * > extra 数据说明
+     * 
+     * key | type | desc
+     * --- | ---- | ----
+     * storeScore | int | 店铺基础分
+     * shareScore | int | 分享拉新分
+     * orderScore | int | 直播转换分
+     * pointDifference | int | 距离上一名相差多少分
+     * scoreRank | int | 排名第几名
+     * nextUpdateTime | int | 距离下次更新的时间
+     * 
+     * > items 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * liveId | int | 直播间id
+     * storeId | int | 店铺id
+     * scoreSort | int | 店铺积分
+     * showTopFlag | int |  展示不同置顶标记 0:不显示 1:置顶标记 2:官方推荐标记
+     * storeLogo | string | 店铺logo
+     * storeName | string | 店铺名称
+     * pointDifference | int | 距离上一名相差多少分
+     * scoreRank | int | 积分排名
+     * isThisLive | int | 是否为当前直播间 0:否 1:是
+     * 
+     * @param integer $liveId 直播间id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.29
+     */
+    public function getLiveIntegralSort(int $liveId):array;
 }
