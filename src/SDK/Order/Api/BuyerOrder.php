@@ -2132,6 +2132,32 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * 根据传过来的店铺Id跟天数，返回对应的回头客数量跟复购率
+     *
+     * @param array $storeIds 店铺ID数组
+     * @param int $day 天数
+     * @return array
+     *
+     * @requestExample({"storeIds":[148086,1760467], "day":30})
+     * @returnExample({"148086":{"turnOverNum":4,"turnOverRate":2.92},"1760467":{"turnOverNum":2,"turnOverRate":1.34}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.30
+     */
+    public function listStoreTurnOverData(array $storeIds, int $day = 30):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $storeIds, $day);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listStoreTurnOverDataAsync(array $storeIds, int $day = 30):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $storeIds, $day);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
