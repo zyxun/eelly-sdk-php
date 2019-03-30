@@ -22,6 +22,11 @@ class Store
         return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
     }
 
+    public static function getList(array $storeIds): array
+    {
+        return EellyClient::requestJson('eellyOldCode/store', __FUNCTION__, ['storeIds' => $storeIds]);
+    }
+
     public function newGoodsCount(int $storeId, int $days = 7): int
     {
         return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId, $days);
