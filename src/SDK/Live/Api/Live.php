@@ -1654,6 +1654,31 @@ class Live implements LiveInterface
     }
 
     /**
+     * 根据传过来的店铺id，返回对应的店铺是否新店直播标示
+     *
+     * @param array $storeIds 店铺id数组
+     * @return array
+     *
+     * @requestExample({"storeIds": [148086, 1760467]})
+     * @returnExample({"148086":1,"1760467":0})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.30
+     */
+    public function listIfNewLiveByStoreIds(array $storeIds):array
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true, $storeIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listIfNewLiveByStoreIdsAsync(array $storeIds):array
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true, $storeIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
