@@ -736,6 +736,20 @@ interface LiveInterface
     public function getliveScoreDetail(int $liveId):array;
 
     /**
+     * 根据传过来的店铺id，返回对应的店铺是否新店直播标示
+     *
+     * @param array $storeIds 店铺id数组
+     * @return array
+     *
+     * @requestExample({"storeIds": [148086, 1760467]})
+     * @returnExample({"148086":1,"1760467":0})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.30
+     */
+    public function listIfNewLiveByStoreIds(array $storeIds):array;
+  
+    /**
      * 获取直播积分排序
      * 
      * > 返回字段说明
