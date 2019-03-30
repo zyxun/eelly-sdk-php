@@ -108,5 +108,27 @@ interface LiveShareInterface
      * @since 2019年01月11日
      */
     public function shareV2(array $data, UidDTO $user = null):string;
- 
+
+    /**
+     * 分享记录用户
+     *
+     * @param string $uniqueFlag 唯一标示
+     * @param UidDTO $user|null 登录用户才可以使用这个接口
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.28
+     */
+    public function shareRecordUser(string $uniqueFlag, UidDTO $user = null):bool;
+
+    /**
+     * 获取直播间分享的拉新用户数量
+     *
+     * @param integer $liveId 直播间id
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.3.28
+     */
+    public function getShareNewUser(int $liveId):int;
 }
