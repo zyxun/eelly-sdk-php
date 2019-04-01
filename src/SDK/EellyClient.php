@@ -149,7 +149,7 @@ class EellyClient
      *
      * @throws \ErrorException
      *
-     * @return int|mixed|string|null
+     * @return bool|int|mixed|string|null
      */
     public static function request(string $uri, string $method, bool $sync = true, ...$args)
     {
@@ -186,7 +186,7 @@ class EellyClient
      *
      * @throws \ErrorException
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface|int|mixed|string|null
+     * @return \GuzzleHttp\Promise\PromiseInterface|bool|int|mixed|string|null
      */
     public static function requestJson(string $uri, string $method, array $args, bool $sync = true)
     {
