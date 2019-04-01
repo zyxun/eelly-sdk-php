@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 /**
  * Class OrderGoodsCountInfo.
  *
- * var/eelly-old-code/modules/Order/Service/OrderGoodsCountInfoService.php
+ *  modules/Order/Service/OrderGoodsCountInfoService.php
  *
  * @author hehui<hehui@eelly.net>
  */

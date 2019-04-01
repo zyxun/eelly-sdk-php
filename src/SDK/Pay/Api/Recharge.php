@@ -337,6 +337,164 @@ class Recharge implements RechargeInterface
     }
 
     /**
+     * 根据precId 获取 billNo
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getBillNoByPrecId(int $precId): string
+    {
+        return EellyClient::request('pay/recharge', 'getBillNoByPrecId', true, $precId);
+    }
+
+    /**
+     * 根据precId 获取 billNo
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getBillNoByPrecIdAsync(int $precId)
+    {
+        return EellyClient::request('pay/recharge', 'getBillNoByPrecId', false, $precId);
+    }
+
+    /**
+     * 根据precId 获取一条充值记录
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getRecordByPrecId(int $precId): array
+    {
+        return EellyClient::request('pay/recharge', 'getRecordByPrecId', true, $precId);
+    }
+
+    /**
+     * 根据precId 获取一条充值记录
+     * 
+     * @return int 充值交易ID
+     * 
+     * @author wechan
+     * @since 2018年10月22日
+     */
+    public function getRecordByPrecIdAsync(int $precId)
+    {
+        return EellyClient::request('pay/recharge', 'getRecordByPrecId', false, $precId);
+    }
+
+    /**
+     * 根据传过来的条件返回对应的记录
+     *
+     * @param string $conditions 搜索条件
+     * @param array $bind  绑定参数
+     * @param string $field 字段名
+     * @return array
+     *
+     * @requestExample({"conditions":"prec_id=:precId:", "bind":[992, 991], "field":"payType"})
+     * @returnExample([{"precId":992,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"},{"precId":991,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.22
+     */
+    public function listRechargeInfoByConditions(string $conditions, array $bind, string $field = 'base'): array
+    {
+        return EellyClient::request('pay/recharge', 'listRechargeInfoByConditions', true, $conditions, $bind, $field);
+    }
+
+    /**
+     * 根据传过来的条件返回对应的记录
+     *
+     * @param string $conditions 搜索条件
+     * @param array $bind  绑定参数
+     * @param string $field 字段名
+     * @return array
+     *
+     * @requestExample({"conditions":"prec_id=:precId:", "bind":[992, 991], "field":"payType"})
+     * @returnExample([{"precId":992,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"},{"precId":991,"money":"1","channel":"1","bankName":"\u652f\u4ed8\u5b9d"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.22
+     */
+    public function listRechargeInfoByConditionsAsync(string $conditions, array $bind, string $field = 'base')
+    {
+        return EellyClient::request('pay/recharge', 'listRechargeInfoByConditions', false, $conditions, $bind, $field);
+    }
+
+    /**
+     * 获取后台充值列表数据
+     *
+     * @param string $condition 查询条件
+     * @param array $binds 绑定参数
+     * @param int $page 页码
+     * @param int $limit 每页显示多少数量
+     * @return array
+     *
+     * @requestExample({"condition":"channel = 1"})
+     * @returnExample({"items":[{"precId":"1694","paId":"703","money":"1","refundMoney":"0","channel":"1","style":"0","bankId":"184","bankName":"\u652f\u4ed8\u5b9d","bankAccount":"","billNo":"201811290176302595","thirdNo":"","status":"1","remark":"\u652f\u4ed8\u5b9d\u5145\u503c0.01\u5143","adminRemark":"","handleTime":"0","createdTime":"1543497102","toAccount":"2016041301293617"},{"precId":"1693","paId":"703","money":"1","refundMoney":"0","channel":"1","style":"0","bankId":"184","bankName":"\u652f\u4ed8\u5b9d","bankAccount":"","billNo":"201811290176110526","thirdNo":"","status":"0","remark":"\u652f\u4ed8\u5b9d\u5145\u503c0.01\u5143","adminRemark":"","handleTime":"0","createdTime":"1543496910","toAccount":"2016041301293617"}],"page":{"totalPages":449,"totalItems":897,"current":1,"limit":2}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.06
+     */
+    public function listManageRecharge(string $condition, array $binds = [], int $page = 1, int $limit = 20): array
+    {
+        return EellyClient::request('pay/recharge', 'listManageRecharge', true, $condition, $binds, $page, $limit);
+    }
+
+    /**
+     * 获取后台充值列表数据
+     *
+     * @param string $condition 查询条件
+     * @param array $binds 绑定参数
+     * @param int $page 页码
+     * @param int $limit 每页显示多少数量
+     * @return array
+     *
+     * @requestExample({"condition":"channel = 1"})
+     * @returnExample({"items":[{"precId":"1694","paId":"703","money":"1","refundMoney":"0","channel":"1","style":"0","bankId":"184","bankName":"\u652f\u4ed8\u5b9d","bankAccount":"","billNo":"201811290176302595","thirdNo":"","status":"1","remark":"\u652f\u4ed8\u5b9d\u5145\u503c0.01\u5143","adminRemark":"","handleTime":"0","createdTime":"1543497102","toAccount":"2016041301293617"},{"precId":"1693","paId":"703","money":"1","refundMoney":"0","channel":"1","style":"0","bankId":"184","bankName":"\u652f\u4ed8\u5b9d","bankAccount":"","billNo":"201811290176110526","thirdNo":"","status":"0","remark":"\u652f\u4ed8\u5b9d\u5145\u503c0.01\u5143","adminRemark":"","handleTime":"0","createdTime":"1543496910","toAccount":"2016041301293617"}],"page":{"totalPages":449,"totalItems":897,"current":1,"limit":2}})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.06
+     */
+    public function listManageRechargeAsync(string $condition, array $binds = [], int $page = 1, int $limit = 20)
+    {
+        return EellyClient::request('pay/recharge', 'listManageRecharge', false, $condition, $binds, $page, $limit);
+    }
+
+    /**
+     * 根据充值用途对象id获取退款账号
+     * 
+     * @param array $itemIds 充值用途对象ID
+     * @param int $type 充值用途类型：1 订单支付 2 购买服务 3 诚信保障 4 一件代发保证金
+     * 
+     * @aurhor wechan
+     * @since 2019年03月27日
+     */
+    public function getToAccountByItemIds(array $itemIds, int $type): array
+    {
+        return EellyClient::request('pay/recharge', 'getToAccountByItemIds', true, $itemIds, $type);
+    }
+
+    /**
+     * 根据充值用途对象id获取退款账号
+     * 
+     * @param array $itemIds 充值用途对象ID
+     * @param int $type 充值用途类型：1 订单支付 2 购买服务 3 诚信保障 4 一件代发保证金
+     * 
+     * @aurhor wechan
+     * @since 2019年03月27日
+     */
+    public function getToAccountByItemIdsAsync(array $itemIds, int $type)
+    {
+        return EellyClient::request('pay/recharge', 'getToAccountByItemIds', false, $itemIds, $type);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

@@ -156,9 +156,10 @@ class Invoice implements InvoiceInterface
      *
      * @return array
      * @requestExample({"orderId":160})
-     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301","orderSn":"ssss","orderAmount":22,"consignee":"老王","regionName":"地区","address":"白云自"})
+     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301","orderSn":"ssss","orderAmount":22,"consignee":"老王","regionName":"地区","address":"白云自","buyerId":148086,"memoContent":"test"})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * ### 返回数据说明
      *
@@ -167,6 +168,8 @@ class Invoice implements InvoiceInterface
      * invoiceCode |string |送货编码：快递公司对应的拼音
      * invoiceName |string |送货公司名称
      * invoiceNo   |string |送货单号,物流号
+     * buyerId     |string | 买家id
+     * memoContent |string | 买家留言备忘
      * orderSn     |string |订单号
      * orderAmount |string |总金额
      * consignee   |string |收货人姓名
@@ -272,7 +275,7 @@ class Invoice implements InvoiceInterface
      * @param UidDTO|null $uidDTO
      * @return array
      * @requestExample({"orderId":160})
-     * @returnExample({{
+     * @returnExample({
      *  "number": "1202237859178",
      *  "type": "YUNDA",
      *  "name": "韵达",
@@ -291,7 +294,7 @@ class Invoice implements InvoiceInterface
      * "goodsImage":"https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
      * "regionName":"山西省 晋城市 沁水县",
      * "address":"2222"
-     * }})
+     * })
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -309,6 +312,8 @@ class Invoice implements InvoiceInterface
      * goodsImage     |string |商品图片
      * regionName     |string |省市地址
      * address        |string |详细地址
+     * ifExtendReceipt|bool   |是否可以延长收货标示
+     * receiptEndTime |string |收货截止时间戳
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      * @since 2018年04月25日
@@ -330,7 +335,7 @@ class Invoice implements InvoiceInterface
      * @param UidDTO|null $uidDTO
      * @return array
      * @requestExample({"orderId":160})
-     * @returnExample({{
+     * @returnExample({
      *  "number": "1202237859178",
      *  "type": "YUNDA",
      *  "name": "韵达",
@@ -349,7 +354,7 @@ class Invoice implements InvoiceInterface
      * "goodsImage":"https://img01.eelly.test/G02/M00/00/03/small_ooYBAFqzVV2ICEGRAAER2psay8IAAABggBWRl0AARHy759.jpg",
      * "regionName":"山西省 晋城市 沁水县",
      * "address":"2222"
-     * }})
+     * })
      * ### 返回数据说明
      *
      * 字段|类型|说明

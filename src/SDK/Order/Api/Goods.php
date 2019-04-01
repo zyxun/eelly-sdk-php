@@ -56,7 +56,7 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * 获取订单点赞信息(点赞没点赞各1条)
+     * 获取订单点赞信息(最新提交的XX笔订单)
      * 
      * @param int $goodsId 商品id
      * @return array
@@ -78,7 +78,7 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * 获取订单点赞信息(点赞没点赞各1条)
+     * 获取订单点赞信息(最新提交的XX笔订单)
      * 
      * @param int $goodsId 商品id
      * @return array
@@ -269,6 +269,58 @@ class Goods implements GoodsInterface
     public function getOrderGoodsAsync(int $orderId)
     {
         return EellyClient::request('order/goods', 'getOrderGoods', false, $orderId);
+    }
+
+    /**
+     * 根据商品id获取 对应的所有的订单id (迁移旧代码)
+     *
+     * @param int $goodsId 商品id
+     * @return array
+     *
+     * @requestExample({"goodsId":5578937})
+     * @returnExample([{"order_id":"50002205"},{"order_id":"50002237"}])
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.10.26
+     */
+    public function getOrderIdByGoodsId(int $goodsId):array
+    {
+        return EellyClient::request('order/goods', __FUNCTION__, true, $goodsId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getOrderIdByGoodsIdAsync(int $goodsId):array
+    {
+        return EellyClient::request('order/goods', __FUNCTION__, false, $goodsId);
+    }
+
+    /**
+     * 获取订单商品信息 (迁移旧代码)
+     *
+     * @param array $orderIds
+     * @return array
+     *
+     * @requestExample({"orderId":[50002203]})
+     * @returnExample([{"rec_id":"20001938","order_id":"50002203","goods_id":"5579047","goods_image":"https:\/\/eellytest.eelly.com\/store158252\/goods\/20181019\/1267236199351.jpg?t=1539916327","spec_id":"32091517","specification":"\u989c\u8272:\u5982\u56fe\u8272,\u5c3a\u7801:\u5747\u7801","quantity":"1","goods_name":"\u62d2\u7edd\u4e86","price":"1"}])
+     *
+     * @author 陈淡华<chendanhua@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.10
+     */
+    public function getOrderGoodsOld(array $orderIds):array
+    {
+        return EellyClient::request('order/goods', __FUNCTION__, true, $orderIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getOrderGoodsOldAsync(array $orderIds):array
+    {
+        return EellyClient::request('order/goods', __FUNCTION__, true, $orderIds);
     }
 
     /**

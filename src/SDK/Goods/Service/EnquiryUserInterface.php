@@ -262,14 +262,10 @@ interface EnquiryUserInterface
      * @return array
      *
      * @requestExample({"buyerId":148086})
-     * @returnExample({true})
+     * @returnExample(true)
      * 
      * @author wechan<liweiquan@eelly.net>
      * @since 2018年01月15日
-     * 
-     * @Validation(
-     *      @PresenceOf(0,{message : "数据不能为空"}),
-     * )
      */
     public function updateEnquiryMessageStatus(int $buyerId): bool;
 }

@@ -39,6 +39,8 @@ class LogicException extends \LogicException
     public const NO_PERMISSIONS = '没有该权限操作';
 
     public const PARAMETER_VALIDATION_ERROR = '校验传入参数错误';
+    
+    public const INVALID_ACCESS_TOKEN = 'access_token不存在或已被用户删除';
 
     /**
      * @var array
@@ -55,7 +57,7 @@ class LogicException extends \LogicException
     {
         parent::__construct($message, (int) $code, $previous);
         // default context
-        if (null === $context) {
+        if (null === $context && defined('APP') && APP['env'] == 'develop') {
             $context = [
                 'code' => $this->getCode(),
                 'line' => $this->getLine(),

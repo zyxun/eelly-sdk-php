@@ -300,6 +300,7 @@ interface CainiaoInterface
      * @since 2018年05月25日
      */
     public function sendCloudPrintCmdRender(string $printData, array $extends): array;
+
     /**
      * 测试打印效果.
      *
@@ -316,9 +317,10 @@ interface CainiaoInterface
      * @since 2018年05月25日
      */
     public function createPrintDataExample(): array;
+
     /**
      * 获取订单数据.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -343,4 +345,38 @@ interface CainiaoInterface
      * @since 2018年06月12日
      */
     public function getWaybillInvoiceData(int $orderId): array;
+
+    /**
+     * 获取发货快递地址
+     * 
+     * > 特别说明 外层数组第一个数据就是存在了默认地址，无需再遍历，具体哪个地址为默认看 address[...]['default'] 字段
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * cpCode | string | 物流公司id
+     * expressCompany | string | 物流公司名称
+     * cpType | int | 1是直营，2是加盟
+     * address | array | 地址列表 二维数组
+     * 
+     * > address 字段说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * branchCode | string | 网点code
+     * default | int | 是否默认地址 0:否 1:是
+     * quantity  | int | 电子面单余额数量
+     * province | string | 省名称（一级地址）
+     * city | string | 市名称（二级地址）
+     * district | string | 区名称（三级地址）
+     * detail | string | 详细地址
+     *
+     * @param UidDTO|null $uidDTO 当前登录的账号
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function getCainiaoShipAddress(UidDTO $uidDTO = null):array;
 }

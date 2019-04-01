@@ -11,17 +11,10 @@
 	],
 	"require": {
 		"php": "^7.1.3",
-		"shadon/framework": "dev-master",
 		"shadon/oauth2-client": "^v0.1.0"
 	},
 	"autoload": {
-		"psr-4": {
-			"Eelly\\DocsBundle\\":"src/DocsBundle",
-			"Eelly\\DTO\\":"src/DTO",
-			"Eelly\\Events\\":"src/Events",
-			"Eelly\\Exception\\":"src/Exception",
-			"Eelly\\SDK\\":"src/SDK"
-		}
+		"files": ["autoload.php"]
 	},
 	"extra": {
 		"branch-alias": {

@@ -172,7 +172,6 @@ class MessageFormid implements MessageFormidInterface
     }
 
     /**
-
      * 发送拼团成功消息通知
      *
      * @param int $orderId 订单id

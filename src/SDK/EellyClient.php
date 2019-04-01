@@ -64,6 +64,7 @@ class EellyClient
         'service'        => 'https://api.eelly.com',
         'store'          => 'https://api.eelly.com',
         'system'         => 'https://api.eelly.com',
+        'tim'            => 'https://api.eelly.com',
         'user'           => 'https://api.eelly.com',
     ];
 
@@ -114,7 +115,7 @@ class EellyClient
      */
     public static function initialize(array $config, CacheInterface $cache): self
     {
-        $collaborators = (defined('APP') && ApplicationConst::ENV_PRODUCTION === APP['env']) ? [] : [
+        $collaborators = (\defined('APP') && ApplicationConst::ENV_PRODUCTION === APP['env']) ? [] : [
             'httpClient' => new \GuzzleHttp\Client(['verify' => false]),
         ];
         $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
@@ -122,7 +123,7 @@ class EellyClient
         self::getSdkClient()->getHandlerStack()->push(Middleware::mapRequest(function (RequestInterface $request) {
             $clientRequest = new Request();
             if (!$clientRequest->hasHeader(self::TRACE_HEADER_IP)) {
-                $ip = $clientRequest->getClientAddress();
+                $ip = $clientRequest->getClientAddress(true);
                 $request = $request->withHeader(self::TRACE_HEADER_IP, $ip);
             }
 
@@ -146,19 +147,27 @@ class EellyClient
      * @param bool   $sync
      * @param mixed  ...$args
      *
-     * @return mixed
+     * @throws \ErrorException
+     *
+     * @return int|mixed|string|null
      */
     public static function request(string $uri, string $method, bool $sync = true, ...$args)
     {
         $paramArr = array_merge([$uri.'/'.$method], $args);
-        $promise = call_user_func_array([self::$sdkClient, 'requestAsync'], $paramArr);
+        $promise = \call_user_func_array([self::$sdkClient, 'requestAsync'], $paramArr);
         if ($sync) {
             try {
                 $response = $promise->wait();
             } catch (ServerException $e) {
                 $body = json_decode((string) $e->getResponse()->getBody(), true);
                 if (JSON_ERROR_NONE == json_last_error()) {
-                    throw new \ErrorException($body['error']);
+                    throw new \ErrorException(
+                        $body['error'] ?? (string) $e->getResponse()->getBody(),
+                        0,
+                        1,
+                        __FILE__,
+                        __LINE__,
+                        $e);
                 }
                 throw $e;
             }
@@ -169,6 +178,47 @@ class EellyClient
         return $promise;
     }
 
+    /**
+     * @param string $uri
+     * @param string $method
+     * @param array  $args
+     * @param bool   $sync
+     *
+     * @throws \ErrorException
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface|int|mixed|string|null
+     */
+    public static function requestJson(string $uri, string $method, array $args, bool $sync = true)
+    {
+        $promise = self::$sdkClient->requestAsyncJson($uri.'/'.$method, $args);
+        if ($sync) {
+            try {
+                $response = $promise->wait();
+            } catch (ServerException $e) {
+                $body = json_decode((string) $e->getResponse()->getBody(), true);
+                if (JSON_ERROR_NONE == json_last_error()) {
+                    throw new \ErrorException(
+                        $body['error'] ?? (string) $e->getResponse()->getBody(),
+                        0,
+                        1,
+                        __FILE__,
+                        __LINE__,
+                        $e);
+                }
+                throw $e;
+            }
+
+            return self::$self->responseToObject($response);
+        }
+
+        return $promise;
+    }
+
+    /**
+     * @param ResponseInterface $response
+     *
+     * @return int|mixed|string|null
+     */
     private function responseToObject(ResponseInterface $response)
     {
         $content = (string) $response->getBody();
@@ -180,11 +230,16 @@ class EellyClient
         return $object;
     }
 
+    /**
+     * @param array $body
+     *
+     * @return mixed|string|int
+     */
     private function bodyToObject(array $body)
     {
         $status = 1;
         isset($body['returnType']) && ($status <<= 1)
-            && (!in_array($body['returnType'], ['integer', 'float', 'string', 'boolean', 'array']) && class_exists($body['returnType'])) && ($status <<= 1)
+            && (!\in_array($body['returnType'], ['integer', 'float', 'string', 'boolean', 'array']) && class_exists($body['returnType'])) && ($status <<= 1)
             && is_subclass_of($body['returnType'], LogicException::class) && ($status <<= 1)
             && isset($body['context']) && ($status <<= 1);
 

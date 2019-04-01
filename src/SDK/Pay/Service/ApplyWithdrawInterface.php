@@ -113,4 +113,52 @@ interface ApplyWithdrawInterface
      * @author hehui<hehui@eelly.net>
      */
     public function updateWithdrawStatus(int $pwId, int $status, string $remark = ''): bool;
+
+    /**
+     * 申请微信钱包提现
+     * 
+     * > data 数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * money | int | 提现的金额 分单位
+     * storeId  | int   | 店铺id 默认0，非0代表厂+
+     * password | string | 支付密码
+     *      
+     * @param array $data 申请体现的数据
+     * @param UidDTO $uidDTO 当前登陆的用户信息
+     * @return integer
+     * 
+     * @requestExample({"data":[{"money":100,"storeId":"148086","password":"123456"}]})
+     * @returnExample(36)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.3
+     */
+    public function applyWechatPurse(array $data, UidDTO $uidDTO = null): int;
+
+    /**
+     * 用户提现金额限制
+     *
+     * > 返回数据说明
+     * key | type | value
+     * --- | ---- | ----
+     * extractName      | string | 提现账号
+     * maxExtractMoney  | int    | 当日最大累计可提现金额，单位：分
+     * oneMaxExtractMoney | int  | 当日一次可提现金额，单位：分
+     * mayExtractMoney   | int   | 当日可提现金额,单位：分
+     * mayExtractCount   | int   | 当日可提现次数
+     * money             | int   | 用户余额 单位：分
+     * 
+     * @param integer $storeId 店铺id 默认0:店+ 非0:厂家（调用小程序接口：https://api.eelly.test/pay/applyWithdraw/prepareApplyForm）
+     * @param UidDTO $uidDTO 当前登陆的用户
+     * @return array
+     * 
+     * @requestExample({"storeId":"0"})
+     * @returnExample({"extractName":"nickname","maxExtractMoney":"2000000","oneMaxExtractMoney":"200000","mayExtractMoney":"200000","mayExtractCount":"1","money":"0"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.9.11
+     */
+    public function getMayExtractMoneyData(int $storeId = 0, UidDTO $user = null):array;
+
 }

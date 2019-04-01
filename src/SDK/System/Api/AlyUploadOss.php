@@ -190,11 +190,13 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @param integer $userId 用户id
      * @param string $url 头像url
+     * @param string $type 类型 qq、wechat
+     * @param string $folder 文件夹 默认avatar：头像
      * @return boolean
      */
-    public function thirdPartUploadImg(int $userId, string $url): bool
+    public function thirdPartUploadImg(int $userId, string $url, string $type, string $folder = 'avatar'): bool
     {
-        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', true, $userId, $url);
+        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', true, $userId, $url, $type, $folder);
     }
 
     /**
@@ -202,11 +204,77 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @param integer $userId 用户id
      * @param string $url 头像url
+     * @param string $type 类型 qq、wechat
+     * @param string $folder 文件夹 默认avatar：头像
      * @return boolean
      */
-    public function thirdPartUploadImgAsync(int $userId, string $url)
+    public function thirdPartUploadImgAsync(int $userId, string $url, string $type, string $folder = 'avatar')
     {
-        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', false, $userId, $url);
+        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', false, $userId, $url, $type, $folder);
+    }
+
+    /**
+     * 服务端签名js直传
+     *
+     * > bizName 说明
+     * 
+     * 业务名称          |  bizName            | bizId               |  dir示例(服务端)                     
+     * ---------------- | ------------------- | --------------------| --------------------
+     * 用户头像          |  avatar             | 无                  |  user148086/                         
+     * 店铺logo         | store_logo          | 店铺id               | store12378/                          
+     * 反馈             | feedback           | 无                   | user148086/feedback/                  
+     * 用户动态          | uzone               | 无                   | user148086/uzone/20180901/            
+     * 商品图片          | goods              | 店铺id               | store12378/goods/20180901/            
+     * 店铺动态          | szone               | 店铺id               | store148086/szone/20180901/         
+     *
+     * @param string $bizId 业务关联id 例如店铺id 用户id
+     * @param string $bizName 业务名 默认 other
+     * @param int $timeout 有效时间 默认一小时
+     * @return string
+     * 
+     * @requestExample({
+     *      "bizId":"148086"
+     * })
+     * @returnExample({"accessid":"LTAISXGJbA2IXbhv","host":"http://eellytest.oss-cn-shenzhen.aliyuncs.com","policy":"eyJleHBpcmF0aW9uIjoiMjAxOC0wNy0yNlQxMjowODo0OFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MDAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsIiJdXX0=","signature":"qZr0ax8uZv0NIyVoAcSWqp0KUEU=","expire":1532578128,"dir":"store12378/goods/20180901/"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.26
+     */
+    public function getPolicy(string $bizId, string $bizName = 'other', int $timeout = 3600): array
+    {
+        return EellyClient::request('system/alyUploadOss', 'getPolicy', true, $bizId, $bizName, $timeout);
+    }
+
+    /**
+     * 服务端签名js直传
+     *
+     * > bizName 说明
+     * 
+     * 业务名称          |  bizName            | bizId               |  dir示例(服务端)                     
+     * ---------------- | ------------------- | --------------------| --------------------
+     * 用户头像          |  avatar             | 无                  |  user148086/                         
+     * 店铺logo         | store_logo          | 店铺id               | store12378/                          
+     * 反馈             | feedback           | 无                   | user148086/feedback/                  
+     * 用户动态          | uzone               | 无                   | user148086/uzone/20180901/            
+     * 商品图片          | goods              | 店铺id               | store12378/goods/20180901/            
+     * 店铺动态          | szone               | 店铺id               | store148086/szone/20180901/         
+     *
+     * @param string $bizId 业务关联id 例如店铺id 用户id
+     * @param string $bizName 业务名 默认 other
+     * @param int $timeout 有效时间 默认一小时
+     * @return string
+     * 
+     * @requestExample({
+     *      "bizId":"148086"
+     * })
+     * @returnExample({"accessid":"LTAISXGJbA2IXbhv","host":"http://eellytest.oss-cn-shenzhen.aliyuncs.com","policy":"eyJleHBpcmF0aW9uIjoiMjAxOC0wNy0yNlQxMjowODo0OFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MDAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsIiJdXX0=","signature":"qZr0ax8uZv0NIyVoAcSWqp0KUEU=","expire":1532578128,"dir":"store12378/goods/20180901/"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.26
+     */
+    public function getPolicyAsync(string $bizId, string $bizName = 'other', int $timeout = 3600)
+    {
+        return EellyClient::request('system/alyUploadOss', 'getPolicy', false, $bizId, $bizName, $timeout);
     }
 
     /**

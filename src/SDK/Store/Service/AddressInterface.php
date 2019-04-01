@@ -103,8 +103,8 @@ interface AddressInterface
      * 获取店铺地址
      * 获取店铺的店铺地址和退货地址
      *
-     * @param int    $storeId     店铺地址
-     * @param int    $addressType 店铺地址类型 1店铺地址 2退货地址
+     * @param int $storeId     店铺地址
+     * @param int $addressType 店铺地址类型 1店铺地址 2退货地址
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
@@ -117,4 +117,33 @@ interface AddressInterface
      * @since 2017-08-12
      */
     public function getStoreAddress(int $storeId, int $addressType): AddressDTO;
+
+    /**
+     * 获取默认的退货地址，如果不存在则返回店铺信息. (旧代码迁移)
+     *
+     * @param int $userId 用户ID
+     * @return array 退货地址信息数组
+     *
+     * @requestExample({"userId":148086})
+     * @returnExample({"addrId":"482059","consignee":"\u6d4b\u8bd57","mobile":"1","tel":"1","address":"1","zipCode":"123456","regionName":"\u5317\u4eac\u5e02 \u5e02\u8f96\u533a \u897f\u57ce\u533a"})
+     *
+     * @author 郭凯<guokai@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.11.17
+     */
+    public function getDefaultAddrInfoByUserId(int $userId):array;
+
+    /**
+     * 店铺是否设置退货地址
+     *
+     * @param int $storeId 店铺id
+     * @return string
+     * @requestExample({"storeId":148086})
+     * @returnExample("true")
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.28
+     */
+    public function ifSetReturnAddress(int $storeId):string;
 }

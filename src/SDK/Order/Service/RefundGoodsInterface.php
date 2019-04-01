@@ -18,4 +18,16 @@ namespace Eelly\SDK\Order\Service;
  */
 interface RefundGoodsInterface
 {
+    /**
+     * 获取退货商品信息.
+     *
+     * @param int $orderId
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     *
+     * @since 2018-10-11
+     */
+    public function getRefundGoods(int $orderId): array;
 }

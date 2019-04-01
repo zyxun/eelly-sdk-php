@@ -25,12 +25,12 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array $orderIds 订单ID
-     * @param array  $sender   发货人信息
+     * @param int    $storeId          店铺ID
+     * @param array  $orderIds         订单ID
+     * @param array  $sender           发货人信息
      * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param string $sender["phone"]  固定电话
+     * @param string $sender["name"]   姓名
      *
      * @return array
      *
@@ -61,12 +61,12 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array $orderIds 订单ID
-     * @param array  $sender   发货人信息
+     * @param int    $storeId          店铺ID
+     * @param array  $orderIds         订单ID
+     * @param array  $sender           发货人信息
      * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param string $sender["phone"]  固定电话
+     * @param string $sender["name"]   姓名
      *
      * @return array
      *
@@ -97,20 +97,20 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array  $orderInfo 订单数据
-     * @param string  $orderInfo["province"] 省
-     * @param string  $orderInfo["city"] 城市
-     * @param string  $orderInfo["address"] 具体地址
-     * @param string  $orderInfo["mobile"] 手机号码
-     * @param string  $orderInfo["phone"] 固定电话
-     * @param string  $orderInfo["consignee"] 收件人姓名
-     * @param array   $orderInfo["goodsList"] 商品信息
-     * @param array   $orderInfo["orderIds"] 订单ID
-     * @param array  $sender   发货人信息
-     * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param int    $storeId                店铺ID
+     * @param array  $orderInfo              订单数据
+     * @param string $orderInfo["province"]  省
+     * @param string $orderInfo["city"]      城市
+     * @param string $orderInfo["address"]   具体地址
+     * @param string $orderInfo["mobile"]    手机号码
+     * @param string $orderInfo["phone"]     固定电话
+     * @param string $orderInfo["consignee"] 收件人姓名
+     * @param array  $orderInfo["goodsList"] 商品信息
+     * @param array  $orderInfo["orderIds"]  订单ID
+     * @param array  $sender                 发货人信息
+     * @param string $sender["mobile"]       手机号码
+     * @param string $sender["phone"]        固定电话
+     * @param string $sender["name"]         姓名
      *
      * @requestExample({
      *     "storeId":148086,
@@ -159,20 +159,20 @@ class Cainiao implements CainiaoInterface
     /**
      * 生成小程序订单.
      *
-     * @param int   $storeId  店铺ID
-     * @param array  $orderInfo 订单数据
-     * @param string  $orderInfo["province"] 省
-     * @param string  $orderInfo["city"] 城市
-     * @param string  $orderInfo["address"] 具体地址
-     * @param string  $orderInfo["mobile"] 手机号码
-     * @param string  $orderInfo["phone"] 固定电话
-     * @param string  $orderInfo["consignee"] 收件人姓名
-     * @param array   $orderInfo["goodsList"] 商品信息
-     * @param array   $orderInfo["orderIds"] 订单ID
-     * @param array  $sender   发货人信息
-     * @param string $sender["mobile"] 手机号码
-     * @param string $sender["phone"] 固定电话
-     * @param string $sender["name"] 姓名
+     * @param int    $storeId                店铺ID
+     * @param array  $orderInfo              订单数据
+     * @param string $orderInfo["province"]  省
+     * @param string $orderInfo["city"]      城市
+     * @param string $orderInfo["address"]   具体地址
+     * @param string $orderInfo["mobile"]    手机号码
+     * @param string $orderInfo["phone"]     固定电话
+     * @param string $orderInfo["consignee"] 收件人姓名
+     * @param array  $orderInfo["goodsList"] 商品信息
+     * @param array  $orderInfo["orderIds"]  订单ID
+     * @param array  $sender                 发货人信息
+     * @param string $sender["mobile"]       手机号码
+     * @param string $sender["phone"]        固定电话
+     * @param string $sender["name"]         姓名
      *
      * @requestExample({
      *     "storeId":148086,
@@ -592,7 +592,7 @@ class Cainiao implements CainiaoInterface
      *     "extends":{"printerName":"KM-300S-EB13"}
      *     })
      * @returnExample({
-     *     "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
+     *    "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
      *     "success": "true",
      *     "cmdEncoding": "gzip",
      *     "errorCode": "0"
@@ -625,7 +625,7 @@ class Cainiao implements CainiaoInterface
      *     "extends":{"printerName":"KM-300S-EB13"}
      *     })
      * @returnExample({
-     *     "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
+     *    "cmdContent": "H4sIAAAAAAAAAO1a3W9VRRB",
      *     "success": "true",
      *     "cmdEncoding": "gzip",
      *     "errorCode": "0"
@@ -639,6 +639,7 @@ class Cainiao implements CainiaoInterface
     {
         return EellyClient::request('order/cainiao', 'sendCloudPrintCmdRender', false, $printData, $extends);
     }
+
     /**
      * 测试打印效果.
      *
@@ -658,6 +659,7 @@ class Cainiao implements CainiaoInterface
     {
         return EellyClient::request('order/cainiao', 'createPrintDataExample', true);
     }
+
     /**
      * 测试打印效果.
      *
@@ -677,9 +679,10 @@ class Cainiao implements CainiaoInterface
     {
         return EellyClient::request('order/cainiao', 'createPrintDataExample', false);
     }
+
     /**
      * 获取订单数据.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -707,9 +710,10 @@ class Cainiao implements CainiaoInterface
     {
         return EellyClient::request('order/cainiao', 'getWaybillInvoiceData', true, $orderId);
     }
+
     /**
      * 获取订单数据.
-     * ### 返回数据说明
+     * ### 返回数据说明.
      *
      * 字段|类型|说明
      * ------------|-------|--------------
@@ -736,6 +740,76 @@ class Cainiao implements CainiaoInterface
     public function getWaybillInvoiceDataAsync(int $orderId)
     {
         return EellyClient::request('order/cainiao', 'getWaybillInvoiceData', false, $orderId);
+    }
+
+    /**
+     * 获取发货快递地址
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * cpCode | string | 物流公司id
+     * expressCompany | string | 物流公司名称
+     * cpType | int | 1是直营，2是加盟
+     * default | int | 是否默认地址 0:否 1:是
+     * address | array | 地址列表 二维数组
+     * 
+     * > address 字段说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * branchCode | string | 网点code
+     * quantity  | int | 电子面单余额数量
+     * province | string | 省名称（一级地址）
+     * city | string | 市名称（二级地址）
+     * district | string | 区名称（三级地址）
+     * detail | string | 详细地址
+     *
+     * @param UidDTO|null $uidDTO 当前登录的账号
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function getCainiaoShipAddress(UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/cainiao', 'getCainiaoShipAddress', true, $uidDTO);
+    }
+
+    /**
+     * 获取发货快递地址
+     * 
+     * > 返回数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * cpCode | string | 物流公司id
+     * expressCompany | string | 物流公司名称
+     * cpType | int | 1是直营，2是加盟
+     * default | int | 是否默认地址 0:否 1:是
+     * address | array | 地址列表 二维数组
+     * 
+     * > address 字段说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * branchCode | string | 网点code
+     * quantity  | int | 电子面单余额数量
+     * province | string | 省名称（一级地址）
+     * city | string | 市名称（二级地址）
+     * district | string | 区名称（三级地址）
+     * detail | string | 详细地址
+     *
+     * @param UidDTO|null $uidDTO 当前登录的账号
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.12.20
+     */
+    public function getCainiaoShipAddressAsync(UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/cainiao', 'getCainiaoShipAddress', false, $uidDTO);
     }
 
     /**
