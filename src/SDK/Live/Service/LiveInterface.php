@@ -791,4 +791,15 @@ interface LiveInterface
      * @since 2019.3.29
      */
     public function getLiveIntegralSort(int $liveId):array;
+
+    /**
+     * 根据传过来的id判断店铺是否为新店
+     *
+     * @param array $params 参数
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.04.01
+     */
+    public function checkStoreIsNew(array $params):bool;
 }
