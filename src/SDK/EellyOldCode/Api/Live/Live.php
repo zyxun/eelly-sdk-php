@@ -190,6 +190,6 @@ class Live
      */
     public function updateOvertimeLive(): void
     {
-        return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true);
+        EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true);
     }
 }
