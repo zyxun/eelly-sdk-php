@@ -1669,6 +1669,40 @@ class Live implements LiveInterface
     }
 
     /**
+     * 根据传过来的店铺id，返回对应的店铺是否新店直播标示
+     *
+     * @param array $storeIds 店铺id数组
+     * @return array
+     *
+     * @requestExample({"storeIds": [148086, 1760467]})
+     * @returnExample({"148086":1,"1760467":0})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.30
+     */
+    public function listIfNewLiveByStoreIds(array $storeIds): array
+    {
+        return EellyClient::request('live/live', 'listIfNewLiveByStoreIds', true, $storeIds);
+    }
+
+    /**
+     * 根据传过来的店铺id，返回对应的店铺是否新店直播标示
+     *
+     * @param array $storeIds 店铺id数组
+     * @return array
+     *
+     * @requestExample({"storeIds": [148086, 1760467]})
+     * @returnExample({"148086":1,"1760467":0})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.03.30
+     */
+    public function listIfNewLiveByStoreIdsAsync(array $storeIds)
+    {
+        return EellyClient::request('live/live', 'listIfNewLiveByStoreIds', false, $storeIds);
+    }
+
+    /**
      * 获取直播积分排序
      * 
      * > 返回字段说明
@@ -1761,28 +1795,31 @@ class Live implements LiveInterface
     }
 
     /**
-     * 根据传过来的店铺id，返回对应的店铺是否新店直播标示
+     * 根据传过来的id判断店铺是否为新店
      *
-     * @param array $storeIds 店铺id数组
-     * @return array
-     *
-     * @requestExample({"storeIds": [148086, 1760467]})
-     * @returnExample({"148086":1,"1760467":0})
-     *
-     * @author zhangyingdi<zhangyingdi@eelly.net>
-     * @since 2019.03.30
+     * @param array $params 参数
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.04.01
      */
-    public function listIfNewLiveByStoreIds(array $storeIds):array
+    public function checkStoreIsNew(array $params): bool
     {
-        return EellyClient::request('live/live', __FUNCTION__, true, $storeIds);
+        return EellyClient::request('live/live', 'checkStoreIsNew', true, $params);
     }
 
     /**
-     * @inheritdoc
+     * 根据传过来的id判断店铺是否为新店
+     *
+     * @param array $params 参数
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.04.01
      */
-    public function listIfNewLiveByStoreIdsAsync(array $storeIds):array
+    public function checkStoreIsNewAsync(array $params)
     {
-        return EellyClient::request('live/live', __FUNCTION__, true, $storeIds);
+        return EellyClient::request('live/live', 'checkStoreIsNew', false, $params);
     }
 
     /**
