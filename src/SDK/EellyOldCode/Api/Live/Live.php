@@ -180,4 +180,16 @@ class Live
     {
         return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $condition, $page, $limit, $platform, $order, $field);
     }
+
+    /**
+     * 更新后台结束时间并且统计.
+     *
+     * @author 肖俊明<xiaojunming@eelly.net>
+     *
+     * @since 2018年03月01日
+     */
+    public function updateOvertimeLive(): void
+    {
+        EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true);
+    }
 }
