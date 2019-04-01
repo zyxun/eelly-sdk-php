@@ -53,4 +53,21 @@ class Contacts
         return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $fromUserId, $fromUserType, $needAddNum);
     }
 
+    /**
+     * 获取我关注的人的用户id.
+     *
+     * @param int   $userId       用户id
+     * @param int   $type         类型：4.店+ 3.厂+
+     * @param array $exCondiction 额外条件： ['type' => 1 'id' => 11111] type:1.客户等级  2.地区. id:对应的id
+     * @param int   $page         分页页数
+     *
+     * @author 李伟权<liweiquan@eelly.net>
+     *
+     * @since  2016年09月08日
+     */
+    public function getConcernUserId($userId, $type, $exCondiction = [], $page = 0)
+    {
+        return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $userId, $type, $exCondiction, $page);
+    }
+
 }
