@@ -31,6 +31,6 @@ class Flysystem implements FlysystemInterface
 
     public static function uploadFileInternal(UploadedFile $uploadedFile, int $uid, string $bizName = 'other', string $bizId = ''): UserFileDTO
     {
-        return EellyClient::request('system/flysystem', __FUNCTION__, true, $uploadedFile, $bizName, $uid, $bizName, $bizId);
+        return EellyClient::request('system/flysystem', __FUNCTION__, true, $uploadedFile, $uid, $bizName, $bizId);
     }
 }
