@@ -17,6 +17,11 @@ use Eelly\SDK\EellyClient;
 
 class UserInfo
 {
+    public static function getMemberExtend(int $uid): array
+    {
+        return EellyClient::requestJson('eellyOldCode/userInfo', __FUNCTION__, ['uid' => $uid]);
+    }
+
     public static function getCreditValue(int $uid): int
     {
         return EellyClient::request('eellyOldCode/userInfo', __FUNCTION__, true, $uid);
