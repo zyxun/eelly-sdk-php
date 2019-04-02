@@ -29,6 +29,6 @@ class AppletActivity
      */
     public function getAppletActivity(): array
     {
-        return EellyClient::request('eellyOldCode/store/service/appletActivity', __FUNCTION__, true);
+        return EellyClient::request('eellyOldCode/store/appletActivity', __FUNCTION__, true);
     }
 }
