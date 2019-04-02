@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\EellyOldCode\Api\Store\Service;
+namespace Eelly\SDK\EellyOldCode\Api\Store;
 
 use Eelly\SDK\EellyClient;
 
