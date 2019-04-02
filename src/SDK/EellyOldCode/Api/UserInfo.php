@@ -31,4 +31,13 @@ class UserInfo
     {
         return EellyClient::request('eellyOldCode/userInfo', __FUNCTION__, true, $uid);
     }
+
+    public static function getTalkTopUserInfo(int $fromUid, int $toUid, int $relationType): array
+    {
+        return EellyClient::requestJson('eellyOldCode/userInfo', __FUNCTION__, [
+            'fromUid'      => $fromUid,
+            'toUid'        => $toUid,
+            'relationType' => $relationType,
+        ]);
+    }
 }
