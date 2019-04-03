@@ -452,6 +452,38 @@ class GroupChat implements GroupChatInterface
     }
 
     /**
+     * 通过店铺id发送直播间弹幕和消息.
+     *
+     * @param int $fromUserId 发送消息用户id
+     * @param int $storeId    店铺id
+     * @param int $type       消息类型
+     *
+     * @return bool
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.3
+     */
+    public function sendBarrageByStoreId(int $fromUserId, int $storeId, int $type): bool
+    {
+        return EellyClient::request('tim/groupChat', 'sendBarrageByStoreId', true, $fromUserId, $storeId, $type);
+    }
+
+    /**
+     * 通过店铺id发送直播间弹幕和消息.
+     *
+     * @param int $fromUserId 发送消息用户id
+     * @param int $storeId    店铺id
+     * @param int $type       消息类型
+     *
+     * @return bool
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.3
+     */
+    public function sendBarrageByStoreIdAsync(int $fromUserId, int $storeId, int $type)
+    {
+        return EellyClient::request('tim/groupChat', 'sendBarrageByStoreId', false, $fromUserId, $storeId, $type);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
