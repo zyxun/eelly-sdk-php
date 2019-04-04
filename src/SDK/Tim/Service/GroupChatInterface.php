@@ -201,4 +201,17 @@ interface GroupChatInterface
      * @see https://cloud.tencent.com/document/product/269/1624
      */
     public function destroyGroup(string $groupId):bool;
+
+    /**
+     * 通过店铺id发送直播间弹幕和消息.
+     *
+     * @param int $fromUserId 发送消息用户id
+     * @param int $storeId    店铺id
+     * @param int $type       消息类型
+     *
+     * @return bool
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.3
+     */
+    public function sendBarrageByStoreId(int $fromUserId, int $storeId, int $type): bool;
 }

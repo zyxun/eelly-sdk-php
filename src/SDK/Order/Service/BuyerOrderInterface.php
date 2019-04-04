@@ -974,7 +974,7 @@ interface BuyerOrderInterface
      * @param int $liveId 直播id
      * @return array
      *
-     * @requestExample({"liveId":1}})
+     * @requestExample({"liveId":1})
      * @returnExample({"newUserNum":2,"oldUserNum":1,"orderNum":10,"payNum":2,"totalAmount":1000,"payAmount":200,"appletsOrderNum":0,"appletsPayNum":0,"appletsTotalAmount":0,"appletsPayAmount":0})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>

@@ -66,4 +66,20 @@ class Coupon
     {
         return EellyClient::request('eellyOldCode/Active/Coupon/Coupon', __FUNCTION__, true, $keycode, $userId);
     }
+
+    /**
+     * 根据直播间传过来的店铺ID，返回对应生效中的优惠卷记录.
+     *
+     * @param int $storeId 店铺id
+     *
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2018.04.25
+     */
+    public function getLiveRoomCoupon(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/Active/Coupon/Coupon', __FUNCTION__, true, $storeId);
+    }
 }

@@ -791,4 +791,17 @@ interface LiveInterface
      * @since 2019.04.01
      */
     public function checkStoreIsNew(array $params):bool;
+
+    /**
+     * 获取我的关注直播间
+     * 
+     * > 数据格式同其他标签返回的数据格式一样
+     *
+     * @param integer $userId 当前用户用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.1
+     */
+    public function getMyFollowLive(int $userId):array;
 }

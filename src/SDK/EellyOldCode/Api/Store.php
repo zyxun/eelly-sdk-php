@@ -36,4 +36,21 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
     }
+
+    /**
+     * 店铺分页列表
+     *
+     * @param array  $condition
+     * @param int    $currentPage
+     * @param int    $limit
+     * @param string $field
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-04-01
+     */
+    public function getListPage(array $condition, int $currentPage = 1, int $limit = 20, string $field = 'base'): array
+    {
+        return EellyClient::request('eellyOldCode/Store', __FUNCTION__, true, $condition, $currentPage, $limit, $field);
+    }
 }

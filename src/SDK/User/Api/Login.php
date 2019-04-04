@@ -111,9 +111,9 @@ class Login
      *
      * @return array
      */
-    public function getTimInfo(int $uid, int $type)
+    public static function getTimInfo(int $uid, int $type)
     {
-        return EellyClient::request('user/login', __FUNCTION__, true, $uid, $type);
+        return EellyClient::requestJson('user/login', __FUNCTION__, ['uid' => $uid, 'type' => $type]);
     }
 
     /**

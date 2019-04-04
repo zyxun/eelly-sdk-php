@@ -56,4 +56,18 @@ class StsTokenDTO extends AbstractDTO
      * @var string
      */
     public $dir;
+
+    /**
+     * Bucket.
+     *
+     * @var string
+     */
+    public $bucket;
+
+    /**
+     * Endpoint.
+     *
+     * @var string
+     */
+    public $endpoint;
 }

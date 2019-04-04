@@ -27,4 +27,9 @@ class Oss implements OssInterface
     {
         return EellyClient::request('system/oss', __FUNCTION__, true, $bizName, $bizId);
     }
+
+    public function stsTokenInternal(string $bizName, string $bizId, int $uid): StsTokenDTO
+    {
+        return EellyClient::request('system/oss', __FUNCTION__, true, $bizName, $bizId, $uid);
+    }
 }
