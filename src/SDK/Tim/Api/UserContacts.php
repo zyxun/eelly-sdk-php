@@ -17,7 +17,7 @@ use Eelly\SDK\EellyClient;
 
 class UserContacts
 {
-    public function updateTimUserContactsInternal(string $fromId, string $toId, array $values): bool
+    public static function updateTimUserContactsInternal(string $fromId, string $toId, array $values): bool
     {
         return EellyClient::requestJson('tim/userContacts', __FUNCTION__, [
             'fromId' => $fromId,
