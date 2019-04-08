@@ -282,6 +282,36 @@ class LiveTopLog implements LiveTopLogInterface
     }
 
     /**
+     * 后台直播推荐记录列表
+     *
+     * @param array     $condition
+     * @param string    $field
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-30
+     */
+    public function getLogListAdmin(array $condition, string $field = 'adminList'): array
+    {
+        return EellyClient::request('live/liveTopLog', 'getLogListAdmin', true, $condition, $field);
+    }
+
+    /**
+     * 后台直播推荐记录列表
+     *
+     * @param array     $condition
+     * @param string    $field
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-30
+     */
+    public function getLogListAdminAsync(array $condition, string $field = 'adminList')
+    {
+        return EellyClient::request('live/liveTopLog', 'getLogListAdmin', false, $condition, $field);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

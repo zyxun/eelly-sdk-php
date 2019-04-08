@@ -131,4 +131,16 @@ interface LiveTopLogInterface
      * @since 2019.3.26
      */
     public function getLiveTopLog(int $storeId, array $extend = []):array;
+
+    /**
+     * 后台直播推荐记录列表
+     *
+     * @param array     $condition
+     * @param string    $field
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-03-30
+     */
+    public function getLogListAdmin(array $condition, string $field = 'adminList'): array;
 }
