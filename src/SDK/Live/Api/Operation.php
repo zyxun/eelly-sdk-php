@@ -14,6 +14,7 @@ namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\OperationInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -26,12 +27,27 @@ class Operation implements OperationInterface
      *
      * @param int $liveId
      * @param bool $isOpenLive
+     * @param UidDTO $uidDTO
      *
      * @return array
      */
-    public function startingLive(int $liveId, bool $isOpenLive = false): array
+    public function startingLive(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO): array
     {
-        return EellyClient::request('live/operation', 'startingLive', true, $liveId, $isOpenLive);
+        return EellyClient::request('live/operation', 'startingLive', true, $liveId, $isOpenLive, $uidDTO);
+    }
+
+    /**
+     * 启动直播.
+     *
+     * @param int $liveId
+     * @param bool $isOpenLive
+     * @param UidDTO $uidDTO
+     *
+     * @return array
+     */
+    public function startingLiveAsync(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO)
+    {
+        return EellyClient::request('live/operation', 'startingLive', false, $liveId, $isOpenLive, $uidDTO);
     }
 
     /**
@@ -41,10 +57,27 @@ class Operation implements OperationInterface
      * @param bool $isOpenLive
      *
      * @return array
+     *
+     * @internal
      */
-    public function startingLiveAsync(int $liveId, bool $isOpenLive = false)
+    public function startingLiveNoLogin(int $liveId, bool $isOpenLive = false): array
     {
-        return EellyClient::request('live/operation', 'startingLive', false, $liveId, $isOpenLive);
+        return EellyClient::request('live/operation', 'startingLiveNoLogin', true, $liveId, $isOpenLive);
+    }
+
+    /**
+     * 启动直播.
+     *
+     * @param int $liveId
+     * @param bool $isOpenLive
+     *
+     * @return array
+     *
+     * @internal
+     */
+    public function startingLiveNoLoginAsync(int $liveId, bool $isOpenLive = false)
+    {
+        return EellyClient::request('live/operation', 'startingLiveNoLogin', false, $liveId, $isOpenLive);
     }
 
     /**
