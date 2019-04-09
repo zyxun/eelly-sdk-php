@@ -24,11 +24,11 @@ interface OperationInterface
      *
      * @param int $liveId
      * @param bool $isOpenLive
-     * @param UidDTO $uidDTO
+     * @param UidDTO|null $uidDTO
      *
      * @return array
      */
-    public function startingLive(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO): array;
+    public function startingLive(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO = null): array;
 
     /**
      * 启动直播.

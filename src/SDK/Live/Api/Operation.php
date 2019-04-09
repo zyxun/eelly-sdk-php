@@ -27,11 +27,11 @@ class Operation implements OperationInterface
      *
      * @param int $liveId
      * @param bool $isOpenLive
-     * @param UidDTO $uidDTO
+     * @param UidDTO|null $uidDTO
      *
      * @return array
      */
-    public function startingLive(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO): array
+    public function startingLive(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO = null): array
     {
         return EellyClient::request('live/operation', 'startingLive', true, $liveId, $isOpenLive, $uidDTO);
     }
@@ -41,11 +41,11 @@ class Operation implements OperationInterface
      *
      * @param int $liveId
      * @param bool $isOpenLive
-     * @param UidDTO $uidDTO
+     * @param UidDTO|null $uidDTO
      *
      * @return array
      */
-    public function startingLiveAsync(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO)
+    public function startingLiveAsync(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO = null)
     {
         return EellyClient::request('live/operation', 'startingLive', false, $liveId, $isOpenLive, $uidDTO);
     }
