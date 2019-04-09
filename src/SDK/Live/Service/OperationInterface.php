@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\Live\Service;
+use Eelly\DTO\UidDTO;
 
 /**
  * 直播控制台.
@@ -23,10 +24,23 @@ interface OperationInterface
      *
      * @param int $liveId
      * @param bool $isOpenLive
+     * @param UidDTO|null $uidDTO
      *
      * @return array
      */
-    public function startingLive(int $liveId, bool $isOpenLive = false): array;
+    public function startingLive(int $liveId, bool $isOpenLive = false, UidDTO $uidDTO = null): array;
+
+    /**
+     * 启动直播.
+     *
+     * @param int $liveId
+     * @param bool $isOpenLive
+     *
+     * @return array
+     *
+     * @internal
+     */
+    public function startingLiveNoLogin(int $liveId, bool $isOpenLive = false): array;
 
     /**
      *  事件消息通知.
