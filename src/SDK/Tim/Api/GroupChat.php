@@ -484,6 +484,34 @@ class GroupChat implements GroupChatInterface
     }
 
     /**
+     * 获取群组被禁言用户列表
+     *
+     * @param string $groupId 群id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.10
+     */
+    public function getGroupShuttedUin(string $groupId): array
+    {
+        return EellyClient::request('tim/groupChat', 'getGroupShuttedUin', true, $groupId);
+    }
+
+    /**
+     * 获取群组被禁言用户列表
+     *
+     * @param string $groupId 群id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.10
+     */
+    public function getGroupShuttedUinAsync(string $groupId)
+    {
+        return EellyClient::request('tim/groupChat', 'getGroupShuttedUin', false, $groupId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
