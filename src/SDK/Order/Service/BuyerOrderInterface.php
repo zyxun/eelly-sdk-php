@@ -1041,4 +1041,18 @@ interface BuyerOrderInterface
      * @since 2019.03.30
      */
     public function listStoreTurnOverData(array $storeIds, int $day = 30):array;
+
+    /**
+     * 返回指定天数内支付成功的总用户数
+     *
+     * @param int $day 天数
+     * @return int
+     *
+     * @requestExample({"day":30})
+     * @returnExample(7)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.04.09
+     */
+    public function getPayBuyerNumByDay(int $day = 30):int;
 }

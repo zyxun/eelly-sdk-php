@@ -214,4 +214,15 @@ interface GroupChatInterface
      * @since 2019.4.3
      */
     public function sendBarrageByStoreId(int $fromUserId, int $storeId, int $type): bool;
+
+    /**
+     * 获取群组被禁言用户列表
+     *
+     * @param string $groupId 群id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.10
+     */
+    public function getGroupShuttedUin(string $groupId):array;
 }
