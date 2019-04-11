@@ -2158,6 +2158,31 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * 返回指定天数内支付成功的总用户数
+     *
+     * @param int $day 天数
+     * @return int
+     *
+     * @requestExample({"day":30})
+     * @returnExample(7)
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.04.09
+     */
+    public function getPayBuyerNumByDay(int $day = 30):int
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $day);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPayBuyerNumByDayAsync(int $day = 30):int
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $day);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
