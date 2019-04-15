@@ -135,4 +135,19 @@ interface AccountInterface
      * @since 2019.3.15
      */
     public function getAccount(int $userId, int $type, array $extend = []):array;
+
+    /**
+     * 设置全局禁言
+     *
+     * @internal
+     *
+     * @param int   $userId
+     * @param int   $type       1 店 2 厂
+     * @param array $extend
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-11
+     */
+    public function setNoSpeaking(int $userId, int $type, array $extend = []): bool;
 }

@@ -225,4 +225,16 @@ interface GroupChatInterface
      * @since 2019.4.10
      */
     public function getGroupShuttedUin(string $groupId):array;
+
+    /**
+     * 直播间拉黑
+     *
+     * @param string $identifier 被拉黑的账号
+     * @param UidDTO $uidDTO|null
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.11
+     */
+    public function liveBlackListAdd(string $identifier, UidDTO $uidDTO = null):bool;
 }

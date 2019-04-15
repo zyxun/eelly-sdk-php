@@ -14,6 +14,7 @@ namespace Eelly\SDK\Tim\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Tim\Service\GroupChatInterface;
+use Eelly\SDK\Tim\Service\UidDTO;
 
 /**
  *
@@ -509,6 +510,36 @@ class GroupChat implements GroupChatInterface
     public function getGroupShuttedUinAsync(string $groupId)
     {
         return EellyClient::request('tim/groupChat', 'getGroupShuttedUin', false, $groupId);
+    }
+
+    /**
+     * 直播间拉黑
+     *
+     * @param string $identifier 被拉黑的账号
+     * @param UidDTO $uidDTO|null
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.11
+     */
+    public function liveBlackListAdd(string $identifier, UidDTO $uidDTO = null): bool
+    {
+        return EellyClient::request('tim/groupChat', 'liveBlackListAdd', true, $identifier, $uidDTO);
+    }
+
+    /**
+     * 直播间拉黑
+     *
+     * @param string $identifier 被拉黑的账号
+     * @param UidDTO $uidDTO|null
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.4.11
+     */
+    public function liveBlackListAddAsync(string $identifier, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('tim/groupChat', 'liveBlackListAdd', false, $identifier, $uidDTO);
     }
 
     /**

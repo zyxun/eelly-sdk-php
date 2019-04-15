@@ -296,6 +296,42 @@ class Account implements AccountInterface
     }
 
     /**
+     * 设置全局禁言
+     *
+     * @internal
+     *
+     * @param int   $userId
+     * @param int   $type       1 店 2 厂
+     * @param array $extend
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-11
+     */
+    public function setNoSpeaking(int $userId, int $type, array $extend = []): bool
+    {
+        return EellyClient::request('tim/account', 'setNoSpeaking', true, $userId, $type, $extend);
+    }
+
+    /**
+     * 设置全局禁言
+     *
+     * @internal
+     *
+     * @param int   $userId
+     * @param int   $type       1 店 2 厂
+     * @param array $extend
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-11
+     */
+    public function setNoSpeakingAsync(int $userId, int $type, array $extend = [])
+    {
+        return EellyClient::request('tim/account', 'setNoSpeaking', false, $userId, $type, $extend);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

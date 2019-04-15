@@ -98,7 +98,7 @@ class Login
      *
      * @return array
      */
-    public function getStoreInfo(UidDTO $uidDTO = null): array
+    public function getUserInfoForWeb(UidDTO $uidDTO = null): array
     {
         return EellyClient::request('user/login', __FUNCTION__, true);
     }
