@@ -88,6 +88,13 @@ class OrderBizDataDTO extends AbstractDTO
     public $note = '';
 
     /**
+     * Tim 账号.
+     *
+     * @var string
+     */
+    public $identifier;
+
+    /**
      * 支持的操作.
      *
      * @var array
@@ -273,6 +280,24 @@ class OrderBizDataDTO extends AbstractDTO
     {
         $this->note = $note;
 
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdentifier(): string
+    {
+        return $this->identifier;
+    }
+
+    /**
+     * @param string $identifier
+     * @return OrderBizDataDTO
+     */
+    public function setIdentifier(string $identifier): OrderBizDataDTO
+    {
+        $this->identifier = $identifier;
         return $this;
     }
 
