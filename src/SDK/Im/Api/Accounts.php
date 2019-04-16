@@ -89,6 +89,11 @@ class Accounts
         EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
     }
 
+    public static function refreshUserInfo(int $uid, int $type): bool
+    {
+        return EellyClient::requestJson('im/accounts', __FUNCTION__,  ['uid' => $uid, 'type' => $type]);
+    }
+
     /**
      * @return self
      */
