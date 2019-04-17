@@ -229,7 +229,7 @@ class Store
     public function getConsigneeInfo(array $storeInfo, array $postData, array $address)
     {
         //return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeInfo, $postData, $address);
-        return EellyClient::requestJson('eellyOldCode/store', __FUNCTION__, [
+        return EellyClient::requestJson('eellyOldCode/store/store', __FUNCTION__, [
             'storeInfo' => $storeInfo,
             'postData' => $postData,
             'address' => $address
