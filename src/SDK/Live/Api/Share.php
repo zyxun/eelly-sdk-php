@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\ShareInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Share implements ShareInterface
+class Share
 {
     /**
      * @return self

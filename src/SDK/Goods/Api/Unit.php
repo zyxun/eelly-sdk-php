@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\UnitInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Unit implements UnitInterface
+class Unit
 {
     /**
      * 新增商品计量单位

@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ApplyWithdraw implements ApplyWithdrawInterface
+class ApplyWithdraw
 {
     /**
      * 申请提现表单(用户钱包相关信息).

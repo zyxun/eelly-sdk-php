@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\RobotMessageManageInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RobotMessageManage implements RobotMessageManageInterface
+class RobotMessageManage
 {
     /**
      * 获取列表

@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\ConditionInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Condition implements ConditionInterface
+class Condition
 {
     /**
      * 获取参加活动店铺信息.

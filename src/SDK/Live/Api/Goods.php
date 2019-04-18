@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\GoodsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Goods implements GoodsInterface
+class Goods
 {
     /**
      * 获取直播商品信息.

@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\SubjectDayInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SubjectDay implements SubjectDayInterface
+class SubjectDay
 {
     /**
      * 获取一条科目日记帐信息

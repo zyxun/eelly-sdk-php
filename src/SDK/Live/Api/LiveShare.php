@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveShare implements LiveShareInterface
+class LiveShare
 {
     /**
      * 直播间分享.

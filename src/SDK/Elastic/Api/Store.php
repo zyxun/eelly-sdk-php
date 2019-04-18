@@ -19,7 +19,7 @@ use Eelly\SDK\Elastic\Service\StoreInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Store implements StoreInterface
+class Store
 {
     /**
      * 检索店铺信息.

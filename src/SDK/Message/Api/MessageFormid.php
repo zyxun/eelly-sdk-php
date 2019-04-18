@@ -19,7 +19,7 @@ use Eelly\SDK\Message\Service\MessageFormidInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class MessageFormid implements MessageFormidInterface
+class MessageFormid
 {
     /**
      * 发送订单取消通知消息.

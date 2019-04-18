@@ -21,7 +21,7 @@ use Eelly\SDK\Store\Service\ServiceInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Service implements ServiceInterface
+class Service
 {
     /**
      * 新增店铺客服组

@@ -20,7 +20,7 @@ use Eelly\SDK\System\DTO\VersionDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Version implements VersionInterface
+class Version
 {
     /**
      * 获取单个APP版本信息.

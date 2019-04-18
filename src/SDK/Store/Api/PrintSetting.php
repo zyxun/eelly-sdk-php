@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PrintSetting implements PrintSettingInterface
+class PrintSetting
 {
     /**
      * 添加一条店铺打印设置 | 更新店铺打印设置

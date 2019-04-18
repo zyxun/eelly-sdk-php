@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LiveTopSettingInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveTopSetting implements LiveTopSettingInterface
+class LiveTopSetting
 {
     /**
      * 获取当前配置生效的数据

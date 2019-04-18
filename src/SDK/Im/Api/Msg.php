@@ -19,7 +19,7 @@ use Eelly\SDK\Im\Service\MsgInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Msg implements MsgInterface
+class Msg
 {
     /**
      * 保存IM消息

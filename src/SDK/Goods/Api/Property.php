@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Property implements PropertyInterface
+class Property
 {
     /**
      * 新增商品属性

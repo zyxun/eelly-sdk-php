@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SellerRefund implements SellerRefundInterface
+class SellerRefund
 {
     /**
      * 待发货订单，买家申请退款，卖家立即发货操作

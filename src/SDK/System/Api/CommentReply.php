@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\CommentReplyInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class CommentReply implements CommentReplyInterface
+class CommentReply
 {
     /**
      * 获取评论回复记录.

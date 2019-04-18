@@ -19,7 +19,7 @@ use Eelly\SDK\Im\Service\TeamInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Team implements TeamInterface
+class Team
 {
     /**
      * 获取主播粉丝群列表信息

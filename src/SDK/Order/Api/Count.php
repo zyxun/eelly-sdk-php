@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\CountInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Count implements CountInterface
+class Count
 {
     /**
      * 根据传过来的订单ID，返回对应的订单统计数据

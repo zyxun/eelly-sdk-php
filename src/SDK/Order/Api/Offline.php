@@ -18,7 +18,7 @@ use Eelly\SDK\Order\Service\OfflineInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Offline implements OfflineInterface
+class Offline
 {
     /**
      * @return self

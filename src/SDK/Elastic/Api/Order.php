@@ -19,7 +19,7 @@ use Eelly\SDK\Elastic\Service\OrderInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Order implements OrderInterface
+class Order
 {
     /**
      * 检索订单信息.

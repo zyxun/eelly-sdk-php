@@ -21,7 +21,7 @@ use Eelly\SDK\User\Service\ExtendInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Extend implements ExtendInterface
+class Extend
 {
     /**
      * 获取用户的扩展信息.

@@ -19,7 +19,7 @@ use Eelly\SDK\Oauth\Service\TokenConvertInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class TokenConvert implements TokenConvertInterface
+class TokenConvert
 {
     /**
      * qq 第三方认证.

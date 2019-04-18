@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Description implements DescriptionInterface
+class Description
 {
     /**
      * 新增商品描述

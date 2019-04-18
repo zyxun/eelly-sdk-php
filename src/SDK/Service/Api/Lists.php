@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Lists implements ListsInterface
+class Lists
 {
     /**
      * 获取指定ID的单条增值服务清单.

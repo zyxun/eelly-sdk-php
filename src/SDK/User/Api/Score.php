@@ -20,7 +20,7 @@ use Eelly\SDK\User\Service\ScoreInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Score implements ScoreInterface
+class Score
 {
     /**
      * 获取用户积分.

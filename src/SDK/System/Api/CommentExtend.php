@@ -18,7 +18,7 @@ use Eelly\SDK\System\Service\CommentExtendInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class CommentExtend implements CommentExtendInterface
+class CommentExtend
 {
     /**
      * @return self

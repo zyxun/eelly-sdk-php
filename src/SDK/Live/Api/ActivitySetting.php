@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\ActivitySettingInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ActivitySetting implements ActivitySettingInterface
+class ActivitySetting
 {
     /**
      * @return self

@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LiveRobotMessageLogInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveRobotMessageLog implements LiveRobotMessageLogInterface
+class LiveRobotMessageLog
 {
     /**
      * 添加留言库日志

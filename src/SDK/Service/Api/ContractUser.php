@@ -21,7 +21,7 @@ use Eelly\SDK\Service\DTO\ContractUserDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ContractUser implements ContractUserInterface
+class ContractUser
 {
     /**
      * 获取指定ID的用户合同签订记录.

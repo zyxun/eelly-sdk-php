@@ -20,7 +20,7 @@ use Eelly\SDK\Log\DTO\ServiceAuditDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ServiceAudit implements ServiceAuditInterface
+class ServiceAudit
 {
     /**
      * 获取一条服务审核日志.

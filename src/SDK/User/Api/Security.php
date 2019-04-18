@@ -21,7 +21,7 @@ use Eelly\SDK\User\DTO\SecurityDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Security implements SecurityInterface
+class Security
 {
     /**
      * 安全等级111666666.

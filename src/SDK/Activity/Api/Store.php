@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\StoreInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Store implements StoreInterface
+class Store
 {
     /**
      * 获取参加活动店铺信息.

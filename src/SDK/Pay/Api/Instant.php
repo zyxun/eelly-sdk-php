@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\InstantInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Instant implements InstantInterface
+class Instant
 {
     /**
      * @return self

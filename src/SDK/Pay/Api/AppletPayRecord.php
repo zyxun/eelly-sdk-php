@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AppletPayRecord implements AppletPayRecordInterface
+class AppletPayRecord
 {
     /**
      * 获取卖家账户收支明细列表.

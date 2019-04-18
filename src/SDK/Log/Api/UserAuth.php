@@ -19,7 +19,7 @@ use Eelly\SDK\Log\Service\UserAuthInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class UserAuth implements UserAuthInterface
+class UserAuth
 {
     /**
      * 通过时间获取数据.

@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\DistrictStatisticsInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class DistrictStatistics implements DistrictStatisticsInterface
+class DistrictStatistics
 {
     /**
      * 根据传过来的商圈id，返回对应商圈的统计数据.

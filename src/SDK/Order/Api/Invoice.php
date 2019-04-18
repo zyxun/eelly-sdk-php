@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Invoice implements InvoiceInterface
+class Invoice
 {
     /**
      * 新增订单物流及收货人信息记录.

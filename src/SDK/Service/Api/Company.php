@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Company implements CompanyInterface
+class Company
 {
     /**
      * 获取一条店铺企业认证记录.

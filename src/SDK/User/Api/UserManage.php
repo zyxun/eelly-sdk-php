@@ -19,7 +19,7 @@ use Eelly\SDK\User\Service\UserManageInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class UserManage implements UserManageInterface
+class UserManage
 {
     /**
      * 更改用户状态

@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\Service\PaymentInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Payment implements PaymentInterface
+class Payment
 {
     /**
      * 获取交易流水信息.

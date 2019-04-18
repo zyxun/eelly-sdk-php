@@ -20,7 +20,7 @@ use Eelly\SDK\Message\DTO\TemplateDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Template implements TemplateInterface
+class Template
 {
     /**
      * 添加信息模板.

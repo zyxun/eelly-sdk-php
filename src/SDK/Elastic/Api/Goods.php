@@ -19,7 +19,7 @@ use Eelly\SDK\Elastic\Service\GoodsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Goods implements GoodsInterface
+class Goods
 {
     /**
      * 检索商品信息.

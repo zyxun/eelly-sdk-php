@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\AppealInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Appeal implements AppealInterface
+class Appeal
 {
     /**
      * 店铺申诉

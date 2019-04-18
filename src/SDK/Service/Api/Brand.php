@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Brand implements BrandInterface
+class Brand
 {
     /**
      * 获取一条品牌认证数据记录.

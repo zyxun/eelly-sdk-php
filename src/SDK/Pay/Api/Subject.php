@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\SubjectInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Subject implements SubjectInterface
+class Subject
 {
     /**
      * 插入科目明细信息

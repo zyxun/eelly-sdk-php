@@ -18,7 +18,7 @@ use Eelly\SDK\Oauth\Service\PermissionRequestInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PermissionRequest implements PermissionRequestInterface
+class PermissionRequest
 {
     /**
      * @return self

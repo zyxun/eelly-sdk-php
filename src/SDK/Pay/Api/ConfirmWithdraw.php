@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\ConfirmWithdrawInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ConfirmWithdraw implements ConfirmWithdrawInterface
+class ConfirmWithdraw
 {
     /**
      * 同意提现申请

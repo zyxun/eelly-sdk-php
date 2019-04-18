@@ -20,7 +20,7 @@ use Eelly\SDK\Activity\DTO\CouponDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Coupon implements CouponInterface
+class Coupon
 {
     /**
      * 获取优惠券信息.

@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\LiveOrderInterface;
 
-class LiveOrder implements LiveOrderInterface
+class LiveOrder
 {
     /**
      * {@inheritdoc}

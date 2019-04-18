@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AppletAccount implements AppletAccountInterface
+class AppletAccount
 {
     /**
      * 小程序资金统计数据.

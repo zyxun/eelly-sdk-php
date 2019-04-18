@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Buy implements BuyInterface
+class Buy
 {
     /**
      * 获取一条服务购买记录.

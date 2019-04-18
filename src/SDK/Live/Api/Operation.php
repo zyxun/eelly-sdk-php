@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Operation implements OperationInterface
+class Operation
 {
     /**
      * 启动直播.

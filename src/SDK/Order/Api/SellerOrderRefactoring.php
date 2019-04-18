@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SellerOrderRefactoring implements SellerOrderRefactoringInterface
+class SellerOrderRefactoring
 {
     /**
      * 移动端订单列表.

@@ -21,7 +21,7 @@ use Eelly\SDK\Goods\DTO\CategoryCustomDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class CategoryCustom implements CategoryCustomInterface
+class CategoryCustom
 {
     /**
      * 新增店铺自定义商品分类.

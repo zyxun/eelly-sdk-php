@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\CouponUserInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class CouponUser implements CouponUserInterface
+class CouponUser
 {
     /**
      * 获取用户领取的优惠券信息.

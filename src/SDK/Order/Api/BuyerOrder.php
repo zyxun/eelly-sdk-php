@@ -20,7 +20,7 @@ use Eelly\SDK\Order\Service\BuyerOrderInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class BuyerOrder implements BuyerOrderInterface
+class BuyerOrder
 {
     /**
      * 订单分页(买家).

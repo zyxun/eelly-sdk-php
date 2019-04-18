@@ -20,7 +20,7 @@ use Eelly\SDK\Example\Service\ParamsInterface;
 /**
  * @author hehui<hehui@eelly.net>
  */
-class Params implements ParamsInterface
+class Params
 {
     /**
      * {@inheritdoc}

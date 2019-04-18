@@ -17,7 +17,7 @@ use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\UcReplaceInterface;
 
-class UcReplace implements UcReplaceInterface
+class UcReplace
 {
     /**
      * {@inheritdoc}

@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\ActivityResultInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ActivityResult implements ActivityResultInterface
+class ActivityResult
 {
     /**
      * {@inheritdoc}

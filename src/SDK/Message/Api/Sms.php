@@ -19,7 +19,7 @@ use Eelly\SDK\Message\Service\SmsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Sms implements SmsInterface
+class Sms
 {
     /**
      * 发送手机验证码.

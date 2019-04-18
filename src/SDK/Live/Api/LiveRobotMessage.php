@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LiveRobotMessageInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveRobotMessage implements LiveRobotMessageInterface
+class LiveRobotMessage
 {
     /**
      * 添加机器人留言

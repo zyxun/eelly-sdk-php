@@ -20,7 +20,7 @@ use Eelly\DTO\StoreTransferDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class StoreTransfer implements StoreTransferInterface
+class StoreTransfer
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

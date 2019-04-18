@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\MallRequestDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class MallRequest implements MallRequestInterface
+class MallRequest
 {
     /**
      * 获取 一条数据.

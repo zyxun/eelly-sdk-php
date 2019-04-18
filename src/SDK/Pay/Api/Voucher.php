@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\VoucherInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Voucher implements VoucherInterface
+class Voucher
 {
     /**
      * 新增凭证明细信息

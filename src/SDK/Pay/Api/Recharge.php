@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\RechargeDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Recharge implements RechargeInterface
+class Recharge
 {
     /**
      * 获取充值交易流水 记录.

@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\QuestionInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Question implements QuestionInterface
+class Question
 {
     /**
      * 获取一条视频直播问题.

@@ -18,7 +18,7 @@ use Eelly\SDK\Store\Service\DiagnoseItemInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class DiagnoseItem implements DiagnoseItemInterface
+class DiagnoseItem
 {
     /**
      * @return self

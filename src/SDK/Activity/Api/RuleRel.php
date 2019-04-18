@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\RuleRelInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RuleRel implements RuleRelInterface
+class RuleRel
 {
     /**
      * 根据活动id获取营销活动优惠规则关系信息.

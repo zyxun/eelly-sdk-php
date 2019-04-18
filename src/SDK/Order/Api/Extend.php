@@ -18,7 +18,7 @@ use Eelly\SDK\Order\Service\ExtendInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Extend implements ExtendInterface
+class Extend
 {
     /**
      * @return self

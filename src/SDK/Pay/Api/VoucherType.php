@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\VoucherTypeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class VoucherType implements VoucherTypeInterface
+class VoucherType
 {
     /**
      * 获取一条科目类型信息

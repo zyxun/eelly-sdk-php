@@ -21,7 +21,7 @@ use Eelly\SDK\Store\DTO\AddressDTO;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Address implements AddressInterface
+class Address
 {
     /**
      * 新增店铺地址

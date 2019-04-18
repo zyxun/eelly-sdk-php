@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\TradeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Trade implements TradeInterface
+class Trade
 {
     /**
      * 支付发起.

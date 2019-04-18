@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\ActivityTypeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ActivityType implements ActivityTypeInterface
+class ActivityType
 {
     /**
      * @return self

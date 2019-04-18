@@ -19,7 +19,7 @@ use Eelly\SDK\User\Service\CaptchaInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Captcha implements CaptchaInterface
+class Captcha
 {
     /**
      * 创建验证码.

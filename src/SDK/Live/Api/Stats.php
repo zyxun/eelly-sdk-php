@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\StatsInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Stats implements StatsInterface
+class Stats
 {
     /**
      * 添加点赞数.
