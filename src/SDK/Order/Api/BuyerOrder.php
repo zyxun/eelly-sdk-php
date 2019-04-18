@@ -2183,6 +2183,57 @@ class BuyerOrder implements BuyerOrderInterface
     }
 
     /**
+     * 获取用户在全平台支付成功的订单总笔数
+     *
+     * @param array $userIds 用户id
+     * @return array
+     *
+     * @requestExample({"userIds":[148086,1762341]})
+     * @returnExample({"1762341":38,"3058657":1,"148086":0})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.04.18
+     */
+    public function listPlatformOrderNum(array $userIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $userIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listPlatformOrderNumAsync(array $userIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $userIds);
+    }
+
+    /**
+     * 获取用户在某个店铺，支付成功的订单总笔数
+     *
+     * @param array $userIds 用户ID集合
+     * @param int $storeId 店铺ID
+     * @return array
+     *
+     * @requestExample({"userIds":[148086,1762341], "storeId":148086})
+     * @returnExample({"1762341":38,"148086":0})
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.04.18
+     */
+    public function listOrderNumByStoreId(array $userIds, int $storeId):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $userIds, $storeId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listOrderNumByStoreIdAsync(array $userIds, int $storeId):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $userIds, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
