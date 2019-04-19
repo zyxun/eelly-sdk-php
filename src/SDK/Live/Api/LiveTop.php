@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LiveTopInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveTop implements LiveTopInterface
+class LiveTop
 {
     /**
      * 获取置顶卡

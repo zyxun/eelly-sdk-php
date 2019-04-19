@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Message implements MessageInterface
+class Message
 {
     /**
      * 获取指定id消息.

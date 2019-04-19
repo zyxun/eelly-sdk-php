@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\AppletInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Applet implements AppletInterface
+class Applet
 {
     /**
      * 通过店铺ID获取订单数量和支付数量和支付金额.

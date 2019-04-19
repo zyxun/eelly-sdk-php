@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\CategoryInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Category implements CategoryInterface
+class Category
 {
     /**
      * 新增商品分类

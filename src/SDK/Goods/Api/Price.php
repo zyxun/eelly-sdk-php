@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Price implements PriceInterface
+class Price
 {
     /**
      * 新增商品价格

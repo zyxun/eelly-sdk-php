@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\QualificationRelInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class QualificationRel implements QualificationRelInterface
+class QualificationRel
 {
     /**
      * 根据主键id获取店铺申请参加营销活动资格信息.

@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\AccountAdjustDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AccountAdjust implements AccountAdjustInterface
+class AccountAdjust
 {
     /**
      * 根据账户资金核算主键id,获取对应的信息.

@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\RefundInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Refund implements RefundInterface
+class Refund
 {
     /**
      * 快速退款，对外接口.

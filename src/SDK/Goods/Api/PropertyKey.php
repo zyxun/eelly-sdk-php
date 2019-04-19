@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\PropertyKeyInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PropertyKey implements PropertyKeyInterface
+class PropertyKey
 {
     /**
      * 新增商品属性名

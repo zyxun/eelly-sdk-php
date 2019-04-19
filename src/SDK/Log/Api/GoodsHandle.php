@@ -20,7 +20,7 @@ use Eelly\SDK\Log\DTO\GoodsHandleDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class GoodsHandle implements GoodsHandleInterface
+class GoodsHandle
 {
     /**
      * 获取一条商品操作日志.

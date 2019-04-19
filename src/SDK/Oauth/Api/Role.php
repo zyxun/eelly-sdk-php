@@ -20,7 +20,7 @@ use Eelly\SDK\Oauth\Service\RoleInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Role implements RoleInterface
+class Role
 {
     /**
      * 获得指定角色.

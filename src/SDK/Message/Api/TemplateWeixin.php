@@ -19,7 +19,7 @@ use Eelly\SDK\Message\Service\TemplateWeixinInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class TemplateWeixin implements TemplateWeixinInterface
+class TemplateWeixin
 {
 
     /**

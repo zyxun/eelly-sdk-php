@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\SubscribeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Subscribe implements SubscribeInterface
+class Subscribe
 {
     /**
      *

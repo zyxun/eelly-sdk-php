@@ -16,7 +16,7 @@ namespace Eelly\SDK\Example\Api;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Example\Service\CacheInterface;
 
-class Cache implements CacheInterface
+class Cache
 {
     public function annotionString(string $name): string
     {

@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\RecordDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Record implements RecordInterface
+class Record
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

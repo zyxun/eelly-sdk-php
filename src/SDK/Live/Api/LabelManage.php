@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LabelManageInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LabelManage implements LabelManageInterface
+class LabelManage
 {
     /**
      * 获取一条直播标签

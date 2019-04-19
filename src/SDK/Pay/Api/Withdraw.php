@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Withdraw implements WithdrawInterface
+class Withdraw
 {
     /**
      * 获取提现交易流水记录.

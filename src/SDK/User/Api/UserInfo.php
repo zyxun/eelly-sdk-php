@@ -21,7 +21,7 @@ use Eelly\SDK\User\Service\UserInfoInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class UserInfo implements UserInfoInterface
+class UserInfo
 {
     /**
      * 获取一条用户信息.

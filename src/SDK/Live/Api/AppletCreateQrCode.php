@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\AppletCreateQrCodeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AppletCreateQrCode implements AppletCreateQrCodeInterface
+class AppletCreateQrCode
 {
     /**
      * 获取token数据.

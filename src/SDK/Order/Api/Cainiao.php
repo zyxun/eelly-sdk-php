@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Cainiao implements CainiaoInterface
+class Cainiao
 {
     /**
      * 生成小程序订单.

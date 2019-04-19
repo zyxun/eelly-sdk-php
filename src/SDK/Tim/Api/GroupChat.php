@@ -20,7 +20,7 @@ use Eelly\SDK\Tim\Service\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class GroupChat implements GroupChatInterface
+class GroupChat
 {
     /**
      * 腾讯云直播间聊天室发送弹幕消息

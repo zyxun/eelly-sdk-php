@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Tag implements TagInterface
+class Tag
 {
     /**
      * 获取标签信息.

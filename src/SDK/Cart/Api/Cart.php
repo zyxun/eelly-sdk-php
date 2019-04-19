@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Cart implements CartInterface
+class Cart
 {
     /**
      * 购物车列表.

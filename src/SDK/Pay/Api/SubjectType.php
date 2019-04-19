@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\SubjectTypeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SubjectType implements SubjectTypeInterface
+class SubjectType
 {
     /**
      * 获取一条科目类型信息

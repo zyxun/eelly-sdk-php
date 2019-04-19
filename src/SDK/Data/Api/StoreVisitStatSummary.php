@@ -20,7 +20,7 @@ use Eelly\SDK\EellyClient;
  *
  * @author zhangyingdi<zhangyingdi@eelly.net>
  */
-class StoreVisitStatSummary implements StoreVisitStatSumaryInterface
+class StoreVisitStatSummary
 {
     /**
      * 根据店铺id，获取对应的统计记录

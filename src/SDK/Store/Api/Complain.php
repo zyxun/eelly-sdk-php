@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\ComplainInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Complain implements ComplainInterface
+class Complain
 {
     /**
      * 店铺投诉举报

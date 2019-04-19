@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\RefundGoodsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RefundGoods implements RefundGoodsInterface
+class RefundGoods
 {
     /**
      * 获取退货商品信息

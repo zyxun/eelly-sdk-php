@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\EnquiryUserInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EnquiryUser implements EnquiryUserInterface
+class EnquiryUser
 {
     /**
      * 新增询价商品报价信息

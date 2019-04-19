@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\ArticleCategoryInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ArticleCategory implements ArticleCategoryInterface
+class ArticleCategory
 {
     /**
      * 获取指定id文章分类.

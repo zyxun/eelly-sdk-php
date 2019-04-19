@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\AccountManageInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AccountManage implements AccountManageInterface
+class AccountManage
 {
     /**
      * 更改账户状态

@@ -19,7 +19,7 @@ use Eelly\SDK\Data\Service\ShowEntranceInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ShowEntrance implements ShowEntranceInterface
+class ShowEntrance
 {
     /**
      * 添加展示入口记录

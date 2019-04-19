@@ -20,7 +20,7 @@ use Eelly\SDK\Log\DTO\OrderStatusDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class OrderStatus implements OrderStatusInterface
+class OrderStatus
 {
     /**
      * 获取一条价格记录.

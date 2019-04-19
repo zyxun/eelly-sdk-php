@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\TagInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Tag implements TagInterface
+class Tag
 {
     /**
      * 新增标签

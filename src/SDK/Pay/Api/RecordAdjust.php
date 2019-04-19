@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\RecordAdjustDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RecordAdjust implements RecordAdjustInterface
+class RecordAdjust
 {
     /**
      * 根据交易流水ID，返回对应的详细记录

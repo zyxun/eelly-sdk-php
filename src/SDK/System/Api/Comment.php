@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\CommentInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Comment implements CommentInterface
+class Comment
 {
     /**
      * 获取评论信息.

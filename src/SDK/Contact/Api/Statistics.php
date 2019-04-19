@@ -20,7 +20,7 @@ use Eelly\SDK\Contact\DTO\StatisticsDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Statistics implements StatisticsInterface
+class Statistics
 {
     /**
      * 获取联系人交易数.

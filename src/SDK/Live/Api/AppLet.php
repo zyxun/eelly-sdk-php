@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\AppLetInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AppLet implements AppLetInterface
+class AppLet
 {
     /**
      * 获取正在直播+预播的直播数量.

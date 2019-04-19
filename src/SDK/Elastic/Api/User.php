@@ -19,7 +19,7 @@ use Eelly\SDK\Elastic\Service\UserInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class User implements UserInterface
+class User
 {
     /**
      * 检索会员信息.

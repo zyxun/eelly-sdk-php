@@ -20,7 +20,7 @@ use Eelly\DTO\GoodsHistory1DTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class GoodsHistory1 implements GoodsHistory1Interface
+class GoodsHistory1
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

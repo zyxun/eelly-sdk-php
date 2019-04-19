@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Spec implements SpecInterface
+class Spec
 {
     /**
      * 新增商品规格

@@ -21,7 +21,7 @@ use Eelly\SDK\User\Service\TagInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Tag implements TagInterface
+class Tag
 {
     /**
      * 获取用户标签.

@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\AccountLogDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AccountLog implements AccountLogInterface
+class AccountLog
 {
     /**
      * 获取一条会员账户资金变更日志.

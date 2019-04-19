@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\LikeFlagInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LikeFlag implements LikeFlagInterface
+class LikeFlag
 {
     /**
      * 根据商品id 获取指定一元商品下单的数量

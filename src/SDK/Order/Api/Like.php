@@ -21,7 +21,7 @@ use Eelly\SDK\Order\Service\LikeInterface;
  *
  * @author zhangyingdi<zhangyingdi@eelly.net>
  */
-class Like implements LikeInterface
+class Like
 {
     /**
      * 新增订单点赞记录

@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\LikeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Like implements LikeInterface
+class Like
 {
     /**
      * 根据商品id获取是否是指定商品点赞配置信息,并返回配置信息

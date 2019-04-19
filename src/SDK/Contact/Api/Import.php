@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Import implements ImportInterface
+class Import
 {
     /**
      * 检测用户多个id是否已经被卖家导入通讯录.

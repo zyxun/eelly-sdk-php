@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\GoodsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Goods implements GoodsInterface
+class Goods
 {
     /**
      * 根据订单id获取订单商品信息

@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class User implements UserInterface
+class User
 {
     /**
      * 校验手机号码是否存在.

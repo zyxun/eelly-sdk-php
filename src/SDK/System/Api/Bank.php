@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\BankInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Bank implements BankInterface
+class Bank
 {
     /**
      * 根据传过来的银行主键id，返回对应的银行信息.

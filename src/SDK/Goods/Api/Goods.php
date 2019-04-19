@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Goods implements GoodsInterface
+class Goods
 {
     /**
      * 新增店铺商品

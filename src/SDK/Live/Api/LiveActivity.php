@@ -20,7 +20,7 @@ use Eelly\SDK\Live\Service\LiveActivityInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveActivity implements LiveActivityInterface
+class LiveActivity
 {
     /**
      * 设置活动列表页.

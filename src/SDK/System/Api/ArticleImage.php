@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\ArticleImageInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ArticleImage implements ArticleImageInterface
+class ArticleImage
 {
     /**
      * 获取指定id文章图片.

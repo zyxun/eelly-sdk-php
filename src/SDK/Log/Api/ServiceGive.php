@@ -20,7 +20,7 @@ use Eelly\DTO\ServiceGiveDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ServiceGive implements ServiceGiveInterface
+class ServiceGive
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

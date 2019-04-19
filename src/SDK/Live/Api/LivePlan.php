@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LivePlanInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LivePlan implements LivePlanInterface
+class LivePlan
 {
     /**
      * 设置计划状态.

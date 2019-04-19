@@ -17,7 +17,7 @@ use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\Service\OauthUserInterface;
 
-class OauthUser implements OauthUserInterface
+class OauthUser
 {
     /**
      * {@inheritdoc}

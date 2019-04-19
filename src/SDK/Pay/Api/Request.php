@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\RequestDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Request implements RequestInterface
+class Request
 {
     /**
      * 获取 一条数据.

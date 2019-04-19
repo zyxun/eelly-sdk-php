@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\ActivityValidationInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Validation implements ActivityValidationInterface
+class Validation
 {
     /**
      * 校验是否卖家.

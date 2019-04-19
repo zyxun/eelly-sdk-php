@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\ArbitrateInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Arbitrate implements ArbitrateInterface
+class Arbitrate
 {
     /**
      * 添加订单仲裁记录.

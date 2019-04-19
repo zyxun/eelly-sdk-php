@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Order implements OrderInterface
+class Order
 {
     /**
      * 新增订单

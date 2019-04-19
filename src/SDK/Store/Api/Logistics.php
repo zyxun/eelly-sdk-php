@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\LogisticsInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Logistics implements LogisticsInterface
+class Logistics
 {
     /**
      * 新增物流模板

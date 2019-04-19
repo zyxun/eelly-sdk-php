@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Contact implements ContactInterface
+class Contact
 {
     /**
      * 获取联系人页--统计数.

@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\SubjectVoucherAccountingInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SubjectVoucherAccounting implements SubjectVoucherAccountingInterface
+class SubjectVoucherAccounting
 {
     /**
      * 会计主流程

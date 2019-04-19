@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\ChatroomInterface;
 /**
  * Class Chatroom.
  */
-class Chatroom implements ChatroomInterface
+class Chatroom
 {
     /**
      * {@inheritdoc}

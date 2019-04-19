@@ -20,7 +20,7 @@ use Eelly\DTO\SummaryDimensionDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SummaryDimension implements SummaryDimensionInterface
+class SummaryDimension
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

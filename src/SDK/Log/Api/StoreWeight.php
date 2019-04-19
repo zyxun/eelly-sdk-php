@@ -20,7 +20,7 @@ use Eelly\DTO\StoreWeightDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class StoreWeight implements StoreWeightInterface
+class StoreWeight
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

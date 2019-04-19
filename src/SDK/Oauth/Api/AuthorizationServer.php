@@ -19,7 +19,7 @@ use Eelly\SDK\Oauth\Service\AuthorizationServerInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AuthorizationServer implements AuthorizationServerInterface
+class AuthorizationServer
 {
     /**
      * 获取访问令牌.

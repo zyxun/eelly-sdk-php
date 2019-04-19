@@ -19,7 +19,7 @@ use Eelly\SDK\Store\Service\WaybillInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Waybill implements WaybillInterface
+class Waybill
 {
     /**
      * 添加用户店铺电子面单Token绑定.

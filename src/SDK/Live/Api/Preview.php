@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\PreviewInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Preview implements PreviewInterface
+class Preview
 {
     /**
      * 设置直播时间.

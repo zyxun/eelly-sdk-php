@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\PropertyValueInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PropertyValue implements PropertyValueInterface
+class PropertyValue
 {
     /**
      * 新增商品属性值

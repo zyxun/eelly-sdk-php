@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\ConditionRelInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ConditionRel implements ConditionRelInterface
+class ConditionRel
 {
     /**
      * 根据活动id获取买家参加营销活动条件信息.

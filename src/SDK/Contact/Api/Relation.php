@@ -19,7 +19,7 @@ use Eelly\SDK\Contact\Service\RelationInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Relation implements RelationInterface
+class Relation
 {
     /**
      * 获取资料设置信息.

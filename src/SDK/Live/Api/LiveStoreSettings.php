@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LiveStoreSettingsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveStoreSettings implements LiveStoreSettingsInterface
+class LiveStoreSettings
 {
     /**
      * 获取店铺的直播展示标志.

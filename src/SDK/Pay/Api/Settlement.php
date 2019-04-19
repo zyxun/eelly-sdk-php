@@ -16,7 +16,7 @@ namespace Eelly\SDK\Pay\Api;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Pay\Service\SettlementInterface;
 
-class Settlement implements SettlementInterface
+class Settlement
 {
     /**
      * {@inheritdoc}

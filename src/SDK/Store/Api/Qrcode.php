@@ -19,7 +19,7 @@ use Eelly\SDK\Store\Service\QrcodeInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Qrcode implements QrcodeInterface
+class Qrcode
 {
     /**
      * 通过二维码编号,返回已经绑定状态的店铺id.

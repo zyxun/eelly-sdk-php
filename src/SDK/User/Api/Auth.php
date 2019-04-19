@@ -21,7 +21,7 @@ use Eelly\SDK\User\DTO\AuthDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Auth implements AuthInterface
+class Auth
 {
     /**
      * 添加个人实名认证|企业实名认证信息.

@@ -19,7 +19,7 @@ use Eelly\SDK\Contact\Service\TagRelInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class TagRel implements TagRelInterface
+class TagRel
 {
     /**
      * 根据客户id批量获取标签名称.

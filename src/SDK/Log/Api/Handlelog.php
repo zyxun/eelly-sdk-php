@@ -19,7 +19,7 @@ use Eelly\SDK\Log\Service\HandlelogInterface;
  *
  * @author zhangyingdi<zhangyingdi@eelly.net>
  */
-class Handlelog implements HandlelogInterface
+class Handlelog
 {
     /**
      * 根据传过来的直播id，返回该直播id的记录总数

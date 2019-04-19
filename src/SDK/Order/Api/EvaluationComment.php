@@ -18,7 +18,7 @@ use Eelly\SDK\Order\Service\EvaluationCommentInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EvaluationComment implements EvaluationCommentInterface
+class EvaluationComment
 {
     /**
      * @return self

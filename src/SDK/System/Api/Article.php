@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\ArticleInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Article implements ArticleInterface
+class Article
 {
     /**
      * 获取指定id文章.

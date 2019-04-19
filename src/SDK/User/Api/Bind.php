@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Bind implements BindInterface
+class Bind
 {
     /**
      * 获取用户绑定记录.

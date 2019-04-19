@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Black implements BlackInterface
+class Black
 {
     /**
      * 获取黑名单数量.

@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LiveTopLogInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveTopLog implements LiveTopLogInterface
+class LiveTopLog
 {
     /**
      * 获取正在置顶位置的直播间

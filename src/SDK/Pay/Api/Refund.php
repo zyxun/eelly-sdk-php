@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Refund implements RefundInterface
+class Refund
 {
     /**
      * 退款数据.

@@ -20,7 +20,7 @@ use Eelly\SDK\Log\DTO\GoodsPriceDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class GoodsPrice implements GoodsPriceInterface
+class GoodsPrice
 {
     /**
      * 获取一条价格记录.

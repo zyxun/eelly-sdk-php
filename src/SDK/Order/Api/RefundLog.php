@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\RefundLogInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RefundLog implements RefundLogInterface
+class RefundLog
 {
     /**
      * 插入一条订单退货退款记录.

@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LabelRefInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LabelRef implements LabelRefInterface
+class LabelRef
 {
     /**
      * @return self

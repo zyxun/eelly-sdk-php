@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ParamValue implements ParamValueInterface
+class ParamValue
 {
     /**
      * 根据传过来的参数值主键id，返回对应的参数值信息.

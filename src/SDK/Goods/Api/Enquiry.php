@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\EnquiryInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Enquiry implements EnquiryInterface
+class Enquiry
 {
     /**
      * 根据询价商品id，返回对应的商品信息

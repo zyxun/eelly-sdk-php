@@ -20,7 +20,7 @@ use Eelly\SDK\User\Service\StatusInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Status implements StatusInterface
+class Status
 {
     /**
      * 获取用户状态.

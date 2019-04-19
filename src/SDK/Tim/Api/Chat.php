@@ -19,7 +19,7 @@ use Eelly\SDK\Tim\Service\ChatInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Chat implements ChatInterface
+class Chat
 {
     /**
      * 单发送消息

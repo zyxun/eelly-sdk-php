@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\ConfigureInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Configure implements ConfigureInterface
+class Configure
 {
     /**
      * 根据渠道类型返回对应类型的所有信息

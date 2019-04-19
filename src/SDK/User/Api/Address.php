@@ -21,7 +21,7 @@ use Eelly\SDK\User\DTO\UserAddressDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Address implements AddressInterface
+class Address
 {
     /**
      * 根据地址id，获取对应的地址信息.

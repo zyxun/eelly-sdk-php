@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\MallCallbackInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class MallCallback implements MallCallbackInterface
+class MallCallback
 {
     /**
      * 添加 第三方支付成功的回调记录.

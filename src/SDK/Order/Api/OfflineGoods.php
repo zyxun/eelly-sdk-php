@@ -18,7 +18,7 @@ use Eelly\SDK\Order\Service\OfflineGoodsInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class OfflineGoods implements OfflineGoodsInterface
+class OfflineGoods
 {
     /**
      * @return self

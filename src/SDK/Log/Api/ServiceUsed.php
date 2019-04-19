@@ -20,7 +20,7 @@ use Eelly\DTO\ServiceUsedDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ServiceUsed implements ServiceUsedInterface
+class ServiceUsed
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

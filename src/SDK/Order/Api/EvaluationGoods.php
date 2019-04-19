@@ -18,7 +18,7 @@ use Eelly\SDK\Order\Service\EvaluationGoodsInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EvaluationGoods implements EvaluationGoodsInterface
+class EvaluationGoods
 {
     /**
      * @return self

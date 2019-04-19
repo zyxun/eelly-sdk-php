@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\GoodsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Goods implements GoodsInterface
+class Goods
 {
     /**
      * 获取参加活动商品

@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\QualificationInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Qualification implements QualificationInterface
+class Qualification
 {
     /**
      * 获取参加活动店铺信息.

@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\ServiceListInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ServiceList implements ServiceListInterface
+class ServiceList
 {
     /**
      * 新增店铺客服号

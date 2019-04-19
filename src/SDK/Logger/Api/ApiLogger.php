@@ -19,7 +19,7 @@ use Eelly\SDK\Logger\Service\ApiLoggerInterface;
 /**
  * @author hehui<hehui@eelly.net>
  */
-class ApiLogger implements ApiLoggerInterface
+class ApiLogger
 {
     /**
      * {@inheritdoc}

@@ -18,7 +18,7 @@ use Eelly\SDK\Store\Service\ManageInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Manage implements ManageInterface
+class Manage
 {
     /**
      * @return self
