@@ -2647,6 +2647,38 @@ class Order
     }
 
     /**
+     * 获取买家在指定店铺下的支付金额
+     *
+     * @param array $buyerIds 买家id
+     * @param int $storeId 店铺id
+     *
+     * @return array
+     *
+     * @author wechan
+     * @since  2019年04月22日
+     */
+    public function getBuyerStorePayAmount(array $buyerIds, int $storeId): array
+    {
+        return EellyClient::request('order/order', 'getBuyerStorePayAmount', true, $buyerIds, $storeId);
+    }
+
+    /**
+     * 获取买家在指定店铺下的支付金额
+     *
+     * @param array $buyerIds 买家id
+     * @param int $storeId 店铺id
+     *
+     * @return array
+     *
+     * @author wechan
+     * @since  2019年04月22日
+     */
+    public function getBuyerStorePayAmountAsync(array $buyerIds, int $storeId)
+    {
+        return EellyClient::request('order/order', 'getBuyerStorePayAmount', false, $buyerIds, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
