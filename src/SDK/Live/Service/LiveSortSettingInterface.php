@@ -24,10 +24,11 @@ interface LiveSortSettingInterface
      * 获取直播积分配置
      * @internal
      *
+     * @param array   $condition
      * @return array
      *
      * @author zhangyangxun
      * @since 2019-04-22
      */
-    public function getSortSetting(): array;
+    public function getSortSetting(array $condition = []): array;
 }

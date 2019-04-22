@@ -25,28 +25,30 @@ class LiveSortSetting implements LiveSortSettingInterface
      * 获取直播积分配置
      * @internal
      *
+     * @param array   $condition
      * @return array
      *
      * @author zhangyangxun
      * @since 2019-04-22
      */
-    public function getSortSetting(): array
+    public function getSortSetting(array $condition = []): array
     {
-        return EellyClient::request('live/liveSortSetting', 'getSortSetting', true);
+        return EellyClient::request('live/liveSortSetting', 'getSortSetting', true, $condition);
     }
 
     /**
      * 获取直播积分配置
      * @internal
      *
+     * @param array   $condition
      * @return array
      *
      * @author zhangyangxun
      * @since 2019-04-22
      */
-    public function getSortSettingAsync()
+    public function getSortSettingAsync(array $condition = [])
     {
-        return EellyClient::request('live/liveSortSetting', 'getSortSetting', false);
+        return EellyClient::request('live/liveSortSetting', 'getSortSetting', false, $condition);
     }
 
     /**
