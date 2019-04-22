@@ -21,14 +21,14 @@ namespace Eelly\SDK\Live\Service;
 interface LiveSortSettingInterface
 {
     /**
-     * 获取直播积分配置
+     * 获取所有积分规则
      * @internal
      *
-     * @param array   $condition
+     * @param array    $condition
      * @return array
      *
      * @author zhangyangxun
-     * @since 2019-04-22
+     * @since 2019-03-27
      */
-    public function getSortSetting(array $condition = []): array;
+    public function getSettings(array $condition = []): array;
 }

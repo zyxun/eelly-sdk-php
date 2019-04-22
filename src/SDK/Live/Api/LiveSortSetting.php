@@ -22,33 +22,33 @@ use Eelly\SDK\Live\Service\LiveSortSettingInterface;
 class LiveSortSetting implements LiveSortSettingInterface
 {
     /**
-     * 获取直播积分配置
+     * 获取所有积分规则
      * @internal
      *
-     * @param array   $condition
+     * @param array    $condition
      * @return array
      *
      * @author zhangyangxun
-     * @since 2019-04-22
+     * @since 2019-03-27
      */
-    public function getSortSetting(array $condition = []): array
+    public function getSettings(array $condition = []): array
     {
-        return EellyClient::request('live/liveSortSetting', 'getSortSetting', true, $condition);
+        return EellyClient::request('live/liveSortSetting', 'getSettings', true, $condition);
     }
 
     /**
-     * 获取直播积分配置
+     * 获取所有积分规则
      * @internal
      *
-     * @param array   $condition
+     * @param array    $condition
      * @return array
      *
      * @author zhangyangxun
-     * @since 2019-04-22
+     * @since 2019-03-27
      */
-    public function getSortSettingAsync(array $condition = [])
+    public function getSettingsAsync(array $condition = [])
     {
-        return EellyClient::request('live/liveSortSetting', 'getSortSetting', false, $condition);
+        return EellyClient::request('live/liveSortSetting', 'getSettings', false, $condition);
     }
 
     /**
