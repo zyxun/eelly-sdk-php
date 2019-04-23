@@ -57,4 +57,17 @@ class StUserTools
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/ServiceTools/StUserTools', __FUNCTION__, true, $userId, $adminName, $tId, $aId, $des, $gsId, $timeNumber, $extensions);
     }
+
+    /**
+     * 获取店铺开通的vip有效信息
+     *
+     * @param array $storeIds 店铺id
+     * @return array
+     * @author wangjiang<wangjiang@eelly.net>
+     * @since 2018年3月29日
+     */
+    public function getStoreVipValidInfo(array $storeIds)
+    {
+        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/ServiceTools/StUserTools', __FUNCTION__, true, $storeIds);
+    }
 }

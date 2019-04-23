@@ -62,4 +62,17 @@ interface TeamInterface
      * @since 2019年04月19日
      */
     public function buyerJoinGroup(int $tid ,UidDTO $uidDTO = null): array;
+
+    /**
+     * 账号拥有的群个数
+     * @internal
+     *
+     * @param int $userId
+     * @param int $type
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function getTeamNumOwnedInternal(int $userId, int $type): int;
 }
