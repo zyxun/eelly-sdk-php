@@ -44,4 +44,35 @@ interface TeamInterface
      * @since 2019年04月18日
      */
     public function getFansGroup(int $stroeId, int $page = 1, int $limit = 20): array;
+    
+        
+    /**
+     * 买家进群事件
+     * 
+     * @param int $tid 群id
+     * @param UidDTO $uidDTO 用户登录信息
+     * 
+     * @returnExample({"result":1})
+     * 
+     * 字段|类型|说明
+     * --------|-------|--------------
+     * result | int | 结果: 1.成功 0.失败
+     * 
+     * @author wechan
+     * @since 2019年04月19日
+     */
+    public function buyerJoinGroup(int $tid ,UidDTO $uidDTO = null): array;
+
+    /**
+     * 账号拥有的群个数
+     * @internal
+     *
+     * @param int $userId
+     * @param int $type
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function getTeamNumOwnedInternal(int $userId, int $type): int;
 }
