@@ -67,6 +67,7 @@ interface LikeInterface
      * @param int   $orderData["orderId"] 订单id
      * @param int   $orderData["userId"]  用户id
      * @param int   $orderData["goodsId"] 商品id
+     * @param \Eelly\DTO\UidDTO $user      登录用户信息
      *
      * @throws \Eelly\SDK\Order\Exception\OrderException
      *
@@ -84,5 +85,5 @@ interface LikeInterface
      *
      * @since 2018.06.28
      */
-    public function addOrderLikeNew(array $data): bool;
+    public function addOrderLikeNew(array $data, UidDTO $user = null): bool;
 }

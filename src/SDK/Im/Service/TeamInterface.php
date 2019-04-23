@@ -25,6 +25,7 @@ interface TeamInterface
      * @param int $stroeId 店铺id
      * @param int $page 分页
      * @param int $limit 每页显示数量, 默认20
+     * @param UidDTO|null $uidDTO  登录用户
      * 
      * @returnExample({"totalMember":0,"teams":[{"tid":"123","logo":"https:\/\/img09.eelly.com","title":"bobo1972-官方直播①群","subTitle":"潜规则","status":0}]})
      * 
@@ -43,7 +44,7 @@ interface TeamInterface
      * @author wechan
      * @since 2019年04月18日
      */
-    public function getFansGroup(int $stroeId, int $page = 1, int $limit = 20): array;
+    public function getFansGroup(int $stroeId, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
     
         
     /**
