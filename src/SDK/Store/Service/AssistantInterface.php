@@ -50,5 +50,15 @@ interface AssistantInterface
      */
     public function listAssistantPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
 
-
+    /**
+     * 获取子账号列表
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-04-15
+     */
+    public function listAssistant(array $condition = [], array $extend = []): array;
 }
