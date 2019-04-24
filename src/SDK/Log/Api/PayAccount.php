@@ -20,7 +20,7 @@ use Eelly\SDK\Log\DTO\PayAccountDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PayAccount implements PayAccountInterface
+class PayAccount
 {
     /**
      * 获取一条支付帐户操作日志.

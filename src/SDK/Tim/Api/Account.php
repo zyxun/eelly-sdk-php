@@ -19,7 +19,7 @@ use Eelly\SDK\Tim\Service\AccountInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Account implements AccountInterface
+class Account
 {
     /**
      * 单个账号接入云信

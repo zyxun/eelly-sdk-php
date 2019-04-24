@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class BuyerRefund implements BuyerRefundInterface
+class BuyerRefund
 {
     /**
      * 未发货申请退款

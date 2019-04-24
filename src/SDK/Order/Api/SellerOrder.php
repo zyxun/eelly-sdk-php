@@ -20,7 +20,7 @@ use Eelly\SDK\Order\Service\SellerOrderInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SellerOrder implements SellerOrderInterface
+class SellerOrder
 {
     /**
      * 我的小程序订单.

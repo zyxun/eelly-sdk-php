@@ -21,7 +21,7 @@ use Eelly\SDK\Message\DTO\ReplyDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Reply implements ReplyInterface
+class Reply
 {
     /**
      * 添加消息回复.

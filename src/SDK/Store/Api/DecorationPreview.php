@@ -18,7 +18,7 @@ use Eelly\SDK\Store\Service\DecorationPreviewInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class DecorationPreview implements DecorationPreviewInterface
+class DecorationPreview
 {
     /**
      * @return self

@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class DynamicList implements MomentsDynamicListInterface
+class DynamicList
 {
     /**
      * 添加一条朋友圈动态记录.

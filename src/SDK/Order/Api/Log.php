@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\LogInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Log implements LogInterface
+class Log
 {
     /**
      * 通过订单id获取订单状态变更日志

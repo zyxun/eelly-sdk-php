@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\EvaluationGoodsCommentInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EvaluationGoodsComment implements EvaluationGoodsCommentInterface
+class EvaluationGoodsComment
 {
     /**
      * 获取店铺的商品评价内容.

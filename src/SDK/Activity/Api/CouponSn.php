@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\CouponSnInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class CouponSn implements CouponSnInterface
+class CouponSn
 {
     /**
      * 根据优惠券信息id获取优惠券编号.

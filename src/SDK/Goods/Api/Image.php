@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Image implements ImageInterface
+class Image
 {
     /**
      * 新增商品图片

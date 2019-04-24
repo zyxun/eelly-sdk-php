@@ -21,7 +21,7 @@ use Eelly\SDK\Message\DTO\SiteDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Site implements SiteInterface
+class Site
 {
     /**
      * 添加站内信消息.

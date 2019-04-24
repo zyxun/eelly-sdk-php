@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\UidDTO;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Operate implements OperateInterface
+class Operate
 {
     /**
      * 添加店铺运营

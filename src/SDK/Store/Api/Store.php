@@ -21,7 +21,7 @@ use Eelly\SDK\Store\Service\StoreInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Store implements StoreInterface
+class Store
 {
     /**
      * 新增店铺

@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\CallbackAdjustDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class CallbackAdjust implements CallbackAdjustInterface
+class CallbackAdjust
 {
     /**
      * 根据清算流水id，返回对应的详细记录

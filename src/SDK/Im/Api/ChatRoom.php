@@ -19,7 +19,7 @@ use Eelly\SDK\Im\Service\ChatRoomInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ChatRoom implements ChatRoomInterface
+class ChatRoom
 {
     /**
      * 获取直播间的基础数据.

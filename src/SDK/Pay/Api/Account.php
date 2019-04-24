@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Account implements AccountInterface
+class Account
 {
     /**
      * 根据帐户主键id获取账户信息.

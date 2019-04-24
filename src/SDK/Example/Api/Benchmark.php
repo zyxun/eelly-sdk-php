@@ -16,7 +16,7 @@ namespace Eelly\SDK\Example\Api;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Example\Service\BenchmarkInterface;
 
-class Benchmark implements BenchmarkInterface
+class Benchmark
 {
     /**
      * Hello world.

@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class GradeChange implements GradeChangeInterface
+class GradeChange
 {
     /**
      * 获取联系人等级.

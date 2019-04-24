@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Keyword implements KeywordInterface
+class Keyword
 {
     /**
      * 获取敏感词.

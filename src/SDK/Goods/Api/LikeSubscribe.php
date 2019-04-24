@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LikeSubscribe implements LikeSubscribeInterface
+class LikeSubscribe
 {
     /**
      * 添加一元商品订阅.

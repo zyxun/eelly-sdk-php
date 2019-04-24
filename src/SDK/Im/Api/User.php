@@ -19,7 +19,7 @@ use Eelly\SDK\Im\Service\UserInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class User implements UserInterface
+class User
 {
     /**
      * @return self

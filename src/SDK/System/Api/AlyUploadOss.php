@@ -19,7 +19,7 @@ use Eelly\SDK\System\Service\AlyUploadOssInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AlyUploadOss implements AlyUploadOssInterface
+class AlyUploadOss
 {
     /**
      * 签名url 

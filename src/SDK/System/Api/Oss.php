@@ -18,7 +18,7 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\System\DTO\StsTokenDTO;
 use Eelly\SDK\System\Service\OssInterface;
 
-class Oss implements OssInterface
+class Oss
 {
     /**
      * {@inheritdoc}

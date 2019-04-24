@@ -19,7 +19,7 @@ use Eelly\SDK\Contact\Service\GradeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Grade implements GradeInterface
+class Grade
 {
     /**
      * 获取等级名称.

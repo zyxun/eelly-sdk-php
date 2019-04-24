@@ -20,7 +20,7 @@ use SDK\Live\DTO\LogDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Log implements LogInterface
+class Log
 {
     /**
      *

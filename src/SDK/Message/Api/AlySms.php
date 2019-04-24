@@ -19,7 +19,7 @@ use Eelly\SDK\Message\Service\AlySmsInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AlySms implements AlySmsInterface
+class AlySms
 {
     /**
      * 校验验证码

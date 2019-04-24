@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\CouponThemeInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class CouponTheme implements CouponThemeInterface
+class CouponTheme
 {
     /**
      * 获取生意圈主题信息.

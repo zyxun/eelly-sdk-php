@@ -21,7 +21,7 @@ use Eelly\SDK\Store\Service\LinkInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Link implements LinkInterface
+class Link
 {
     /**
      * 新增友链.

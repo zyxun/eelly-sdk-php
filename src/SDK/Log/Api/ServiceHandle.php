@@ -20,7 +20,7 @@ use Eelly\DTO\ServiceHandleDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ServiceHandle implements ServiceHandleInterface
+class ServiceHandle
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

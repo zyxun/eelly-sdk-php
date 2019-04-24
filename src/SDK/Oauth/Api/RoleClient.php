@@ -19,7 +19,7 @@ use Eelly\SDK\Oauth\Service\RoleClientInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RoleClient implements RoleClientInterface
+class RoleClient
 {
     /**
      * 批量新增角色客户端.

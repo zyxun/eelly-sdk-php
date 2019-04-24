@@ -19,7 +19,7 @@ use Eelly\SDK\Activity\Service\RuleInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Rule implements RuleInterface
+class Rule
 {
     /**
      * 获取营销活动优惠规则信息.

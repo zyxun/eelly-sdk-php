@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\PacketInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Packet implements PacketInterface
+class Packet
 {
     /**
      * @return self

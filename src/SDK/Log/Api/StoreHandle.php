@@ -20,7 +20,7 @@ use Eelly\DTO\StoreHandleDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class StoreHandle implements StoreHandleInterface
+class StoreHandle
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

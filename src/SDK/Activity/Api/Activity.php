@@ -20,7 +20,7 @@ use Eelly\SDK\Activity\DTO\ActivityDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Activity implements ActivityInterface
+class Activity
 {
     /**
      * 根据活动id获取活动信息.

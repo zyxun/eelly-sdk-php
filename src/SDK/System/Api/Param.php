@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\ParamInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Param implements ParamInterface
+class Param
 {
     /**
      * 根据传过来的主键id，返回对应的参数信息.

@@ -20,7 +20,7 @@ use Eelly\DTO\SummaryDayDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SummaryDay implements SummaryDayInterface
+class SummaryDay
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

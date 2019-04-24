@@ -20,7 +20,7 @@ use SDK\Live\DTO\RobotDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Robot implements RobotInterface
+class Robot
 {
     /**
      *

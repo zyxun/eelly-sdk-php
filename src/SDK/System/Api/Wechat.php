@@ -19,7 +19,7 @@ use Eelly\SDK\System\Service\WechatInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Wechat implements WechatInterface
+class Wechat
 {
     /**
      * 获取单个微信号.

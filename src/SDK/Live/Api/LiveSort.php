@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\LiveSortInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveSort implements LiveSortInterface
+class LiveSort
 {
     /**
      * 更新排序数据

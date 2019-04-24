@@ -19,7 +19,7 @@ use Eelly\SDK\Tim\Service\MsgSenderInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class MsgSender implements MsgSenderInterface
+class MsgSender
 {
     /**
      * 发送单聊消息

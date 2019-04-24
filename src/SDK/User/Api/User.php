@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,16 +13,14 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\UserInterface;
-use Eelly\DTO\UserDTO;
 use Eelly\DTO\UidDTO;
+use Eelly\DTO\UserDTO;
+use Eelly\SDK\EellyClient;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class User implements UserInterface
+class User
 {
     /**
      * 校验手机号码是否存在.
@@ -80,12 +79,14 @@ class User implements UserInterface
     }
 
     /**
-     * 校验邮箱是否存在
+     * 校验邮箱是否存在.
      *
      * @param string $email
+     *
      * @return int
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-22
      */
     public function checkIsExistUserEmail(string $email): int
@@ -94,12 +95,14 @@ class User implements UserInterface
     }
 
     /**
-     * 校验邮箱是否存在
+     * 校验邮箱是否存在.
      *
      * @param string $email
+     *
      * @return int
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-22
      */
     public function checkIsExistUserEmailAsync(string $email)
@@ -1038,15 +1041,17 @@ class User implements UserInterface
     /**
      * 忘记密码
      *
-     * @param string $mobile 手机号码
-     * @param string $password 新密码
+     * @param string $mobile          手机号码
+     * @param string $password        新密码
      * @param string $confirmPassword 确认密码
-     * @return boolean
-     * 
+     *
+     * @return bool
+     *
      * @requestExample({"mobile":"18826237472","password":"testPassword+1","confrimPassword":"testPassword+1"})
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.7.30
      */
     public function forgetPassword(string $mobile, string $password, string $confirmPassword): bool
@@ -1057,15 +1062,17 @@ class User implements UserInterface
     /**
      * 忘记密码
      *
-     * @param string $mobile 手机号码
-     * @param string $password 新密码
+     * @param string $mobile          手机号码
+     * @param string $password        新密码
      * @param string $confirmPassword 确认密码
-     * @return boolean
-     * 
+     *
+     * @return bool
+     *
      * @requestExample({"mobile":"18826237472","password":"testPassword+1","confrimPassword":"testPassword+1"})
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.7.30
      */
     public function forgetPasswordAsync(string $mobile, string $password, string $confirmPassword)
@@ -1074,11 +1081,12 @@ class User implements UserInterface
     }
 
     /**
-     * 根据ip计算用户登录失败的次数
+     * 根据ip计算用户登录失败的次数.
      *
      * @param string $ip ip地址
      *
      * @author wechan
+     *
      * @since 2018年08月01日
      */
     public function setLoginErrorCount(string $ip): bool
@@ -1087,11 +1095,12 @@ class User implements UserInterface
     }
 
     /**
-     * 根据ip计算用户登录失败的次数
+     * 根据ip计算用户登录失败的次数.
      *
      * @param string $ip ip地址
      *
      * @author wechan
+     *
      * @since 2018年08月01日
      */
     public function setLoginErrorCountAsync(string $ip)
@@ -1100,11 +1109,12 @@ class User implements UserInterface
     }
 
     /**
-     * 根据ip计算用户登录失败的次数
+     * 根据ip计算用户登录失败的次数.
      *
      * @param string $ip ip地址
      *
      * @author wechan
+     *
      * @since 2018年08月01日
      */
     public function getLoginErrorCount(string $ip): int
@@ -1113,11 +1123,12 @@ class User implements UserInterface
     }
 
     /**
-     * 根据ip计算用户登录失败的次数
+     * 根据ip计算用户登录失败的次数.
      *
      * @param string $ip ip地址
      *
      * @author wechan
+     *
      * @since 2018年08月01日
      */
     public function getLoginErrorCountAsync(string $ip)
@@ -1126,13 +1137,15 @@ class User implements UserInterface
     }
 
     /**
-     * 获取用户信息，适用多场景
+     * 获取用户信息，适用多场景.
      *
      * @param array       $params
      * @param UidDTO|null $user
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-13
      */
     public function getUserInfo(array $params, UidDTO $user = null): array
@@ -1141,13 +1154,15 @@ class User implements UserInterface
     }
 
     /**
-     * 获取用户信息，适用多场景
+     * 获取用户信息，适用多场景.
      *
      * @param array       $params
      * @param UidDTO|null $user
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-13
      */
     public function getUserInfoAsync(array $params, UidDTO $user = null)
@@ -1156,12 +1171,14 @@ class User implements UserInterface
     }
 
     /**
-     * 商城登录用户信息
+     * 商城登录用户信息.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-17
      */
     public function getMallLoginUser(int $userId): array
@@ -1170,12 +1187,14 @@ class User implements UserInterface
     }
 
     /**
-     * 商城登录用户信息
+     * 商城登录用户信息.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-17
      */
     public function getMallLoginUserAsync(int $userId)
@@ -1184,12 +1203,14 @@ class User implements UserInterface
     }
 
     /**
-     * 商城个人中心资料
+     * 商城个人中心资料.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-17
      */
     public function getMallUcProfile(int $userId): array
@@ -1198,12 +1219,14 @@ class User implements UserInterface
     }
 
     /**
-     * 商城个人中心资料
+     * 商城个人中心资料.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-17
      */
     public function getMallUcProfileAsync(int $userId)
@@ -1212,12 +1235,14 @@ class User implements UserInterface
     }
 
     /**
-     * 获取用户标识信息
+     * 获取用户标识信息.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-18
      */
     public function getUserFlagInfo(int $userId): array
@@ -1226,12 +1251,14 @@ class User implements UserInterface
     }
 
     /**
-     * 获取用户标识信息
+     * 获取用户标识信息.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-18
      */
     public function getUserFlagInfoAsync(int $userId)
@@ -1318,12 +1345,14 @@ class User implements UserInterface
     /**
      * 修改密码
      *
-     * @param int    $userId        用户ID
-     * @param string $oldPassword   旧密码
-     * @param string $newPassword   新密码
+     * @param int    $userId      用户ID
+     * @param string $oldPassword 旧密码
+     * @param string $newPassword 新密码
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-18
      */
     public function updatePassword(int $userId, string $oldPassword, string $newPassword): bool
@@ -1334,12 +1363,14 @@ class User implements UserInterface
     /**
      * 修改密码
      *
-     * @param int    $userId        用户ID
-     * @param string $oldPassword   旧密码
-     * @param string $newPassword   新密码
+     * @param int    $userId      用户ID
+     * @param string $oldPassword 旧密码
+     * @param string $newPassword 新密码
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-18
      */
     public function updatePasswordAsync(int $userId, string $oldPassword, string $newPassword)
@@ -1348,12 +1379,14 @@ class User implements UserInterface
     }
 
     /**
-     * 店+app个人中心主页
+     * 店+app个人中心主页.
      *
      * @param UidDTO|null $user
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-24
      */
     public function buyerAppMyIndex(UidDTO $user = null): array
@@ -1362,12 +1395,14 @@ class User implements UserInterface
     }
 
     /**
-     * 店+app个人中心主页
+     * 店+app个人中心主页.
      *
      * @param UidDTO|null $user
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-24
      */
     public function buyerAppMyIndexAsync(UidDTO $user = null)
@@ -1376,21 +1411,23 @@ class User implements UserInterface
     }
 
     /**
-     * 用户绑定手机所需数据接口
-     * 
+     * 用户绑定手机所需数据接口.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * isSetPayPassword | bool | 是否设置了支付密码
-     * isSetMobile | bool | 时候具有绑定手机 
+     * isSetMobile | bool | 时候具有绑定手机
      * mobile | string | 绑定的手机号码
      * isSetSecurity | bool | 是否设置了密保
      *
-     * @param integer $userId 用户id
+     * @param int $userId 用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.29
      */
     public function userBindPhoneNeedInfo(int $userId, int $storeId = 0): array
@@ -1399,21 +1436,23 @@ class User implements UserInterface
     }
 
     /**
-     * 用户绑定手机所需数据接口
-     * 
+     * 用户绑定手机所需数据接口.
+     *
      * > 返回数据说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * isSetPayPassword | bool | 是否设置了支付密码
-     * isSetMobile | bool | 时候具有绑定手机 
+     * isSetMobile | bool | 时候具有绑定手机
      * mobile | string | 绑定的手机号码
      * isSetSecurity | bool | 是否设置了密保
      *
-     * @param integer $userId 用户id
+     * @param int $userId 用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.29
      */
     public function userBindPhoneNeedInfoAsync(int $userId, int $storeId = 0)
@@ -1422,19 +1461,21 @@ class User implements UserInterface
     }
 
     /**
-     * 检查手机是否已经被绑定
-     * 
+     * 检查手机是否已经被绑定.
+     *
      * > 返回字段说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * isBinding | int | 0 : 未绑定，1:已经绑定
-     * username | string | 绑定账号的用户名 
+     * username | string | 绑定账号的用户名
      *
      * @param string $mobile 手机号码
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.31
      */
     public function checkMobileIsBinding(string $mobile): array
@@ -1443,19 +1484,21 @@ class User implements UserInterface
     }
 
     /**
-     * 检查手机是否已经被绑定
-     * 
+     * 检查手机是否已经被绑定.
+     *
      * > 返回字段说明
-     * 
+     *
      * key | type | value
      * --- | ---- | -----
      * isBinding | int | 0 : 未绑定，1:已经绑定
-     * username | string | 绑定账号的用户名 
+     * username | string | 绑定账号的用户名
      *
      * @param string $mobile 手机号码
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.10.31
      */
     public function checkMobileIsBindingAsync(string $mobile)
@@ -1464,15 +1507,17 @@ class User implements UserInterface
     }
 
     /**
-     * 根据账号获取用户信息
+     * 根据账号获取用户信息.
      *
-     * @param string $accountType   账号类型:username,mobile
-     * @param string $account       账号
+     * @param string $accountType 账号类型:username,mobile
+     * @param string $account     账号
+     *
      * @return array
      *
      * @returnExample({"userId":148086,"mobile":"13612341288","mobileShield":"13*******88"})
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-01
      */
     public function getUserByAccount(string $accountType, string $account): array
@@ -1481,15 +1526,17 @@ class User implements UserInterface
     }
 
     /**
-     * 根据账号获取用户信息
+     * 根据账号获取用户信息.
      *
-     * @param string $accountType   账号类型:username,mobile
-     * @param string $account       账号
+     * @param string $accountType 账号类型:username,mobile
+     * @param string $account     账号
+     *
      * @return array
      *
      * @returnExample({"userId":148086,"mobile":"13612341288","mobileShield":"13*******88"})
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-01
      */
     public function getUserByAccountAsync(string $accountType, string $account)
@@ -1501,9 +1548,11 @@ class User implements UserInterface
      * 用户是否设置密码
      *
      * @param UidDTO|null $user
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-05
      */
     public function hasPassword(UidDTO $user = null): bool
@@ -1515,37 +1564,38 @@ class User implements UserInterface
      * 用户是否设置密码
      *
      * @param UidDTO|null $user
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-05
      */
     public function hasPasswordAsync(UidDTO $user = null)
     {
         return EellyClient::request('user/user', 'hasPassword', false, $user);
     }
-  
+
     /**
-     * 根据用户id，获取用户名 (旧代码接口迁移)
+     * 根据用户id，获取用户名 (旧代码接口迁移).
      *
      * @param array $userIds 用户id
+     *
      * @return array
      *
      * @requestExample({"userIds":[1762630, 1762631]})
      * @returnExample({"1762630":{"user_id":1762630,"user_name":"yl_12342177","nickname":"yl_12342177","wechat_name":""},"1762631":{"user_id":1762631,"user_name":"danfeng1","nickname":"danfeng1","wechat_name":""}})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.11.05
      */
-    public function getUsernameByUid(array $userIds):array
+    public function getUsernameByUid(array $userIds): array
     {
         return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getUsernameByUidAsync(array $userIds):array
+    public function getUsernameByUidAsync(array $userIds): array
     {
         return EellyClient::request('user/user', __FUNCTION__, false, $userIds);
     }
@@ -1554,6 +1604,7 @@ class User implements UserInterface
      * 获取用户信息和扩展信息.
      *
      * @param array $userIds 用户id
+     *
      * @return array
      *
      * @requestExample({"userIds":[1762254, 2108398]})
@@ -1564,78 +1615,78 @@ class User implements UserInterface
      *
      * @since  2018.11.18
      */
-    public function getMemberExtendInfo(array $userIds):array
+    public function getMemberExtendInfo(array $userIds): array
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
+    }
+
+    public function getMemberExtendInfoAsync(array $userIds): array
     {
         return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getMemberExtendInfoAsync(array $userIds):array
-    {
-        return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
-    }
-
-    /**
-     * 根据用户名获取用户id
+     * 根据用户名获取用户id.
      *
      * @param string $userName 用户名
+     *
      * @return int
      *
      * @requestExample({"userName":"molimoq"})
      * @returnExample(148086)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.12.11
      */
-    public function getUserIdByUserName(string $userName):int
+    public function getUserIdByUserName(string $userName): int
     {
         return EellyClient::request('user/user', __FUNCTION__, true, $userName);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getUserIdByUserNameAsync(string $userName):int
+    public function getUserIdByUserNameAsync(string $userName): int
     {
         return EellyClient::request('user/user', __FUNCTION__, false, $userName);
     }
 
     /**
-     * 根据传过来的用户id跟时间，返回新用户的数量 （当天注册的用户）
+     * 根据传过来的用户id跟时间，返回新用户的数量 （当天注册的用户）.
      *
-     * @param array $userIds 用户id
-     * @param int $startTime 开始时间戳
-     * @param int $endTime   结束时间戳
+     * @param array $userIds   用户id
+     * @param int   $startTime 开始时间戳
+     * @param int   $endTime   结束时间戳
+     *
      * @return int
      *
      * @requestExample({"userIds":[148086,2286683],"startTime":1545103818,"endTime":1545127044})
      * @returnExample(1)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2019.01.09
      */
-    public function getNewUserNum(array $userIds, int $startTime, int $endTime):int
+    public function getNewUserNum(array $userIds, int $startTime, int $endTime): int
     {
         return EellyClient::request('user/user', __FUNCTION__, true, $userIds, $startTime, $endTime);
     }
 
     /**
-     * 根据传过来的用户id跟时间，返回新用户的数量 （当天注册的用户）
+     * 根据传过来的用户id跟时间，返回新用户的数量 （当天注册的用户）.
      *
-     * @param array $userIds 用户id
-     * @param int $startTime 开始时间戳
-     * @param int $endTime   结束时间戳
+     * @param array $userIds   用户id
+     * @param int   $startTime 开始时间戳
+     * @param int   $endTime   结束时间戳
+     *
      * @return int
      *
      * @requestExample({"userIds":[148086,2286683],"startTime":1545103818,"endTime":1545127044})
      * @returnExample(1)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2019.01.09
      */
-    public function getNewUserNumAsync(array $userIds, int $startTime, int $endTime):int
+    public function getNewUserNumAsync(array $userIds, int $startTime, int $endTime): int
     {
         return EellyClient::request('user/user', __FUNCTION__, false, $userIds, $startTime, $endTime);
     }

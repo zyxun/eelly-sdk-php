@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\PropertyCategoryValInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PropertyCategoryVal implements PropertyCategoryValInterface
+class PropertyCategoryVal
 {
     /**
      * 新增分类属性值关系

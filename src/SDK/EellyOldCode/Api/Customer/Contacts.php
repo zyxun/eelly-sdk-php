@@ -70,4 +70,16 @@ class Contacts
         return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $userId, $type, $exCondiction, $page);
     }
 
+    /**
+     * 更新用户操作信息.
+     *
+     * @param int   $loginUserId 登录的用户id
+     * @param array $data        操作的数据
+     * @param int   $type        类型：4.店+ 3.厂+
+     *
+     */
+    public function userOperate($loginUserId, $data, $type)
+    {
+         return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $loginUserId, $data, $type);
+    }
 }

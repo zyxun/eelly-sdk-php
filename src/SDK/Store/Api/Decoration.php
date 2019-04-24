@@ -18,7 +18,7 @@ use Eelly\SDK\Store\Service\DecorationInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Decoration implements DecorationInterface
+class Decoration
 {
     /**
      * @return self

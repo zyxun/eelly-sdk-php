@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PropertyValueCustom implements PropertyValueCustomInterface
+class PropertyValueCustom
 {
     /**
      * 新增商品自定义属性值

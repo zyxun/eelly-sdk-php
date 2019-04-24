@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Service implements ServiceInterface
+class Service
 {
     /**
      * 获取一条增值服务.

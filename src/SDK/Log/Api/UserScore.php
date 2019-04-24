@@ -20,7 +20,7 @@ use Eelly\DTO\UserScoreDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class UserScore implements UserScoreInterface
+class UserScore
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

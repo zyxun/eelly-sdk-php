@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,13 +14,11 @@ declare(strict_types=1);
 namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\AuthCallbackInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class AuthCallback implements AuthCallbackInterface
+class AuthCallback
 {
     /**
      * 校验用户实名认证/企业工商认证返回结果表.

@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\PropertyCategoryKeyInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class PropertyCategoryKey implements PropertyCategoryKeyInterface
+class PropertyCategoryKey
 {
     /**
      * 新增分类属性名关系

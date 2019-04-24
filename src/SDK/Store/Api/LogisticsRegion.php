@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\LogisticsRegionInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LogisticsRegion implements LogisticsRegionInterface
+class LogisticsRegion
 {
     /**
      * 新增物流配送区域

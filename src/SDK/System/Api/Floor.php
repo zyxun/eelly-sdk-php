@@ -20,7 +20,7 @@ use Eelly\SDK\System\Service\FloorInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Floor implements FloorInterface
+class Floor
 {
     /**
      * @return self

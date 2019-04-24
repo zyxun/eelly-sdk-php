@@ -16,12 +16,11 @@ namespace Eelly\SDK\User\Api;
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\ExtendDTO;
-use Eelly\SDK\User\Service\ExtendInterface;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Extend implements ExtendInterface
+class Extend
 {
     /**
      * 获取用户的扩展信息.
@@ -458,26 +457,25 @@ class Extend implements ExtendInterface
     }
 
     /**
-     * 根据真实姓名获取用户id
+     * 根据真实姓名获取用户id.
      *
      * @param string $realname 真实姓名
+     *
      * @return int
      *
      * @requestExample({"realname":"molimoq"})
      * @returnExample(148086)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.12.11
      */
-    public function getUserIdByRealname(string $realname):int
+    public function getUserIdByRealname(string $realname): int
     {
         return EellyClient::request('user/extend', __FUNCTION__, true, $realname);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getUserIdByRealnameAsync(string $realname):int
+    public function getUserIdByRealnameAsync(string $realname): int
     {
         return EellyClient::request('user/extend', __FUNCTION__, false, $realname);
     }

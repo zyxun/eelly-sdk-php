@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ActivityOneyuan implements ActivityOneyuanInterface
+class ActivityOneyuan
 {
     /**
      * 添加数据.

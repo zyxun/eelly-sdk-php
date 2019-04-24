@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\LevelInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Level implements LevelInterface
+class Level
 {
     /**
      * 新增二级分类价格档次

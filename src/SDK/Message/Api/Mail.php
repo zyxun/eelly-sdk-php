@@ -19,7 +19,7 @@ use Eelly\SDK\Message\Service\MailInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Mail implements MailInterface
+class Mail
 {
     /**
      * 发送邮件函数.

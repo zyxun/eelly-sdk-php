@@ -19,7 +19,7 @@ use Eelly\SDK\Store\Service\StoreRefactoringInterface;
 /**
  * @author zhangyingdi<zhangyingdi@eelly.net>
  */
-class StoreRefactoring implements StoreRefactoringInterface
+class StoreRefactoring
 {
     /**
      * 获取店铺已经通过的认证类型与服务.

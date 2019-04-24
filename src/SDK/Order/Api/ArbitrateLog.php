@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\ArbitrateLogInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ArbitrateLog implements ArbitrateLogInterface
+class ArbitrateLog
 {
     /**
      * 新增跟进记录

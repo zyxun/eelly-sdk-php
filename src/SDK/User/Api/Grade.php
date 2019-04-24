@@ -15,12 +15,11 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\GradeDTO;
-use Eelly\SDK\User\Service\GradeInterface;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Grade implements GradeInterface
+class Grade
 {
     /**
      * 获取用户等级信息.

@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EntityCustom implements EntityCustomInterface
+class EntityCustom
 {
     /**
      * 获取指定id的单条店铺实体认证自定义商圈市场楼层信息.

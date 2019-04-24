@@ -20,7 +20,7 @@ use Eelly\DTO\UserHandleDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class UserHandle implements UserHandleInterface
+class UserHandle
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

@@ -19,7 +19,7 @@ use Eelly\SDK\System\DTO\UserFileDTO;
 use Eelly\SDK\System\Service\FlysystemInterface;
 use GuzzleHttp\Psr7\UploadedFile;
 
-class Flysystem implements FlysystemInterface
+class Flysystem
 {
     /**
      * {@inheritdoc}

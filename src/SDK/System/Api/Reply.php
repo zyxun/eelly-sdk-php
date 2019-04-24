@@ -20,7 +20,7 @@ use Eelly\SDK\System\Service\ReplyInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Reply implements ReplyInterface
+class Reply
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Contract implements ContractInterface
+class Contract
 {
     /**
      * 获取指定ID的合同版本.

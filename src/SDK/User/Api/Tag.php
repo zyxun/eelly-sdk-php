@@ -16,12 +16,11 @@ namespace Eelly\SDK\User\Api;
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\TagDTO;
-use Eelly\SDK\User\Service\TagInterface;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Tag implements TagInterface
+class Tag
 {
     /**
      * 获取用户标签.

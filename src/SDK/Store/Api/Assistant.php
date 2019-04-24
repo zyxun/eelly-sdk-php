@@ -14,13 +14,13 @@ namespace Eelly\SDK\Store\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\AssistantInterface;
-use SDK\Store\DTO\AssistantDTO;
+use Eelly\SDK\Store\DTO\AssistantDTO;
 
 /**
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Assistant implements AssistantInterface
+class Assistant
 {
     /**
      *
@@ -110,6 +110,36 @@ class Assistant implements AssistantInterface
     public function listAssistantPageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
     {
         return EellyClient::request('store/assistant', 'listAssistantPage', false, $condition, $currentPage, $limit);
+    }
+
+    /**
+     * 获取子账号列表
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-04-15
+     */
+    public function listAssistant(array $condition = [], array $extend = []): array
+    {
+        return EellyClient::request('store/assistant', 'listAssistant', true, $condition, $extend);
+    }
+
+    /**
+     * 获取子账号列表
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-04-15
+     */
+    public function listAssistantAsync(array $condition = [], array $extend = [])
+    {
+        return EellyClient::request('store/assistant', 'listAssistant', false, $condition, $extend);
     }
 
     /**

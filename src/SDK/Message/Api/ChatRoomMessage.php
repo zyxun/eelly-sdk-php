@@ -19,7 +19,7 @@ use Eelly\SDK\Message\Service\ChatRoomMessageInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ChatRoomMessage implements ChatRoomMessageInterface
+class ChatRoomMessage
 {
     /**
      * 通过店铺id发送直播间弹幕和消息.

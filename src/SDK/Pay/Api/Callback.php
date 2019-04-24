@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\CallbackDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Callback implements CallbackInterface
+class Callback
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

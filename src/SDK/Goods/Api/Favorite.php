@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Favorite implements FavoriteInterface
+class Favorite
 {
     /**
      * 新增商品收藏

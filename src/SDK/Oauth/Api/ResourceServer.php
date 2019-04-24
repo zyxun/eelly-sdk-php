@@ -19,7 +19,7 @@ use Eelly\SDK\Oauth\Service\ResourceServerInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ResourceServer implements ResourceServerInterface
+class ResourceServer
 {
     /**
      * 校验认证的令牌.

@@ -19,7 +19,7 @@ use Eelly\SDK\Oauth\Service\ModuleInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Module implements ModuleInterface
+class Module
 {
     /**
      * 返回模块列表.

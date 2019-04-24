@@ -20,7 +20,7 @@ use Eelly\SDK\Live\DTO\LiveDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Live implements LiveInterface
+class Live
 {
     /**
      * 根据传过来的直播信息主键id，返回对应的直播信息.

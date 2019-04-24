@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\StatusInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Status implements StatusInterface
+class Status
 {
     /**
      * 新增订单状态

@@ -15,12 +15,11 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\EntranceDTO;
-use Eelly\SDK\User\Service\EntranceInterface;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Entrance implements EntranceInterface
+class Entrance
 {
     /**
      * 获取用户后台快速入口设置.

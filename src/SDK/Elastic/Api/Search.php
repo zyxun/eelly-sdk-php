@@ -19,7 +19,7 @@ use Eelly\SDK\Elastic\Service\SearchInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Search implements SearchInterface
+class Search
 {
     /**
      * 搜索引擎搜索.

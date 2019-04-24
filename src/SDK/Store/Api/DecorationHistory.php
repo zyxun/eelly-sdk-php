@@ -18,7 +18,7 @@ use Eelly\SDK\Store\Service\DecorationHistoryInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class DecorationHistory implements DecorationHistoryInterface
+class DecorationHistory
 {
     /**
      * @return self

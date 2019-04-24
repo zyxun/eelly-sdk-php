@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\DistrictInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class District implements DistrictInterface
+class District
 {
     /**
      * 根据传过来的商圈id，返回对应的信息.

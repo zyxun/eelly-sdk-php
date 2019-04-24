@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Bank implements BankInterface
+class Bank
 {
     /**
      * 获取一条用户银行信息

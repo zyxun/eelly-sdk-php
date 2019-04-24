@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\MarketInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Market implements MarketInterface
+class Market
 {
     /**
      * 根据市场id,获取对应的市场信息.

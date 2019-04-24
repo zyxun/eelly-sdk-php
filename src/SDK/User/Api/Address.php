@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,16 +13,14 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\AddressInterface;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\UserAddressDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Address implements AddressInterface
+class Address
 {
     /**
      * 根据地址id，获取对应的地址信息.
@@ -394,17 +393,17 @@ class Address implements AddressInterface
     }
 
     /**
-     * 
      * 删除收货地址
-     * 
-     * @param int $addrId 地址id
-     * @param UidDTO $user 用户信息
-     * 
+     *
+     * @param int    $addrId 地址id
+     * @param UidDTO $user   用户信息
+     *
      * @return bool
-     * 
+     *
      * @returnExample(true)
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年09月18日
      */
     public function deleteUserAddress(int $addrId, UidDTO $user = null): bool
@@ -413,17 +412,17 @@ class Address implements AddressInterface
     }
 
     /**
-     * 
      * 删除收货地址
-     * 
-     * @param int $addrId 地址id
-     * @param UidDTO $user 用户信息
-     * 
+     *
+     * @param int    $addrId 地址id
+     * @param UidDTO $user   用户信息
+     *
      * @return bool
-     * 
+     *
      * @returnExample(true)
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年09月18日
      */
     public function deleteUserAddressAsync(int $addrId, UidDTO $user = null)
@@ -432,16 +431,16 @@ class Address implements AddressInterface
     }
 
     /**
-     * 
      * 设置默认收货地址
-     * 
-     * @param int $addrId 地址id
-     * @param UidDTO $user 用户信息
-     * 
+     *
+     * @param int    $addrId 地址id
+     * @param UidDTO $user   用户信息
+     *
      * @return bool
      * @returnExample(true)
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年09月18日
      */
     public function setUserDefaultAddress(int $addrId, UidDTO $user = null): bool
@@ -450,16 +449,16 @@ class Address implements AddressInterface
     }
 
     /**
-     * 
      * 设置默认收货地址
-     * 
-     * @param int $addrId 地址id
-     * @param UidDTO $user 用户信息
-     * 
+     *
+     * @param int    $addrId 地址id
+     * @param UidDTO $user   用户信息
+     *
      * @return bool
      * @returnExample(true)
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年09月18日
      */
     public function setUserDefaultAddressAsync(int $addrId, UidDTO $user = null)
@@ -470,21 +469,22 @@ class Address implements AddressInterface
     /**
      * 添加/编辑收货地址 (编辑的时候传addrId).
      *
-     * @param array $data 添加的数据
-     * @param int $data['addrId'] 收货地址id
-     * @param string $data['userName'] 收货人名字
-     * @param string  $data['detailInfo'] 收货详细地址
-     * @param string  $data['telNumber'] 收货人手机号码
-     * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
-     * @param string  $data['postalCode'] 邮政编码
-     * @param int $data['regionId'] 地区id
-     * @param UidDTO $user 用户信息
-     * 
+     * @param array  $data               添加的数据
+     * @param int    $data['addrId']     收货地址id
+     * @param string $data['userName']   收货人名字
+     * @param string $data['detailInfo'] 收货详细地址
+     * @param string $data['telNumber']  收货人手机号码
+     * @param string $data['default']    是否默认收货地址 (1.是 0.否)
+     * @param string $data['postalCode'] 邮政编码
+     * @param int    $data['regionId']   地区id
+     * @param UidDTO $user               用户信息
+     *
      * @return bool
-     * 
+     *
      * @returnExample({"addrId":"392285","regionId":1111})
      *
      * @author wechan
+     *
      * @since 2018年09月18日
      */
     public function saveUserAddress(array $data, UidDTO $user = null): array
@@ -495,21 +495,22 @@ class Address implements AddressInterface
     /**
      * 添加/编辑收货地址 (编辑的时候传addrId).
      *
-     * @param array $data 添加的数据
-     * @param int $data['addrId'] 收货地址id
-     * @param string $data['userName'] 收货人名字
-     * @param string  $data['detailInfo'] 收货详细地址
-     * @param string  $data['telNumber'] 收货人手机号码
-     * @param string  $data['default'] 是否默认收货地址 (1.是 0.否)
-     * @param string  $data['postalCode'] 邮政编码
-     * @param int $data['regionId'] 地区id
-     * @param UidDTO $user 用户信息
-     * 
+     * @param array  $data               添加的数据
+     * @param int    $data['addrId']     收货地址id
+     * @param string $data['userName']   收货人名字
+     * @param string $data['detailInfo'] 收货详细地址
+     * @param string $data['telNumber']  收货人手机号码
+     * @param string $data['default']    是否默认收货地址 (1.是 0.否)
+     * @param string $data['postalCode'] 邮政编码
+     * @param int    $data['regionId']   地区id
+     * @param UidDTO $user               用户信息
+     *
      * @return bool
-     * 
+     *
      * @returnExample({"addrId":"392285","regionId":1111})
      *
      * @author wechan
+     *
      * @since 2018年09月18日
      */
     public function saveUserAddressAsync(array $data, UidDTO $user = null)
@@ -518,10 +519,10 @@ class Address implements AddressInterface
     }
 
     /**
-     * 获取用户收货地址列表
-     * 
+     * 获取用户收货地址列表.
+     *
      * @param UidDTO $user 用户信息
-     * 
+     *
      * ### 返回结果
      * 字段名 | 类型 |描述
      * ---|---|---
@@ -533,12 +534,13 @@ class Address implements AddressInterface
      * addressName | string  | 收货人详细地址(不包含地区)
      * default | int | 是否默认
      * regionId | int | 地区id
-     * 
+     *
      * @return array
      * @returnExample([{"addrId":"50873","userName":"fsdfds","telNumber":"13546731245","detailInfo":"北京市 市辖区 丰台区 上海市 市辖区 徐汇区 Ehdhdjd.","regionName":"北京市 市辖区 丰台区","addressName":"上海市 市辖区 徐汇区 Ehdhdjd.","default":"1","regionId":"110106"}])
      *
      * @author wechan
-     * @since 2018年09月18日  
+     *
+     * @since 2018年09月18日
      */
     public function getUserAddressList(UidDTO $user = null): array
     {
@@ -546,10 +548,10 @@ class Address implements AddressInterface
     }
 
     /**
-     * 获取用户收货地址列表
-     * 
+     * 获取用户收货地址列表.
+     *
      * @param UidDTO $user 用户信息
-     * 
+     *
      * ### 返回结果
      * 字段名 | 类型 |描述
      * ---|---|---
@@ -561,12 +563,13 @@ class Address implements AddressInterface
      * addressName | string  | 收货人详细地址(不包含地区)
      * default | int | 是否默认
      * regionId | int | 地区id
-     * 
+     *
      * @return array
      * @returnExample([{"addrId":"50873","userName":"fsdfds","telNumber":"13546731245","detailInfo":"北京市 市辖区 丰台区 上海市 市辖区 徐汇区 Ehdhdjd.","regionName":"北京市 市辖区 丰台区","addressName":"上海市 市辖区 徐汇区 Ehdhdjd.","default":"1","regionId":"110106"}])
      *
      * @author wechan
-     * @since 2018年09月18日  
+     *
+     * @since 2018年09月18日
      */
     public function getUserAddressListAsync(UidDTO $user = null)
     {

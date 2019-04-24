@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\WeightItemInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class WeightItem implements WeightItemInterface
+class WeightItem
 {
     /**
      * 新增权重项

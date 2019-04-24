@@ -20,7 +20,7 @@ use Eelly\DTO\SummaryDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Summary implements SummaryInterface
+class Summary
 {
     /**
      * @author eellytools<localhost.shell@gmail.com>

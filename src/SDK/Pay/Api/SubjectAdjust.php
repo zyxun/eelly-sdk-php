@@ -20,7 +20,7 @@ use Eelly\SDK\Pay\DTO\SubjectAdjustDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class SubjectAdjust implements SubjectAdjustInterface
+class SubjectAdjust
 {
     /**
      * 根据结算日期跟科目代码，获取会计科目日核算记录

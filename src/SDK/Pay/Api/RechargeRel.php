@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\RechargeRelInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RechargeRel implements RechargeRelInterface
+class RechargeRel
 {
     /**
      * 新增充值与业务关系信息

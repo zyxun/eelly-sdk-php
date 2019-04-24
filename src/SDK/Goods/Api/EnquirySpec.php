@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\EnquirySpecInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EnquirySpec implements EnquirySpecInterface
+class EnquirySpec
 {
     /**
      * @return self

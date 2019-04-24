@@ -15,45 +15,29 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\DTO\UserDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\OauthUserInterface;
 
-class OauthUser implements OauthUserInterface
+class OauthUser
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getUserByPassword(string $username, string $password): UserDTO
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $username, $password);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUserByUid(int $uid): UserDTO
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $uid);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUserByQQAccessToken(string $accessToken): UserDTO
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $accessToken);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUserByWechatCode(string $clientId, string $code): UserDTO
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $clientId, $code);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUserByWechatJscode(
         string $clientId,
         string $code,
@@ -65,9 +49,6 @@ class OauthUser implements OauthUserInterface
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $clientId, $code, $encryptedData, $iv, $rawData, $signature);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUserByMobileCode(string $mobile, string $code): UserDTO
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $mobile, $code);

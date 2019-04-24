@@ -21,7 +21,7 @@ use Eelly\SDK\System\Service\FeedbackInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Feedback implements FeedbackInterface
+class Feedback
 {
     /**
      * 根据反馈id获取反馈记录.

@@ -25,6 +25,7 @@ interface TeamInterface
      * @param int $stroeId 店铺id
      * @param int $page 分页
      * @param int $limit 每页显示数量, 默认20
+     * @param UidDTO|null $uidDTO  登录用户
      * 
      * @returnExample({"totalMember":0,"teams":[{"tid":"123","logo":"https:\/\/img09.eelly.com","title":"bobo1972-官方直播①群","subTitle":"潜规则","status":0}]})
      * 
@@ -43,5 +44,36 @@ interface TeamInterface
      * @author wechan
      * @since 2019年04月18日
      */
-    public function getFansGroup(int $stroeId, int $page = 1, int $limit = 20): array;
+    public function getFansGroup(int $stroeId, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+    
+        
+    /**
+     * 买家进群事件
+     * 
+     * @param int $tid 群id
+     * @param UidDTO $uidDTO 用户登录信息
+     * 
+     * @returnExample({"result":1})
+     * 
+     * 字段|类型|说明
+     * --------|-------|--------------
+     * result | int | 结果: 1.成功 0.失败
+     * 
+     * @author wechan
+     * @since 2019年04月19日
+     */
+    public function buyerJoinGroup(int $tid ,UidDTO $uidDTO = null): array;
+
+    /**
+     * 账号拥有的群个数
+     * @internal
+     *
+     * @param int $userId
+     * @param int $type
+     * @return int
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function getTeamNumOwnedInternal(int $userId, int $type): int;
 }

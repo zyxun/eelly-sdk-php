@@ -20,7 +20,7 @@ use SDK\Live\DTO\VisitorDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Visitor implements VisitorInterface
+class Visitor
 {
     /**
      *

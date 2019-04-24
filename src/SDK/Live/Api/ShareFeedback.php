@@ -19,7 +19,7 @@ use Eelly\SDK\Live\Service\ShareFeedbackInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class ShareFeedback implements ShareFeedbackInterface
+class ShareFeedback
 {
     /**
      * @return self

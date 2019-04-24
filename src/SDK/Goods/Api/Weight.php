@@ -19,7 +19,7 @@ use Eelly\SDK\Goods\Service\WeightInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Weight implements WeightInterface
+class Weight
 {
     /**
      * @return self

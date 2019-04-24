@@ -19,7 +19,7 @@ use Eelly\SDK\Order\Service\MemoInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Memo implements MemoInterface
+class Memo
 {
 
     /**

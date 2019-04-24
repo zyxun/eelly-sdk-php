@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Seller implements SellerInterface
+class Seller
 {
     /**
      * 获取一条店铺卖家认证记录.

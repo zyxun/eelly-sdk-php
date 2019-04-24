@@ -19,7 +19,7 @@ use Eelly\SDK\Pay\Service\VoucherSubjectInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class VoucherSubject implements VoucherSubjectInterface
+class VoucherSubject
 {
     /**
      * 获取一条凭证科目信息

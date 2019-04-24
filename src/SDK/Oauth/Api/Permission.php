@@ -20,7 +20,7 @@ use Eelly\SDK\Oauth\Service\PermissionInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Permission implements PermissionInterface
+class Permission
 {
     /**
      * 获得权限接口分页列表.

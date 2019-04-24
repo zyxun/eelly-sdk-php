@@ -365,4 +365,18 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
     }
+    
+    /**
+     * 根据storeId查询店铺是否存在.
+     *
+     * @param int  $storeId
+     * @param bool $bool
+     *
+     * @return bool
+     *
+     */
+    public function isExistById($storeId, $bool = false)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $bool);
+    }
 }

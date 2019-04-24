@@ -20,7 +20,7 @@ use Eelly\SDK\Store\Service\LogisticsModeInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LogisticsMode implements LogisticsModeInterface
+class LogisticsMode
 {
     /**
      * 新增物流配送方式

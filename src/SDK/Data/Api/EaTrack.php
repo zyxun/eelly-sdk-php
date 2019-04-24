@@ -19,7 +19,7 @@ use Eelly\SDK\Data\Service\EaTrackInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EaTrack implements EaTrackInterface
+class EaTrack
 {
     /**
      * 记录用户收藏信息.

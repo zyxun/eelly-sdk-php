@@ -20,7 +20,7 @@ use Eelly\SDK\Oauth\Service\ClientInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Client implements ClientInterface
+class Client
 {
     /**
      * 添加客户端.

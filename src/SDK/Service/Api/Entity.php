@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Entity implements EntityInterface
+class Entity
 {
     /**
      * 获取一条店铺实体认证记录.

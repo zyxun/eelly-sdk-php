@@ -19,7 +19,7 @@ use Eelly\SDK\Tim\Service\RobotInterface;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Robot implements RobotInterface
+class Robot
 {
     /**
      * 添加机器人 此接口为批量添加机器人，谨慎使用

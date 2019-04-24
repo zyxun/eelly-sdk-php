@@ -19,7 +19,7 @@ use Eelly\SDK\Oauth\Service\RolePermissionInterface;
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class RolePermission implements RolePermissionInterface
+class RolePermission
 {
     /**
      * 批量新增角色权限.

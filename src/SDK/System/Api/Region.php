@@ -21,7 +21,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Region implements RegionInterface
+class Region
 {
     /**
      * 根据传过来的主键id，返回对应的网格化区域信息.
