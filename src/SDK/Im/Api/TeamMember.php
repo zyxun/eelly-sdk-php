@@ -17,7 +17,7 @@ use Eelly\SDK\EellyClient;
 
 class TeamMember
 {
-    public function kickMembers(int $uid, int $storeId, array $users, bool $black = false): bool
+    public static function kickMembers(int $uid, int $storeId, array $users, bool $black = false): bool
     {
         return EellyClient::requestJson('im/teamMember', __FUNCTION__, [
             'uid'     => $uid,
