@@ -15,7 +15,6 @@ namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\ScoreDTO;
-use Eelly\SDK\User\Service\ScoreInterface;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>

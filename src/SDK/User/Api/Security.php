@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\SecurityInterface;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\SecurityDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Security
@@ -164,12 +163,14 @@ class Security
     }
 
     /**
-     * 获取用户密保问题
+     * 获取用户密保问题.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-20
      */
     public function getUserSecurity(int $userId): array
@@ -178,12 +179,14 @@ class Security
     }
 
     /**
-     * 获取用户密保问题
+     * 获取用户密保问题.
      *
      * @param int $userId
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-20
      */
     public function getUserSecurityAsync(int $userId)
@@ -192,14 +195,16 @@ class Security
     }
 
     /**
-     * 验证用户密保问题答案
+     * 验证用户密保问题答案.
      *
-     * @param int $userId
-     * @param int $questionId
+     * @param int    $userId
+     * @param int    $questionId
      * @param string $answer
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-20
      */
     public function checkUserAnswer(int $userId, int $questionId, string $answer): bool
@@ -208,14 +213,16 @@ class Security
     }
 
     /**
-     * 验证用户密保问题答案
+     * 验证用户密保问题答案.
      *
-     * @param int $userId
-     * @param int $questionId
+     * @param int    $userId
+     * @param int    $questionId
      * @param string $answer
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-20
      */
     public function checkUserAnswerAsync(int $userId, int $questionId, string $answer)

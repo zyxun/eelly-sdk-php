@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,13 +13,11 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\User\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\AuthInterface;
 use Eelly\DTO\UidDTO;
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\User\DTO\AuthDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Auth
@@ -266,6 +265,7 @@ class Auth
      * @return bool
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/12
      */
     public function updateAuth(array $data, UidDTO $user = null): bool
@@ -296,6 +296,7 @@ class Auth
      * @return bool
      *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
+     *
      * @since  2017/9/12
      */
     public function updateAuthAsync(array $data, UidDTO $user = null)
@@ -306,13 +307,15 @@ class Auth
     /**
      * 检查用户是否实名认证
      *
-     * @param integer $userId 用户id
-     * @return boolean
-     * 
+     * @param int $userId 用户id
+     *
+     * @return bool
+     *
      * @requestExample({"userId":148086})
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.29
      */
     public function checkAuthUser(int $userId): bool
@@ -323,13 +326,15 @@ class Auth
     /**
      * 检查用户是否实名认证
      *
-     * @param integer $userId 用户id
-     * @return boolean
-     * 
+     * @param int $userId 用户id
+     *
+     * @return bool
+     *
      * @requestExample({"userId":148086})
      * @returnExample(true)
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.29
      */
     public function checkAuthUserAsync(int $userId)
@@ -340,14 +345,16 @@ class Auth
     /**
      * 获取用户/店铺认证信息.
      *
-     * @param array       $condition            条件数组
-     * @param int         $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string      $condition['name']    真实姓名/企业名称,
-     * @param string      $condition['license'] 身份证号码/营业执照号
-     * @param integer     $userId               登录用户id
+     * @param array  $condition            条件数组
+     * @param int    $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string $condition['name']    真实姓名/企业名称,
+     * @param string $condition['license'] 身份证号码/营业执照号
+     * @param int    $userId               登录用户id
+     *
      * @return array
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.29
      */
     public function getAuthNotDTO(array $condition = [], int $userId): array
@@ -358,14 +365,16 @@ class Auth
     /**
      * 获取用户/店铺认证信息.
      *
-     * @param array       $condition            条件数组
-     * @param int         $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
-     * @param string      $condition['name']    真实姓名/企业名称,
-     * @param string      $condition['license'] 身份证号码/营业执照号
-     * @param integer     $userId               登录用户id
+     * @param array  $condition            条件数组
+     * @param int    $condition['type']    认证类型：0 个人实名认证 1 企业实名认证,
+     * @param string $condition['name']    真实姓名/企业名称,
+     * @param string $condition['license'] 身份证号码/营业执照号
+     * @param int    $userId               登录用户id
+     *
      * @return array
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.8.29
      */
     public function getAuthNotDTOAsync(array $condition = [], int $userId)
@@ -374,19 +383,19 @@ class Auth
     }
 
     /**
-     * 获取实名认证类型
-     * 
+     * 获取实名认证类型.
+     *
      * > 返回数据类型说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * type | int | 认证类型 -1:没有认证 0:个人认证 1:企业认证
      * status | int | 认证状态
      *
      * > status 状态说明
-     * 
+     *
      * value | desc
-     * --- | -----  
+     * --- | -----
      * 0 | 个人认证未审核
      * 1 | 个人认证审核通过
      * 2 | 个人认证审核中
@@ -397,11 +406,13 @@ class Auth
      * 7 | 企业认证金额验证多次错误
      * 8 | 企业认证审核通过
      * 9 | 企业认证审核未通过
-     * 
+     *
      * @param UidDTO $user 当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.10
      */
     public function getAuthType(UidDTO $user = null): array
@@ -410,19 +421,19 @@ class Auth
     }
 
     /**
-     * 获取实名认证类型
-     * 
+     * 获取实名认证类型.
+     *
      * > 返回数据类型说明
-     * 
+     *
      * key | type | value
      * --- | ---- | ----
      * type | int | 认证类型 -1:没有认证 0:个人认证 1:企业认证
      * status | int | 认证状态
      *
      * > status 状态说明
-     * 
+     *
      * value | desc
-     * --- | -----  
+     * --- | -----
      * 0 | 个人认证未审核
      * 1 | 个人认证审核通过
      * 2 | 个人认证审核中
@@ -433,11 +444,13 @@ class Auth
      * 7 | 企业认证金额验证多次错误
      * 8 | 企业认证审核通过
      * 9 | 企业认证审核未通过
-     * 
+     *
      * @param UidDTO $user 当前登陆的用户
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.10
      */
     public function getAuthTypeAsync(UidDTO $user = null): array
@@ -446,8 +459,8 @@ class Auth
     }
 
     /**
-     * 获取实名认证 企业和个人 eelly_old_code
-     * 
+     * 获取实名认证 企业和个人 eelly_old_code.
+     *
      * > 返回数据说明 个人
      * key | type | value
      * --- | ---- | -----
@@ -465,7 +478,7 @@ class Auth
      * bank_dic  | int | 开户银行
      * bank_region_id | int | 开户银行所在地
      * bank_account | string | 银行账号
-     * 
+     *
      * > 返回数据 企业
      * key | type | value
      * --- | ---- | -----
@@ -476,13 +489,15 @@ class Auth
      * add_time         | int    | 申请时间
      * ent_account      | string | 银行账号
      *
-     * @param integer $userId 用户id
-     * @param integer $type 类型 -1:系统调用返回信息(推荐),0:获取个人认证信息，1:企业认证信息
+     * @param int $userId 用户id
+     * @param int $type   类型 -1:系统调用返回信息(推荐),0:获取个人认证信息，1:企业认证信息
+     *
      * @return array
      * @requestExample({"userId":"148086","type":"-1"})
      * @returnExample({"user_id":"148086","add_time":"1467150996","audite_fail":"无法核对身份","verfity_time":"1467150996","audit_name":"955330","real_name":"莫琼","id_card":"741258963214","is_extended":"1","cart_validity":"0","cart_pic":"http://img.eelly.com/G01/M00/00/75/o4YBAFRqpISIJVtWAAWTTU6zwW0AAAttAEa9J0ABZNl726.jpg","cart_reversed_pic":"http://img.eelly.com/G01/M00/00/75/o4YBAFRqpISIJVtWAAWTTU6zwW0AAAttAEa9J0ABZNl726.jpg","bank_dic":"41","bank_region_id":"120184","bank_account":"78451236987456987"})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.10
      */
     public function getAuthBoth(int $userId, int $type = -1): array
@@ -491,8 +506,8 @@ class Auth
     }
 
     /**
-     * 获取实名认证 企业和个人 eelly_old_code
-     * 
+     * 获取实名认证 企业和个人 eelly_old_code.
+     *
      * > 返回数据说明 个人
      * key | type | value
      * --- | ---- | -----
@@ -510,7 +525,7 @@ class Auth
      * bank_dic  | int | 开户银行
      * bank_region_id | int | 开户银行所在地
      * bank_account | string | 银行账号
-     * 
+     *
      * > 返回数据 企业
      * key | type | value
      * --- | ---- | -----
@@ -521,13 +536,15 @@ class Auth
      * add_time         | int    | 申请时间
      * ent_account      | string | 银行账号
      *
-     * @param integer $userId 用户id
-     * @param integer $type 类型 -1:系统调用返回信息(推荐),0:获取个人认证信息，1:企业认证信息
+     * @param int $userId 用户id
+     * @param int $type   类型 -1:系统调用返回信息(推荐),0:获取个人认证信息，1:企业认证信息
+     *
      * @return array
      * @requestExample({"userId":"148086","type":"-1"})
      * @returnExample({"user_id":"148086","add_time":"1467150996","audite_fail":"无法核对身份","verfity_time":"1467150996","audit_name":"955330","real_name":"莫琼","id_card":"741258963214","is_extended":"1","cart_validity":"0","cart_pic":"http://img.eelly.com/G01/M00/00/75/o4YBAFRqpISIJVtWAAWTTU6zwW0AAAttAEa9J0ABZNl726.jpg","cart_reversed_pic":"http://img.eelly.com/G01/M00/00/75/o4YBAFRqpISIJVtWAAWTTU6zwW0AAAttAEa9J0ABZNl726.jpg","bank_dic":"41","bank_region_id":"120184","bank_account":"78451236987456987"})
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.9.10
      */
     public function getAuthBothAsync(int $userId, int $type = -1)

@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\UserInfoInterface;
 
 /**
  * Class UserInfo.
@@ -80,12 +79,14 @@ class UserInfo
     }
 
     /**
-     * 获取申请提现的用户的信息
+     * 获取申请提现的用户的信息.
      *
      * @param array $userIds
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-21
      */
     public function getWithdrawUserInfo(array $userIds): array
@@ -94,12 +95,14 @@ class UserInfo
     }
 
     /**
-     * 获取申请提现的用户的信息
+     * 获取申请提现的用户的信息.
      *
      * @param array $userIds
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-21
      */
     public function getWithdrawUserInfoAsync(array $userIds)
@@ -108,13 +111,15 @@ class UserInfo
     }
 
     /**
-     * 根据条件批量获取用户信息
+     * 根据条件批量获取用户信息.
      *
      * @param array  $condition
      * @param string $fieldScope
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-04
      *
      * @internal
@@ -125,13 +130,15 @@ class UserInfo
     }
 
     /**
-     * 根据条件批量获取用户信息
+     * 根据条件批量获取用户信息.
      *
      * @param array  $condition
      * @param string $fieldScope
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-04
      *
      * @internal
@@ -142,15 +149,17 @@ class UserInfo
     }
 
     /**
-     * 分页获取会员列表
+     * 分页获取会员列表.
      *
      * @param array  $condition
      * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-05
      *
      * @internal
@@ -161,15 +170,17 @@ class UserInfo
     }
 
     /**
-     * 分页获取会员列表
+     * 分页获取会员列表.
      *
      * @param array  $condition
      * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-05
      *
      * @internal
