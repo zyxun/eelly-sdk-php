@@ -110,12 +110,13 @@ class Like
     }
 
     /**
-     * 新增订单点赞记录 (新版--自定义商品点赞数控制)
+     * 新增订单点赞记录 (新版--自定义商品点赞数控制).
      *
-     * @param array           $data                  订单点赞记录数据
-     * @param int             $orderData["orderId"]  订单id
-     * @param int             $orderData["userId"]   用户id
-     * @param int             $orderData["goodsId"]  商品id
+     * @param array $data                 订单点赞记录数据
+     * @param int   $orderData["orderId"] 订单id
+     * @param int   $orderData["userId"]  用户id
+     * @param int   $orderData["goodsId"] 商品id
+     * @param \Eelly\DTO\UidDTO $user      登录用户信息
      *
      * @throws \Eelly\SDK\Order\Exception\OrderException
      *
@@ -130,20 +131,22 @@ class Like
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.06.28
      */
-    public function addOrderLikeNew(array $data): bool
+    public function addOrderLikeNew(array $data, UidDTO $user = null): bool
     {
-        return EellyClient::request('order/like', __FUNCTION__, true, $data);
+        return EellyClient::request('order/like', 'addOrderLikeNew', true, $data, $user);
     }
 
     /**
-     * 新增订单点赞记录 (新版--自定义商品点赞数控制)
+     * 新增订单点赞记录 (新版--自定义商品点赞数控制).
      *
-     * @param array           $data                  订单点赞记录数据
-     * @param int             $orderData["orderId"]  订单id
-     * @param int             $orderData["userId"]   用户id
-     * @param int             $orderData["goodsId"]  商品id
+     * @param array $data                 订单点赞记录数据
+     * @param int   $orderData["orderId"] 订单id
+     * @param int   $orderData["userId"]  用户id
+     * @param int   $orderData["goodsId"] 商品id
+     * @param \Eelly\DTO\UidDTO $user      登录用户信息
      *
      * @throws \Eelly\SDK\Order\Exception\OrderException
      *
@@ -158,11 +161,12 @@ class Like
      * @returnExample(true)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.06.28
      */
-    public function addOrderLikeNewAsync(array $data): bool
+    public function addOrderLikeNewAsync(array $data, UidDTO $user = null)
     {
-        return EellyClient::request('order/like', __FUNCTION__, false, $data);
+        return EellyClient::request('order/like', 'addOrderLikeNew', false, $data, $user);
     }
 
     /**
