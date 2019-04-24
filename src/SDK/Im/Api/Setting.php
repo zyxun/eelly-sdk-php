@@ -48,6 +48,34 @@ class Setting implements SettingInterface
     }
 
     /**
+     * 保存群配置
+     * 
+     * @param array $data 配置请求参数
+     * 
+     * @author wechan
+     * @since 2019年04月23日
+     * @internal
+     */
+    public function saveSetting(array $data): bool
+    {
+        return EellyClient::request('im/setting', 'saveSetting', true, $data);
+    }
+
+    /**
+     * 保存群配置
+     * 
+     * @param array $data 配置请求参数
+     * 
+     * @author wechan
+     * @since 2019年04月23日
+     * @internal
+     */
+    public function saveSettingAsync(array $data)
+    {
+        return EellyClient::request('im/setting', 'saveSetting', false, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
