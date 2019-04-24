@@ -28,4 +28,15 @@ interface SettingInterface
      * @since 2019年04月23日
      */
     public function getSettingData():array;
+    
+    /**
+     * 保存群配置
+     * 
+     * @param array $data 配置请求参数
+     * 
+     * @author wechan
+     * @since 2019年04月23日
+     * @internal
+     */
+    public function saveSetting(array $data):bool;
 }
