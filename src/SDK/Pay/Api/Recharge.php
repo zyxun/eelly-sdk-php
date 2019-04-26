@@ -477,7 +477,11 @@ class Recharge
      */
     public function getToAccountByItemIds(array $itemIds, int $type): array
     {
-        return EellyClient::request('pay/recharge', 'getToAccountByItemIds', true, $itemIds, $type);
+        return EellyClient::requestJson('pay/recharge', __FUNCTION__, [
+            'itemIds' => $itemIds,
+            'type' => $type,
+        ]);
+        //return EellyClient::request('pay/recharge', 'getToAccountByItemIds', true, $itemIds, $type);
     }
 
     /**
