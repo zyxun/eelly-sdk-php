@@ -2519,7 +2519,11 @@ class Order
      */
     public function getOrderFieldByOrderIds(array $orderIds, string $str = 'order_id, order_sn'): array
     {
-        return EellyClient::request('order/order', 'getOrderFieldByOrderIds', true, $orderIds, $str);
+        return EellyClient::requestJson('order/order', __FUNCTION__, [
+            'orderIds' => $orderIds,
+            'str' => $str
+        ]);
+        //return EellyClient::request('order/order', 'getOrderFieldByOrderIds', true, $orderIds, $str);
     }
 
     /**
