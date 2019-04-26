@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Im\Service;
 
-use Eelly\DTO\UidDTO;
-
 /**
  * Interface TeamStatsInterface.
  *
@@ -23,14 +21,26 @@ use Eelly\DTO\UidDTO;
 interface TeamStatsInterface
 {
     /**
-     * 更新群组统计数据
+     * 订单支付后更新群统计
+     * @internal
      *
      * @param array $data
-     * @param array $extend
      * @return bool
      *
      * @author zhangyangxun
-     * @since 2019-04-19
+     * @since 2019-04-22
      */
-    public function updateStats(array $data, array $extend = []): bool ;
+    public function afterPayOrderSuccess(array $data): bool;
+
+    /**
+     * 订单完成后更新群统计
+     * @internal
+     *
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function afterFinishedOrderSuccess(array $data): bool;
 }
