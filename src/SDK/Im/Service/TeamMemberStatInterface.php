@@ -13,28 +13,18 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Im\Service;
 
+
 /**
- * Interface TeamStatsInterface.
+ * Interface TeamMemberStatInterface.
  *
  * @author zhangyangxun
  */
-interface TeamStatsInterface
+interface TeamMemberStatInterface
 {
     /**
-     * 订单支付后更新群统计
+     * 初始化群成员订单数据
      * @internal
-     *
-     * @param array $data
-     * @return bool
-     *
-     * @author zhangyangxun
-     * @since 2019-04-22
-     */
-    public function afterPayOrderSuccess(array $data): bool;
-
-    /**
-     * 订单完成后更新群统计
-     * @internal
+     * @Async(route=initMemberStat)
      *
      * @param array $data
      * @return bool
@@ -42,5 +32,5 @@ interface TeamStatsInterface
      * @author zhangyangxun
      * @since 2019-04-23
      */
-    public function afterFinishedOrderSuccess(array $data): bool;
+    public function initMemberStat(array $data): bool;
 }
