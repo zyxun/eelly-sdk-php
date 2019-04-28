@@ -32,4 +32,17 @@ interface OrderStatInterface
      * @since 2019-04-22
      */
     public function getSellerOrderStatDay(array $sellerIds, int $day, array $status = [], string $mode): array;
+
+    /**
+     * 统计多个买家在一个店铺的订单总数(付款、完成.etc).
+     * @internal
+     *
+     * @param array $buyerIds
+     * @param int $sellerId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function countBuyersOrder(array $buyerIds, int $sellerId): array;
 }

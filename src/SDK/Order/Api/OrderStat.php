@@ -58,6 +58,38 @@ class OrderStat implements OrderStatInterface
     }
 
     /**
+     * 统计多个买家在一个店铺的订单总数(付款、完成.etc).
+     * @internal
+     *
+     * @param array $buyerIds
+     * @param int $sellerId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function countBuyersOrder(array $buyerIds, int $sellerId): array
+    {
+        return EellyClient::request('order/orderStat', 'countBuyersOrder', true, $buyerIds, $sellerId);
+    }
+
+    /**
+     * 统计多个买家在一个店铺的订单总数(付款、完成.etc).
+     * @internal
+     *
+     * @param array $buyerIds
+     * @param int $sellerId
+     * @return array
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function countBuyersOrderAsync(array $buyerIds, int $sellerId)
+    {
+        return EellyClient::request('order/orderStat', 'countBuyersOrder', false, $buyerIds, $sellerId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
