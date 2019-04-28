@@ -804,4 +804,23 @@ interface LiveInterface
      * @since 2019.4.1
      */
     public function getMyFollowLive(int $userId):array;
+
+    /**
+     * 店+直播中心公用的函数.
+     *
+     * @param array  $condition 查询条件
+     * @param int    $condition ["type"] 1:正在直播，2:直播预告, 3 包括直播和预报
+     * @param int    $page      第几页
+     * @param int    $limit     每页条数
+     * @param string $platform  平台类型 APP WAP PC APPLET
+     * @param string $order     排序
+     * @param string $field     字段
+     *
+     * @return array
+     *
+     * @author  肖俊明<xiaojunming@eelly.net>
+     *
+     * @since   2018年01月24日
+     */
+    public function getBuyerLiveList(array $condition, int $page = 1, int $limit = 10, string $platform = 'APP', string $order = 'progress', string $field = 'getInfo'): array ;
 }

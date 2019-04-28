@@ -20,7 +20,7 @@ use Eelly\SDK\Live\DTO\LiveDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Live
+class Live implements LiveInterface
 {
     /**
      * 根据传过来的直播信息主键id，返回对应的直播信息.
@@ -1605,7 +1605,7 @@ class Live
     {
         return EellyClient::request('live/live', 'checkUseCacheLiveRoomInfo', false, $liveId);
     }
-    
+
     /**
      * 根据传过来的直播id，返回对应的积分组成细节
      *
@@ -1824,6 +1824,50 @@ class Live
     public function getMyFollowLiveAsync(int $userId)
     {
         return EellyClient::request('live/live', 'getMyFollowLive', false, $userId);
+    }
+
+    /**
+     * 店+直播中心公用的函数.
+     *
+     * @param array  $condition 查询条件
+     * @param int    $condition ["type"] 1:正在直播，2:直播预告, 3 包括直播和预报
+     * @param int    $page      第几页
+     * @param int    $limit     每页条数
+     * @param string $platform  平台类型 APP WAP PC APPLET
+     * @param string $order     排序
+     * @param string $field     字段
+     *
+     * @return array
+     *
+     * @author  肖俊明<xiaojunming@eelly.net>
+     *
+     * @since   2018年01月24日
+     */
+    public function getBuyerLiveList(array $condition, int $page = 1, int $limit = 10, string $platform = 'APP', string $order = 'progress', string $field = 'getInfo'): array
+    {
+        return EellyClient::request('live/live', 'getBuyerLiveList', true, $condition, $page, $limit, $platform, $order, $field);
+    }
+
+    /**
+     * 店+直播中心公用的函数.
+     *
+     * @param array  $condition 查询条件
+     * @param int    $condition ["type"] 1:正在直播，2:直播预告, 3 包括直播和预报
+     * @param int    $page      第几页
+     * @param int    $limit     每页条数
+     * @param string $platform  平台类型 APP WAP PC APPLET
+     * @param string $order     排序
+     * @param string $field     字段
+     *
+     * @return array
+     *
+     * @author  肖俊明<xiaojunming@eelly.net>
+     *
+     * @since   2018年01月24日
+     */
+    public function getBuyerLiveListAsync(array $condition, int $page = 1, int $limit = 10, string $platform = 'APP', string $order = 'progress', string $field = 'getInfo')
+    {
+        return EellyClient::request('live/live', 'getBuyerLiveList', false, $condition, $page, $limit, $platform, $order, $field);
     }
 
     /**
