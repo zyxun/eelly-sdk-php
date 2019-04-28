@@ -34,7 +34,7 @@ interface TeamInterface
      * teams[]['subTitle'] | string | 进群条件
      * teams[]['status'] | int | 状态: 0:未进群 1:已进群 2:人满
      * 
-     * @param int $stroeId 店铺id
+     * @param int $storeId 店铺id
      * @param int $page 分页
      * @param int $limit 每页显示数量, 默认20
      * @param UidDTO|null $uidDTO  登录用户
@@ -44,7 +44,7 @@ interface TeamInterface
      * @author wechan
      * @since 2019年04月18日
      */
-    public function getFansGroup(int $stroeId, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+    public function getFansGroup(int $storeId, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
     
         
     /**
