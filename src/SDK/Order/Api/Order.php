@@ -2143,7 +2143,12 @@ class Order
      */
     public function getOrderConditionInfo(string $conditions = '', array $bind = [], array $extend = []): array
     {
-        return EellyClient::request('order/order', 'getOrderConditionInfo', true, $conditions, $bind, $extend);
+        return EellyClient::requestJson('order/order', __FUNCTION__, [
+            'conditions' => $conditions,
+            'bind' => $bind,
+            'extend' => $extend
+        ]);
+        //return EellyClient::request('order/order', 'getOrderConditionInfo', true, $conditions, $bind, $extend);
     }
 
     /**
@@ -2519,7 +2524,11 @@ class Order
      */
     public function getOrderFieldByOrderIds(array $orderIds, string $str = 'order_id, order_sn'): array
     {
-        return EellyClient::request('order/order', 'getOrderFieldByOrderIds', true, $orderIds, $str);
+        return EellyClient::requestJson('order/order', __FUNCTION__, [
+            'orderIds' => $orderIds,
+            'str' => $str
+        ]);
+        //return EellyClient::request('order/order', 'getOrderFieldByOrderIds', true, $orderIds, $str);
     }
 
     /**
