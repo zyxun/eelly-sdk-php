@@ -22,14 +22,7 @@ interface TeamInterface
     /**
      * 获取主播粉丝群列表信息
      * 
-     * @param int $stroeId 店铺id
-     * @param int $page 分页
-     * @param int $limit 每页显示数量, 默认20
-     * @param UidDTO|null $uidDTO  登录用户
-     * 
-     * @returnExample({"totalMember":0,"teams":[{"tid":"123","logo":"https:\/\/img09.eelly.com","title":"bobo1972-官方直播①群","subTitle":"潜规则","status":0}]})
-     * 
-     * ### 返回数据说明
+     * ###返回数据说明
      *
      * 字段|类型|说明
      * --------|-------|--------------
@@ -41,10 +34,17 @@ interface TeamInterface
      * teams[]['subTitle'] | string | 进群条件
      * teams[]['status'] | int | 状态: 0:未进群 1:已进群 2:人满
      * 
+     * @param int $storeId 店铺id
+     * @param int $page 分页
+     * @param int $limit 每页显示数量, 默认20
+     * @param UidDTO|null $uidDTO  登录用户
+     * 
+     * @returnExample({"totalMember":0,"teams":[{"tid":"123","logo":"https:\/\/img09.eelly.com","title":"bobo1972-官方直播①群","subTitle":"潜规则","status":0}]})
+     * 
      * @author wechan
      * @since 2019年04月18日
      */
-    public function getFansGroup(int $stroeId, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
+    public function getFansGroup(int $storeId, int $page = 1, int $limit = 20, UidDTO $uidDTO = null): array;
     
         
     /**

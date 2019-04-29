@@ -20,7 +20,7 @@ use Eelly\SDK\Live\DTO\LiveDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Live
+class Live implements LiveInterface
 {
     /**
      * 根据传过来的直播信息主键id，返回对应的直播信息.
@@ -1605,7 +1605,7 @@ class Live
     {
         return EellyClient::request('live/live', 'checkUseCacheLiveRoomInfo', false, $liveId);
     }
-    
+
     /**
      * 根据传过来的直播id，返回对应的积分组成细节
      *
