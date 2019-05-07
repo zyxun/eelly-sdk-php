@@ -159,6 +159,7 @@ class Team implements TeamInterface
      *
      * @param int $tid 群id
      * @param int $userId 用户id
+     * @param int $itmId IM群成员ID
      * 
      * @returnExample({"result":1})
      * 
@@ -169,9 +170,9 @@ class Team implements TeamInterface
      * @author wechan
      * @since 2019年05月06日
      */
-    public function afterBuyerJoin(int $tid, int $userId): array
+    public function afterBuyerJoin(int $tid, int $userId, int $itmId): array
     {
-        return EellyClient::request('im/team', 'afterBuyerJoin', true, $tid, $userId);
+        return EellyClient::request('im/team', 'afterBuyerJoin', true, $tid, $userId, $itmId);
     }
 
     /**
@@ -179,6 +180,7 @@ class Team implements TeamInterface
      *
      * @param int $tid 群id
      * @param int $userId 用户id
+     * @param int $itmId IM群成员ID
      * 
      * @returnExample({"result":1})
      * 
@@ -189,9 +191,9 @@ class Team implements TeamInterface
      * @author wechan
      * @since 2019年05月06日
      */
-    public function afterBuyerJoinAsync(int $tid, int $userId)
+    public function afterBuyerJoinAsync(int $tid, int $userId, int $itmId)
     {
-        return EellyClient::request('im/team', 'afterBuyerJoin', false, $tid, $userId);
+        return EellyClient::request('im/team', 'afterBuyerJoin', false, $tid, $userId, $itmId);
     }
 
     /**
