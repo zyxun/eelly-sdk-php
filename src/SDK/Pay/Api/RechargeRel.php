@@ -95,7 +95,10 @@ class RechargeRel
      */
     public function getRelByChargeIds(array $precIds): array
     {
-        return EellyClient::request('pay/rechargeRel', 'getRelByChargeIds', true, $precIds);
+        return EellyClient::requestJson('pay/rechargeRel', __FUNCTION__, [
+            'precIds' => $precIds,
+        ]);
+        //return EellyClient::request('pay/rechargeRel', 'getRelByChargeIds', true, $precIds);
     }
 
     /**

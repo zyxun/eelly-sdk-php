@@ -26,4 +26,12 @@ class TeamMember
             'black'   => $black,
         ]);
     }
+
+    public static function getTeamNumNoLogin(int $userId, array $extend = []): array
+    {
+        return EellyClient::requestJson('im/teamMember', __FUNCTION__, [
+            'userId' => $userId,
+            'extend' => $extend
+        ]);
+    }
 }
