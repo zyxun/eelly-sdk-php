@@ -36,4 +36,12 @@ class UserContacts
             'toType'   => $toType,
         ]);
     }
+
+    public static function generateContacts(int $uid, int $type): bool
+    {
+        return EellyClient::requestJson('eellyOldCode/userContacts', __FUNCTION__, [
+            'uid'  => $uid,
+            'type' => $type,
+        ]);
+    }
 }
