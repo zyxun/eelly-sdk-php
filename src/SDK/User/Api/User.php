@@ -1617,7 +1617,10 @@ class User
      */
     public function getMemberExtendInfo(array $userIds): array
     {
-        return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
+        return EellyClient::requestJson('user/user', __FUNCTION__, [
+            'userIds' => $userIds
+        ]);
+        //return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
     }
 
     public function getMemberExtendInfoAsync(array $userIds): array

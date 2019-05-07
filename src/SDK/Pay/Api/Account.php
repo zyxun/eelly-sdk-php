@@ -817,7 +817,10 @@ class Account
      */
     public function getUserInfoByPaIds(array $paIds):array
     {
-        return EellyClient::request('pay/account', __FUNCTION__, true, $paIds);
+        return EellyClient::requestJson('pay/account', __FUNCTION__, [
+            'paIds' => $paIds
+        ]);
+        //return EellyClient::request('pay/account', __FUNCTION__, true, $paIds);
     }
 
     /**

@@ -76,4 +76,23 @@ interface TeamInterface
      * @since 2019-04-23
      */
     public function getTeamNumOwnedInternal(int $userId, int $type): int;
+    
+    
+    /**
+     * 买家进群事件
+     *
+     * @param int $tid 群id
+     * @param int $userId 用户id
+     * @param int $itmId IM群成员ID
+     * 
+     * @returnExample({"result":1})
+     * 
+     * 字段|类型|说明
+     * --------|-------|--------------
+     * result | int | 结果: 1.成功 0.失败
+     *
+     * @author wechan
+     * @since 2019年05月06日
+     */
+    public function afterBuyerJoin(int $tid , int $userId, int $itmId): array;
 }
