@@ -131,4 +131,17 @@ interface LiveShareInterface
      * @since 2019.3.28
      */
     public function getShareNewUser(int $liveId):int;
+
+    /**
+     * 获取用户在店铺的拉新时间
+     *
+     * @internal
+     *
+     * @param int $userId
+     * @param int $storeId
+     * @return int
+     * @author zhangyangxun
+     * @since 2019/5/8
+     */
+    public function getShareNewUserTime(int $userId, int $storeId): int;
 }
