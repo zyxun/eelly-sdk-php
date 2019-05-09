@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class LiveShare
+class LiveShare implements LiveShareInterface
 {
     /**
      * 直播间分享.
@@ -270,6 +270,38 @@ class LiveShare
     public function getShareNewUserAsync(int $liveId)
     {
         return EellyClient::request('live/liveShare', 'getShareNewUser', false, $liveId);
+    }
+
+    /**
+     * 获取用户在店铺的拉新时间
+     *
+     * @internal
+     *
+     * @param int $userId
+     * @param int $storeId
+     * @return int
+     * @author zhangyangxun
+     * @since 2019/5/8
+     */
+    public function getShareNewUserTime(int $userId, int $storeId): int
+    {
+        return EellyClient::request('live/liveShare', 'getShareNewUserTime', true, $userId, $storeId);
+    }
+
+    /**
+     * 获取用户在店铺的拉新时间
+     *
+     * @internal
+     *
+     * @param int $userId
+     * @param int $storeId
+     * @return int
+     * @author zhangyangxun
+     * @since 2019/5/8
+     */
+    public function getShareNewUserTimeAsync(int $userId, int $storeId)
+    {
+        return EellyClient::request('live/liveShare', 'getShareNewUserTime', false, $userId, $storeId);
     }
 
     /**
