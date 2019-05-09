@@ -25,4 +25,13 @@ class UserContacts
             'users'    => $users,
         ]);
     }
+
+    public function unBlackInternal(int $fromUid, int $fromType, array $users): bool
+    {
+        return EellyClient::requestJson('user/userContacts', __FUNCTION__, [
+            'fromUid'  => $fromUid,
+            'fromType' => $fromType,
+            'users'    => $users,
+        ]);
+    }
 }
