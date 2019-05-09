@@ -90,6 +90,38 @@ class OrderStat implements OrderStatInterface
     }
 
     /**
+     * 获取n天内某店铺的订单统计，按买家分组
+     *
+     * @param int   $day
+     * @param int   $sellerId
+     * @param array $buyerIds
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/9
+     */
+    public function statSellerOrderDayBefore(int $day, int $sellerId, array $buyerIds, array $extend = []): array
+    {
+        return EellyClient::request('order/orderStat', 'statSellerOrderDayBefore', true, $day, $sellerId, $buyerIds, $extend);
+    }
+
+    /**
+     * 获取n天内某店铺的订单统计，按买家分组
+     *
+     * @param int   $day
+     * @param int   $sellerId
+     * @param array $buyerIds
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/9
+     */
+    public function statSellerOrderDayBeforeAsync(int $day, int $sellerId, array $buyerIds, array $extend = [])
+    {
+        return EellyClient::request('order/orderStat', 'statSellerOrderDayBefore', false, $day, $sellerId, $buyerIds, $extend);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
