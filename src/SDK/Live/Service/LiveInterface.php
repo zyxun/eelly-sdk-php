@@ -804,4 +804,14 @@ interface LiveInterface
      * @since 2019.4.1
      */
     public function getMyFollowLive(int $userId):array;
+    
+    /**
+     * 根据店铺id返回直播数
+     * 
+     * @param int $storeId 店铺id
+     * 
+     * @author wechan
+     * @since 2019年05月09日
+     */
+    public function getStoreLiveCount(int $storeId):int;
 }
