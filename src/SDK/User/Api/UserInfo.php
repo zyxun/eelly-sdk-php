@@ -190,6 +190,14 @@ class UserInfo
         return EellyClient::request('user/userInfo', 'getUserListPage', false, $condition, $fieldScope, $page, $limit);
     }
 
+    public static function getUids(int $uid = 1, int $limit = 1000): array
+    {
+        return EellyClient::requestJson('user/userInfo', __FUNCTION__, [
+            'uid' => $uid,
+            'limit' => $limit,
+        ]);
+    }
+
     /**
      * @return self
      */
