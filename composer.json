@@ -21,6 +21,7 @@
 			"dev-master": "1.0-dev"
 		}
 	},
+	"bin":["codecept"],
 	"config": {
 		"sort-packages": true
 	}
