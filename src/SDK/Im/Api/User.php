@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -12,11 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Im\Api;
 
-use Eelly\SDK\EellyClient;
-use Eelly\SDK\Im\Service\UserInterface;
-
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class User

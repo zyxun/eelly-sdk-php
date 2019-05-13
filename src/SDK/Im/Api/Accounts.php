@@ -86,6 +86,11 @@ class Accounts
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'name' => $name, 'icon' => $icon, 'created' => $created]);
     }
 
+    public static function updateTimUser(int $uid, int $type, array $data): array
+    {
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'data' => $data]);
+    }
+
     /**
      * @return self
      */

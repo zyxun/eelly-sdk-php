@@ -31,7 +31,7 @@ class TeamMember
     {
         return EellyClient::requestJson('im/teamMember', __FUNCTION__, [
             'userId' => $userId,
-            'extend' => $extend
+            'extend' => $extend,
         ]);
     }
 }

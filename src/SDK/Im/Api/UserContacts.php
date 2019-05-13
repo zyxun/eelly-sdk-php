@@ -23,9 +23,10 @@ use Eelly\SDK\EellyClient;
 class UserContacts
 {
     /**
-     * @param int $uid
-     * @param int $type
+     * @param int   $uid
+     * @param int   $type
      * @param array $users
+     *
      * @return array
      */
     public function getListNoLogin(int $uid, int $type, array $users): array
