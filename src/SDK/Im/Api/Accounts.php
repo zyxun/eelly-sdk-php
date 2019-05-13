@@ -15,37 +15,24 @@ namespace Eelly\SDK\Im\Api;
 
 use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Im\Service\AccountsInterface;
 
 class Accounts
 {
-    /**
-     *{@inheritdoc}
-     */
     public function getOne(int $uid, int $type, UidDTO $uidDTO = null): array
     {
         return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getOneNoLogin(int $uid, int $type): array
     {
         return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getList(array $users, UidDTO $uidDTO = null): array
     {
         return EellyClient::request('im/accounts', __FUNCTION__, true, $users);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getListNoLogin(array $users): array
     {
         return EellyClient::request('im/accounts', __FUNCTION__, true, $users);
@@ -84,14 +71,19 @@ class Accounts
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function sendLogoutNotificationAsync(int $uid)
+    public function sendLogoutNotificationAsync(int $uid): void
     {
         EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
     }
 
     public static function refreshUserInfo(int $uid, int $type, array $data = []): bool
     {
-        return EellyClient::requestJson('im/accounts', __FUNCTION__,  ['uid' => $uid, 'type' => $type, 'data' => $data]);
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'data' => $data]);
+    }
+
+    public static function updateNimUinfo(int $uid, int $type, string $username, string $avatar, bool $created = false): array
+    {
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'username' => $username, 'avatar' => $avatar, 'created' => $created]);
     }
 
     /**
