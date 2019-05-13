@@ -34,13 +34,14 @@ class UserContacts
         return EellyClient::request('im/userContacts', __FUNCTION__, true, $uid, $type, $users);
     }
 
-    public static function addBlack(int $fromUid, int $fromType, int $toUid, int $toType) : bool
+    public static function updateAttrs(int $fromUid, int $fromType, int $toUid, int $toType, array $values) : bool
     {
         return EellyClient::requestJson('im/userContacts', __FUNCTION__, [
             'fromUid'  => $fromUid,
             'fromType' => $fromType,
             'toUid'    => $toUid,
             'toType'   => $toType,
+            'values'  => $values,
         ]);
     }
 }
