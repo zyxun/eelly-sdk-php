@@ -61,12 +61,15 @@ class TeamMemberStat implements TeamMemberStatInterface
 
     /**
      * 订单支付后更新群统计
+     *
      * @internal
      *
      * @param array $data
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2019-04-22
      */
     public function afterPayOrderSuccess(array $data): bool
@@ -76,12 +79,15 @@ class TeamMemberStat implements TeamMemberStatInterface
 
     /**
      * 订单支付后更新群统计
+     *
      * @internal
      *
      * @param array $data
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2019-04-22
      */
     public function afterPayOrderSuccessAsync(array $data)
@@ -91,12 +97,15 @@ class TeamMemberStat implements TeamMemberStatInterface
 
     /**
      * 订单完成后更新群统计
+     *
      * @internal
      *
      * @param array $data
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2019-04-23
      */
     public function afterFinishedOrderSuccess(array $data): bool
@@ -106,12 +115,15 @@ class TeamMemberStat implements TeamMemberStatInterface
 
     /**
      * 订单完成后更新群统计
+     *
      * @internal
      *
      * @param array $data
+     *
      * @return bool
      *
      * @author zhangyangxun
+     *
      * @since 2019-04-23
      */
     public function afterFinishedOrderSuccessAsync(array $data)
