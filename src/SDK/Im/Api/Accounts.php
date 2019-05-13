@@ -81,9 +81,9 @@ class Accounts
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'data' => $data]);
     }
 
-    public static function updateNimUinfo(int $uid, int $type, string $username, string $avatar, bool $created = false): array
+    public static function updateNimUinfo(int $uid, int $type, string $name, string $icon, bool $created = false): array
     {
-        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'username' => $username, 'avatar' => $avatar, 'created' => $created]);
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'name' => $name, 'icon' => $icon, 'created' => $created]);
     }
 
     /**
