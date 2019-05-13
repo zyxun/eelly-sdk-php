@@ -91,6 +91,11 @@ class Accounts
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'data' => $data, 'created' => $created]);
     }
 
+    public static function updateNeteaseStore(int $uid, array $data, bool $created = false): bool
+    {
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'data' => $data, 'created' => $created]);
+    }
+
     public static function checkNeteaseUser(int $uid): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid]);
