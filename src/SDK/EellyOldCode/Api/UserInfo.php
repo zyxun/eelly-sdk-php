@@ -27,6 +27,11 @@ class UserInfo
         return EellyClient::request('eellyOldCode/userInfo', __FUNCTION__, true, $uid);
     }
 
+    public static function checkImCreditValue(int $uid, array $data): bool
+    {
+        return EellyClient::requestJson('eellyOldCode/userInfo', __FUNCTION__, ['uid' => $uid, 'data' => $data]);
+    }
+
     public static function getDefaultAddress(int $uid): array
     {
         return EellyClient::request('eellyOldCode/userInfo', __FUNCTION__, true, $uid);
