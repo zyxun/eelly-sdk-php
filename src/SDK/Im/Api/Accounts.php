@@ -81,14 +81,24 @@ class Accounts
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'data' => $data]);
     }
 
-    public static function updateNimUinfo(int $uid, int $type, string $name, string $icon, bool $created = false): array
+    public static function updateNimUinfo(int $uid, int $type, string $name, string $icon, bool $created = false): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'name' => $name, 'icon' => $icon, 'created' => $created]);
     }
 
-    public static function updateNeteaseUser(int $uid, array $data,  bool $created = false): array
+    public static function updateNeteaseUser(int $uid, array $data, bool $created = false): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'data' => $data, 'created' => $created]);
+    }
+
+    public static function checkNeteaseUser(int $uid): bool
+    {
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid]);
+    }
+
+    public static function checkNeteaseStore(int $storeId): bool
+    {
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['storeId' => $storeId]);
     }
 
     /**
