@@ -198,6 +198,12 @@ class UserInfo
         ]);
     }
 
+    public static function checkImUserInfo(int $uid, array $data) : bool
+    {
+        return EellyClient::requestJson('user/userInfo', __FUNCTION__, ['uid' => $uid, 'data' => $data]);
+    }
+
+
     /**
      * @return self
      */
