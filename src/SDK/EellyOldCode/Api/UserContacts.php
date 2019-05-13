@@ -37,6 +37,16 @@ class UserContacts
         ]);
     }
 
+    public static function isBlack(int $fromUid, int $fromType, int $toUid, int $toType): bool
+    {
+        return EellyClient::requestJson('eellyOldCode/userContacts', __FUNCTION__, [
+            'fromUid'  => $fromUid,
+            'fromType' => $fromType,
+            'toUid'    => $toUid,
+            'toType'   => $toType,
+        ]);
+    }
+
     public static function generateContacts(int $uid, int $type): bool
     {
         return EellyClient::requestJson('eellyOldCode/userContacts', __FUNCTION__, [
