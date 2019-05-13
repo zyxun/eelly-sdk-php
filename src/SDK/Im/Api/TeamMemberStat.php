@@ -60,6 +60,66 @@ class TeamMemberStat implements TeamMemberStatInterface
     }
 
     /**
+     * 订单支付后更新群统计
+     * @internal
+     *
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-22
+     */
+    public function afterPayOrderSuccess(array $data): bool
+    {
+        return EellyClient::request('im/teamMemberStat', 'afterPayOrderSuccess', true, $data);
+    }
+
+    /**
+     * 订单支付后更新群统计
+     * @internal
+     *
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-22
+     */
+    public function afterPayOrderSuccessAsync(array $data)
+    {
+        return EellyClient::request('im/teamMemberStat', 'afterPayOrderSuccess', false, $data);
+    }
+
+    /**
+     * 订单完成后更新群统计
+     * @internal
+     *
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function afterFinishedOrderSuccess(array $data): bool
+    {
+        return EellyClient::request('im/teamMemberStat', 'afterFinishedOrderSuccess', true, $data);
+    }
+
+    /**
+     * 订单完成后更新群统计
+     * @internal
+     *
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyangxun
+     * @since 2019-04-23
+     */
+    public function afterFinishedOrderSuccessAsync(array $data)
+    {
+        return EellyClient::request('im/teamMemberStat', 'afterFinishedOrderSuccess', false, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
