@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 declare(strict_types=1);
@@ -11,13 +12,5 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Im\Service;
-
-/**
- * Interface TeamStatsInterface.
- *
- * @author zhangyangxun
- */
-interface TeamStatsInterface
-{
-}
+require __DIR__.'/../../../../vendor/autoload.php';
+\Eelly\Console\EellySdk::run();

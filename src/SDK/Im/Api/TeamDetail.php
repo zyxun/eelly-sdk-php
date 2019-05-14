@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,21 +17,21 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Im\Service\TeamDetailInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class TeamDetail implements TeamDetailInterface
 {
     /**
-     * 更新群会话设置
+     * 更新群会话设置.
      *
      * @internal
      *
      * @param string $tid
      * @param int    $userId
      * @param int    $userType
-     * @param int    $attr      1.置顶 2.免打扰
+     * @param int    $attr     1.置顶 2.免打扰
      * @param int    $value
+     *
      * @return bool
      *
      * @author zhangyangxun
@@ -41,15 +42,16 @@ class TeamDetail implements TeamDetailInterface
     }
 
     /**
-     * 更新群会话设置
+     * 更新群会话设置.
      *
      * @internal
      *
      * @param string $tid
      * @param int    $userId
      * @param int    $userType
-     * @param int    $attr      1.置顶 2.免打扰
+     * @param int    $attr     1.置顶 2.免打扰
      * @param int    $value
+     *
      * @return bool
      *
      * @author zhangyangxun

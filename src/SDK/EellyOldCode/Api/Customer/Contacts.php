@@ -76,10 +76,11 @@ class Contacts
      * @param int   $loginUserId 登录的用户id
      * @param array $data        操作的数据
      * @param int   $type        类型：4.店+ 3.厂+
+     * @param int   $isQueue     是否走队列
      *
      */
-    public function userOperate($loginUserId, $data, $type)
+    public function userOperate($loginUserId, $data, $type, $isQueue = 1)
     {
-         return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $loginUserId, $data, $type);
+         return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $loginUserId, $data, $type, $isQueue);
     }
 }

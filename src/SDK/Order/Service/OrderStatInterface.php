@@ -45,4 +45,17 @@ interface OrderStatInterface
      * @since 2019-04-23
      */
     public function countBuyersOrder(array $buyerIds, int $sellerId): array;
+
+    /**
+     * 获取n天内某店铺的订单统计，按买家分组
+     *
+     * @param int   $day
+     * @param int   $sellerId
+     * @param array $buyerIds
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/9
+     */
+    public function statSellerOrderDayBefore(int $day, int $sellerId, array $buyerIds, array $extend = []): array;
 }

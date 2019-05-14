@@ -37,6 +37,11 @@ class Store
         return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
     }
 
+    public static function checkImStoreInfo(int $storeId, array $data) : bool
+    {
+        return EellyClient::requestJson('eellyOldCode/store', __FUNCTION__, ['storeId' => $storeId, 'data' => $data]);
+    }
+
     /**
      * 店铺分页列表
      *

@@ -15,9 +15,10 @@ if (!class_exists('Eelly\Psr4Autoloader')) {
     require __DIR__.'/src/Psr4Autoloader.php';
     $loader = new \Eelly\Psr4Autoloader();
     $namespaceMap = [
-        'Eelly\DTO'       => __DIR__.'/src/DTO',
-        'Eelly\Exception' => __DIR__.'/src/Exception',
-        'Eelly\SDK'       => __DIR__.'/src/SDK',
+        'Eelly\Console'       => __DIR__.'/src/Console',
+        'Eelly\DTO'           => __DIR__.'/src/DTO',
+        'Eelly\Exception'     => __DIR__.'/src/Exception',
+        'Eelly\SDK'           => __DIR__.'/src/SDK',
     ];
     foreach ($namespaceMap as $key => $value) {
         $loader->addNamespace($key, $value);

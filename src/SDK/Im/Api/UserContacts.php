@@ -23,13 +23,25 @@ use Eelly\SDK\EellyClient;
 class UserContacts
 {
     /**
-     * @param int $uid
-     * @param int $type
+     * @param int   $uid
+     * @param int   $type
      * @param array $users
+     *
      * @return array
      */
     public function getListNoLogin(int $uid, int $type, array $users): array
     {
         return EellyClient::request('im/userContacts', __FUNCTION__, true, $uid, $type, $users);
+    }
+
+    public static function updateAttrs(int $fromUid, int $fromType, int $toUid, int $toType, array $values) : bool
+    {
+        return EellyClient::requestJson('im/userContacts', __FUNCTION__, [
+            'fromUid'  => $fromUid,
+            'fromType' => $fromType,
+            'toUid'    => $toUid,
+            'toType'   => $toType,
+            'values'  => $values,
+        ]);
     }
 }
