@@ -22,7 +22,7 @@ class TeamNotice
         return EellyClient::requestJson('im/teamNotice', __FUNCTION__, ['storeId' => $storeId]);
     }
     
-    public static function sendOpenLive(int $storeId): array
+    public static function sendOpenLive(int $storeId): bool
     {
         return EellyClient::requestJson('im/teamNotice', __FUNCTION__, ['storeId' => $storeId]);
     }
