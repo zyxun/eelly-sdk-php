@@ -69,4 +69,13 @@ interface OrderStatInterface
      * @since 2019/5/15
      */
     public function statSellerOrderDayUntil(int $day, int $sellerId, array $buyerIds, array $extend = []): array;
+
+    /**
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statOrderForPayScore(array $condition, array $extend = []): array;
 }

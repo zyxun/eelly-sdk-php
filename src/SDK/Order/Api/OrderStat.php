@@ -150,6 +150,30 @@ class OrderStat implements OrderStatInterface
     }
 
     /**
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statOrderForPayScore(array $condition, array $extend = []): array
+    {
+        return EellyClient::request('order/orderStat', 'statOrderForPayScore', true, $condition, $extend);
+    }
+
+    /**
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statOrderForPayScoreAsync(array $condition, array $extend = [])
+    {
+        return EellyClient::request('order/orderStat', 'statOrderForPayScore', false, $condition, $extend);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
