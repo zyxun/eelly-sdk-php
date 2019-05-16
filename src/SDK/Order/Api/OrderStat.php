@@ -146,6 +146,62 @@ class OrderStat implements OrderStatInterface
     }
 
     /**
+     * 统计一个店铺多个买家的支付订单(支付了就算)
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statPayedOrder(array $condition, array $extend = []): array
+    {
+        return EellyClient::request('order/orderStat', 'statPayedOrder', true, $condition, $extend);
+    }
+
+    /**
+     * 统计一个店铺多个买家的支付订单(支付了就算)
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statPayedOrderAsync(array $condition, array $extend = [])
+    {
+        return EellyClient::request('order/orderStat', 'statPayedOrder', false, $condition, $extend);
+    }
+
+    /**
+     * 统计一个店铺多个买家的完成订单
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statFinishedOrder(array $condition, array $extend = []): array
+    {
+        return EellyClient::request('order/orderStat', 'statFinishedOrder', true, $condition, $extend);
+    }
+
+    /**
+     * 统计一个店铺多个买家的完成订单
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statFinishedOrderAsync(array $condition, array $extend = [])
+    {
+        return EellyClient::request('order/orderStat', 'statFinishedOrder', false, $condition, $extend);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
