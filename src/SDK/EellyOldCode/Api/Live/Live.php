@@ -38,7 +38,7 @@ class Live
 
     public static function sendLiveMessageToBuyer($minute)
     {
-        return EellyClient::requestJson('eellyOldCode/Live/Live', __FUNCTION__, true, ['minute' => $minute]);
+        return EellyClient::requestJson('eellyOldCode/Live/Live', __FUNCTION__, ['minute' => $minute]);
     }
 
     /**
