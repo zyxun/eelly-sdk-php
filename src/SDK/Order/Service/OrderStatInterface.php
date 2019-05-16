@@ -60,17 +60,6 @@ interface OrderStatInterface
     public function statSellerOrderDayBefore(int $day, int $sellerId, array $buyerIds, array $extend = []): array;
 
     /**
-     * @param int   $day
-     * @param int   $sellerId
-     * @param array $buyerIds
-     * @param array $extend
-     * @return array
-     * @author zhangyangxun
-     * @since 2019/5/15
-     */
-    public function statSellerOrderDayUntil(int $day, int $sellerId, array $buyerIds, array $extend = []): array;
-
-    /**
      * @param array $condition
      * @param array $extend
      * @return array
