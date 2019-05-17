@@ -202,6 +202,36 @@ class OrderStat implements OrderStatInterface
     }
 
     /**
+     * 分页取店铺昨日支付转化分订单
+     *
+     * @param int $sellerId
+     * @param int $page
+     * @param int $limit
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/17
+     */
+    public function getOrderYesterdayForPayScore(int $sellerId, int $page, int $limit): array
+    {
+        return EellyClient::request('order/orderStat', 'getOrderYesterdayForPayScore', true, $sellerId, $page, $limit);
+    }
+
+    /**
+     * 分页取店铺昨日支付转化分订单
+     *
+     * @param int $sellerId
+     * @param int $page
+     * @param int $limit
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/17
+     */
+    public function getOrderYesterdayForPayScoreAsync(int $sellerId, int $page, int $limit)
+    {
+        return EellyClient::request('order/orderStat', 'getOrderYesterdayForPayScore', false, $sellerId, $page, $limit);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

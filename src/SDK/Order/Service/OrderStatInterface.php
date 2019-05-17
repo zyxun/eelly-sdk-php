@@ -89,4 +89,16 @@ interface OrderStatInterface
      * @since 2019/5/16
      */
     public function statFinishedOrder(array $condition, array $extend = []): array;
+
+    /**
+     * 分页取店铺昨日支付转化分订单
+     *
+     * @param int $sellerId
+     * @param int $page
+     * @param int $limit
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/17
+     */
+    public function getOrderYesterdayForPayScore(int $sellerId, int $page, int $limit): array;
 }
