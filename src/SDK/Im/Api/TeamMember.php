@@ -34,4 +34,18 @@ class TeamMember
             'extend' => $extend,
         ]);
     }
+
+    public static function afterAdminBlackUser(int $userId)
+    {
+        return EellyClient::requestJson('im/teamMember', __FUNCTION__, [
+            'userId' => $userId,
+        ]);
+    }
+
+    public static function afterOpenStoreSuccess(int $storeId)
+    {
+        return EellyClient::requestJson('im/teamMember', __FUNCTION__, [
+            'storeId' => $storeId,
+        ]);
+    }
 }
