@@ -58,4 +58,47 @@ interface OrderStatInterface
      * @since 2019/5/9
      */
     public function statSellerOrderDayBefore(int $day, int $sellerId, array $buyerIds, array $extend = []): array;
+
+    /**
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statOrderForPayScore(array $condition, array $extend = []): array;
+
+    /**
+     * 统计一个店铺多个买家的支付订单(支付了就算)
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statPayedOrder(array $condition, array $extend = []): array;
+
+    /**
+     * 统计一个店铺多个买家的完成订单
+     *
+     * @param array $condition
+     * @param array $extend
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/16
+     */
+    public function statFinishedOrder(array $condition, array $extend = []): array;
+
+    /**
+     * 分页取店铺昨日支付转化分订单
+     *
+     * @param int $sellerId
+     * @param int $page
+     * @param int $limit
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/17
+     */
+    public function getOrderYesterdayForPayScore(int $sellerId, int $page, int $limit): array;
 }
