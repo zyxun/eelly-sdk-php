@@ -20,7 +20,7 @@ use Eelly\DTO\UidDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Invoice
+class Invoice implements InvoiceInterface
 {
     /**
      * 新增订单物流及收货人信息记录.
@@ -194,9 +194,10 @@ class Invoice
      *
      * @return array
      * @requestExample({"orderId":160})
-     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301","orderSn":"ssss","orderAmount":22,"consignee":"老王","regionName":"地区","address":"白云自"})
+     * @returnExample({"invoiceCode":"YUNDA","invoiceName":"韵达","invoiceNo":"1202516745301","orderSn":"ssss","orderAmount":22,"consignee":"老王","regionName":"地区","address":"白云自","buyerId":148086,"memoContent":"test"})
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
      *
      * ### 返回数据说明
      *
@@ -205,6 +206,8 @@ class Invoice
      * invoiceCode |string |送货编码：快递公司对应的拼音
      * invoiceName |string |送货公司名称
      * invoiceNo   |string |送货单号,物流号
+     * buyerId     |string | 买家id
+     * memoContent |string | 买家留言备忘
      * orderSn     |string |订单号
      * orderAmount |string |总金额
      * consignee   |string |收货人姓名
@@ -270,9 +273,10 @@ class Invoice
     /**
      * 获取物流信息.
      *
-     * @param int $orderId 订单ID
-     * @param int $type 1 发货物流 2 退货物流
+     * @param int         $orderId 订单ID
+     * @param int         $type    1 发货物流 2 退货物流
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      * @requestExample({"orderId":160})
      * @returnExample({
@@ -295,6 +299,7 @@ class Invoice
      * "regionName":"山西省 晋城市 沁水县",
      * "address":"2222"
      * })
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -316,11 +321,8 @@ class Invoice
      * receiptEndTime |string |收货截止时间戳
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年04月25日
-     * @Validation(
-     *     @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]}),
-     *     @InclusionIn(1,{message:"非法的物流类型",domain:[1,2]}),
-     * )
      */
     public function getExpressByOrderId(int $orderId, int $type = 1, UidDTO $uidDTO = null): array
     {
@@ -330,9 +332,10 @@ class Invoice
     /**
      * 获取物流信息.
      *
-     * @param int $orderId 订单ID
-     * @param int $type 1 发货物流 2 退货物流
+     * @param int         $orderId 订单ID
+     * @param int         $type    1 发货物流 2 退货物流
      * @param UidDTO|null $uidDTO
+     *
      * @return array
      * @requestExample({"orderId":160})
      * @returnExample({
@@ -355,6 +358,7 @@ class Invoice
      * "regionName":"山西省 晋城市 沁水县",
      * "address":"2222"
      * })
+     *
      * ### 返回数据说明
      *
      * 字段|类型|说明
@@ -372,13 +376,12 @@ class Invoice
      * goodsImage     |string |商品图片
      * regionName     |string |省市地址
      * address        |string |详细地址
+     * ifExtendReceipt|bool   |是否可以延长收货标示
+     * receiptEndTime |string |收货截止时间戳
      *
      * @author 肖俊明<xiaojunming@eelly.net>
+     *
      * @since 2018年04月25日
-     * @Validation(
-     *     @OperatorValidator(0,{message:"订单ID不能为空",operator:["gt",0]}),
-     *     @InclusionIn(1,{message:"非法的物流类型",domain:[1,2]}),
-     * )
      */
     public function getExpressByOrderIdAsync(int $orderId, int $type = 1, UidDTO $uidDTO = null)
     {
@@ -387,11 +390,14 @@ class Invoice
 
     /**
      * 店铺最近发货的5家物流
+     *
      * @reqArgs
      * @requestExample({"sellerId": 148086})
      * @explain
      * @returnExample({"中通","顺丰","韵达","圆通","申通"})
+     *
      * @author 张扬熏<542207975@qq.com>
+     *
      * @since 2018年06月14日
      */
     public function getOrderInvoiceRecord(int $sellerId): array
@@ -401,16 +407,53 @@ class Invoice
 
     /**
      * 店铺最近发货的5家物流
+     *
      * @reqArgs
      * @requestExample({"sellerId": 148086})
      * @explain
      * @returnExample({"中通","顺丰","韵达","圆通","申通"})
+     *
      * @author 张扬熏<542207975@qq.com>
+     *
      * @since 2018年06月14日
      */
     public function getOrderInvoiceRecordAsync(int $sellerId)
     {
         return EellyClient::request('order/invoice', 'getOrderInvoiceRecord', false, $sellerId);
+    }
+
+    /**
+     * 获取物流信息 只支持发货
+     * 
+     * @param integer $orderId 订单id
+     * @param integer $type 1:发货 2:退货
+     * @param integer $category 获取类型 0:全部获取改订单所有相关物流 1:过滤当前展示的物流信息 2:只取当前展示的物流
+     * @param UidDTO|null $uidDTO  登录用户
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.5.22
+     */
+    public function getOrderInvoice(int $orderId, int $type = 1, int $category = 2, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('order/invoice', 'getOrderInvoice', true, $orderId, $type, $category, $uidDTO);
+    }
+
+    /**
+     * 获取物流信息 只支持发货
+     * 
+     * @param integer $orderId 订单id
+     * @param integer $type 1:发货 2:退货
+     * @param integer $category 获取类型 0:全部获取改订单所有相关物流 1:过滤当前展示的物流信息 2:只取当前展示的物流
+     * @param UidDTO|null $uidDTO  登录用户
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.5.22
+     */
+    public function getOrderInvoiceAsync(int $orderId, int $type = 1, int $category = 2, UidDTO $uidDTO = null)
+    {
+        return EellyClient::request('order/invoice', 'getOrderInvoice', false, $orderId, $type, $category, $uidDTO);
     }
 
     /**
