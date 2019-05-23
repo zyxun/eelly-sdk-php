@@ -20,4 +20,13 @@ namespace Eelly\SDK\Im\Service;
  */
 interface TeamStatsInterface
 {
+    /**
+     * 后台统计店主群
+     *
+     * @param array $condition
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/23
+     */
+    public function getBuyerTeamStat(array $condition = []): array ;
 }
