@@ -2686,6 +2686,25 @@ class Order
     {
         return EellyClient::request('order/order', 'getBuyerStorePayAmount', false, $buyerIds, $storeId);
     }
+    
+    /**
+     * 获取时间区间内店铺付款交易额
+     *
+     * @param array $storeIds 店铺id
+     * @param int   $sTime   开始时间
+     * @param int   $eTime   结束时间
+     * @return array
+     * @author wechan
+     * @since  2019年05月23日
+     */
+    public function getPayOrderAmountByStoreId(array $storeIds, int $sTime, int $eTime): array
+    {
+        return EellyClient::requestJson('order/order', __FUNCTION__, [
+            'storeIds' => $storeIds,
+            'sTime' => $sTime,
+            'eTime' => $eTime
+        ]);
+    }
 
     /**
      * @return self
