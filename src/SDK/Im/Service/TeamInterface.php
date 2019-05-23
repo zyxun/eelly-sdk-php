@@ -95,4 +95,26 @@ interface TeamInterface
      * @since 2019年05月06日
      */
     public function afterBuyerJoin(int $tid , int $userId, int $itmId): array;
+
+    /**
+     * 分页取店主群
+     *
+     * @param array $condition
+     * @param int   $page
+     * @param int   $limit
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/23
+     */
+    public function getBuyerTeams(array $condition = [], int $page = 1, int $limit = 20): array ;
+
+    /**
+     * 统计店主群
+     *
+     * @param array $condition
+     * @return array
+     * @author zhangyangxun
+     * @since 2019/5/23
+     */
+    public function getBuyerTeamStat(array $condition = []): array ;
 }
