@@ -1851,6 +1851,22 @@ class Live implements LiveInterface
     {
         return EellyClient::request('live/live', 'getStoreLiveCount', false, $storeId);
     }
+    
+    /**
+     * 根据店铺id返回店铺有效的直播场次
+     * 
+     * @param array $storeIds 店铺ids
+     * @return array
+     * 
+     * @author wechan
+     * @since 2019年5月23日
+     */
+    public function getStoreValidLiveCount(array $storeIds):array
+    {
+        return EellyClient::requestJson('live/live', __FUNCTION__, [
+            'storeIds' => $storeIds,
+        ]);
+    }
 
     /**
      * @return self
