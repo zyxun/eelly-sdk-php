@@ -2887,17 +2887,72 @@ class SellerOrderRefactoring
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.12.21
      */
-    public function getMergeOrderIds(int $orderId , string $condition, array $bind = []):array
+    public function getMergeOrderIds(int $orderId, string $condition, array $bind = []): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, true, $orderId, $condition, $bind);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getMergeOrderIds', true, $orderId, $condition, $bind);
     }
 
     /**
-     * @inheritdoc
+     * 根据传过来的订单id还有条件，返回同一个买家用户id而且地址一样的订单数据的所有订单id
+     *
+     * @param int $orderId  订单id
+     * @param string $condition 查询条件
+     * @param array $bind 绑定参数
+     * @return array
+     *
+     * @requestExample({"orderId":50002203, "condition":"order_id IN ({orderIds:array})", "bind":{"orderIds":[50002202,50002203,50002206]}})
+     * @returnExample(["50002224","50002237","50002239"])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.12.21
      */
-    public function getMergeOrderIdsAsync(int $orderId , string $condition, array $bind = []):array
+    public function getMergeOrderIdsAsync(int $orderId, string $condition, array $bind = [])
     {
-        return EellyClient::request('order/sellerOrderRefactoring', __FUNCTION__, false, $orderId, $condition, $bind);
+        return EellyClient::request('order/sellerOrderRefactoring', 'getMergeOrderIds', false, $orderId, $condition, $bind);
+    }
+
+    /**
+     * 添加物流信息跟修改物流信息接口
+     *
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo  送货单号
+     * @param array $orderIds  订单id列表
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     * 
+     * @internal
+     * @Async(route=updateLogisticsInfoAsync)
+     * 
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.5.24
+     */
+    public function updateLogisticsInfoNotStoreId(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, int $storeId): bool
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'updateLogisticsInfoNotStoreId', true, $invoiceCode, $invoiceName, $invoiceNo, $orderIds, $storeId);
+    }
+
+    /**
+     * 添加物流信息跟修改物流信息接口
+     *
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo  送货单号
+     * @param array $orderIds  订单id列表
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     * 
+     * @internal
+     * @Async(route=updateLogisticsInfoAsync)
+     * 
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.5.24
+     */
+    public function updateLogisticsInfoNotStoreIdAsync(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, int $storeId)
+    {
+        return EellyClient::request('order/sellerOrderRefactoring', 'updateLogisticsInfoNotStoreId', false, $invoiceCode, $invoiceName, $invoiceNo, $orderIds, $storeId);
     }
 
     /**
