@@ -56,7 +56,7 @@ class TeamMember implements TeamMemberInterface
     /**
      * 分页取群成员
      *
-     * @param array  $condition
+     * @param int    $tid
      * @param int    $page
      * @param int    $limit
      * @param string $fieldScope
@@ -65,15 +65,15 @@ class TeamMember implements TeamMemberInterface
      * @author zhangyangxun
      * @since 2019/5/23
      */
-    public function getTeamMembersPage(array $condition, int $page = 1, int $limit = 20, string $fieldScope = 'base'): array
+    public function getTeamMembersPage(int $tid, int $page = 1, int $limit = 20, string $fieldScope = 'base'): array
     {
-        return EellyClient::request('im/teamMember', 'getTeamMembersPage', true, $condition, $page, $limit, $fieldScope);
+        return EellyClient::request('im/teamMember', 'getTeamMembersPage', true, $tid, $page, $limit, $fieldScope);
     }
 
     /**
      * 分页取群成员
      *
-     * @param array  $condition
+     * @param int    $tid
      * @param int    $page
      * @param int    $limit
      * @param string $fieldScope
@@ -82,9 +82,9 @@ class TeamMember implements TeamMemberInterface
      * @author zhangyangxun
      * @since 2019/5/23
      */
-    public function getTeamMembersPageAsync(array $condition, int $page = 1, int $limit = 20, string $fieldScope = 'base')
+    public function getTeamMembersPageAsync(int $tid, int $page = 1, int $limit = 20, string $fieldScope = 'base')
     {
-        return EellyClient::request('im/teamMember', 'getTeamMembersPage', false, $condition, $page, $limit, $fieldScope);
+        return EellyClient::request('im/teamMember', 'getTeamMembersPage', false, $tid, $page, $limit, $fieldScope);
     }
 
     /**

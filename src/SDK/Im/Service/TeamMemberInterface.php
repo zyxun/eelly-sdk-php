@@ -25,7 +25,7 @@ interface TeamMemberInterface
     /**
      * 分页取群成员
      *
-     * @param array  $condition
+     * @param int    $tid
      * @param int    $page
      * @param int    $limit
      * @param string $fieldScope
@@ -34,5 +34,5 @@ interface TeamMemberInterface
      * @author zhangyangxun
      * @since 2019/5/23
      */
-    public function getTeamMembersPage(array $condition, int $page = 1, int $limit = 20, string $fieldScope = 'base'): array;
+    public function getTeamMembersPage(int $tid, int $page = 1, int $limit = 20, string $fieldScope = 'base'): array;
 }
