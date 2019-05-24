@@ -1212,4 +1212,16 @@ interface OrderInterface
      * @since  2019年04月22日
      */
     public function getBuyerStorePayAmount(array $buyerIds, int $storeId):array;
+    
+    /**
+     * 获取时间区间内店铺付款交易额
+     *
+     * @param array $storeIds 店铺id
+     * @param int   $sTime   开始时间
+     * @param int   $eTime   结束时间
+     * @return array
+     * @author wechan
+     * @since  2019年05月23日
+     */
+    public function getPayOrderAmountByStoreId(array $storeIds, int $sTime, int $eTime): array;
 }
