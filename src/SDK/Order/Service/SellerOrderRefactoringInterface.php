@@ -1378,4 +1378,23 @@ interface SellerOrderRefactoringInterface
      * @since 2018.12.21
      */
     public function getMergeOrderIds(int $orderId , string $condition, array $bind = []):array;
+
+    /**
+     * 添加物流信息跟修改物流信息接口
+     *
+     * @param string $invoiceCode  送货编码：快递公司对应的拼音
+     * @param string $invoiceName  送货公司名称
+     * @param string $invoiceNo  送货单号
+     * @param array $orderIds  订单id列表
+     * @param UidDTO|null $uidDTO
+     * @return bool
+     * 
+     * @internal
+     * @Async(route=updateLogisticsInfoAsync)
+     * 
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.5.24
+     */
+    public function updateLogisticsInfoNotStoreId(string $invoiceCode, string $invoiceName, string $invoiceNo, array $orderIds, int $storeId): bool;
 }
