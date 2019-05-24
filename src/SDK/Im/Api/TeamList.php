@@ -34,7 +34,7 @@ class TeamList
      */
     public static function getBuyerTeams(array $condition = [], int $page = 1, int $limit = 20): array
     {
-        return EellyClient::requestJson('im/teamMember', __FUNCTION__, [
+        return EellyClient::requestJson('im/teamList', __FUNCTION__, [
             'condition' => $condition,
             'page'      => $page,
             'limit'     => $limit,
