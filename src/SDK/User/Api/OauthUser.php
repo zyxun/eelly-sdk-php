@@ -28,6 +28,11 @@ class OauthUser
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $uid);
     }
 
+    public static function getUserByPasswordGrant(int $grantType, array $parameters, array $extends): UserDTO
+    {
+        return EellyClient::requestJson('user/oauthUser', __FUNCTION__, ['grantType' => $grantType, 'parameters' => $parameters, 'extends' => $extends]);
+    }
+
     public function getUserByQQAccessToken(string $accessToken): UserDTO
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $accessToken);

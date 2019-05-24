@@ -203,4 +203,18 @@ interface InvoiceInterface
      * @since 2018年06月14日
      */
     public function getOrderInvoiceRecord(int $sellerId): array;
+
+    /**
+     * 获取物流信息 只支持发货
+     * 
+     * @param integer $orderId 订单id
+     * @param integer $type 1:发货 2:退货
+     * @param integer $category 获取类型 0:全部获取改订单所有相关物流 1:过滤当前展示的物流信息 2:只取当前展示的物流
+     * @param UidDTO|null $uidDTO  登录用户
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.5.22
+     */
+    public function getOrderInvoice(int $orderId, int $type = 1, int $category = 2, UidDTO $uidDTO = null):array;
 }
