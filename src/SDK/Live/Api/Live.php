@@ -1889,6 +1889,28 @@ class Live implements LiveInterface
     }
 
     /**
+     * 添加一条live_log日志记录(给管理后台调用)
+     *
+     * @param array $data
+     * @return bool
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.05.27
+     */
+    public function addLiveLog(array $data):bool
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true, $data);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function addLiveLogAsync(array $data):bool
+    {
+        return EellyClient::request('live/live', __FUNCTION__, false, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
