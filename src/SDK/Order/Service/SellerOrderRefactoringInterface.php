@@ -1386,11 +1386,8 @@ interface SellerOrderRefactoringInterface
      * @param string $invoiceName  送货公司名称
      * @param string $invoiceNo  送货单号
      * @param array $orderIds  订单id列表
-     * @param UidDTO|null $uidDTO
+     * @param integer $storeId 店铺id
      * @return bool
-     * 
-     * @internal
-     * @Async(route=updateLogisticsInfoAsync)
      * 
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @author sunanzhi <sunanzhi@hotmail.com>
