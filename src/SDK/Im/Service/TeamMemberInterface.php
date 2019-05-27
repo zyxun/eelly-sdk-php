@@ -13,20 +13,26 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Im\Service;
 
+
 /**
- * Interface TeamStatsInterface.
+ * Interface TeamMemberInterface.
  *
  * @author zhangyangxun
  */
-interface TeamStatsInterface
+interface TeamMemberInterface
 {
+
     /**
-     * 后台统计店主群
+     * 分页取群成员
      *
-     * @param array $condition
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $fieldScope
      * @return array
+     * @throws \Throwable
      * @author zhangyangxun
      * @since 2019/5/23
      */
-    public function getBuyerTeamStat(array $condition = []): array ;
+    public function getTeamMembersPage(array $condition, int $page = 1, int $limit = 20, string $fieldScope = 'base'): array;
 }
