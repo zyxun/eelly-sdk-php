@@ -48,6 +48,11 @@ class Accounts
         return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
+    public function muteUser(int $uid, int $type, string $mute): bool
+    {
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type, $mute);
+    }
+
     /**
      * 发送登出通知给客户端.
      *

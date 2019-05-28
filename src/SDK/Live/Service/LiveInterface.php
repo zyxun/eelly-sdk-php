@@ -814,4 +814,28 @@ interface LiveInterface
      * @since 2019年05月09日
      */
     public function getStoreLiveCount(int $storeId):int;
+    
+    /**
+     * 根据店铺id返回店铺有效的直播场次
+     * 
+     * @param array $storeIds 店铺ids
+     * @return array
+     * 
+     * @author wechan
+     * @since 2019年5月23日
+     */
+    public function getStoreValidLiveCount(array $storeIds):array;
+    
+    /**
+     * 根据店铺id,和开始结束时间返回有效开播场次
+     * 
+     * @param array $storeIds 店铺ids
+     * @param int $startTime 开始时间
+     * @param int $endTime 结束时间
+     * @return array
+     * 
+     * @author wechan
+     * @since 2019年5月24日
+     */
+    public function getStoreValidOpenLiveCount(array $storeIds, int $startTime, int $endTime):array;
 }

@@ -109,6 +109,31 @@ class Operation
     }
 
     /**
+     * 直播推流状态处理
+     *
+     * @param int     $liveId      直播id
+     * @param int     $status      禁播开关
+     * @param string  $adminer     操作人
+     * @param int     $forbidTime  禁播时间戳
+     *
+     * @return bool
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.05.28
+     */
+    public function channelManagerLive(int $liveId, int $status, string $adminer = '', int $forbidTime = 300):bool
+    {
+        return EellyClient::request('live/operation', __FUNCTION__, true, $liveId, $status, $adminer, $forbidTime);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function channelManagerLiveAsync(int $liveId, int $status, string $adminer = '', int $forbidTime = 300):bool
+    {
+        return EellyClient::request('live/operation', __FUNCTION__, false, $liveId, $status, $adminer, $forbidTime);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
