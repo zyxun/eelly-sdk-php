@@ -110,14 +110,15 @@ class Goods
      *
      * @param array $goodsIds 商品id
      * @param int   $userId   用户id
-     *
+     * @param string $type 类型
+     * 
      * @return array $goodsInfo
      *
      * @since 2015年6月8日
      */
-    public function getGoodsInfo(array $goodsIds, int $userId = 0)
+    public function getGoodsInfo(array $goodsIds, int $userId = 0, string $type = 'mall')
     {
-        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds, $userId);
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds, $userId, $type);
     }
 
     /**
