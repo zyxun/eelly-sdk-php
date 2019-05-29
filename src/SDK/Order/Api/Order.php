@@ -2705,6 +2705,27 @@ class Order
             'eTime' => $eTime
         ]);
     }
+    
+    /**
+     * 获取时间区间内店铺下单的总交易额.
+     *
+     * @param array $storeIds 店铺id
+     * @param int   $sTime    开始时间
+     * @param int   $eTime    结束时间
+     *
+     * @return array
+     *
+     * @author wechan
+     * @since  2019年05月29日
+     */
+    public function getOrderAmountByStoreId(array $storeIds, int $sTime, int $eTime): array
+    {
+        return EellyClient::requestJson('order/order', __FUNCTION__, [
+            'storeIds' => $storeIds,
+            'sTime' => $sTime,
+            'eTime' => $eTime
+        ]);
+    }
 
     /**
      * @return self
