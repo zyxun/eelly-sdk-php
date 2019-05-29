@@ -21,7 +21,7 @@ use Eelly\SDK\Im\Service\UidDTO;
  */
 class GroupOperation
 {
-    public function muteMemberInternal(string $tid, array $members, int $mute): bool
+    public static function muteMemberInternal(string $tid, array $members, int $mute): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
@@ -30,7 +30,7 @@ class GroupOperation
         ]);
     }
 
-    public function kickMemberInternal(string $tid, array $members): bool
+    public static function kickMemberInternal(string $tid, array $members): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
@@ -38,7 +38,7 @@ class GroupOperation
         ]);
     }
 
-    public function updateManagerInternal(string $tid, array $members, array $itmIds, int $identity): bool
+    public static function updateManagerInternal(string $tid, array $members, array $itmIds, int $identity): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
@@ -48,7 +48,7 @@ class GroupOperation
         ]);
     }
 
-    public function changeOwnerInternal(string $tid, array $newOwner): bool
+    public static function changeOwnerInternal(string $tid, array $newOwner): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
