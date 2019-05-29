@@ -38,12 +38,11 @@ class GroupOperation
         ]);
     }
 
-    public static function updateManagerInternal(string $tid, array $members, array $itmIds, int $identity): bool
+    public static function updateManagerInternal(string $tid, array $members, int $identity): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
             'members' => $members,
-            'itmIds' => $itmIds,
             'identity' => $identity,
         ]);
     }
