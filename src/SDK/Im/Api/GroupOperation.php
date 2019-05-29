@@ -21,28 +21,28 @@ use Eelly\SDK\Im\Service\UidDTO;
  */
 class GroupOperation
 {
-    public static function muteMemberInternal(string $tid, array $members, int $mute): bool
+    public static function muteMemberInternal(string $tid, array $accids, int $mute): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
-            'members' => $members,
+            'accids' => $accids,
             'mute' => $mute,
         ]);
     }
 
-    public static function kickMemberInternal(string $tid, array $members): bool
+    public static function kickMemberInternal(string $tid, array $accids): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
-            'members' => $members,
+            'accids' => $accids,
         ]);
     }
 
-    public static function updateManagerInternal(string $tid, array $members, int $identity): bool
+    public static function updateManagerInternal(string $tid, array $accids, int $identity): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
             'tid' => $tid,
-            'members' => $members,
+            'accids' => $accids,
             'identity' => $identity,
         ]);
     }
