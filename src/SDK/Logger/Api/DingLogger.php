@@ -13,13 +13,12 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Logger\Api;
 
-
 use Eelly\SDK\EellyClient;
 
 class DingLogger
 {
     public function monolog(array $record): bool
     {
-        return EellyClient::request('logger/dingLogger', __FUNCTION__, true, $record);
+        return EellyClient::requestJson('logger/dingLogger', __FUNCTION__, ['record' => $record]);
     }
 }
