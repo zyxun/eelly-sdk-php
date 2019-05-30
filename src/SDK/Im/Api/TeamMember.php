@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -16,7 +17,6 @@ use Eelly\SDK\EellyClient;
 use Eelly\SDK\Im\Service\TeamMemberInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class TeamMember implements TeamMemberInterface
@@ -54,15 +54,19 @@ class TeamMember implements TeamMemberInterface
     }
 
     /**
-     * 分页取群成员
+     * 分页取群成员.
      *
      * @param array  $condition
      * @param int    $page
      * @param int    $limit
      * @param string $fieldScope
-     * @return array
+     *
      * @throws \Throwable
+     *
+     * @return array
+     *
      * @author zhangyangxun
+     *
      * @since 2019/5/23
      */
     public function getTeamMembersPage(array $condition, int $page = 1, int $limit = 20, string $fieldScope = 'base'): array
@@ -71,15 +75,19 @@ class TeamMember implements TeamMemberInterface
     }
 
     /**
-     * 分页取群成员
+     * 分页取群成员.
      *
      * @param array  $condition
      * @param int    $page
      * @param int    $limit
      * @param string $fieldScope
-     * @return array
+     *
      * @throws \Throwable
+     *
+     * @return array
+     *
      * @author zhangyangxun
+     *
      * @since 2019/5/23
      */
     public function getTeamMembersPageAsync(array $condition, int $page = 1, int $limit = 20, string $fieldScope = 'base')
