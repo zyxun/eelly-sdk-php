@@ -2234,6 +2234,32 @@ class BuyerOrder
     }
 
     /**
+     * 根据传过来的店铺id跟天数，返回该店铺支付成功的用户数量 (根据buyer_id去重)
+     *
+     * @param array $storeIds 店铺ID
+     * @param int $day  指定天数
+     * @return int
+     *
+     * @requestExample({"storeIds":[148086,1760467]})
+     * @returnExample([{"seller_id":"148086","num":"3"},{"seller_id":"1760467","num":"6"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.05.30
+     */
+    public function getUserPayNumByStoreId(array $storeIds, int $day = 30):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $storeIds, $day);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getUserPayNumByStoreIdAsync(array $storeIds, int $day = 30):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $storeIds, $day);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
