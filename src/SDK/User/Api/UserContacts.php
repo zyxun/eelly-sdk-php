@@ -34,9 +34,4 @@ class UserContacts
             'users'    => $users,
         ]);
     }
-
-    public static function updateTimUserContactsInternal(string $fromId, string $toId, array $values): bool
-    {
-        return EellyClient::requestJson('user/userContacts', __FUNCTION__, ['fromId' => $fromId, 'toId' => $toId, 'values' => $values]);
-    }
 }
