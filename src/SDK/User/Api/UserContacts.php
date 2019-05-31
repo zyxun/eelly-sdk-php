@@ -34,4 +34,14 @@ class UserContacts
             'users'    => $users,
         ]);
     }
+
+    public static function addFollowInternal(int $fromUid, int $fromType, array $users): bool
+    {
+        return EellyClient::requestJson('user/userContacts', __FUNCTION__, ['fromUid' => $fromUid, 'fromType' => $fromType, 'users' => $users]);
+    }
+
+    public static function unFollowInternal(int $fromUid, int $fromType, array $users): bool
+    {
+        return EellyClient::requestJson('user/userContacts', __FUNCTION__, ['fromUid' => $fromUid, 'fromType' => $fromType, 'users' => $users]);
+    }
 }

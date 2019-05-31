@@ -22,27 +22,28 @@ use Eelly\DTO\UidDTO;
  */
 interface LoginInterface
 {
-
     /**
-     * 添加登陆历史
+     * 添加登陆历史.
      *
      * @param string $domain 登陆平台 例：www.account.com www.eelly.com www.manage.com etc
-     * @param UidDTO $user 登陆的用户id
-     * @return boolean
-     * 
+     * @param UidDTO $user   登陆的用户id
+     *
+     * @return bool
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2018.7.23
      */
-    public function addHistory(string $domain, UidDTO $user = null):bool; 
+    public function addHistory(string $domain, UidDTO $user = null): bool;
 
     /**
-     * 获取登陆历史
+     * 获取登陆历史.
      *
      * @param UidDTO $user 登陆的用户id
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
      */
-    public function getHistory(UidDTO $user = null):array;
-
+    public function getHistory(UidDTO $user = null): array;
 }

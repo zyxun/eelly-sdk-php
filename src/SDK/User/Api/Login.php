@@ -84,17 +84,19 @@ class Login
     }
 
     /**
-     * 记录用户设备号
+     * 记录用户设备号.
      *
-     * @param integer $userId 用户id
-     * @param string $device 设备号
-     * @param array $conditions 拓展
-     * @return boolean
-     * 
+     * @param int    $userId     用户id
+     * @param string $device     设备号
+     * @param array  $conditions 拓展
+     *
+     * @return bool
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2019.4.26
      */
-    public function addUserDeviceLog(int $userId, string $device, array $conditions = []):bool
+    public function addUserDeviceLog(int $userId, string $device, array $conditions = []): bool
     {
         return EellyClient::request('user/login', 'addUserDeviceLog', true, $userId, $device, $conditions);
     }

@@ -31,6 +31,11 @@ class TeamMember implements TeamMemberInterface
         ]);
     }
 
+    public static function addMembers(int $uid, int $storeId, array $users): bool
+    {
+        return EellyClient::requestJson('im/teamMember', __FUNCTION__, ['uid' => $uid, 'storeId' => $storeId, 'users' => $users]);
+    }
+
     public static function getTeamNumNoLogin(int $userId, array $extend = []): array
     {
         return EellyClient::requestJson('im/teamMember', __FUNCTION__, [
