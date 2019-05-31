@@ -296,6 +296,31 @@ class Arbitrate
     }
 
     /**
+     * 返回指定天数卖家责任的仲裁的店铺ID (根据卖家id去重)
+     *
+     * @param int $day 天数
+     * @return int
+     *
+     * @requestExample({"day":30})
+     * @returnExample([{"seller_id":"148086"},{"seller_id":"1760467"}])
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.05.30
+     */
+    public function listSellerIdsByArbitrateOrder(int $day = 30):array
+    {
+        return EellyClient::request('order/arbitrate', __FUNCTION__, true, $day);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listSellerIdsByArbitrateOrderAsync(int $day = 30):array
+    {
+        return EellyClient::request('order/arbitrate', __FUNCTION__, false, $day);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
