@@ -221,16 +221,18 @@ interface ExtendInterface
     public function changeScanFlagStatus(int $scanFlag, UidDTO $user = null): bool;
 
     /**
-     * 根据真实姓名获取用户id
+     * 根据真实姓名获取用户id.
      *
      * @param string $realname 真实姓名
+     *
      * @return int
      *
      * @requestExample({"realname":"molimoq"})
      * @returnExample(148086)
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.12.11
      */
-    public function getUserIdByRealname(string $realname):int;
+    public function getUserIdByRealname(string $realname): int;
 }

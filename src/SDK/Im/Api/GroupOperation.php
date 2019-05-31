@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,10 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Im\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Im\Service\UidDTO;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class GroupOperation
@@ -24,16 +23,16 @@ class GroupOperation
     public static function muteMemberInternal(string $tid, array $accids, int $mute): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
-            'tid' => $tid,
+            'tid'    => $tid,
             'accids' => $accids,
-            'mute' => $mute,
+            'mute'   => $mute,
         ]);
     }
 
     public static function kickMemberInternal(string $tid, array $accids): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
-            'tid' => $tid,
+            'tid'    => $tid,
             'accids' => $accids,
         ]);
     }
@@ -41,8 +40,8 @@ class GroupOperation
     public static function updateManagerInternal(string $tid, array $accids, int $identity): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
-            'tid' => $tid,
-            'accids' => $accids,
+            'tid'      => $tid,
+            'accids'   => $accids,
             'identity' => $identity,
         ]);
     }
@@ -50,7 +49,7 @@ class GroupOperation
     public static function changeOwnerInternal(string $tid, array $newOwner): bool
     {
         return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
-            'tid' => $tid,
+            'tid'      => $tid,
             'newOwner' => $newOwner,
         ]);
     }

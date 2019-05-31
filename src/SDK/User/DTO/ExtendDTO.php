@@ -114,7 +114,7 @@ class ExtendDTO extends AbstractDTO
     public $flag;
 
     /**
-     * 是否确认用户帐号：0 否 1 是
+     * 是否确认用户帐号：0 否 1 是.
      *
      * @var int
      */

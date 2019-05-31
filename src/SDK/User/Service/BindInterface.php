@@ -142,8 +142,8 @@ interface BindInterface
     /**
      * 获取应用绑定信息.
      *
-     * @param int $uid  用户id
-     * @param string $appId  app id
+     * @param int    $uid   用户id
+     * @param string $appId app id
      *
      * @return array
      *
@@ -178,17 +178,18 @@ interface BindInterface
      * @param int    $status   绑定状态：1 绑定状态 2 解绑状态
      *
      * @return bool
-     * 
+     *
      * @author hehui<hehui@eelly.net>
      */
     public function bindUserAppInfo(int $uid, int $type, string $nickname, string $unionId, string $openId, string $appId, int $status): bool;
 
     /**
-     * 获取第三方平台配置信息
-     * 
+     * 获取第三方平台配置信息.
+     *
      * @param string $thirdPartyName 第三方平台名字
-     * 
+     *
      * @author wechan
+     *
      * @since 2018年7月10日
      */
     public function getThirdTartyBingingConf(string $thirdPartyName): array;
@@ -196,13 +197,16 @@ interface BindInterface
     /**
      * 绑定用户手机号码
      *
-     * @param int $userId  用户id
-     * @param string $mobile  手机号码
+     * @param int    $userId 用户id
+     * @param string $mobile 手机号码
+     *
      * @return bool
      *
      * @requestExample({"userId":148086,"mobile":"13430245645"})
      * @returnExample(true)
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.07.11
      */
     public function bindUserMobile(int $userId, string $mobile, UidDTO $uidDTO = null): bool;
@@ -210,17 +214,20 @@ interface BindInterface
     /**
      * 重置用户密码
      *
-     * @param string $password  密码
+     * @param string      $password 密码
      * @param UidDTO|null $user
+     *
      * @return bool
      *
      * @requestExample({"password":"dfdfadfs"})
      * @returnExample(true)
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.07.12
      */
     public function resetPassword(string $password, UidDTO $user = null): bool;
-    
+
     /**
      * 根据第三方平台openid,unionid 获取用户信息.
      *
@@ -231,6 +238,7 @@ interface BindInterface
      * @requestExample({"type":1,"unionId":"122222"})
      * @returnExample({"ubId":1,"userId":"148086","type":1,"unionId":"xxx","openId":"xx","appId":"xxx","status":1,"createdTime":1506419757,"updateTime":"2017/9/26 17:55:57"})
      *s
+     *
      * @author zhangzeqiang<zhangzeqiang@eelly.net>
      *
      * @since  2017/10/10
@@ -238,46 +246,54 @@ interface BindInterface
     public function getByContact(int $type, string $unionId): array;
 
     /**
-     * 根据传过来的where条件更新数据
+     * 根据传过来的where条件更新数据.
      *
      * @param array $where
      * @param array $data
+     *
      * @return bool
      *
      * @requestExample({"where":{"user_id":148086}, "data":{"status":2}})
      * @returnExample(true)
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.07.25
      */
-    public function updateBindInfo(array $where, array $data):bool;
+    public function updateBindInfo(array $where, array $data): bool;
 
     /**
-     * 根据传过来的条件，获取一条绑定记录信息
+     * 根据传过来的条件，获取一条绑定记录信息.
      *
      * @param string $condition 查询条件
-     * @param array $binds  绑定的参数
+     * @param array  $binds     绑定的参数
+     *
      * @return array
      *
      * @requestExample({"condition":"open_id = :openId:", "binds":{"openId":"ogGal5OPHyn608PChXuDxHyl69eY"}})
      * @returnExample({"userId":"148086","nickname":"QW5keQ==","type":"1","status":"1"})
+     *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.07.27
      */
-    public function getBindInfoData(string $condition, array $binds):array;
+    public function getBindInfoData(string $condition, array $binds): array;
 
     /**
-     * 绑定/解绑第三方应用
+     * 绑定/解绑第三方应用.
      *
-     * @param array       $data             应用信息 app_id,open_id,union_id
-     * @param int         $data['type']     应用类型 1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
-     * @param int         $data['status']   绑定状态 1 绑定 2 解绑
-     * @param UidDTO|null $user             登录用户
+     * @param array       $data           应用信息 app_id,open_id,union_id
+     * @param int         $data['type']   应用类型 1 微信绑定 2 QQ绑定 3 新浪微博 4 腾讯微博
+     * @param int         $data['status'] 绑定状态 1 绑定 2 解绑
+     * @param UidDTO|null $user           登录用户
+     *
      * @return bool
      *
      * @requestExample({"data":{"type":1,"unionId":"xxxx","openId":"xxxx","appId":"xxxx","status":2}})
      * @returnExample(true)
      *
      * @author zhangyangxun
+     *
      * @since 2018-10-13
      */
     public function bindThirdParty(array $data, UidDTO $user = null): bool;
@@ -334,12 +350,14 @@ interface BindInterface
      * @param string $condition 条件
      * @param array  $bind      绑定参数
      * @param string $field     要搜索的字段
+     *
      * @return array
      *
      * @requestExample({"condition":"user_id IN ({userIds:array})", "bind":{"userIds":[148086]}})
      * @returnExample([{"userId":"148086","nickname":"6LW36aOO5LqG","type":"1","status":"2","openId":"1234"},{"userId":"148086","nickname":"Y29sb3Jz","type":"2","status":"2","openId":"1234"}])
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since 2018.11.20
      */
     public function listMessageByCondition(string $condition, array $bind, string $field = 'bindInfo'): array;
