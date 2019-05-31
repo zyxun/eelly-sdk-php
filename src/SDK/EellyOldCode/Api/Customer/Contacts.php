@@ -83,4 +83,9 @@ class Contacts
     {
          return EellyClient::request('eellyOldCode/customer/contacts', __FUNCTION__, true, $loginUserId, $data, $type, $isQueue);
     }
+
+    public static function userOperateForApp($data)
+    {
+        return EellyClient::requestJson('eellyOldCode/customer/contacts', __FUNCTION__, ['data' => $data]);
+    }
 }
