@@ -22,6 +22,11 @@ class AutoTeam
         return EellyClient::requestJson('im/autoTeam', __FUNCTION__, ['user' => $user, 'extends' => $extends]);
     }
 
+    public static function joinTeam(string $tid, int $uid, int $type): bool
+    {
+        return EellyClient::requestJson('im/autoTeam', __FUNCTION__, ['tid' => $tid, 'uid' => $uid, 'type' => $type]);
+    }
+
     public static function orderJoinTeam(array $user): bool
     {
         return EellyClient::requestJson('im/autoTeam', __FUNCTION__, ['user' => $user]);
