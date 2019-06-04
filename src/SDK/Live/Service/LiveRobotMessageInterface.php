@@ -50,4 +50,29 @@ interface LiveRobotMessageInterface
      * @since 2019.2.28
      */
     public function get(int $liveId = 0):array;
+
+    /**
+     * 批量删除机器人发言内容
+     *
+     * @param array $lrmIds 消息id
+     * @param array $conditions 拓展使用
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.4
+     */
+    public function batchDelete(array $lrmIds, array $conditions = []):bool;
+
+    /**
+     * 批量操作机器人消息状态
+     *
+     * @param array $lrmIds 消息id
+     * @param integer $status 0:不启用 1:启用 默认 1
+     * @param array $conditions 拓展使用
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.4
+     */
+    public function batchStatus(array $lrmIds, int $status = 1, array $conditions = []):bool;
 }
