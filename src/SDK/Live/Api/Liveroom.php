@@ -36,4 +36,9 @@ class Liveroom
     {
         return EellyClient::request('live/liveroom', __FUNCTION__, true, $liveId, $uid);
     }
+
+    public static function addHandlelogBarrage(int $liveId, int $uid, array $account): bool
+    {
+        return EellyClient::requestJson('live/liveroom', __FUNCTION__, ['liveId' => $liveId, 'uid' => $uid, 'account' => $account]);
+    }
 }

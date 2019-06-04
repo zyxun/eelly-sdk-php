@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Order\Api;
+namespace Eelly\SDK\Im\Api;
 
 use Eelly\SDK\EellyClient;
 
-class Relation
+class Handlelog
 {
-    public static function totalOrder(int $sellerId, int $buyerId): array
+    public static function addBarrage(int $liveId, int $uid): bool
     {
-        return EellyClient::requestJson('order/relation', __FUNCTION__, ['sellerId' => $sellerId, 'buyerId' => $buyerId]);
+        return EellyClient::requestJson('im/handlelog', __FUNCTION__, ['liveId' => $liveId, 'uid' => $uid]);
     }
 }

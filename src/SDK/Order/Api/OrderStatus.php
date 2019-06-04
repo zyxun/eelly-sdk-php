@@ -15,10 +15,10 @@ namespace Eelly\SDK\Order\Api;
 
 use Eelly\SDK\EellyClient;
 
-class Relation
+class OrderStatus
 {
-    public static function totalOrder(int $sellerId, int $buyerId): array
+    public static function queryConfirmedOrder(int $orderId): bool
     {
-        return EellyClient::requestJson('order/relation', __FUNCTION__, ['sellerId' => $sellerId, 'buyerId' => $buyerId]);
+        return EellyClient::requestJson('order/orderStatus', __FUNCTION__, ['orderId' => $orderId]);
     }
 }

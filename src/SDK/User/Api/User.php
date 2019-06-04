@@ -463,7 +463,7 @@ class User
      */
     public function getListByUserIds(array $userIds): array
     {
-        return EellyClient::request('user/user', 'getListByUserIds', true, $userIds);
+        return EellyClient::requestJson('user/user', __FUNCTION__, ['userIds' => $userIds]);
     }
 
     /**
