@@ -41,6 +41,7 @@ interface LiveStoreSettingsInterface
      * @param int   $showFlag 修改为的值
      * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
      * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启  
+     * @param array $extends 拓展字段
      *
      * @return bool
      *
@@ -51,7 +52,7 @@ interface LiveStoreSettingsInterface
      *
      * @since 2018年07月11日
      */
-    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0): bool;
+    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0, array $extends = []): bool;
 
     /**
      * 获取店铺的.
@@ -78,18 +79,4 @@ interface LiveStoreSettingsInterface
      * @since 2019-03-05
      */
     public function getManageList(array $condition): array;
-
-    /**
-     * 修改展示场次.
-     *
-     * @param array $liveIds  直播ID
-     * @param int   $showFlag 修改为的值
-     * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
-     * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启
-     * @return bool
-     *
-     * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2019.2.28
-     */
-    public function updateShowFlagDataV2(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0): bool;
 }

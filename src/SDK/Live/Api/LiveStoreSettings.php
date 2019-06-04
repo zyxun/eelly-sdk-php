@@ -62,6 +62,7 @@ class LiveStoreSettings
      * @param int   $showFlag 修改为的值
      * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
      * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启  
+     * @param array $extends 拓展字段
      *
      * @return bool
      *
@@ -72,9 +73,9 @@ class LiveStoreSettings
      *
      * @since 2018年07月11日
      */
-    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0): bool
+    public function updateShowFlagData(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0, array $extends = []): bool
     {
-        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', true, $liveIds, $showFlag, $type, $isRobot);
+        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', true, $liveIds, $showFlag, $type, $isRobot, $extends);
     }
 
     /**
@@ -84,6 +85,7 @@ class LiveStoreSettings
      * @param int   $showFlag 修改为的值
      * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
      * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启  
+     * @param array $extends 拓展字段
      *
      * @return bool
      *
@@ -94,9 +96,9 @@ class LiveStoreSettings
      *
      * @since 2018年07月11日
      */
-    public function updateShowFlagDataAsync(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0)
+    public function updateShowFlagDataAsync(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0, array $extends = [])
     {
-        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', false, $liveIds, $showFlag, $type, $isRobot);
+        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagData', false, $liveIds, $showFlag, $type, $isRobot, $extends);
     }
 
     /**
@@ -161,40 +163,6 @@ class LiveStoreSettings
     public function getManageListAsync(array $condition)
     {
         return EellyClient::request('live/liveStoreSettings', 'getManageList', false, $condition);
-    }
-
-    /**
-     * 修改展示场次.
-     *
-     * @param array $liveIds  直播ID
-     * @param int   $showFlag 修改为的值
-     * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
-     * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启
-     * @return bool
-     *
-     * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2019.2.28
-     */
-    public function updateShowFlagDataV2(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0): bool
-    {
-        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagDataV2', true, $liveIds, $showFlag, $type, $isRobot);
-    }
-
-    /**
-     * 修改展示场次.
-     *
-     * @param array $liveIds  直播ID
-     * @param int   $showFlag 修改为的值
-     * @param int   $type     1表示修改直播，其他都是修改店铺下的所有直播
-     * @param integer $isRobot 是否开启机器人留言：0 关闭 1 开启
-     * @return bool
-     *
-     * @author sunanzhi <sunanzhi@hotmail.com>
-     * @since 2019.2.28
-     */
-    public function updateShowFlagDataV2Async(array $liveIds, int $showFlag = 15, int $type = 1, int $isRobot = 0)
-    {
-        return EellyClient::request('live/liveStoreSettings', 'updateShowFlagDataV2', false, $liveIds, $showFlag, $type, $isRobot);
     }
 
     /**
