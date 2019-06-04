@@ -1887,10 +1887,10 @@ class Live implements LiveInterface
             'endTime' => $endTime
         ]);
     }
-    
+
     public static function updateLiveFlag(int $liveId, int $flagVal, int $type = 0) : bool
     {
-        return EellyClient::requestJson('live/live', __FUNCTION__, array('liveId' => $liveId, 'flagVal' => $flagVal, 'type' => $type));
+        return EellyClient::requestJson('live/live', __FUNCTION__, ['liveId' => $liveId, 'flagVal' => $flagVal, 'type' => $type]);
     }
 
     /**
