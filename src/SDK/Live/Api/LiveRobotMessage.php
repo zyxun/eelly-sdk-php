@@ -96,6 +96,68 @@ class LiveRobotMessage
     }
 
     /**
+     * 批量删除机器人发言内容
+     *
+     * @param array $lrmIds 消息id
+     * @param array $conditions 拓展使用
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.4
+     */
+    public function batchDelete(array $lrmIds, array $conditions = []): bool
+    {
+        return EellyClient::request('live/liveRobotMessage', 'batchDelete', true, $lrmIds, $conditions);
+    }
+
+    /**
+     * 批量删除机器人发言内容
+     *
+     * @param array $lrmIds 消息id
+     * @param array $conditions 拓展使用
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.4
+     */
+    public function batchDeleteAsync(array $lrmIds, array $conditions = [])
+    {
+        return EellyClient::request('live/liveRobotMessage', 'batchDelete', false, $lrmIds, $conditions);
+    }
+
+    /**
+     * 批量操作机器人消息状态
+     *
+     * @param array $lrmIds 消息id
+     * @param integer $status 0:不启用 1:启用 默认 1
+     * @param array $conditions 拓展使用
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.4
+     */
+    public function batchStatus(array $lrmIds, int $status = 1, array $conditions = []): bool
+    {
+        return EellyClient::request('live/liveRobotMessage', 'batchStatus', true, $lrmIds, $status, $conditions);
+    }
+
+    /**
+     * 批量操作机器人消息状态
+     *
+     * @param array $lrmIds 消息id
+     * @param integer $status 0:不启用 1:启用 默认 1
+     * @param array $conditions 拓展使用
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.4
+     */
+    public function batchStatusAsync(array $lrmIds, int $status = 1, array $conditions = [])
+    {
+        return EellyClient::request('live/liveRobotMessage', 'batchStatus', false, $lrmIds, $status, $conditions);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
