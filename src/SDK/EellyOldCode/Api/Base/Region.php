@@ -62,4 +62,16 @@ class Region
     {
         return EellyClient::request('eellyOldCode/Base/Region', __FUNCTION__, true, $pid);
     }
+    
+    /**
+     * 根据pid获得下属地区
+     *
+     * @param int $pid 父地区id
+     * @author wechan
+     * @since  2019年06月10日
+     */
+    public function getRegionByPid($pid = 1, $fields = 'appField')
+    {
+        return EellyClient::request('eellyOldCode/Base/Region', __FUNCTION__, true, $pid, $fields);
+    }
 }
