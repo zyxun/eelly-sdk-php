@@ -30,4 +30,14 @@ interface MsgInterface
      * @since 2019-03-13
      */
     public function saveNeteaseMsg(array $msg);
+
+    /**
+     * 发送自定义系统通知
+     *
+     * @param array $msg
+     * @return mixed
+     * @author zhangyangxun
+     * @since 2019/6/11
+     */
+    public function sendAttachMsg(array $msg);
 }
