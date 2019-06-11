@@ -53,4 +53,11 @@ class GroupOperation
             'newOwner' => $newOwner,
         ]);
     }
+
+    public static function leaveTeam(string $tid):bool 
+    {
+        return EellyClient::requestJson('im/groupOperation', __FUNCTION__, [
+            'tid'      => $tid
+        ]);
+    }
 }
