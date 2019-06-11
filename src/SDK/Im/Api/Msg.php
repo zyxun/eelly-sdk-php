@@ -50,29 +50,29 @@ class Msg implements MsgInterface
     }
 
     /**
-     * 发送消息
+     * 发送自定义系统通知
      *
      * @param array $msg
      * @return mixed
      * @author zhangyangxun
      * @since 2019/6/11
      */
-    public function sendMsg(array $msg)
+    public function sendAttachMsg(array $msg)
     {
-        return EellyClient::request('im/msg', 'sendMsg', true, $msg);
+        return EellyClient::request('im/msg', 'sendAttachMsg', true, $msg);
     }
 
     /**
-     * 发送消息
+     * 发送自定义系统通知
      *
      * @param array $msg
      * @return mixed
      * @author zhangyangxun
      * @since 2019/6/11
      */
-    public function sendMsgAsync(array $msg)
+    public function sendAttachMsgAsync(array $msg)
     {
-        return EellyClient::request('im/msg', 'sendMsg', false, $msg);
+        return EellyClient::request('im/msg', 'sendAttachMsg', false, $msg);
     }
 
     /**

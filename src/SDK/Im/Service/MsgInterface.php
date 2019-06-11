@@ -32,12 +32,12 @@ interface MsgInterface
     public function saveNeteaseMsg(array $msg);
 
     /**
-     * 发送消息
+     * 发送自定义系统通知
      *
      * @param array $msg
      * @return mixed
      * @author zhangyangxun
      * @since 2019/6/11
      */
-    public function sendMsg(array $msg);
+    public function sendAttachMsg(array $msg);
 }
