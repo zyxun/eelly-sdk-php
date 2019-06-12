@@ -22,6 +22,11 @@ use Eelly\SDK\Im\Service\UidDTO;
  */
 class Team implements TeamInterface
 {
+    public static function getBuyerTeamIndex(int $tid): array
+    {
+        return EellyClient::requestJson('im/team', __FUNCTION__, ['tid' => $tid]);
+    }
+
     /**
      * 获取主播粉丝群列表信息.
      *
