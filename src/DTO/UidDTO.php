@@ -52,9 +52,11 @@ class UidDTO extends AbstractDTO
     /**
      * @param int $uid
      */
-    public function setUid(int $uid): void
+    public function setUid(int $uid): self
     {
         $this->uid = $uid;
+        
+        return $this;
     }
 
     /**
@@ -68,9 +70,11 @@ class UidDTO extends AbstractDTO
     /**
      * @param array $stores
      */
-    public function setStores(array $stores): void
+    public function setStores(array $stores): self
     {
         $this->stores = $stores;
+        
+        return $this;
     }
 
     /**
@@ -84,8 +88,10 @@ class UidDTO extends AbstractDTO
     /**
      * @param int $origUid
      */
-    public function setOrigUid(int $origUid): void
+    public function setOrigUid(int $origUid): self
     {
         $this->origUid = $origUid;
+        
+        return $this;
     }    
 }
