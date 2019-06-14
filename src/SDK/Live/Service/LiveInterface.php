@@ -516,7 +516,22 @@ interface LiveInterface
      * 
      * ### 返回数据说明.
      * 字段|类型|说明
+     * ----------------------|-------|--------------
      * items|array  |列表数据
+     * items['liveId'] | string  | 直播id
+     * items['userId'] |string  | 用户id
+     * items['storeId'] |string  | 店铺id
+     * items['backBuyerAndRepeatBuyer'] |string  | 复购率
+     * items['title'] |string  | 直播标题
+     * items['addressName'] |string  | 地址
+     * items['isHaveCoupon'] |string  | 是否有优惠券
+     * items['storeVipType'] |string  | 店铺vip类型 0.普通 1.白银 2.白金 3.皇冠 4.钻石
+     * items['creditIcon'] |string  | 店铺等级地址
+     * items['view'] |string  | 观看人数
+     * items['isContinuousBroadCast'] |string  | 是否连播场
+     * items['isFirstStyle'] |string  | 是否新款首发
+     * 
+     * 
      * page  |array  |页数信息
      * tabs  |array  |标签信息
      * tabs[name] | string | 标签名称()
