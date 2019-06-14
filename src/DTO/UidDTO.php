@@ -33,6 +33,15 @@ class UidDTO extends AbstractDTO
     public $stores = [];
 
     /**
+     * 原来的用户id.
+     *
+     * 当uid被覆盖后, origUid就会有值
+     *
+     * @var int
+     */
+    public $origUid;
+
+    /**
      * @return int
      */
     public function getUid(): int
@@ -63,4 +72,20 @@ class UidDTO extends AbstractDTO
     {
         $this->stores = $stores;
     }
+
+    /**
+     * @return int
+     */
+    public function getOrigUid(): int
+    {
+        return $this->origUid;
+    }
+
+    /**
+     * @param int $origUid
+     */
+    public function setOrigUid(int $origUid): void
+    {
+        $this->origUid = $origUid;
+    }    
 }
