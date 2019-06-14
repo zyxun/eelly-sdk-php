@@ -33,18 +33,6 @@ class UidDTO extends AbstractDTO
     public $stores = [];
 
     /**
-     * UidDTO constructor.
-     *
-     * @param int   $uid
-     * @param array $stores
-     */
-    public function __construct(int $uid, array $stores)
-    {
-        $this->uid = $uid;
-        $this->stores = $stores;
-    }
-
-    /**
      * @return int
      */
     public function getUid(): int
