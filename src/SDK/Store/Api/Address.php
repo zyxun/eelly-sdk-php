@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Store\Service\AddressInterface;
+use Eelly\DTO\UidDTO;
 use Eelly\SDK\Store\DTO\AddressDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Address
@@ -51,7 +51,7 @@ class Address
      */
     public function addStoreAddress(array $addrData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/address', __FUNCTION__, true, $addrData, $user);
+        return EellyClient::request('store/address', 'addStoreAddress', true, $addrData, $user);
     }
 
     /**
@@ -82,7 +82,7 @@ class Address
      */
     public function addStoreAddressAsync(array $addrData, UidDTO $user = null)
     {
-        return EellyClient::request('store/address', __FUNCTION__, false, $addrData, $user);
+        return EellyClient::request('store/address', 'addStoreAddress', false, $addrData, $user);
     }
 
     /**
@@ -113,7 +113,7 @@ class Address
      */
     public function updateStoreAddress(array $addrData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/address', __FUNCTION__, true, $addrData, $user);
+        return EellyClient::request('store/address', 'updateStoreAddress', true, $addrData, $user);
     }
 
     /**
@@ -144,7 +144,7 @@ class Address
      */
     public function updateStoreAddressAsync(array $addrData, UidDTO $user = null)
     {
-        return EellyClient::request('store/address', __FUNCTION__, false, $addrData, $user);
+        return EellyClient::request('store/address', 'updateStoreAddress', false, $addrData, $user);
     }
 
     /**
@@ -167,7 +167,7 @@ class Address
      */
     public function deleteStoreAddress(int $storeId, int $addrId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/address', __FUNCTION__, true, $storeId, $addrId, $user);
+        return EellyClient::request('store/address', 'deleteStoreAddress', true, $storeId, $addrId, $user);
     }
 
     /**
@@ -190,20 +190,19 @@ class Address
      */
     public function deleteStoreAddressAsync(int $storeId, int $addrId, UidDTO $user = null)
     {
-        return EellyClient::request('store/address', __FUNCTION__, false, $storeId, $addrId, $user);
+        return EellyClient::request('store/address', 'deleteStoreAddress', false, $storeId, $addrId, $user);
     }
 
     /**
      * 获取店铺地址
      * 获取店铺的店铺地址和退货地址
      *
-     * @param int    $storeId     店铺地址
-     * @param int    $addressType 店铺地址类型 1店铺地址 2退货地址
-     * @param UidDTO $user        登录用户信息
+     * @param int $storeId     店铺地址
+     * @param int $addressType 店铺地址类型 1店铺地址 2退货地址
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
-     * @return \Eelly\SDK\Store\DTO\AddressDTO
+     * @return AddressDTO
      * @requestExample({"storeId":1, "addressType":1})
      * @returnExample({"storeName":"店铺名称","addressType":1,"consignee":"联系人姓名","zipcode":"邮政编码","address":"详细地址","mobile":"13333333","deliveryType":1})
      *
@@ -211,22 +210,21 @@ class Address
      *
      * @since 2017-08-12
      */
-    public function getStoreAddress(int $storeId, int $addressType, UidDTO $user = null): AddressDTO
+    public function getStoreAddress(int $storeId, int $addressType): AddressDTO
     {
-        return EellyClient::request('store/address', __FUNCTION__, true, $storeId, $addressType, $user);
+        return EellyClient::request('store/address', 'getStoreAddress', true, $storeId, $addressType);
     }
 
     /**
      * 获取店铺地址
      * 获取店铺的店铺地址和退货地址
      *
-     * @param int    $storeId     店铺地址
-     * @param int    $addressType 店铺地址类型 1店铺地址 2退货地址
-     * @param UidDTO $user        登录用户信息
+     * @param int $storeId     店铺地址
+     * @param int $addressType 店铺地址类型 1店铺地址 2退货地址
      *
      * @throws \Eelly\SDK\Store\Exception\StoreException
      *
-     * @return \Eelly\SDK\Store\DTO\AddressDTO
+     * @return AddressDTO
      * @requestExample({"storeId":1, "addressType":1})
      * @returnExample({"storeName":"店铺名称","addressType":1,"consignee":"联系人姓名","zipcode":"邮政编码","address":"详细地址","mobile":"13333333","deliveryType":1})
      *
@@ -234,9 +232,9 @@ class Address
      *
      * @since 2017-08-12
      */
-    public function getStoreAddressAsync(int $storeId, int $addressType, UidDTO $user = null)
+    public function getStoreAddressAsync(int $storeId, int $addressType)
     {
-        return EellyClient::request('store/address', __FUNCTION__, false, $storeId, $addressType, $user);
+        return EellyClient::request('store/address', 'getStoreAddress', false, $storeId, $addressType);
     }
 
     /**
@@ -253,17 +251,28 @@ class Address
      *
      * @since  2018.11.17
      */
-    public function getDefaultAddrInfoByUserId(int $userId):array
+    public function getDefaultAddrInfoByUserId(int $userId): array
     {
-        return EellyClient::request('store/address', __FUNCTION__, true, $userId);
+        return EellyClient::request('store/address', 'getDefaultAddrInfoByUserId', true, $userId);
     }
 
     /**
-     * @inheritdoc
+     * 获取默认的退货地址，如果不存在则返回店铺信息. (旧代码迁移)
+     *
+     * @param int $userId 用户ID
+     * @return array 退货地址信息数组
+     *
+     * @requestExample({"userId":148086})
+     * @returnExample({"addrId":"482059","consignee":"\u6d4b\u8bd57","mobile":"1","tel":"1","address":"1","zipCode":"123456","regionName":"\u5317\u4eac\u5e02 \u5e02\u8f96\u533a \u897f\u57ce\u533a"})
+     *
+     * @author 郭凯<guokai@eelly.net>
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since  2018.11.17
      */
-    public function getDefaultAddrInfoByUserIdAsync(int $userId):array
+    public function getDefaultAddrInfoByUserIdAsync(int $userId)
     {
-        return EellyClient::request('store/address', __FUNCTION__, false, $userId);
+        return EellyClient::request('store/address', 'getDefaultAddrInfoByUserId', false, $userId);
     }
 
     /**
@@ -277,17 +286,133 @@ class Address
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.11.28
      */
-    public function ifSetReturnAddress(int $storeId):string
+    public function ifSetReturnAddress(int $storeId): string
     {
-        return EellyClient::request('store/address', __FUNCTION__, true, $storeId);
+        return EellyClient::request('store/address', 'ifSetReturnAddress', true, $storeId);
     }
 
     /**
-     * @inheritdoc
+     * 店铺是否设置退货地址
+     *
+     * @param int $storeId 店铺id
+     * @return string
+     * @requestExample({"storeId":148086})
+     * @returnExample("true")
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.11.28
      */
-    public function ifSetReturnAddressAsync(int $storeId):string
+    public function ifSetReturnAddressAsync(int $storeId)
     {
-        return EellyClient::request('store/address', __FUNCTION__, false, $storeId);
+        return EellyClient::request('store/address', 'ifSetReturnAddress', false, $storeId);
+    }
+
+    /**
+     * 店铺添加退货地址
+     * 
+     * > addressData 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * addrId | int | 店铺退货地址id
+     * regionId | int | 区域id 
+     * condignee | string | 收货人姓名
+     * address | string | 详细地址
+     * zipCode | string | 邮政编码
+     * mobile | string | 手机号码
+     * tel | string | 固定电话
+     *
+     * @param array $data 退货地址数据
+     * @param UidDTO $user 当前登录用户
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.11
+     */
+    public function addReturnAddress(array $addressData, UidDTO $user = null): bool
+    {
+        return EellyClient::request('store/address', 'addReturnAddress', true, $addressData, $user);
+    }
+
+    /**
+     * 店铺添加退货地址
+     * 
+     * > addressData 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * addrId | int | 店铺退货地址id
+     * regionId | int | 区域id 
+     * condignee | string | 收货人姓名
+     * address | string | 详细地址
+     * zipCode | string | 邮政编码
+     * mobile | string | 手机号码
+     * tel | string | 固定电话
+     *
+     * @param array $data 退货地址数据
+     * @param UidDTO $user 当前登录用户
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.11
+     */
+    public function addReturnAddressAsync(array $addressData, UidDTO $user = null)
+    {
+        return EellyClient::request('store/address', 'addReturnAddress', false, $addressData, $user);
+    }
+
+    /**
+     * 店铺编辑退货地址
+     * 
+     * > addressData 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * addrId | int | 店铺退货地址id
+     * regionId | int | 区域id 
+     * condignee | string | 收货人姓名
+     * address | string | 详细地址
+     * zipCode | string | 邮政编码
+     * mobile | string | 手机号码
+     * tel | string | 固定电话
+     * 
+     * @param array $addressData 退货地址数据
+     * @param UidDTO $user 当前登录的用户
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.11
+     */
+    public function editReturnAddress(array $addressData, UidDTO $user = null): bool
+    {
+        return EellyClient::request('store/address', 'editReturnAddress', true, $addressData, $user);
+    }
+
+    /**
+     * 店铺编辑退货地址
+     * 
+     * > addressData 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * addrId | int | 店铺退货地址id
+     * regionId | int | 区域id 
+     * condignee | string | 收货人姓名
+     * address | string | 详细地址
+     * zipCode | string | 邮政编码
+     * mobile | string | 手机号码
+     * tel | string | 固定电话
+     * 
+     * @param array $addressData 退货地址数据
+     * @param UidDTO $user 当前登录的用户
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.11
+     */
+    public function editReturnAddressAsync(array $addressData, UidDTO $user = null)
+    {
+        return EellyClient::request('store/address', 'editReturnAddress', false, $addressData, $user);
     }
 
     /**

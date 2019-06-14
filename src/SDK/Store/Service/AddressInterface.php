@@ -146,4 +146,52 @@ interface AddressInterface
      * @since 2018.11.28
      */
     public function ifSetReturnAddress(int $storeId):string;
+
+    /**
+     * 店铺添加退货地址
+     * 
+     * > addressData 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * addrId | int | 店铺退货地址id
+     * regionId | int | 区域id 
+     * condignee | string | 收货人姓名
+     * address | string | 详细地址
+     * zipCode | string | 邮政编码
+     * mobile | string | 手机号码
+     * tel | string | 固定电话
+     *
+     * @param array $data 退货地址数据
+     * @param UidDTO $user 当前登录用户
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.11
+     */
+    public function addReturnAddress(array $addressData, UidDTO $user = null):bool;
+
+    /**
+     * 店铺编辑退货地址
+     * 
+     * > addressData 数据说明
+     * 
+     * key | type | value
+     * --- | ---- | -----
+     * addrId | int | 店铺退货地址id
+     * regionId | int | 区域id 
+     * condignee | string | 收货人姓名
+     * address | string | 详细地址
+     * zipCode | string | 邮政编码
+     * mobile | string | 手机号码
+     * tel | string | 固定电话
+     * 
+     * @param array $addressData 退货地址数据
+     * @param UidDTO $user 当前登录的用户
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.11
+     */
+    public function editReturnAddress(array $addressData, UidDTO $user = null):bool;
 }
