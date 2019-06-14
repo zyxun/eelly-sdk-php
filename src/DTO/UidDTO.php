@@ -26,6 +26,25 @@ class UidDTO extends AbstractDTO
     public $uid;
 
     /**
+     * 店铺id列表.
+     *
+     * @var array
+     */
+    public $stores = [];
+
+    /**
+     * UidDTO constructor.
+     *
+     * @param int   $uid
+     * @param array $stores
+     */
+    public function __construct(int $uid, array $stores)
+    {
+        $this->uid = $uid;
+        $this->stores = $stores;
+    }
+
+    /**
      * @return int
      */
     public function getUid(): int
@@ -35,13 +54,25 @@ class UidDTO extends AbstractDTO
 
     /**
      * @param int $uid
-     *
-     * @return UidDTO
      */
-    public function setUid(int $uid): self
+    public function setUid(int $uid): void
     {
         $this->uid = $uid;
+    }
 
-        return $this;
+    /**
+     * @return array
+     */
+    public function getStores(): array
+    {
+        return $this->stores;
+    }
+
+    /**
+     * @param array $stores
+     */
+    public function setStores(array $stores): void
+    {
+        $this->stores = $stores;
     }
 }

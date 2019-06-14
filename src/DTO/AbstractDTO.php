@@ -20,10 +20,6 @@ use Shadon\Mvc\Model;
  */
 class AbstractDTO implements \JsonSerializable
 {
-    final public function __construct()
-    {
-    }
-
     /**
      * 数组转对象
      *
