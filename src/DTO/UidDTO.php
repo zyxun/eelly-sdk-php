@@ -35,11 +35,11 @@ class UidDTO extends AbstractDTO
     /**
      * 原来的用户id.
      *
-     * 当uid被覆盖后, origUid就会有值
+     * 当uid被覆盖后, origUid就会大于0
      *
      * @var int
      */
-    public $origUid;
+    public $origUid = 0;
 
     /**
      * @return int
