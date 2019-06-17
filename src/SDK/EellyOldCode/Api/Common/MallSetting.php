@@ -50,4 +50,15 @@ class MallSetting
     {
         return EellyClient::request('eellyOldCode/Common/MallSetting', __FUNCTION__, true);
     }
+
+    /**
+     * 获取直播推荐店铺ID
+     *
+     * @author zhangyangxun
+     * @since 2019/6/17
+     */
+    public function getLiveRecomStore()
+    {
+        return EellyClient::request('eellyOldCode/Common/MallSetting', __FUNCTION__, true);
+    }
 }
