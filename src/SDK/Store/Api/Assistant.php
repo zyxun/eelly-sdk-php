@@ -183,4 +183,9 @@ class Assistant
 
         return $instance;
     }
+    
+    public static function getStoreIds(int $uid): array
+    {
+        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid]);
+    }
 }

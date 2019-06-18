@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Logger\Api;
+namespace Eelly\SDK\Order\Api;
 
 use Eelly\SDK\EellyClient;
 
-class DingLogger
+class Relation
 {
-    public function monolog(array $record): bool
+    public static function totalOrder(int $sellerId, int $buyerId): array
     {
-        return EellyClient::requestJson('logger/dingLogger', __FUNCTION__, ['record' => $record]);
+        return EellyClient::requestJson('order/relation', __FUNCTION__, ['sellerId' => $sellerId, 'buyerId' => $buyerId]);
     }
 }

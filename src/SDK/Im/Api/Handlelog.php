@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Logger\Api;
+namespace Eelly\SDK\Im\Api;
 
 use Eelly\SDK\EellyClient;
 
-class DingLogger
+class Handlelog
 {
-    public function monolog(array $record): bool
+    public static function addBarrage(int $liveId, int $uid): bool
     {
-        return EellyClient::requestJson('logger/dingLogger', __FUNCTION__, ['record' => $record]);
+        return EellyClient::requestJson('im/handlelog', __FUNCTION__, ['liveId' => $liveId, 'uid' => $uid]);
     }
 }

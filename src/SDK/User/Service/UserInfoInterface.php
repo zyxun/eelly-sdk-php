@@ -12,8 +12,6 @@ declare(strict_types=1);
  */
 
 namespace Eelly\SDK\User\Service;
-use Eelly\DTO\UidDTO;
-use Eelly\SDK\User\Api\User;
 
 /**
  * Interface UserInfoInterface.
@@ -45,43 +43,49 @@ interface UserInfoInterface
     public function getList(array $userIds): array;
 
     /**
-     * 获取申请提现的用户的信息
+     * 获取申请提现的用户的信息.
      *
      * @param array $userIds
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-11-21
      */
-    public function getWithdrawUserInfo(array $userIds): array ;
+    public function getWithdrawUserInfo(array $userIds): array;
 
     /**
-     * 根据条件批量获取用户信息
+     * 根据条件批量获取用户信息.
      *
      * @param array  $condition
      * @param string $fieldScope
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-04
      *
      * @internal
      */
-    public function getListByCondition(array $condition, string $fieldScope): array ;
+    public function getListByCondition(array $condition, string $fieldScope): array;
 
     /**
-     * 分页获取会员列表
+     * 分页获取会员列表.
      *
      * @param array  $condition
      * @param string $fieldScope
      * @param int    $page
      * @param int    $limit
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-05
      *
      * @internal
      */
-    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array ;
+    public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array;
 }

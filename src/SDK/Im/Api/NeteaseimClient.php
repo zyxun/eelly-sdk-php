@@ -11,14 +11,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Logger\Api;
+namespace Eelly\SDK\Im\Api;
 
 use Eelly\SDK\EellyClient;
+use Shadon\Neteaseim\Command\Action;
 
-class DingLogger
+class NeteaseimClient
 {
-    public function monolog(array $record): bool
+    public static function executeAction(Action $action): bool
     {
-        return EellyClient::requestJson('logger/dingLogger', __FUNCTION__, ['record' => $record]);
+        return EellyClient::requestJson('im/neteaseimClient', __FUNCTION__, ['serializedAction' => serialize($action)]);
     }
 }

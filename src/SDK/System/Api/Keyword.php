@@ -544,6 +544,22 @@ class Keyword
     }
 
     /**
+     * @return array
+     * @throws \ErrorException
+     * @author zhangyangxun
+     * @since 2019/5/28
+     */
+    public function getAllKeywordInternal(): array
+    {
+        return EellyClient::request('system/keyword', __FUNCTION__, true);
+    }
+
+    public function getKeywordForWeb(UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('system/keyword', __FUNCTION__, true);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

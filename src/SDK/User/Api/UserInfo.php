@@ -193,16 +193,15 @@ class UserInfo
     public static function getUids(int $uid = 1, int $limit = 1000): array
     {
         return EellyClient::requestJson('user/userInfo', __FUNCTION__, [
-            'uid' => $uid,
+            'uid'   => $uid,
             'limit' => $limit,
         ]);
     }
 
-    public static function checkImUserInfo(int $uid, array $data) : bool
+    public static function checkImUserInfo(int $uid, array $data): bool
     {
         return EellyClient::requestJson('user/userInfo', __FUNCTION__, ['uid' => $uid, 'data' => $data]);
     }
-
 
     /**
      * @return self

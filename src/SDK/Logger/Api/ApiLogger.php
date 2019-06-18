@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Eelly\SDK\Logger\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Logger\Service\ApiLoggerInterface;
 
 /**
  * @author hehui<hehui@eelly.net>
@@ -22,12 +21,10 @@ use Eelly\SDK\Logger\Service\ApiLoggerInterface;
 class ApiLogger
 {
     /**
-     * {@inheritdoc}
-     *
      * @see \Eelly\SDK\Logger\Service\ApiLoggerInterface::log()
      */
     public function log(string $traceId, array $request = [], array $response = [], array $extras = []): bool
     {
-        return EellyClient::request('logger/apiLogger', __FUNCTION__, true, $traceId, $request, $response, $extras);
+        return EellyClient::requestJson('logger/apiLogger', __FUNCTION__, ['traceId' => $traceId, 'request' => $request, 'response' => $response, 'extras' => $extras]);
     }
 }

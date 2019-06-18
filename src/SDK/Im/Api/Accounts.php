@@ -48,6 +48,11 @@ class Accounts
         return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type);
     }
 
+    public function muteUser(int $uid, int $type, string $mute): bool
+    {
+        return EellyClient::request('im/accounts', __FUNCTION__, true, $uid, $type, $mute);
+    }
+
     /**
      * 发送登出通知给客户端.
      *
@@ -76,16 +81,6 @@ class Accounts
         EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
     }
 
-    public static function refreshUserInfo(int $uid, int $type, array $data = []): bool
-    {
-        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'data' => $data]);
-    }
-
-    public static function updateNimUinfo(int $uid, int $type, string $name, string $icon, bool $created = false): bool
-    {
-        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'type' => $type, 'name' => $name, 'icon' => $icon, 'created' => $created]);
-    }
-
     public static function updateNeteaseUser(int $uid, array $data, bool $created = false): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'data' => $data, 'created' => $created]);
@@ -101,11 +96,20 @@ class Accounts
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid]);
     }
 
+    public static function checkNeteaseUserAsync(int $uid)
+    {
+        return EellyClient::requestJson('im/accounts', 'checkNeteaseUser', ['uid' => $uid], false);
+    }
+    
     public static function checkNeteaseStore(int $storeId): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['storeId' => $storeId]);
     }
 
+    public static function checkNeteaseStoreAsync(int $storeId)
+    {
+        return EellyClient::requestJson('im/accounts', 'checkNeteaseStore', ['storeId' => $storeId], false);
+    }
     /**
      * @return self
      */

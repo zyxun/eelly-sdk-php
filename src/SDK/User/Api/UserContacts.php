@@ -35,8 +35,13 @@ class UserContacts
         ]);
     }
 
-    public static function updateTimUserContactsInternal(string $fromId, string $toId, array $values): bool
+    public static function addFollowInternal(int $fromUid, int $fromType, array $users): bool
     {
-        return EellyClient::requestJson('user/userContacts', __FUNCTION__, ['fromId' => $fromId, 'toId' => $toId, 'values' => $values]);
+        return EellyClient::requestJson('user/userContacts', __FUNCTION__, ['fromUid' => $fromUid, 'fromType' => $fromType, 'users' => $users]);
+    }
+
+    public static function unFollowInternal(int $fromUid, int $fromType, array $users): bool
+    {
+        return EellyClient::requestJson('user/userContacts', __FUNCTION__, ['fromUid' => $fromUid, 'fromType' => $fromType, 'users' => $users]);
     }
 }

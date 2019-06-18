@@ -36,6 +36,11 @@ class Live
         return EellyClient::request('eellyOldCode/Live/Live', __FUNCTION__, true, $liveId);
     }
 
+    public static function sendLiveMessageToBuyer($minute)
+    {
+        return EellyClient::requestJson('eellyOldCode/Live/Live', __FUNCTION__, ['minute' => $minute]);
+    }
+
     /**
      * 店+直播中心=》正在直播.
      *

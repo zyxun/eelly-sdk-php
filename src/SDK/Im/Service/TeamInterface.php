@@ -95,4 +95,16 @@ interface TeamInterface
      * @since 2019年05月06日
      */
     public function afterBuyerJoin(int $tid , int $userId, int $itmId): array;
+
+    /**
+     * 获取店铺激活群数量
+     *
+     * @param integer $storeId 店铺id
+     * @return integer
+     * @internal
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.17
+     */
+    public function getStoreActivationTeam(int $storeId):int;
 }

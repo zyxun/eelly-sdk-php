@@ -403,9 +403,9 @@ class User
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function getInfo(UidDTO $user = null): UserDTO
+    public function getInfo(): UserDTO
     {
-        return EellyClient::request('user/user', 'getInfo', true, $user);
+        return EellyClient::requestJson('user/user', 'getInfo',  []);
     }
 
     /**
@@ -463,7 +463,7 @@ class User
      */
     public function getListByUserIds(array $userIds): array
     {
-        return EellyClient::request('user/user', 'getListByUserIds', true, $userIds);
+        return EellyClient::requestJson('user/user', __FUNCTION__, ['userIds' => $userIds]);
     }
 
     /**
@@ -1618,7 +1618,7 @@ class User
     public function getMemberExtendInfo(array $userIds): array
     {
         return EellyClient::requestJson('user/user', __FUNCTION__, [
-            'userIds' => $userIds
+            'userIds' => $userIds,
         ]);
         //return EellyClient::request('user/user', __FUNCTION__, true, $userIds);
     }

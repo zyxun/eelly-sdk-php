@@ -120,15 +120,17 @@ class EellyClient
         ];
         $eellyClient = self::init($config['options'], $collaborators, $config['providerUri']);
         $eellyClient->getSdkClient()->getProvider()->setAccessTokenCache($cache);
-        self::getSdkClient()->getHandlerStack()->push(Middleware::mapRequest(function (RequestInterface $request) {
-            $clientRequest = new Request();
-            if (!$clientRequest->hasHeader(self::TRACE_HEADER_IP)) {
-                $ip = $clientRequest->getClientAddress(true);
-                $request = $request->withHeader(self::TRACE_HEADER_IP, $ip);
-            }
+        if ('cli' !== \PHP_SAPI) {
+            self::getSdkClient()->getHandlerStack()->push(Middleware::mapRequest(function (RequestInterface $request) {
+                $clientRequest = new Request();
+                if (!$clientRequest->hasHeader(self::TRACE_HEADER_IP)) {
+                    $ip = $clientRequest->getClientAddress(true);
+                    $request = $request->withHeader(self::TRACE_HEADER_IP, $ip);
+                }
 
-            return $request;
-        }));
+                return $request;
+            }));
+        }
 
         return $eellyClient;
     }

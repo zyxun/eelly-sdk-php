@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Im\Api;
 
+use Eelly\SDK\EellyClient;
 use Eelly\SDK\Im\Service\TeamStatsInterface;
 
 /**
@@ -20,6 +21,38 @@ use Eelly\SDK\Im\Service\TeamStatsInterface;
  */
 class TeamStats implements TeamStatsInterface
 {
+    /**
+     * 后台统计店主群.
+     *
+     * @param array $condition
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     *
+     * @since 2019/5/23
+     */
+    public function getBuyerTeamStat(array $condition = []): array
+    {
+        return EellyClient::request('im/teamStats', 'getBuyerTeamStat', true, $condition);
+    }
+
+    /**
+     * 后台统计店主群.
+     *
+     * @param array $condition
+     *
+     * @return array
+     *
+     * @author zhangyangxun
+     *
+     * @since 2019/5/23
+     */
+    public function getBuyerTeamStatAsync(array $condition = [])
+    {
+        return EellyClient::request('im/teamStats', 'getBuyerTeamStat', false, $condition);
+    }
+
     /**
      * @return self
      */

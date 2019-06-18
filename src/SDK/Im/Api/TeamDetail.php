@@ -41,6 +41,16 @@ class TeamDetail implements TeamDetailInterface
         return EellyClient::request('im/teamDetail', 'updateTeamDetailInternal', true, $tid, $userId, $userType, $attr, $value);
     }
 
+    public static function queryOne(string $tid): array
+    {
+        return EellyClient::requestJson('im/teamDetail', __FUNCTION__, ['tid' => $tid]);
+    }
+
+    public static function checkTeamMemberData(string $tid) : bool
+    {
+        return EellyClient::requestJson('im/teamDetail', __FUNCTION__, array('tid' => $tid));
+    }
+
     /**
      * 更新群会话设置.
      *
