@@ -54,11 +54,14 @@ class MallSetting
     /**
      * 获取直播推荐店铺ID
      *
+     * @param $remark
+     * @return bool|int|mixed|null|string
+     * @throws \ErrorException
      * @author zhangyangxun
-     * @since 2019/6/17
+     * @since 2019/6/18
      */
-    public function getLiveRecomStore()
+    public function getLiveRecomStore($remark)
     {
-        return EellyClient::request('eellyOldCode/Common/MallSetting', __FUNCTION__, true);
+        return EellyClient::request('eellyOldCode/Common/MallSetting', __FUNCTION__, true, $remark);
     }
 }

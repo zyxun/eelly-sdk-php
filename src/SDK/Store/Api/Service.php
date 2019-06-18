@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /*
  * This file is part of eelly package.
  *
@@ -13,12 +12,13 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Store\Api;
 
-use Eelly\DTO\UidDTO;
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Store\DTO\ServiceTeamDTO;
 use Eelly\SDK\Store\Service\ServiceInterface;
+use Eelly\DTO\UidDTO;
+use Eelly\SDK\Store\DTO\ServiceTeamDTO;
 
 /**
+ *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Service
@@ -57,7 +57,7 @@ class Service
      */
     public function addServiceTeam(array $teamData, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/service', __FUNCTION__, true, $teamData, $user);
+        return EellyClient::request('store/service', 'addServiceTeam', true, $teamData, $user);
     }
 
     /**
@@ -94,7 +94,7 @@ class Service
      */
     public function addServiceTeamAsync(array $teamData, UidDTO $user = null)
     {
-        return EellyClient::request('store/service', __FUNCTION__, false, $teamData, $user);
+        return EellyClient::request('store/service', 'addServiceTeam', false, $teamData, $user);
     }
 
     /**
@@ -122,7 +122,7 @@ class Service
      */
     public function updateServiceTeam(int $teamId, string $updateField, string $updateValue, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/service', __FUNCTION__, true, $teamId, $updateField, $updateValue, $user);
+        return EellyClient::request('store/service', 'updateServiceTeam', true, $teamId, $updateField, $updateValue, $user);
     }
 
     /**
@@ -150,7 +150,7 @@ class Service
      */
     public function updateServiceTeamAsync(int $teamId, string $updateField, string $updateValue, UidDTO $user = null)
     {
-        return EellyClient::request('store/service', __FUNCTION__, false, $teamId, $updateField, $updateValue, $user);
+        return EellyClient::request('store/service', 'updateServiceTeam', false, $teamId, $updateField, $updateValue, $user);
     }
 
     /**
@@ -174,7 +174,7 @@ class Service
      */
     public function deleteServiceTeam(int $teamId, UidDTO $user = null): bool
     {
-        return EellyClient::request('store/service', __FUNCTION__, true, $teamId, $user);
+        return EellyClient::request('store/service', 'deleteServiceTeam', true, $teamId, $user);
     }
 
     /**
@@ -198,7 +198,7 @@ class Service
      */
     public function deleteServiceTeamAsync(int $teamId, UidDTO $user = null)
     {
-        return EellyClient::request('store/service', __FUNCTION__, false, $teamId, $user);
+        return EellyClient::request('store/service', 'deleteServiceTeam', false, $teamId, $user);
     }
 
     /**
@@ -230,7 +230,7 @@ class Service
      */
     public function getServiceTeamInfo(int $teamId, UidDTO $user = null): ServiceTeamDTO
     {
-        return EellyClient::request('store/service', __FUNCTION__, true, $teamId, $user);
+        return EellyClient::request('store/service', 'getServiceTeamInfo', true, $teamId, $user);
     }
 
     /**
@@ -262,7 +262,63 @@ class Service
      */
     public function getServiceTeamInfoAsync(int $teamId, UidDTO $user = null)
     {
-        return EellyClient::request('store/service', __FUNCTION__, false, $teamId, $user);
+        return EellyClient::request('store/service', 'getServiceTeamInfo', false, $teamId, $user);
+    }
+
+    /**
+     * 客服入口
+     *
+     * @param integer $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.14
+     */
+    public function getServiceEntrance(int $storeId): array
+    {
+        return EellyClient::request('store/service', 'getServiceEntrance', true, $storeId);
+    }
+
+    /**
+     * 客服入口
+     *
+     * @param integer $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.14
+     */
+    public function getServiceEntranceAsync(int $storeId)
+    {
+        return EellyClient::request('store/service', 'getServiceEntrance', false, $storeId);
+    }
+
+    /**
+     * 获取客服聊天账号 优先级 售前客服>售后客服>主账号
+     *
+     * @param storeIds $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.14
+     */
+    public function getServiceTalkAccount(array $storeIds): array
+    {
+        return EellyClient::request('store/service', 'getServiceTalkAccount', true, $storeIds);
+    }
+
+    /**
+     * 获取客服聊天账号 优先级 售前客服>售后客服>主账号
+     *
+     * @param storeIds $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.14
+     */
+    public function getServiceTalkAccountAsync(array $storeIds)
+    {
+        return EellyClient::request('store/service', 'getServiceTalkAccount', false, $storeIds);
     }
 
     /**
