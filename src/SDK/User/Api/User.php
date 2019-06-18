@@ -403,9 +403,9 @@ class User
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function getInfo(UidDTO $user = null): UserDTO
+    public function getInfo(): UserDTO
     {
-        return EellyClient::request('user/user', 'getInfo', true, $user);
+        return EellyClient::requestJson('user/user', 'getInfo',  []);
     }
 
     /**
