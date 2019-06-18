@@ -153,7 +153,22 @@ class Assistant
      */
     public function addReadyStoreAssistant($storeId, $data): bool
     {
-         return EellyClient::request('store/assistant', 'addReadyStoreAssistant', true, $storeId, $data);
+        return EellyClient::request('store/assistant', 'addReadyStoreAssistant', true, $storeId, $data);
+    }
+    
+    /**
+     * 根据店铺id获取子账号信息
+     * 
+     * @param array $storeIds 店铺id
+     * 
+     * @author wechan 
+     * @since 2019年06月18日
+     */
+    public function getAssistantBystoreIds(array $storeIds): array
+    {
+        return EellyClient::requestJson('store/assistant', __FUNCTION__, [
+            'storeIds'     => $storeIds,
+        ]);
     }
 
     /**

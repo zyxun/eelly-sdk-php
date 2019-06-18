@@ -72,4 +72,14 @@ interface AssistantInterface
      * @since 2019年6月17日
      */
     public function addReadyStoreAssistant($storeId, $data):bool; 
+    
+    /**
+     * 根据店铺id获取子账号信息
+     * 
+     * @param array $storeIds 店铺id
+     * 
+     * @author wechan 
+     * @since 2019年06月18日
+     */
+    public function getAssistantBystoreIds(array $storeIds): array;
 }
