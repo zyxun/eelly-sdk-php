@@ -544,14 +544,15 @@ class Keyword
     }
 
     /**
+     * @param int $type
      * @return array
      * @throws \ErrorException
      * @author zhangyangxun
      * @since 2019/5/28
      */
-    public function getAllKeywordInternal(): array
+    public function getAllKeywordInternal(int $type = 0): array
     {
-        return EellyClient::request('system/keyword', __FUNCTION__, true);
+        return EellyClient::request('system/keyword', __FUNCTION__, true, $type);
     }
 
     public function getKeywordForWeb(UidDTO $uidDTO = null): array

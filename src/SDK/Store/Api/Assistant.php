@@ -22,6 +22,11 @@ use Eelly\SDK\Store\DTO\AssistantDTO;
  */
 class Assistant
 {
+    public static function getStoreIds(int $uid): array	
+    {	
+        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid]);	
+    }
+    
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
@@ -141,7 +146,7 @@ class Assistant
     {
         return EellyClient::request('store/assistant', 'listAssistant', false, $condition, $extend);
     }
-    
+
     /**
      * 新增赠送子账号
      * 
@@ -153,7 +158,77 @@ class Assistant
      */
     public function addReadyStoreAssistant($storeId, $data): bool
     {
-         return EellyClient::request('store/assistant', 'addReadyStoreAssistant', true, $storeId, $data);
+        return EellyClient::request('store/assistant', 'addReadyStoreAssistant', true, $storeId, $data);
+    }
+
+    /**
+     * 新增赠送子账号
+     * 
+     * @param int $storeId 店铺id
+     * @param array $data 扩展参数
+     * 
+     * @author wechan
+     * @since 2019年6月17日
+     */
+    public function addReadyStoreAssistantAsync($storeId, $data)
+    {
+        return EellyClient::request('store/assistant', 'addReadyStoreAssistant', false, $storeId, $data);
+    }
+
+    /**
+     * 根据店铺id获取子账号信息
+     * 
+     * @param array $storeIds 店铺id
+     * 
+     * @author wechan 
+     * @since 2019年06月18日
+     */
+    public function getAssistantBystoreIds(array $storeIds): array
+    {
+        return EellyClient::requestJson('store/assistant', 'getAssistantBystoreIds', [
+            'storeIds' => $storeIds
+        ]);
+    }
+
+    /**
+     * 根据店铺id获取子账号信息
+     * 
+     * @param array $storeIds 店铺id
+     * 
+     * @author wechan 
+     * @since 2019年06月18日
+     */
+    public function getAssistantBystoreIdsAsync(array $storeIds)
+    {
+        return EellyClient::request('store/assistant', 'getAssistantBystoreIds', false, $storeIds);
+    }
+
+    /**
+     * 获取店铺子账号所有userId
+     *
+     * @param integer $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.19
+     */
+    public function getStoreAssistantUserIds(int $storeId): array
+    {
+        return EellyClient::request('store/assistant', 'getStoreAssistantUserIds', true, $storeId);
+    }
+
+    /**
+     * 获取店铺子账号所有userId
+     *
+     * @param integer $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.19
+     */
+    public function getStoreAssistantUserIdsAsync(int $storeId)
+    {
+        return EellyClient::request('store/assistant', 'getStoreAssistantUserIds', false, $storeId);
     }
 
     /**
@@ -167,10 +242,5 @@ class Assistant
         }
 
         return $instance;
-    }
-    
-    public static function getStoreIds(int $uid): array
-    {
-        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid]);
     }
 }
