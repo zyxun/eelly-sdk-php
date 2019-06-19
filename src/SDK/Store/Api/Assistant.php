@@ -20,7 +20,7 @@ use Eelly\SDK\Store\DTO\AssistantDTO;
  *
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class Assistant implements AssistantInterface
+class Assistant
 {
     /**
      *
