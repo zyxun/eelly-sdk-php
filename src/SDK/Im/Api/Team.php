@@ -231,6 +231,16 @@ class Team
         return EellyClient::request('im/team', 'getStoreActivationTeam', false, $storeId);
     }
 
+    public function listTeamInfoById(int $ownerId, int $storeId, int $status = 1):array
+    {
+        return EellyClient::request('im/team', __FUNCTION__, true, $ownerId, $storeId, $status);
+    }
+
+    public function listTeamInfoByIdAsync(int $ownerId, int $storeId, int $status = 1):array
+    {
+        return EellyClient::request('im/team', __FUNCTION__, false, $ownerId, $storeId, $status);
+    }
+
     /**
      * @return self
      */
