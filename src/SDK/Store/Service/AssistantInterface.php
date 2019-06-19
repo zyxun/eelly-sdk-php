@@ -82,4 +82,15 @@ interface AssistantInterface
      * @since 2019年06月18日
      */
     public function getAssistantBystoreIds(array $storeIds): array;
+
+    /**
+     * 获取店铺子账号所有userId
+     *
+     * @param integer $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.19
+     */
+    public function getStoreAssistantUserIds(int $storeId):array;
 }
