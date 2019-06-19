@@ -98,7 +98,7 @@ class Accounts
 
     public static function checkNeteaseUserAsync(int $uid)
     {
-        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid], false);
+        return EellyClient::requestJson('im/accounts', 'checkNeteaseUser', ['uid' => $uid], false);
     }
     
     public static function checkNeteaseStore(int $storeId): bool
@@ -108,7 +108,7 @@ class Accounts
 
     public static function checkNeteaseStoreAsync(int $storeId)
     {
-        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['storeId' => $storeId], false);
+        return EellyClient::requestJson('im/accounts', 'checkNeteaseStore', ['storeId' => $storeId], false);
     }
     /**
      * @return self

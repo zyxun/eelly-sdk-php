@@ -70,4 +70,18 @@ class StUserTools
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/ServiceTools/StUserTools', __FUNCTION__, true, $storeIds);
     }
+
+    /**
+     * 检验用户增值服务工具是否过期
+     *
+     * @param int $userId 用户id
+     * @param string $toolsName 工具名称
+     *
+     * @author wechan<liweiquan@eelly.net>
+     * @since 2017年12月01日
+     */
+    public function checkToolsIsOverTime($userId, $toolsName)
+    {
+        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/ServiceTools/StUserTools', __FUNCTION__, true, $userId, $toolsName);
+    }
 }
