@@ -22,6 +22,11 @@ use Eelly\SDK\Store\DTO\AssistantDTO;
  */
 class Assistant
 {
+    public static function getStoreIds(int $uid): array	
+    {	
+        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid]);	
+    }
+    
     /**
      *
      * @author eellytools<localhost.shell@gmail.com>
@@ -180,7 +185,7 @@ class Assistant
      */
     public function getAssistantBystoreIds(array $storeIds): array
     {
-        return EellyClient::request('store/assistant', 'getAssistantBystoreIds', true, $storeIds);
+        return EellyClient::requestJson('store/assistant', 'getAssistantBystoreIds', true, $storeIds);
     }
 
     /**
