@@ -88,4 +88,16 @@ interface UserInfoInterface
      * @internal
      */
     public function getUserListPage(array $condition, string $fieldScope, int $page = 1, int $limit = 10): array;
+    
+    
+    /**
+     * 根据用户id获取用户名(不对外)
+     * 
+     * @author wechan
+     * @param array $userIds 用户ids
+     * 
+     * @author wechan
+     * @since 2019年6月19日
+     */
+    public function getUserNameByUids(array $userIds):array;
 }
