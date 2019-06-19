@@ -202,6 +202,11 @@ class UserInfo
     {
         return EellyClient::requestJson('user/userInfo', __FUNCTION__, ['uid' => $uid, 'data' => $data]);
     }
+    
+    public static function getUserNameByUids(array $userIds): bool
+    {
+        return EellyClient::requestJson('user/userInfo', __FUNCTION__, ['userIds' => $userIds]);
+    }
 
     /**
      * @return self
