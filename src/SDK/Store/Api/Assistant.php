@@ -185,7 +185,9 @@ class Assistant
      */
     public function getAssistantBystoreIds(array $storeIds): array
     {
-        return EellyClient::requestJson('store/assistant', 'getAssistantBystoreIds', true, $storeIds);
+        return EellyClient::requestJson('store/assistant', 'getAssistantBystoreIds', [
+            'storeIds' => $storeIds
+        ]);
     }
 
     /**
