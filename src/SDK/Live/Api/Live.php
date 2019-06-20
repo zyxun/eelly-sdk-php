@@ -1811,6 +1811,20 @@ class Live implements LiveInterface
     }
 
     /**
+     * 小程序获取我的关注
+     *
+     * @param UidDTO $user 当前登录的用户
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.20
+     */
+    public function getMyFollowLiveForApplets(UidDTO $user = null):array
+    {
+        return EellyClient::request('live/live', 'getMyFollowLiveForApplets', true, $user);
+    }
+
+    /**
      * 获取我的关注直播间
      * 
      * > 数据格式同其他标签返回的数据格式一样
