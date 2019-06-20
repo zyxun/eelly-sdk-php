@@ -131,4 +131,26 @@ interface ServiceInterface
      * @since 2017年9月5日
      */
     public function getServiceTeamInfo(int $teamId, UidDTO $user = null): ServiceTeamDTO;
+
+    /**
+     * 客服入口
+     *
+     * @param integer $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.14
+     */
+    public function getServiceEntrance(int $storeId):array;
+
+    /**
+     * 获取客服聊天账号 优先级 售前客服>售后客服>主账号
+     *
+     * @param storeIds $storeId 店铺id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.14
+     */
+    public function getServiceTalkAccount(array $storeIds):array;
 }
