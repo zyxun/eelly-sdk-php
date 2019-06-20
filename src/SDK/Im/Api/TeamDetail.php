@@ -21,6 +21,11 @@ use Eelly\SDK\Im\Service\TeamDetailInterface;
  */
 class TeamDetail implements TeamDetailInterface
 {
+    public static function updateInfo(string $tid, array $data): bool
+    {
+        return EellyClient::requestJson('im/teamDetail', __FUNCTION__, ['tid' => $tid, 'data' => $data]);
+    }
+
     /**
      * 更新群会话设置.
      *
@@ -46,9 +51,9 @@ class TeamDetail implements TeamDetailInterface
         return EellyClient::requestJson('im/teamDetail', __FUNCTION__, ['tid' => $tid]);
     }
 
-    public static function checkTeamMemberData(string $tid) : bool
+    public static function checkTeamMemberData(string $tid): bool
     {
-        return EellyClient::requestJson('im/teamDetail', __FUNCTION__, array('tid' => $tid));
+        return EellyClient::requestJson('im/teamDetail', __FUNCTION__, ['tid' => $tid]);
     }
 
     /**
