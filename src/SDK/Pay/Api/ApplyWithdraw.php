@@ -331,6 +331,27 @@ class ApplyWithdraw
     }
 
     /**
+     * 申请微信钱包提现校验数据
+     * 
+     * > data 数据说明
+     * key | type | value
+     * --- | ---- | -----
+     * money | int | 提现的金额 分单位
+     * storeId  | int  | 店铺id 0代表店家 非0代表厂+
+     *      
+     * @param array $data 申请体现的数据
+     * @param UidDTO $uidDTO 当前登陆的用户信息
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.6.21
+     */
+    public function checkApplyWechatPurse(array $data, UidDTO $uidDTO = null):bool
+    {
+        return EellyClient::request('pay/applyWithdraw', 'checkApplyWechatPurse', false, $data, $uidDTO);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
