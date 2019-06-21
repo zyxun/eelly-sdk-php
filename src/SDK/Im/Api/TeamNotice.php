@@ -26,4 +26,9 @@ class TeamNotice
     {
         return EellyClient::requestJson('im/teamNotice', __FUNCTION__, ['storeId' => $storeId]);
     }
+
+    public static function sendTeamLiveEnterMsg(string $tid, string $username): bool
+    {
+        return EellyClient::requestJson('im/teamNotice', __FUNCTION__, ['tid' => $tid, 'username' => $username]);
+    }
 }

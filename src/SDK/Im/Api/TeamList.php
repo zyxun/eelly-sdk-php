@@ -20,6 +20,11 @@ use Eelly\SDK\EellyClient;
  */
 class TeamList
 {
+    public static function getCreateTeams(): array
+    {
+        return EellyClient::requestJson('im/teamList', __FUNCTION__);
+    }
+
     /**
      * 后台分页取店主群.
      *

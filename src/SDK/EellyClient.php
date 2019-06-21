@@ -190,7 +190,7 @@ class EellyClient
      *
      * @return \GuzzleHttp\Promise\PromiseInterface|bool|int|mixed|string|null
      */
-    public static function requestJson(string $uri, string $method, array $args, bool $sync = true)
+    public static function requestJson(string $uri, string $method, array $args = [], bool $sync = true)
     {
         $promise = self::$sdkClient->requestAsyncJson($uri.'/'.$method, $args);
         if ($sync) {
