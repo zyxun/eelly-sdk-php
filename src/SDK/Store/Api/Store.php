@@ -23,6 +23,11 @@ use Eelly\SDK\Store\Service\StoreInterface;
  */
 class Store
 {
+    public static function syncStoreInfo(int $storeId, array $data) : bool
+    {
+        return EellyClient::requestJson('store/store', __FUNCTION__, array('storeId' => $storeId, 'data' => $data));
+    }
+
     /**
      * 新增店铺
      * 用户新增店铺并添加店铺标签.
