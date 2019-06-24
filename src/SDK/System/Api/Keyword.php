@@ -561,6 +561,21 @@ class Keyword
     }
 
     /**
+     * @param array  $condition
+     * @param int    $page
+     * @param int    $limit
+     * @param string $field
+     * @return array
+     * @throws \ErrorException
+     * @author zhangyangxun
+     * @since 2019/6/24
+     */
+    public function getKeywordLogPage(array $condition, int $page, int $limit, string $field = 'base'): array
+    {
+        return EellyClient::request('system/keyword', __FUNCTION__, true, $condition, $page, $limit, $field);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
