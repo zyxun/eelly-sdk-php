@@ -576,6 +576,19 @@ class Keyword
     }
 
     /**
+     * @param string   $objectId
+     * @param array    $data
+     * @return bool
+     * @throws \Throwable
+     * @author zhangyangxun
+     * @since 2019/6/25
+     */
+    public function updateKeywordLog(string $objectId, array $data): bool
+    {
+        return EellyClient::request('system/keyword', __FUNCTION__, true, $objectId, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
