@@ -1907,6 +1907,11 @@ class Live implements LiveInterface
         return EellyClient::requestJson('live/live', __FUNCTION__, ['liveId' => $liveId, 'flagVal' => $flagVal, 'type' => $type]);
     }
 
+    public function getLiveStoresByStoreIds(array $storeIds): array
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true, $storeIds);
+    }
+
     /**
      * @return self
      */
