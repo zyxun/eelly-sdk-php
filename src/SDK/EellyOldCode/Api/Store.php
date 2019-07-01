@@ -58,4 +58,9 @@ class Store
     {
         return EellyClient::request('eellyOldCode/Store', __FUNCTION__, true, $condition, $currentPage, $limit, $field);
     }
+
+    public function getInfo(array $condition, string $field = 'base'): array
+    {
+        return EellyClient::request('eellyOldCode/Store', __FUNCTION__, true, $condition, $field);
+    }
 }
