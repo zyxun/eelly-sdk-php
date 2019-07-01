@@ -75,6 +75,11 @@ class TeamDetail implements TeamDetailInterface
     {
         return EellyClient::request('im/teamDetail', 'updateTeamDetailInternal', false, $tid, $userId, $userType, $attr, $value);
     }
+    
+    public function getTeamInfo(array $condition, string $fieldScope = 'base'): array
+    {
+        return EellyClient::request('im/teamDetail', __FUNCTION__, true, $condition, $fieldScope);
+    }
 
     /**
      * @return self
