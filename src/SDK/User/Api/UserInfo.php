@@ -31,9 +31,9 @@ class UserInfo
      *
      *@author hehui<runphp@dingtalk.com>
      */
-    public function getOne(int $userId): array
+    public function getOne(int $userId, int $mark = 2): array
     {
-        return EellyClient::request('user/userInfo', 'getOne', true, $userId);
+        return EellyClient::requestJson('user/userInfo', __FUNCTION__, ['userId' => $userId, 'mark' => $mark]);
     }
 
     /**
@@ -47,7 +47,7 @@ class UserInfo
      */
     public function getOneAsync(int $userId)
     {
-        return EellyClient::request('user/userInfo', 'getOne', false, $userId);
+        return EellyClient::requestJson('user/userInfo', 'getOne', ['userId' => $userId, 'mark' => $mark], false);
     }
 
     /**
