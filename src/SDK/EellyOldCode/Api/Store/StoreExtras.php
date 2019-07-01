@@ -67,4 +67,28 @@ class StoreExtras
     {
         return EellyClient::request('eellyOldCode/store/storeExtras', __FUNCTION__, true, $storeId, $filedScope);
     }
+    
+    /**
+     * 批量获取店铺扩展指定字段的数据.
+     *
+     * @param array  $storeIds
+     * @param string $fields
+     * @param array  $storeIds
+     * @param string $fields
+     *
+     * @return array
+     *
+     * > 数据说明
+     *   key | value
+     *   --------------------|--------------------
+     *   store_id            |    string
+     *
+     */
+    public function getStoresExtraDataByStoreIds(array $storeIds, $fields)
+    {
+        return EellyClient::requestJson('store/storeExtras', __FUNCTION__, [
+            'storeIds' => $storeIds,
+            'fields' => $fields,
+        ]);
+    }
 }
