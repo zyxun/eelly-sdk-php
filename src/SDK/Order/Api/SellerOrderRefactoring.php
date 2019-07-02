@@ -752,6 +752,7 @@ class SellerOrderRefactoring
      * needRefund         | int     | 退货退款
      * needCancel         | int     | 已取消
      *
+     * @param array extends 拓展使用
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
      * @return array
@@ -771,9 +772,9 @@ class SellerOrderRefactoring
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      */
-    public function listOrderStatusNum(UidDTO $uidDTO = null): array
+    public function listOrderStatusNum(array $extends = [], UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('order/sellerOrderRefactoring', 'listOrderStatusNum', true, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', 'listOrderStatusNum', true, $extends, $uidDTO);
     }
 
     /**
@@ -792,6 +793,7 @@ class SellerOrderRefactoring
      * needRefund         | int     | 退货退款
      * needCancel         | int     | 已取消
      *
+     * @param array $extends 拓展使用
      * @param UidDTO|null $uidDTO uid dto(表示需要登录)
      *
      * @return array
@@ -811,9 +813,9 @@ class SellerOrderRefactoring
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      */
-    public function listOrderStatusNumAsync(UidDTO $uidDTO = null)
+    public function listOrderStatusNumAsync(array $extends = [], UidDTO $uidDTO = null)
     {
-        return EellyClient::request('order/sellerOrderRefactoring', 'listOrderStatusNum', false, $uidDTO);
+        return EellyClient::request('order/sellerOrderRefactoring', 'listOrderStatusNum', false, $extends, $uidDTO);
     }
 
     /**
