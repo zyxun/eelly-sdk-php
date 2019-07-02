@@ -31,7 +31,7 @@ class UserInfo
      *
      *@author hehui<runphp@dingtalk.com>
      */
-    public function getOne(int $userId, int $mark = 2): array
+    public function getOne(int $userId, int $mark = 3): array
     {
         return EellyClient::requestJson('user/userInfo', __FUNCTION__, ['userId' => $userId, 'mark' => $mark]);
     }
