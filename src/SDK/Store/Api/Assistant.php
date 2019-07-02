@@ -232,6 +232,20 @@ class Assistant
     }
 
     /**
+     * 获取子账号信息
+     *
+     * @param array $userIds 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.2
+     */
+    public function getAssistantInfo(array $userIds)
+    {
+        return EellyClient::request('store/assistant', 'getAssistantInfo', false, $userIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
