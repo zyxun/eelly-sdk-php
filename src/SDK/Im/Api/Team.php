@@ -14,7 +14,7 @@ namespace Eelly\SDK\Im\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Im\Service\TeamInterface;
-use Eelly\SDK\Im\Service\UidDTO;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -105,6 +105,16 @@ class Team
     public function buyerJoinGroup(int $tid, UidDTO $uidDTO = null): array
     {
         return EellyClient::request('im/team', 'buyerJoinGroup', true, $tid, $uidDTO);
+    }
+
+    public function wapShareJoinGroup(int $tid, int $userId): array
+    {
+        return EellyClient::request('im/team', __FUNCTION__, true, $tid, $userId);
+    }
+
+    public function contactInviteJoinGroup(int $tid, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('im/team', __FUNCTION__, true, $tid, $uidDTO);
     }
 
     /**
