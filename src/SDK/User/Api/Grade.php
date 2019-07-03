@@ -292,6 +292,20 @@ class Grade
     }
 
     /**
+     * 获取用户等级
+     *
+     * @param array $userIds 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.3
+     */
+    public function getUserGrade(array $userIds)
+    {
+        return EellyClient::request('user/grade', 'getUserGrade', true, $userIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
