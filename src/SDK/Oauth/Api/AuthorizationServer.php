@@ -24,4 +24,9 @@ class AuthorizationServer
     {
         return EellyClient::requestJson('oauth/authorizationServer', __FUNCTION__, ['tokenId' => $tokenId]);
     }
+
+    public static function revokeUserAccessToken(int $uid): bool
+    {
+        return EellyClient::requestJson('oauth/authorizationServer', __FUNCTION__, ['uid' => $uid]);
+    }
 }
