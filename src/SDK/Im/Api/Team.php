@@ -252,6 +252,36 @@ class Team
     }
 
     /**
+     * 统计上周进群人数
+     *
+     * @param array $storeIds 店铺id
+     *
+     * @return array
+     *
+     * @author wechan
+     * @since 2019年07月03日
+     */
+    public function statisticLastWeekJoin(array $storeIds):array
+    {
+        return EellyClient::requestJson('im/team', __FUNCTION__, ['storeIds' => $storeIds]);
+    }
+
+    /**
+     * 统计本周进群人数
+     *
+     * @param array $storeIds 店铺id
+     *
+     * @return array
+     *
+     * @author wechan
+     * @since 2019年07月03日
+     */
+    public function statisticThisWeekJoin(array $storeIds):array
+    {
+        return EellyClient::requestJson('im/team', __FUNCTION__, ['storeIds' => $storeIds]);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
