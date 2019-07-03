@@ -14,6 +14,7 @@ namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Live\Service\LiveTopLogInterface;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -223,9 +224,9 @@ class LiveTopLog
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.26
      */
-    public function getLiveTopLog(int $storeId, array $extend = []): array
+    public function getLiveTopLog(int $storeId, array $extend = [], UidDTO $user = null): array
     {
-        return EellyClient::request('live/liveTopLog', 'getLiveTopLog', true, $storeId, $extend);
+        return EellyClient::request('live/liveTopLog', 'getLiveTopLog', true, $storeId, $extend, $user);
     }
 
     /**
@@ -276,9 +277,9 @@ class LiveTopLog
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.3.26
      */
-    public function getLiveTopLogAsync(int $storeId, array $extend = [])
+    public function getLiveTopLogAsync(int $storeId, array $extend = [], UidDTO $user = null)
     {
-        return EellyClient::request('live/liveTopLog', 'getLiveTopLog', false, $storeId, $extend);
+        return EellyClient::request('live/liveTopLog', 'getLiveTopLog', false, $storeId, $extend, $user);
     }
 
     /**
