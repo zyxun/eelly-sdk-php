@@ -17,9 +17,9 @@ use Eelly\SDK\EellyClient;
 
 class Robot
 {
-    public static function addRobotToChatRoom($liveId, $number)
+    public static function addRobotToChatRoom($liveId, $number): void
     {
-        return EellyClient::requestJs('eellyOldCode/IM/Netease/Robot', __FUNCTION__, [
+        EellyClient::requestJs('eellyOldCode/IM/Netease/Robot', __FUNCTION__, [
             'liveId' => $liveId, 'number' => $number,
         ]);
     }
