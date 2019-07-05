@@ -19,24 +19,24 @@ class Robot
 {
     public static function addRobotToChatRoom($liveId, $number): void
     {
-        EellyClient::requestJs('eellyOldCode/IM/Netease/Robot', __FUNCTION__, [
+        EellyClient::requestJson('eellyOldCode/IM/Netease/Robot', __FUNCTION__, [
             'liveId' => $liveId, 'number' => $number,
         ]);
     }
 
     public static function removeChatRoomRobot($liveId): void
     {
-        EellyClient::requestJs('eellyOldCode/IM/Netease/Robot', __FUNCTION__, ['liveId' => $liveId]);
+        EellyClient::requestJson('eellyOldCode/IM/Netease/Robot', __FUNCTION__, ['liveId' => $liveId]);
     }
 
     public static function resetChatRoomRobot(): void
     {
         // 批量更新机器人状态
-        EellyClient::requestJs('eellyOldCode/IM/Netease/Robot', __FUNCTION__);
+        EellyClient::requestJson('eellyOldCode/IM/Netease/Robot', __FUNCTION__);
     }
 
     public static function getRobotByNeteaseUsername($neteaseUsername): void
     {
-        EellyClient::requestJs('eellyOldCode/IM/Netease/Robot', __FUNCTION__, ['neteaseUsername' => $neteaseUsername]);
+        EellyClient::requestJson('eellyOldCode/IM/Netease/Robot', __FUNCTION__, ['neteaseUsername' => $neteaseUsername]);
     }
 }
