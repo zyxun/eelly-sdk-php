@@ -25,11 +25,12 @@ use Eelly\SDK\EellyClient;
 class Applet
 {
     /**
-     * 获取wap站点广告
+     * 获取wap站点广告.
      *
      * @return mixed
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-26
      */
     public function getWapAd()

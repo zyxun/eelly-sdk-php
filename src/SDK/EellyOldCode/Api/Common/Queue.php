@@ -22,8 +22,8 @@ class Queue
 {
     /**
      * 旧商城入队列.
-     * 
-     * @param array $queueData 队列数组
+     *
+     * @param array  $queueData 队列数组
      * @param string $queueName 队列名
      */
     public function setQueueInfo(array $queueData, string $queueName)

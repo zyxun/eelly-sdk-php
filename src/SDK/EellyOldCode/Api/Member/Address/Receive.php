@@ -138,10 +138,12 @@ class Receive
     /**
      * 获取用户默认收获地址
      *
-     * @param integer $userId
+     * @param int $userId
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2019.2.15
      */
     public function getDefaultAddrByUserId(int $userId)
@@ -152,10 +154,12 @@ class Receive
     /**
      * 批量获取用户默认收获地址
      *
-     * @param integer $userId
+     * @param int $userId
+     *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2019.2.15
      */
     public function getDefaultAddrByUserIds(array $userId)

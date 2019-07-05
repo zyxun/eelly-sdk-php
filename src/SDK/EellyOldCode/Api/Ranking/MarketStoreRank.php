@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\EellyOldCode\Api\Ranking;
 
-
 use Eelly\SDK\EellyClient;
 
 /**
