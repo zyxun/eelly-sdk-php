@@ -75,6 +75,11 @@ class TeamDetail implements TeamDetailInterface
     {
         return EellyClient::request('im/teamDetail', 'updateTeamDetailInternal', false, $tid, $userId, $userType, $attr, $value);
     }
+    
+    public function getTeamCardInfo(int $tid): array
+    {
+        return EellyClient::request('im/teamDetail', __FUNCTION__, true, $tid);
+    }
 
     /**
      * @return self

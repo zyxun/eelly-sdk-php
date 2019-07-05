@@ -22,9 +22,9 @@ use Eelly\SDK\Store\DTO\AssistantDTO;
  */
 class Assistant
 {
-    public static function getStoreIds(int $uid): array	
+    public static function getStoreIds(int $uid, bool $expire = true): array
     {	
-        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid]);	
+        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid, 'expire' => $expire]);
     }
     
     /**
@@ -229,6 +229,20 @@ class Assistant
     public function getStoreAssistantUserIdsAsync(int $storeId)
     {
         return EellyClient::request('store/assistant', 'getStoreAssistantUserIds', false, $storeId);
+    }
+
+    /**
+     * 获取子账号信息
+     *
+     * @param array $userIds 用户id
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.2
+     */
+    public function getAssistantInfo(array $userIds)
+    {
+        return EellyClient::request('store/assistant', 'getAssistantInfo', false, $userIds);
     }
 
     /**

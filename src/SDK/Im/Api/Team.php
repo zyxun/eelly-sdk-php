@@ -14,7 +14,7 @@ namespace Eelly\SDK\Im\Api;
 
 use Eelly\SDK\EellyClient;
 use Eelly\SDK\Im\Service\TeamInterface;
-use Eelly\SDK\Im\Service\UidDTO;
+use Eelly\DTO\UidDTO;
 
 /**
  *
@@ -105,6 +105,16 @@ class Team
     public function buyerJoinGroup(int $tid, UidDTO $uidDTO = null): array
     {
         return EellyClient::request('im/team', 'buyerJoinGroup', true, $tid, $uidDTO);
+    }
+
+    public function wapShareJoinGroup(int $tid, int $userId): array
+    {
+        return EellyClient::request('im/team', __FUNCTION__, true, $tid, $userId);
+    }
+
+    public function contactInviteJoinGroup(int $tid, UidDTO $uidDTO = null): array
+    {
+        return EellyClient::request('im/team', __FUNCTION__, true, $tid, $uidDTO);
     }
 
     /**
@@ -239,6 +249,36 @@ class Team
     public function listTeamInfoByIdAsync(int $ownerId, int $storeId, int $status = 1):array
     {
         return EellyClient::request('im/team', __FUNCTION__, false, $ownerId, $storeId, $status);
+    }
+
+    /**
+     * 统计上周进群人数
+     *
+     * @param array $storeIds 店铺id
+     *
+     * @return array
+     *
+     * @author wechan
+     * @since 2019年07月03日
+     */
+    public function statisticLastWeekJoin(array $storeIds):array
+    {
+        return EellyClient::requestJson('im/team', __FUNCTION__, ['storeIds' => $storeIds]);
+    }
+
+    /**
+     * 统计本周进群人数
+     *
+     * @param array $storeIds 店铺id
+     *
+     * @return array
+     *
+     * @author wechan
+     * @since 2019年07月03日
+     */
+    public function statisticThisWeekJoin(array $storeIds):array
+    {
+        return EellyClient::requestJson('im/team', __FUNCTION__, ['storeIds' => $storeIds]);
     }
 
     /**
