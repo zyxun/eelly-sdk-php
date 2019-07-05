@@ -1695,6 +1695,27 @@ class User
     }
 
     /**
+     * 获取平台总用户数量
+     *
+     * @return int
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.07.05
+     */
+    public function getTotalUserNum():int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTotalUserNumAsync():int
+    {
+        return EellyClient::request('user/user', __FUNCTION__, false);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
