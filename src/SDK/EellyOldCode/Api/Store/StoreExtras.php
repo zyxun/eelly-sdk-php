@@ -24,7 +24,6 @@ use Eelly\SDK\EellyClient;
  */
 class StoreExtras
 {
-
     /**
      * 获取店铺扩展信息.
      *
@@ -67,7 +66,7 @@ class StoreExtras
     {
         return EellyClient::request('eellyOldCode/store/storeExtras', __FUNCTION__, true, $storeId, $filedScope);
     }
-    
+
     /**
      * 批量获取店铺扩展指定字段的数据.
      *
@@ -82,13 +81,12 @@ class StoreExtras
      *   key | value
      *   --------------------|--------------------
      *   store_id            |    string
-     *
      */
     public function getStoresExtraDataByStoreIds(array $storeIds, $fields)
     {
         return EellyClient::requestJson('store/storeExtras', __FUNCTION__, [
             'storeIds' => $storeIds,
-            'fields' => $fields,
+            'fields'   => $fields,
         ]);
     }
 }

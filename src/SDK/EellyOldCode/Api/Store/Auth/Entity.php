@@ -26,11 +26,12 @@ class Entity
      * 根据店铺Id数组查店铺实体认证信息.
      *
      * @param array  $storeIds 店铺id
-     * @param string $fields 字段
+     * @param string $fields   字段
      *
      * @return array
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2019.2.15
      */
     public function getEntityInfoByStoreIds(array $storeIds, $fields = '')

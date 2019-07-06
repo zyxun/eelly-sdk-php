@@ -37,21 +37,23 @@ class Store
         return EellyClient::request('eellyOldCode/store', __FUNCTION__, true, $storeId);
     }
 
-    public static function checkImStoreInfo(int $storeId, array $data) : bool
+    public static function checkImStoreInfo(int $storeId, array $data): bool
     {
         return EellyClient::requestJson('eellyOldCode/store', __FUNCTION__, ['storeId' => $storeId, 'data' => $data]);
     }
 
     /**
-     * 店铺分页列表
+     * 店铺分页列表.
      *
      * @param array  $condition
      * @param int    $currentPage
      * @param int    $limit
      * @param string $field
+     *
      * @return array
      *
      * @author zhangyangxun
+     *
      * @since 2019-04-01
      */
     public function getListPage(array $condition, int $currentPage = 1, int $limit = 20, string $field = 'base'): array

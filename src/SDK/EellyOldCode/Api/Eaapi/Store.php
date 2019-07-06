@@ -42,15 +42,18 @@ class Store
     }
 
     /**
-     * 根据店铺id和日期获取统计数据
+     * 根据店铺id和日期获取统计数据.
      *
-     * @param int $storeId 店铺id
-     * @param int $sDate Ymd格式开始日期
-     * @param int $eDate Ymd格式结束日期
+     * @param int   $storeId   店铺id
+     * @param int   $sDate     Ymd格式开始日期
+     * @param int   $eDate     Ymd格式结束日期
      * @param array $objStrArr 获取的平台 默认所有
+     *
      * @return []
+     *
      * @author zengzhihao<zengzhihao@eelly.net>
      * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
      * @since  2019.02.15
      */
     public function getStoreFlowDayInfo($storeId, $sDate, $eDate, array $objStrArr = ['', 'wap', 'app', 'wxmall'])

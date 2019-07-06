@@ -108,10 +108,10 @@ class Goods
     /**
      * 根据$goodsIds 获取商品信息.
      *
-     * @param array $goodsIds 商品id
-     * @param int   $userId   用户id
-     * @param string $type 类型
-     * 
+     * @param array  $goodsIds 商品id
+     * @param int    $userId   用户id
+     * @param string $type     类型
+     *
      * @return array $goodsInfo
      *
      * @since 2015年6月8日

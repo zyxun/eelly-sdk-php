@@ -23,25 +23,26 @@ namespace Eelly\SDK\EellyOldCode\Api\Store\ServiceTools;
 class StUserTools
 {
     /**
-     * 插入增值服务用户与工具关系
+     * 插入增值服务用户与工具关系.
      *
-     * @param int $userId 用户id
-     * @param int $tId 工具类型
-     * @param int $aId 工具价格类型
-     * @param int $expireTime 到期时间
-     * @param string $desc 描述
-     * @param array $extends 拓展使用
+     * @param int    $userId     用户id
+     * @param int    $tId        工具类型
+     * @param int    $aId        工具价格类型
+     * @param int    $expireTime 到期时间
+     * @param string $desc       描述
+     * @param array  $extends    拓展使用
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2019.3.6
      */
     public function addStUserToolsV2($userId, $tId, $aId, $expireTime, $desc = '', $extends = [])
     {
         return \Eelly\SDK\EellyClient::request('eellyOldCode/store/ServiceTools/StUserTools', __FUNCTION__, true, $userId, $tId, $aId, $expireTime, $desc, $extends);
     }
-    
+
     /**
-     * 赠送工具，只会赠送数量
+     * 赠送工具，只会赠送数量.
      *
      * @param $userId
      * @param $adminName
@@ -51,6 +52,7 @@ class StUserTools
      * @param $gsId
      * @param $timeNumber 时间单位
      * @param array $extensions 其他信息
+     *
      * @return array
      */
     public function giveUserSetupSave($userId, $adminName, $tId, $aId, $des, $gsId = 0, $timeNumber = 0, array $extensions = [])
@@ -59,11 +61,14 @@ class StUserTools
     }
 
     /**
-     * 获取店铺开通的vip有效信息
+     * 获取店铺开通的vip有效信息.
      *
      * @param array $storeIds 店铺id
+     *
      * @return array
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年3月29日
      */
     public function getStoreVipValidInfo(array $storeIds)
@@ -74,10 +79,11 @@ class StUserTools
     /**
      * 检验用户增值服务工具是否过期
      *
-     * @param int $userId 用户id
+     * @param int    $userId    用户id
      * @param string $toolsName 工具名称
      *
      * @author wechan<liweiquan@eelly.net>
+     *
      * @since 2017年12月01日
      */
     public function checkToolsIsOverTime($userId, $toolsName)

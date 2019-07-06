@@ -21,11 +21,11 @@ use Eelly\SDK\EellyClient;
 class User
 {
     /**
-     * 更新云信昵称
-     * 
-     * @param int $userId 用户id
-     * @param int $type 类型
-     * @param string $nickName 昵称 
+     * 更新云信昵称.
+     *
+     * @param int    $userId   用户id
+     * @param int    $type     类型
+     * @param string $nickName 昵称
      */
     public function updateUserNickName($userId, $type, $nickName)
     {
