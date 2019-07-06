@@ -1637,9 +1637,34 @@ class BuyerOrder
         return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $userId);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getUserTotalOrderInfoAsync(int $userId):array
     {
         return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $userId);
+    }
+
+    /**
+     * 批量获取用户的进货积分相关数据
+     *
+     * @param array $userIds 用户id
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.07.06
+     */
+    public function listUserPurchaseInfo(array $userIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $userIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listUserPurchaseInfoAsync(array $userIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $userIds);
     }
 
     /**
