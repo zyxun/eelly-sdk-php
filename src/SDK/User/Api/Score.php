@@ -182,6 +182,51 @@ class Score
     }
 
     /**
+     * 领取任务
+     *
+     * @param integer $ussId 任务id
+     * @param UidDTO $user 当前登录的用户
+     * @return string
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.8
+     */
+    public function receiveTask(int $ussId, UidDTO $user = null)
+    {
+        return EellyClient::request('user/score', 'receiveTask', true, $ussId, $user);
+    }
+
+    /**
+     * 领取奖励
+     *
+     * @param integer $ussId 任务id
+     * @param UidDTO $user 当前登录的用户
+     * @return string
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.8
+     */
+    public function receiveAward(int $ussId, UidDTO $user = null)
+    {
+        return EellyClient::request('user/score', 'receiveAward', true, $ussId, $user);
+    }
+
+    /**
+     * 更新任务状态
+     *
+     * @param integer $userId 用户id
+     * @param string $taskCode 任务编码
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.8
+     */
+    public function updateSocreTask(int $userId, string $taskCode)
+    {
+        return EellyClient::request('user/score', 'updateSocreTask', true, $userId, $taskCode);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
