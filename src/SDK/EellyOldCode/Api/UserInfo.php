@@ -45,4 +45,11 @@ class UserInfo
             'relationType' => $relationType,
         ]);
     }
+
+    public static function getUserRealName(int $userId):bool
+    {
+        return EellyClient::requestJson('eellyOldCode/userInfo', __FUNCTION__, [
+            'userId'      => $userId
+        ]);
+    }
 }
