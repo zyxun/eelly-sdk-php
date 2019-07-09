@@ -54,4 +54,12 @@ class UserContacts
             'type' => $type,
         ]);
     }
+
+    public static function getFocusLiverNumByUserId(int $fromUid, int $fromType):int
+    {
+        return EellyClient::requestJson('eellyOldCode/userContacts', __FUNCTION__, [
+            'fromUid'  => $fromUid,
+            'fromType' => $fromType,
+        ]);
+    }
 }
