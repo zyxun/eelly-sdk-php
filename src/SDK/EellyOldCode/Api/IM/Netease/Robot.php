@@ -17,14 +17,14 @@ use Eelly\SDK\EellyClient;
 
 class Robot
 {
-    public static function addRobotToChatRoom($liveId, $number): void
+    public static function addRobotToChatRoom(int $liveId, int $number): void
     {
         EellyClient::requestJson('eellyOldCode/IM/Netease/Robot', __FUNCTION__, [
             'liveId' => $liveId, 'number' => $number,
         ]);
     }
 
-    public static function removeChatRoomRobot($liveId): void
+    public static function removeChatRoomRobot(int $liveId): void
     {
         EellyClient::requestJson('eellyOldCode/IM/Netease/Robot', __FUNCTION__, ['liveId' => $liveId]);
     }
