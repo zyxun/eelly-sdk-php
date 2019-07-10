@@ -221,9 +221,9 @@ class Score
      * @author sunanzhi <sunanzhi@hotmail.com>
      * @since 2019.7.8
      */
-    public function updateSocreTask(int $userId, string $taskCode)
+    public function updateScoreTask(int $userId, string $taskCode)
     {
-        return EellyClient::request('user/score', 'updateSocreTask', true, $userId, $taskCode);
+        return EellyClient::request('user/score', 'updateScoreTask', true, $userId, $taskCode);
     }
 
     /**

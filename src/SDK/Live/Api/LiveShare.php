@@ -305,6 +305,21 @@ class LiveShare implements LiveShareInterface
     }
 
     /**
+     * 获取用户分享次数
+     *
+     * @param integer $userId 用户id
+     * 
+     * @return integer
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.9
+     */
+    public function getUserTodayLiveShareCount(int $userId)
+    {
+        return EellyClient::request('live/liveShare', 'getUserTodayLiveShareCount', true, $userId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

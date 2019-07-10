@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /*
  * This file is part of eelly package.
  *
@@ -13,10 +14,8 @@ declare(strict_types=1);
 namespace Eelly\SDK\Live\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\Live\Service\GoodsInterface;
 
 /**
- *
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class Goods
@@ -67,6 +66,11 @@ class Goods
     public function getLiveGoodsList(array $condition, array $sort = [], int $currentPage = 1, int $limit = 10): array
     {
         return EellyClient::request('live/goods', 'getLiveGoodsList', true, $condition, $sort, $currentPage, $limit);
+    }
+
+    public static function sendSellOutChatroomMsg(int $goodsId): bool
+    {
+        return EellyClient::requestJson('live/goods', __FUNCTION__, ['goodsId' => $goodsId]);
     }
 
     /**
@@ -148,15 +152,18 @@ class Goods
     /**
      * 设置直播间讲解商品
      *
-     * @param int $liveId 直播id
+     * @param int $liveId  直播id
      * @param int $goodsId 商品id
+     *
      * @return bool 设置结果
      * @requestExample({
      *     "liveId":1,
      *     "goodsId":2
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年2月2日
      */
     public function setLiveIntroduceGoods(int $liveId, int $goodsId): bool
@@ -167,15 +174,18 @@ class Goods
     /**
      * 设置直播间讲解商品
      *
-     * @param int $liveId 直播id
+     * @param int $liveId  直播id
      * @param int $goodsId 商品id
+     *
      * @return bool 设置结果
      * @requestExample({
      *     "liveId":1,
      *     "goodsId":2
      * })
      * @returnExample(true)
+     *
      * @author wangjiang<wangjiang@eelly.net>
+     *
      * @since 2018年2月2日
      */
     public function setLiveIntroduceGoodsAsync(int $liveId, int $goodsId)

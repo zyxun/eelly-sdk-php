@@ -291,6 +291,16 @@ class Grade
         return EellyClient::request('user/grade', __FUNCTION__, false, $condition, $currentPage, $limit);
     }
 
+    public function getAllGrade(): array
+    {
+        return EellyClient::request('user/grade', __FUNCTION__, true);
+    }
+
+    public function saveGrade(array $data): bool
+    {
+        return EellyClient::request('user/grade', __FUNCTION__, true, $data);
+    }
+
     /**
      * @return self
      */
