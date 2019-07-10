@@ -227,6 +227,30 @@ class Score
     }
 
     /**
+     * 添加系统任务分
+     *
+     * @param int $userId     用户id
+     * @param int $taskValue  任务相关的值
+     * @param string $code    任务编码 (进货金额：ORDER_AMOUNT 无理由退货：ORDER_REFUND 仲裁买家责任：ORDER_ARBITRATE)
+     * @return bool
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.07.10
+     */
+    public function addSystemTaskScore(int $userId, int $taskValue = 1, string $code = 'ORDER_AMOUNT'):bool
+    {
+        return EellyClient::request('user/score', __FUNCTION__, true, $userId, $taskValue, $code);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function addSystemTaskScoreAsync(int $userId, int $taskValue = 1, string $code = 'ORDER_AMOUNT'):bool
+    {
+        return EellyClient::request('user/score', __FUNCTION__, false, $userId, $taskValue, $code);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
