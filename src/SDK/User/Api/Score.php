@@ -251,6 +251,14 @@ class Score
     }
 
     /**
+     * 初始化某个用户基础分
+     */
+    public static function initUserScoreByUserId(int $userId):bool
+    {
+        return EellyClient::requestJson('user/score', __FUNCTION__,  ['userId' => $userId]);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
