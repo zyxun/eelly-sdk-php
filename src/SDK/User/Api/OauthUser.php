@@ -58,4 +58,9 @@ class OauthUser
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $mobile, $code);
     }
+
+    public static function checkDayActiveUsers(int $uid): bool
+    {
+        return EellyClient::requestJson('user/oauthUser', __FUNCTION__, ['uid' => $uid]);
+    }
 }
