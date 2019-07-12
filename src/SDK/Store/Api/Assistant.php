@@ -242,7 +242,7 @@ class Assistant
      */
     public function getAssistantInfo(array $userIds)
     {
-        return EellyClient::request('store/assistant', 'getAssistantInfo', false, $userIds);
+        return EellyClient::request('store/assistant', 'getAssistantInfo', true, $userIds);
     }
 
     /**
