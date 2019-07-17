@@ -100,6 +100,11 @@ class TeamMember implements TeamMemberInterface
         return EellyClient::request('im/teamMember', 'getTeamMembersPage', false, $condition, $page, $limit, $fieldScope);
     }
 
+    public static function joinTeamCount(int $uid, int $type): int
+    {
+        return EellyClient::requestJson('im/teamMember', __FUNCTION__, ['uid' => $uid, 'type' => $type]);
+    }
+
     /**
      * @return self
      */
