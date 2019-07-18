@@ -30,6 +30,11 @@ class ScoreSetting
         return EellyClient::request('user/scoreSetting', __FUNCTION__, true, $data);
     }
 
+    public function getOneByCode(string $code): array
+    {
+        return EellyClient::request('user/scoreSetting', __FUNCTION__, true, $code);
+    }
+
     /**
      * @return self
      */
