@@ -107,9 +107,9 @@ class Team
         return EellyClient::request('im/team', 'buyerJoinGroup', true, $tid, $uidDTO);
     }
 
-    public function wapShareJoinGroup(int $tid, int $userId): array
+    public function wapShareJoinGroup(int $tid, UidDTO $uidDTO = null): array
     {
-        return EellyClient::request('im/team', __FUNCTION__, true, $tid, $userId);
+        return EellyClient::request('im/team', __FUNCTION__, true, $tid, $uidDTO);
     }
 
     public function contactInviteJoinGroup(int $tid, UidDTO $uidDTO = null): array
