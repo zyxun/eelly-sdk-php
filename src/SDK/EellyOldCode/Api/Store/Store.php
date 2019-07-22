@@ -382,4 +382,20 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $bool);
     }
+
+    /**
+     * 获取运费模板物流方式列表 - 卖家v1.3
+     *
+     * @param int $storeId 店铺id
+     * @return array
+     *
+     * @author liangzhiwei
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2019.07.22
+     */
+    public function distributionStyleList(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
+    }
 }
