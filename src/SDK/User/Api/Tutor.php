@@ -10,10 +10,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\System\Api;
+namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\System\Service\TutorInterface;
 
 /**
  *
@@ -25,8 +24,6 @@ class Tutor
      * 获取单个微信号.
      *
      * @param int $tutorId  微信号id
-     *
-     * @throws \Eelly\SDK\System\Exception\SystemException
      *
      * @return array
      *
@@ -45,8 +42,6 @@ class Tutor
      *
      * @param int $tutorId  微信号id
      *
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     *
      * @return array
      *
      * @author zhangyangxun
@@ -64,8 +59,6 @@ class Tutor
      *
      * @param array  $data
      *
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     *
      * @return bool
      * @requestExample({"data":{"account": "eelly123", "status": 0}})
      * @returnExample(true)
@@ -73,7 +66,6 @@ class Tutor
      * @author zhangyangxun
      * @since   2019-01-08
      *
-     * @internal
      */
     public function addTutor(array $data): bool
     {
@@ -85,8 +77,6 @@ class Tutor
      *
      * @param array  $data
      *
-     * @throws \Eelly\SDK\System\Exception\SystemException
-     *
      * @return bool
      * @requestExample({"data":{"account": "eelly123", "status": 0}})
      * @returnExample(true)
@@ -94,7 +84,6 @@ class Tutor
      * @author zhangyangxun
      * @since   2019-01-08
      *
-     * @internal
      */
     public function addTutorAsync(array $data)
     {
@@ -116,7 +105,6 @@ class Tutor
      * @author zhangyangxun
      * @since   2019-01-08
      *
-     * @internal
      */
     public function updateTutor(int $tutorId, array $data): bool
     {
@@ -138,7 +126,6 @@ class Tutor
      * @author zhangyangxun
      * @since   2019-01-08
      *
-     * @internal
      */
     public function updateTutorAsync(int $tutorId, array $data)
     {
@@ -157,7 +144,6 @@ class Tutor
      * @author zhangyangxun
      * @since  2019-01-08
      *
-     * @internal
      */
     public function getTutorList(array $condition = []): array
     {
@@ -176,7 +162,6 @@ class Tutor
      * @author zhangyangxun
      * @since  2019-01-08
      *
-     * @internal
      */
     public function getTutorListAsync(array $condition = [])
     {
@@ -192,7 +177,6 @@ class Tutor
      * @author zhangyangxun
      * @since  2019-01-08
      *
-     * @internal
      */
     public function deleteTutor(int $tutorId): bool
     {
@@ -208,7 +192,6 @@ class Tutor
      * @author zhangyangxun
      * @since  2019-01-08
      *
-     * @internal
      */
     public function deleteTutorAsync(int $tutorId)
     {
