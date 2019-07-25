@@ -17,5 +17,5 @@ interface ActivitySpreadSettingInterface
 {
     public function getList(): array ;
 
-    public function saveBatch(): bool ;
+    public function saveBatch(array $data): bool ;
 }

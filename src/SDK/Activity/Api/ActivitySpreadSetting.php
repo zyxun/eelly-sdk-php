@@ -34,15 +34,15 @@ class ActivitySpreadSetting implements ActivitySpreadSettingInterface
     }
 
     
-    public function saveBatch(): bool
+    public function saveBatch(array $data): bool
     {
-        return EellyClient::request('activity/activitySpreadSetting', 'saveBatch', true);
+        return EellyClient::request('activity/activitySpreadSetting', 'saveBatch', true, $data);
     }
 
     
-    public function saveBatchAsync()
+    public function saveBatchAsync(array $data)
     {
-        return EellyClient::request('activity/activitySpreadSetting', 'saveBatch', false);
+        return EellyClient::request('activity/activitySpreadSetting', 'saveBatch', false, $data);
     }
 
     /**
