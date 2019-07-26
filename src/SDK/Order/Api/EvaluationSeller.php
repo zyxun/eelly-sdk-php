@@ -87,7 +87,7 @@ class EvaluationSeller
         return EellyClient::request('order/evaluationSeller', 'getFirstEvaluation', true, $storeId);
     }
 
-    public function adminGetListPage(array $condition = [], int $page = 1, $limit = 20): array
+    public function adminGetListPage(array $condition = [], int $page = 1, int $limit = 20): array
     {
         return EellyClient::request('order/evaluationSeller', __FUNCTION__, true, $condition, $page, $limit);
     }
