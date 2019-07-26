@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-use Eelly\SDK\Order\Service\EvaluationBuyerInterface;
+use Eelly\SDK\EellyClient;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
