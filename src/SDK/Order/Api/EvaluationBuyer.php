@@ -13,13 +13,22 @@ declare(strict_types=1);
 
 namespace Eelly\SDK\Order\Api;
 
-use Eelly\SDK\Order\Service\EvaluationBuyerInterface;
+use Eelly\SDK\EellyClient;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
 class EvaluationBuyer
 {
+    public function adminGetListPage(array $condition = [], int $page = 1, int $limit = 20): array
+    {
+        return EellyClient::request('order/evaluationBuyer', __FUNCTION__, true, $condition, $page, $limit);
+    }
+
+    public function adminUpdate(int $orderId, array $data): bool
+    {
+        return EellyClient::request('order/evaluationBuyer', __FUNCTION__, true, $orderId, $data);
+    }
     /**
      * @return self
      */
