@@ -70,4 +70,18 @@ class MallSetting
     {
         return EellyClient::request('eellyOldCode/Common/MallSetting', __FUNCTION__, true, $remark);
     }
+
+    /**
+     * 获取市场或者楼层的信息
+     *
+     * @param $type  类型 (1:市场 2:楼层)
+     * @param $id    市场ID或地区ID
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.07.19
+     */
+    public function getMarketOrFloor($type, $id)
+    {
+        return EellyClient::request('eellyOldCode/Common/MallSetting', __FUNCTION__, true, $type, $id);
+    }
 }
