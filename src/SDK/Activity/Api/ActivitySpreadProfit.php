@@ -59,6 +59,16 @@ class ActivitySpreadProfit
         return EellyClient::requestJson('activity/activitySpreadProfit', __FUNCTION__,  []);
     }
 
+    /**
+     * 根据用户id获取收益相关的数据
+     */
+    public function getIncomeInfoByUserId(int $userId):array
+    {
+        return EellyClient::requestJson('activity/activitySpreadProfit', __FUNCTION__,  [
+            'userId' => $userId
+        ]);
+    }
+
 
     /**
      * @return self
