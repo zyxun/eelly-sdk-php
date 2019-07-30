@@ -24,6 +24,6 @@ class Wechat
 {
     public function getAppletInfoByShowFlag(int $showFlag): array
     {
-        return EellyClient::request('eellyOldCode/member/oauth/wechat', __FUNCTION__, true, $showFlag);
+        return EellyClient::request('eellyOldCode/member/oAuth/wechat', __FUNCTION__, true, $showFlag);
     }
 }
