@@ -33,4 +33,17 @@ class BusinessCircle
     {
         return EellyClient::request('eellyOldCode/businessCircle/businessCircle', __FUNCTION__, true, $param);
     }
+
+    /**
+     * 获取动态信息
+     *
+     * @param array $fmIds 动态id
+     *
+     * @return array
+     *
+     */
+    public function getDynamicByFmIds(array $fmIds)
+    {
+        return EellyClient::request('eellyOldCode/businessCircle/businessCircle', __FUNCTION__, true, $fmIds);
+    }
 }

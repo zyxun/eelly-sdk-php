@@ -116,6 +116,21 @@ class Refund
     }
 
     /**
+     * 根据订单id 返回退货退款信息
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @author wechan
+     * @since 2019年07月29日
+     */
+    public function getOrderRefundInfo(int $orderId):array
+    {
+        return EellyClient::request('order/refund', 'getOrderRefundInfo', true, $orderId);
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance(): self

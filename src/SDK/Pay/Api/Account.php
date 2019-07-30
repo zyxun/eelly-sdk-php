@@ -883,6 +883,27 @@ class Account
     }
 
     /**
+     * 校验用户是否通过实名认证|通过返回true,否则false.
+     *
+     * @param int                           $userId              用户ID
+     * @param array                         $data                提交的数据
+     * @param int                           $data['storeId']     店铺ID，可以为空
+     * @param string                        $data['billNo']      交易号
+     * @param string                        $data['operate']     操作符，+或者-
+     * @param int                           $data['fund']        修改的金额
+     * @param array                         $data['field']       提交的数据
+     * @param int                           $data['type']        操作类型：1 充值 2 提现 3 消费 4 结算 5 退款 6 诚保冻结 7 诚保解冻
+     * @param int                           $data['itemId']      关联ID
+     * @param Phalcon\Mvc\Model\Transaction $data['transaction'] 事务
+     *
+     * @return bool
+     */
+    public function updateAccountMoney(int $userId, array $data): bool
+    {
+        return EellyClient::request('pay/account', __FUNCTION__, true, $userId, $data);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
