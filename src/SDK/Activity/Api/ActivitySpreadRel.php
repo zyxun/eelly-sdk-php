@@ -29,7 +29,6 @@ class ActivitySpreadRel
      *
      * @author wechan
      * @since 2019年07月25日
-     * @internal
      */
     public function addSpreadRel(int $userId, int $spreadId):bool
     {
