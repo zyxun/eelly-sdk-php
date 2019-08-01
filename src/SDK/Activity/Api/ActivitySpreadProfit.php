@@ -34,7 +34,7 @@ class ActivitySpreadProfit
      */
     public function changeActivitySpreadProfit(array $data = []):bool
     {
-        return EellyClient::requestJson('activity/changeActivitySpreadProfit', __FUNCTION__, [
+        return EellyClient::requestJson('activity/activitySpreadProfit', __FUNCTION__, [
             'data' => $data,
         ]);
     }
