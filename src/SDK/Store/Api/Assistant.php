@@ -22,9 +22,9 @@ use Eelly\SDK\Store\DTO\AssistantDTO;
  */
 class Assistant
 {
-    public static function getStoreIds(int $uid): array	
+    public static function getStoreIds(int $uid, bool $expire = true): array
     {	
-        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid]);	
+        return EellyClient::requestJson('store/assistant', __FUNCTION__, ['uid' => $uid, 'expire' => $expire]);
     }
     
     /**
@@ -242,7 +242,7 @@ class Assistant
      */
     public function getAssistantInfo(array $userIds)
     {
-        return EellyClient::request('store/assistant', 'getAssistantInfo', false, $userIds);
+        return EellyClient::request('store/assistant', 'getAssistantInfo', true, $userIds);
     }
 
     /**

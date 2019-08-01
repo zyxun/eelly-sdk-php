@@ -190,9 +190,11 @@ class Store
      * 批量店铺起批数量.
      *
      * @param int $storeIds 店铺id
+     *
      * @return array
      *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2019.1.7
      */
     public function getQuantitys(array $storeIds)
@@ -231,8 +233,8 @@ class Store
         //return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeInfo, $postData, $address);
         return EellyClient::requestJson('eellyOldCode/store/store', __FUNCTION__, [
             'storeInfo' => $storeInfo,
-            'postData' => $postData,
-            'address' => $address
+            'postData'  => $postData,
+            'address'   => $address,
         ]);
     }
 
@@ -286,9 +288,9 @@ class Store
     }
 
     /**
-     * 检验是否是在指定的主营内
-     * 
-     * @param array $params 请求参数
+     * 检验是否是在指定的主营内.
+     *
+     * @param array $params            请求参数
      * @param array $params['storeId'] 店铺id
      * @param array $params['cateIds'] 分类id
      */
@@ -296,28 +298,28 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $params);
     }
-        
+
     /**
-     * 检验店铺是否是在指定的Vip内
-     * 
-     * @param array $params 请求参数
-     * @param array $params['storeId'] 店铺id
+     * 检验店铺是否是在指定的Vip内.
+     *
+     * @param array $params             请求参数
+     * @param array $params['storeId']  店铺id
      * @param array $params['vipTypes'] 类型id
      */
     public function checkStoreVip(array $params)
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $params);
     }
-    
+
     /**
-     * 检验店铺是否是在指定的商圈内
-     * 
-     * @param array $params 请求参数
-     * @param array $params['storeId'] 店铺id
+     * 检验店铺是否是在指定的商圈内.
+     *
+     * @param array $params               请求参数
+     * @param array $params['storeId']    店铺id
      * @param array $params['districtId'] 商圈id
      */
     public function checkStoreDistrict(array $params)
-    {   
+    {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $params);
     }
 
@@ -325,23 +327,25 @@ class Store
      * 根据storeName获取到storeId.
      *
      * @param string $storeName
+     *
      * @return mixed
      *
      * @author zhangyangxun
+     *
      * @since 2019-01-16
      */
     public function getStoreIdByStoreName(string $storeName)
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeName);
     }
-  
-   /**
+
+    /**
      * 获取满足条件的店铺.
      *
      * @param array  $where
      * @param int    $limit
      * @param string $order
-     * @param int $page
+     * @param int    $page
      *
      * @return array
      *
@@ -353,7 +357,7 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $where, $limit, $order, $page);
     }
-    
+
     /**
      * 根据storeid拿 name.
      *
@@ -365,7 +369,7 @@ class Store
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeIds);
     }
-    
+
     /**
      * 根据storeId查询店铺是否存在.
      *
@@ -373,10 +377,25 @@ class Store
      * @param bool $bool
      *
      * @return bool
-     *
      */
     public function isExistById($storeId, $bool = false)
     {
         return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId, $bool);
+    }
+
+    /**
+     * 获取运费模板物流方式列表 - 卖家v1.3
+     *
+     * @param int $storeId 店铺id
+     * @return array
+     *
+     * @author liangzhiwei
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     *
+     * @since 2019.07.22
+     */
+    public function distributionStyleList(int $storeId)
+    {
+        return EellyClient::request('eellyOldCode/store/store', __FUNCTION__, true, $storeId);
     }
 }

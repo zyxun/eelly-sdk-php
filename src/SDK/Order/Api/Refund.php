@@ -22,6 +22,24 @@ use Eelly\SDK\Order\Service\RefundInterface;
 class Refund
 {
     /**
+     * 快速退款，对外接口.
+     *
+     * @param int $orderId 订单ID
+     * @param int $money 退款金额
+     * @param int $sellerId 卖家ID
+     * @param int $type 操作者类型：0 系统或管理员操作 1 买家操作 2 卖家操作
+     * @param UidDTO $user 当前登录的用户
+     * @return array
+     * 
+     * @author 肖俊明<xiaojunming@eelly.net>
+     * @since 2018年04月24日
+     */
+    public function quickReturnMoney(int $orderId, int $money, int $sellerId, int $type = 0, UidDTO $user = null)
+    {
+        return EellyClient::request('order/refund', 'quickReturnMoney', true, $orderId, $money, $sellerId, $type, $user);
+    }
+
+    /**
      * 获取后台订单退货退款信息.
      *
      * @param int $orderId

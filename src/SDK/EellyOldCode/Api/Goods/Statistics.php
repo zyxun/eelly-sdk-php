@@ -17,16 +17,16 @@ use Eelly\SDK\EellyClient;
 
 /**
  * Class Statistics.
- *
- *
  */
 class Statistics
 {
     /**
      * 根据条件更新商品信息统计
-     * 
-     * @param array  $data
+     *
+     * @param array $data
+     *
      * @author wechan
+     *
      * @since 2018年12月21日
      */
     public function updateGoodsStatisticsInfo($data)

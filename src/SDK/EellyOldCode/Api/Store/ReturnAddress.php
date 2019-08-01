@@ -44,7 +44,7 @@ class ReturnAddress
      * 添加退货地址并设置为默认退货地址
      *
      * @param int   $userId 用户id
-     * @param array $data 添加退货地址
+     * @param array $data   添加退货地址
      *
      * > $data数据说明
      *   key | value
@@ -69,10 +69,12 @@ class ReturnAddress
      *   retval              |    $retval 是否添加成功
      *
      * @return bool 是否添加成功
+     *
      * @internal
      *
      * @author 郭凯<guokai@eelly.net>
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since  2015年6月8日
      */
     public function addDefaultAddr(int $userId, array $data)
@@ -84,7 +86,7 @@ class ReturnAddress
      * 编辑默认退货地址
      *
      * @param int   $userId 用户id
-     * @param array $data 退货地址数据
+     * @param array $data   退货地址数据
      *
      * > $data数据说明
      *   key | value
@@ -108,10 +110,12 @@ class ReturnAddress
      *   retval              |    $retval 是否编辑成功
      *
      * @return bool 是否编辑成功
+     *
      * @internal
      *
      * @author 郭凯<guokai@eelly.net>
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since  2015年6月8日
      */
     public function editDefaultAddr(int $userId, array $data)

@@ -129,4 +129,11 @@ class LiveDTO extends AbstractDTO
      * @var int
      */
     public $createdTime;
+
+    /**
+     * 直播类型
+     *
+     * @var int
+     */
+    public $liveType;
 }

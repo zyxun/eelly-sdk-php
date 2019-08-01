@@ -81,14 +81,41 @@ class Accounts
         EellyClient::request('im/accounts', 'sendLogoutNotification', false, $uid);
     }
 
+    /**
+     * @param int   $uid
+     * @param array $data
+     * @param bool  $created
+     *
+     * @throws \ErrorException
+     *
+     * @return bool
+     *
+     * @deprecated
+     */
     public static function updateNeteaseUser(int $uid, array $data, bool $created = false): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'data' => $data, 'created' => $created]);
     }
 
+    /**
+     * @param int   $storeId
+     * @param array $data
+     * @param bool  $created
+     *
+     * @throws \ErrorException
+     *
+     * @return bool
+     *
+     * @deprecated
+     */
     public static function updateNeteaseStore(int $storeId, array $data, bool $created = false): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['storeId' => $storeId, 'data' => $data, 'created' => $created]);
+    }
+
+    public static function updateNeteaseUserStore(int $uid, array $data, int $type): bool
+    {
+        return EellyClient::requestJson('im/accounts', __FUNCTION__, ['uid' => $uid, 'data' => $data, 'type' => $type]);
     }
 
     public static function checkNeteaseUser(int $uid): bool
@@ -100,7 +127,7 @@ class Accounts
     {
         return EellyClient::requestJson('im/accounts', 'checkNeteaseUser', ['uid' => $uid], false);
     }
-    
+
     public static function checkNeteaseStore(int $storeId): bool
     {
         return EellyClient::requestJson('im/accounts', __FUNCTION__, ['storeId' => $storeId]);
@@ -110,6 +137,7 @@ class Accounts
     {
         return EellyClient::requestJson('im/accounts', 'checkNeteaseStore', ['storeId' => $storeId], false);
     }
+
     /**
      * @return self
      */

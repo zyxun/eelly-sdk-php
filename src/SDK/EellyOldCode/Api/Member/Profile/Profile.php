@@ -50,11 +50,12 @@ class Profile
     }
 
     /**
-     * 获取平台黑名单
+     * 获取平台黑名单.
      *
      * @return array
-     * 
+     *
      * @author sunanzhi <sunanzhi@hotmail.com>
+     *
      * @since 2019.2.14
      */
     public function getAllBlackList()

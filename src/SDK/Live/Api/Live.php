@@ -1912,6 +1912,11 @@ class Live implements LiveInterface
         return EellyClient::request('live/live', __FUNCTION__, true, $storeIds);
     }
 
+    public function updateLive(array $data): bool
+    {
+        return EellyClient::request('live/live', __FUNCTION__, true, $data);
+    }
+
     /**
      * @return self
      */

@@ -1624,6 +1624,50 @@ class BuyerOrder
     }
 
     /**
+     * 根据用户id，获取用户累计的订单总笔数和总金额
+     *
+     * @param int $userId 用户id
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.07.03
+     */
+    public function getUserTotalOrderInfo(int $userId):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $userId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getUserTotalOrderInfoAsync(int $userId):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $userId);
+    }
+
+    /**
+     * 批量获取用户的进货积分相关数据
+     *
+     * @param array $userIds 用户id
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.07.06
+     */
+    public function listUserPurchaseInfo(array $userIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, true, $userIds);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function listUserPurchaseInfoAsync(array $userIds):array
+    {
+        return EellyClient::request('order/buyerOrder', __FUNCTION__, false, $userIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

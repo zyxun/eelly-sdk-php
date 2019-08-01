@@ -25,19 +25,18 @@ use Eelly\SDK\EellyClient;
 class Adminpriv
 {
     /**
-     *
      * 检查是否是管理员.
      *
      * @param  $userId
+     *
      * @return mixed
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-11
      */
     public function checkIsAdmin($userId)
     {
         return EellyClient::request('eellyOldCode/Member/Adminpriv', __FUNCTION__, true, $userId);
     }
-
-
 }

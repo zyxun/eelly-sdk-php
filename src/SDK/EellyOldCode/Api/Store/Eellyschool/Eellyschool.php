@@ -23,12 +23,14 @@ use Eelly\SDK\EellyClient;
 class Eellyschool
 {
     /**
-     * 开店学堂详情页
+     * 开店学堂详情页.
      *
      * @param $condition
+     *
      * @return mixed
      *
      * @author 王冬雪<wangdongxue@eelly.net>
+     *
      * @since 2016年3月16日
      */
     public function getDetailList($condition)
@@ -41,9 +43,11 @@ class Eellyschool
      *
      * @param       $limit
      * @param array $condition
+     *
      * @return mixed
      *
      * @author 王冬雪<wangdongxue@eelly.net>
+     *
      * @since  2016年3月16日
      */
     public function getSchoolTutorial($limit, array $condition)
@@ -55,9 +59,11 @@ class Eellyschool
      * 教你开店 分类获取.
      *
      * @param $condition
+     *
      * @return array
      *
      * @author 王冬雪<wangdongxue@eelly.net>
+     *
      * @since 2016年4月17日
      */
     public function getCategory($condition)

@@ -182,6 +182,83 @@ class Score
     }
 
     /**
+     * 领取任务
+     *
+     * @param integer $ussId 任务id
+     * @param UidDTO $user 当前登录的用户
+     * @return string
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.8
+     */
+    public function receiveTask(int $ussId, UidDTO $user = null)
+    {
+        return EellyClient::request('user/score', 'receiveTask', true, $ussId, $user);
+    }
+
+    /**
+     * 领取奖励
+     *
+     * @param integer $ussId 任务id
+     * @param UidDTO $user 当前登录的用户
+     * @return string
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.8
+     */
+    public function receiveAward(int $ussId, UidDTO $user = null)
+    {
+        return EellyClient::request('user/score', 'receiveAward', true, $ussId, $user);
+    }
+
+    /**
+     * 更新任务状态
+     *
+     * @param integer $userId 用户id
+     * @param string $taskCode 任务编码
+     * @return boolean
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2019.7.8
+     */
+    public function updateScoreTask(int $userId, string $taskCode)
+    {
+        return EellyClient::request('user/score', 'updateScoreTask', true, $userId, $taskCode);
+    }
+
+    /**
+     * 添加系统任务分
+     *
+     * @param int $userId     用户id
+     * @param int $taskValue  任务相关的值
+     * @param string $code    任务编码 (进货金额：ORDER_AMOUNT 无理由退货：ORDER_REFUND 仲裁买家责任：ORDER_ARBITRATE)
+     * @return bool
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.07.10
+     */
+    public function addSystemTaskScore(int $userId, int $taskValue = 1, string $code = 'ORDER_AMOUNT'):bool
+    {
+        return EellyClient::request('user/score', __FUNCTION__, true, $userId, $taskValue, $code);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function addSystemTaskScoreAsync(int $userId, int $taskValue = 1, string $code = 'ORDER_AMOUNT'):bool
+    {
+        return EellyClient::request('user/score', __FUNCTION__, false, $userId, $taskValue, $code);
+    }
+
+    /**
+     * 初始化某个用户基础分
+     */
+    public static function initUserScoreByUserId(int $userId):bool
+    {
+        return EellyClient::requestJson('user/score', __FUNCTION__,  ['userId' => $userId]);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

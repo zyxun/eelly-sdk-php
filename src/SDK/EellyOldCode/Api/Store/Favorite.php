@@ -34,10 +34,11 @@ class Favorite
     }
 
     /**
-     *  添加多个店铺到收藏夹
+     *  添加多个店铺到收藏夹.
      *
      * @param       $userId
      * @param array $storeIds
+     *
      * @return mixed
      */
     public function addStoreCollection($userId, array $storeIds)

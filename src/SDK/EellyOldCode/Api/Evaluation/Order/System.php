@@ -17,23 +17,22 @@ use Eelly\SDK\EellyClient;
 
 /**
  * Class Evaluation.
- *
  */
 class System
 {
     /**
      * 订单自动评价.
-     * 
+     *
      * @throws \ErrorException
      */
     public function orderAutoEvaluation()
     {
         return EellyClient::request('eellyOldCode/evaluation/order/system', __FUNCTION__, true);
     }
-    
+
     /**
      * 订单评价生效.
-     * 
+     *
      * @throws \ErrorException
      */
     public function orderEvaluationEffective()

@@ -25,11 +25,12 @@ use Eelly\SDK\EellyClient;
 class PageData
 {
     /**
-     * 获取ecm_home_page数据
+     * 获取ecm_home_page数据.
      *
      * @param string $title
      * @param int    $typeId
      * @param bool   $isDecode
+     *
      * @return mixed
      */
     public function getHomeData(string $title, int $typeId = 20, $isDecode = true)

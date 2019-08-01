@@ -22,18 +22,17 @@ use Eelly\SDK\EellyClient;
  */
 class Goods
 {
-
     /**
      * 获取直播间商品信息.
      *
      * @param int $liveId
      * @param int $page
      * @param int $limit
+     *
      * @return mixed
      */
     public function getLiveRoomGoods(int $liveId, int $page = 1, int $limit = 10)
     {
         return EellyClient::request('eellyOldCode/Live/Goods', __FUNCTION__, true, $liveId, $page, $limit);
-
     }
 }

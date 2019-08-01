@@ -57,9 +57,11 @@ class Coupon
      *
      * @param string $keycode
      * @param int    $userId
+     *
      * @return mixed
      *
      * @author zhangyangxun
+     *
      * @since 2018-12-14
      */
     public function getWapCouponInfo(string $keycode, int $userId)

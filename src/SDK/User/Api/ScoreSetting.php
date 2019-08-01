@@ -11,24 +11,30 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\Order\Api;
+namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
 
 /**
  * @author shadonTools<localhost.shell@gmail.com>
  */
-class EvaluationBuyer
+class ScoreSetting
 {
-    public function adminGetListPage(array $condition = [], int $page = 1, int $limit = 20): array
+    public function getScoreSetting(): array
     {
-        return EellyClient::request('order/evaluationBuyer', __FUNCTION__, true, $condition, $page, $limit);
+        return EellyClient::request('user/scoreSetting', __FUNCTION__, true);
     }
 
-    public function adminUpdate(int $orderId, array $data): bool
+    public function saveScoreSetting(array $data): bool
     {
-        return EellyClient::request('order/evaluationBuyer', __FUNCTION__, true, $orderId, $data);
+        return EellyClient::request('user/scoreSetting', __FUNCTION__, true, $data);
     }
+
+    public function getOneByCode(string $code): array
+    {
+        return EellyClient::request('user/scoreSetting', __FUNCTION__, true, $code);
+    }
+
     /**
      * @return self
      */

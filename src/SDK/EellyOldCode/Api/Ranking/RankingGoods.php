@@ -17,16 +17,17 @@ use Eelly\SDK\EellyClient;
 
 /**
  * Class RankingGoods.
- * 
+ *
  * modules/Ranking/Service/RankingGoodsService.php
- * 
+ *
  * @author hehui<runphp@dingtalk.com>
  */
 class RankingGoods
 {
     /**
-     * @return mixed
      * @throws \ErrorException
+     *
+     * @return mixed
      */
     public function getMarketGoodsCateList()
     {
@@ -36,8 +37,10 @@ class RankingGoods
     /**
      * @param $mgrrId
      * @param int $page
-     * @return mixed
+     *
      * @throws \ErrorException
+     *
+     * @return mixed
      */
     public function getRecordByMgrrId($mgrrId, $page = 1)
     {

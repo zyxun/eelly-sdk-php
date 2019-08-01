@@ -17,7 +17,6 @@ use Eelly\SDK\EellyClient;
 
 /**
  * Class AppletActivity.
- *
  */
 class AppletActivity
 {
@@ -25,7 +24,6 @@ class AppletActivity
      * 获取店铺开通小程序活动的店铺.
      *
      * @return array
-     *
      */
     public function getAppletActivity(): array
     {

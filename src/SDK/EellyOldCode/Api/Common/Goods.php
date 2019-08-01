@@ -27,10 +27,12 @@ class Goods
     /**
      * 获取首页推荐最新商品
      *
-     * @param int $limit
+     * @param int   $limit
      * @param array $goodsIds
-     * @param int $offset
+     * @param int   $offset
+     *
      * @author xulei<xulei@eelly.net>
+     *
      * @since  2016年6月22日
      */
     public function getNewHomePageGoodsList($limit, $goodsIds = [], $offset = 0)
