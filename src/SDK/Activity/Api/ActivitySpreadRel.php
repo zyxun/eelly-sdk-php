@@ -39,6 +39,23 @@ class ActivitySpreadRel
     }
 
     /**
+     * 推送推广站内信
+     *
+     * @param int $type 站内信类型 1.新增粉丝系统消息 2.支付成功资金消息 3.确认收货系统消息
+     * @param array $data 请求参数
+     *
+     * @author wechan
+     * @since 2019年07月30日
+     */
+    public function sendSpreadUserAppInfo(int $type, array $data)
+    {
+        return EellyClient::requestJson('activity/activitySpreadRel', __FUNCTION__, [
+            'type' => $type,
+            'data' => $data,
+        ]);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

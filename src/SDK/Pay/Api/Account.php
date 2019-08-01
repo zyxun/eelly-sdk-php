@@ -904,6 +904,21 @@ class Account
     }
 
     /**
+     * 根据用户id和店铺id 返回用户的手续费率
+     *
+     * @param int $userId  用户id
+     * @param int $storeId 店铺id
+     * @return
+     *
+     * @author wechan
+     * @since 2019年07月31日
+     */
+    public function getUserCommissionratio(int $userId, int $storeId = 0)
+    {
+        return EellyClient::request('pay/account', __FUNCTION__, true, $userId, $storeId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
