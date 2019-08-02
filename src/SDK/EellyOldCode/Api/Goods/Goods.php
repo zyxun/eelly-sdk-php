@@ -138,4 +138,18 @@ class Goods
     {
         return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $priceInfo, $specId, $quantity);
     }
+
+    /**
+     * 根据商品id，获取分享赚钱海报需要的数据
+     *
+     * @param array $goodsIds  商品id
+     * @return array
+     *
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2019.08.02
+     */
+    public function getGoodsPosterInfo(array $goodsIds):array
+    {
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $goodsIds);
+    }
 }
