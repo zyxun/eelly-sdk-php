@@ -11,19 +11,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Eelly\SDK\EellyOldCode\Api\Member\Oauth;
+namespace Eelly\SDK\EellyOldCode\Api\Member\OAuth;
 
 use Eelly\SDK\EellyClient;
 
 /**
  * Class Wechat.
  *
- * modules/Member/Service/Oauth/WechatService.php
+ * modules/Member/Service/OAuth/WechatService.php
  */
 class Wechat
 {
     public function getAppletInfoByShowFlag(int $showFlag): array
     {
-        return EellyClient::request('eellyOldCode/member/oauth/wechat', __FUNCTION__, true, $showFlag);
+        return EellyClient::request('eellyOldCode/member/oAuth/wechat', __FUNCTION__, true, $showFlag);
     }
 }

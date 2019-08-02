@@ -246,6 +246,20 @@ class Assistant
     }
 
     /**
+     * 校验用户是否处于店铺解绑状态
+     *
+     * @param int $userId 用户id
+     * @return bool
+     *
+     * @author wechan
+     * @since 2019年07月31日
+     */
+    public function checkUserIsUnBind(int $userId):bool
+    {
+        return EellyClient::request('store/assistant', __FUNCTION__, false, $userIds);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

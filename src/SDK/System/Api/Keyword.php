@@ -588,6 +588,11 @@ class Keyword
         return EellyClient::request('system/keyword', __FUNCTION__, true, $objectId, $data);
     }
 
+    public function batchDeleteKeywordLog(array $objectIds): bool
+    {
+        return EellyClient::request('system/keyword', __FUNCTION__, true, $objectIds);
+    }
+
     /**
      * @return self
      */
